@@ -29,33 +29,33 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
     {
       title: "Error Elimination",
       desc: "Humans get tired, automations do not. Ensure every piece of data reaches its destination without manual mistakes.",
-      icon: <ShieldCheck className="text-[#00CC66]" />
+      icon: <ShieldCheck className="text-[#D62828]" />
     },
     {
       title: "Infinite Scalability",
       desc: "Process 10 or 10,000 leads a day at the exact same operating cost. Your infrastructure grows with you.",
-      icon: <TrendingUp className="text-[#00CC66]" />
+      icon: <TrendingUp className="text-[#72dbd3]" />
     },
     {
       title: "Response Speed",
       desc: "Respond to your clients in milliseconds. Speed is the #1 factor in sales conversion today.",
-      icon: <Clock className="text-[#00CC66]" />
+      icon: <Clock className="text-[#D62828]" />
     }
   ] : [
     {
       title: "Eliminación de Errores",
       desc: "Los humanos se cansan, las automatizaciones no. Asegura que cada dato llegue a su destino sin fallos manuales.",
-      icon: <ShieldCheck className="text-[#00CC66]" />
+      icon: <ShieldCheck className="text-[#D62828]" />
     },
     {
       title: "Escalabilidad Infinita",
       desc: "Procesa 10 o 10,000 leads al día con el mismo costo operativo. Tu infraestructura crece contigo.",
-      icon: <TrendingUp className="text-[#00CC66]" />
+      icon: <TrendingUp className="text-[#72dbd3]" />
     },
     {
       title: "Tiempo de Respuesta",
       desc: "Responde a tus clientes en milisegundos. La velocidad es el factor #1 en la conversión de ventas hoy.",
-      icon: <Clock className="text-[#00CC66]" />
+      icon: <Clock className="text-[#D62828]" />
     }
   ];
 
@@ -70,7 +70,7 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
   return (
     <main className="min-h-screen w-full bg-[#080808] text-white pt-24 md:pt-32 pb-24 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-[20%] right-[-10%] w-[50vw] h-[50vh] bg-[#00CC66]/5 blur-[150px] pointer-events-none rounded-full" />
+      <div className="absolute top-[20%] right-[-10%] w-[50vw] h-[50vh] bg-[#72dbd3]/5 blur-[150px] pointer-events-none rounded-full" />
       <div className="absolute bottom-0 left-[-10%] w-[40vw] h-[40vh] bg-[#D62828]/5 blur-[120px] pointer-events-none rounded-full" />
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
@@ -85,7 +85,7 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
           <span>/</span>
           <Link href={isEn ? "/us/services" : "/servicios"} className="hover:text-white transition-colors">{isEn ? "Services" : "Servicios"}</Link>
           <span>/</span>
-          <span className="text-[#00CC66] font-bold">{isEn ? "Automation" : "Automatización"}</span>
+          <span className="text-[#D62828] font-bold">{isEn ? "Automation" : "Automatización"}</span>
         </motion.div>
 
         {/* Hero split layout */}
@@ -95,16 +95,16 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 border border-[#00CC66]/30 rounded-full mb-8 bg-[#00CC66]/5">
-              <span className="w-2 h-2 rounded-full bg-[#00CC66] animate-pulse"></span>
-              <span className="font-mono text-[10px] text-[#00CC66] uppercase tracking-widest font-bold font-mono">
+            <div className="inline-flex items-center gap-2 px-3 py-1 border border-white/10 rounded-full mb-8 bg-[#111111]">
+              <span className="w-2 h-2 rounded-full bg-[#72dbd3] animate-pulse"></span>
+              <span className="font-mono text-[10px] text-[#72dbd3] uppercase tracking-widest font-bold">
                 {isEn ? "Hyperconnected Ecosystems" : "Ecosistemas Hiperconectados"}
               </span>
             </div>
             
             <h1 className="font-display text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 leading-[0.9]">
               {isEn ? "Your Business on" : "Tu Negocio en"} <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-400 to-[#00CC66]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-[#D62828]">
                 {isEn ? "Autopilot." : "Piloto Automático."}
               </span>
             </h1>
@@ -115,12 +115,12 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
                 : "Eliminamos las tareas repetitivas de tu equipo mediante flujos de trabajo autónomos. Conectamos todas tus herramientas para que la información fluya sin intervención humana."}
             </p>
             
-            <div className="flex flex-wrap gap-6">
-              <Link href={startUrl} className="px-8 py-4 bg-[#00CC66] text-[#080808] font-bold text-xs tracking-widest uppercase hover:bg-white transition-all shadow-[0_0_30px_rgba(0,204,102,0.2)] rounded-xl">
+            <div className="flex flex-wrap items-center gap-6">
+              <Link href={startUrl} className="px-8 py-4 bg-[#D62828] hover:bg-[#b01c1c] text-white font-bold text-xs tracking-widest uppercase transition-all duration-300 shadow-[0_0_30px_rgba(214,40,40,0.35)] active:scale-95 rounded-xl">
                 {isEn ? "Audit My Processes" : "Auditar Mis Procesos"}
               </Link>
               <div className="flex items-center gap-3 text-white/40 font-mono text-[10px] uppercase tracking-widest">
-                <Zap size={14} className="text-[#00CC66]" />
+                <Zap size={14} className="text-[#72dbd3]" />
                 <span>{isEn ? "Average savings: 15h / week" : "Ahorro promedio: 15h / semana"}</span>
               </div>
             </div>
@@ -137,10 +137,10 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
              
              <div className="relative z-10 space-y-12 ml-4 md:ml-12 border-l-2 border-white/5 pl-8 md:pl-12">
                  {[
-                   { name: isEn ? "Trigger" : "Inicio", detail: isEn ? "Web Contact Form" : "Formulario Web de Contacto", color: "#DFDFDF" },
-                   { name: isEn ? "Process" : "Procesamiento", detail: isEn ? "Smart Classification AI" : "Clasificación Inteligente", color: "#D62828" },
-                   { name: isEn ? "Action" : "Acción", detail: isEn ? "Database Sync & Alerts" : "Envío a tu Base de Datos y Alertas", color: "#00CC66" }
-                 ].map((step, i) => (
+                    { name: isEn ? "Trigger" : "Inicio", detail: isEn ? "Web Contact Form" : "Formulario Web de Contacto", color: "#DFDFDF" },
+                    { name: isEn ? "Process" : "Procesamiento", detail: isEn ? "Smart Classification AI" : "Clasificación Inteligente", color: "#D62828" },
+                    { name: isEn ? "Action" : "Acción", detail: isEn ? "Database Sync & Alerts" : "Envío a tu Base de Datos y Alertas", color: "#72dbd3" }
+                  ].map((step, i) => (
                     <motion.div 
                       key={i}
                       initial={{ x: -20, opacity: 0 }}
@@ -168,7 +168,7 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
         <section className="mb-24 md:mb-40">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-20 gap-8">
             <div className="max-w-xl">
-              <p className="font-mono text-[#00CC66] text-xs tracking-[0.3em] uppercase mb-4">{isEn ? "Total Connectivity" : "Conectividad Total"}</p>
+              <p className="font-mono text-[#72dbd3] text-xs tracking-[0.3em] uppercase mb-4">{isEn ? "/ Total Connectivity" : "/ Conectividad Total"}</p>
               <h2 className="font-display text-4xl md:text-5xl font-black uppercase tracking-tight">{isEn ? "Any App, \n a single Flow." : "Cualquier App, \n un solo Flujo."}</h2>
             </div>
             <p className="text-white/40 text-sm max-w-xs font-light">
@@ -183,10 +183,10 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
               <motion.div
                 key={i}
                 whileHover={{ y: -5, backgroundColor: 'rgba(255,255,255,0.05)' }}
-                className="p-4 md:p-8 bg-[#111] border border-white/5 rounded-2xl flex flex-col items-center justify-center gap-4 text-center transition-all"
+                className="p-4 md:p-8 bg-[#111] border border-white/5 rounded-2xl flex flex-col items-center justify-center gap-4 text-center transition-all group hover:border-[#72dbd3]/30"
               >
-                <div className="text-[#00CC66]">{tool.icon}</div>
-                <span className="font-mono text-[9px] uppercase tracking-widest text-white/60">{tool.name}</span>
+                <div className="text-[#72dbd3] group-hover:scale-110 transition-transform">{tool.icon}</div>
+                <span className="font-mono text-[9px] uppercase tracking-widest text-white/60 group-hover:text-white transition-colors">{tool.name}</span>
               </motion.div>
             ))}
           </div>
@@ -200,26 +200,26 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-6 md:p-10 bg-[#111] border-t-4 border-[#00CC66] rounded-2xl shadow-xl"
+              className="p-6 md:p-10 bg-[#111] border-t-2 border-[#D62828] border-x border-b border-white/5 rounded-2xl shadow-xl hover:border-white/20 transition-all"
             >
               <div className="mb-6">{b.icon}</div>
-              <h3 className="font-display text-xl md:text-2xl font-bold mb-4">{b.title}</h3>
-              <p className="text-white/50 text-sm leading-relaxed">{b.desc}</p>
+              <h3 className="font-display text-xl md:text-2xl font-bold mb-4 uppercase tracking-tight">{b.title}</h3>
+              <p className="text-white/50 text-sm leading-relaxed font-sans font-light">{b.desc}</p>
             </motion.div>
           ))}
         </section>
 
         {/* Use Cases Horizontal */}
-        <section className="mb-24 md:mb-40 relative overflow-hidden rounded-2xl md:rounded-[3rem] bg-gradient-to-br from-[#111] to-black border border-white/5 p-6 md:p-20">
+        <section className="mb-24 md:mb-40 relative overflow-hidden rounded-2xl md:rounded-[3rem] bg-[#111] border border-white/10 p-6 md:p-20">
           <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
-               <h2 className="font-display text-3xl md:text-6xl font-black uppercase mb-12">
+               <h2 className="font-display text-3xl md:text-6xl font-black uppercase mb-12 tracking-tight">
                  {isEn ? "Impact \n Cases." : "Casos de \n Impacto."}
                </h2>
                <div className="space-y-12">
                   <div className="group cursor-pointer">
-                    <h4 className="font-mono text-[#00CC66] text-[10px] mb-2 uppercase tracking-widest">{isEn ? "Sales & CRM" : "Ventas & CRM"}</h4>
+                    <h4 className="font-mono text-[#72dbd3] text-[10px] mb-2 uppercase tracking-widest font-bold">{isEn ? "Sales & CRM" : "Ventas & CRM"}</h4>
                     <p className="text-lg md:text-xl text-white/80 group-hover:text-white transition-colors">
                       {isEn 
                         ? "Automatic invoice synchronization from payment gateways to your accounting systems."
@@ -227,7 +227,7 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
                     </p>
                   </div>
                   <div className="group cursor-pointer">
-                    <h4 className="font-mono text-[#00CC66] text-[10px] mb-2 uppercase tracking-widest">{isEn ? "Customer Service" : "Atención al Cliente"}</h4>
+                    <h4 className="font-mono text-[#72dbd3] text-[10px] mb-2 uppercase tracking-widest font-bold">{isEn ? "Customer Service" : "Atención al Cliente"}</h4>
                     <p className="text-lg md:text-xl text-white/80 group-hover:text-white transition-colors">
                       {isEn 
                         ? "Ticketing system that auto-replies via WhatsApp and alerts your team in real time for critical cases."
@@ -235,7 +235,7 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
                     </p>
                   </div>
                   <div className="group cursor-pointer">
-                    <h4 className="font-mono text-[#00CC66] text-[10px] mb-2 uppercase tracking-widest">{isEn ? "Operations" : "Operaciones"}</h4>
+                    <h4 className="font-mono text-[#72dbd3] text-[10px] mb-2 uppercase tracking-widest font-bold">{isEn ? "Operations" : "Operaciones"}</h4>
                     <p className="text-lg md:text-xl text-white/80 group-hover:text-white transition-colors">
                       {isEn 
                         ? "Generation of automated weekly business reports sent directly to your email."
@@ -245,15 +245,15 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
                </div>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 bg-[#00CC66]/10 blur-[100px] rounded-full animate-pulse"></div>
-              <div className="relative bg-[#1A1A1A] border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl">
+              <div className="absolute inset-0 bg-[#72dbd3]/5 blur-[100px] rounded-full"></div>
+              <div className="relative bg-[#0E0E0E] border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl">
                 <div className="flex items-center gap-2 mb-6">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-white/20"></div>
+                  <div className="w-3 h-3 rounded-full bg-white/20"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#72dbd3]/80"></div>
                 </div>
                 <div className="font-mono text-[10px] md:text-xs text-white/40 space-y-4">
-                  <p className="text-[#00CC66]">{">"} Initializing Autonomek_Engine_v2...</p>
+                  <p className="text-[#72dbd3]">{">"} Initializing Autonomek_Engine_v2...</p>
                   <p>{">"} Scanning connected applications: 42 found.</p>
                   <p>{">"} Deploying automation servers... [OK]</p>
                   <p>{">"} Latency: 4ms</p>
@@ -263,7 +263,7 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
                       initial={{ width: 0 }}
                       animate={{ width: "100%" }}
                       transition={{ duration: 3, repeat: Infinity }}
-                      className="h-full bg-[#00CC66]"
+                      className="h-full bg-[#72dbd3]"
                     ></motion.div>
                   </div>
                 </div>
@@ -279,7 +279,7 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
               <p className="font-mono text-[#72dbd3] text-xs tracking-[0.2em] uppercase mb-4">
                 {isEn ? "/ Active Integrations" : "/ Integraciones Activas"}
               </p>
-              <h2 className="font-display text-3xl md:text-5xl font-black uppercase">
+              <h2 className="font-display text-3xl md:text-5xl font-black uppercase tracking-tight">
                 {isEn ? "Featured Automations" : "Automatizaciones Destacadas"}
               </h2>
             </div>
@@ -322,20 +322,28 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
         {/* Final CTA */}
         <section className="text-center py-10 md:py-20">
           <motion.div
-            whileHover={{ scale: 1.02 }}
-            className="inline-block p-1 bg-gradient-to-r from-[#00CC66] to-[#D62828] rounded-2xl md:rounded-[2rem]"
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative rounded-3xl md:rounded-[3rem] bg-[#111111] border border-[#D62828]/30 p-8 sm:p-12 md:p-20 overflow-hidden text-center shadow-[0_0_60px_rgba(214,40,40,0.15)]"
           >
-            <div className="bg-[#080808] px-6 py-10 md:px-24 rounded-[1.9rem]">
-              <h2 className="font-display text-3xl md:text-6xl font-black uppercase mb-8">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#D62828]/10 blur-[100px] rounded-full pointer-events-none" />
+            
+            <div className="relative z-10 max-w-2xl mx-auto">
+              <p className="font-mono text-[#72dbd3] text-xs tracking-[0.3em] uppercase mb-4 font-bold">
+                {isEn ? "/ Zero Operational Friction" : "/ Cero Fricción Operativa"}
+              </p>
+              <h2 className="font-display text-3xl md:text-6xl font-black uppercase text-white mb-6 leading-tight tracking-tight">
                 {isEn ? "Free Your Team." : "Libera a tu Equipo."}
               </h2>
-              <p className="text-white/50 text-base md:text-xl mb-8 md:mb-12 max-w-xl mx-auto">
+              <p className="text-white/60 text-sm md:text-base mb-10 max-w-lg mx-auto leading-relaxed font-sans font-light">
                 {isEn 
                   ? "Stop hiring more people for tasks that a cloud server can do better, faster, and error-free."
                   : "No contrates más personas para tareas que un servidor puede hacer mejor, más rápido y sin errores."}
               </p>
-              <Link href={startUrl} className="inline-flex items-center gap-4 px-8 py-4 md:px-10 md:py-5 bg-[#00CC66] text-[#080808] font-black text-xs md:text-sm tracking-widest uppercase hover:bg-white transition-all shadow-2xl rounded-xl">
-                {isEn ? "START AUDIT" : "COMENZAR AUDITORÍA"} <ArrowRight size={20} />
+              <Link href={startUrl} className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#D62828] hover:bg-[#b01c1c] text-white font-bold text-xs tracking-widest uppercase transition-all duration-300 rounded-xl shadow-[0_0_30px_rgba(214,40,40,0.4)] active:scale-95 text-center">
+                <span>{isEn ? "START AUDIT" : "COMENZAR AUDITORÍA"}</span>
+                <ArrowRight size={16} />
               </Link>
             </div>
           </motion.div>

@@ -57,8 +57,8 @@ export default function CanvasBackground() {
         this.size = Math.random() * 2 + 0.5;
         this.density = (Math.random() * 30) + 1;
         
-        // Machiavellian colors: deep crimson, bright red, white, dark grey
-        const colors = ['#D62828', '#85182A', '#ffffff', '#333333'];
+        // Subtle clean palette: soft blue, white, muted zinc
+        const colors = ['#2563eb', '#60a5fa', '#ffffff', '#52525b'];
         this.col = colors[Math.floor(Math.random() * colors.length)];
       }
 
@@ -117,7 +117,7 @@ export default function CanvasBackground() {
 
     const animate = () => {
       // Dark trail effect for the void look
-      ctx.fillStyle = 'rgba(8, 8, 8, 0.4)';
+      ctx.fillStyle = 'rgba(9, 9, 11, 0.45)';
       ctx.fillRect(0, 0, w, h);
 
       for (let i = 0; i < particles.length; i++) {
@@ -157,7 +157,7 @@ export default function CanvasBackground() {
   return (
     <canvas 
       ref={canvasRef} 
-      className="fixed inset-0 w-full h-full -z-10 bg-[#0e0e0e]"
+      className="fixed inset-0 w-full h-full -z-10 bg-[#09090b] pointer-events-none opacity-40 md:opacity-60"
       aria-hidden="true"
     />
   );

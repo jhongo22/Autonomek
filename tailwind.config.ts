@@ -11,17 +11,16 @@ const config: Config = {
       colors: {
         background: "#080808",
         surface: "#111111",
+        card: "#141414",
         foreground: "#EAEAEA",
-        accent: "#D62828", // Elegant crimson red
+        accent: "#D62828",
         'accent-dark': "#85182A",
+        teal: "#72dbd3",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],
         display: ["var(--font-clash)", "var(--font-syne)", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
-      },
-      cursor: {
-        none: 'none',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

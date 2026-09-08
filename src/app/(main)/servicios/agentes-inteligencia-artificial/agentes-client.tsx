@@ -214,7 +214,7 @@ export default function AgentesIAPageClient({ locale = 'es' }: { locale?: 'es' |
               transition={{ duration: 0.8 }}
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 border border-white/10 rounded-full mb-8 bg-white/5">
-                <span className="w-2 h-2 rounded-full bg-[#00CC66] animate-pulse"></span>
+                <span className="w-2 h-2 rounded-full bg-[#72dbd3] animate-pulse"></span>
                 <span className="font-mono text-[10px] text-white/80 uppercase tracking-widest font-bold">
                   {isEn ? "Autonomous Answering Systems" : "Sistemas de Respuesta Autónoma"}
                 </span>
@@ -429,7 +429,7 @@ export default function AgentesIAPageClient({ locale = 'es' }: { locale?: 'es' |
                   "Evolución y aprendizaje constante"
                 ]).map((text, i) => (
                   <div key={i} className="flex items-center gap-4">
-                    <CheckCircle2 className="text-[#00CC66]" size={20} />
+                    <CheckCircle2 className="text-[#72dbd3]" size={20} />
                     <span className="font-mono text-xs uppercase tracking-widest text-white/80">{text}</span>
                   </div>
                 ))}

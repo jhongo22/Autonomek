@@ -9,17 +9,17 @@ export default function WhatsAppButton() {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
   return (
-    <div className="fixed bottom-6 left-6 z-50 flex items-end">
+    <div className="fixed bottom-6 right-6 z-50 flex items-end">
       <motion.a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.4)] relative group border border-white/25 transition-all duration-300"
+        className="w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.35)] relative group border border-white/20 transition-all duration-300"
         aria-label="Contactar por WhatsApp"
       >
-        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-40 animate-ping pointer-events-none group-hover:hidden"></span>
+        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-ping pointer-events-none group-hover:hidden"></span>
         
         {/* WhatsApp SVG Icon */}
         <svg 
@@ -32,7 +32,7 @@ export default function WhatsAppButton() {
         </svg>
 
         {/* Text Tooltip on Hover */}
-        <span className="absolute left-16 bg-black/85 text-white font-mono text-[10px] tracking-wider uppercase py-2 px-4 rounded-xl border border-white/10 opacity-0 scale-95 origin-left group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-xl">
+        <span className="hidden sm:inline-block absolute right-16 bg-neutral-900/95 text-white font-sans text-xs font-medium py-2 px-3.5 rounded-xl border border-white/10 opacity-0 scale-95 origin-right group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none whitespace-nowrap shadow-xl">
           Escríbenos por WhatsApp
         </span>
       </motion.a>

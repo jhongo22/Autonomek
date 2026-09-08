@@ -467,7 +467,7 @@ function MainScreen({ onSelectChat }: { onSelectChat: (id: string) => void }) {
         <ChatList onSelectChat={onSelectChat} />
       ) : (
         <div className="flex-1 flex items-center justify-center bg-white text-gray-400 text-xs">
-          {tab => tab} - Próximamente
+          {activeTab} - Próximamente
         </div>
       )}
     </div>

@@ -24,17 +24,17 @@ export default function Footer() {
       title: "Agency",
       links: [
         { name: "Home", href: "/us" },
-        { name: "Explore Services", href: "/servicios" },
+        { name: "Explore Services", href: "/us/services" },
         { name: "Start Project", href: "https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20would%20like%20to%20start%20a%20project." },
-        { name: "Success Stories", href: "#" }
+        { name: "Success Stories", href: "/us/projects" }
       ]
     },
     {
       title: "Legal",
       links: [
-        { name: "Privacy", href: "/legal#privacidad" },
-        { name: "Terms", href: "/legal#terminos" },
-        { name: "Cookies", href: "/legal#cookies" }
+        { name: "Privacy", href: "/us/legal#privacidad" },
+        { name: "Terms", href: "/us/legal#terminos" },
+        { name: "Cookies", href: "/us/legal#cookies" }
       ]
     }
   ] : [
@@ -53,7 +53,7 @@ export default function Footer() {
         { name: "Inicio", href: "/" },
         { name: "Explorar Servicios", href: "/servicios" },
         { name: "Iniciar Proyecto", href: "https://wa.me/573004435894?text=Hola%20Autonomek%2C%20me%20gustar%C3%ADa%20iniciar%20un%20proyecto." },
-        { name: "Casos de Éxito", href: "#" }
+        { name: "Casos de Éxito", href: "/proyectos" }
       ]
     },
     {
@@ -137,20 +137,20 @@ export default function Footer() {
           {/* Links Columns */}
           {footerLinks.map((column) => (
             <div key={column.title} className="lg:col-span-1">
-              <h3 className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#D62828] mb-8 font-black">
-                {column.title}
+              <h3 className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#D62828] mb-6 font-black">
+                / {column.title}
               </h3>
-              <ul className="space-y-4">
+              <ul className="space-y-3.5">
                 {column.links.map((link) => (
                   <li key={link.name}>
                     <Link 
                       href={link.href} 
                       target={link.href.startsWith('http') ? '_blank' : undefined}
                       rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="text-white/40 hover:text-white text-sm transition-colors flex items-center group gap-1"
+                      className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/50 hover:text-white transition-all flex items-center group gap-1.5"
                     >
-                      {link.name}
-                      <ArrowUpRight size={12} className="opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
+                      <span className="transition-transform group-hover:translate-x-1">{link.name}</span>
+                      <ArrowUpRight size={11} className="text-[#72dbd3] opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
                     </Link>
                   </li>
                 ))}

@@ -927,10 +927,15 @@ export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 
         style={{ opacity: heroOpacity, y: heroY }}
         className="min-h-screen w-full flex flex-col justify-center px-6 md:px-12 relative z-10 pt-32 pb-24"
       >
+        {/* Ambient Hero Lighting (strictly brand red & cyan, no dark blues) */}
+        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(214,40,40,0.14)_0%,transparent_70%)] blur-[100px] -z-10 pointer-events-none" />
+        <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(114,219,211,0.07)_0%,transparent_70%)] blur-[120px] -z-10 pointer-events-none" />
+
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left: Copy & Actions */}
           <div className="lg:col-span-7 flex flex-col items-start text-left relative z-10">
+            {/* Tag Line */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -943,6 +948,7 @@ export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 
               </p>
             </motion.div>
             
+            {/* Main Headline with original font and tracking */}
             <h1 className="font-display text-[clamp(2.2rem,5vw,5rem)] leading-[1.05] font-black tracking-tighter text-white drop-shadow-2xl uppercase relative">
               <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#D62828]/15 blur-[100px] -z-10 animate-pulse-slow"></div>
               
@@ -950,48 +956,127 @@ export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="inline-block"
               >
                 {content.heroTitle1}
               </motion.div>
+              {" "}
               <motion.div 
-                className="mt-2 lg:mt-0 relative overflow-hidden inline-block"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 1, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                className="inline-block text-[#D62828]"
               >
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#D62828] to-white bg-[length:200%_auto] animate-shimmer">
-                  {content.heroTitle2}
-                </span>
+                {content.heroTitle2}
               </motion.div>
             </h1>
             
+            {/* Subheadline with original font weight and styling */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="mt-8 text-white/50 font-sans max-w-xl text-base md:text-lg font-light leading-relaxed"
+              transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-8 text-white/60 font-sans max-w-xl text-base md:text-lg font-light leading-relaxed"
             >
               {content.heroSub}
             </motion.p>
 
+            {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="mt-10 flex flex-col sm:flex-row gap-6 items-center w-full sm:w-auto"
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 sm:gap-5 items-stretch sm:items-center w-full sm:w-auto"
             >
-              <Link href="/start" className="w-full sm:w-auto px-8 py-4 bg-[#D62828] text-white font-bold text-xs tracking-widest uppercase hover:bg-white hover:text-[#080808] transition-all text-center magnetic-area shadow-[0_0_20px_rgba(214,40,40,0.3)] rounded-xl">
-                {content.heroCtaPrimary}
+              <Link 
+                href="/start" 
+                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#D62828] hover:bg-[#b01c1c] text-white font-bold text-xs tracking-widest uppercase transition-all duration-300 rounded-xl shadow-[0_0_30px_rgba(214,40,40,0.4)] hover:shadow-[0_0_40px_rgba(214,40,40,0.6)] hover:-translate-y-0.5 active:translate-y-0 text-center"
+              >
+                <span>{content.heroCtaPrimary}</span>
+                <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link href="/servicios" className="group w-full sm:w-auto px-8 py-4 text-white font-medium text-xs tracking-widest uppercase flex items-center justify-center gap-4 hover:opacity-80 transition-all magnetic-area">
-                {content.heroCtaSecondary}
-                <span className="w-8 h-[1px] bg-[#D62828] group-hover:w-12 transition-all"></span>
+              <Link 
+                href="/servicios" 
+                className="group inline-flex items-center justify-center gap-3 px-7 py-4 text-white font-medium text-xs tracking-widest uppercase border border-white/15 bg-white/[0.03] hover:bg-white/[0.08] hover:border-[#72dbd3]/50 transition-all duration-300 rounded-xl hover:-translate-y-0.5 active:translate-y-0 text-center"
+              >
+                <span>{content.heroCtaSecondary}</span>
+                <span className="w-5 h-[1px] bg-[#72dbd3] group-hover:w-7 transition-all"></span>
               </Link>
+            </motion.div>
+
+            {/* Mobile-Only WhatsApp Preview Banner */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.55 }}
+              className="md:hidden mt-8 w-full p-4 rounded-2xl bg-[#111111] border border-white/10 flex items-center justify-between gap-3 shadow-lg"
+            >
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="size-10 rounded-full bg-[#075E54] flex items-center justify-center text-white shrink-0 shadow-inner">
+                  <MessageSquare size={18} className="text-[#72dbd3]" />
+                </div>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="text-white text-xs font-bold truncate">Agente de Ventas IA</span>
+                    <span className="size-1.5 rounded-full bg-[#72dbd3] animate-pulse shrink-0"></span>
+                  </div>
+                  <p className="text-white/60 text-[11px] truncate">Atiende 24/7 y cierra clientes</p>
+                </div>
+              </div>
+              <Link href="/start" className="text-[11px] font-mono text-[#72dbd3] font-semibold underline shrink-0">
+                Probar Demo
+              </Link>
+            </motion.div>
+
+            {/* Quick Metrics Glass Cards Strip */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="mt-10 pt-8 border-t border-white/10 grid grid-cols-3 gap-3 sm:gap-4 w-full max-w-xl"
+            >
+              <div className="p-3.5 sm:p-4 rounded-xl bg-white/[0.02] border border-white/5 backdrop-blur-sm">
+                <span className="font-display font-black text-xl sm:text-2xl text-white block">24/7</span>
+                <span className="font-mono text-[10px] sm:text-xs text-[#72dbd3] uppercase tracking-wider block mt-1 font-semibold">Atención IA</span>
+              </div>
+              <div className="p-3.5 sm:p-4 rounded-xl bg-white/[0.02] border border-white/5 backdrop-blur-sm">
+                <span className="font-display font-black text-xl sm:text-2xl text-white block">&lt; 1s</span>
+                <span className="font-mono text-[10px] sm:text-xs text-white/60 uppercase tracking-wider block mt-1 font-semibold">Carga Web</span>
+              </div>
+              <div className="p-3.5 sm:p-4 rounded-xl bg-white/[0.02] border border-white/5 backdrop-blur-sm">
+                <span className="font-display font-black text-xl sm:text-2xl text-[#FF5252] block">+60%</span>
+                <span className="font-mono text-[10px] sm:text-xs text-white/60 uppercase tracking-wider block mt-1 font-semibold">Ahorro Operativo</span>
+              </div>
             </motion.div>
           </div>
 
-          {/* Right: WhatsApp-Style Chat Simulator (Only visible on Desktop/Tablet md+) */}
-          <div className="lg:col-span-5 w-full hidden md:flex flex-col items-center justify-center">
+          {/* Right: WhatsApp-Style Chat Simulator with Floating Badges & Aura (Desktop/Tablet md+) */}
+          <div className="lg:col-span-5 w-full hidden md:flex flex-col items-center justify-center relative">
+            {/* Ambient Aura behind phone */}
+            <div className="absolute -inset-4 bg-gradient-to-tr from-[#D62828]/20 via-transparent to-[#72dbd3]/15 rounded-[3.5rem] blur-2xl -z-10 pointer-events-none opacity-70" />
+
+            {/* Floating Tag Top Left */}
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="hidden xl:flex absolute -top-4 -left-6 z-30 px-3.5 py-1.5 rounded-full bg-[#141414]/90 border border-white/10 backdrop-blur-md items-center gap-2 shadow-2xl"
+            >
+              <span className="size-2 rounded-full bg-[#72dbd3] animate-pulse" />
+              <span className="text-[10px] font-mono text-white/90 font-medium tracking-wide">Responde en 0 segundos</span>
+            </motion.div>
+
+            {/* Floating Tag Bottom Right */}
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="hidden xl:flex absolute -bottom-4 -right-6 z-30 px-3.5 py-1.5 rounded-full bg-[#141414]/90 border border-white/10 backdrop-blur-md items-center gap-2 shadow-2xl"
+            >
+              <CheckCircle size={13} className="text-[#D62828]" />
+              <span className="text-[10px] font-mono text-white/90 font-medium tracking-wide">Venta Calificada 24/7</span>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -1035,290 +1120,124 @@ export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 
         </div>
       </section>
 
-      {/* CORE SOLUTIONS SECTION */}
-      <section id="soluciones" className="w-full bg-[#080808] relative z-10 py-24 md:py-32 px-6 md:px-12 border-t border-white/5 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none animate-pulse-slow" style={{ background: 'radial-gradient(circle at 70% 50%, rgba(214,40,40,0.06) 0%, transparent 60%)' }} />
+      {/* CORE SOLUTIONS SECTION (Rediseñada con colores de marca) */}
+      <section id="soluciones" className="w-full relative z-10 py-24 md:py-32 px-6 md:px-12 border-t border-white/10 bg-[#080808]">
         <div className="max-w-7xl mx-auto relative z-10">
           
           {/* Header de la sección */}
-          <div className="text-center lg:text-left lg:flex lg:justify-between lg:items-end mb-16 md:mb-20">
-            <div>
-              <p className="font-mono text-[#72dbd3] text-xs tracking-[0.2em] uppercase mb-4">{solTag}</p>
-              <h2 className="font-display text-4xl md:text-6xl font-black uppercase tracking-tight text-white">
+          <div className="text-center md:text-left md:flex md:justify-between md:items-end mb-16 gap-8">
+            <div className="max-w-2xl">
+              <span className="font-mono text-[#72dbd3] text-xs tracking-[0.25em] uppercase font-bold block mb-3">
+                {solTag}
+              </span>
+              <h2 className="font-display text-3xl sm:text-5xl font-black uppercase tracking-tight text-white">
                 {solTitleMain}<span className="text-[#D62828]">{solTitleAccent}</span>
               </h2>
             </div>
-            <p className="font-sans text-sm text-white/50 max-w-sm mt-4 lg:mt-0 leading-relaxed">
+            <p className="text-white/50 text-sm sm:text-base max-w-md mt-4 md:mt-0 leading-relaxed font-light">
               {solSubText}
             </p>
           </div>
 
-          {/* Bento Grid Principal (6 Soluciones de Alto Nivel) */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            
+          {/* Grid Limpio y Escaneable (3 Columnas) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {SOLUTIONS_DATA.map((sol, idx) => {
               const Icon = sol.icon;
-              const isLarge = idx === 0 || idx === 1; // Las dos primeras ocupan 6 columnas
-              const colSpan = isLarge ? "md:col-span-6" : "md:col-span-6 lg:col-span-3";
 
               return (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.7, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className={`group relative ${colSpan} bg-gradient-to-b from-[#121212] via-[#0D0D0D] to-[#080808] border border-white/10 hover:border-[#D62828]/50 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-500 hover:shadow-[0_20px_50px_rgba(214,40,40,0.15)] hover:-translate-y-1.5 overflow-hidden`}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#72dbd3]/30 p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 group"
                 >
-                  {/* Neon Line Highlight Top */}
-                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D62828] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  {/* Subtle Background Glow on Hover */}
-                  <div className="absolute -right-20 -bottom-20 w-48 h-48 bg-[#D62828]/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-
-                  {/* Top Bar inside Card */}
                   <div>
-                    <div className="flex items-center justify-between mb-6">
+                    {/* Top: Icon, Tagline & Number */}
+                    <div className="flex items-center justify-between mb-5">
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-white group-hover:text-[#D62828] group-hover:bg-[#D62828]/10 group-hover:border-[#D62828]/30 transition-all duration-300 shadow-inner">
-                          <Icon size={22} />
+                        <div className="size-11 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#72dbd3] group-hover:border-[#72dbd3]/40 transition-colors">
+                          <Icon size={20} />
                         </div>
                         {sol.tagline && (
-                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] font-mono font-bold tracking-widest bg-[#D62828]/15 text-[#D62828] border border-[#D62828]/30 uppercase shadow-[0_0_15px_rgba(214,40,40,0.2)]">
+                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#D62828]/15 text-[#D62828] border border-[#D62828]/30 uppercase">
                             <Sparkles size={10} /> {sol.tagline}
                           </span>
                         )}
                       </div>
-                      <span className="font-mono text-xs text-white/20 font-bold tracking-widest group-hover:text-[#72dbd3] transition-colors">
+                      <span className="font-mono text-xs text-white/30 font-bold group-hover:text-[#72dbd3] transition-colors">
                         0{idx + 1}
                       </span>
                     </div>
 
                     {/* Title & Description */}
-                    <h3 className="font-display text-2xl font-black uppercase text-white tracking-tight group-hover:text-[#72dbd3] transition-colors duration-300 mb-3">
+                    <h3 className="font-display text-xl font-bold uppercase text-white tracking-tight mb-3 group-hover:text-white transition-colors">
                       {sol.title}
                     </h3>
                     
-                    <p className="text-white/50 text-xs md:text-sm font-sans font-light leading-relaxed mb-6">
+                    <p className="text-white/50 text-sm leading-relaxed mb-6 font-light">
                       {sol.desc}
                     </p>
 
                     {/* Key Benefits List */}
-                    <div className="space-y-2 border-t border-white/5 pt-4 mb-6">
-                      {sol.benefits.slice(0, isLarge ? 4 : 2).map((b, bIdx) => (
-                        <div key={bIdx} className="flex items-start gap-2.5 text-white/70 text-xs font-sans">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#D62828] mt-1.5 shrink-0 shadow-[0_0_8px_#D62828]" />
-                          <span>{b}</span>
+                    <div className="space-y-2.5 border-t border-white/5 pt-5 mb-6">
+                      {sol.benefits.slice(0, 3).map((b, bIdx) => (
+                        <div key={bIdx} className="flex items-start gap-2.5 text-white/70 text-xs sm:text-sm">
+                          <Check className="size-4 text-[#72dbd3] shrink-0 mt-0.5" />
+                          <span className="leading-snug">{b}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  {/* Card Bottom: Metric & Tech Stack */}
-                  <div className="border-t border-white/5 pt-5 mt-2 flex flex-col gap-4">
-                    {/* Metric Highlight */}
-                    <div className="flex items-center justify-between bg-white/[0.02] border border-white/5 group-hover:border-white/10 px-4 py-3 rounded-2xl transition-all">
-                      <div className="flex flex-col">
-                        <span className="text-[8px] font-mono text-[#72dbd3] uppercase tracking-widest font-bold">
-                          {isEn ? "Impact Metric" : "Métrica de Impacto"}
-                        </span>
-                        <span className="text-white text-xs font-semibold mt-0.5">
-                          {sol.metricLabel}
-                        </span>
-                      </div>
-                      <span className="font-display text-xl font-black text-[#D62828] tracking-tight">
+                  {/* Card Bottom: Metric & Direct Action */}
+                  <div className="border-t border-white/5 pt-5 mt-2 flex items-center justify-between">
+                    <div className="flex flex-col">
+                      <span className="text-[10px] font-mono text-[#72dbd3] uppercase tracking-wider font-bold">
+                        {sol.metricLabel}
+                      </span>
+                      <span className="font-display text-lg font-bold text-white mt-0.5">
                         {sol.metric}
                       </span>
                     </div>
 
-                    {/* Stack Badges & CTA Link */}
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex flex-wrap gap-1">
-                        {sol.tech.slice(0, isLarge ? 4 : 2).map((t, tIdx) => (
-                          <span key={tIdx} className="text-[9px] font-mono bg-white/5 text-white/40 px-2 py-0.5 rounded border border-white/5">
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-
-                      <Link 
-                        href={isEn ? "/us/start" : "/start"}
-                        className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-[#D62828] text-white/60 group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0"
-                        title={solutionsCta}
-                      >
-                        <ArrowUpRight size={14} />
-                      </Link>
-                    </div>
+                    <Link 
+                      href={isEn ? "/us/start" : "/start"}
+                      className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-white/70 hover:text-[#72dbd3] transition-colors"
+                    >
+                      <span>{isEn ? "Learn more" : "Ver detalles"}</span>
+                      <ArrowUpRight size={14} />
+                    </Link>
                   </div>
-
                 </motion.div>
               );
             })}
-
           </div>
 
-          {/* Banner inferior de conversión */}
-          <div className="mt-12 p-8 md:p-12 rounded-3xl bg-gradient-to-r from-[#140505] via-[#0D0D0D] to-[#080808] border border-[#D62828]/30 flex flex-col md:flex-row items-center justify-between gap-8 shadow-[0_0_50px_rgba(214,40,40,0.1)]">
-            <div className="flex items-center gap-6">
-              <div className="w-16 h-16 rounded-2xl bg-[#D62828]/10 border border-[#D62828]/30 flex items-center justify-center text-[#D62828] shrink-0">
-                <Bot size={32} />
+          {/* Banner inferior limpio */}
+          <div className="mt-12 p-8 md:p-10 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-5">
+              <div className="size-12 rounded-xl bg-[#D62828]/15 border border-[#D62828]/30 flex items-center justify-center text-[#D62828] shrink-0">
+                <Bot size={24} />
               </div>
               <div>
-                <h4 className="font-display text-xl md:text-2xl font-black uppercase text-white">
-                  {isEn ? "Need a tailored architecture for your workflow?" : "¿Necesitas una arquitectura a la medida de tu proceso?"}
+                <h4 className="font-display text-lg sm:text-xl font-bold uppercase text-white">
+                  {isEn ? "Need a tailored solution for your workflow?" : "¿Necesitas una solución a la medida de tu empresa?"}
                 </h4>
-                <p className="text-white/40 text-xs md:text-sm font-light mt-1">
-                  {isEn ? "We audit your commercial operations free of charge and estimate your ROI." : "Auditamos tu operación comercial sin costo y proyectamos tu retorno de inversión."}
+                <p className="text-white/50 text-xs sm:text-sm mt-1 font-light">
+                  {isEn ? "We analyze your commercial operations and design a custom plan." : "Auditamos tu operación comercial sin costo y proyectamos tu retorno de inversión."}
                 </p>
               </div>
             </div>
 
             <Link
               href={isEn ? "/us/start" : "/start"}
-              className="px-8 py-4 bg-[#D62828] hover:bg-white text-white hover:text-black font-bold text-xs tracking-widest uppercase transition-all duration-300 rounded-2xl shrink-0 shadow-[0_0_25px_rgba(214,40,40,0.3)] flex items-center gap-3"
+              className="w-full md:w-auto px-7 py-3.5 bg-white hover:bg-[#D62828] text-black hover:text-white font-bold text-xs uppercase tracking-widest transition-all duration-200 rounded-xl shrink-0 flex items-center justify-center gap-2"
             >
-              <span>{isEn ? "REQUEST TAILORED BLUEPRINT" : "SOLICITAR BLUEPRINT A MEDIDA"}</span>
+              <span>{isEn ? "REQUEST AUDIT" : "SOLICITAR AUDITORÍA"}</span>
               <ArrowRight size={14} />
             </Link>
-          </div>
-
-        </div>
-      </section>
-
-      {/* HIGH-RETURN SECTORS SECTION — FULL HERO SHOWCASE BANNER (NO CARDS / NO GRID) */}
-      <section className="w-full bg-[#030303] relative z-10 py-28 md:py-40 px-6 md:px-12 border-t border-white/5 overflow-hidden">
-        {/* Glows de alta intensidad de fondo tipo escenario */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] bg-[#D62828]/10 blur-[180px] pointer-events-none rounded-full" />
-        <div className="absolute bottom-0 right-10 w-96 h-96 bg-[#72dbd3]/5 blur-[150px] pointer-events-none rounded-full" />
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          
-          {/* Header de la sección */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div>
-              <div className="flex items-center gap-4 mb-4">
-                <span className="w-12 h-[2px] bg-[#D62828]" />
-                <p className="font-mono text-[#72dbd3] text-xs tracking-[0.3em] uppercase font-bold">
-                  {content.sectorTag}
-                </p>
-              </div>
-              <h2 className="font-display text-3xl md:text-5xl font-black uppercase text-white tracking-tight">
-                {content.sectorTitle}
-              </h2>
-            </div>
-
-            <p className="text-white/40 text-sm max-w-md font-sans font-light leading-relaxed">
-              {content.sectorSub}
-            </p>
-          </div>
-
-          {/* FULL HERO BANNER CONTENEDOR TIPO ESCENARIO */}
-          <div className="relative w-full border-y border-white/10 py-10 md:py-16">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeSector}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -30 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center"
-              >
-                {/* Columna Izquierda: Información del Nicho Activo */}
-                <div className="lg:col-span-8 flex flex-col items-start text-left">
-                  
-                  {/* Badge del Sector & Número */}
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className="font-mono text-xs text-[#D62828] font-bold tracking-widest bg-[#D62828]/10 border border-[#D62828]/30 px-3 py-1 rounded-lg">
-                      0{activeSector + 1} / 0{sectors.length}
-                    </span>
-                    <span className="text-white/40 font-mono text-[10px] uppercase tracking-widest">
-                      {isEn ? "Specialized Industry Solution" : "Solución Especializada por Industria"}
-                    </span>
-                  </div>
-
-                  {/* Título del Nicho */}
-                  <h3 className="font-display text-2xl md:text-4xl font-black uppercase text-white tracking-tight leading-tight mb-4">
-                    {sectors[activeSector].title}
-                  </h3>
-
-                  {/* Descripción Inmersiva */}
-                  <p className="text-white/70 font-sans text-sm md:text-lg font-light leading-relaxed max-w-2xl mb-8">
-                    {sectors[activeSector].desc}
-                  </p>
-
-                  {/* Botón CTA del Hero */}
-                  <Link
-                    href={isEn ? "/us/start" : "/start"}
-                    className="px-8 py-4 bg-[#D62828] hover:bg-white text-white hover:text-black font-bold text-xs tracking-widest uppercase transition-all duration-300 rounded-xl shadow-[0_0_25px_rgba(214,40,40,0.3)] flex items-center gap-3 group/btn"
-                  >
-                    <span>{isEn ? "DEPLOY SYSTEM FOR THIS SECTOR" : "DESPLEGAR SISTEMA PARA ESTE SECTOR"}</span>
-                    <ArrowUpRight size={18} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-                  </Link>
-
-                </div>
-
-                {/* Columna Derecha: Métrica Gigante Highlight */}
-                <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center">
-                  <div className="bg-gradient-to-br from-[#180808] to-[#0A0A0A] border border-[#D62828]/30 p-8 md:p-10 rounded-3xl w-full max-w-sm flex flex-col gap-4 shadow-[0_0_50px_rgba(214,40,40,0.15)] relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-[#D62828]/20 rounded-full blur-2xl pointer-events-none" />
-                    
-                    <span className="text-[10px] font-mono text-[#72dbd3] uppercase tracking-widest font-bold">
-                      {isEn ? "Guaranteed Impact Metric" : "Métrica de Impacto Garantizada"}
-                    </span>
-
-                    <span className="font-display text-3xl md:text-4xl font-black text-white leading-tight">
-                      {sectors[activeSector].impact}
-                    </span>
-
-                    <div className="flex items-center gap-2 border-t border-white/10 pt-4 mt-2">
-                      <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                      <span className="text-white/50 text-xs font-mono">
-                        {isEn ? "Tested in active operations" : "Validado en operaciones reales"}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* BARRA DE BOTONES DE SECTORES ABAJO (TIPO TICKER DE NAVEGACIÓN EN VIVO) */}
-          <div className="mt-12 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none w-full md:w-auto">
-              {sectors.map((sec, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveSector(idx)}
-                  className={`px-5 py-3 rounded-2xl text-xs font-mono font-bold uppercase transition-all duration-300 whitespace-nowrap border flex items-center gap-3 ${
-                    activeSector === idx
-                      ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.2)]'
-                      : 'bg-white/5 text-white/40 border-white/5 hover:text-white hover:bg-white/10'
-                  }`}
-                >
-                  <span className={`w-1.5 h-1.5 rounded-full ${activeSector === idx ? 'bg-[#D62828]' : 'bg-white/20'}`} />
-                  <span>{sec.title}</span>
-                </button>
-              ))}
-            </div>
-
-            {/* Controles Flecha Anterior / Siguiente */}
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => setActiveSector(prev => (prev === 0 ? sectors.length - 1 : prev - 1))}
-                className="w-12 h-12 rounded-2xl bg-white/5 hover:bg-[#D62828] border border-white/10 text-white flex items-center justify-center transition-all duration-300"
-                title="Anterior"
-              >
-                <ArrowRight size={20} className="rotate-180" />
-              </button>
-              <button
-                onClick={() => setActiveSector(prev => (prev === sectors.length - 1 ? 0 : prev + 1))}
-                className="w-12 h-12 rounded-2xl bg-white/5 hover:bg-[#D62828] border border-white/10 text-white flex items-center justify-center transition-all duration-300"
-                title="Siguiente"
-              >
-                <ArrowRight size={20} />
-              </button>
-            </div>
           </div>
 
         </div>
@@ -1377,69 +1296,18 @@ export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 
               <span className="w-8 h-[1px] bg-[#D62828] group-hover:bg-white group-hover:w-16 transition-all duration-300"></span>
             </Link>
           </motion.div>
-        </div>
-      </section>
 
-      {/* TECH STACK & 3D ARCHITECTURE CUBE */}
-      <section className="min-h-[90vh] w-full bg-[#080808] relative z-10 py-24 md:py-32 px-6 md:px-12 flex items-center border-t border-white/5 overflow-hidden">
-        <div className="absolute top-[10%] left-[5%] text-white/10 font-mono text-sm pointer-events-none animate-pulse">+</div>
-        <div className="absolute bottom-[20%] right-[10%] text-white/10 font-mono text-sm pointer-events-none animate-pulse-slow">+</div>
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center relative z-10">
-          
-          {/* SEO Optimized Content Side */}
-          <div className="flex flex-col">
-            <motion.p 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-              className="font-mono text-[#72dbd3] text-xs tracking-[0.2em] uppercase mb-6 flex items-center gap-4"
-            >
-              <span className="w-8 h-[1px] bg-[#72dbd3]"></span> {stackTag}
-            </motion.p>
-            
-            <motion.h2 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] font-black tracking-tight text-white mb-8"
-            >
-              {stackTitleMain} <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#D62828]">{stackTitleAccent}</span>
-            </motion.h2>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="space-y-8"
-            >
-              {stackList.map((item, idx) => (
-                <div key={idx} className="border-l border-[#D62828]/30 pl-6 group hover:border-[#D62828] transition-colors">
-                  <h3 className="font-sans font-bold text-white text-xl mb-2 flex items-center gap-3">
-                    <span className="font-mono text-[10px] text-[#D62828]">0{idx + 1}</span> {item.title}
-                  </h3>
-                  <p className="text-white/60 font-light text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Corrected 3D Isometric Stack Side */}
+          {/* Componente 3D isométrico colocado debajo de Nuestra Filosofía */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.85 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="visual-side relative h-[400px] md:h-[500px] w-full flex items-center justify-center p-0 md:p-10"
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="visual-side relative h-[360px] md:h-[440px] w-full flex items-center justify-center mt-20 pt-8 border-t border-white/5"
           >
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-[#D62828]/20 rounded-full blur-[80px] pointer-events-none animate-pulse"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] bg-[#D62828]/15 rounded-full blur-[80px] pointer-events-none animate-pulse"></div>
             
-            <div className="iso-stack translate-y-16 lg:translate-y-28" id="stack-3d">
+            <div className="iso-stack" id="stack-3d">
               {/* Layer 1: Base */}
               <div className="iso-layer layer-base">
                 <div className="face face-top base-top">
@@ -1483,7 +1351,7 @@ export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 
             </div>
           </motion.div>
         </div>
-        
+
         <style dangerouslySetInnerHTML={{__html: `
           .visual-side {
               perspective: 1200px; 
@@ -1556,125 +1424,6 @@ export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 
               }
           }
         `}} />
-      </section>
-
-      {/* INTERACTIVE ROI CALCULATOR */}
-      <section className="w-full bg-[#080808] relative z-10 py-20 md:py-32 px-6 md:px-12 border-t border-white/5">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div>
-            <p className="font-mono text-[#72dbd3] text-xs tracking-[0.2em] uppercase mb-4">{content.calcTitle}</p>
-            <h2 className="font-display text-3xl md:text-5xl font-black uppercase text-white mb-6">
-              {content.calcSub}
-            </h2>
-            <p className="text-white/50 font-sans text-base leading-relaxed mb-8 max-w-xl">
-              {content.calcDesc}
-            </p>
-
-            {/* Form Sliders */}
-            <div className="space-y-6 max-w-lg">
-              <div>
-                <div className="flex justify-between text-sm mb-2">
-                  <span className="text-white/60">{content.calcEmployees}</span>
-                  <span className="text-white font-bold">{employees} {region === 'us' ? 'people' : 'personas'}</span>
-                </div>
-                <input 
-                  type="range" 
-                  min="1" 
-                  max="50" 
-                  value={employees} 
-                  onChange={(e) => setEmployees(Number(e.target.value))}
-                  aria-label="Número de Empleados"
-                  className="w-full accent-[#D62828] bg-white/10 h-1 rounded-lg cursor-pointer"
-                />
-              </div>
-
-              <div>
-                <div className="flex justify-between text-sm mb-2">
-                  <span className="text-white/60">{content.calcSalary}</span>
-                  <span className="text-white font-bold">{formatCurrency(averageSalary, content.calcCurrencySymbol, region)}</span>
-                </div>
-                <input 
-                  type="range" 
-                  min={content.calcMinSalary} 
-                  max={content.calcMaxSalary} 
-                  step={content.calcStepSalary}
-                  value={averageSalary} 
-                  onChange={(e) => setAverageSalary(Number(e.target.value))}
-                  aria-label="Salario Promedio Anual"
-                  className="w-full accent-[#D62828] bg-white/10 h-1 rounded-lg cursor-pointer"
-                />
-              </div>
-
-              <div>
-                <div className="flex justify-between text-sm mb-2">
-                  <span className="text-white/60">{content.calcHours}</span>
-                  <span className="text-white font-bold">{hoursWasted} {region === 'us' ? 'hours' : 'horas'}</span>
-                </div>
-                <input 
-                  type="range" 
-                  min="2" 
-                  max="25" 
-                  value={hoursWasted} 
-                  onChange={(e) => setHoursWasted(Number(e.target.value))}
-                  aria-label="Horas semanales"
-                  className="w-full accent-[#D62828] bg-white/10 h-1 rounded-lg cursor-pointer"
-                />
-              </div>
-
-              <div>
-                <div className="flex justify-between text-sm mb-2">
-                  <span className="text-white/60">{content.calcInvestment}</span>
-                  <span className="text-white font-bold">{formatCurrency(investment, content.calcCurrencySymbol, region)}</span>
-                </div>
-                <input 
-                  type="range" 
-                  min={content.calcMinInvestment} 
-                  max={content.calcMaxInvestment} 
-                  step={content.calcStepInvestment}
-                  value={investment} 
-                  onChange={(e) => setInvestment(Number(e.target.value))}
-                  aria-label="Inversión única"
-                  className="w-full accent-[#D62828] bg-white/10 h-1 rounded-lg cursor-pointer"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Results Side */}
-          <div className="bg-[#111] border border-white/5 rounded-3xl p-8 md:p-12 relative overflow-hidden flex flex-col gap-6 shadow-2xl">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#D62828]/5 blur-3xl rounded-full"></div>
-            
-            <div className="border-b border-white/5 pb-6">
-              <span className="text-xs font-mono text-white/40 block mb-2 uppercase">{content.calcEstSavings}</span>
-              <span className="text-4xl md:text-5xl font-display font-black text-[#D62828]">{formatCurrency(annualSavings, content.calcCurrencySymbol, region)}</span>
-              <span className="text-xs text-white/30 block mt-2">{content.calcEstSavingsSub}</span>
-            </div>
-
-            <div className="grid grid-cols-2 gap-6 border-b border-white/5 pb-6">
-              <div>
-                <span className="text-xs font-mono text-white/40 block mb-1">{content.calcRoi}</span>
-                <span className="text-2xl font-bold text-white">+{roi}%</span>
-              </div>
-              <div>
-                <span className="text-xs font-mono text-white/40 block mb-1">{content.calcBreakeven}</span>
-                <span className="text-2xl font-bold text-white">{breakeven} {region === 'us' ? 'months' : 'meses'}</span>
-              </div>
-            </div>
-
-            <div>
-              <span className="text-xs font-mono text-white/40 block mb-2">{content.calcFiveYear}</span>
-              <span className="text-2xl md:text-3xl font-display font-bold text-white">{formatCurrency(fiveYearSavings, content.calcCurrencySymbol, region)}</span>
-            </div>
-
-            <Link href="/start" className="mt-4 w-full py-4 bg-[#D62828] text-white font-bold text-xs tracking-widest uppercase text-center hover:bg-white hover:text-black transition-all rounded-xl shadow-lg shadow-[#D62828]/10">
-              {content.calcCta}
-            </Link>
-            
-            <p className="text-[10px] text-white/20 text-center leading-relaxed">
-              {content.calcDisclaimer}
-            </p>
-          </div>
-        </div>
       </section>
 
       {/* WHY AUTONOMEK - DIFFERENTIATORS */}

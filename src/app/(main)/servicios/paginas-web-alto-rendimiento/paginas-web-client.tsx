@@ -175,7 +175,7 @@ export default function DesarrolloWebPageClient({ locale = 'es' }: { locale?: 'e
             <div className="relative aspect-video bg-[#0A0A0A] border border-white/10 rounded-2xl md:rounded-3xl overflow-hidden group shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-tr from-[#D62828]/20 to-transparent"></div>
               <div className="p-6 md:p-8 font-mono text-[10px] md:text-xs text-white/40">
-                <p className="text-[#00CC66] mb-4">
+                <p className="text-[#72dbd3] mb-4">
                   {isEn ? "// Analyzing speed and performance" : "// Analizando velocidad y rendimiento"}
                 </p>
                 <p className="text-white">
@@ -198,11 +198,11 @@ export default function DesarrolloWebPageClient({ locale = 'es' }: { locale?: 'e
                    </p>
                    <div className="flex justify-between items-center text-[10px]">
                       <span>{isEn ? "Load Time" : "Tiempo de carga"}</span>
-                      <span className="text-[#00CC66]">{isEn ? "0.4 seconds" : "0.4 segundos"}</span>
+                      <span className="text-[#72dbd3]">{isEn ? "0.4 seconds" : "0.4 segundos"}</span>
                    </div>
                    <div className="flex justify-between items-center text-[10px] mt-2">
                       <span>{isEn ? "Response speed" : "Velocidad de respuesta"}</span>
-                      <span className="text-[#00CC66]">{isEn ? "Ultra Fast" : "Muy rápido"}</span>
+                      <span className="text-[#72dbd3]">{isEn ? "Ultra Fast" : "Muy rápido"}</span>
                    </div>
                 </div>
               </div>

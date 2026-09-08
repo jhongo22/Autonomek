@@ -71,7 +71,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 rounded-full bg-black/60 hover:bg-[#D62828] text-white/80 hover:text-white border border-white/10 hover:border-[#D62828] transition-all z-20"
+              className="absolute top-4 right-4 p-2 rounded-full bg-black/60 hover:bg-white/10 text-white/80 hover:text-white border border-white/10 hover:border-white/30 transition-all z-20"
               aria-label="Cerrar modal"
             >
               <X size={20} />
@@ -151,7 +151,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
 
                   {/* Highlight Phrase */}
                   {project.highlightPhrase && (
-                    <blockquote className="border-l-2 border-[#D62828] pl-3 italic font-medium text-white/95 my-4 bg-white/5 py-2 pr-2 rounded-r-xl">
+                    <blockquote className="border-l-2 border-blue-500 pl-3 italic font-medium text-white/95 my-4 bg-white/5 py-2 pr-2 rounded-r-xl">
                       "{project.highlightPhrase}"
                     </blockquote>
                   )}
@@ -160,12 +160,12 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
                   {project.keyFeatures && project.keyFeatures.length > 0 && (
                     <div className="mt-4">
                       <h4 className="font-bold text-xs uppercase tracking-wider text-white mb-2 font-mono">
-                        ¿Qué hace el sistema?
+                        ¿Qué resuelve el sistema?
                       </h4>
                       <ul className="space-y-1.5">
                         {project.keyFeatures.map((feat, fIdx) => (
                           <li key={fIdx} className="flex items-start gap-2 text-white/70 text-xs">
-                            <CheckCircle size={14} className="text-[#D62828] mt-0.5 shrink-0" />
+                            <CheckCircle size={14} className="text-blue-400 mt-0.5 shrink-0" />
                             <span>{feat}</span>
                           </li>
                         ))}
@@ -174,16 +174,16 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
                   )}
                 </div>
 
-                {/* Technical Stack */}
+                {/* Key Capabilities */}
                 <div className="mb-6">
-                  <span className="block font-mono text-[9px] tracking-widest text-white/40 uppercase mb-2">Tecnologías</span>
+                  <span className="block font-mono text-[9px] tracking-widest text-white/40 uppercase mb-2">Resultados Clave</span>
                   <div className="flex flex-wrap gap-1.5">
-                    {project.stack.map((tech) => (
+                    {project.stack.map((item) => (
                       <span
-                        key={tech}
-                        className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/5 font-mono text-[9px] text-white/50 uppercase"
+                        key={item}
+                        className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 font-sans text-[11px] text-white/80"
                       >
-                        {tech}
+                        {item}
                       </span>
                     ))}
                   </div>
@@ -196,7 +196,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 px-6 bg-[#D62828] hover:bg-white text-white hover:text-black font-bold text-xs tracking-wider uppercase text-center transition-all inline-flex items-center justify-center gap-2 rounded-xl shadow-lg shadow-[#D62828]/10 hover:shadow-none"
+                  className="w-full py-3.5 px-6 bg-white hover:bg-neutral-200 text-neutral-950 font-bold text-xs tracking-wider uppercase text-center transition-all inline-flex items-center justify-center gap-2 rounded-xl shadow-lg shadow-white/5 hover:shadow-none"
                 >
                   <MessageSquare size={16} />
                   Cotizar Proyecto Similar
