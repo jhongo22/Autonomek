@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Agentes de Inteligencia Artificial para WhatsApp y Web | Autonomek',
-  description: 'Implementamos agentes de IA autónomos y asistentes conversacionales en WhatsApp y sitios web. Automatiza respuestas, agenda citas y cotiza servicios 24/7.',
+  title: 'Agentes de IA para WhatsApp y web 24/7 | Autonomek',
+  description: 'Empleados digitales autónomos que entienden audios, leen recibos, cotizan y agendan citas en tiempo real con escalado humano fluido.',
   alternates: {
     canonical: 'https://autonomek.com/servicios/agentes-inteligencia-artificial',
   },

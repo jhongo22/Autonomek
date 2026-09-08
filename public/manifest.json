@@ -1,0 +1,22 @@
+{
+  "name": "Autonomek | Automatización & Desarrollo Web",
+  "short_name": "Autonomek",
+  "description": "Agencia de ingeniería especializada en automatización de procesos comerciales, agentes de IA para WhatsApp y desarrollo web de alto rendimiento.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#080808",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo_pestaña.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "1200x401",
+      "type": "image/png"
+    }
+  ]
+}

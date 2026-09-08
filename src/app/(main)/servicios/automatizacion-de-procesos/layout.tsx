@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Automatización de Procesos de Negocios e Integración API | Autonomek',
-  description: 'Conectamos tus sistemas comerciales: formularios web, Google Sheets, Gmail, CRM y ERP. Sincroniza información de forma segura y elimina las tareas repetitivas.',
+  title: 'Automatización de procesos empresariales con IA | Autonomek',
+  description: 'Conectamos tu web, WhatsApp, CRM y hojas de cálculo para erradicar tareas manuales y errores humanos. Tu operación comercial en piloto automático.',
   alternates: {
     canonical: 'https://autonomek.com/servicios/automatizacion-de-procesos',
   },

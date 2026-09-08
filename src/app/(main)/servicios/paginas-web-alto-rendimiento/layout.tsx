@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Desarrollo de Páginas Web de Alto Rendimiento y SEO | Autonomek',
-  description: 'Diseñamos y desarrollamos páginas web y landing pages ultra rápidas, optimizadas para SEO local/nacional en Google y enfocadas en la conversión de clientes.',
+  title: 'Creación y posicionamiento de páginas web & posicionamiento web | Autonomek',
+  description: 'Sitios web ultrarrápidos diseñados para posicionar en los primeros lugares de Google y convertir visitas en clientes reales con embudos y chat IA integrados.',
   alternates: {
     canonical: 'https://autonomek.com/servicios/paginas-web-alto-rendimiento',
   },

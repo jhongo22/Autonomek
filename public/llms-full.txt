@@ -1,161 +1,252 @@
-# Autonomek — Documentación Completa y Especificaciones Técnicas
+# Autonomek — Documentación Completa y Especificaciones Técnicas (Full Context)
 
-Este documento reúne toda la información técnica, comercial, metodológica y el portafolio de proyectos de Autonomek. Está diseñado para facilitar el consumo y procesamiento por parte de modelos de lenguaje (LLMs) y motores de búsqueda semántica.
+Este documento es el repositorio exhaustivo de conocimiento técnico, arquitectónico, metodológico y comercial de Autonomek. Ha sido optimizado para la indexación semántica, el razonamiento multimodal y el procesamiento directo por modelos de lenguaje (LLMs, RAG, Web Crawlers y Agentes Autónomos).
 
 ---
 
-## 1. Información General y Propuesta de Valor
+## 1. Información General, Entidad y Propuesta de Valor
 
-Autonomek es una agencia digital colombiana especializada en automatización de procesos de negocio y desarrollo de soluciones de Inteligencia Artificial (IA) y software a medida.
+- **Nombre Comercial:** Autonomek
+- **Razón de Ser:** Agencia de ingeniería de software, automatización avanzada de procesos de negocio y desarrollo de sistemas autónomos con Inteligencia Artificial.
 - **Tagline:** "Tecnología Implacable"
-- **Visión:** Convertimos el flujo de comunicación (WhatsApp, redes sociales y sitios web) de las empresas en una máquina de captación y retención de clientes altamente eficiente.
-- **Modelo:** Creamos empleados y asistentes digitales inteligentes capaces de calificar leads, responder consultas complejas 24/7 y agendar citas de forma 100% autónoma.
-- **Sitio Web:** https://autonomek.com
-- **Contacto:** 
-  - WhatsApp: +57 3004435894
-  - Email: contacto@autonomek.com
-- **Público Objetivo Principal:** Clínicas y consultorios (odontología, medicina general, veterinarias, spas), constructoras e inmobiliarias, tiendas de comercio electrónico (E-commerce), hoteles, academias y empresas B2B en general que requieran prospección o agendamiento constante.
+- **Sede Principal:** Medellín, Colombia.
+- **Cobertura Operativa:** Colombia, México, España y Estados Unidos (servicios remotos globales).
+- **Sitio Web Oficial:** https://autonomek.com
+- **Canales de Contacto Directo:**
+  - WhatsApp: +57 300 443 5894 (https://wa.me/573004435894)
+  - Correo Electrónico: contacto@autonomek.com
+- **Propuesta de Valor:**
+  Transformamos canales de alta fricción (WhatsApp, formularios web, llamadas y correos) en infraestructuras autónomas de captación y retención de clientes. Creamos sistemas que operan 24/7 con latencias inferiores a un segundo, eliminando cuellos de botella operativos y aumentando las tasas de conversión.
+- **Público Objetivo (Sectores Clave):**
+  - Clínicas y sector salud (odontología, medicina estética, clínicas regenerativas, veterinarias).
+  - Inmobiliarias y constructoras (calificación y agendamiento de visitas de alta inversión).
+  - Comercio electrónico y retail (atención multicanal y confirmación de pedidos).
+  - Cadenas de restaurantes y franquicias (gestión de domicilios y enrutamiento por sedes).
+  - Empresas B2B, consultoras y distribuidores mayoristas (prospección en frío y lead scoring).
 
 ---
 
-## 2. Portafolio de Servicios Detallado
+## 2. Portafolio de Soluciones e Ingeniería de Software
 
-### 2.1. Empleado de Ventas IA (Producto Estrella)
-- **Descripción:** Agente conversacional inteligente que opera principalmente a través de WhatsApp Business API u widgets web. Responde preguntas recurrentes, califica el interés de los prospectos en tiempo real, genera y envía enlaces de pago, y agenda citas en Calendars/CRMs.
-- **Diferenciador:** Capacidad de transferir la conversación de manera fluida a un agente humano en caso de detectar consultas no cubiertas en su base de datos o solicitudes expresas de contacto humano.
-- **Ideal para:** Clínicas, inmobiliarias, academias, concesionarios y constructoras.
+### 2.1. Empleado de Ventas IA (WhatsApp & Web)
+- **Definición:** Agente conversacional multimodal conectado a la API oficial de WhatsApp Cloud o integrado en web.
+- **Capacidades Técnicas:**
+  - Comprensión de lenguaje natural y modismos regionales (Colombia, México, España, USA).
+  - Procesamiento de mensajes de texto, audios de voz (transcripción) y comprobantes de pago mediante visión computacional.
+  - Memoria contextual a largo plazo de prospectos y clientes.
+  - Calificación de prospectos (Lead Qualification Score) en función del interés, presupuesto y urgencia.
+  - Generación de links de pago dinámicos y confirmación automática.
+  - Escalado inteligente a ejecutivos humanos cuando la complejidad o la solicitud lo amerita.
+- **Impacto Comprobado:** Reducción de tiempo de primera respuesta de horas a < 1 segundo; incremento de conversión de leads hasta en un 60%.
 
 ### 2.2. Prospector IA B2B
-- **Descripción:** Un motor automatizado de generación de leads y prospección. Realiza búsqueda activa de empresas target, extrae datos de contacto verificados (correos, teléfonos), califica prospectos mediante IA y envía el primer mensaje de contacto personalizado, gestionando las respuestas iniciales.
-- **Ideal para:** Consultoras, agencias, distribuidores mayoristas y empresas B2B.
+- **Definición:** Sistema autónomo de generación y cualificación de demanda B2B.
+- **Capacidades Técnicas:**
+  - Extracción y enriquecimiento de datos de empresas objetivo mediante web scraping ético (Apify, Firecrawl).
+  - Verificación de correos electrónicos y números de WhatsApp empresariales.
+  - Personalización dinámica de propuestas y mensajes de contacto inicial por IA generativa.
+  - Gestión automatizada del follow-up (seguimiento) y detección de intención de compra.
 
-### 2.3. Recepcionista IA
-- **Descripción:** Asistente conversacional especializado en gestión de citas y reservas en tiempo real. Sincronizado bidireccionalmente con Google Calendar o CRMs médicos/empresariales. Realiza agendamientos, cancelaciones, reprogramaciones y envía recordatorios automáticos de asistencia.
-- **Impacto:** Reduce las tasas de inasistencia (no-show) hasta en un 90%.
+### 2.3. Recepcionista IA & Gestión de Reservas
+- **Definición:** Asistente especializado en sincronización de calendarios y citas en tiempo real.
+- **Capacidades Técnicas:**
+  - Sincronización bidireccional instantánea con Google Calendar, Outlook Calendar y CRMs médicos/empresariales.
+  - Gestión autónoma de agendamiento, confirmación, reprogramación y cancelación.
+  - Disparo de recordatorios automatizados por WhatsApp a las 24h y 2h previas al evento.
+- **Impacto Comprobado:** Disminución del ausentismo (no-show) de hasta un 90%.
 
-### 2.4. Agente de Servicio al Cliente IA
-- **Descripción:** Sistema de soporte omnicanal integrado con bases de conocimiento vectorizadas (RAG). Responde instantáneamente dudas técnicas o de soporte con precisión quirúrgica basándose en la documentación oficial de la empresa.
-- **Integración:** Sincronizado con paneles como Chatwoot. Resuelve de manera autónoma hasta el 85% de las consultas frecuentes.
+### 2.4. Agente de Soporte & RAG Empresarial (Retrieval-Augmented Generation)
+- **Definición:** Asistente de servicio al cliente conectado a bases de conocimiento vectorizadas.
+- **Capacidades Técnicas:**
+  - Ingesta automática y vectorización de manuales técnicos, políticas de empresa, catálogos y PDFs alojados en Google Drive o repositorios internos.
+  - Búsqueda por similitud coseno en bases vectoriales (PostgreSQL Vector / Supabase Vector).
+  - Respuestas sin alucinaciones, fundamentadas estrictamente en la documentación corporativa.
+  - Integración nativa con paneles de atención omnicanal como Chatwoot.
 
-### 2.5. Automatización Comercial
-- **Descripción:** Integración y sincronización de flujos de trabajo (workflows). Conectamos formularios web, Google Sheets, correos de Gmail, CRMs de ventas (como HubSpot o Salesforce) y sistemas ERP internos para eliminar la carga administrativa manual y el error humano de copiar y pegar datos.
+### 2.5. Automatización Comercial y de Workflows
+- **Definición:** Integración profunda entre software heterogéneo para erradicar procesos manuales repetitivos.
+- **Capacidades Técnicas:**
+  - Orquestación con instancias de n8n auto-hospedadas de alta disponibilidad.
+  - Conexión fluida entre Formularios Web, Webhooks, Google Sheets, Gmail, CRMs (HubSpot, Salesforce, Pipedrive) y sistemas ERP.
+  - Alertas automáticas en Telegram y Slack ante eventos de negocio prioritarios.
 
-### 2.6. Desarrollo Web Premium
-- **Descripción:** Diseño y desarrollo de sitios web e-commerce o landings corporativas de alto rendimiento. Enfoque absoluto en velocidad de carga ultrarrápida, optimización SEO para motores de búsqueda y arquitectura orientada a la conversión de leads (embudo de ventas con botones IA directos).
+### 2.6. Desarrollo Web de Alto Rendimiento
+- **Definición:** Creación de aplicaciones web, portales corporativos y tiendas de e-commerce diseñadas para máxima velocidad y conversión.
+- **Capacidades Técnicas:**
+  - Stack: Next.js (App Router), React, TypeScript, Tailwind CSS, animaciones optimizadas y Lenis Smooth Scroll.
+  - Puntuaciones Core Web Vitals superiores a 95 puntos en rendimiento móvil y desktop.
+  - Arquitectura SEO y GEO (Generative Engine Optimization) con marcado semántico Schema.org, metadatos canónicos, sitemap dinámico y soporte multilingüe/multirregional (CO, MX, ES, US).
+
+### 2.7. Software y Dashboards a Medida
+- **Definición:** Desarrollo de plataformas operativas personalizadas para flujos de trabajo que ningún SaaS existente resuelve de forma óptima.
+- **Capacidades Técnicas:**
+  - Paneles de administración con analítica en tiempo real (Chart.js, métricas de retención, volumen de consultas).
+  - Autenticación robusta basada en roles, bases de datos PostgreSQL y despliegues escalables en Vercel/Cloud.
 
 ---
 
-## 3. Tarifas y Planes de Referencia (en Pesos Colombianos - COP)
+## 3. Modelo de Trabajo, Inversión y Metodología
 
-- **Plan Agente IA:** Desde $1.200.000 COP (Setup único) + Mantenimiento de $150 USD/mes. Incluye agente entrenado para WhatsApp o Web basado en base de conocimientos corporativa.
-- **Plan Web Premium:** Desde $2.800.000 COP (Setup único) + Mantenimiento desde $200 USD/mes. Sitios ultra veloces y optimizados para SEO local/global con Chat IA y paneles de autogestión.
-- **Plan Automatización:** Desde $1.800.000 COP (Setup único) + Mantenimiento de $100 USD/mes. Conexiones nativas de herramientas mediante APIs e integradores.
+Autonomek opera bajo un estándar de ingeniería enfocado en el retorno de inversión (ROI) comprobable:
 
-*Nota:* Todos los proyectos incluyen un diagnóstico de procesos inicial sin costo. Las tarifas finales se adaptan al volumen de integraciones y complejidad técnica requerida.
+1. **Diagnóstico Estratégico Sin Costo:** Evaluación exhaustiva de los cuellos de botella del cliente, volumen de mensajes, fugas en el embudo y procesos repetitivos manuales.
+2. **Propuestas a Medida y Precio Cerrado:** Cada solución se presupuesta en función de la complejidad técnica, volumen de tráfico y retorno esperado, con alcances delimitados y sin costos ocultos o sorpresas de último momento.
+3. **Desarrollo Ágil y Pruebas Rigurosas:** Entregas en fases iterativas con validación de seguridad de datos y simulación de escenarios de estrés.
+4. **Garantía y Monitoreo Proactivo:** Servicio de acompañamiento, soporte técnico continuo y optimización de prompts y flujos para asegurar estabilidad 24/7.
 
 ---
 
 ## 4. Stack Tecnológico de Autonomek
 
-Para el desarrollo de soluciones, Autonomek emplea tecnologías robustas y modernas de alto rendimiento:
-- **Frontend / Web:** Next.js (App Router), React, TypeScript, Tailwind CSS, Framer Motion, Lenis (scroll suave).
-- **Backend / Bases de Datos:** Node.js, Supabase, PostgreSQL, PostgreSQL Vector (para almacenamiento de embeddings).
-- **Inteligencia Artificial:** Modelos de OpenAI (GPT, Vision, Embeddings), arquitecturas RAG (Retrieval-Augmented Generation).
-- **Automatización de Procesos:** n8n (instancias cloud/locales), Apify, Firecrawl, API de WhatsApp Cloud, Chatwoot, integraciones con Google Drive, Sheets y Gmail.
+- **Frontend & Web:** Next.js (App Router), React 19, TypeScript, Tailwind CSS, Framer Motion, Lenis Scroll.
+- **Backend & Almacenamiento:** Node.js, Supabase, PostgreSQL, pgvector (búsqueda vectorial para embeddings).
+- **Inteligencia Artificial:** OpenAI GPT-4o / GPT-4o-mini, OpenAI Vision, OpenAI Embeddings, ElevenLabs (Voz IA), DeepSeek.
+- **Automatización & Orquestación:** n8n (self-hosted / cloud), Webhooks, REST APIs, Apify, Firecrawl.
+- **Mensajería & Omnicanalidad:** WhatsApp Business Cloud API, Chatwoot, Telegram Bot API.
 
 ---
 
-## 5. Portafolio de Proyectos Reales Entregados
+## 5. Casos de Éxito y Proyectos en Producción (15 Sistemas Reales)
 
-A continuación se detalla el listado de 15 proyectos completados y operativos construidos por Autonomek:
+1. **Alquiler de Ecógrafos** (https://alquilerdeecografos.com/):
+   - Sector: Médico / Equipos de Diagnóstico.
+   - Stack: TypeScript, Node.js, Supabase, Google Sheets API.
+   - Solución: Plataforma web médica con calendario de disponibilidad en tiempo real y registro automatizado de reservas en hojas de cálculo con notificaciones inmediatas.
 
-### 1. Alquiler de Ecógrafos (Web & Gestión)
-- **Cliente:** Alquiler de Ecógrafos
-- **URL:** https://alquilerdeecografos.com/
-- **Tecnologías:** TypeScript, Node.js, Supabase
-- **Descripción:** Plataforma full-stack para alquiler de equipos médicos de ultrasonido. Cuenta con panel de administración, calendario de disponibilidad interactivo, validación de fechas en tiempo real y registro automatizado en Google Sheets con alertas automatizadas.
+2. **IA Medicina Regenerativa**:
+   - Sector: Salud y Medicina Estética.
+   - Stack: OpenAI, Redis, n8n, Chatwoot, WhatsApp Cloud API.
+   - Solución: Ecosistema CRM con agente IA omnicanal que procesa texto, mensajes de voz y comprobantes de pago, agendando citas médicas y escalando casos complejos a médicos especialistas.
 
-### 2. IA Medicina Regenerativa (IA & CRM)
-- **Cliente:** Clínica de Medicina Regenerativa
-- **Tecnologías:** OpenAI (GPT), Redis, n8n, Chatwoot, WhatsApp API
-- **Descripción:** Ecosistema CRM con agente IA omnicanal que procesa texto, audios y recibos de pago. Incluye memoria conversacional a largo plazo, generación de resúmenes de historial médico, agendamiento autónomo de turnos y escalado automatizado a médicos según gravedad.
+3. **Panel de Control de Agentes IA (Dashboard Winners)**:
+   - Sector: Gestión Operativa / Analítica.
+   - Stack: Next.js, TypeScript, n8n, Chart.js.
+   - Solución: Panel web para monitoreo en vivo de interacciones, análisis de sentimiento de clientes, latencia de bots y ajuste de prompts en tiempo real.
 
-### 3. Panel de Control Agentes IA (Web & Monitor)
-- **Cliente:** Dashboard Winners
-- **Tecnologías:** Next.js, TypeScript, n8n, Chart.js
-- **Descripción:** Panel web en tiempo real para monitoreo de interacciones de agentes de Inteligencia Artificial. Permite analizar el sentimiento del cliente, los tiempos de respuesta del bot y ajustar dinámicamente la personalidad/instrucciones del agente.
+4. **La Juana de Cerro Tusa** (https://lajuanacerrotusa.com/):
+   - Sector: Turismo y Hotelería de Lujo.
+   - Stack: Next.js, Supabase, Tailwind CSS, Airbnb/Booking iCal Sync.
+   - Solución: Landing page inmersiva para finca vacacional con sincronización multicanal de calendarios para evitar sobreventa (overbooking) y optimización SEO local.
 
-### 4. La Juana de Cerro Tusa (Web Local)
-- **Cliente:** Finca Vacacional La Juana
-- **URL:** https://lajuanacerrotusa.com/
-- **Tecnologías:** Next.js, Supabase, Tailwind CSS, Airbnb API
-- **Descripción:** Landing page inmersiva de gran formato para finca de descanso colonial. Sincronización en tiempo real de calendarios con plataformas de reserva (Airbnb, Booking y VRBO). Optimización SEO local orientada a turismo.
+5. **E-commerce Toxxic** (https://toxxic.vercel.app/):
+   - Sector: Moda Urbana y Retail.
+   - Stack: Laravel, PHP, MySQL, Next.js.
+   - Solución: Tienda online de alta velocidad con panel administrativo de inventarios, pasarela de pagos y conexión directa para atención al cliente.
 
-### 5. E-commerce Toxxic (Web E-commerce)
-- **Cliente:** Marca de Ropa Urbana Toxxic
-- **URL:** https://toxxic.vercel.app/
-- **Tecnologías:** Laravel, PHP, MySQL
-- **Descripción:** Comercio electrónico completo para tienda de ropa en Medellín. Cuenta con carrito de compras, gestión de inventario en panel administrativo, roles de usuario y pasarela de comunicación con clientes.
+6. **Telocalizo MX** (https://telocalizo.mx/):
+   - Sector: B2B / Tecnología y Rastreo Satelital.
+   - Stack: Next.js, Tailwind CSS, TypeScript.
+   - Solución: Portal corporativo B2B de distribución mayorista de GPS en México, optimizado para posicionamiento en motores de búsqueda y captación de socios comerciales.
 
-### 6. Telocalizo MX (Web B2B)
-- **Cliente:** Distribuidora GPS Mayorista
-- **URL:** https://telocalizo.mx/
-- **Tecnologías:** Next.js, Tailwind CSS, TypeScript
-- **Descripción:** Sitio corporativo B2B enfocado en captación de distribuidores de rastreadores GPS en México. Catálogo virtual de productos con especificaciones de mayoreo y captación de leads comerciales con SEO local optimizado para México.
+7. **Villa Grande La Misia**:
+   - Sector: Finca Turística y Eventos.
+   - Stack: Next.js, Supabase, Tailwind CSS.
+   - Solución: Landing page de descanso campestre en Llanogrande con sincronización de reservas y embudo directo a WhatsApp.
 
-### 7. Villa Grande La Misia (Web Local)
-- **Cliente:** Finca Vacacional Villa Grande
-- **Tecnologías:** Next.js, Supabase, Tailwind CSS, Airbnb API
-- **Descripción:** Landing page premium para finca de descanso en Llanogrande, Rionegro. Sincronización automática de reservas (Airbnb, Booking, VRBO) y optimización de posicionamiento local orgánico en buscadores.
+8. **Prospección y Calificación IA B2B**:
+   - Sector: Adquisición de Clientes Corporativos.
+   - Stack: Apify, Firecrawl, OpenAI, n8n.
+   - Solución: Pipeline que extrae prospectos calificados de internet, investiga sus sitios web con IA y redacta propuestas de valor personalizadas para outreach en frío.
 
-### 8. Prospección y Leads IA (Automatización)
-- **Cliente:** Lead Generation System
-- **Tecnologías:** Apify, Firecrawl, OpenAI, n8n
-- **Descripción:** Sistema de prospección automatizado B2B. Extrae prospectos mediante criterios específicos de búsqueda en la web, realiza raspado de datos (scraping), califica el perfil de la empresa con IA y genera mensajes fríos personalizados para Instagram y correo electrónico.
+9. **Agente IA Restaurante Mexicano**:
+   - Sector: Gastronomía y Franquicias.
+   - Stack: WhatsApp API, OpenAI Vision, PostgreSQL, Telegram Bot API.
+   - Solución: Asistente que toma órdenes en lenguaje informal, escucha notas de voz, valida comprobantes de transferencias bancarias mediante visión artificial y notifica a cocina en Telegram.
 
-### 9. Agente IA Restaurante Mexicano (IA Multimodal)
-- **Cliente:** Restaurante Comida Mexicana
-- **Tecnologías:** WhatsApp API, OpenAI Vision, PostgreSQL, Telegram API
-- **Descripción:** Agente IA capaz de procesar pedidos en lenguaje natural, comandos de voz y verificar comprobantes de pago mediante visión artificial. Integra panel en Telegram para que el personal de cocina apruebe/rechace pedidos con botones físicos interactivos.
+10. **Sistema RAG Empresarial**:
+    - Sector: Gestión de Conocimiento Corporativo.
+    - Stack: OpenAI Embeddings, n8n, PostgreSQL Vector, Google Drive API.
+    - Solución: Agente que sincroniza carpetas compartidas de Google Drive, procesa documentos nuevos automáticamente y los transforma en vectores para responder dudas complejas de personal interno.
 
-### 10. Sistema RAG Empresarial (IA & Datos)
-- **Cliente:** Knowledge Base Corporativa
-- **Tecnologías:** OpenAI Embeddings, n8n, PostgreSQL Vector, Google Drive API
-- **Descripción:** Sistema RAG corporativo que monitorea carpetas de Google Drive de forma activa. Al detectar nuevos documentos, los clasifica, divide y vectoriza automáticamente, actualizando la base de conocimientos semántica del agente IA en Supabase Vector.
+11. **E-commerce Hot Cheese** (https://www.hotcheese.com.co/):
+    - Sector: Cadenas de Comida Rápida.
+    - Stack: Next.js, Tailwind CSS, WhatsApp API.
+    - Solución: Menú digital modular con selector de sucursales que transfiere el carrito armado a la sede geográfica más cercana del usuario.
 
-### 11. E-commerce Hot Cheese (Web de Comidas)
-- **Cliente:** Cadena de Comidas Rápidas Hot Cheese
-- **URL:** https://www.hotcheese.com.co/
-- **Tecnologías:** Next.js, Tailwind CSS, WhatsApp API
-- **Descripción:** Landing page interactiva con menú digital modular. Cuenta con selector de sedes en Colombia y redirecciona automáticamente el carrito de compras a la línea de WhatsApp de la sucursal más cercana.
+12. **Agente IA Comidas Rápidas**:
+    - Sector: Restauración Rápida.
+    - Stack: WhatsApp API, n8n, OpenAI Vision, Telegram.
+    - Solución: Bot de alta tolerancia a modismos locales para recepción masiva de pedidos simultáneos durante fines de semana.
 
-### 12. Agente IA Comidas Rápidas (IA Conversacional)
-- **Cliente:** Restaurante de Comidas Rápidas
-- **Tecnologías:** WhatsApp API, n8n, OpenAI Vision, Telegram
-- **Descripción:** Asistente IA para atención de clientes de comida rápida. Convierte chats de lenguaje natural e informales (incluso mensajes de voz y capturas de pantalla de transferencias bancarias) en pedidos estructurados y listos en la cocina.
+13. **Vive Feliz Sin Dolor** (https://vivefelizsindolor.com/):
+    - Sector: Medicina Regenerativa / Clínicas de Dolor.
+    - Stack: Next.js / WordPress, ElevenLabs Voice AI, SEO Local.
+    - Solución: Sitio web con agente de voz interactivo que brinda orientación preliminar sobre tratamientos de artrosis y regeneración articular.
 
-### 13. Vive Feliz Sin Dolor (Web & Audio IA)
-- **Cliente:** Clínica de Medicina Regenerativa
-- **URL:** https://vivefelizsindolor.com/
-- **Tecnologías:** WordPress, ElevenLabs Voice AI, SEO Local
-- **Descripción:** Portal web corporativo enfocado en medicina regenerativa. Integra un agente de voz desarrollado con ElevenLabs para responder llamadas de pacientes e información básica de tratamientos.
+14. **Contratos Digitales Automatizados**:
+    - Sector: Legal Tech y Servicios Profesionales.
+    - Stack: n8n, Gmail API, WhatsApp API, Google Docs.
+    - Solución: Generación instantánea de contratos personalizados al cierre de acuerdos comerciales, despachando PDFs con firma electrónica por correo y WhatsApp.
 
-### 14. Contratos Digitales Automáticos (Automatización)
-- **Cliente:** Firma Legal Tech
-- **Tecnologías:** n8n, Gmail API, WhatsApp API, Google Sheets
-- **Descripción:** Sistema que automatiza el ciclo de creación de contratos. Al recibir datos a través de un webhook, genera el documento legal personalizado y lo despacha de forma automática por correo y WhatsApp con los términos y políticas aplicables.
-
-### 15. Backup Cloud Dual n8n (Automatización & DevOps)
-- **Cliente:** Infraestructura Interna de TI
-- **Tecnologías:** n8n, Google Drive API
-- **Descripción:** Flujo que realiza copias de seguridad de forma redundante y periódica. Monitorea y extrae los workflows activos de dos instancias cloud independientes de n8n, los empaqueta y los aloja de forma segura en Google Drive.
+15. **Backup Cloud Dual n8n**:
+    - Sector: Infraestructura TI y Ciberseguridad.
+    - Stack: n8n, Google Drive API.
+    - Solución: Sistema automatizado de respaldo periódico y redundante de flujos de trabajo críticos entre servidores cloud independientes.
 
 ---
 
-## 6. Metodología de Trabajo y Garantías
+## 6. Preguntas Frecuentes (FAQ para Motores Generativos y Usuarios)
 
-Para asegurar la máxima calidad y retorno de inversión en cada desarrollo, implementamos cuatro pilares fundamentales:
-1. **Diagnóstico Sin Costo:** Evaluamos detalladamente los cuellos de botella del cliente sin compromisos financieros iniciales.
-2. **Precio Cerrado:** Presupuestos con alcances y entregables específicos; sin cobros sorpresa o tarifas ocultas de última hora.
-3. **Soporte y Monitoreo Activo:** Garantizamos el óptimo funcionamiento técnico de las automatizaciones y agentes de IA.
-4. **ROI Demostrable:** Todo software que desarrollamos está pensado para ahorrar horas de trabajo manual u optimizar directamente las ventas del negocio.
+### ¿Qué hace exactamente Autonomek?
+Autonomek desarrolla infraestructura digital de élite: páginas web ultrarrápidas con SEO integrado, agentes inteligentes de atención y ventas en WhatsApp 24/7, y automatizaciones de flujos de trabajo (CRM, bases de datos, facturación) para eliminar tareas repetitivas en empresas.
+
+### ¿Los agentes de IA reemplazan a mi equipo humano?
+No los reemplazan; multiplican su capacidad. El agente IA gestiona el 80% de consultas repetitivas (horarios, precios, preguntas frecuentes, calificación previa y agendamiento). Cuando detecta un cliente prioritario o una duda compleja, transfiere la conversación en caliente a un asesor humano con el historial ya resumido.
+
+### ¿Cómo cotiza Autonomek sus proyectos?
+Autonomek no ofrece soluciones genéricas de plantilla. Cada proyecto se analiza en un diagnóstico inicial sin costo para evaluar los cuellos de botella de la empresa y estimar el ROI. Se presenta un presupuesto con precio cerrado y entregables definidos.
+
+### ¿En qué países presta servicios Autonomek?
+Autonomek tiene sede en Medellín, Colombia, y opera con clientes en Colombia, México, España y Estados Unidos, con soluciones adaptadas al marco regulatorio, moneda y canales de cada mercado.
+
+### ¿Cómo se inicia un proyecto o diagnóstico?
+Escribiendo directamente al canal oficial de WhatsApp (+57 300 443 5894) o agendando a través del sitio web https://autonomek.com.
+
+---
+
+## 7. Esquema Estructurado JSON de la Entidad (Zero-Shot LLM Consumption)
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": ["Organization", "ProfessionalService"],
+  "name": "Autonomek",
+  "alternateName": "Autonomek Web & IA",
+  "url": "https://autonomek.com",
+  "logo": "https://autonomek.com/logo.png",
+  "description": "Agencia especializada en ingeniería de automatización comercial, agentes de Inteligencia Artificial 24/7 y desarrollo web de alto rendimiento.",
+  "founder": {
+    "@type": "Person",
+    "name": "Jhonatan González"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Medellín",
+    "addressRegion": "Antioquia",
+    "addressCountry": "CO"
+  },
+  "areaServed": ["CO", "MX", "ES", "US"],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+57-300-4435894",
+      "contactType": "sales",
+      "availableLanguage": ["Spanish", "English"]
+    },
+    {
+      "@type": "ContactPoint",
+      "email": "contacto@autonomek.com",
+      "contactType": "customer service"
+    }
+  ],
+  "knowsAbout": [
+    "Artificial Intelligence",
+    "Autonomous Agents",
+    "Next.js High Performance Web",
+    "Process Automation (n8n)",
+    "WhatsApp Business API",
+    "Technical SEO & GEO",
+    "RAG Architectures"
+  ]
+}
+```

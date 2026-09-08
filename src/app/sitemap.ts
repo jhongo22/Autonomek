@@ -3,6 +3,14 @@ import { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://autonomek.com';
   
+  const homeLanguages = {
+    'es-CO': baseUrl,
+    'es-MX': `${baseUrl}/mx`,
+    'es-ES': `${baseUrl}/es`,
+    'en-US': `${baseUrl}/us`,
+    'x-default': baseUrl,
+  };
+
   return [
     {
       url: baseUrl,
@@ -10,12 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1.0,
       alternates: {
-        languages: {
-          'es-CO': baseUrl,
-          'es-MX': `${baseUrl}/mx`,
-          'es-ES': `${baseUrl}/es`,
-          'en-US': `${baseUrl}/us`,
-        },
+        languages: homeLanguages,
       },
     },
     {
@@ -24,12 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
       alternates: {
-        languages: {
-          'es-CO': baseUrl,
-          'es-MX': `${baseUrl}/mx`,
-          'es-ES': `${baseUrl}/es`,
-          'en-US': `${baseUrl}/us`,
-        },
+        languages: homeLanguages,
       },
     },
     {
@@ -38,12 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
       alternates: {
-        languages: {
-          'es-CO': baseUrl,
-          'es-MX': `${baseUrl}/mx`,
-          'es-ES': `${baseUrl}/es`,
-          'en-US': `${baseUrl}/us`,
-        },
+        languages: homeLanguages,
       },
     },
     {
@@ -52,12 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
       alternates: {
-        languages: {
-          'es-CO': baseUrl,
-          'es-MX': `${baseUrl}/mx`,
-          'es-ES': `${baseUrl}/es`,
-          'en-US': `${baseUrl}/us`,
-        },
+        languages: homeLanguages,
       },
     },
     {
@@ -69,8 +57,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           'es-CO': `${baseUrl}/servicios`,
           'en-US': `${baseUrl}/us/services`,
-        }
-      }
+          'x-default': `${baseUrl}/servicios`,
+        },
+      },
     },
     {
       url: `${baseUrl}/us/services`,
@@ -81,8 +70,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           'es-CO': `${baseUrl}/servicios`,
           'en-US': `${baseUrl}/us/services`,
-        }
-      }
+          'x-default': `${baseUrl}/servicios`,
+        },
+      },
     },
     {
       url: `${baseUrl}/servicios/paginas-web-alto-rendimiento`,
@@ -93,8 +83,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           'es-CO': `${baseUrl}/servicios/paginas-web-alto-rendimiento`,
           'en-US': `${baseUrl}/us/services/high-performance-websites`,
-        }
-      }
+          'x-default': `${baseUrl}/servicios/paginas-web-alto-rendimiento`,
+        },
+      },
     },
     {
       url: `${baseUrl}/us/services/high-performance-websites`,
@@ -105,8 +96,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           'es-CO': `${baseUrl}/servicios/paginas-web-alto-rendimiento`,
           'en-US': `${baseUrl}/us/services/high-performance-websites`,
-        }
-      }
+          'x-default': `${baseUrl}/servicios/paginas-web-alto-rendimiento`,
+        },
+      },
     },
     {
       url: `${baseUrl}/servicios/agentes-inteligencia-artificial`,
@@ -117,8 +109,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           'es-CO': `${baseUrl}/servicios/agentes-inteligencia-artificial`,
           'en-US': `${baseUrl}/us/services/ai-agents`,
-        }
-      }
+          'x-default': `${baseUrl}/servicios/agentes-inteligencia-artificial`,
+        },
+      },
     },
     {
       url: `${baseUrl}/us/services/ai-agents`,
@@ -129,8 +122,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           'es-CO': `${baseUrl}/servicios/agentes-inteligencia-artificial`,
           'en-US': `${baseUrl}/us/services/ai-agents`,
-        }
-      }
+          'x-default': `${baseUrl}/servicios/agentes-inteligencia-artificial`,
+        },
+      },
     },
     {
       url: `${baseUrl}/servicios/automatizacion-de-procesos`,
@@ -141,8 +135,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           'es-CO': `${baseUrl}/servicios/automatizacion-de-procesos`,
           'en-US': `${baseUrl}/us/services/process-automation`,
-        }
-      }
+          'x-default': `${baseUrl}/servicios/automatizacion-de-procesos`,
+        },
+      },
     },
     {
       url: `${baseUrl}/us/services/process-automation`,
@@ -153,8 +148,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           'es-CO': `${baseUrl}/servicios/automatizacion-de-procesos`,
           'en-US': `${baseUrl}/us/services/process-automation`,
-        }
-      }
+          'x-default': `${baseUrl}/servicios/automatizacion-de-procesos`,
+        },
+      },
     },
     {
       url: `${baseUrl}/servicios/software-a-medida`,
@@ -165,8 +161,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           'es-CO': `${baseUrl}/servicios/software-a-medida`,
           'en-US': `${baseUrl}/us/services/custom-software`,
-        }
-      }
+          'x-default': `${baseUrl}/servicios/software-a-medida`,
+        },
+      },
     },
     {
       url: `${baseUrl}/us/services/custom-software`,
@@ -177,8 +174,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           'es-CO': `${baseUrl}/servicios/software-a-medida`,
           'en-US': `${baseUrl}/us/services/custom-software`,
-        }
-      }
+          'x-default': `${baseUrl}/servicios/software-a-medida`,
+        },
+      },
     },
     {
       url: `${baseUrl}/proyectos`,
@@ -189,8 +187,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           'es-CO': `${baseUrl}/proyectos`,
           'en-US': `${baseUrl}/us/projects`,
-        }
-      }
+          'x-default': `${baseUrl}/proyectos`,
+        },
+      },
     },
     {
       url: `${baseUrl}/us/projects`,
@@ -201,8 +200,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           'es-CO': `${baseUrl}/proyectos`,
           'en-US': `${baseUrl}/us/projects`,
-        }
-      }
+          'x-default': `${baseUrl}/proyectos`,
+        },
+      },
     },
     {
       url: `${baseUrl}/legal`,
@@ -213,8 +213,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           'es-CO': `${baseUrl}/legal`,
           'en-US': `${baseUrl}/us/legal`,
-        }
-      }
+          'x-default': `${baseUrl}/legal`,
+        },
+      },
     },
     {
       url: `${baseUrl}/us/legal`,
@@ -225,8 +226,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           'es-CO': `${baseUrl}/legal`,
           'en-US': `${baseUrl}/us/legal`,
-        }
-      }
+          'x-default': `${baseUrl}/legal`,
+        },
+      },
     },
     {
       url: `${baseUrl}/start`,
@@ -237,8 +239,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           'es-CO': `${baseUrl}/start`,
           'en-US': `${baseUrl}/us/start`,
-        }
-      }
+          'x-default': `${baseUrl}/start`,
+        },
+      },
     },
     {
       url: `${baseUrl}/us/start`,
@@ -249,8 +252,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           'es-CO': `${baseUrl}/start`,
           'en-US': `${baseUrl}/us/start`,
-        }
-      }
+          'x-default': `${baseUrl}/start`,
+        },
+      },
     },
   ];
 }

@@ -34,7 +34,8 @@ export default function Footer() {
       links: [
         { name: "Privacy", href: "/us/legal#privacidad" },
         { name: "Terms", href: "/us/legal#terminos" },
-        { name: "Cookies", href: "/us/legal#cookies" }
+        { name: "Cookies", href: "/us/legal#cookies" },
+        { name: "LLM & Agent Specs", href: "/llms.txt" },
       ]
     }
   ] : [
@@ -61,7 +62,8 @@ export default function Footer() {
       links: [
         { name: "Privacidad", href: "/legal#privacidad" },
         { name: "Términos", href: "/legal#terminos" },
-        { name: "Cookies", href: "/legal#cookies" }
+        { name: "Cookies", href: "/legal#cookies" },
+        { name: "LLM & Agentes IA", href: "/llms.txt" },
       ]
     }
   ];
@@ -97,8 +99,8 @@ export default function Footer() {
                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                    className="flex flex-col"
                  >
-                   <span className="font-display text-[10vw] font-black uppercase tracking-tighter leading-none text-white/5 group-hover:text-[#D62828] transition-colors">{ctaTitle1}</span>
-                   <span className="font-display text-[10vw] font-black uppercase tracking-tighter leading-none text-[#D62828] group-hover:text-white transition-colors">{ctaTitle2}</span>
+                   <span className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none text-white/5 group-hover:text-[#D62828] transition-colors">{ctaTitle1}</span>
+                   <span className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none text-[#D62828] group-hover:text-white transition-colors">{ctaTitle2}</span>
                  </motion.div>
               </a>
           </div>

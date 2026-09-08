@@ -2,7 +2,6 @@
 
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect, useMemo } from 'react';
-import CanvasBackground from '@/components/effects/CanvasBackground';
 import Link from 'next/link';
 import { 
   ArrowRight, 
@@ -35,7 +34,7 @@ import {
 import { PROJECTS, Project } from '@/data/projects';
 import ProjectDetailsModal from '@/components/ProjectDetailsModal';
 import LottieBgIcon from '@/components/widgets/LottieBgIcon';
-import WhatsAppDemoWidget from '@/components/widgets/WhatsAppDemoWidget';
+import HeroIsometricGraphic from '@/components/widgets/HeroIsometricGraphic';
 
 const SOLUTIONS_DATA_ES = [
   {
@@ -782,49 +781,13 @@ export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 
   const stackTitleAccent = isEn ? "Infrastructure." : "Ingeniería Robusta.";
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const chatContainerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   });
 
   const heroOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
-  const heroY = useTransform(scrollYProgress, [0, 1], [0, 300]);
-  const textBgY = useTransform(scrollYProgress, [0, 1], [0, -200]);
-
-  const [mounted, setMounted] = useState(false);
-
-  // Interactive ROI Calculator State
-  const [employees, setEmployees] = useState(5);
-  const [averageSalary, setAverageSalary] = useState(content.calcDefaultSalary);
-  const [hoursWasted, setHoursWasted] = useState(8);
-  const [investment, setInvestment] = useState(content.calcDefaultInvestment);
-
-  // Reset values when region changes
-  useEffect(() => {
-    setAverageSalary(content.calcDefaultSalary);
-    setInvestment(content.calcDefaultInvestment);
-  }, [region, content]);
-
-  // ROI Calculations
-  const hourlyRate = averageSalary / 1880;
-  const annualHoursSaved = Math.round(employees * (hoursWasted * 0.8) * 47);
-  const annualSavings = Math.round(annualHoursSaved * hourlyRate);
-  const roi = Math.round(((annualSavings - investment) / investment) * 100);
-  const breakeven = Number((investment / (annualSavings / 12)).toFixed(1));
-  const fiveYearSavings = annualSavings * 5;
-
-  // Live Chat Simulator State
-  const [chatMode, setChatMode] = useState<'ventas' | 'agendamiento' | 'soporte'>('ventas');
-  const [messages, setMessages] = useState<{text: string, isBot: boolean}[]>([]);
-  const [isTyping, setIsTyping] = useState(false);
-
-  // Auto-scroll chat messages
-  useEffect(() => {
-    if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
-    }
-  }, [messages]);
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
   // Projects Modal State
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -832,64 +795,10 @@ export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 
   const [activeSolution, setActiveSolution] = useState(0);
   const [activeSector, setActiveSector] = useState(0);
 
-  // Dynamic projects selection for featured list (Toxxic, Lamisia, Ecógrafos, Comidas Rápidas)
+  // Dynamic projects selection for featured list (Toxxic, La Juana, Ecógrafos, Comidas Rápidas)
   const featuredProjects = useMemo(() => {
-    return PROJECTS.filter(p => [5, 4, 1, 12].includes(p.id));
+    return PROJECTS.filter(p => [5, 4, 1, 9].includes(p.id));
   }, []);
-
-  const triggerChatSequence = (mode: 'ventas' | 'agendamiento' | 'soporte') => {
-    setChatMode(mode);
-    setMessages([]);
-    setIsTyping(true);
-
-    let sequence: { text: string; isBot: boolean; delay: number }[] = [];
-
-    if (mode === 'ventas') {
-      sequence = [
-        { text: "Hola, me interesa implementar un sistema de reservas y respuestas automáticas para mi negocio. ¿Es muy complicado?", isBot: false, delay: 500 },
-        { text: "¡Hola! Para nada. Nosotros nos encargamos de toda la configuración. Entrenamos a tu agente con la información de tus servicios para que responda 24/7 y agende citas en piloto automático.", isBot: true, delay: 2000 },
-        { text: "Excelente. ¿Y cómo sé si un cliente realmente está interesado?", isBot: false, delay: 4500 },
-        { text: "El agente califica al prospecto en la conversación. Si detecta intención de compra o agenda una cita, te envía los detalles ordenados al instante. ¡Tú solo cierras la venta! 🚀", isBot: true, delay: 6500 }
-      ];
-    } else if (mode === 'agendamiento') {
-      sequence = [
-        { text: "¿Cómo funciona el agendamiento de citas automático?", isBot: false, delay: 500 },
-        { text: "El agente se conecta en tiempo real a tu Google Calendar o CRM. Le presenta al cliente los horarios disponibles directamente en WhatsApp o la web.", isBot: true, delay: 2200 },
-        { text: "Y si el cliente necesita cancelar o reagendar, ¿tiene que llamar?", isBot: false, delay: 5000 },
-        { text: "No, para nada. El cliente le escribe al bot 'quiero reagendar' y el bot le ofrece nuevas horas libres. También envía recordatorios automáticos para reducir inasistencias al 90%. 📅", isBot: true, delay: 7000 }
-      ];
-    } else if (mode === 'soporte') {
-      sequence = [
-        { text: "¿Qué pasa si un cliente hace una pregunta muy compleja que la IA no sabe?", isBot: false, delay: 500 },
-        { text: "El agente está entrenado con tu base de conocimientos (RAG). Si detecta una duda no registrada o una solicitud humana, se detiene automáticamente.", isBot: true, delay: 2500 },
-        { text: "¿Cómo me entero de que un humano debe intervenir?", isBot: false, delay: 5000 },
-        { text: "Te envía una alerta inmediata a tu WhatsApp o panel de Chatwoot. Tu equipo entra a la conversación de forma transparente con un solo clic. ¡Eficiencia pura! 👤", isBot: true, delay: 7000 }
-      ];
-    }
-
-    let timeouts: NodeJS.Timeout[] = [];
-    sequence.forEach((msg) => {
-      const t = setTimeout(() => {
-        setMessages(prev => [...prev, msg]);
-        if (msg === sequence[sequence.length - 1]) {
-          setIsTyping(false);
-        }
-      }, msg.delay);
-      timeouts.push(t);
-    });
-
-    return timeouts;
-  };
-
-  useEffect(() => {
-    setMounted(true);
-    const timeouts = triggerChatSequence('ventas');
-    return () => timeouts.forEach(clearTimeout);
-  }, []);
-
-  const handleModeChange = (mode: 'ventas' | 'agendamiento' | 'soporte') => {
-    triggerChatSequence(mode);
-  };
 
   const handleOpenDetails = (project: Project) => {
     setSelectedProject(project);
@@ -897,32 +806,8 @@ export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 
   };
 
   return (
-    <main ref={containerRef} className="relative w-full text-foreground bg-[#080808] overflow-hidden">
-      {/* 1. Base Layer: The Interactive Canvas */}
-      <CanvasBackground />
-
-      {/* 2. Middle Layer: Giant Distorted Background Text */}
-      <div 
-        className="hidden md:block absolute top-[10%] md:top-[20%] left-[-10%] w-[120vw] h-[60vh] overflow-hidden pointer-events-none z-[1] opacity-20 select-none rotate-[-6deg]"
-        style={{ contain: 'layout paint' }}
-      >
-        <div className="flex whitespace-nowrap items-center h-full marquee-text-bg">
-          <span className="font-display text-[25vw] font-black leading-none text-white tracking-tighter pr-16">
-            AUTONOMEK<span className="text-[#D62828]">.</span>
-          </span>
-          <span className="font-display text-[25vw] font-black leading-none text-white tracking-tighter pr-16">
-            AUTONOMEK<span className="text-[#D62828]">.</span>
-          </span>
-          <span className="font-display text-[25vw] font-black leading-none text-white tracking-tighter pr-16">
-            AUTONOMEK<span className="text-[#D62828]">.</span>
-          </span>
-          <span className="font-display text-[25vw] font-black leading-none text-white tracking-tighter pr-16">
-            AUTONOMEK<span className="text-[#D62828]">.</span>
-          </span>
-        </div>
-      </div>
-
-      {/* 3. HERO SECTION WITH SPLIT CHAT SIMULATOR */}
+    <main id="main-content" ref={containerRef} className="relative w-full text-foreground bg-[#080808] overflow-hidden">
+      {/* HERO SECTION */}
       <motion.section 
         style={{ opacity: heroOpacity, y: heroY }}
         className="min-h-screen w-full flex flex-col justify-center px-6 md:px-12 relative z-10 pt-32 pb-24"
@@ -1004,86 +889,53 @@ export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 
               </Link>
             </motion.div>
 
-            {/* Mobile-Only WhatsApp Preview Banner */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.55 }}
-              className="md:hidden mt-8 w-full p-4 rounded-2xl bg-[#111111] border border-white/10 flex items-center justify-between gap-3 shadow-lg"
-            >
-              <div className="flex items-center gap-3 min-w-0">
-                <div className="size-10 rounded-full bg-[#075E54] flex items-center justify-center text-white shrink-0 shadow-inner">
-                  <MessageSquare size={18} className="text-[#72dbd3]" />
-                </div>
-                <div className="min-w-0">
-                  <div className="flex items-center gap-2">
-                    <span className="text-white text-xs font-bold truncate">Agente de Ventas IA</span>
-                    <span className="size-1.5 rounded-full bg-[#72dbd3] animate-pulse shrink-0"></span>
-                  </div>
-                  <p className="text-white/60 text-[11px] truncate">Atiende 24/7 y cierra clientes</p>
-                </div>
-              </div>
-              <Link href="/start" className="text-[11px] font-mono text-[#72dbd3] font-semibold underline shrink-0">
-                Probar Demo
-              </Link>
-            </motion.div>
-
-            {/* Quick Metrics Glass Cards Strip */}
+            {/* Integrated Luxury Telemetry / KPI Strip */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="mt-10 pt-8 border-t border-white/10 grid grid-cols-3 gap-3 sm:gap-4 w-full max-w-xl"
+              className="mt-10 sm:mt-12 w-full max-w-xl"
             >
-              <div className="p-3.5 sm:p-4 rounded-xl bg-white/[0.02] border border-white/5 backdrop-blur-sm">
-                <span className="font-display font-black text-xl sm:text-2xl text-white block">24/7</span>
-                <span className="font-mono text-[10px] sm:text-xs text-[#72dbd3] uppercase tracking-wider block mt-1 font-semibold">Atención IA</span>
-              </div>
-              <div className="p-3.5 sm:p-4 rounded-xl bg-white/[0.02] border border-white/5 backdrop-blur-sm">
-                <span className="font-display font-black text-xl sm:text-2xl text-white block">&lt; 1s</span>
-                <span className="font-mono text-[10px] sm:text-xs text-white/60 uppercase tracking-wider block mt-1 font-semibold">Carga Web</span>
-              </div>
-              <div className="p-3.5 sm:p-4 rounded-xl bg-white/[0.02] border border-white/5 backdrop-blur-sm">
-                <span className="font-display font-black text-xl sm:text-2xl text-[#FF5252] block">+60%</span>
-                <span className="font-mono text-[10px] sm:text-xs text-white/60 uppercase tracking-wider block mt-1 font-semibold">Ahorro Operativo</span>
+              <div className="grid grid-cols-3 divide-x divide-white/10 rounded-2xl bg-[#111111]/80 border border-white/10 backdrop-blur-md py-4 px-2 sm:px-4 shadow-[0_15px_35px_-10px_rgba(0,0,0,0.6)]">
+                {/* Metric 1 */}
+                <div className="flex flex-col items-center text-center px-2">
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-display font-black text-xl sm:text-2xl lg:text-3xl text-white tracking-tight">24/7</span>
+                    <span className="size-1.5 rounded-full bg-[#72dbd3] animate-pulse" />
+                  </div>
+                  <span className="font-mono text-[9px] sm:text-[10px] text-white/50 uppercase tracking-widest mt-1 font-medium">
+                    Atención IA
+                  </span>
+                </div>
+
+                {/* Metric 2 */}
+                <div className="flex flex-col items-center text-center px-2">
+                  <span className="font-display font-black text-xl sm:text-2xl lg:text-3xl text-white tracking-tight">&lt;1s</span>
+                  <span className="font-mono text-[9px] sm:text-[10px] text-white/50 uppercase tracking-widest mt-1 font-medium">
+                    Carga Web
+                  </span>
+                </div>
+
+                {/* Metric 3 */}
+                <div className="flex flex-col items-center text-center px-2">
+                  <span className="font-display font-black text-xl sm:text-2xl lg:text-3xl text-[#D62828] tracking-tight">+60%</span>
+                  <span className="font-mono text-[9px] sm:text-[10px] text-white/50 uppercase tracking-widest mt-1 font-medium">
+                    Ahorro Real
+                  </span>
+                </div>
               </div>
             </motion.div>
           </div>
 
-          {/* Right: WhatsApp-Style Chat Simulator with Floating Badges & Aura (Desktop/Tablet md+) */}
-          <div className="lg:col-span-5 w-full hidden md:flex flex-col items-center justify-center relative">
-            {/* Ambient Aura behind phone */}
-            <div className="absolute -inset-4 bg-gradient-to-tr from-[#D62828]/20 via-transparent to-[#72dbd3]/15 rounded-[3.5rem] blur-2xl -z-10 pointer-events-none opacity-70" />
-
-            {/* Floating Tag Top Left */}
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="hidden xl:flex absolute -top-4 -left-6 z-30 px-3.5 py-1.5 rounded-full bg-[#141414]/90 border border-white/10 backdrop-blur-md items-center gap-2 shadow-2xl"
-            >
-              <span className="size-2 rounded-full bg-[#72dbd3] animate-pulse" />
-              <span className="text-[10px] font-mono text-white/90 font-medium tracking-wide">Responde en 0 segundos</span>
-            </motion.div>
-
-            {/* Floating Tag Bottom Right */}
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="hidden xl:flex absolute -bottom-4 -right-6 z-30 px-3.5 py-1.5 rounded-full bg-[#141414]/90 border border-white/10 backdrop-blur-md items-center gap-2 shadow-2xl"
-            >
-              <CheckCircle size={13} className="text-[#D62828]" />
-              <span className="text-[10px] font-mono text-white/90 font-medium tracking-wide">Venta Calificada 24/7</span>
-            </motion.div>
-
+          {/* Right: Modern Isometric 3D Graphic (Desktop/Tablet md+) */}
+          <div className="lg:col-span-5 w-full hidden md:flex items-center justify-center relative">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 30 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="w-full flex justify-center"
+              transition={{ duration: 0.9, delay: 0.4 }}
+              className="w-full flex justify-center items-center"
             >
-              <WhatsAppDemoWidget />
+              <HeroIsometricGraphic />
             </motion.div>
           </div>
 

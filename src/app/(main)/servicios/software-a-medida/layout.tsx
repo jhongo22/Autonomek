@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Desarrollo de Software a Medida y Plataformas Web | Autonomek',
-  description: 'Desarrollamos software corporativo y sistemas a medida adaptados a los procesos únicos de tu empresa: integraciones API, Supabase, Next.js y bases de datos robustas.',
+  title: 'Desarrollo de software a medida y plataformas web | Autonomek',
+  description: 'Construimos plataformas digitales, paneles analíticos y sistemas operacionales exclusivos adaptados a los cuellos de botella específicos de tu negocio.',
   alternates: {
     canonical: 'https://autonomek.com/servicios/software-a-medida',
   },

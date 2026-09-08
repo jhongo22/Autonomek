@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import HomeClient from '../home-client';
 
 export const metadata: Metadata = {
-  title: 'Agencia de Automatización de Procesos para Pymes en España | Autonomek',
-  description: 'Convertimos tu flujo de WhatsApp, tus redes y tu web en una máquina de adquisición de clientes y leads para pymes españolas. Diseñamos tus webs y agentes de IA.',
+  title: 'Autonomek España | Agentes de IA y automatización de procesos comerciales',
+  description: 'Optimiza la captación y atención de tu empresa con agentes de IA en WhatsApp y desarrollo web de alta conversión. Cero tareas repetitivas.',
   alternates: {
     canonical: 'https://autonomek.com/es',
     languages: {
@@ -11,6 +11,7 @@ export const metadata: Metadata = {
       'es-MX': 'https://autonomek.com/mx',
       'es-ES': 'https://autonomek.com/es',
       'en-US': 'https://autonomek.com/us',
+      'x-default': 'https://autonomek.com',
     },
   },
 };

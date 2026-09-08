@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import HomeClient from '../home-client';
 
 export const metadata: Metadata = {
-  title: 'Agencia de Automatización & Desarrollo Web en Ciudad de México | Autonomek',
-  description: 'Convertimos tu flujo de WhatsApp, tus redes y tu web en una máquina de adquisición de clientes en Ciudad de México y todo el país. Diseñamos tus webs y agentes de IA.',
+  title: 'Autonomek México | Automatización de procesos y desarrollo web',
+  description: 'Sistemas autónomos de ventas por WhatsApp, desarrollo web ultrarrápido e integración de flujos comerciales para empresas en México.',
   alternates: {
     canonical: 'https://autonomek.com/mx',
     languages: {
@@ -11,6 +11,7 @@ export const metadata: Metadata = {
       'es-MX': 'https://autonomek.com/mx',
       'es-ES': 'https://autonomek.com/es',
       'en-US': 'https://autonomek.com/us',
+      'x-default': 'https://autonomek.com',
     },
   },
 };

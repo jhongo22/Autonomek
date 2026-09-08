@@ -11,6 +11,7 @@ export const metadata: Metadata = {
       'es-MX': 'https://autonomek.com/mx',
       'es-ES': 'https://autonomek.com/es',
       'en-US': 'https://autonomek.com/us',
+      'x-default': 'https://autonomek.com',
     },
   },
 };
