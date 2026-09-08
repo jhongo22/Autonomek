@@ -833,8 +833,8 @@ export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 
               </p>
             </motion.div>
             
-            {/* Main Headline with original font and tracking */}
-            <h1 className="font-display text-[clamp(2.2rem,5vw,5rem)] leading-[1.05] font-black tracking-tighter text-white drop-shadow-2xl uppercase relative">
+            {/* Main Headline with refined desktop size */}
+            <h1 className="font-display text-[clamp(2rem,3.8vw,3.6rem)] leading-[1.06] font-black tracking-tighter text-white drop-shadow-2xl uppercase relative">
               <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#D62828]/15 blur-[100px] -z-10 animate-pulse-slow"></div>
               
               <motion.div 
@@ -927,8 +927,8 @@ export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 
             </motion.div>
           </div>
 
-          {/* Right: Modern Isometric 3D Graphic (Desktop/Tablet md+) */}
-          <div className="lg:col-span-5 w-full hidden md:flex items-center justify-center relative">
+          {/* Right: Hero Lottie Graphic (Strictly Desktop PC lg+ only) */}
+          <div className="lg:col-span-5 w-full hidden lg:flex items-center justify-center relative">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
