@@ -7,6 +7,18 @@
   --foreground: #EAEAEA;
 }
 
+/* Escala compacta y refinada para PC (equivalente al efecto de zoom ~75-80%) */
+@media (min-width: 1024px) {
+  html {
+    font-size: 83%; /* 12.8px base: reduce toda la escala rem en PC en un 20% */
+  }
+}
+@media (min-width: 1536px) {
+  html {
+    font-size: 90%;
+  }
+}
+
 body {
   color: var(--foreground);
   background: var(--background);

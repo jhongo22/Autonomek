@@ -28,12 +28,12 @@ export default function HeroIsometricGraphic() {
   }, [jsonPath]);
 
   return (
-    <div className="relative w-full max-w-[650px] xl:max-w-[700px] aspect-square flex items-center justify-center select-none">
+    <div className="relative w-full max-w-[32rem] xl:max-w-[36rem] aspect-square flex items-center justify-center select-none">
       {/* Difuminado de fondo idéntico al de las letras del hero (Crimson Glow + Pulse) */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 bg-[#D62828]/25 blur-[110px] rounded-full -z-10 animate-pulse-slow pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 bg-[#D62828]/25 blur-[100px] rounded-full -z-10 animate-pulse-slow pointer-events-none" />
       
       {/* Halo radial de acento cian / rojo para profundidad de escena */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle,rgba(214,40,40,0.22)_0%,rgba(114,219,211,0.1)_50%,transparent_75%)] blur-[95px] rounded-full -z-10 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle,rgba(214,40,40,0.22)_0%,rgba(114,219,211,0.1)_50%,transparent_75%)] blur-[90px] rounded-full -z-10 pointer-events-none" />
 
       {/* Floating wrapper con animación suave */}
       <motion.div
@@ -43,14 +43,14 @@ export default function HeroIsometricGraphic() {
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="relative w-full h-full flex items-center justify-center p-2 will-change-transform drop-shadow-[0_30px_70px_rgba(0,0,0,0.9)]"
+        className="relative w-full h-full flex items-center justify-center p-2 will-change-transform drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)]"
       >
         {animationData ? (
           <Lottie
             animationData={animationData}
             loop={true}
             autoplay={true}
-            className="w-full h-full scale-[1.2] origin-center object-contain"
+            className="w-full h-full object-contain"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">

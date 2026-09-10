@@ -834,7 +834,7 @@ export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 
             </motion.div>
             
             {/* Main Headline with refined desktop size */}
-            <h1 className="font-display text-[clamp(2rem,3.8vw,3.6rem)] leading-[1.06] font-black tracking-tighter text-white drop-shadow-2xl uppercase relative">
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-[2.75rem] xl:text-[3.25rem] leading-[1.06] font-black tracking-tighter text-white drop-shadow-2xl uppercase relative">
               <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#D62828]/15 blur-[100px] -z-10 animate-pulse-slow"></div>
               
               <motion.div 
@@ -1166,9 +1166,9 @@ export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 
                   <span className="icon-center text-white/50 font-mono text-xl tracking-widest">&lt;WEB/&gt;</span>
                 </div>
                 <div className="face face-s1"></div>
-                <div className="face face-s2"><span style={{ transform: "rotate(270deg)", display: "block", letterSpacing: "3px" }}>API</span></div>
+                <div className="face face-s2"><span style={{ transform: "rotate(270deg)", display: "block", letterSpacing: "3px" }}>INTEGRACIONES</span></div>
                 <div className="face face-s3"></div>
-                <div className="face face-s4"><span style={{ transform: "rotate(90deg)",display: "block", letterSpacing: "3px" }}>DB</span></div>
+                <div className="face face-s4"><span style={{ transform: "rotate(90deg)",display: "block", letterSpacing: "3px" }}>DATOS</span></div>
               </div>
               
               {/* Layer 2: Mid */}
@@ -1177,9 +1177,9 @@ export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 
                   <span className="icon-center text-[#D62828] font-bold text-3xl font-display">IA</span>
                 </div>
                 <div className="face face-s1"></div>
-                <div className="face face-s2"><span style={{ transform: "rotate(270deg)", display: "block", letterSpacing: "3px" }}>BOT</span></div>
+                <div className="face face-s2"><span style={{ transform: "rotate(270deg)", display: "block", letterSpacing: "3px" }}>AUTOMATICACIONES</span></div>
                 <div className="face face-s3"></div>
-                <div className="face face-s4"><span style={{ transform: "rotate(90deg)",display: "block", letterSpacing: "3px" }}>A.I.</span></div>
+                <div className="face face-s4"><span style={{ transform: "rotate(90deg)",display: "block", letterSpacing: "3px" }}>INTELIGENCIA</span></div>
               </div>
               
               {/* Layer 3: Top */}
@@ -1196,9 +1196,9 @@ export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 
                   </div>
                 </div>
                 <div className="face face-s1"></div>
-                <div className="face face-s2"><span style={{ transform: "rotate(270deg)", display: "block", letterSpacing: "3px" }}>WEB</span></div>
+                <div className="face face-s2"><span style={{ transform: "rotate(270deg)", display: "block", letterSpacing: "3px" }}>PAGINAS</span></div>
                 <div className="face face-s3"></div>
-                <div className="face face-s4"><span style={{ transform: "rotate(90deg)", display: "block", letterSpacing: "3px" }}>APP</span></div>
+                <div className="face face-s4"><span style={{ transform: "rotate(90deg)", display: "block", letterSpacing: "3px" }}>APLICACIONES</span></div>
               </div>
             </div>
           </motion.div>
