@@ -2,16 +2,18 @@ import type { Metadata } from 'next';
 import HomeClient from '../home-client';
 
 export const metadata: Metadata = {
-  title: 'AI Automation & Web Development Agency | Autonomek',
-  description: 'We turn your WhatsApp flow, social networks, and web into a customer acquisition machine. We build your websites and custom AI agents.',
+  title: 'Autonomek USA | B2B AI Automation & High-Performance Web Engineering',
+  description: 'Enterprise AI agents, autonomous CRM/WhatsApp workflows, and sub-second Next.js web development engineered for B2B conversion and SEO authority.',
   alternates: {
-    canonical: 'https://autonomek.com/us',
+    canonical: 'https://www.autonomek.com/us',
     languages: {
-      'es-CO': 'https://autonomek.com',
-      'es-MX': 'https://autonomek.com/mx',
-      'es-ES': 'https://autonomek.com/es',
-      'en-US': 'https://autonomek.com/us',
-      'x-default': 'https://autonomek.com',
+      'es': 'https://www.autonomek.com/es',
+      'es-ES': 'https://www.autonomek.com/es',
+      'es-CO': 'https://www.autonomek.com',
+      'es-MX': 'https://www.autonomek.com/mx',
+      'en': 'https://www.autonomek.com/en',
+      'en-US': 'https://www.autonomek.com/us',
+      'x-default': 'https://www.autonomek.com',
     },
   },
 };

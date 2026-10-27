@@ -1,1510 +1,1275 @@
 'use client';
 
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { useRef, useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { 
-  ArrowRight, 
-  ShieldAlert, 
-  Clock, 
-  Coins,
-  Building,
-  Activity,
-  Briefcase,
-  ShoppingBag,
-  Bot,
-  Zap,
-  Globe,
-  Cpu,
-  CheckCircle,
-  MessageSquare,
-  Search,
-  Sparkles,
-  Phone,
-  Terminal,
-  Calendar,
-  TrendingUp,
-  Gauge,
-  Server,
-  Play,
-  ArrowUpRight,
-  Check,
-  Database
-} from 'lucide-react';
-import { PROJECTS, Project } from '@/data/projects';
+import { ChevronDown, ExternalLink, ArrowUpRight } from 'lucide-react';
+import { PROJECTS, PROJECTS_EN, Project } from '@/data/projects';
 import ProjectDetailsModal from '@/components/ProjectDetailsModal';
-import LottieBgIcon from '@/components/widgets/LottieBgIcon';
 import HeroIsometricGraphic from '@/components/widgets/HeroIsometricGraphic';
+import {
+  BottleneckPrismFigure,
+  PipelineNodesFigure,
+  BlueprintSculptureFigure,
+  SlaTransceiverFigure,
+  MethodologyHelixFigure,
+} from '@/components/widgets/ArchitecturalFigures';
 
-const SOLUTIONS_DATA_ES = [
-  {
-    title: "Empleado de Ventas IA",
-    tagline: "Producto Estrella",
-    icon: MessageSquare,
-    desc: "Para cualquier empresa que atienda clientes por WhatsApp. Atiende 24/7, responde dudas, cotiza, agenda citas, envía enlaces de pago y escala automáticamente a humanos cuando hace falta.",
-    benefits: [
-      "Atiende clientes B2C y B2B 24/7 de forma autónoma.",
-      "Responde preguntas frecuentes sobre tu catálogo y políticas.",
-      "Cotiza productos y servicios en tiempo real.",
-      "Cierra ventas directamente dentro del chat.",
-      "Agenda citas integrando a tu calendario preferido.",
-      "Envía enlaces de pago seguros automatizados.",
-      "Escala a un humano de tu equipo cuando hace falta."
-    ],
-    impact: "Cierra ventas y captura leads en piloto automático",
-    metric: "24/7",
-    metricLabel: "Disponibilidad de ventas",
-    tech: ["WhatsApp API", "n8n", "OpenAI GPT-4", "Supabase"],
-    previewType: "chat",
-    previewData: [
-      { text: "Hola, me interesa implementar un sistema de reservas y respuestas automáticas para mi negocio. ¿Es muy complicado?", isBot: false },
-      { text: "¡Hola! Para nada. Nosotros nos encargamos de toda la configuración. Entrenamos a tu agente con la información de tus servicios para que responda 24/7 y agende citas en piloto automático.", isBot: true },
-      { text: "Excelente. ¿Y cómo sé si un cliente realmente está interesado?", isBot: false },
-      { text: "El agente califica al prospecto en la conversación. Si detecta intención de compra o agenda una cita, te envía los detalles ordenados al instante. ¡Tú solo cierras la venta! 🚀", isBot: true }
-    ]
-  },
-  {
-    title: "Prospector IA B2B",
-    icon: Search,
-    desc: "El motor definitivo para adquisición corporativa. Busca empresas objetivo de forma masiva, extrae teléfonos y correos verificados, califica leads, redacta y envía el primer contacto de forma personalizada.",
-    benefits: [
-      "Busca empresas objetivo de tu nicho de forma masiva.",
-      "Extrae correos electrónicos y teléfonos móviles verificados.",
-      "Filtra e identifica tomadores de decisiones clave.",
-      "Redacta mensajes hiper-personalizados con IA.",
-      "Envía secuencias automatizadas de contacto inicial.",
-      "Agenda reuniones de negocio directamente en tu agenda.",
-      "Sincroniza prospectos calificados con tu CRM."
-    ],
-    impact: "Generación de pipeline de reuniones de negocios",
-    metric: "+35%",
-    metricLabel: "Tasa de respuesta inicial",
-    tech: ["n8n", "Apollo.io", "DeepSeek-V3", "SMTP/IMAP Sync"],
-    previewType: "console",
-    previewData: [
-      { type: "info", text: "Iniciando escaneo de empresas objetivo..." },
-      { type: "success", text: "52 empresas encontradas en nicho 'Logística y Distribución'." },
-      { type: "info", text: "Extrayendo contactos verificados de directores de operaciones..." },
-      { type: "success", text: "38 correos y 14 teléfonos móviles obtenidos." },
-      { type: "process", text: "Generando propuestas personalizadas con IA..." },
-      { type: "success", text: "38 emails secuenciados. Tasa de entrega proyectada: 98.4%" }
-    ]
-  },
-  {
-    title: "Recepcionista IA",
-    icon: Calendar,
-    desc: "Optimizado para consultorios médicos, clínicas, dentistas, barberías y spas. Gestiona la reserva de turnos, confirma asistencia, procesa reprogramaciones y responde preguntas frecuentes.",
-    benefits: [
-      "Gestiona la reserva y confirmación de turnos 24/7.",
-      "Confirmación automatizada de asistencia por WhatsApp.",
-      "Reduce el ausentismo de tus clientes en un 90%.",
-      "Procesa reprogramaciones y cancelaciones automáticas.",
-      "Envía recordatorios previos con enlaces de confirmación.",
-      "Sincronización en tiempo real con Google Calendar y Cal.com.",
-      "Responde preguntas comunes sobre ubicación y horarios."
-    ],
-    impact: "Reduce inasistencias en más de un 90%",
-    metric: "-90%",
-    metricLabel: "Reducción de inasistencias",
-    tech: ["Google Calendar", "n8n", "WhatsApp API", "Cal.com"],
-    previewType: "calendar",
-    previewData: {
-      slots: ["09:00 AM", "10:30 AM", "02:00 PM", "04:30 PM"],
-      booked: [
-        { time: "09:00 AM", patient: "Clínica Dental - Valoración", status: "Confirmado por Bot" },
-        { time: "10:30 AM", patient: "Dr. Mendoza - Limpieza", status: "Confirmado por Bot" },
-        { time: "02:00 PM", patient: "Especialista - Ortodoncia", status: "Pendiente" }
-      ]
-    }
-  },
-  {
-    title: "Servicio al Cliente IA",
-    icon: Bot,
-    desc: "Sistemas omnicanal con almacenamiento de base de conocimientos en vectores (RAG) integrados a Chatwoot y WhatsApp. Resuelve de forma instantánea el 85% de las dudas recurrentes de soporte.",
-    benefits: [
-      "Tiempo de primera respuesta reducido a cero segundos.",
-      "Resuelve más del 85% de las dudas y preguntas recurrentes.",
-      "Conectado a tu base de conocimientos con tecnología RAG.",
-      "Integrado a Chatwoot para intervención humana instantánea.",
-      "Atención omnicanal por WhatsApp, Chat Web y Redes.",
-      "Respuestas coherentes y profesionales sin alucinaciones.",
-      "Clasifica y asigna incidentes automáticamente."
-    ],
-    impact: "Tiempos de respuesta reducidos a cero segundos",
-    metric: "0s",
-    metricLabel: "Tiempo de respuesta",
-    tech: ["Chatwoot", "Qdrant Vector DB", "n8n", "OpenAI Assistant"],
-    previewType: "rag",
-    previewData: {
-      query: "¿Cuál es la garantía de los agentes?",
-      knowledgeSource: "Autonomek_v2.pdf",
-      retrievedChunks: [
-        "Sección 4.2: Todos los desarrollos de software y agentes de IA cuentan con una garantía de 30 días de estabilidad..."
-      ],
-      aiResponse: "Nuestros agentes de IA cuentan con una garantía de estabilidad de 30 días posteriores al despliegue, cubriendo ajustes y calibración."
-    }
-  },
-  {
-    title: "Automatización Comercial",
-    icon: Cpu,
-    desc: "Conexión total de tu stack comercial. Sincroniza formularios web, excels de Google Sheets, bandejas de Gmail y tus sistemas CRM/ERP de forma directa sin tareas repetitivas de copiado y pegado.",
-    benefits: [
-      "Sincroniza la información de tus prospectos al instante.",
-      "Elimina horas de copiado y pegado manual en tu equipo.",
-      "Conecta formularios web directos con Sheets y HubSpot/CRM.",
-      "Reduce errores de registro y descuidos comerciales a cero.",
-      "Envía alertas inmediatas a tus vendedores vía WhatsApp o Slack.",
-      "Orquestación fluida y robusta con flujos visuales en n8n.",
-      "Dispara flujos de facturación o envío de contratos al firmar."
-    ],
-    impact: "Cero errores de captura y ahorro masivo de horas",
-    metric: "+15h",
-    metricLabel: "Ahorradas por semana",
-    tech: ["n8n Workflows", "Google Sheets API", "ActiveCampaign", "HubSpot CRM"],
-    previewType: "workflow",
-    previewData: [
-      { name: "Webhook Inicial", status: "success", type: "trigger", desc: "Formulario Web enviado" },
-      { name: "Formatear Datos IA", status: "success", type: "action", desc: "Clasificación de lead" },
-      { name: "Sincronizar CRM", status: "success", type: "action", desc: "HubSpot CRM" },
-      { name: "Notificación de Alerta", status: "success", type: "action", desc: "WhatsApp de ventas" }
-    ]
-  },
-  {
-    title: "Desarrollo Web Premium",
-    icon: Globe,
-    desc: "No vendemos una página web básica; construimos una máquina de atracción de clientes lista para Google (SEO). Incluye embudos, chat de IA, integración a WhatsApp, formularios y CRM.",
-    benefits: [
-      "Desarrollado en Next.js App Router para carga instantánea.",
-      "Optimización SEO semántica para aparecer en primeros puestos.",
-      "Estructuras y embudos orientados al registro y venta.",
-      "Chat de IA interactivo y WhatsApp flotante integrados.",
-      "Formularios de contacto directos sincronizados a tu CRM.",
-      "Código limpio y responsivo con enfoque Mobile-First.",
-      "Puntuación perfecta de 100/100 en auditorías PageSpeed."
-    ],
-    impact: "Aparición en primeras posiciones y captación directa",
-    metric: "100%",
-    metricLabel: "Puntuación en PageSpeed",
-    tech: ["Next.js (App Router)", "TailwindCSS", "Vercel Edge Network", "SEO Semántico"],
-    previewType: "webSpeed",
-    previewData: {
-      performance: 100,
-      accessibility: 98,
-      bestPractices: 100,
-      seo: 100
-    }
-  }
-];
+type Region = 'co' | 'mx' | 'es' | 'us' | 'en';
+type DemoKey = 'whatsapp' | 'web' | 'crm';
 
-const SOLUTIONS_DATA_EN = [
-  {
-    title: "AI Sales Agent",
-    tagline: "Star Product",
-    icon: MessageSquare,
-    desc: "For any business that serves customers via WhatsApp. It operates 24/7, answers questions, quotes, schedules appointments, sends payment links, and automatically scales to humans when needed.",
-    benefits: [
-      "Serves B2C and B2B clients 24/7 autonomously.",
-      "Answers FAQs about your catalog and policies.",
-      "Quotes products and services in real time.",
-      "Closes sales directly inside the chat.",
-      "Schedules appointments by integrating with your calendar.",
-      "Sends secure automated payment links.",
-      "Escalates to a human in your team when necessary."
-    ],
-    impact: "Closes sales and captures leads on autopilot",
-    metric: "24/7",
-    metricLabel: "Sales availability",
-    tech: ["WhatsApp API", "n8n", "OpenAI GPT-4", "Supabase"],
-    previewType: "chat",
-    previewData: [
-      { text: "Hi, I'm interested in setting up an automated booking and responses system for my business. Is it very complicated?", isBot: false },
-      { text: "Hello! Not at all. We handle all the setup. We train your agent with your services info so it responds 24/7 and books appointments on autopilot.", isBot: true },
-      { text: "Great. And how do I know if a customer is really interested?", isBot: false },
-      { text: "The agent qualifies the prospect in the chat. If it detects buying intent or schedules an appointment, it sends you the sorted details instantly. You just close the sale! 🚀", isBot: true }
-    ]
-  },
-  {
-    title: "AI B2B Prospector",
-    icon: Search,
-    desc: "The ultimate engine for corporate client acquisition. Search target companies in bulk, extract verified phones and emails, qualify leads, and write and send personalized first contacts.",
-    benefits: [
-      "Search target companies in your niche in bulk.",
-      "Extract verified emails and mobile phones.",
-      "Filters and identifies key decision makers.",
-      "Writes hyper-personalized messages with AI.",
-      "Sends automated sequences for initial contact.",
-      "Schedules business meetings directly in your calendar.",
-      "Syncs qualified prospects with your CRM."
-    ],
-    impact: "Generation of business meeting pipeline",
-    metric: "+35%",
-    metricLabel: "Initial response rate",
-    tech: ["n8n", "Apollo.io", "DeepSeek-V3", "SMTP/IMAP Sync"],
-    previewType: "console",
-    previewData: [
-      { type: "info", text: "Starting target company scan..." },
-      { type: "success", text: "52 companies found in 'Logistics & Distribution' niche." },
-      { type: "info", text: "Extracting verified contacts from operations directors..." },
-      { type: "success", text: "38 emails and 14 mobile phones obtained." },
-      { type: "process", text: "Generating custom proposals with AI..." },
-      { type: "success", text: "38 emails sequenced. Projected delivery rate: 98.4%" }
-    ]
-  },
-  {
-    title: "AI Receptionist",
-    icon: Calendar,
-    desc: "Optimized for medical clinics, dentists, barber shops, and spas. Manages booking of slots, confirms attendance, processes reschedules, and answers FAQs.",
-    benefits: [
-      "Manages booking and confirmation of slots 24/7.",
-      "Automated attendance confirmation via WhatsApp.",
-      "Reduces customer no-shows by 90%.",
-      "Processes automated reschedules and cancellations.",
-      "Sends prior reminders with confirmation links.",
-      "Real-time sync with Google Calendar and Cal.com.",
-      "Answers common questions about location and hours."
-    ],
-    impact: "Reduces no-shows by more than 90%",
-    metric: "-90%",
-    metricLabel: "Reduction in no-shows",
-    tech: ["Google Calendar", "n8n", "WhatsApp API", "Cal.com"],
-    previewType: "calendar",
-    previewData: {
-      slots: ["09:00 AM", "10:30 AM", "02:00 PM", "04:30 PM"],
-      booked: [
-        { time: "09:00 AM", patient: "Dental Clinic - Evaluation", status: "Confirmed by Bot" },
-        { time: "10:30 AM", patient: "Dr. Mendoza - Cleaning", status: "Confirmed by Bot" },
-        { time: "02:00 PM", patient: "Specialist - Orthodontics", status: "Pending" }
-      ]
-    }
-  },
-  {
-    title: "AI Customer Support",
-    icon: Bot,
-    desc: "Omnichannel systems with vector database knowledge storage (RAG) integrated into Chatwoot and WhatsApp. Instantly solves 85% of recurring support questions.",
-    benefits: [
-      "First response time reduced to zero seconds.",
-      "Solves more than 85% of recurring doubts and questions.",
-      "Connected to your knowledge base using RAG technology.",
-      "Integrated into Chatwoot for instant human takeover.",
-      "Omnichannel support via WhatsApp, Web Chat, and Social.",
-      "Coherent and professional answers without hallucinations.",
-      "Classifies and assigns incidents automatically."
-    ],
-    impact: "Response times reduced to zero seconds",
-    metric: "0s",
-    metricLabel: "Response time",
-    tech: ["Chatwoot", "Qdrant Vector DB", "n8n", "OpenAI Assistant"],
-    previewType: "rag",
-    previewData: {
-      query: "What is the warranty for the agents?",
-      knowledgeSource: "Autonomek_v2.pdf",
-      retrievedChunks: [
-        "Section 4.2: All software developments and AI agents come with a 30-day stability warranty..."
-      ],
-      aiResponse: "Our AI agents come with a 30-day stability warranty after deployment, covering tweaks and calibration."
-    }
-  },
-  {
-    title: "Commercial Automation",
-    icon: Cpu,
-    desc: "Total connection of your commercial stack. Directly syncs web forms, Google Sheets, Gmail inboxes, and your CRM/ERP systems without repetitive copy-pasting tasks.",
-    benefits: [
-      "Syncs your prospect information instantly.",
-      "Eliminates hours of manual copy-pasting in your team.",
-      "Connects web forms directly with Sheets and HubSpot/CRM.",
-      "Reduces entry errors and commercial oversights to zero.",
-      "Sends instant alerts to your salespeople via WhatsApp or Slack.",
-      "Fluid and robust orchestration with visual flows in n8n.",
-      "Triggers billing or contract sending flows upon signing."
-    ],
-    impact: "Zero entry errors and massive hours saved",
-    metric: "+15h",
-    metricLabel: "Saved per week",
-    tech: ["n8n Workflows", "Google Sheets API", "ActiveCampaign", "HubSpot CRM"],
-    previewType: "workflow",
-    previewData: [
-      { name: "Initial Webhook", status: "success", type: "trigger", desc: "Web Form submitted" },
-      { name: "Format Data AI", status: "success", type: "action", desc: "Lead classification" },
-      { name: "Sync CRM", status: "success", type: "action", desc: "HubSpot CRM" },
-      { name: "Alert Notification", status: "success", type: "action", desc: "Sales WhatsApp" }
-    ]
-  },
-  {
-    title: "Premium Web Dev",
-    icon: Globe,
-    desc: "We don't just sell a basic page; we build a customer acquisition machine ready for Google (SEO). Includes funnels, AI chat, WhatsApp integration, forms, and CRM.",
-    benefits: [
-      "Developed in Next.js App Router for instant load.",
-      "Semantic SEO optimization to rank high.",
-      "Structures and funnels focused on registration and sales.",
-      "Interactive AI Chat and floating WhatsApp integrated.",
-      "Direct contact forms synchronized to your CRM.",
-      "Clean, responsive code with Mobile-First focus.",
-      "Perfect 100/100 score in PageSpeed audits."
-    ],
-    impact: "Appearance in top positions and direct capture",
-    metric: "100%",
-    metricLabel: "PageSpeed Score",
-    tech: ["Next.js (App Router)", "TailwindCSS", "Vercel Edge Network", "Semantic SEO"],
-    previewType: "webSpeed",
-    previewData: {
-      performance: 100,
-      accessibility: 98,
-      bestPractices: 100,
-      seo: 100
-    }
-  }
-];
+export default function HomeClient({ region = 'co' }: { region?: Region }) {
+  const isEn = region === 'us' || region === 'en';
+  const basePrefix =
+    region === 'en' ? '/en' : region === 'us' ? '/us' : region === 'es' ? '/es' : '';
 
-const LOCALIZED_CONTENT = {
-  co: {
-    heroTag: "POSICIONAMIENTO EN GOOGLE & AUTOMATIZACIÓN COMERCIAL",
-    heroTitle1: "Automatización de Procesos &",
-    heroTitle2: "Desarrollo Web para tu Negocio.",
-    heroSub: "Posicionamos tu página web en los primeros resultados de Google y convertimos tus visitas en clientes potenciales. Creamos agentes de IA y sistemas de atención 24/7 por WhatsApp para escalar tus ventas.",
-    heroCtaPrimary: "Diseñar Mi Agente",
-    heroCtaSecondary: "Explorar Soluciones",
-    painTitle: "/ Fugas de Dinero Ocultas",
-    painSub: "¿Te suena familiar?",
-    calcTitle: "/ Calculadora de Retorno",
-    calcSub: "Calcula tu ahorro al automatizar",
-    calcDesc: "Descubre cuánto dinero y tiempo productivo puede recuperar tu empresa al eliminar tareas repetitivas mediante flujos de información inteligentes.",
-    calcEmployees: "Número de Empleados",
-    calcSalary: "Salario Promedio Anual (por empleado)",
-    calcHours: "Horas semanales en tareas repetitivas",
-    calcInvestment: "Inversión estimada única en automatización",
-    calcEstSavings: "Ahorro anual estimado",
-    calcEstSavingsSub: "En tiempo de trabajo recuperado",
-    calcRoi: "ROI Primer Año",
-    calcBreakeven: "Punto de Equilibrio",
-    calcFiveYear: "Ahorro proyectado a 5 años",
-    calcCta: "Reclamar Auditoría de Procesos Gratuita",
-    calcDisclaimer: "*Los cálculos son estimaciones basadas en datos promedio. Te ayudamos a realizar un análisis de retorno personalizado sin compromiso.",
-    calcCurrency: "COP",
-    calcCurrencySymbol: "$",
-    calcMinSalary: 12000000,
-    calcMaxSalary: 120000000,
-    calcStepSalary: 2000000,
-    calcMinInvestment: 4000000,
-    calcMaxInvestment: 60000000,
-    calcStepInvestment: 1000000,
-    calcDefaultSalary: 24000000,
-    calcDefaultInvestment: 12000000,
-    sectorTag: "/ Nichos de Cierre Rápido",
-    sectorTitle: "Sectores de Alto Retorno",
-    sectorSub: "Implementamos sistemas adaptados a las dinámicas reales de tu industria en Colombia. Si tu negocio recibe un gran volumen de mensajes y gestiona datos de forma manual, esto es para ti.",
-    ventajaTag: "/ Ventaja Competitiva",
-    ventajaTitle: "Tecnología sin Complicaciones.",
-    ventajaSub: "La mayoría de las agencias complican el software. Nosotros estudiamos las dinámicas y cuellos de botella de tu negocio para construir sistemas sumamente intuitivos, veloces y enfocados 100% en retorno comercial.",
-    metodologiaTag: "/ Metodología Autonomek",
-    metodologiaTitle: "Del Caos al Orden.",
-    faqTag: "/ Preguntas Frecuentes",
-    faqTitle: "Despeja tus Dudas.",
-    testTag: "/ Opiniones de Clientes",
-    testTitle: "Testimonios Reales."
-  },
-  mx: {
-    heroTag: "MÁS PROSPECTOS EN AUTOMÁTICO. CERO COMPLICACIONES.",
-    heroTitle1: "Agencia de Automatización &",
-    heroTitle2: "Desarrollo Web con IA en México.",
-    heroSub: "Convertimos tu flujo de WhatsApp, tus redes y tu web en una máquina de adquisición de clientes. Creamos empleados de ventas inteligentes que responden, cotizan y agendan citas 24/7 en Ciudad de México y todo el país.",
-    heroCtaPrimary: "Diseñar Mi Agente",
-    heroCtaSecondary: "Explorar Soluciones",
-    painTitle: "/ Fugas de Dinero Ocultas",
-    painSub: "¿Te suena familiar?",
-    calcTitle: "/ Calculadora de Retorno",
-    calcSub: "Calcula tu ahorro al automatizar",
-    calcDesc: "Descubre cuánto dinero y tiempo productivo puede recuperar tu empresa al eliminar tareas repetitivas mediante flujos de información inteligentes.",
-    calcEmployees: "Número de Empleados",
-    calcSalary: "Salario Promedio Anual (por empleado)",
-    calcHours: "Horas semanales en tareas repetitivas",
-    calcInvestment: "Inversión estimada única en automatización",
-    calcEstSavings: "Ahorro anual estimado",
-    calcEstSavingsSub: "En tiempo de trabajo recuperado",
-    calcRoi: "ROI Primer Año",
-    calcBreakeven: "Punto de Equilibrio",
-    calcFiveYear: "Ahorro proyectado a 5 años",
-    calcCta: "Reclamar Auditoría de Procesos Gratuita",
-    calcDisclaimer: "*Los cálculos son estimaciones basadas en datos promedio. Te ayudamos a realizar un análisis de retorno personalizado sin compromiso.",
-    calcCurrency: "MXN",
-    calcCurrencySymbol: "$",
-    calcMinSalary: 80000,
-    calcMaxSalary: 800000,
-    calcStepSalary: 10000,
-    calcMinInvestment: 25000,
-    calcMaxInvestment: 400000,
-    calcStepInvestment: 5000,
-    calcDefaultSalary: 180000,
-    calcDefaultInvestment: 80000,
-    sectorTag: "/ Nichos de Cierre Rápido",
-    sectorTitle: "Sectores de Alto Retorno",
-    sectorSub: "Implementamos sistemas adaptados a las dinámicas reales de tu industria en México. Si tu negocio recibe un gran volumen de mensajes y gestiona datos de forma manual, esto es para ti.",
-    ventajaTag: "/ Ventaja Competitiva",
-    ventajaTitle: "Tecnología sin Complicaciones.",
-    ventajaSub: "La mayoría de las agencias complican el software. Nosotros estudiamos las dinámicas y cuellos de botella de tu negocio en México para construir sistemas sumamente intuitivos, veloces y enfocados 100% en retorno comercial.",
-    metodologiaTag: "/ Metodología Autonomek",
-    metodologiaTitle: "Del Caos al Orden.",
-    faqTag: "/ Preguntas Frecuentes",
-    faqTitle: "Despeja tus Dudas.",
-    testTag: "/ Opiniones de Clientes",
-    testTitle: "Testimonios Reales."
-  },
-  es: {
-    heroTag: "MÁS CLIENTES EN AUTOMÁTICO. CERO COMPLICACIONES.",
-    heroTitle1: "Agencia de Automatización &",
-    heroTitle2: "Desarrollo Web con IA en España.",
-    heroSub: "Convertimos tu flujo de WhatsApp, tus redes y tu web en una máquina de adquisición de clientes. Creamos empleados de ventas inteligentes que responden, cotizan y agendan citas 24/7 de forma autónoma para pymes españolas.",
-    heroCtaPrimary: "Diseñar Mi Agente",
-    heroCtaSecondary: "Explorar Soluciones",
-    painTitle: "/ Fugas de Dinero Ocultas",
-    painSub: "¿Te suena familiar?",
-    calcTitle: "/ Calculadora de Retorno",
-    calcSub: "Calcula tu ahorro al automatizar",
-    calcDesc: "Descubre cuánto dinero y tiempo de trabajo puede recuperar tu empresa al eliminar tareas repetitivas mediante flujos de información inteligentes.",
-    calcEmployees: "Número de Empleados",
-    calcSalary: "Salario Promedio Anual (por empleado)",
-    calcHours: "Horas semanales en tareas repetitivas",
-    calcInvestment: "Inversión estimada única en automatización",
-    calcEstSavings: "Ahorro anual estimado",
-    calcEstSavingsSub: "En tiempo de trabajo recuperado",
-    calcRoi: "ROI Primer Año",
-    calcBreakeven: "Punto de Equilibrio",
-    calcFiveYear: "Ahorro proyectado a 5 años",
-    calcCta: "Reclamar Auditoría de Procesos Gratuita",
-    calcDisclaimer: "*Los cálculos son estimaciones basadas en datos promedio. Te ayudamos a realizar un análisis de retorno personalizado sin compromiso.",
-    calcCurrency: "EUR",
-    calcCurrencySymbol: "€",
-    calcMinSalary: 15000,
-    calcMaxSalary: 120000,
-    calcStepSalary: 2000,
-    calcMinInvestment: 2000,
-    calcMaxInvestment: 35000,
-    calcStepInvestment: 1000,
-    calcDefaultSalary: 30000,
-    calcDefaultInvestment: 8000,
-    sectorTag: "/ Nichos de Cierre Rápido",
-    sectorTitle: "Sectores de Alto Retorno",
-    sectorSub: "Implementamos sistemas adaptados a las dinámicas reales de tu industria en España. Si tu negocio recibe un gran volumen de mensajes y gestiona datos de forma manual, esto es para ti.",
-    ventajaTag: "/ Ventaja Competitiva",
-    ventajaTitle: "Tecnología sin Complicaciones.",
-    ventajaSub: "La mayoría de las agencias complican el software. Nosotros estudiamos las dinámicas y cuellos de botella de tu negocio en España para construir sistemas sumamente intuitivos, veloces y enfocados 100% en retorno comercial.",
-    metodologiaTag: "/ Metodología Autonomek",
-    metodologiaTitle: "Del Caos al Orden.",
-    faqTag: "/ Preguntas Frecuentes",
-    faqTitle: "Despeja tus Dudas.",
-    testTag: "/ Opiniones de Clientes",
-    testTitle: "Testimonios Reales."
-  },
-  us: {
-    heroTag: "MORE CLIENTS AUTOMATICALLY. ZERO HASSLE.",
-    heroTitle1: "AI Automation & Web",
-    heroTitle2: "Development Agency.",
-    heroSub: "We turn your WhatsApp flow, social networks, and web into a customer acquisition engine. We build intelligent sales agents that respond, quote, and book appointments 24/7 autonomously.",
-    heroCtaPrimary: "Design My Agent",
-    heroCtaSecondary: "Explore Solutions",
-    painTitle: "/ Hidden Money Leaks",
-    painSub: "Does this sound familiar?",
-    calcTitle: "/ Return Calculator",
-    calcSub: "Calculate your savings from automation",
-    calcDesc: "Discover how much money and productive time your business can recover by eliminating repetitive tasks through smart information flows.",
-    calcEmployees: "Number of Employees",
-    calcSalary: "Average Annual Salary (per employee)",
-    calcHours: "Weekly hours on repetitive tasks",
-    calcInvestment: "One-time estimated investment in automation",
-    calcEstSavings: "Estimated Annual Savings",
-    calcEstSavingsSub: "In work time recovered",
-    calcRoi: "First Year ROI",
-    calcBreakeven: "Breakeven Point",
-    calcFiveYear: "5-Year Projected Savings",
-    calcCta: "Claim Free Process Audit",
-    calcDisclaimer: "*Calculations are estimates based on average efficiency data. We help you perform a personalized return analysis without any commitment.",
-    calcCurrency: "USD",
-    calcCurrencySymbol: "$",
-    calcMinSalary: 30000,
-    calcMaxSalary: 250000,
-    calcStepSalary: 5000,
-    calcMinInvestment: 2000,
-    calcMaxInvestment: 50000,
-    calcStepInvestment: 1000,
-    calcDefaultSalary: 65000,
-    calcDefaultInvestment: 10000,
-    sectorTag: "/ Fast-Closing Niches",
-    sectorTitle: "High-Return Sectors",
-    sectorSub: "We implement systems tailored to the actual dynamics of your industry in the US. If your business handles a large volume of messages and manages data manually, this is for you.",
-    ventajaTag: "/ Competitive Advantage",
-    ventajaTitle: "Technology Without Complications.",
-    ventajaSub: "Most agencies overcomplicate software. We study your business dynamics and bottlenecks to build extremely intuitive, fast, and 100% commercial return-focused systems.",
-    metodologiaTag: "/ Autonomek Methodology",
-    metodologiaTitle: "From Chaos to Order.",
-    faqTag: "/ FAQ",
-    faqTitle: "Clear Your Doubts.",
-    testTag: "/ Client Feedback",
-    testTitle: "Real Testimonials."
-  }
-};
-
-const painPointsEs = [
-  {
-    title: "Mensajes sin Responder",
-    desc: "Clientes que escriben en la noche, fines de semana o durante picos de trabajo y no reciben respuesta. Se van directo a tu competencia en menos de 5 minutos."
-  },
-  {
-    title: "Horas de Trabajo Manual",
-    desc: "Tu equipo pasa el día agendando citas, enviando recordatorios, persiguiendo links de pago y facturando en vez de enfocarse en las actividades comerciales que sí traen dinero."
-  },
-  {
-    title: "Pérdida de Prospectos",
-    desc: "Citas que se olvidan confirmar, cotizaciones sin seguimiento proactivo y prospectos B2B que se enfrían porque nadie les dio atención inmediata y personalizada."
-  }
-];
-
-const painPointsEn = [
-  {
-    title: "Unanswered Messages",
-    desc: "Customers writing at night, weekends, or during peak hours without response. They leave for your competitors in less than 5 minutes."
-  },
-  {
-    title: "Hours of Manual Labor",
-    desc: "Your team spends the day booking appointments, sending reminders, chasing payment links, and billing instead of focusing on commercial activities that generate revenue."
-  },
-  {
-    title: "Lost Prospects",
-    desc: "Appointments forgotten to confirm, quotes with no proactive follow-up, and B2B leads that cool down because no one gave them immediate attention."
-  }
-];
-
-const sectorsEs = [
-  {
-    title: "Clínicas & Odontólogos",
-    desc: "El agente responde dudas sobre tratamientos y precios, agenda citas automáticamente y envía recordatorios reduciendo el ausentismo en un 90%.",
-    impact: "+90% Asistencia a Consultas"
-  },
-  {
-    title: "Inmobiliarias & Constructoras",
-    desc: "Calificación de leads en segundos, filtrado por presupuesto, envío de fichas técnicas de inmuebles y agendamiento de visitas físicas a los proyectos.",
-    impact: "+35% Visitas Físicas Agendadas"
-  },
-  {
-    title: "Talleres Automotrices",
-    desc: "Asistentes de IA que reservan turnos de mantenimiento, notifican a clientes sobre el estado del vehículo y permiten envíos directos de cotizaciones y facturas.",
-    impact: "Operaciones de agendamiento 100% automatizadas"
-  },
-  {
-    title: "Hoteles & Academias",
-    desc: "Respuestas de tarifas de habitaciones o matrículas de cursos, reservas y cobro de inscripciones/estadías de forma directa desde WhatsApp.",
-    impact: "Captación 24/7 sin dependencias"
-  },
-  {
-    title: "Tiendas E-commerce",
-    desc: "Resolución de dudas sobre envíos y stock de productos en segundos, y disparadores automatizados para recuperar compras o carritos abandonados.",
-    impact: "+22% Ventas Recuperadas"
-  },
-  {
-    title: "Logística & Distribuidores",
-    desc: "Consulta de estado de envíos, cotización de fletes al mayoreo para distribuidores industriales, y carga automática de órdenes a sistemas ERP.",
-    impact: "Cero demoras en consultas de rastreo"
-  }
-];
-
-const sectorsEn = [
-  {
-    title: "Clinics & Dentists",
-    desc: "The agent answers questions about treatments and pricing, books appointments automatically, and sends reminders, reducing no-shows by 90%.",
-    impact: "+90% Appointment Attendance"
-  },
-  {
-    title: "Real Estate & Developers",
-    desc: "Qualify leads in seconds, filter by budget, send property spec sheets, and schedule physical visits to development projects.",
-    impact: "+35% Scheduled Property Visits"
-  },
-  {
-    title: "Auto Repair Shops",
-    desc: "AI assistants that book maintenance slots, notify customers of vehicle repair status, and allow direct delivery of quotes and invoices.",
-    impact: "100% Automated Scheduling Operations"
-  },
-  {
-    title: "Hotels & Academies",
-    desc: "Instantly respond to room rates or course enrollments, process bookings, and handle registration/stay payments directly from WhatsApp.",
-    impact: "24/7 Acquisition with No Overhead"
-  },
-  {
-    title: "E-commerce Stores",
-    desc: "Resolve questions about shipping and product stock in seconds, and trigger automated flows to recover abandoned carts and sales.",
-    impact: "+22% Recovered Sales"
-  },
-  {
-    title: "Logistics & Distributors",
-    desc: "Check shipment tracking status, quote wholesale freight shipping for industrial distributors, and auto-load orders into ERP systems.",
-    impact: "Zero Delays in Tracking Queries"
-  }
-];
-
-const diffsEs = [
-  { title: "Desarrollo Ágil & IA", desc: "Utilizamos inteligencia artificial para optimizar nuestros propios procesos internos, lo que nos permite entregar sistemas de alta calidad en tiempo récord." },
-  { title: "Infraestructura Escalable", desc: "Alojamos tus agentes y webs en servidores en la nube de alta disponibilidad. Tu sistema seguirá operando sin caídas a medida que crezca tu volumen de clientes." },
-  { title: "Seguridad y Privacidad", desc: "Diseñamos con protocolos robustos. Los datos de tus clientes y de tu empresa se mantienen cifrados y fuera de peligro." },
-  { title: "Soporte e Iteración Mensual", desc: "Monitoreamos la estabilidad 24/7. Ajustamos el tono de los agentes y actualizamos el SEO para asegurar que tu máquina de ventas no se detenga." }
-];
-
-const diffsEn = [
-  { title: "Agile Dev & AI", desc: "We use artificial intelligence to optimize our own internal workflows, enabling us to deliver top-tier systems in record time." },
-  { title: "Scalable Infrastructure", desc: "We host your agents and web apps on high-availability cloud servers. Your system stays active as your customer volume scales." },
-  { title: "Security & Privacy", desc: "We design with robust protocols. Your customers' data and company records remain encrypted and completely secure." },
-  { title: "Monthly Support & Iteration", desc: "We monitor stability 24/7. We tweak agent tone and update SEO to ensure your sales machine never stops." }
-];
-
-const methodologyEs = [
-  { step: "01", title: "Diagnóstico", desc: "Analizamos tu proceso comercial actual sin costo para detectar cuellos de botella." },
-  { step: "02", title: "Propuesta", desc: "Te entregamos un alcance cerrado, costos claros y retorno estimado de inversión." },
-  { step: "03", title: "Desarrollo", desc: "Diseñamos tus webs de alto rendimiento e integramos tus asistentes en piloto automático." },
-  { step: "04", title: "Optimización", desc: "Monitoreamos la estabilidad 24/7 y mejoramos el entrenamiento de los agentes mensualmente." }
-];
-
-const methodologyEn = [
-  { step: "01", title: "Discovery", desc: "We analyze your current sales pipeline free of charge to pinpoint bottlenecks." },
-  { step: "02", title: "Proposal", desc: "We deliver a fixed scope, clear pricing, and estimated return on investment." },
-  { step: "03", title: "Development", desc: "We engineer your high-performance web pages and deploy your agents on autopilot." },
-  { step: "04", title: "Optimization", desc: "We monitor stability 24/7 and refine agent training on a monthly basis." }
-];
-
-const testimonialsEs = [
-  {
-    quote: "Duplicamos nuestras ventas en el primer mes de lanzar el sitio web con embudo e integraciones de WhatsApp. El proceso fue limpio y rápido.",
-    author: "Mateo Gómez",
-    role: "Fundador de Toxxic",
-    initials: "MG",
-    gradient: "from-[#D62828] to-[#990000]"
-  },
-  {
-    quote: "Antes pasábamos el día respondiendo disponibilidades de la finca. Con el bot de reservas, las fechas se agendan solas. Redujimos el trabajo un 80%.",
-    author: "Carolina Rojas",
-    role: "Administradora de Villa Grande La Misia",
-    initials: "CR",
-    gradient: "from-[#72dbd3] to-[#00A884]"
-  },
-  {
-    quote: "El empleado de ventas IA atiende y toma pedidos automáticos a la media noche por WhatsApp. No perdemos ni un solo cliente con hambre.",
-    author: "Sofía Medina",
-    role: "Gerente de Agente IA Comidas Rápidas",
-    initials: "SM",
-    gradient: "from-white/20 to-white/5"
-  }
-];
-
-const testimonialsEn = [
-  {
-    quote: "We doubled our sales in the first month after launching the web page with funnels and WhatsApp integration. Clean and fast process.",
-    author: "Mateo Gómez",
-    role: "Founder of Toxxic",
-    initials: "MG",
-    gradient: "from-[#D62828] to-[#990000]"
-  },
-  {
-    quote: "We used to spend the whole day responding about villa availability. With the booking bot, dates are booked on their own. Reduced work by 80%.",
-    author: "Carolina Rojas",
-    role: "Manager of Villa Grande La Misia",
-    initials: "CR",
-    gradient: "from-[#72dbd3] to-[#00A884]"
-  },
-  {
-    quote: "The AI sales employee takes orders automatically at midnight via WhatsApp. We don't lose a single hungry customer.",
-    author: "Sofía Medina",
-    role: "Manager of Fast Food AI Agent",
-    initials: "SM",
-    gradient: "from-white/20 to-white/5"
-  }
-];
-
-const faqEs = [
-  { q: "¿Cuánto tarda en implementarse un Empleado de Ventas IA?", a: "Dependiendo de la complejidad y los canales de mensajería, un Agente de IA funcional y calificado puede estar listo en un plazo de 2 a 4 semanas." },
-  { q: "¿Tengo que saber programar o administrar servidores?", a: "Para nada. Nosotros nos encargamos de todo el hosting, las conexiones API y el mantenimiento técnico. Te entregamos un sistema llave en mano listo para operar." },
-  { q: "¿Cómo se entrenan los agentes conversacionales?", a: "Los alimentamos directamente con la información oficial de tus servicios, catálogos, políticas de entrega y preguntas frecuentes para asegurar respuestas 100% correctas." },
-  { q: "¿Qué pasa si mis herramientas actuales no son modernas?", a: "Nuestros orquestadores de software (n8n) nos permiten conectar sistemas antiguos, hojas de cálculo de Excel e incluso correos electrónicos con agentes modernos de IA de forma transparente." }
-];
-
-const faqEn = [
-  { q: "How long does it take to deploy an AI Sales Agent?", a: "Depending on complexity and messaging channels, a fully functional and qualified AI Agent can be ready in 2 to 4 weeks." },
-  { q: "Do I need to know how to code or manage servers?", a: "Not at all. We handle all hosting, API connections, and technical maintenance. We deliver a turnkey system ready to operate." },
-  { q: "How are the conversational agents trained?", a: "We train them directly with your official services info, catalogs, delivery policies, and FAQs to guarantee 100% accurate responses." },
-  { q: "What if my current tools are outdated?", a: "Our workflow orchestrators (n8n) allow us to connect legacy systems, Excel spreadsheets, and email accounts with modern AI agents seamlessly." }
-];
-
-const stackListEs = [
-  { title: "Carga Ultra Rápida (Next.js & Supabase)", desc: "Páginas cargadas de forma instantánea preparadas para retener visitas y posicionar directamente en Google (SEO local y nacional)." },
-  { title: "Modelos de Lenguaje Avanzados (LLM)", desc: "Agentes conversacionales capaces de entender texto, voz, audio e imágenes, operando bajo flujos lógicos controlados sin alucinaciones." },
-  { title: "Orquestadores de Integraciones (n8n)", desc: "Conexión directa entre bases de datos, CRMs, APIs de mensajería (WhatsApp Cloud API) y paneles de control en la nube." }
-];
-
-const stackListEn = [
-  { title: "Ultra Fast Load (Next.js & Supabase)", desc: "Instantly loaded pages optimized to retain visits and rank directly on Google (local and national SEO)." },
-  { title: "Advanced Language Models (LLM)", desc: "Conversational agents capable of understanding text, voice, audio, and images, operating under controlled logic flows without hallucinations." },
-  { title: "Integration Orchestrators (n8n)", desc: "Direct connection between databases, CRMs, messaging APIs (WhatsApp Cloud API), and cloud control panels." }
-];
-
-const formatCurrency = (num: number, symbol = "$", region = "co") => {
-  const formatted = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, region === 'us' ? "," : ".");
-  if (region === 'es') {
-    return `${formatted} ${symbol}`;
-  }
-  return `${symbol}${formatted}`;
-};
-export default function Home({ region = 'co' }: { region?: 'co' | 'mx' | 'es' | 'us' }) {
-  const content = LOCALIZED_CONTENT[region];
-  const SOLUTIONS_DATA = region === 'us' ? SOLUTIONS_DATA_EN : SOLUTIONS_DATA_ES;
-  const isEn = region === 'us';
-  const painPoints = isEn ? painPointsEn : painPointsEs;
-  const sectors = isEn ? sectorsEn : sectorsEs;
-  const diffs = isEn ? diffsEn : diffsEs;
-  const methodology = isEn ? methodologyEn : methodologyEs;
-  const testimonials = isEn ? testimonialsEn : testimonialsEs;
-  const faq = isEn ? faqEn : faqEs;
-
-  const solTag = isEn ? "/ Turnkey Solutions" : "/ Soluciones Llave en Mano";
-  const solTitleMain = isEn ? "Systems & " : "Sistemas y ";
-  const solTitleAccent = isEn ? "AI Agents" : "Agentes IA";
-  const solSubText = isEn ? "We deploy software infrastructure engineered to sell, automate internal workflows, and constantly acquire customers." : "Desplegamos infraestructura de software diseñada para vender, automatizar procesos internos y captar clientes de forma constante.";
-  const solutionsImpact = isEn ? "Commercial Impact" : "Impacto Comercial";
-  const solutionsEngineering = isEn ? "Engineering & Stack" : "Ingeniería & Stack";
-  const solutionsCta = isEn ? "Design this system" : "Diseñar este sistema";
-
-  const philosophyTag = isEn ? "Our Philosophy" : "Nuestra Filosofía";
-  const philosophyTitleMain = isEn ? "We don't sell code or templates." : "No vendemos código ni plantillas.";
-  const philosophyTitleAccent = isEn ? "We build integrated systems of acquisition and efficiency." : "Construimos sistemas integrados de adquisición y eficiencia.";
-  const philosophyDesc = isEn 
-    ? "We adapt to the exact needs of your business. If your sales team is saturated, your prospects cool down, or your employees spend hours on repetitive manual tasks, we design the solution tailored to your current processes."
-    : "Nos acoplamos a las necesidades exactas de tu negocio. Si tu equipo de ventas está saturado, tus prospectos se enfrían o tus empleados pasan horas en tareas manuales repetitivas, diseñamos la solución a la medida de tus procesos actuales.";
-  const philosophyCta = isEn ? "[ SEE ALL SOLUTIONS ]" : "[ VER TODAS LAS SOLUCIONES ]";
-
-  const stackList = isEn ? stackListEn : stackListEs;
-  const stackTag = isEn ? "Tech Stack" : "Stack Tecnológico";
-  const stackTitleMain = isEn ? "Robust Engineering" : "Infraestructura de";
-  const stackTitleAccent = isEn ? "Infrastructure." : "Ingeniería Robusta.";
-
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
-  const heroY = useTransform(scrollYProgress, [0, 1], [0, 200]);
-
-  // Projects Modal State
+  const [activeCategory, setActiveCategory] = useState<'ALL' | 'IA' | 'Web' | 'Automatización'>('ALL');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeSolution, setActiveSolution] = useState(0);
-  const [activeSector, setActiveSector] = useState(0);
+  const [activeDemo, setActiveDemo] = useState<DemoKey>('whatsapp');
+  const [activeLeak, setActiveLeak] = useState<number>(0);
+  const [leakScrollProgress, setLeakScrollProgress] = useState<number>(0);
+  const [activeCapability, setActiveCapability] = useState<number>(0);
+  const [activeMethodStep, setActiveMethodStep] = useState<number>(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const leakSectionRef = useRef<HTMLElement>(null);
 
-  // Dynamic projects selection for featured list (Toxxic, La Juana, Ecógrafos, Comidas Rápidas)
-  const featuredProjects = useMemo(() => {
-    return PROJECTS.filter(p => [5, 4, 1, 9].includes(p.id));
+  useEffect(() => {
+    const handleScroll = () => {
+      const el = leakSectionRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const stickyOffset = window.innerWidth >= 1024 ? 80 : 64;
+      const scrollableDistance = Math.max(1, rect.height - (window.innerHeight - stickyOffset));
+
+      // Start reacting as soon as the section approaches the sticky position (works on both Mobile & PC)
+      const rawProgress = Math.max(0, Math.min(1, (stickyOffset + 60 - rect.top) / scrollableDistance));
+      setLeakScrollProgress(rawProgress);
+
+      const nextIdx = rawProgress < 0.28 ? 0 : rawProgress < 0.62 ? 1 : 2;
+      setActiveLeak((prev) => (prev !== nextIdx ? nextIdx : prev));
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleOpenDetails = (project: Project) => {
+  const handleSelectLeak = (idx: number) => {
+    setActiveLeak(idx);
+    const el = leakSectionRef.current;
+    if (el) {
+      const rect = el.getBoundingClientRect();
+      const stickyOffset = window.innerWidth >= 1024 ? 80 : 64;
+      const sectionTop = window.scrollY + rect.top - stickyOffset;
+      const scrollableDistance = Math.max(1, rect.height - (window.innerHeight - stickyOffset));
+      const targetProgress = idx === 0 ? 0.05 : idx === 1 ? 0.45 : 0.82;
+      window.scrollTo({
+        top: sectionTop + scrollableDistance * targetProgress,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  const projectsList = isEn ? PROJECTS_EN : PROJECTS;
+
+  const filteredProjects = useMemo(() => {
+    const list =
+      activeCategory === 'ALL'
+        ? projectsList
+        : projectsList.filter((p) => p.category === activeCategory);
+    return list.slice(0, 6);
+  }, [activeCategory, projectsList]);
+
+  const handleOpenProject = (project: Project) => {
     setSelectedProject(project);
     setIsModalOpen(true);
   };
 
+  const whatsappDirectUrl = isEn
+    ? 'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20want%20to%20evaluate%20an%20AI%20automation%20or%20web%20engineering%20project.'
+    : 'https://wa.me/573004435894?text=Hola%20Autonomek%2C%20quiero%20evaluar%20un%20proyecto%20de%20ingenier%C3%ADa%20web%2C%20agentes%20IA%20o%20automatizaci%C3%B3n.';
+
+  const servicesHref = isEn ? `${basePrefix}/services` : `${basePrefix}/servicios`;
+  const projectsHref = isEn ? `${basePrefix}/projects` : `${basePrefix}/proyectos`;
+
+  const demoData: Record<
+    DemoKey,
+    {
+      tab: string;
+      channelTitle: string;
+      summary: string;
+      messages: { role: 'user' | 'agent' | 'system'; text: string; time: string }[];
+      metrics: { label: string; value: string }[];
+      whatsappCta: string;
+      whatsappLink: string;
+    }
+  > = isEn
+    ? {
+        whatsapp: {
+          tab: 'WhatsApp AI Agent',
+          channelTitle: 'WhatsApp Cloud API — Sales & Booking Agent',
+          summary:
+            'Understands text, voice notes, and payment receipts. Qualifies budget, checks calendar availability, and books appointments in real time.',
+          messages: [
+            {
+              role: 'user',
+              text: 'Hi, we need 15 ultrasound machines rented for our clinic in Miami next month. Do you have availability and volume pricing?',
+              time: '09:14',
+            },
+            {
+              role: 'agent',
+              text: 'Hello! Yes, we have 18 portable Doppler units available for next month. For a 15-unit clinic deployment, the corporate rate is applied. Would you like me to reserve a 15-minute technical call for tomorrow at 10:00 AM?',
+              time: '09:14',
+            },
+            {
+              role: 'system',
+              text: 'Lead qualified (High Intent) → Synced in HubSpot CRM → Calendar invite dispatched',
+              time: '09:14',
+            },
+          ],
+          metrics: [
+            { label: 'First response latency', value: '1.1s' },
+            { label: 'Availability', value: '24/7' },
+            { label: 'CRM sync', value: 'Automatic' },
+          ],
+          whatsappCta: 'Deploy this WhatsApp agent for my company',
+          whatsappLink:
+            'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20want%20to%20deploy%20a%2024%2F7%20WhatsApp%20AI%20Sales%20Agent.',
+        },
+        web: {
+          tab: 'Next.js Web & SEO',
+          channelTitle: 'High-Performance Web Architecture + Technical SEO/GEO',
+          summary:
+            'Sub-second Next.js platforms structured with Schema.org JSON-LD, bilingual hreflang, and direct conversion funnels.',
+          messages: [
+            {
+              role: 'system',
+              text: 'Organic search query: "B2B industrial equipment supplier + immediate quote"',
+              time: '14:02',
+            },
+            {
+              role: 'agent',
+              text: 'Page rendered from Edge cache in 380ms (LCP 0.6s, CLS 0.00). Structured product catalog indexed by Google & Perplexity.',
+              time: '14:02',
+            },
+            {
+              role: 'user',
+              text: 'Visitor selects product specifications and initiates direct WhatsApp quote with pre-filled context.',
+              time: '14:03',
+            },
+          ],
+          metrics: [
+            { label: 'Largest Contentful Paint', value: '0.6s' },
+            { label: 'Core Web Vitals score', value: '98/100' },
+            { label: 'Layout shift (CLS)', value: '0.00' },
+          ],
+          whatsappCta: 'Quote a high-performance website',
+          whatsappLink:
+            'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20want%20to%20quote%20a%20High-Performance%20Website%20with%20Technical%20SEO.',
+        },
+        crm: {
+          tab: 'n8n & ERP Automation',
+          channelTitle: 'Autonomous Back-Office & CRM Orchestration',
+          summary:
+            'Eliminates manual data entry between payment gateways, accounting software, Google Workspace, and CRM pipelines.',
+          messages: [
+            {
+              role: 'system',
+              text: 'Webhook received: Payment confirmed in Stripe / Bancolombia ($4,800 USD)',
+              time: '16:40',
+            },
+            {
+              role: 'agent',
+              text: 'n8n workflow executed: PDF contract generated, electronic invoice issued in ERP, and client onboarding sent via WhatsApp.',
+              time: '16:40',
+            },
+            {
+              role: 'system',
+              text: 'Execution completed in 420ms with zero human intervention.',
+              time: '16:40',
+            },
+          ],
+          metrics: [
+            { label: 'Execution time', value: '420ms' },
+            { label: 'Manual data entry', value: '0 hrs' },
+            { label: 'Operational error rate', value: '0%' },
+          ],
+          whatsappCta: 'Audit my company workflows',
+          whatsappLink:
+            'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20want%20to%20automate%20my%20company%20workflows%20with%20n8n%20and%20APIs.',
+        },
+      }
+    : {
+        whatsapp: {
+          tab: 'Agente IA en WhatsApp',
+          channelTitle: 'WhatsApp Cloud API — Calificación y agendamiento 24/7',
+          summary:
+            'Comprende texto, notas de voz y comprobantes de pago. Califica presupuesto, consulta disponibilidad en tu calendario y agenda citas sin intervención manual.',
+          messages: [
+            {
+              role: 'user',
+              text: 'Hola, necesitamos alquilar 12 ecógrafos para una jornada médica en Bogotá el próximo mes. ¿Tienen disponibilidad y tarifa corporativa?',
+              time: '09:14',
+            },
+            {
+              role: 'agent',
+              text: '¡Hola! Sí, contamos con 16 equipos Doppler portátiles disponibles en esas fechas. Para 12 unidades aplicamos tarifa institucional con soporte incluido. ¿Te agendo una llamada técnica mañana a las 10:00 a. m. para enviarte el contrato?',
+              time: '09:14',
+            },
+            {
+              role: 'system',
+              text: 'Prospecto calificado → Registrado en CRM → Cita bloqueada en Google Calendar',
+              time: '09:14',
+            },
+          ],
+          metrics: [
+            { label: 'Tiempo de respuesta', value: '1.1s' },
+            { label: 'Continuidad operativa', value: '24/7' },
+            { label: 'Registro en CRM', value: 'Automático' },
+          ],
+          whatsappCta: 'Implementar este agente en mi empresa',
+          whatsappLink:
+            'https://wa.me/573004435894?text=Hola%20Autonomek%2C%20quiero%20implementar%20un%20Agente%20de%20IA%20en%20WhatsApp%20para%20mi%20empresa.',
+        },
+        web: {
+          tab: 'Web Next.js y SEO',
+          channelTitle: 'Arquitectura Web de Alto Rendimiento + SEO/GEO',
+          summary:
+            'Plataformas construidas en Next.js con tiempos de carga inferiores a un segundo, datos estructurados Schema.org y embudos directos a WhatsApp.',
+          messages: [
+            {
+              role: 'system',
+              text: 'Búsqueda orgánica en Google: "proveedor equipos médicos B2B cotización inmediata"',
+              time: '14:02',
+            },
+            {
+              role: 'agent',
+              text: 'Página servida desde caché Edge en 380ms (LCP 0.6s, CLS 0.00). Catálogo técnico indexado en Google y motores de IA.',
+              time: '14:02',
+            },
+            {
+              role: 'user',
+              text: 'El comprador selecciona especificaciones y abre conversación en WhatsApp con el pedido ya estructurado.',
+              time: '14:03',
+            },
+          ],
+          metrics: [
+            { label: 'Carga principal (LCP)', value: '0.6s' },
+            { label: 'Core Web Vitals', value: '98/100' },
+            { label: 'Salto visual (CLS)', value: '0.00' },
+          ],
+          whatsappCta: 'Cotizar plataforma web de alto rendimiento',
+          whatsappLink:
+            'https://wa.me/573004435894?text=Hola%20Autonomek%2C%20quiero%20cotizar%20una%20P%C3%A1gina%20Web%20de%20Alto%20Rendimiento%20con%20SEO.',
+        },
+        crm: {
+          tab: 'Automatización n8n y ERP',
+          channelTitle: 'Orquestación Autónoma de Procesos y Facturación',
+          summary:
+            'Elimina la digitación manual conectando pasarelas de pago, software contable, inventarios y WhatsApp en un solo flujo.',
+          messages: [
+            {
+              role: 'system',
+              text: 'Webhook recibido: Comprobante de pago validado ($4,800 USD)',
+              time: '16:40',
+            },
+            {
+              role: 'agent',
+              text: 'Flujo n8n ejecutado: Contrato PDF generado, factura emitida en el ERP y notificación enviada al cliente por WhatsApp.',
+              time: '16:40',
+            },
+            {
+              role: 'system',
+              text: 'Proceso completado en 420ms con cero intervención humana.',
+              time: '16:40',
+            },
+          ],
+          metrics: [
+            { label: 'Tiempo de ejecución', value: '420ms' },
+            { label: 'Digitación manual', value: '0 hrs' },
+            { label: 'Errores de transcripción', value: '0%' },
+          ],
+          whatsappCta: 'Auditar los procesos de mi empresa',
+          whatsappLink:
+            'https://wa.me/573004435894?text=Hola%20Autonomek%2C%20quiero%20automatizar%20los%20procesos%20operativos%20de%20mi%20empresa.',
+        },
+      };
+
+  const painPoints = isEn
+    ? [
+        {
+          num: '01',
+          title: 'Leads cool down waiting for a human reply',
+          desc: 'When a B2B buyer writes on WhatsApp at 7:00 PM or on a weekend and waits four hours for a quote, they have already contacted two competitors.',
+          metric: '-68%',
+          metricLabel: 'Close rate after 30 min delay',
+        },
+        {
+          num: '02',
+          title: 'Senior staff trapped in repetitive data entry',
+          desc: 'Copying customer fields from WhatsApp into spreadsheets, generating PDF quotes by hand, and chasing confirmations drains your operational margin.',
+          metric: '18 hrs',
+          metricLabel: 'Lost weekly per sales rep',
+        },
+        {
+          num: '03',
+          title: 'Slow websites invisible on Google and AI search',
+          desc: 'Heavy templates that take five seconds to load lose over half of paid and organic traffic before the visitor reads your value proposition.',
+          metric: '> 4.2s',
+          metricLabel: 'Typical legacy web load time',
+        },
+      ]
+    : [
+        {
+          num: '01',
+          title: 'Tus prospectos se enfrían esperando respuesta',
+          desc: 'Cuando un comprador escribe por WhatsApp a las 7:00 p. m. o un fin de semana y espera horas por una cotización, termina comprándole a la competencia.',
+          metric: '-68%',
+          metricLabel: 'Conversión tras 30 min de espera',
+        },
+        {
+          num: '02',
+          title: 'Equipo comercial atrapado en tareas manuales',
+          desc: 'Copiar datos del chat al Excel, redactar contratos uno por uno y confirmar citas manualmente consume las horas que tu equipo debería dedicar a cerrar ventas.',
+          metric: '18 hrs',
+          metricLabel: 'Perdidas por semana en digitación',
+        },
+        {
+          num: '03',
+          title: 'Sitios web lentos que no posicionan en Google',
+          desc: 'Las páginas pesadas que tardan más de cuatro segundos en abrir pierden la mitad de las visitas antes de mostrar siquiera qué vende tu empresa.',
+          metric: '> 4.2s',
+          metricLabel: 'Carga promedio en webs tradicionales',
+        },
+      ];
+
+  const capabilities = isEn
+    ? [
+        {
+          index: '01',
+          title: '24/7 AI Sales & Support Agents',
+          spec: 'WhatsApp Cloud API · OpenAI RAG · pgvector · Voice & Vision',
+          desc: 'Conversational agents trained on your catalogs and procedures that qualify leads, validate payment receipts, and schedule appointments in your CRM.',
+          href: `${basePrefix}/services/ai-agents`,
+        },
+        {
+          index: '02',
+          title: 'High-Performance Websites & Technical SEO',
+          spec: 'Next.js App Router · Core Web Vitals 95+ · Schema.org · GEO/AEO',
+          desc: 'Sub-second corporate platforms engineered to rank at the top of Google and get cited by ChatGPT and Perplexity.',
+          href: `${basePrefix}/services/high-performance-websites`,
+        },
+        {
+          index: '03',
+          title: 'Process & Workflow Automation',
+          spec: 'n8n · REST APIs · Webhooks · HubSpot · ERP · Stripe',
+          desc: 'Autonomous pipelines that synchronize your sales, billing, inventory, and notifications in milliseconds without human error.',
+          href: `${basePrefix}/services/process-automation`,
+        },
+        {
+          index: '04',
+          title: 'Custom B2B Software & Cloud Platforms',
+          spec: 'TypeScript · Node.js · PostgreSQL · Supabase · BI Dashboards',
+          desc: 'Proprietary web applications, multi-tenant platforms, and real-time operational control panels tailored to your company.',
+          href: `${basePrefix}/services/custom-software`,
+        },
+      ]
+    : [
+        {
+          index: '01',
+          title: 'Agentes de Inteligencia Artificial 24/7',
+          spec: 'WhatsApp Cloud API · OpenAI RAG · pgvector · Audio y Visión',
+          desc: 'Asistentes conversacionales entrenados con tus catálogos y procesos que califican prospectos, validan comprobantes y agendan citas en tu calendario.',
+          href: `${basePrefix}/servicios/agentes-inteligencia-artificial`,
+        },
+        {
+          index: '02',
+          title: 'Páginas Web de Alto Rendimiento y SEO Técnico',
+          spec: 'Next.js App Router · Core Web Vitals 95+ · Schema.org · GEO/AEO',
+          desc: 'Plataformas corporativas con carga inferior a un segundo, diseñadas para posicionar en Google y ser recomendadas por motores de IA.',
+          href: `${basePrefix}/servicios/paginas-web-alto-rendimiento`,
+        },
+        {
+          index: '03',
+          title: 'Automatización de Procesos Comerciales',
+          spec: 'n8n · REST APIs · Webhooks · HubSpot · ERP · Facturación',
+          desc: 'Flujos autónomos que conectan tus ventas, inventarios, contratos y contabilidad en milisegundos sin errores de digitación.',
+          href: `${basePrefix}/servicios/automatizacion-de-procesos`,
+        },
+        {
+          index: '04',
+          title: 'Software a Medida y Paneles Operativos',
+          spec: 'TypeScript · Node.js · PostgreSQL · Supabase · Dashboards BI',
+          desc: 'Aplicaciones web propietarias, portales de reservas y paneles de control analítico adaptados a las reglas de tu operación.',
+          href: `${basePrefix}/servicios/software-a-medida`,
+        },
+      ];
+
+  const methodologySteps = isEn
+    ? [
+        {
+          step: '01',
+          title: 'Operational Diagnosis',
+          timeline: 'Day 1–3 · Free of charge',
+          desc: 'We audit your current commercial pipeline, WhatsApp response latency, and manual tasks to pinpoint exact bottlenecks.',
+        },
+        {
+          step: '02',
+          title: 'Architecture & Closed Proposal',
+          timeline: 'Day 4–5 · Fixed scope',
+          desc: 'We deliver a technical blueprint with defined deliverables, closed pricing, and projected return on investment.',
+        },
+        {
+          step: '03',
+          title: 'Engineering & API Deployment',
+          timeline: 'Week 2–4 · Production sprint',
+          desc: 'We build your 0.6s Next.js platform, train your RAG AI agents, and connect n8n workflows directly to your CRM.',
+        },
+        {
+          step: '04',
+          title: '24/7 Monitoring & Iteration',
+          timeline: 'Continuous SLA · 99.9% Uptime',
+          desc: 'We monitor server stability 24/7, refine AI prompts with real customer conversations, and scale your SEO monthly.',
+        },
+      ]
+    : [
+        {
+          step: '01',
+          title: 'Diagnóstico Operativo',
+          timeline: 'Día 1–3 · Sin costo',
+          desc: 'Analizamos tu proceso comercial actual, tiempos de respuesta en WhatsApp y tareas manuales para detectar cuellos de botella.',
+        },
+        {
+          step: '02',
+          title: 'Propuesta y Alcance Cerrado',
+          timeline: 'Día 4–5 · Presupuesto fijo',
+          desc: 'Te entregamos el diseño de arquitectura con entregables claros, costos cerrados y retorno estimado de inversión.',
+        },
+        {
+          step: '03',
+          title: 'Desarrollo e Integración API',
+          timeline: 'Semana 2–4 · Paso a producción',
+          desc: 'Construimos tu web de alto rendimiento e integramos tus agentes de IA y flujos n8n directamente con tu operación.',
+        },
+        {
+          step: '04',
+          title: 'Monitoreo y Optimización 24/7',
+          timeline: 'Continuo · SLA 99.9%',
+          desc: 'Monitoreamos la estabilidad 24/7, afinamos el entrenamiento de los agentes y escalamos tu posicionamiento SEO mes a mes.',
+        },
+      ];
+
+  const differentiators = isEn
+    ? [
+        {
+          code: 'INFRA',
+          title: 'High-Availability Cloud Infrastructure',
+          desc: 'Your AI agents and web platforms run on distributed Edge and cloud servers that scale automatically as your lead volume grows.',
+        },
+        {
+          code: 'SEC',
+          title: 'Enterprise Security & Data Privacy',
+          desc: 'Strict role-based access control, encrypted API credentials, and isolated databases keep your company records protected.',
+        },
+        {
+          code: 'SLA',
+          title: 'Direct Engineering Support',
+          desc: 'Zero ticket queues. You communicate directly on WhatsApp with the engineers who built and monitor your architecture.',
+        },
+      ]
+    : [
+        {
+          code: 'INFRA',
+          title: 'Infraestructura Cloud Escalable',
+          desc: 'Alojamos tus agentes y plataformas web en servidores de alta disponibilidad que soportan picos de tráfico y ventas sin caídas.',
+        },
+        {
+          code: 'SEC',
+          title: 'Seguridad y Privacidad Corporativa',
+          desc: 'Diseñamos bajo protocolos estrictos de cifrado y control de acceso por roles para proteger los datos de tus clientes y tu empresa.',
+        },
+        {
+          code: 'SLA',
+          title: 'Soporte Directo de Ingeniería',
+          desc: 'Sin intermediarios ni tickets lentos. Hablas directamente por WhatsApp con los ingenieros que construyen y monitorean tu sistema.',
+        },
+      ];
+
+  const testimonials = isEn
+    ? [
+        {
+          quote:
+            'We doubled our sales in the first month after launching the website with conversion funnels and WhatsApp integration. Clean and fast engineering process.',
+          author: 'Mateo Gómez',
+          role: 'Founder · Toxxic',
+          initials: 'MG',
+          metric: '2x sales in 30 days',
+        },
+        {
+          quote:
+            'We used to spend the entire day answering villa availability inquiries. With the automated booking bot, dates are reserved on their own and manual work dropped by 80%.',
+          author: 'Carolina Rojas',
+          role: 'Operations Manager · Villa Grande La Misia',
+          initials: 'CR',
+          metric: '-80% manual workload',
+        },
+        {
+          quote:
+            'The AI sales agent answers customers and takes full orders automatically at midnight via WhatsApp. We no longer lose a single nighttime order.',
+          author: 'Sofía Medina',
+          role: 'Manager · Fast Food AI Agent',
+          initials: 'SM',
+          metric: '24/7 autonomous orders',
+        },
+      ]
+    : [
+        {
+          quote:
+            'Duplicamos nuestras ventas en el primer mes de lanzar el sitio web con embudo e integraciones de WhatsApp. El proceso de ingeniería fue limpio y rápido.',
+          author: 'Mateo Gómez',
+          role: 'Fundador · Toxxic',
+          initials: 'MG',
+          metric: '2x ventas en el 1er mes',
+        },
+        {
+          quote:
+            'Antes pasábamos el día respondiendo disponibilidades de la finca. Con el agente de reservas, las fechas se agendan solas. Redujimos el trabajo manual un 80%.',
+          author: 'Carolina Rojas',
+          role: 'Administradora · Villa Grande La Misia',
+          initials: 'CR',
+          metric: '-80% carga operativa',
+        },
+        {
+          quote:
+            'El agente de ventas IA atiende y toma pedidos automáticos a la medianoche por WhatsApp. Ya no perdemos ni un solo cliente fuera de horario.',
+          author: 'Sofía Medina',
+          role: 'Gerente · Agente IA Comidas Rápidas',
+          initials: 'SM',
+          metric: 'Pedidos autónomos 24/7',
+        },
+      ];
+
+  const faqs = isEn
+    ? [
+        {
+          q: 'Do AI agents replace my human sales team?',
+          a: 'No. The AI agent handles 80% of repetitive inquiries—answering product questions in 1.1 seconds, qualifying budget, and booking calendar slots. When a high-value buyer requires custom negotiation, the agent transfers the conversation to your human team with a complete summary.',
+        },
+        {
+          q: 'How long does it take to deploy a website or automation system?',
+          a: 'High-performance corporate websites and initial WhatsApp AI agents ship to production in 2 to 4 weeks. Complex custom software and multi-system ERP automations are delivered in bi-weekly functional sprints.',
+        },
+        {
+          q: 'How do you price your engineering projects?',
+          a: 'We start with a direct technical assessment via WhatsApp at no cost. Once we map your bottlenecks and expected return on investment, we deliver a closed-price technical proposal with defined deliverables and timelines.',
+        },
+        {
+          q: 'Can you integrate with the CRM or software we already use?',
+          a: 'Yes. Through n8n, webhooks, and custom REST APIs, we integrate natively with HubSpot, Salesforce, Pipedrive, Google Workspace, Stripe, WhatsApp Official API, and SQL/NoSQL databases.',
+        },
+      ]
+    : [
+        {
+          q: '¿Los agentes de IA reemplazan a mi equipo comercial humano?',
+          a: 'No. El agente de IA absorbe el 80% de la carga operativa repetitiva: responde en 1.1 segundos, filtra curiosos, valida presupuestos y agenda citas. Cuando detecta un negocio corporativo listo para cierre, transfiere el caso a tu ejecutivo humano con el resumen completo.',
+        },
+        {
+          q: '¿Cuánto tiempo toma implementar una web o un sistema de IA?',
+          a: 'Las plataformas web de alto rendimiento y los agentes de IA en WhatsApp entran en producción entre 2 y 4 semanas. Los proyectos de software a medida se entregan en módulos funcionales cada dos semanas.',
+        },
+        {
+          q: '¿Cómo cotizan los proyectos y qué garantías ofrecen?',
+          a: 'Realizamos un diagnóstico técnico inicial directo por WhatsApp sin costo. Con base en tus cuellos de botella te entregamos una propuesta de alcance claro y precio cerrado, con soporte y monitoreo continuo.',
+        },
+        {
+          q: '¿Pueden conectarse con el CRM o software que ya usamos?',
+          a: 'Sí. Mediante n8n, webhooks y APIs conectamos tu operación con HubSpot, Salesforce, Google Sheets, sistemas contables, pasarelas de pago y bases de datos propias.',
+        },
+      ];
+
+  const currentDemo = demoData[activeDemo];
+
   return (
-    <main id="main-content" ref={containerRef} className="relative w-full text-foreground bg-[#080808] overflow-hidden">
-      {/* HERO SECTION */}
-      <motion.section 
-        style={{ opacity: heroOpacity, y: heroY }}
-        className="min-h-screen w-full flex flex-col justify-center px-6 md:px-12 relative z-10 pt-32 pb-24"
-      >
-        {/* Ambient Hero Lighting (strictly brand red & cyan, no dark blues) */}
-        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(214,40,40,0.14)_0%,transparent_70%)] blur-[100px] -z-10 pointer-events-none" />
-        <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(114,219,211,0.07)_0%,transparent_70%)] blur-[120px] -z-10 pointer-events-none" />
+    <main className="min-h-screen w-full bg-background text-foreground selection:bg-primary selection:text-primary-ink">
+      {/* ------------------------------------------------------------------ */}
+      {/* 1. HERO — Hallmark Stage + Interactive 3D Isometric Cube (iso-stack)*/}
+      {/* ------------------------------------------------------------------ */}
+      <section className="relative pt-24 sm:pt-28 lg:pt-32 pb-14 md:pb-20 border-b border-rule">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left Column: Headline, One Sentence, Actions, Proof Ledger */}
+            <div className="lg:col-span-7 space-y-6">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[62px] font-semibold tracking-tight text-foreground leading-[1.04] max-w-[17ch]">
+                {isEn
+                  ? 'Autonomous web and AI systems for enterprise.'
+                  : 'Sistemas web y ventas autónomas con IA.'}
+              </h1>
 
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
-          {/* Left: Copy & Actions */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left relative z-10">
-            {/* Tag Line */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-8 flex items-center gap-4"
-            >
-              <span className="w-8 md:w-12 h-[1px] bg-[#72dbd3]"></span>
-              <p className="font-mono text-[#72dbd3] text-[10px] md:text-xs tracking-[0.2em] uppercase font-bold">
-                {content.heroTag}
+              <p className="text-base sm:text-lg md:text-xl text-muted leading-relaxed max-w-[52ch]">
+                {isEn
+                  ? 'We engineer 0.6-second Next.js platforms, 24/7 WhatsApp AI agents, and automated CRM workflows that turn traffic into revenue.'
+                  : 'Construimos plataformas en Next.js con carga en 0.6 segundos, agentes de IA 24/7 en WhatsApp y automatizaciones conectadas a tu CRM.'}
               </p>
-            </motion.div>
-            
-            {/* Main Headline with refined desktop size */}
-            <h1 className="font-display text-3xl sm:text-4xl lg:text-[2.75rem] xl:text-[3.25rem] leading-[1.06] font-black tracking-tighter text-white drop-shadow-2xl uppercase relative">
-              <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#D62828]/15 blur-[100px] -z-10 animate-pulse-slow"></div>
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="inline-block"
-              >
-                {content.heroTitle1}
-              </motion.div>
-              {" "}
-              <motion.div 
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="inline-block text-[#D62828]"
-              >
-                {content.heroTitle2}
-              </motion.div>
-            </h1>
-            
-            {/* Subheadline with original font weight and styling */}
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-8 text-white/60 font-sans max-w-xl text-base md:text-lg font-light leading-relaxed"
-            >
-              {content.heroSub}
-            </motion.p>
 
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 sm:gap-5 items-stretch sm:items-center w-full sm:w-auto"
-            >
-              <Link 
-                href="/start" 
-                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#D62828] hover:bg-[#b01c1c] text-white font-bold text-xs tracking-widest uppercase transition-all duration-300 rounded-xl shadow-[0_0_30px_rgba(214,40,40,0.4)] hover:shadow-[0_0_40px_rgba(214,40,40,0.6)] hover:-translate-y-0.5 active:translate-y-0 text-center"
-              >
-                <span>{content.heroCtaPrimary}</span>
-                <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link 
-                href="/servicios" 
-                className="group inline-flex items-center justify-center gap-3 px-7 py-4 text-white font-medium text-xs tracking-widest uppercase border border-white/15 bg-white/[0.03] hover:bg-white/[0.08] hover:border-[#72dbd3]/50 transition-all duration-300 rounded-xl hover:-translate-y-0.5 active:translate-y-0 text-center"
-              >
-                <span>{content.heroCtaSecondary}</span>
-                <span className="w-5 h-[1px] bg-[#72dbd3] group-hover:w-7 transition-all"></span>
-              </Link>
-            </motion.div>
-
-            {/* Integrated Luxury Telemetry / KPI Strip */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="mt-10 sm:mt-12 w-full max-w-xl"
-            >
-              <div className="grid grid-cols-3 divide-x divide-white/10 rounded-2xl bg-[#111111]/80 border border-white/10 backdrop-blur-md py-4 px-2 sm:px-4 shadow-[0_15px_35px_-10px_rgba(0,0,0,0.6)]">
-                {/* Metric 1 */}
-                <div className="flex flex-col items-center text-center px-2">
-                  <div className="flex items-center gap-1.5">
-                    <span className="font-display font-black text-xl sm:text-2xl lg:text-3xl text-white tracking-tight">24/7</span>
-                    <span className="size-1.5 rounded-full bg-[#72dbd3] animate-pulse" />
-                  </div>
-                  <span className="font-mono text-[9px] sm:text-[10px] text-white/50 uppercase tracking-widest mt-1 font-medium">
-                    Atención IA
-                  </span>
-                </div>
-
-                {/* Metric 2 */}
-                <div className="flex flex-col items-center text-center px-2">
-                  <span className="font-display font-black text-xl sm:text-2xl lg:text-3xl text-white tracking-tight">&lt;1s</span>
-                  <span className="font-mono text-[9px] sm:text-[10px] text-white/50 uppercase tracking-widest mt-1 font-medium">
-                    Carga Web
-                  </span>
-                </div>
-
-                {/* Metric 3 */}
-                <div className="flex flex-col items-center text-center px-2">
-                  <span className="font-display font-black text-xl sm:text-2xl lg:text-3xl text-[#D62828] tracking-tight">+60%</span>
-                  <span className="font-mono text-[9px] sm:text-[10px] text-white/50 uppercase tracking-widest mt-1 font-medium">
-                    Ahorro Real
-                  </span>
-                </div>
+              <div className="pt-2 flex flex-wrap items-center gap-3.5">
+                <a
+                  href={whatsappDirectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center h-12 px-6 rounded-lg bg-primary text-primary-ink font-medium text-sm sm:text-base hover:opacity-90 transition-opacity whitespace-nowrap"
+                >
+                  {isEn ? 'Request technical diagnosis on WhatsApp' : 'Solicitar diagnóstico por WhatsApp'}
+                </a>
+                <Link
+                  href={projectsHref}
+                  className="inline-flex items-center justify-center h-12 px-6 rounded-lg border border-rule bg-surface text-foreground font-medium text-sm sm:text-base hover:bg-card transition-colors whitespace-nowrap"
+                >
+                  {isEn ? 'Inspect 15 deployed systems' : 'Ver 15 sistemas en producción'}
+                </Link>
               </div>
-            </motion.div>
-          </div>
 
-          {/* Right: Hero Lottie Graphic (Strictly Desktop PC lg+ only) */}
-          <div className="lg:col-span-5 w-full hidden lg:flex items-center justify-center relative">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.4 }}
-              className="w-full flex justify-center items-center"
-            >
-              <HeroIsometricGraphic />
-            </motion.div>
-          </div>
-
-        </div>
-      </motion.section>
-
-      {/* PAIN POINTS SECTION */}
-      <section className="w-full bg-[#111111] relative z-10 py-20 md:py-32 px-6 md:px-12 border-t border-white/5">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="font-mono text-[#72dbd3] text-xs tracking-[0.2em] uppercase mb-4">{content.painTitle}</p>
-            <h2 className="font-display text-3xl md:text-5xl font-black uppercase text-white">{content.painSub}</h2>
-            <div className="w-16 h-[2px] bg-[#72dbd3] mx-auto mt-4"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {painPoints.map((item, idx) => {
-              const Icon = idx === 0 ? ShieldAlert : idx === 1 ? Clock : Coins;
-              const jsonPath = idx === 0 ? "/SVG/MCP.json" : idx === 1 ? "/SVG/Desarrollo web.json" : "/SVG/Base de datos.json";
-              return (
-                <div key={idx} className="group p-8 bg-[#080808] border border-white/5 rounded-2xl flex flex-col gap-4 transition-all duration-300 hover:border-[#D62828]/30 hover:shadow-[0_10px_30px_-10px_rgba(214,40,40,0.15)] hover:-translate-y-1 relative overflow-hidden">
-                  <div className="w-12 h-12 rounded-xl bg-[#D62828]/10 flex items-center justify-center text-[#D62828] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#D62828]/20 relative z-10">
-                    <Icon size={24} />
-                  </div>
-                  <h3 className="text-white font-bold text-xl uppercase tracking-tight transition-all duration-300 relative z-10">{item.title}</h3>
-                  <p className="text-white/40 text-sm leading-relaxed transition-all duration-300 group-hover:text-white/60 relative z-10">
-                    {item.desc}
-                  </p>
-                  <LottieBgIcon path={jsonPath} />
+              {/* Ledger Foot — Sibling stats separated by hairlines */}
+              <dl className="pt-8 border-t border-rule grid grid-cols-3 gap-4 sm:gap-0 sm:divide-x sm:divide-rule">
+                <div className="sm:pr-6">
+                  <dt className="text-xs text-muted mb-1">
+                    {isEn ? 'WhatsApp AI latency' : 'Respuesta en WhatsApp'}
+                  </dt>
+                  <dd className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground tabular-nums">
+                    &lt; 1.2s
+                  </dd>
                 </div>
-              );
-            })}
+                <div className="sm:px-6">
+                  <dt className="text-xs text-muted mb-1">
+                    {isEn ? 'Core Web Vitals & SEO' : 'Core Web Vitals y SEO'}
+                  </dt>
+                  <dd className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground tabular-nums">
+                    98 / 100
+                  </dd>
+                </div>
+                <div className="sm:pl-6">
+                  <dt className="text-xs text-muted mb-1">
+                    {isEn ? 'Live in US, LatAm & ES' : 'Operando en 4 países'}
+                  </dt>
+                  <dd className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground tabular-nums">
+                    15+
+                  </dd>
+                </div>
+              </dl>
+            </div>
+
+            {/* Right Column: Interactive 3D Isometric Cube Stage */}
+            <div className="lg:col-span-5 flex items-center justify-center">
+              <HeroIsometricGraphic isEn={isEn} />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CORE SOLUTIONS SECTION (Rediseñada con colores de marca) */}
-      <section id="soluciones" className="w-full relative z-10 py-24 md:py-32 px-6 md:px-12 border-t border-white/10 bg-[#080808]">
-        <div className="max-w-7xl mx-auto relative z-10">
-          
-          {/* Header de la sección */}
-          <div className="text-center md:text-left md:flex md:justify-between md:items-end mb-16 gap-8">
-            <div className="max-w-2xl">
-              <span className="font-mono text-[#72dbd3] text-xs tracking-[0.25em] uppercase font-bold block mb-3">
-                {solTag}
-              </span>
-              <h2 className="font-display text-3xl sm:text-5xl font-black uppercase tracking-tight text-white">
-                {solTitleMain}<span className="text-[#D62828]">{solTitleAccent}</span>
-              </h2>
+      {/* ------------------------------------------------------------------ */}
+      {/* 2. OPERATIONAL DIAGNOSIS — Sticky Scroll-Driven 3D Bar Comparator   */}
+      {/* ------------------------------------------------------------------ */}
+      <section
+        ref={leakSectionRef}
+        className="relative h-[165vh] lg:h-[155vh] bg-surface border-b border-rule"
+      >
+        <div className="sticky top-16 lg:top-20 min-h-[calc(100dvh-4rem)] lg:min-h-[calc(100vh-5rem)] flex items-center py-6 sm:py-10 lg:py-8">
+          <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 md:px-12">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 lg:gap-12 items-center">
+              {/* Left Column: Heading + Scroll Progress Bar + 3D Isometric Bar Chart */}
+              <div className="lg:col-span-5 space-y-4 sm:space-y-6">
+                <div className="space-y-2.5 sm:space-y-3">
+                  <div className="flex items-center justify-between text-xs font-mono text-primary">
+                    <span>
+                      {isEn
+                        ? `STEP 0${activeLeak + 1} OF 03`
+                        : `FUGA OPERATIVA 0${activeLeak + 1} DE 03`}
+                    </span>
+                    <span className="text-muted">
+                      {isEn ? 'Scroll to inspect' : 'Haz scroll para avanzar'}
+                    </span>
+                  </div>
+                  <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-foreground leading-tight">
+                    {isEn
+                      ? 'Three operational leaks that stall B2B growth.'
+                      : 'Tres fugas operativas que frenan el crecimiento de una empresa.'}
+                  </h2>
+                  <p className="text-muted text-xs sm:text-base leading-relaxed">
+                    {isEn
+                      ? 'As you scroll, watch how the 3D bar model compares manual bottlenecks against an automated architecture.'
+                      : 'A medida que bajas con el scroll, observa cómo cambia el gráfico de barras 3D entre una operación manual y nuestra arquitectura.'}
+                  </p>
+
+                  {/* Continuous Scroll Progress Bar (Mobile & Desktop) */}
+                  <div className="h-1 w-full rounded-full bg-background border border-rule overflow-hidden">
+                    <div
+                      className="h-full bg-primary transition-all duration-150"
+                      style={{
+                        width: `${Math.max(15, Math.min(100, leakScrollProgress * 100))}%`,
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <BottleneckPrismFigure
+                  activeLeak={activeLeak}
+                  scrollProgress={leakScrollProgress}
+                  onSelectLeak={handleSelectLeak}
+                  isEn={isEn}
+                />
+              </div>
+
+              {/* Right Column: Interactive Leak Cards Driven by Scroll (Mobile & Desktop) */}
+              <ol className="lg:col-span-7 space-y-2.5 sm:space-y-4">
+                {painPoints.map((item, idx) => {
+                  const isSelected = activeLeak === idx;
+                  return (
+                    <li
+                      key={item.num}
+                      onClick={() => handleSelectLeak(idx)}
+                      className={`p-4 sm:p-8 rounded-2xl border transition-all duration-300 cursor-pointer grid grid-cols-12 gap-3 sm:gap-4 items-center ${
+                        isSelected
+                          ? 'bg-background border-primary shadow-[0_14px_34px_rgba(0,0,0,0.35)] opacity-100 sm:scale-[1.01]'
+                          : 'bg-background/40 border-rule opacity-60 hover:opacity-85'
+                      }`}
+                    >
+                      <span className="col-span-2 sm:col-span-1 font-mono text-xs sm:text-sm text-primary font-semibold tabular-nums">
+                        {item.num}
+                      </span>
+                      <div className="col-span-7 sm:col-span-8 space-y-1">
+                        <h3 className="text-sm sm:text-xl font-semibold text-foreground leading-snug">
+                          {item.title}
+                        </h3>
+                        <p
+                          className={`text-muted text-xs sm:text-base leading-relaxed ${
+                            isSelected ? 'block' : 'hidden sm:block'
+                          }`}
+                        >
+                          {item.desc}
+                        </p>
+                      </div>
+                      <div className="col-span-3 text-right sm:pl-4 sm:border-l sm:border-rule">
+                        <p className="text-base sm:text-2xl font-semibold text-primary tabular-nums">
+                          {item.metric}
+                        </p>
+                        <p className="text-[10px] sm:text-xs text-muted mt-0.5 line-clamp-1 sm:line-clamp-none">
+                          {item.metricLabel}
+                        </p>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
             </div>
-            <p className="text-white/50 text-sm sm:text-base max-w-md mt-4 md:mt-0 leading-relaxed font-light">
-              {solSubText}
+          </div>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* 3. INTERACTIVE SYSTEM WORKBENCH — 3D Pipeline Topology + Log        */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="py-20 md:py-32 bg-background border-b border-rule">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12">
+          <div className="max-w-3xl mb-10 space-y-3">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground">
+              {isEn
+                ? 'How the system operates in real time.'
+                : 'Cómo opera nuestra arquitectura en tiempo real.'}
+            </h2>
+            <p className="text-muted text-base sm:text-lg">
+              {isEn
+                ? 'Select a layer below to inspect its 3D node topology and live execution flow.'
+                : 'Selecciona una capa para inspeccionar su topología 3D de nodos y el flujo real de ejecución.'}
             </p>
           </div>
 
-          {/* Grid Limpio y Escaneable (3 Columnas) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {SOLUTIONS_DATA.map((sol, idx) => {
-              const Icon = sol.icon;
-
+          {/* Tab Selector */}
+          <div
+            role="tablist"
+            aria-label={isEn ? 'System layers' : 'Capas del sistema'}
+            className="flex flex-wrap gap-2 mb-8 border-b border-rule pb-4"
+          >
+            {(['whatsapp', 'web', 'crm'] as DemoKey[]).map((key) => {
+              const isSelected = activeDemo === key;
               return (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.5, delay: idx * 0.08 }}
-                  className="rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#72dbd3]/30 p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 group"
+                <button
+                  key={key}
+                  type="button"
+                  role="tab"
+                  aria-selected={isSelected}
+                  onClick={() => setActiveDemo(key)}
+                  className={`h-11 px-5 rounded-lg text-sm font-medium transition-colors ${
+                    isSelected
+                      ? 'bg-primary text-primary-ink'
+                      : 'bg-surface text-muted hover:text-foreground border border-rule'
+                  }`}
                 >
-                  <div>
-                    {/* Top: Icon, Tagline & Number */}
-                    <div className="flex items-center justify-between mb-5">
-                      <div className="flex items-center gap-3">
-                        <div className="size-11 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#72dbd3] group-hover:border-[#72dbd3]/40 transition-colors">
-                          <Icon size={20} />
-                        </div>
-                        {sol.tagline && (
-                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#D62828]/15 text-[#D62828] border border-[#D62828]/30 uppercase">
-                            <Sparkles size={10} /> {sol.tagline}
-                          </span>
-                        )}
-                      </div>
-                      <span className="font-mono text-xs text-white/30 font-bold group-hover:text-[#72dbd3] transition-colors">
-                        0{idx + 1}
-                      </span>
-                    </div>
-
-                    {/* Title & Description */}
-                    <h3 className="font-display text-xl font-bold uppercase text-white tracking-tight mb-3 group-hover:text-white transition-colors">
-                      {sol.title}
-                    </h3>
-                    
-                    <p className="text-white/50 text-sm leading-relaxed mb-6 font-light">
-                      {sol.desc}
-                    </p>
-
-                    {/* Key Benefits List */}
-                    <div className="space-y-2.5 border-t border-white/5 pt-5 mb-6">
-                      {sol.benefits.slice(0, 3).map((b, bIdx) => (
-                        <div key={bIdx} className="flex items-start gap-2.5 text-white/70 text-xs sm:text-sm">
-                          <Check className="size-4 text-[#72dbd3] shrink-0 mt-0.5" />
-                          <span className="leading-snug">{b}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Card Bottom: Metric & Direct Action */}
-                  <div className="border-t border-white/5 pt-5 mt-2 flex items-center justify-between">
-                    <div className="flex flex-col">
-                      <span className="text-[10px] font-mono text-[#72dbd3] uppercase tracking-wider font-bold">
-                        {sol.metricLabel}
-                      </span>
-                      <span className="font-display text-lg font-bold text-white mt-0.5">
-                        {sol.metric}
-                      </span>
-                    </div>
-
-                    <Link 
-                      href={isEn ? "/us/start" : "/start"}
-                      className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-white/70 hover:text-[#72dbd3] transition-colors"
-                    >
-                      <span>{isEn ? "Learn more" : "Ver detalles"}</span>
-                      <ArrowUpRight size={14} />
-                    </Link>
-                  </div>
-                </motion.div>
+                  {demoData[key].tab}
+                </button>
               );
             })}
           </div>
 
-          {/* Banner inferior limpio */}
-          <div className="mt-12 p-8 md:p-10 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-5">
-              <div className="size-12 rounded-xl bg-[#D62828]/15 border border-[#D62828]/30 flex items-center justify-center text-[#D62828] shrink-0">
-                <Bot size={24} />
-              </div>
-              <div>
-                <h4 className="font-display text-lg sm:text-xl font-bold uppercase text-white">
-                  {isEn ? "Need a tailored solution for your workflow?" : "¿Necesitas una solución a la medida de tu empresa?"}
-                </h4>
-                <p className="text-white/50 text-xs sm:text-sm mt-1 font-light">
-                  {isEn ? "We analyze your commercial operations and design a custom plan." : "Auditamos tu operación comercial sin costo y proyectamos tu retorno de inversión."}
+          {/* Workbench Panel */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 rounded-2xl bg-surface border border-rule p-6 sm:p-10">
+            {/* Left: Channel Summary + 3D Isometric Node Pipeline + Metrics */}
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+              <div className="space-y-3">
+                <h3 className="text-2xl font-semibold text-foreground">
+                  {currentDemo.channelTitle}
+                </h3>
+                <p className="text-muted text-sm sm:text-base leading-relaxed">
+                  {currentDemo.summary}
                 </p>
               </div>
-            </div>
 
-            <Link
-              href={isEn ? "/us/start" : "/start"}
-              className="w-full md:w-auto px-7 py-3.5 bg-white hover:bg-[#D62828] text-black hover:text-white font-bold text-xs uppercase tracking-widest transition-all duration-200 rounded-xl shrink-0 flex items-center justify-center gap-2"
-            >
-              <span>{isEn ? "REQUEST AUDIT" : "SOLICITAR AUDITORÍA"}</span>
-              <ArrowRight size={14} />
-            </Link>
-          </div>
+              {/* 3D Isometric Pipeline Figure */}
+              <PipelineNodesFigure mode={activeDemo} isEn={isEn} />
 
-        </div>
-      </section>
-
-      {/* THE MANIFESTO */}
-      <section className="min-h-[60vh] w-full bg-[#080808] relative z-10 py-20 md:py-32 px-6 md:px-12 flex items-center border-t border-[#D62828]/20 shadow-[0_-20px_50px_rgba(0,0,0,0.8)] overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-20 animate-grid-scroll pointer-events-none"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#D62828]/5 rounded-full blur-[120px] pointer-events-none"></div>
-        
-        <div className="max-w-4xl mx-auto relative z-10">
-          <motion.div
-            initial={{ opacity: 0, scaleX: 0 }}
-            whileInView={{ opacity: 1, scaleX: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="w-12 h-[1px] bg-[#72dbd3] mb-8 origin-left"
-          ></motion.div>
-          <motion.p 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-mono text-[#72dbd3] text-xs tracking-[0.2em] uppercase mb-8 flex items-center gap-4"
-          >
-            {philosophyTag}
-          </motion.p>
-          <motion.h2 
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.2] font-semibold tracking-tight text-white"
-          >
-            {philosophyTitleMain} <br/>
-            <span className="text-white/40 italic font-light">{philosophyTitleAccent}</span> 
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-12 text-white/70 text-lg md:text-xl max-w-2xl font-light leading-relaxed"
-          >
-            {philosophyDesc}
-          </motion.p>
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, delay: 0.7 }}
-          >
-            <Link href="/servicios" className="group mt-16 inline-flex items-center gap-4 font-mono uppercase tracking-widest text-sm text-[#D62828] hover:text-white transition-colors magnetic-area">
-              {philosophyCta}
-              <span className="w-8 h-[1px] bg-[#D62828] group-hover:bg-white group-hover:w-16 transition-all duration-300"></span>
-            </Link>
-          </motion.div>
-
-          {/* Componente 3D isométrico colocado debajo de Nuestra Filosofía */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.85 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="visual-side relative h-[360px] md:h-[440px] w-full flex items-center justify-center mt-20 pt-8 border-t border-white/5"
-          >
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] bg-[#D62828]/15 rounded-full blur-[80px] pointer-events-none animate-pulse"></div>
-            
-            <div className="iso-stack" id="stack-3d">
-              {/* Layer 1: Base */}
-              <div className="iso-layer layer-base">
-                <div className="face face-top base-top">
-                  <span className="icon-center text-white/50 font-mono text-xl tracking-widest">&lt;WEB/&gt;</span>
-                </div>
-                <div className="face face-s1"></div>
-                <div className="face face-s2"><span style={{ transform: "rotate(270deg)", display: "block", letterSpacing: "3px" }}>INTEGRACIONES</span></div>
-                <div className="face face-s3"></div>
-                <div className="face face-s4"><span style={{ transform: "rotate(90deg)",display: "block", letterSpacing: "3px" }}>DATOS</span></div>
-              </div>
-              
-              {/* Layer 2: Mid */}
-              <div className="iso-layer layer-mid">
-                <div className="face face-top mid-top flex items-center justify-center shadow-[inset_0_0_20px_rgba(214,40,40,0.1)]">
-                  <span className="icon-center text-[#D62828] font-bold text-3xl font-display">IA</span>
-                </div>
-                <div className="face face-s1"></div>
-                <div className="face face-s2"><span style={{ transform: "rotate(270deg)", display: "block", letterSpacing: "3px" }}>AUTOMATICACIONES</span></div>
-                <div className="face face-s3"></div>
-                <div className="face face-s4"><span style={{ transform: "rotate(90deg)",display: "block", letterSpacing: "3px" }}>INTELIGENCIA</span></div>
-              </div>
-              
-              {/* Layer 3: Top */}
-              <div className="iso-layer layer-top">
-                <div className="face face-top top-top flex items-center justify-center">
-                  <div className="ui-mock bg-[#111] border border-white/10 rounded-t-xl rounded-bl-sm rounded-br-xl w-[70%] h-[55%] relative flex flex-col p-2 gap-2 shadow-[0_0_15px_rgba(214,40,40,0.1)]">
-                    <div className="flex gap-1.5 items-center">
-                       <div className="w-2 h-2 rounded-full bg-[#D62828] animate-pulse"></div>
-                       <div className="w-[60%] h-1 bg-white/20 rounded-full"></div>
+              <div className="space-y-5">
+                <dl className="grid grid-cols-3 gap-4 pt-4 border-t border-rule">
+                  {currentDemo.metrics.map((m) => (
+                    <div key={m.label}>
+                      <dt className="text-xs text-muted mb-1">{m.label}</dt>
+                      <dd className="text-lg sm:text-xl font-semibold text-foreground tabular-nums">
+                        {m.value}
+                      </dd>
                     </div>
-                    <div className="w-[85%] h-1.5 bg-white/10 rounded-full mt-1"></div>
-                    <div className="w-[45%] h-1.5 bg-white/10 rounded-full"></div>
-                    <div className="w-[70%] h-2 bg-[#D62828]/40 rounded-full self-end mt-auto mb-1"></div>
-                  </div>
-                </div>
-                <div className="face face-s1"></div>
-                <div className="face face-s2"><span style={{ transform: "rotate(270deg)", display: "block", letterSpacing: "3px" }}>PAGINAS</span></div>
-                <div className="face face-s3"></div>
-                <div className="face face-s4"><span style={{ transform: "rotate(90deg)", display: "block", letterSpacing: "3px" }}>APLICACIONES</span></div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        <style dangerouslySetInnerHTML={{__html: `
-          .visual-side {
-              perspective: 1200px; 
-              will-change: transform;
-          }
-          
-          .iso-stack {
-              position: relative; 
-              width: 220px; 
-              height: 220px;
-              transform-style: preserve-3d;
-              animation: spin3D 20s linear infinite;
-              cursor: crosshair;
-          }
-          
-          .iso-layer { 
-              position: absolute; 
-              inset: 0; 
-              transform-style: preserve-3d; 
-              transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
-          }
-          
-          .face {
-              position: absolute; 
-              background: rgba(20, 20, 20, 0.6); 
-              border: 1px solid rgba(255,255,255,0.08);
-              backdrop-filter: blur(4px); 
-              -webkit-backdrop-filter: blur(4px);
-              display: flex; 
-              align-items: center; 
-              justify-content: center;
-              font-family: inherit; 
-              font-weight: 700; 
-              color: rgba(255,255,255,0.3); 
-              font-size: 0.75rem;
-              letter-spacing: 1px;
-          }
-          
-          .face-top { width: 100%; height: 100%; transform: translateZ(20px); }
-          .face-s1  { width: 100%; height: 20px; top: 100%; left: 0; transform-origin: top; transform: rotateX(90deg); background: rgba(10,10,10,0.8); }
-          .face-s2  { width: 20px; height: 100%; right: 0; top: 0; transform-origin: right; transform: rotateY(90deg); background: rgba(5,5,5,0.9); }
-          .face-s3  { width: 100%; height: 20px; bottom: 92%; left: 0; transform-origin: top; transform: rotateX(90deg); background: rgba(10,10,10,0.8); }
-          .face-s4  { width: 20px; height: 100%; left: 0; top: 0; transform-origin: left; transform: rotateY(-90deg); background: rgba(5,5,5,0.9); }
-
-          .layer-base { transform: translateZ(0px); }
-          .base-top {
-              background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), 
-                                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-              background-size: 20px 20px;
-          }
-          
-          .layer-mid { transform: translateZ(50px); }
-          .mid-top { border-color: rgba(214,40,40,0.4); }
-          
-          .layer-top { transform: translateZ(100px); }
-
-          @keyframes spin3D {
-              0% { transform: rotateX(55deg) rotateZ(0deg); }
-              100% { transform: rotateX(55deg) rotateZ(360deg); }
-          }
-
-          @media (min-width: 768px) {
-              .iso-stack:hover .layer-base { transform: translateZ(-20px); }
-              .iso-stack:hover .layer-mid { transform: translateZ(80px) rotateZ(5deg); }
-              .iso-stack:hover .layer-top { transform: translateZ(180px) rotateZ(10deg); }
-              
-              .iso-stack {
-                width: 260px;
-                height: 260px;
-              }
-          }
-        `}} />
-      </section>
-
-      {/* WHY AUTONOMEK - DIFFERENTIATORS */}
-      <section className="w-full bg-[#080808] relative z-10 py-24 md:py-32 px-6 md:px-12 border-t border-white/5 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-20">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="lg:col-span-1"
-            >
-              <p className="font-mono text-[#72dbd3] text-xs tracking-[0.2em] uppercase mb-6">{content.ventajaTag}</p>
-              <h2 className="font-display text-4xl md:text-5xl font-black uppercase tracking-tight text-white mb-8">
-                {content.ventajaTitle}
-              </h2>
-              <p className="text-white/50 font-light leading-relaxed mb-10 text-sm">
-                {content.ventajaSub}
-              </p>
-              <div className="flex items-center gap-4">
-                 <div className="text-white font-display text-5xl font-black">99%</div>
-                 <div className="text-white/30 font-mono text-[10px] uppercase tracking-widest leading-tight">{isEn ? "Stability & \n Efficiency" : "Estabilidad & \n Eficiencia"}</div>
-              </div>
-            </motion.div>
-
-            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-               {diffs.map((item, i) => (
-                 <motion.div 
-                   key={i}
-                   initial={{ opacity: 0, scale: 0.95 }}
-                   whileInView={{ opacity: 1, scale: 1 }}
-                   viewport={{ once: true }}
-                   transition={{ delay: i * 0.1 }}
-                   className="p-8 bg-[#111] border border-white/5 rounded-2xl hover:border-[#D62828]/30 transition-all group"
-                 >
-                    <h4 className="text-white font-bold text-lg mb-4 flex items-center gap-3">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#D62828] group-hover:scale-150 transition-transform"></span>
-                      {item.title}
-                    </h4>
-                    <p className="text-white/40 text-xs leading-relaxed">{item.desc}</p>
-                 </motion.div>
-               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PROYECTOS DESTACADOS GALLERY (CONNECTED TO THE DETAILED MODAL NOW!) */}
-      <section className="w-full bg-[#111] relative z-10 py-24 md:py-32 px-6 md:px-12 border-t border-white/5 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full flex flex-col md:flex-row justify-between items-start md:items-end mb-16"
-          >
-            <div>
-              <p className="font-mono text-[#72dbd3] text-xs tracking-[0.2em] uppercase mb-4">/ Casos de Éxito Reales</p>
-              <h2 className="font-display text-4xl md:text-6xl font-black uppercase tracking-tight text-white">Sistemas en Operación</h2>
-            </div>
-            <Link href="/proyectos" className="mt-6 md:mt-0 font-mono text-xs uppercase tracking-widest text-[#D62828] hover:text-white transition-colors border-b border-[#D62828]/30 pb-1">
-              Ver Todos Los Proyectos →
-            </Link>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {featuredProjects.map((project, idx) => (
-              <motion.div 
-                key={project.id}
-                initial={{ opacity: 0, y: idx % 2 === 0 ? 50 : 80 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                onClick={() => handleOpenDetails(project)}
-                className="group relative w-full aspect-[4/3] bg-[#080808] overflow-hidden border border-white/5 hover:border-[#D62828] hover:shadow-[0_0_30px_rgba(214,40,40,0.2)] transition-all duration-500 cursor-pointer rounded-3xl"
-              >
-                <img 
-                  src={`/projects/${project.folder}/${project.images[0]}`} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover opacity-50 group-hover:opacity-90 group-hover:scale-103 transition-all duration-700 ease-out" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#080808] to-transparent pointer-events-none"></div>
-                <div className="absolute bottom-6 left-6 right-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                  <span className="font-mono text-[9px] tracking-widest text-[#D62828] mb-2 block uppercase font-bold">{project.category} / {project.client}</span>
-                  <h3 className="font-display text-2xl md:text-3xl font-black text-white">{project.title}</h3>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WORK PROCESS SECTION */}
-      <section className="w-full bg-[#080808] relative z-10 py-24 md:py-32 px-6 md:px-12 border-t border-white/5 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[1px] bg-gradient-to-r from-transparent via-[#D62828]/50 to-transparent"></div>
-        
-        <div className="max-w-7xl mx-auto text-center mb-24">
-           <p className="font-mono text-[#72dbd3] text-xs tracking-[0.2em] uppercase mb-4">/ Metodología Autonomek</p>
-           <h2 className="font-display text-4xl md:text-7xl font-black uppercase tracking-tight text-white">Del Caos al <span className="text-[#D62828]">Orden.</span></h2>
-        </div>
-
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-           {[
-             { step: "01", title: "Diagnóstico", desc: "Analizamos tu proceso comercial actual sin costo para detectar cuellos de botella." },
-             { step: "02", title: "Propuesta", desc: "Te entregamos un alcance cerrado, costos claros y retorno estimado de inversión." },
-             { step: "03", title: "Desarrollo", desc: "Diseñamos tus webs de alto rendimiento e integramos tus asistentes en piloto automático." },
-             { step: "04", title: "Optimización", desc: "Monitoreamos la estabilidad 24/7 y mejoramos el entrenamiento de los agentes mensualmente." }
-           ].map((item, i) => (
-             <motion.div 
-               key={i}
-               initial={{ opacity: 0, y: 30 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{ delay: i * 0.15 }}
-               className="relative z-10 flex flex-col items-center text-center group"
-             >
-                <div className="w-20 h-20 rounded-full bg-[#111] border border-white/10 flex items-center justify-center mb-6 group-hover:border-[#D62828] group-hover:shadow-[0_0_20px_rgba(214,40,40,0.2)] transition-all">
-                   <span className="font-display text-2xl font-black text-white/20 group-hover:text-[#D62828] transition-colors">{item.step}</span>
-                </div>
-                <h3 className="text-white font-bold text-lg mb-3 uppercase tracking-tight">{item.title}</h3>
-                <p className="text-white/40 text-xs leading-relaxed px-4">{item.desc}</p>
-             </motion.div>
-            ))}
-         </div>
-       </section>
-
-      {/* TESTIMONIALS SECTION */}
-      <section className="w-full bg-[#080808] relative z-10 py-24 md:py-32 px-6 md:px-12 border-t border-white/5 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <p className="font-mono text-[#72dbd3] text-xs tracking-[0.2em] uppercase mb-4">/ Opiniones de Clientes</p>
-            <h2 className="font-display text-4xl md:text-6xl font-black uppercase tracking-tight text-white">Testimonios Reales.</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "Duplicamos nuestras ventas en el primer mes de lanzar el sitio web con embudo e integraciones de WhatsApp. El proceso fue limpio y rápido.",
-                author: "Mateo Gómez",
-                role: "Fundador de Toxxic",
-                initials: "MG",
-                gradient: "from-[#D62828] to-[#990000]"
-              },
-              {
-                quote: "Antes pasábamos el día respondiendo disponibilidades de la finca. Con el bot de reservas, las fechas se agendan solas. Redujimos el trabajo un 80%.",
-                author: "Carolina Rojas",
-                role: "Administradora de Villa Grande La Misia",
-                initials: "CR",
-                gradient: "from-[#72dbd3] to-[#00A884]"
-              },
-              {
-                quote: "El empleado de ventas IA atiende y toma pedidos automáticos a la media noche por WhatsApp. No perdemos ni un solo cliente con hambre.",
-                author: "Sofía Medina",
-                role: "Gerente de Agente IA Comidas Rápidas",
-                initials: "SM",
-                gradient: "from-white/20 to-white/5"
-              }
-            ].map((test, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.8 }}
-                className="p-8 bg-[#111] border border-white/5 rounded-3xl flex flex-col justify-between relative overflow-hidden group hover:border-white/10 transition-all duration-300 shadow-xl"
-              >
-                <div className="absolute top-0 left-0 w-16 h-[2px] bg-[#D62828]" />
-                
-                {/* 5 Stars Rating */}
-                <div className="flex gap-1 mb-6 text-yellow-500">
-                  {[...Array(5)].map((_, idx) => (
-                    <span key={idx} className="text-sm">★</span>
                   ))}
+                </dl>
+
+                <a
+                  href={currentDemo.whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center h-11 px-5 rounded-lg bg-primary text-primary-ink font-medium text-sm hover:opacity-90 transition-opacity"
+                >
+                  {currentDemo.whatsappCta}
+                </a>
+              </div>
+            </div>
+
+            {/* Right: Conversation / Execution Log */}
+            <div className="lg:col-span-7 rounded-xl bg-background border border-rule p-5 sm:p-7 flex flex-col justify-between space-y-4">
+              <div className="space-y-4">
+                {currentDemo.messages.map((msg, idx) => (
+                  <div
+                    key={idx}
+                    className={`p-4 sm:p-5 rounded-xl text-sm leading-relaxed ${
+                      msg.role === 'user'
+                        ? 'bg-surface border border-rule text-foreground ml-0 sm:mr-12'
+                        : msg.role === 'agent'
+                        ? 'bg-card border border-rule-strong text-foreground ml-0 sm:ml-12'
+                        : 'bg-surface/80 border border-primary/40 text-primary font-mono text-xs'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between text-xs text-muted mb-1.5">
+                      <span className="font-medium text-foreground">
+                        {msg.role === 'user'
+                          ? isEn
+                            ? 'Client incoming message'
+                            : 'Mensaje entrante del cliente'
+                          : msg.role === 'agent'
+                          ? 'Autonomek Engine'
+                          : 'System Telemetry'}
+                      </span>
+                      <span className="font-mono tabular-nums">{msg.time}</span>
+                    </div>
+                    <p>{msg.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* 4. ENGINEERING SPECIFICATION INDEX + 3D ARCHITECTURAL SCULPTURE     */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="py-20 md:py-32 bg-surface border-b border-rule">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div className="space-y-3 max-w-2xl">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground">
+                {isEn
+                  ? 'Four engineering systems built for ROI.'
+                  : 'Cuatro sistemas de ingeniería enfocados en retorno de inversión.'}
+              </h2>
+              <p className="text-muted text-base sm:text-lg">
+                {isEn
+                  ? 'Hover or select any capability to inspect its 3D architectural blueprint.'
+                  : 'Pasa el cursor o selecciona cada sistema para inspeccionar su esquema 3D.'}
+              </p>
+            </div>
+            <Link
+              href={servicesHref}
+              className="text-sm font-medium text-primary hover:underline whitespace-nowrap"
+            >
+              {isEn ? 'Compare all service specifications' : 'Ver especificaciones completas de servicios'}
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+            {/* Left: 4 Interactive System Cards */}
+            <div className="lg:col-span-7 space-y-4">
+              {capabilities.map((cap, idx) => {
+                const isSelected = activeCapability === idx;
+                return (
+                  <div
+                    key={cap.index}
+                    onMouseEnter={() => setActiveCapability(idx)}
+                    onClick={() => setActiveCapability(idx)}
+                    className={`p-6 sm:p-7 rounded-2xl border transition-colors cursor-pointer ${
+                      isSelected
+                        ? 'bg-background border-primary'
+                        : 'bg-background/60 border-rule hover:border-rule-strong'
+                    }`}
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                      <div className="space-y-2 max-w-xl">
+                        <div className="flex items-center gap-3">
+                          <span className="font-mono text-xs px-2 py-0.5 rounded bg-surface border border-rule text-primary">
+                            {cap.index}
+                          </span>
+                          <span className="font-mono text-xs text-muted">{cap.spec}</span>
+                        </div>
+                        <h3 className="text-xl sm:text-2xl font-semibold text-foreground">
+                          {cap.title}
+                        </h3>
+                        <p className="text-sm sm:text-base text-muted leading-relaxed">
+                          {cap.desc}
+                        </p>
+                      </div>
+
+                      <Link
+                        href={cap.href}
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg border border-rule bg-surface text-xs font-medium text-foreground hover:border-primary hover:text-primary transition-colors shrink-0 self-start"
+                      >
+                        <span>{isEn ? 'Inspect' : 'Ver módulo'}</span>
+                        <ArrowUpRight size={14} />
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Right (Top on Mobile): Sticky 3D Blueprint Sculpture */}
+            <div className="order-first lg:order-last lg:col-span-5 lg:sticky lg:top-28">
+              <BlueprintSculptureFigure
+                activeIndex={activeCapability}
+                onSelect={setActiveCapability}
+                isEn={isEn}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* 5. PRODUCTION CASE STUDIES — Real Deployed Systems                  */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="py-20 md:py-32 bg-background border-b border-rule">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div className="space-y-3 max-w-2xl">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground">
+                {isEn
+                  ? 'Systems operating in production.'
+                  : 'Sistemas reales operando en producción.'}
+              </h2>
+              <p className="text-muted text-base sm:text-lg">
+                {isEn
+                  ? 'Select any case study to inspect its technical architecture, screenshots, and live deployment.'
+                  : 'Selecciona cualquier caso de estudio para inspeccionar su arquitectura, capturas reales y enlace en vivo.'}
+              </p>
+            </div>
+
+            {/* Category Filter */}
+            <div className="flex flex-wrap gap-2">
+              {(
+                [
+                  { id: 'ALL', label: isEn ? 'All systems' : 'Todos' },
+                  { id: 'IA', label: isEn ? 'AI Agents' : 'Agentes IA' },
+                  { id: 'Web', label: isEn ? 'Web & SEO' : 'Páginas web' },
+                  { id: 'Automatización', label: isEn ? 'Automation' : 'Automatización' },
+                ] as const
+              ).map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveCategory(tab.id)}
+                  className={`h-10 px-4 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
+                    activeCategory === tab.id
+                      ? 'bg-primary text-primary-ink'
+                      : 'bg-surface text-muted hover:text-foreground border border-rule'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Portfolio Grid — minmax(0, 1fr) tracks */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredProjects.map((project) => (
+              <article
+                key={project.id}
+                onClick={() => handleOpenProject(project)}
+                className="group min-w-0 rounded-2xl bg-surface border border-rule overflow-hidden flex flex-col justify-between cursor-pointer hover:border-primary transition-colors"
+              >
+                <div>
+                  <div className="relative w-full aspect-[16/10] bg-card overflow-hidden border-b border-rule">
+                    <img
+                      src={`/projects/${project.folder}/${project.images[0]}`}
+                      alt={project.title}
+                      width={800}
+                      height={500}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                    />
+                  </div>
+                  <div className="p-6 space-y-2.5">
+                    <div className="flex items-center justify-between gap-2 text-xs text-muted">
+                      <span>{project.client}</span>
+                      <span className="font-mono text-[11px] text-primary">{project.category}</span>
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted text-sm leading-relaxed line-clamp-2">
+                      {project.description}
+                    </p>
+                  </div>
                 </div>
 
-                <p className="text-white/70 text-sm leading-relaxed mb-8 italic">
-                  &ldquo;{test.quote}&rdquo;
+                <div className="px-6 pb-5 pt-3 border-t border-rule flex items-center justify-between text-xs text-muted">
+                  <span>{isEn ? 'Inspect case study' : 'Inspeccionar caso'}</span>
+                  {project.url && <ExternalLink size={13} className="text-primary" />}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <Link
+              href={projectsHref}
+              className="inline-flex items-center justify-center h-11 px-6 rounded-lg border border-rule bg-surface text-foreground text-sm font-medium hover:bg-card transition-colors"
+            >
+              {isEn ? 'Explore all 15 case studies' : 'Explorar los 15 casos de estudio'}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* 6. ENGINEERING METHODOLOGY & INFRASTRUCTURE — Del Caos al Orden     */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="py-20 md:py-32 bg-surface border-b border-rule">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 space-y-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left: Heading + 3D Stepped Pyramid Figure */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="space-y-3">
+                <p className="text-xs font-mono text-primary">
+                  {isEn ? 'ENGINEERING METHODOLOGY' : 'PROCESO DE INGENIERÍA'}
                 </p>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground">
+                  {isEn
+                    ? 'From operational chaos to autonomous order.'
+                    : 'Del caos operativo al orden en 4 fases.'}
+                </h2>
+                <p className="text-muted text-base leading-relaxed">
+                  {isEn
+                    ? 'We deliver turnkey software and AI architectures without disrupting your current sales team.'
+                    : 'Entregamos sistemas llave en mano listos para producir sin interrumpir la operación diaria de tu empresa.'}
+                </p>
+              </div>
 
-                <div className="flex items-center gap-4 border-t border-white/5 pt-6 mt-auto">
-                  <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${test.gradient} flex items-center justify-center text-white font-bold text-xs shadow-lg`}>
-                    {test.initials}
+              <MethodologyHelixFigure
+                activeStep={activeMethodStep}
+                onSelectStep={setActiveMethodStep}
+                isEn={isEn}
+              />
+            </div>
+
+            {/* Right: 4-Stage Roadmap Grid */}
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {methodologySteps.map((item, idx) => {
+                const isSelected = activeMethodStep === idx;
+                return (
+                  <div
+                    key={item.step}
+                    onMouseEnter={() => setActiveMethodStep(idx)}
+                    onClick={() => setActiveMethodStep(idx)}
+                    className={`p-6 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between gap-4 ${
+                      isSelected
+                        ? 'bg-background border-primary shadow-[0_12px_30px_rgba(0,0,0,0.3)]'
+                        : 'bg-background/50 border-rule hover:border-rule-strong'
+                    }`}
+                  >
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="font-mono text-sm font-semibold text-primary">
+                          {item.step}
+                        </span>
+                        <span className="font-mono text-[11px] text-muted">{item.timeline}</span>
+                      </div>
+                      <h3 className="text-xl font-semibold text-foreground">{item.title}</h3>
+                      <p className="text-sm text-muted leading-relaxed">{item.desc}</p>
+                    </div>
                   </div>
-                  <div className="flex flex-col">
-                    <span className="text-white font-bold text-sm">{test.author}</span>
-                    <span className="text-white/40 text-[10px] font-mono uppercase tracking-wider">{test.role}</span>
-                  </div>
-                </div>
-              </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Differentiators Ledger Row */}
+          <div className="pt-12 border-t border-rule grid grid-cols-1 md:grid-cols-3 gap-6">
+            {differentiators.map((diff) => (
+              <div
+                key={diff.code}
+                className="p-6 rounded-2xl bg-background border border-rule space-y-2.5"
+              >
+                <span className="inline-block font-mono text-xs px-2.5 py-0.5 rounded bg-surface border border-rule text-primary">
+                  {diff.code}
+                </span>
+                <h3 className="text-lg font-semibold text-foreground">{diff.title}</h3>
+                <p className="text-sm text-muted leading-relaxed">{diff.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ SECTION */}
-      <section className="w-full bg-[#0A0A0A] relative z-10 py-24 md:py-32 px-6 md:px-12 border-t border-white/5">
-        <div className="max-w-4xl mx-auto">
-           <div className="text-center mb-20">
-              <p className="font-mono text-[#72dbd3] text-xs tracking-[0.2em] uppercase mb-4">/ Preguntas Frecuentes</p>
-              <h2 className="font-display text-4xl md:text-5xl font-black uppercase tracking-tight text-white">Despeja tus <span className="text-[#D62828]">Dudas.</span></h2>
-           </div>
+      {/* ------------------------------------------------------------------ */}
+      {/* 7. VERIFIED CLIENT TESTIMONIALS — Real Production Impact            */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="py-20 md:py-32 bg-background border-b border-rule">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12">
+          <div className="max-w-2xl mb-12 space-y-3">
+            <p className="text-xs font-mono text-primary">
+              {isEn ? 'VERIFIED CLIENT IMPACT' : 'RESULTADOS EN CLIENTES REALES'}
+            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground">
+              {isEn
+                ? 'Companies scaling with our systems.'
+                : 'Testimonios reales de empresas en operación.'}
+            </h2>
+          </div>
 
-           <div className="space-y-6">
-              {[
-                { q: "¿Cuánto tarda en implementarse un Empleado de Ventas IA?", a: "Dependiendo de la complejidad y los canales de mensajería, un Agente de IA funcional y calificado puede estar listo en un plazo de 2 a 4 semanas." },
-                { q: "¿Tengo que saber programar o administrar servidores?", a: "Para nada. Nosotros nos encargamos de todo el hosting, las conexiones API y el mantenimiento técnico. Te entregamos un sistema llave en mano listo para operar." },
-                { q: "¿Cómo se entrenan los agentes conversacionales?", a: "Los alimentamos directamente con la información oficial de tus servicios, catálogos, políticas de entrega y preguntas frecuentes para asegurar respuestas 100% correctas." },
-                { q: "¿Qué pasa si mis herramientas actuales no son modernas?", a: "Nuestros orquestadores de software (n8n) nos permiten conectar sistemas antiguos, hojas de cálculo de Excel e incluso correos electrónicos con agentes modernos de IA de forma transparente." }
-              ].map((faq, i) => (
-                <motion.div 
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="p-6 md:p-8 bg-[#111] border border-white/5 rounded-2xl hover:border-white/10 transition-all"
-                >
-                   <h4 className="text-white font-bold text-base md:text-lg mb-4 flex items-start gap-4">
-                      <span className="text-[#D62828] font-mono">?</span>
-                      {faq.q}
-                   </h4>
-                   <p className="text-white/40 text-xs md:text-sm leading-relaxed pl-6">{faq.a}</p>
-                </motion.div>
-              ))}
-           </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((t) => (
+              <blockquote
+                key={t.author}
+                className="p-6 sm:p-8 rounded-2xl bg-surface border border-rule flex flex-col justify-between gap-6"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between border-b border-rule pb-3">
+                    <span className="text-xs font-mono text-primary font-medium">{t.metric}</span>
+                    <span className="text-xs text-primary tracking-widest">★★★★★</span>
+                  </div>
+                  <p className="text-sm sm:text-base text-foreground leading-relaxed">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                </div>
+
+                <footer className="flex items-center gap-3.5 pt-4 border-t border-rule">
+                  <div className="w-10 h-10 rounded-full bg-card border border-primary/50 flex items-center justify-center font-mono text-xs font-semibold text-primary shrink-0">
+                    {t.initials}
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-foreground">{t.author}</div>
+                    <div className="text-xs font-mono text-muted">{t.role}</div>
+                  </div>
+                </footer>
+              </blockquote>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Global Project Details Modal */}
+      {/* ------------------------------------------------------------------ */}
+      {/* 6. FAQ & TECHNICAL CLARITY + 3D SLA TRANSCEIVER FIGURE             */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="py-20 md:py-32 bg-surface">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-5 space-y-6">
+              <div className="space-y-3">
+                <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
+                  {isEn
+                    ? 'Technical and commercial questions.'
+                    : 'Preguntas técnicas y comerciales frecuentes.'}
+                </h2>
+                <p className="text-muted text-base leading-relaxed">
+                  {isEn
+                    ? 'Have a specific integration question? Message us directly on WhatsApp and an engineer will answer within minutes.'
+                    : '¿Tienes una duda específica sobre tu operación? Escríbenos por WhatsApp y un ingeniero te responderá en minutos.'}
+                </p>
+              </div>
+
+              {/* 3D Isometric SLA Transceiver Figure */}
+              <SlaTransceiverFigure isEn={isEn} />
+
+              <div>
+                <a
+                  href={whatsappDirectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-full sm:w-auto h-11 px-6 rounded-lg bg-primary text-primary-ink font-medium text-sm hover:opacity-90 transition-opacity"
+                >
+                  {isEn ? 'Ask an engineer on WhatsApp' : 'Consultar a un ingeniero en WhatsApp'}
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 divide-y divide-rule border-y border-rule">
+              {faqs.map((item, idx) => {
+                const isOpen = openFaq === idx;
+                return (
+                  <div key={idx} className="py-5">
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(isOpen ? null : idx)}
+                      aria-expanded={isOpen}
+                      className="w-full flex items-center justify-between gap-4 text-left py-2"
+                    >
+                      <span className="text-base sm:text-lg font-medium text-foreground">
+                        {item.q}
+                      </span>
+                      <ChevronDown
+                        size={18}
+                        className={`text-muted shrink-0 transition-transform duration-200 ${
+                          isOpen ? 'rotate-180 text-primary' : ''
+                        }`}
+                      />
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.18 }}
+                          className="pt-3 pb-2 text-sm sm:text-base text-muted leading-relaxed max-w-[65ch]"
+                        >
+                          {item.a}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <ProjectDetailsModal
         isOpen={isModalOpen}
         project={selectedProject}

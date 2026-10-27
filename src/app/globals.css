@@ -1,92 +1,395 @@
+/* Hallmark · v2.0.0 · redesign: full · theme: custom · idea: "Editorial engineering specification ledger on deep mineral paper" · vibe: "mineral, architectural, calm, exact, tactile" · posture: Restrained · axes: dark/grotesk/chromatic-sage */
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · weakest: S, anchored every section in interactive minimalist 3D isometric figures with pure white #ffffff typography */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #080808;
-  --foreground: #EAEAEA;
+/* -------------------------------------------------------------------------- */
+/* 5 RealtimeColors Palettes — Pure #ffffff Foreground Across All Themes      */
+/* -------------------------------------------------------------------------- */
+
+:root,
+html[data-palette="p4"] {
+  /* Paleta 4 (Default): Forest Night & Fjord Petrol */
+  --bg: #070d0a;
+  --surface: #0d1612;
+  --card: #13211b;
+  --fg: #ffffff;
+  --muted: #b4c8be;
+  --subtle: #7a9488;
+  --primary: #a5d0b9;
+  --primary-ink: #070d0a;
+  --secondary: #366367;
+  --accent: #73a2b6;
+  --rule: rgba(255, 255, 255, 0.12);
+  --rule-strong: rgba(165, 208, 185, 0.35);
+  --cube-top: rgba(165, 208, 185, 0.24);
+  --cube-mid: rgba(54, 99, 103, 0.32);
+  --cube-bot: rgba(115, 162, 182, 0.26);
 }
 
-/* Escala compacta y refinada para PC (equivalente al efecto de zoom ~75-80%) */
-@media (min-width: 1024px) {
+html[data-palette="p1"] {
+  /* Paleta 1: Botanical Slate & Lavender */
+  --bg: #060b09;
+  --surface: #0c1411;
+  --card: #131f1b;
+  --fg: #ffffff;
+  --muted: #b8cbc1;
+  --subtle: #7c9387;
+  --primary: #add1bf;
+  --primary-ink: #060b09;
+  --secondary: #3f5670;
+  --accent: #7982b3;
+  --rule: rgba(255, 255, 255, 0.12);
+  --rule-strong: rgba(173, 209, 191, 0.35);
+  --cube-top: rgba(173, 209, 191, 0.24);
+  --cube-mid: rgba(63, 86, 112, 0.32);
+  --cube-bot: rgba(121, 130, 179, 0.28);
+}
+
+html[data-palette="p2"] {
+  /* Paleta 2: Abyssal Glacier & Terracotta */
+  --bg: #0b1619;
+  --surface: #102024;
+  --card: #172d33;
+  --fg: #ffffff;
+  --muted: #b5cad2;
+  --subtle: #7a949e;
+  --primary: #98c4d2;
+  --primary-ink: #0b1619;
+  --secondary: #7a4436;
+  --accent: #a0b557;
+  --rule: rgba(255, 255, 255, 0.12);
+  --rule-strong: rgba(152, 196, 210, 0.35);
+  --cube-top: rgba(152, 196, 210, 0.24);
+  --cube-mid: rgba(122, 68, 54, 0.32);
+  --cube-bot: rgba(160, 181, 87, 0.26);
+}
+
+html[data-palette="p3"] {
+  /* Paleta 3: Mineral Forest & Jade */
+  --bg: #050706;
+  --surface: #0b100e;
+  --card: #121b17;
+  --fg: #ffffff;
+  --muted: #b8c2bd;
+  --subtle: #7d8a84;
+  --primary: #a4cebb;
+  --primary-ink: #050706;
+  --secondary: #2c7052;
+  --accent: #55d099;
+  --rule: rgba(255, 255, 255, 0.12);
+  --rule-strong: rgba(164, 206, 187, 0.35);
+  --cube-top: rgba(164, 206, 187, 0.24);
+  --cube-mid: rgba(44, 112, 82, 0.32);
+  --cube-bot: rgba(85, 208, 153, 0.26);
+}
+
+html[data-palette="p5"] {
+  /* Paleta 5: Obsidian Espresso & Dusty Mauve */
+  --bg: #0c0709;
+  --surface: #150d11;
+  --card: #20151b;
+  --fg: #ffffff;
+  --muted: #cbbbc1;
+  --subtle: #917e85;
+  --primary: #c9acb6;
+  --primary-ink: #0c0709;
+  --secondary: #3e5f3f;
+  --accent: #77a7a2;
+  --rule: rgba(255, 255, 255, 0.12);
+  --rule-strong: rgba(201, 172, 182, 0.35);
+  --cube-top: rgba(201, 172, 182, 0.24);
+  --cube-mid: rgba(62, 95, 63, 0.32);
+  --cube-bot: rgba(119, 167, 162, 0.26);
+}
+
+@layer base {
   html {
-    font-size: 83%; /* 12.8px base: reduce toda la escala rem en PC en un 20% */
+    background-color: var(--bg);
+    color: var(--fg);
+    overflow-x: clip;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    overflow-x: clip;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    caret-color: var(--primary);
+  }
+
+  h1, h2, h3, h4 {
+    color: var(--fg);
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    min-width: 0;
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    transition: none;
+  }
+
+  ::selection {
+    background-color: var(--primary);
+    color: var(--primary-ink);
   }
 }
-@media (min-width: 1536px) {
-  html {
-    font-size: 90%;
+
+/* -------------------------------------------------------------------------- */
+/* 3D Isometric Architecture Cube (iso-stack) — Dynamic Palette Tokens        */
+/* -------------------------------------------------------------------------- */
+
+@keyframes isoFloat {
+  0%, 100% {
+    transform: rotateX(58deg) rotateZ(-42deg) translateY(0px);
+  }
+  50% {
+    transform: rotateX(55deg) rotateZ(-36deg) translateY(-6px);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
+@keyframes isoSpinSlow {
+  0% {
+    transform: rotateX(60deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(60deg) rotateZ(360deg);
+  }
 }
 
-/* Ensure standard cursors across all devices */
-a, button {
+@keyframes isoSpinReverse {
+  0% {
+    transform: rotateX(60deg) rotateZ(360deg);
+  }
+  100% {
+    transform: rotateX(60deg) rotateZ(0deg);
+  }
+}
+
+@keyframes isoPulseCore {
+  0%, 100% {
+    transform: translateZ(20px) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateZ(28px) scale(1.08);
+    opacity: 1;
+  }
+}
+
+.iso-scene {
+  width: 240px;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1100px;
+}
+
+.iso-stack {
+  position: relative;
+  width: 196px;
+  height: 196px;
+  transform-style: preserve-3d;
+  transform: rotateX(58deg) rotateZ(-42deg);
+  animation: isoFloat 7s ease-in-out infinite;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.iso-scene:hover .iso-stack {
+  animation-play-state: paused;
+  transform: rotateX(54deg) rotateZ(-34deg);
+}
+
+.iso-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, border-color 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px;
   cursor: pointer;
 }
-input, select, textarea {
-  cursor: text;
+
+.iso-layer-1 {
+  background: var(--cube-top);
+  border: 1.5px solid var(--primary);
+  transform: translateZ(56px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45);
 }
 
-/* Lenis Smooth Scroll defaults */
-html.lenis, html.lenis body {
-  height: auto;
-}
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
+.iso-layer-2 {
+  background: var(--cube-mid);
+  border: 1.5px solid var(--accent);
+  transform: translateZ(0px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45);
 }
 
-/* Custom Webkit Scrollbar - hidden for cleaner aesthetic */
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
+.iso-layer-3 {
+  background: var(--cube-bot);
+  border: 1.5px solid var(--secondary);
+  transform: translateZ(-56px);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.6);
 }
 
-@layer utilities {
-  .text-gradient {
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+.iso-stack[data-active-layer="0"] .iso-layer-1 {
+  transform: translateZ(74px) scale(1.03);
+  border-color: var(--primary);
+}
+.iso-stack[data-active-layer="0"] .iso-layer-2 {
+  transform: translateZ(-4px);
+  opacity: 0.78;
+}
+.iso-stack[data-active-layer="0"] .iso-layer-3 {
+  transform: translateZ(-64px);
+  opacity: 0.68;
 }
 
-/* WhatsApp-style scrollbar for chat */
-.scrollbar-thin::-webkit-scrollbar {
-  width: 4px;
+.iso-stack[data-active-layer="1"] .iso-layer-1 {
+  transform: translateZ(66px);
+  opacity: 0.75;
 }
-.scrollbar-thin::-webkit-scrollbar-track {
-  background: transparent;
+.iso-stack[data-active-layer="1"] .iso-layer-2 {
+  transform: translateZ(10px) scale(1.04);
+  border-color: var(--primary);
 }
-.scrollbar-thin::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 2px;
-}
-.scrollbar-thin {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+.iso-stack[data-active-layer="1"] .iso-layer-3 {
+  transform: translateZ(-64px);
+  opacity: 0.72;
 }
 
-/* High-performance CSS Marquee */
-@keyframes marquee-horizontal {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
+.iso-stack[data-active-layer="2"] .iso-layer-1 {
+  transform: translateZ(64px);
+  opacity: 0.68;
 }
-.marquee-text-bg {
+.iso-stack[data-active-layer="2"] .iso-layer-2 {
+  transform: translateZ(4px);
+  opacity: 0.78;
+}
+.iso-stack[data-active-layer="2"] .iso-layer-3 {
+  transform: translateZ(-46px) scale(1.04);
+  border-color: var(--primary);
+}
+
+.iso-grid {
+  flex: 1;
+  border: 1px dashed var(--rule-strong);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-image: linear-gradient(to right, var(--rule) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--rule) 1px, transparent 1px);
+  background-size: 18px 18px;
   display: flex;
-  width: max-content;
-  animation: marquee-horizontal 25s linear infinite;
-  will-change: transform;
+  align-items: center;
+  justify-content: center;
+}
+
+.iso-core {
+  width: 44px;
+  height: 44px;
+  margin: auto;
+  border-radius: 9999px;
+  background: var(--primary);
+  opacity: 0.9;
+  box-shadow: 0 0 28px var(--primary);
+}
+
+.iso-bars {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 6px;
+}
+
+.iso-bars span {
+  flex: 1;
+  background: var(--primary);
+  border-radius: 3px;
+  opacity: 0.88;
+}
+
+.iso-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--fg);
+  background: var(--bg);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--rule-strong);
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Minimalist 3D Architectural Figures for Sections                           */
+/* -------------------------------------------------------------------------- */
+
+.iso-stage-box {
+  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iso-plane-tilted {
+  transform-style: preserve-3d;
+  transform: rotateX(56deg) rotateZ(-38deg);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.iso-stage-box:hover .iso-plane-tilted {
+  transform: rotateX(50deg) rotateZ(-28deg) scale(1.03);
+}
+
+.iso-ring-orbit {
+  transform-style: preserve-3d;
+  animation: isoSpinSlow 22s linear infinite;
+}
+
+.iso-ring-orbit-reverse {
+  transform-style: preserve-3d;
+  animation: isoSpinReverse 16s linear infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface);
+  border-radius: 3px;
+  border: 1px solid var(--rule);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

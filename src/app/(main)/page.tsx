@@ -2,16 +2,18 @@ import type { Metadata } from 'next';
 import HomeClient from './home-client';
 
 export const metadata: Metadata = {
-  title: 'Autonomek: Automatización y desarrollo web en Medellín | Automatización de procesos y posicionamiento Google',
-  description: 'Posicionamos tu página web en los primeros resultados de Google y convertimos tus visitas en clientes con automatización de procesos y agentes de IA 24/7.',
+  title: 'Autonomek | Ingeniería de Agentes IA, Automatización B2B y Desarrollo Web',
+  description: 'Arquitectura de software B2B, agentes de Inteligencia Artificial 24/7 en WhatsApp, automatización de procesos y páginas web de alto rendimiento con SEO técnico.',
   alternates: {
-    canonical: 'https://autonomek.com',
+    canonical: 'https://www.autonomek.com',
     languages: {
-      'es-CO': 'https://autonomek.com',
-      'es-MX': 'https://autonomek.com/mx',
-      'es-ES': 'https://autonomek.com/es',
-      'en-US': 'https://autonomek.com/us',
-      'x-default': 'https://autonomek.com',
+      'es': 'https://www.autonomek.com/es',
+      'es-ES': 'https://www.autonomek.com/es',
+      'es-CO': 'https://www.autonomek.com',
+      'es-MX': 'https://www.autonomek.com/mx',
+      'en': 'https://www.autonomek.com/en',
+      'en-US': 'https://www.autonomek.com/us',
+      'x-default': 'https://www.autonomek.com',
     },
   },
 };

@@ -1,18 +1,21 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import AutomatizacionPageClient from '../../../servicios/automatizacion-de-procesos/automatizacion-client';
 
 export const metadata: Metadata = {
-  title: 'Process Automation & AI Workflows | Autonomek',
-  description: 'We connect your systems (CRMs, ERPs, Google Sheets, and databases) through workflow orchestrators and logic flows to run your business on autopilot.',
+  title: 'B2B Process & Workflow Automation | Autonomek USA',
+  description: 'Connect your CRM, ERP, WhatsApp, and billing systems into autonomous real-time workflows with zero human error.',
   alternates: {
-    canonical: 'https://autonomek.com/us/services/process-automation',
+    canonical: 'https://www.autonomek.com/us/services/process-automation',
     languages: {
-      'es-CO': 'https://autonomek.com/servicios/automatizacion-de-procesos',
-      'en-US': 'https://autonomek.com/us/services/process-automation',
-    }
-  }
+      'en': 'https://www.autonomek.com/en/services/process-automation',
+      'en-US': 'https://www.autonomek.com/us/services/process-automation',
+      'es': 'https://www.autonomek.com/es/servicios/automatizacion-de-procesos',
+      'es-CO': 'https://www.autonomek.com/servicios/automatizacion-de-procesos',
+      'x-default': 'https://www.autonomek.com/servicios/automatizacion-de-procesos',
+    },
+  },
 };
 
-export default function Page() {
+export default function ProcessAutomationPageUS() {
   return <AutomatizacionPageClient locale="en" />;
 }

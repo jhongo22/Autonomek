@@ -1,10 +1,18 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Desarrollo de software a medida y plataformas web | Autonomek',
-  description: 'Construimos plataformas digitales, paneles analíticos y sistemas operacionales exclusivos adaptados a los cuellos de botella específicos de tu negocio.',
+  title: 'Desarrollo de Software a Medida y Plataformas Cloud B2B | Autonomek',
+  description: 'Construimos plataformas digitales, CRMs propios, paneles analíticos y sistemas operacionales adaptados a los flujos de tu empresa.',
   alternates: {
-    canonical: 'https://autonomek.com/servicios/software-a-medida',
+    canonical: 'https://www.autonomek.com/servicios/software-a-medida',
+    languages: {
+      'es': 'https://www.autonomek.com/es/servicios/software-a-medida',
+      'es-ES': 'https://www.autonomek.com/es/servicios/software-a-medida',
+      'es-CO': 'https://www.autonomek.com/servicios/software-a-medida',
+      'en': 'https://www.autonomek.com/en/services/custom-software',
+      'en-US': 'https://www.autonomek.com/us/services/custom-software',
+      'x-default': 'https://www.autonomek.com/servicios/software-a-medida',
+    },
   },
 };
 

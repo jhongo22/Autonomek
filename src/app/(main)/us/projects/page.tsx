@@ -2,17 +2,20 @@ import type { Metadata } from 'next';
 import ProyectosClient from '../../proyectos/proyectos-client';
 
 export const metadata: Metadata = {
-  title: 'Success Stories & Real Projects | Autonomek',
-  description: 'Explore our portfolio of custom software, high-performance web development, and AI agents in production.',
+  title: 'B2B Case Studies & Engineering Portfolio | Autonomek USA',
+  description: 'Explore our deployed systems: AI conversational agents, process automations, custom cloud software, and high-performance websites.',
   alternates: {
-    canonical: 'https://autonomek.com/us/projects',
+    canonical: 'https://www.autonomek.com/us/projects',
     languages: {
-      'es-CO': 'https://autonomek.com/proyectos',
-      'en-US': 'https://autonomek.com/us/projects',
+      'en': 'https://www.autonomek.com/en/projects',
+      'en-US': 'https://www.autonomek.com/us/projects',
+      'es': 'https://www.autonomek.com/es/proyectos',
+      'es-CO': 'https://www.autonomek.com/proyectos',
+      'x-default': 'https://www.autonomek.com/proyectos',
     },
   },
 };
 
-export default function Page() {
+export default function ProjectsPageUS() {
   return <ProyectosClient locale="en" />;
 }

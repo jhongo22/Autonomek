@@ -1,18 +1,21 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import DesarrolloWebPageClient from '../../../servicios/paginas-web-alto-rendimiento/paginas-web-client';
 
 export const metadata: Metadata = {
-  title: 'Premium Web Development & Technical SEO | Autonomek',
-  description: 'We develop high-performance websites using Next.js and TailwindCSS, fully optimized for Google SEO and Core Web Vitals.',
+  title: 'High-Performance B2B Websites & Technical SEO | Autonomek USA',
+  description: 'Sub-second Next.js web platforms engineered for Core Web Vitals, Google SEO, and AI Answer Engines (GEO/AEO).',
   alternates: {
-    canonical: 'https://autonomek.com/us/services/high-performance-websites',
+    canonical: 'https://www.autonomek.com/us/services/high-performance-websites',
     languages: {
-      'es-CO': 'https://autonomek.com/servicios/paginas-web-alto-rendimiento',
-      'en-US': 'https://autonomek.com/us/services/high-performance-websites',
-    }
-  }
+      'en': 'https://www.autonomek.com/en/services/high-performance-websites',
+      'en-US': 'https://www.autonomek.com/us/services/high-performance-websites',
+      'es': 'https://www.autonomek.com/es/servicios/paginas-web-alto-rendimiento',
+      'es-CO': 'https://www.autonomek.com/servicios/paginas-web-alto-rendimiento',
+      'x-default': 'https://www.autonomek.com/servicios/paginas-web-alto-rendimiento',
+    },
+  },
 };
 
-export default function Page() {
+export default function HighPerformanceWebsitesPageUS() {
   return <DesarrolloWebPageClient locale="en" />;
 }

@@ -4,17 +4,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, X, Send, Bot, User } from 'lucide-react';
 
-// Simulación de respuestas del Agente
 const AGENT_RESPONSES = [
-  "Hola, soy el agente de IA de Autonomek. ¿En qué puedo ayudarte a escalar tu negocio hoy?",
-  "Nuestros sistemas de automatización de tareas y procesos pueden ahorrarte hasta 20 horas de trabajo a la semana. ¿Quieres saber cómo?",
-  "Diseñamos plataformas web inteligentes, no solo páginas simples. ¿Cuál es tu mayor desafío actual?",
+  'Hola, soy el agente de IA de Autonomek. ¿En qué puedo ayudarte a escalar tu negocio hoy?',
+  'Nuestros sistemas de automatización de tareas y procesos pueden ahorrarte hasta 20 horas de trabajo a la semana. ¿Quieres saber cómo?',
+  'Diseñamos plataformas web inteligentes, no solo páginas simples. ¿Cuál es tu mayor desafío actual?',
 ];
 
 export default function AiChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<{role: 'user'|'agent', text: string}[]>([]);
-  const [inputValue, setInputValue] = useState("");
+  const [messages, setMessages] = useState<{ role: 'user' | 'agent'; text: string }[]>([]);
+  const [inputValue, setInputValue] = useState('');
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -33,14 +32,13 @@ export default function AiChatWidget() {
 
   const handleSend = () => {
     if (!inputValue.trim()) return;
-    setMessages(prev => [...prev, { role: 'user', text: inputValue }]);
-    setInputValue("");
-    
-    // Simular respuesta
+    setMessages((prev) => [...prev, { role: 'user', text: inputValue }]);
+    setInputValue('');
+
     setTimeout(() => {
       const resp = AGENT_RESPONSES[Math.floor(Math.random() * (AGENT_RESPONSES.length - 1)) + 1];
-      setMessages(prev => [...prev, { role: 'agent', text: resp }]);
-    }, 1500);
+      setMessages((prev) => [...prev, { role: 'agent', text: resp }]);
+    }, 1200);
   };
 
   return (
@@ -51,44 +49,50 @@ export default function AiChatWidget() {
             initial={{ opacity: 0, y: 20, scale: 0.95, transformOrigin: 'bottom right' }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-4 w-80 sm:w-96 h-[500px] max-h-[80vh] bg-black/80 backdrop-blur-2xl border border-white/10 rounded-2xl flex flex-col shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden"
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-4 w-80 sm:w-96 h-[500px] max-h-[80vh] bg-surface/95 backdrop-blur-2xl border border-slate-400/20 rounded-2xl flex flex-col shadow-2xl overflow-hidden"
           >
-            {/* Header */}
-            <div className="p-4 border-b border-white/10 bg-white/5 flex justify-between items-center">
+            <div className="p-4 border-b border-slate-400/15 bg-card flex justify-between items-center">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#D62828] to-[#ff4d4d] flex items-center justify-center text-white shadow-[0_0_15px_rgba(214,40,40,0.4)]">
+                  <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white shadow-[0_0_15px_rgba(37,99,235,0.4)]">
                     <Bot size={20} />
                   </div>
-                  <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-black rounded-full animate-pulse"></span>
+                  <span className="absolute bottom-0 right-0 w-3 h-3 bg-teal border-2 border-surface rounded-full animate-pulse" />
                 </div>
                 <div>
-                  <h3 className="text-white font-display font-bold text-sm tracking-wide">Autonomek AI Agent</h3>
-                  <p className="text-[10px] text-white/50 font-mono uppercase tracking-widest">En línea</p>
+                  <h3 className="text-foreground font-display font-bold text-sm tracking-wide">Autonomek AI Agent</h3>
+                  <p className="text-[10px] text-muted font-mono uppercase tracking-widest">En línea</p>
                 </div>
               </div>
-              <button 
+              <button
                 onClick={() => setIsOpen(false)}
-                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 text-white/50 hover:text-white transition-all"
+                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-400/15 text-muted hover:text-foreground transition-all"
               >
                 <X size={18} />
               </button>
             </div>
 
-            {/* Body */}
-            <div ref={chatContainerRef} className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar bg-black/20">
+            <div ref={chatContainerRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-background/60">
               {messages.map((msg, idx) => (
                 <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div className={`flex gap-2 max-w-[85%] ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
-                    <div className={`mt-auto w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${msg.role === 'user' ? 'bg-white/10' : 'bg-[#D62828]/20'}`}>
-                      {msg.role === 'user' ? <User size={12} className="text-white/70" /> : <Bot size={12} className="text-[#D62828]" />}
+                    <div
+                      className={`mt-auto w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${
+                        msg.role === 'user' ? 'bg-slate-400/20' : 'bg-accent/20'
+                      }`}
+                    >
+                      {msg.role === 'user' ? (
+                        <User size={12} className="text-foreground/80" />
+                      ) : (
+                        <Bot size={12} className="text-accent-light" />
+                      )}
                     </div>
-                    <div 
+                    <div
                       className={`p-3 text-sm leading-relaxed ${
-                        msg.role === 'user' 
-                          ? 'bg-[#D62828] text-white rounded-2xl rounded-tr-none shadow-[0_5px_15px_rgba(214,40,40,0.2)]' 
-                          : 'bg-white/5 text-white/90 border border-white/10 rounded-2xl rounded-tl-none'
+                        msg.role === 'user'
+                          ? 'bg-accent text-white rounded-2xl rounded-tr-none shadow-md'
+                          : 'bg-surface text-foreground border border-slate-400/15 rounded-2xl rounded-tl-none'
                       }`}
                     >
                       {msg.text}
@@ -98,8 +102,7 @@ export default function AiChatWidget() {
               ))}
             </div>
 
-            {/* Input */}
-            <div className="p-4 bg-white/5 border-t border-white/10">
+            <div className="p-4 bg-card border-t border-slate-400/15">
               <div className="relative flex items-center gap-2">
                 <input
                   type="text"
@@ -107,14 +110,14 @@ export default function AiChatWidget() {
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                   placeholder="Escribe un mensaje..."
-                  className="flex-1 bg-white/5 border border-white/10 rounded-full py-3 px-5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#D62828]/50 focus:ring-1 focus:ring-[#D62828]/20 transition-all"
+                  className="flex-1 bg-background border border-slate-400/20 rounded-full py-2.5 px-4 text-sm text-foreground placeholder:text-subtle focus:outline-none focus:border-accent-light transition-all"
                 />
-                <button 
+                <button
                   onClick={handleSend}
                   disabled={!inputValue.trim()}
-                  className="w-10 h-10 rounded-full bg-[#D62828] hover:bg-[#ff4d4d] disabled:opacity-50 disabled:hover:bg-[#D62828] text-white flex items-center justify-center transition-all shadow-[0_5px_15px_rgba(214,40,40,0.3)] hover:shadow-[0_8px_20px_rgba(214,40,40,0.4)] active:scale-95"
+                  className="w-10 h-10 rounded-full bg-accent hover:bg-accent-light disabled:opacity-50 text-white flex items-center justify-center transition-all shadow-md"
                 >
-                  <Send size={18} />
+                  <Send size={17} />
                 </button>
               </div>
             </div>
@@ -122,38 +125,13 @@ export default function AiChatWidget() {
         )}
       </AnimatePresence>
 
-      {/* Toggle Button */}
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 bg-[#D62828] rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(214,40,40,0.4)] text-white relative group border border-white/20 hover:bg-[#ff4d4d] transition-all duration-300"
+        className="w-14 h-14 bg-accent rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(37,99,235,0.4)] text-white relative group border border-slate-400/20 hover:bg-accent-light transition-all duration-300"
       >
-        <AnimatePresence mode="wait">
-          {isOpen ? (
-            <motion.div
-              key="close"
-              initial={{ opacity: 0, rotate: -90 }}
-              animate={{ opacity: 1, rotate: 0 }}
-              exit={{ opacity: 0, rotate: 90 }}
-              transition={{ duration: 0.2 }}
-            >
-              <X size={24} />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="open"
-              initial={{ opacity: 0, rotate: 90 }}
-              animate={{ opacity: 1, rotate: 0 }}
-              exit={{ opacity: 0, rotate: -90 }}
-              transition={{ duration: 0.2 }}
-              className="relative"
-            >
-              <MessageSquare size={24} />
-              <span className="absolute -top-1 -right-1 w-3 h-3 bg-white rounded-full border-2 border-[#D62828] animate-bounce"></span>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
       </motion.button>
     </div>
   );

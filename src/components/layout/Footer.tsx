@@ -1,177 +1,157 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ArrowUpRight, Github, Linkedin, Instagram, Mail, Globe } from 'lucide-react';
 
 export default function Footer() {
-  const pathname = usePathname() || '';
-  const isHome = pathname === '/' || pathname === '/mx' || pathname === '/es' || pathname === '/us';
-  const isEn = pathname.startsWith('/us');
+  const pathname = usePathname() || '/';
+  const isEn = pathname === '/en' || pathname.startsWith('/en/') || pathname === '/us' || pathname.startsWith('/us/');
+  const isEsPrefix = pathname === '/es' || pathname.startsWith('/es/');
+  const enBase = pathname === '/us' || pathname.startsWith('/us/') ? '/us' : '/en';
+  const esBase = isEsPrefix ? '/es' : '';
 
-  const footerLinks = isEn ? [
-    {
-      title: "Services",
-      links: [
-        { name: "Web Pages", href: "/servicios/paginas-web-alto-rendimiento" },
-        { name: "AI Agents", href: "/servicios/agentes-inteligencia-artificial" },
-        { name: "Automation", href: "/servicios/automatizacion-de-procesos" },
-        { name: "Custom Software", href: "/servicios/software-a-medida" }
-      ]
-    },
-    {
-      title: "Agency",
-      links: [
-        { name: "Home", href: "/us" },
-        { name: "Explore Services", href: "/us/services" },
-        { name: "Start Project", href: "https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20would%20like%20to%20start%20a%20project." },
-        { name: "Success Stories", href: "/us/projects" }
-      ]
-    },
-    {
-      title: "Legal",
-      links: [
-        { name: "Privacy", href: "/us/legal#privacidad" },
-        { name: "Terms", href: "/us/legal#terminos" },
-        { name: "Cookies", href: "/us/legal#cookies" },
-        { name: "LLM & Agent Specs", href: "/llms.txt" },
-      ]
-    }
-  ] : [
-    {
-      title: "Servicios",
-      links: [
-        { name: "Páginas Web", href: "/servicios/paginas-web-alto-rendimiento" },
-        { name: "Agentes IA", href: "/servicios/agentes-inteligencia-artificial" },
-        { name: "Automatización", href: "/servicios/automatizacion-de-procesos" },
-        { name: "Software a Medida", href: "/servicios/software-a-medida" }
-      ]
-    },
-    {
-      title: "Agencia",
-      links: [
-        { name: "Inicio", href: "/" },
-        { name: "Explorar Servicios", href: "/servicios" },
-        { name: "Iniciar Proyecto", href: "https://wa.me/573004435894?text=Hola%20Autonomek%2C%20me%20gustar%C3%ADa%20iniciar%20un%20proyecto." },
-        { name: "Casos de Éxito", href: "/proyectos" }
-      ]
-    },
-    {
-      title: "Legal",
-      links: [
-        { name: "Privacidad", href: "/legal#privacidad" },
-        { name: "Términos", href: "/legal#terminos" },
-        { name: "Cookies", href: "/legal#cookies" },
-        { name: "LLM & Agentes IA", href: "/llms.txt" },
-      ]
-    }
-  ];
-
-  const brandDesc = isEn 
-    ? "Architects of elite digital infrastructure and autonomous systems powered by Artificial Intelligence. We take your business traction to the next operational level."
-    : "Arquitectos de infraestructura digital y sistemas autónomos impulsados por Inteligencia Artificial de élite. Llevamos la tracción de tu negocio al siguiente nivel operativo.";
-
-  const ctaTitle1 = isEn ? "ARE YOU READY?" : "ESTÁS LISTO?";
-  const ctaTitle2 = isEn ? "LET'S TALK_" : "HABLEMOS_";
-  const copyright = isEn 
-    ? `© ${new Date().getFullYear()} AUTONOMEK WEB & IA. ALL RIGHTS RESERVED.`
-    : `© ${new Date().getFullYear()} AUTONOMEK WEB & IA. TODOS LOS DERECHOS RESERVADOS.`;
-  const systemsLabel = isEn ? "Active Systems" : "Sistemas Operativos";
+  const whatsappHref = isEn
+    ? 'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20an%20architect.'
+    : 'https://wa.me/573004435894?text=Hola%20Autonomek%2C%20me%20gustar%C3%ADa%20conversar%20sobre%20un%20proyecto%20con%20un%20arquitecto.';
 
   return (
-    <footer className="w-full bg-[#080808] border-t border-white/5 relative z-10 overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60vw] h-[40vh] bg-[#D62828]/5 blur-[120px] pointer-events-none rounded-full" />
-
-      <div className="max-w-7xl mx-auto px-6 pt-12 pb-12">
-        {/* Big Text CTA - ONLY ON HOME */}
-        {isHome && (
-          <div className="mb-24 overflow-hidden">
-              <a 
-                href={isEn ? "https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20would%20like%20to%20start%20a%20project." : "https://wa.me/573004435894?text=Hola%20Autonomek%2C%20me%20gustar%C3%ADa%20iniciar%20un%20proyecto."}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block"
-              >
-                 <motion.div
-                   whileHover={{ y: -20 }}
-                   transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                   className="flex flex-col"
-                 >
-                   <span className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none text-white/5 group-hover:text-[#D62828] transition-colors">{ctaTitle1}</span>
-                   <span className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none text-[#D62828] group-hover:text-white transition-colors">{ctaTitle2}</span>
-                 </motion.div>
-              </a>
-          </div>
-        )}
-
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 mb-24 ${isHome ? 'border-t border-white/5 pt-24' : ''}`}>
-          
-          {/* Brand Info */}
-          <div className="lg:col-span-2">
-            <Link href={isEn ? "/us" : "/"} className="inline-block mb-8 group">
-              <span className="font-display font-black text-3xl tracking-[0.2em] text-white uppercase">
-                AUTONOMEK<span className="text-[#72dbd3] group-hover:drop-shadow-[0_0_8px_#72dbd3] transition-all">_</span>
-              </span>
-            </Link>
-            <p className="text-white/40 text-sm leading-relaxed max-w-sm mb-10">
-              {brandDesc}
+    <footer className="w-full bg-background border-t border-rule text-foreground pt-16 pb-24">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12">
+        {/* Top Row: Statement + Action */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-16 border-b border-rule items-end">
+          <div className="lg:col-span-8">
+            <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-foreground mb-3">
+              {isEn
+                ? 'Talk directly with the engineer who builds your system.'
+                : 'Habla directamente con el ingeniero que construye tu sistema.'}
+            </h2>
+            <p className="text-muted text-base max-w-[60ch]">
+              {isEn
+                ? 'No account executives or multi-step forms. Message us on WhatsApp and receive a technical architecture and closed-price quote.'
+                : 'Sin ejecutivos intermediarios ni formularios eternos. Escríbenos por WhatsApp y recibe el diseño de arquitectura con presupuesto cerrado.'}
             </p>
-            <div className="flex gap-4">
-              {[
-                { icon: Instagram, label: "Instagram" },
-                { icon: Linkedin, label: "LinkedIn" },
-                { icon: Github, label: "GitHub" }
-              ].map(({ icon: Icon, label }, i) => (
-                <a 
-                  key={i} 
-                  href="#" 
-                  aria-label={label}
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-[#D62828] hover:border-[#D62828]/40 hover:bg-[#D62828]/5 transition-all"
-                >
-                  <Icon size={18} />
-                </a>
-              ))}
-            </div>
           </div>
-
-          {/* Links Columns */}
-          {footerLinks.map((column) => (
-            <div key={column.title} className="lg:col-span-1">
-              <h3 className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#D62828] mb-6 font-black">
-                / {column.title}
-              </h3>
-              <ul className="space-y-3.5">
-                {column.links.map((link) => (
-                  <li key={link.name}>
-                    <Link 
-                      href={link.href} 
-                      target={link.href.startsWith('http') ? '_blank' : undefined}
-                      rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/50 hover:text-white transition-all flex items-center group gap-1.5"
-                    >
-                      <span className="transition-transform group-hover:translate-x-1">{link.name}</span>
-                      <ArrowUpRight size={11} className="text-[#72dbd3] opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="lg:col-span-4 lg:flex lg:justify-end">
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center h-12 px-6 rounded-lg bg-primary text-primary-ink font-medium text-sm hover:opacity-90 transition-opacity whitespace-nowrap"
+            >
+              {isEn ? 'Start conversation on WhatsApp' : 'Iniciar conversación en WhatsApp'}
+            </a>
+          </div>
         </div>
 
-
-        {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-12 font-mono text-[10px] uppercase tracking-widest text-white/30">
-          <p>{copyright}</p>
-          <div className="flex gap-8 mt-6 md:mt-0">
-             <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-[#72dbd3] animate-pulse"></div>
-                <span>{systemsLabel}</span>
-             </div>
-             <p className="hover:text-white transition-colors cursor-pointer">LATAM / GLOBAL</p>
+        {/* Middle Columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 py-14 border-b border-rule text-sm">
+          <div className="lg:col-span-4 space-y-3">
+            <Link
+              href={isEn ? enBase : isEsPrefix ? '/es' : '/'}
+              className="font-semibold text-base text-foreground inline-block"
+            >
+              Autonomek
+            </Link>
+            <p className="text-muted leading-relaxed max-w-[36ch]">
+              {isEn
+                ? 'Software engineering, autonomous WhatsApp AI agents, and n8n workflow orchestration for companies in the US, Spain, Mexico, and Colombia.'
+                : 'Ingeniería de software, agentes autónomos de IA en WhatsApp y orquestación de procesos con n8n para empresas en Colombia, México, España y EE. UU.'}
+            </p>
+            <p className="text-subtle text-xs pt-1">
+              Medellín, Colombia — contacto@autonomek.com
+            </p>
           </div>
+
+          <div className="lg:col-span-3 space-y-2.5">
+            <p className="font-medium text-foreground mb-3">
+              {isEn ? 'Engineering systems' : 'Sistemas de ingeniería'}
+            </p>
+            <ul className="space-y-2 text-muted">
+              <li>
+                <Link href={isEn ? `${enBase}/services/ai-agents` : `${esBase}/servicios/agentes-inteligencia-artificial`} className="hover:text-foreground transition-colors">
+                  {isEn ? '24/7 AI Sales Agents' : 'Agentes de IA 24/7'}
+                </Link>
+              </li>
+              <li>
+                <Link href={isEn ? `${enBase}/services/high-performance-websites` : `${esBase}/servicios/paginas-web-alto-rendimiento`} className="hover:text-foreground transition-colors">
+                  {isEn ? 'High-Performance Web & SEO' : 'Páginas web y SEO técnico'}
+                </Link>
+              </li>
+              <li>
+                <Link href={isEn ? `${enBase}/services/process-automation` : `${esBase}/servicios/automatizacion-de-procesos`} className="hover:text-foreground transition-colors">
+                  {isEn ? 'Process Automation (n8n)' : 'Automatización de procesos'}
+                </Link>
+              </li>
+              <li>
+                <Link href={isEn ? `${enBase}/services/custom-software` : `${esBase}/servicios/software-a-medida`} className="hover:text-foreground transition-colors">
+                  {isEn ? 'Custom Cloud Software' : 'Software a medida'}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="lg:col-span-3 space-y-2.5">
+            <p className="font-medium text-foreground mb-3">
+              {isEn ? 'Navigation' : 'Navegación'}
+            </p>
+            <ul className="space-y-2 text-muted">
+              <li>
+                <Link href={isEn ? `${enBase}/projects` : `${esBase}/proyectos`} className="hover:text-foreground transition-colors">
+                  {isEn ? 'Production case studies' : 'Casos de estudio en producción'}
+                </Link>
+              </li>
+              <li>
+                <Link href={isEn ? `${enBase}/services` : `${esBase}/servicios`} className="hover:text-foreground transition-colors">
+                  {isEn ? 'All capabilities' : 'Catálogo de sistemas'}
+                </Link>
+              </li>
+              <li>
+                <Link href={isEn ? `${enBase}/legal` : `${esBase}/legal`} className="hover:text-foreground transition-colors">
+                  {isEn ? 'Privacy & legal terms' : 'Privacidad y aviso legal'}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="lg:col-span-2 space-y-2.5">
+            <p className="font-medium text-foreground mb-3">
+              {isEn ? 'Editions' : 'Ediciones'}
+            </p>
+            <ul className="space-y-2 text-muted">
+              <li>
+                <Link href="/es" hrefLang="es" className="hover:text-foreground transition-colors">
+                  Español (/es)
+                </Link>
+              </li>
+              <li>
+                <Link href="/en" hrefLang="en" className="hover:text-foreground transition-colors">
+                  English (/en)
+                </Link>
+              </li>
+              <li>
+                <Link href="/" hrefLang="es-CO" className="hover:text-foreground transition-colors">
+                  Colombia (/)
+                </Link>
+              </li>
+              <li>
+                <Link href="/mx" hrefLang="es-MX" className="hover:text-foreground transition-colors">
+                  México (/mx)
+                </Link>
+              </li>
+              <li>
+                <Link href="/us" hrefLang="en-US" className="hover:text-foreground transition-colors">
+                  United States (/us)
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Line */}
+        <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-subtle">
+          <p>© {new Date().getFullYear()} Autonomek Web & IA.</p>
+          <p>WhatsApp Directo: +57 300 443 5894</p>
         </div>
       </div>
     </footer>

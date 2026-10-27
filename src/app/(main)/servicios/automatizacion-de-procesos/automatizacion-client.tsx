@@ -1,354 +1,212 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Zap, Link as LinkIcon, Database, Share2, ShieldCheck, Clock, TrendingUp, ArrowRight, Settings, Smartphone, Mail, CreditCard, Plus } from 'lucide-react';
-import { PROJECTS, Project } from '@/data/projects';
+import { usePathname } from 'next/navigation';
+import { ExternalLink } from 'lucide-react';
+import { PROJECTS, PROJECTS_EN, Project } from '@/data/projects';
 import ProjectDetailsModal from '@/components/ProjectDetailsModal';
+import { BlueprintSculptureFigure } from '@/components/widgets/ArchitecturalFigures';
 
 export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: 'es' | 'en' }) {
-  const isEn = locale === 'en';
+  const pathname = usePathname() || '/';
+  const isEn = locale === 'en' || pathname.startsWith('/en') || pathname.startsWith('/us');
+  const isEsExplicit = pathname.startsWith('/es');
+  const isUsExplicit = pathname.startsWith('/us');
+  const basePrefix = isEn ? (isUsExplicit ? '/us' : '/en') : (isEsExplicit ? '/es' : '');
+
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const autoProjects = useMemo(() => {
-    return PROJECTS.filter(p => p.category === 'Automatización').slice(0, 4);
-  }, []);
-
-  const tools = [
-    { name: "WhatsApp API", icon: <Smartphone size={20} /> },
-    { name: isEn ? "HubSpot / CRM" : "HubSpot / CRM", icon: <Settings size={20} /> },
-    { name: isEn ? "Stripe / Payments" : "Stripe / Pagos", icon: <CreditCard size={20} /> },
-    { name: "Google Workspace", icon: <Mail size={20} /> },
-    { name: isEn ? "Databases" : "Bases de Datos", icon: <Database size={20} /> },
-    { name: "ERP / Custom", icon: <Share2 size={20} /> }
-  ];
-
-  const benefits = isEn ? [
-    {
-      title: "Error Elimination",
-      desc: "Humans get tired, automations do not. Ensure every piece of data reaches its destination without manual mistakes.",
-      icon: <ShieldCheck className="text-[#D62828]" />
-    },
-    {
-      title: "Infinite Scalability",
-      desc: "Process 10 or 10,000 leads a day at the exact same operating cost. Your infrastructure grows with you.",
-      icon: <TrendingUp className="text-[#72dbd3]" />
-    },
-    {
-      title: "Response Speed",
-      desc: "Respond to your clients in milliseconds. Speed is the #1 factor in sales conversion today.",
-      icon: <Clock className="text-[#D62828]" />
-    }
-  ] : [
-    {
-      title: "Eliminación de Errores",
-      desc: "Los humanos se cansan, las automatizaciones no. Asegura que cada dato llegue a su destino sin fallos manuales.",
-      icon: <ShieldCheck className="text-[#D62828]" />
-    },
-    {
-      title: "Escalabilidad Infinita",
-      desc: "Procesa 10 o 10,000 leads al día con el mismo costo operativo. Tu infraestructura crece contigo.",
-      icon: <TrendingUp className="text-[#72dbd3]" />
-    },
-    {
-      title: "Tiempo de Respuesta",
-      desc: "Responde a tus clientes en milisegundos. La velocidad es el factor #1 en la conversión de ventas hoy.",
-      icon: <Clock className="text-[#D62828]" />
-    }
-  ];
+    const list = isEn ? PROJECTS_EN : PROJECTS;
+    return list.filter((p) => p.category === 'Automatización').slice(0, 6);
+  }, [isEn]);
 
   const handleOpenDetails = (project: Project) => {
     setSelectedProject(project);
     setIsModalOpen(true);
   };
 
-  const startUrl = isEn ? "/us/start" : "/start";
-  const projectsUrl = isEn ? "/us/projects" : "/proyectos";
+  const whatsappUrl = isEn
+    ? 'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20want%20to%20audit%20and%20automate%20my%20company%20workflows.'
+    : 'https://wa.me/573004435894?text=Hola%20Autonomek%2C%20quiero%20auditar%20y%20automatizar%20los%20procesos%20de%20mi%20empresa.';
+
+  const workflows = isEn
+    ? [
+        {
+          id: '01',
+          title: 'CRM, Billing & Accounting Synchronization',
+          stack: 'n8n · Stripe · HubSpot · ERP APIs',
+          desc: 'When a payment clears or a deal closes in your CRM, the pipeline automatically generates the invoice in your accounting system and updates inventory records.',
+          metric: 'Zero manual entry',
+        },
+        {
+          id: '02',
+          title: 'Automated Contract Generation & E-Signature Dispatch',
+          stack: 'Google Docs API · PDF Engine · Gmail · WhatsApp API',
+          desc: 'Generates custom legal contracts populated with client data in seconds and sends them for signature via email and WhatsApp upon commercial approval.',
+          metric: 'Execution < 1s',
+        },
+        {
+          id: '03',
+          title: 'Multi-Channel Calendar & Inventory Sync',
+          stack: 'Supabase · iCal · Google Sheets · Webhooks',
+          desc: 'Synchronizes availability across booking platforms, internal databases, and sales channels in real time to prevent double bookings or stock outs.',
+          metric: 'Real-time sync',
+        },
+        {
+          id: '04',
+          title: 'B2B Outbound Lead Extraction & Enrichment',
+          stack: 'Apify · Firecrawl · OpenAI · CRM Webhooks',
+          desc: 'Extracts public B2B directories, enriches company profiles, and prepares personalized commercial outreach directly inside your sales pipeline.',
+          metric: 'Automated pipeline',
+        },
+      ]
+    : [
+        {
+          id: '01',
+          title: 'Sincronización de CRM, Facturación y Contabilidad',
+          stack: 'n8n · Pasarelas de Pago · HubSpot · ERP APIs',
+          desc: 'Cuando un cliente realiza un pago o se cierra un negocio en tu CRM, el sistema emite automáticamente la factura contable y actualiza el inventario.',
+          metric: 'Cero digitación manual',
+        },
+        {
+          id: '02',
+          title: 'Generación Automática de Contratos y Documentos',
+          stack: 'Google Docs API · Motor PDF · Gmail · WhatsApp API',
+          desc: 'Redacta contratos personalizados con los datos del cliente en segundos y los despacha listos para firma por correo y WhatsApp al cerrar una venta.',
+          metric: 'Ejecución < 1s',
+        },
+        {
+          id: '03',
+          title: 'Sincronización Multicanal de Agendas e Inventarios',
+          stack: 'Supabase · iCal · Google Sheets · Webhooks',
+          desc: 'Unifica en tiempo real la disponibilidad de tus equipos, reservas o productos entre tu sitio web, hojas de cálculo y canales comerciales.',
+          metric: 'Sincronización continua',
+        },
+        {
+          id: '04',
+          title: 'Prospección y Enriquecimiento de Datos B2B',
+          stack: 'Apify · Firecrawl · OpenAI · CRM Webhooks',
+          desc: 'Extrae y organiza información de empresas objetivo, analiza su perfil comercial y registra oportunidades calificadas directamente en tu embudo.',
+          metric: 'Prospección autónoma',
+        },
+      ];
 
   return (
-    <main className="min-h-screen w-full bg-[#080808] text-white pt-24 md:pt-32 pb-24 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-[20%] right-[-10%] w-[50vw] h-[50vh] bg-[#72dbd3]/5 blur-[150px] pointer-events-none rounded-full" />
-      <div className="absolute bottom-0 left-[-10%] w-[40vw] h-[40vh] bg-[#D62828]/5 blur-[120px] pointer-events-none rounded-full" />
-      
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        
-        {/* Breadcrumb */}
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-2 font-mono text-xs text-white/40 mb-12 uppercase tracking-widest"
-        >
-          <Link href={isEn ? "/us" : "/"} className="hover:text-white transition-colors">{isEn ? "Home" : "Inicio"}</Link>
-          <span>/</span>
-          <Link href={isEn ? "/us/services" : "/servicios"} className="hover:text-white transition-colors">{isEn ? "Services" : "Servicios"}</Link>
-          <span>/</span>
-          <span className="text-[#D62828] font-bold">{isEn ? "Automation" : "Automatización"}</span>
-        </motion.div>
-
-        {/* Hero split layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-40">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 border border-white/10 rounded-full mb-8 bg-[#111111]">
-              <span className="w-2 h-2 rounded-full bg-[#72dbd3] animate-pulse"></span>
-              <span className="font-mono text-[10px] text-[#72dbd3] uppercase tracking-widest font-bold">
-                {isEn ? "Hyperconnected Ecosystems" : "Ecosistemas Hiperconectados"}
-              </span>
-            </div>
-            
-            <h1 className="font-display text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 leading-[0.9]">
-              {isEn ? "Your Business on" : "Tu Negocio en"} <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-[#D62828]">
-                {isEn ? "Autopilot." : "Piloto Automático."}
-              </span>
+    <main className="min-h-screen w-full bg-background text-foreground pt-28 md:pt-36 pb-20">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12">
+        {/* Hero */}
+        <header className="pb-16 md:pb-24 border-b border-rule grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-7 space-y-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground leading-[1.04]">
+              {isEn
+                ? 'Process and workflow automation for B2B operations.'
+                : 'Automatización de procesos y flujos de trabajo para empresas.'}
             </h1>
-            
-            <p className="font-sans text-base md:text-xl text-white/60 leading-relaxed mb-10 max-w-xl">
-              {isEn 
-                ? "We eliminate repetitive tasks from your team through autonomous workflows. We connect all your tools so that information flows without human intervention."
-                : "Eliminamos las tareas repetitivas de tu equipo mediante flujos de trabajo autónomos. Conectamos todas tus herramientas para que la información fluya sin intervención humana."}
+            <p className="text-muted text-base sm:text-lg leading-relaxed max-w-[60ch]">
+              {isEn
+                ? 'We connect your CRM, ERP, WhatsApp, payment gateways, and databases using n8n and custom APIs so information flows without human intervention.'
+                : 'Conectamos tu CRM, software contable, WhatsApp, pasarelas de pago y bases de datos mediante n8n y APIs para que tu operación funcione sin tareas manuales repetitivas.'}
             </p>
-            
-            <div className="flex flex-wrap items-center gap-6">
-              <Link href={startUrl} className="px-8 py-4 bg-[#D62828] hover:bg-[#b01c1c] text-white font-bold text-xs tracking-widest uppercase transition-all duration-300 shadow-[0_0_30px_rgba(214,40,40,0.35)] active:scale-95 rounded-xl">
-                {isEn ? "Audit My Processes" : "Auditar Mis Procesos"}
-              </Link>
-              <div className="flex items-center gap-3 text-white/40 font-mono text-[10px] uppercase tracking-widest">
-                <Zap size={14} className="text-[#72dbd3]" />
-                <span>{isEn ? "Average savings: 15h / week" : "Ahorro promedio: 15h / semana"}</span>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Workflow Visualization */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="w-full aspect-square bg-[#0A0A0A] border border-white/5 rounded-2xl md:rounded-[2rem] p-6 md:p-12 relative overflow-hidden flex flex-col justify-center shadow-2xl"
-          >
-             <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(rgba(255,255,255,1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,1)_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
-             
-             <div className="relative z-10 space-y-12 ml-4 md:ml-12 border-l-2 border-white/5 pl-8 md:pl-12">
-                 {[
-                    { name: isEn ? "Trigger" : "Inicio", detail: isEn ? "Web Contact Form" : "Formulario Web de Contacto", color: "#DFDFDF" },
-                    { name: isEn ? "Process" : "Procesamiento", detail: isEn ? "Smart Classification AI" : "Clasificación Inteligente", color: "#D62828" },
-                    { name: isEn ? "Action" : "Acción", detail: isEn ? "Database Sync & Alerts" : "Envío a tu Base de Datos y Alertas", color: "#72dbd3" }
-                  ].map((step, i) => (
-                    <motion.div 
-                      key={i}
-                      initial={{ x: -20, opacity: 0 }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      transition={{ delay: i * 0.2 }}
-                      className="bg-[#111] border border-white/10 rounded-2xl p-4 w-full max-w-[280px] flex items-center gap-4 relative shadow-xl group hover:border-white/20 transition-all"
-                    >
-                      <div className={`absolute -left-[45px] md:-left-[61px] top-1/2 -translate-y-1/2 w-6 h-6 rounded-full border-4 border-[#080808] z-10 transition-colors`} style={{ backgroundColor: step.color }}>
-                         {i === 0 && <div className="w-full h-full bg-white/40 rounded-full animate-ping"></div>}
-                      </div>
-                      <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/5 group-hover:scale-110 transition-transform">
-                        {i === 0 ? <LinkIcon size={18} /> : i === 1 ? <Settings size={18} /> : <Share2 size={18} />}
-                      </div>
-                      <div>
-                        <h4 className="text-white text-xs font-bold uppercase tracking-widest">{step.name}</h4>
-                        <p className="text-white/40 text-[10px] font-mono">{step.detail}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-              </div>
-          </motion.div>
-        </div>
-
-        {/* Integration Grid */}
-        <section className="mb-24 md:mb-40">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-20 gap-8">
-            <div className="max-w-xl">
-              <p className="font-mono text-[#72dbd3] text-xs tracking-[0.3em] uppercase mb-4">{isEn ? "/ Total Connectivity" : "/ Conectividad Total"}</p>
-              <h2 className="font-display text-4xl md:text-5xl font-black uppercase tracking-tight">{isEn ? "Any App, \n a single Flow." : "Cualquier App, \n un solo Flujo."}</h2>
-            </div>
-            <p className="text-white/40 text-sm max-w-xs font-light">
-              {isEn 
-                ? "It doesn't matter what software you use. If your tools allow communication, we can automate and connect them into a single flow."
-                : "No importa qué software uses. Si tus herramientas permiten comunicación, podemos automatizarlas y conectarlas en un solo flujo."}
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {tools.map((tool, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ y: -5, backgroundColor: 'rgba(255,255,255,0.05)' }}
-                className="p-4 md:p-8 bg-[#111] border border-white/5 rounded-2xl flex flex-col items-center justify-center gap-4 text-center transition-all group hover:border-[#72dbd3]/30"
+            <div className="pt-2">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center h-12 px-6 rounded-lg bg-primary text-primary-ink font-medium text-sm sm:text-base hover:opacity-90 transition-opacity whitespace-nowrap"
               >
-                <div className="text-[#72dbd3] group-hover:scale-110 transition-transform">{tool.icon}</div>
-                <span className="font-mono text-[9px] uppercase tracking-widest text-white/60 group-hover:text-white transition-colors">{tool.name}</span>
-              </motion.div>
+                {isEn ? 'Audit my processes on WhatsApp' : 'Auditar mis procesos por WhatsApp'}
+              </a>
+            </div>
+          </div>
+          <div className="lg:col-span-5">
+            <BlueprintSculptureFigure activeIndex={2} isEn={isEn} />
+          </div>
+        </header>
+
+        {/* Workflow Specifications */}
+        <section className="py-16 md:py-24 border-b border-rule">
+          <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-foreground mb-12">
+            {isEn ? 'Autonomous workflows we engineer.' : 'Flujos autónomos que implementamos.'}
+          </h2>
+
+          <div className="divide-y divide-rule border-y border-rule">
+            {workflows.map((wf) => (
+              <div
+                key={wf.id}
+                className="py-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start"
+              >
+                <div className="lg:col-span-1 font-mono text-sm text-primary tabular-nums pt-1">
+                  {wf.id}
+                </div>
+                <div className="lg:col-span-4 space-y-1.5">
+                  <h3 className="text-xl font-semibold text-foreground">{wf.title}</h3>
+                  <p className="font-mono text-xs text-subtle">{wf.stack}</p>
+                </div>
+                <div className="lg:col-span-5 text-sm sm:text-base text-muted leading-relaxed">
+                  {wf.desc}
+                </div>
+                <div className="lg:col-span-2 lg:text-right font-mono text-xs text-primary pt-1">
+                  {wf.metric}
+                </div>
+              </div>
             ))}
           </div>
         </section>
 
-        {/* Efficiency Stats */}
-        <section className="mb-24 md:mb-40 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {benefits.map((b, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="p-6 md:p-10 bg-[#111] border-t-2 border-[#D62828] border-x border-b border-white/5 rounded-2xl shadow-xl hover:border-white/20 transition-all"
+        {/* Deployed Automations */}
+        <section className="py-16 md:py-24">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+            <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-foreground">
+              {isEn ? 'Automations in production.' : 'Automatizaciones en producción.'}
+            </h2>
+            <Link
+              href={isEn ? `${basePrefix}/projects` : `${basePrefix}/proyectos`}
+              className="text-sm font-medium text-primary hover:underline"
             >
-              <div className="mb-6">{b.icon}</div>
-              <h3 className="font-display text-xl md:text-2xl font-bold mb-4 uppercase tracking-tight">{b.title}</h3>
-              <p className="text-white/50 text-sm leading-relaxed font-sans font-light">{b.desc}</p>
-            </motion.div>
-          ))}
-        </section>
-
-        {/* Use Cases Horizontal */}
-        <section className="mb-24 md:mb-40 relative overflow-hidden rounded-2xl md:rounded-[3rem] bg-[#111] border border-white/10 p-6 md:p-20">
-          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div>
-               <h2 className="font-display text-3xl md:text-6xl font-black uppercase mb-12 tracking-tight">
-                 {isEn ? "Impact \n Cases." : "Casos de \n Impacto."}
-               </h2>
-               <div className="space-y-12">
-                  <div className="group cursor-pointer">
-                    <h4 className="font-mono text-[#72dbd3] text-[10px] mb-2 uppercase tracking-widest font-bold">{isEn ? "Sales & CRM" : "Ventas & CRM"}</h4>
-                    <p className="text-lg md:text-xl text-white/80 group-hover:text-white transition-colors">
-                      {isEn 
-                        ? "Automatic invoice synchronization from payment gateways to your accounting systems."
-                        : "Sincronización automática de facturas desde pasarelas de pago hacia tu sistema contable."}
-                    </p>
-                  </div>
-                  <div className="group cursor-pointer">
-                    <h4 className="font-mono text-[#72dbd3] text-[10px] mb-2 uppercase tracking-widest font-bold">{isEn ? "Customer Service" : "Atención al Cliente"}</h4>
-                    <p className="text-lg md:text-xl text-white/80 group-hover:text-white transition-colors">
-                      {isEn 
-                        ? "Ticketing system that auto-replies via WhatsApp and alerts your team in real time for critical cases."
-                        : "Sistema de tickets que auto-responde vía WhatsApp y notifica en tiempo real al equipo en casos críticos."}
-                    </p>
-                  </div>
-                  <div className="group cursor-pointer">
-                    <h4 className="font-mono text-[#72dbd3] text-[10px] mb-2 uppercase tracking-widest font-bold">{isEn ? "Operations" : "Operaciones"}</h4>
-                    <p className="text-lg md:text-xl text-white/80 group-hover:text-white transition-colors">
-                      {isEn 
-                        ? "Generation of automated weekly business reports sent directly to your email."
-                        : "Generación de reportes automáticos semanales sobre el estado de tu negocio directos a tu email."}
-                    </p>
-                  </div>
-               </div>
-            </div>
-            <div className="relative">
-              <div className="absolute inset-0 bg-[#72dbd3]/5 blur-[100px] rounded-full"></div>
-              <div className="relative bg-[#0E0E0E] border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl">
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="w-3 h-3 rounded-full bg-white/20"></div>
-                  <div className="w-3 h-3 rounded-full bg-white/20"></div>
-                  <div className="w-3 h-3 rounded-full bg-[#72dbd3]/80"></div>
-                </div>
-                <div className="font-mono text-[10px] md:text-xs text-white/40 space-y-4">
-                  <p className="text-[#72dbd3]">{">"} Initializing Autonomek_Engine_v2...</p>
-                  <p>{">"} Scanning connected applications: 42 found.</p>
-                  <p>{">"} Deploying automation servers... [OK]</p>
-                  <p>{">"} Latency: 4ms</p>
-                  <p>{">"} Status: Running_Autopilot</p>
-                  <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden mt-8">
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      animate={{ width: "100%" }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                      className="h-full bg-[#72dbd3]"
-                    ></motion.div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* RELATED PROJECTS SECTION */}
-        <section className="mb-24 md:mb-40 border-t border-white/5 pt-20">
-          <div className="flex justify-between items-end mb-12">
-            <div>
-              <p className="font-mono text-[#72dbd3] text-xs tracking-[0.2em] uppercase mb-4">
-                {isEn ? "/ Active Integrations" : "/ Integraciones Activas"}
-              </p>
-              <h2 className="font-display text-3xl md:text-5xl font-black uppercase tracking-tight">
-                {isEn ? "Featured Automations" : "Automatizaciones Destacadas"}
-              </h2>
-            </div>
-            <Link href={projectsUrl} className="font-mono text-xs uppercase tracking-widest text-[#D62828] hover:text-white transition-colors border-b border-[#D62828]/20 pb-1">
-              {isEn ? "See All →" : "Ver Todos →"}
+              {isEn ? 'View full portfolio' : 'Ver portafolio completo'}
             </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {autoProjects.map((project) => (
-              <div
+              <article
                 key={project.id}
                 onClick={() => handleOpenDetails(project)}
-                className="group relative bg-[#111]/60 border border-white/5 rounded-3xl overflow-hidden hover:border-[#D62828]/40 transition-all duration-300 flex flex-col cursor-pointer"
+                className="group min-w-0 rounded-2xl bg-surface border border-rule overflow-hidden flex flex-col justify-between cursor-pointer hover:border-rule-strong transition-colors"
               >
-                <div className="relative w-full aspect-[16/10] overflow-hidden bg-black">
-                  <img
-                    src={`/projects/${project.folder}/${project.images[0]}`}
-                    alt={project.title}
-                    className="w-full h-full object-cover opacity-65 group-hover:opacity-100 group-hover:scale-103 transition-all duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-transparent pointer-events-none" />
-                </div>
-                <div className="p-6 flex flex-col justify-between flex-1">
-                  <div>
-                    <span className="font-mono text-[9px] text-[#D62828] uppercase tracking-widest mb-1.5 block font-bold">{project.client}</span>
-                    <h3 className="font-display text-lg font-bold text-white mb-2">{project.title}</h3>
-                    <p className="text-white/40 text-xs leading-relaxed mb-4 line-clamp-2">{project.description}</p>
+                <div>
+                  <div className="relative w-full aspect-[16/10] bg-card overflow-hidden border-b border-rule">
+                    <img
+                      src={`/projects/${project.folder}/${project.images[0]}`}
+                      alt={project.title}
+                      width={800}
+                      height={500}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                    />
                   </div>
-                  <div className="flex items-center justify-between pt-3 border-t border-white/5 text-[10px] font-mono uppercase tracking-widest text-[#D62828]">
-                    <span>{isEn ? "View Details" : "Ver Detalles"}</span>
-                    <Plus size={12} />
+                  <div className="p-6 space-y-2">
+                    <span className="text-xs text-muted block">{project.client}</span>
+                    <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted text-sm leading-relaxed line-clamp-2">
+                      {project.description}
+                    </p>
                   </div>
                 </div>
-              </div>
+                <div className="px-6 pb-5 pt-3 border-t border-rule flex items-center justify-between text-xs text-muted">
+                  <span>{isEn ? 'Inspect workflow' : 'Inspeccionar flujo'}</span>
+                  {project.url && <ExternalLink size={13} className="text-primary" />}
+                </div>
+              </article>
             ))}
           </div>
         </section>
-
-        {/* Final CTA */}
-        <section className="text-center py-10 md:py-20">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="relative rounded-3xl md:rounded-[3rem] bg-[#111111] border border-[#D62828]/30 p-8 sm:p-12 md:p-20 overflow-hidden text-center shadow-[0_0_60px_rgba(214,40,40,0.15)]"
-          >
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#D62828]/10 blur-[100px] rounded-full pointer-events-none" />
-            
-            <div className="relative z-10 max-w-2xl mx-auto">
-              <p className="font-mono text-[#72dbd3] text-xs tracking-[0.3em] uppercase mb-4 font-bold">
-                {isEn ? "/ Zero Operational Friction" : "/ Cero Fricción Operativa"}
-              </p>
-              <h2 className="font-display text-3xl md:text-6xl font-black uppercase text-white mb-6 leading-tight tracking-tight">
-                {isEn ? "Free Your Team." : "Libera a tu Equipo."}
-              </h2>
-              <p className="text-white/60 text-sm md:text-base mb-10 max-w-lg mx-auto leading-relaxed font-sans font-light">
-                {isEn 
-                  ? "Stop hiring more people for tasks that a cloud server can do better, faster, and error-free."
-                  : "No contrates más personas para tareas que un servidor puede hacer mejor, más rápido y sin errores."}
-              </p>
-              <Link href={startUrl} className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#D62828] hover:bg-[#b01c1c] text-white font-bold text-xs tracking-widest uppercase transition-all duration-300 rounded-xl shadow-[0_0_30px_rgba(214,40,40,0.4)] active:scale-95 text-center">
-                <span>{isEn ? "START AUDIT" : "COMENZAR AUDITORÍA"}</span>
-                <ArrowRight size={16} />
-              </Link>
-            </div>
-          </motion.div>
-        </section>
-
       </div>
 
       <ProjectDetailsModal

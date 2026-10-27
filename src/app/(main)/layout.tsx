@@ -1,7 +1,7 @@
 import Script from 'next/script';
 import SmoothScrollProvider from '@/components/layout/SmoothScrollProvider';
 import WhatsAppButton from '@/components/widgets/WhatsAppButton';
-import Preloader from '@/components/effects/Preloader';
+import PaletteSwitcher from '@/components/widgets/PaletteSwitcher';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
 
@@ -12,11 +12,11 @@ export default function MainLayout({
 }) {
   return (
     <>
-      <Preloader />
       <SmoothScrollProvider>
         <Navigation />
         {children}
         <Footer />
+        <PaletteSwitcher />
         <Script
           id="lazy-ga"
           strategy="afterInteractive"

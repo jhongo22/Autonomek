@@ -1,18 +1,21 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import SolucionesPageClient from '../../../servicios/software-a-medida/software-client';
 
 export const metadata: Metadata = {
-  title: 'Custom Software Development & Cloud Platforms | Autonomek',
-  description: 'We design and build cloud platforms, corporate CRMs, and modular custom software systems tailored exactly to your business operations.',
+  title: 'Custom B2B Software & Cloud Platforms | Autonomek USA',
+  description: 'Proprietary enterprise software, custom CRMs, multi-tenant SaaS, and real-time BI dashboards.',
   alternates: {
-    canonical: 'https://autonomek.com/us/services/custom-software',
+    canonical: 'https://www.autonomek.com/us/services/custom-software',
     languages: {
-      'es-CO': 'https://autonomek.com/servicios/software-a-medida',
-      'en-US': 'https://autonomek.com/us/services/custom-software',
-    }
-  }
+      'en': 'https://www.autonomek.com/en/services/custom-software',
+      'en-US': 'https://www.autonomek.com/us/services/custom-software',
+      'es': 'https://www.autonomek.com/es/servicios/software-a-medida',
+      'es-CO': 'https://www.autonomek.com/servicios/software-a-medida',
+      'x-default': 'https://www.autonomek.com/servicios/software-a-medida',
+    },
+  },
 };
 
-export default function Page() {
+export default function CustomSoftwarePageUS() {
   return <SolucionesPageClient locale="en" />;
 }
