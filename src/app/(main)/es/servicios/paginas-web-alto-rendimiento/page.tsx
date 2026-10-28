@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import DesarrolloWebPageClient from '../../../servicios/paginas-web-alto-rendimiento/paginas-web-client';
 
 export const metadata: Metadata = {
-  title: 'Páginas Web de Alto Rendimiento y SEO Técnico B2B | Autonomek',
-  description: 'Desarrollo de plataformas web ultra rápidas en Next.js optimizadas para Core Web Vitals, posicionamiento en Google (SEO) y motores de IA (GEO/AEO).',
+  title: 'Creación de Páginas Web y Posicionamiento SEO en Google e IA | Autonomek',
+  description: 'Desarrollo de páginas web que cargan en menos de 1 segundo, proyectan máxima autoridad y posicionan en los primeros lugares de Google y ChatGPT.',
   alternates: {
     canonical: 'https://www.autonomek.com/es/servicios/paginas-web-alto-rendimiento',
     languages: {

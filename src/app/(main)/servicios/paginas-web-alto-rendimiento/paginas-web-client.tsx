@@ -36,53 +36,53 @@ export default function DesarrolloWebPageClient({ locale = 'es' }: { locale?: 'e
     ? [
         {
           id: '01',
-          title: 'Sub-Second Edge Rendering (Next.js App Router)',
-          detail: 'Server-side rendering and static edge caching so your pages open in under 800 milliseconds on both mobile and desktop networks.',
+          title: 'Sub-Second Edge Load Speed (Next.js)',
+          detail: 'Instant opening across mobile and desktop networks. Retain the 50%+ of enterprise visitors who bounce off slow, heavy legacy templates.',
           metric: 'LCP < 0.8s',
         },
         {
           id: '02',
-          title: 'Technical SEO & Generative Engine Optimization (GEO/AEO)',
-          detail: 'Complete Schema.org JSON-LD graphs, reciprocal international hreflang tags, and native llms.txt documentation so your brand is cited by Google, ChatGPT, and Perplexity.',
-          metric: '100 / 100 SEO',
+          title: 'Top Rankings on Google & AI Answer Engines (ChatGPT & Perplexity)',
+          detail: 'Semantic graphs, Schema.org JSON-LD, and GEO optimization so both Google algorithms and generative AI models like ChatGPT cite your business as the category authority.',
+          metric: 'Top 1 organic ranking',
         },
         {
           id: '03',
-          title: 'Zero Layout Shift & Accessible Architecture',
-          detail: 'Explicit media aspect ratios, keyboard focus visibility, and semantic heading hierarchy that meets enterprise accessibility standards.',
-          metric: 'CLS 0.00',
+          title: 'Executive Visual Design & Corporate Authority',
+          detail: 'High-fidelity aesthetics, zero layout shift, and intuitive UX that immediately project enterprise solvency and justify premium pricing.',
+          metric: 'Absolute trust',
         },
         {
           id: '04',
           title: 'Direct-to-WhatsApp Conversion Funnels',
-          detail: 'Instead of losing leads in dead-end email forms, every product and service page routes buyer intent directly to your WhatsApp sales pipeline.',
+          detail: 'Replace dead-end email forms with high-intent conversational funnels that route buyers straight into WhatsApp with pre-filled context.',
           metric: 'Direct conversion',
         },
       ]
     : [
         {
           id: '01',
-          title: 'Carga Instantánea en el Borde (Next.js App Router)',
-          detail: 'Renderizado en servidor y distribución en caché Edge para que tu sitio abra en menos de 800 milisegundos tanto en celulares como en escritorio.',
-          metric: 'LCP < 0.8s',
+          title: 'Carga en menos de 1 segundo (Next.js Edge)',
+          detail: 'Tu sitio abre al instante tanto en celulares como en computadores. Retén a más del 90% de los visitantes que abandonan las páginas lentas tradicionales.',
+          metric: '< 0.8s carga',
         },
         {
           id: '02',
-          title: 'SEO Técnico y Optimización para Motores de IA (GEO/AEO)',
-          detail: 'Marcado estructurado Schema.org JSON-LD, etiquetas hreflang internacionales y documentación llms.txt para posicionar en Google y ser citado por ChatGPT y Perplexity.',
-          metric: '100 / 100 SEO',
+          title: 'Primeros Lugares en Google y Búsquedas de IA (ChatGPT & Perplexity)',
+          detail: 'Estructura semántica, datos enriquecidos Schema.org y optimización GEO para que Google y los motores de IA como ChatGPT recomienden a tu empresa como la opción líder del sector.',
+          metric: 'Top 1 en búsquedas',
         },
         {
           id: '03',
-          title: 'Estabilidad Visual Absoluta (Zero CLS)',
-          detail: 'Reserva estricta de dimensiones multimedia, contraste verificado y jerarquía semántica que proyecta solvencia corporativa.',
-          metric: 'CLS 0.00',
+          title: 'Diseño Visual de Máxima Autoridad Corporativa',
+          detail: 'Acabados de diseño de alto nivel, navegación fluida y estabilidad visual absoluta que transmiten solvencia y justifican precios premium ante clientes exigentes.',
+          metric: 'Confianza total',
         },
         {
           id: '04',
-          title: 'Embudos de Conversión Directa a WhatsApp',
-          detail: 'En lugar de perder clientes en formularios de correo que nadie lee, cada sección dirige al comprador directamente a tu canal comercial de WhatsApp.',
-          metric: 'Conversión directa',
+          title: 'Embudos de Cierre Directo por WhatsApp',
+          detail: 'Elimina los formularios de correo lentos y abandonados. Cada servicio y producto guía al prospecto a iniciar una conversación inmediata con contexto de compra.',
+          metric: 'Cierre directo',
         },
       ];
 
@@ -94,13 +94,13 @@ export default function DesarrolloWebPageClient({ locale = 'es' }: { locale?: 'e
           <div className="lg:col-span-7 space-y-6">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground leading-[1.04]">
               {isEn
-                ? 'High-performance B2B websites engineered for Google and AI search.'
-                : 'Páginas web de alto rendimiento diseñadas para Google y motores de IA.'}
+                ? 'High-converting websites that rank #1 on Google and AI search engines.'
+                : 'Webs que venden y aparecen primero en Google y búsquedas de IA como ChatGPT.'}
             </h1>
             <p className="text-muted text-base sm:text-lg leading-relaxed max-w-[60ch]">
               {isEn
-                ? 'We do not use slow page builders or generic templates. We engineer custom Next.js platforms that load in under a second and operate as your primary customer acquisition channel.'
-                : 'No usamos constructores visuales lentos ni plantillas genéricas. Desarrollamos plataformas a medida en Next.js que cargan en menos de un segundo y convierten visitas en ventas.'}
+                ? 'Look authoritative, load in under a second without losing buyers, and dominate organic search when enterprise prospects search on Google or ask ChatGPT and Perplexity.'
+                : 'Que tu web se vea brutal frente a clientes corporativos, que cargue en menos de un segundo para no perder prospectos y que lidere las respuestas cuando tus clientes buscan en Google o le preguntan a ChatGPT y Perplexity.'}
             </p>
             <div className="pt-2">
               <a
@@ -121,7 +121,7 @@ export default function DesarrolloWebPageClient({ locale = 'es' }: { locale?: 'e
         {/* Core Web Vitals Specification Ledger */}
         <section className="py-16 md:py-24 border-b border-rule">
           <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-foreground mb-12">
-            {isEn ? 'Architectural specifications.' : 'Especificaciones de arquitectura.'}
+            {isEn ? 'Measurable business outcomes we engineer.' : 'Resultados tangibles que construimos en cada web.'}
           </h2>
 
           <div className="divide-y divide-rule border-y border-rule">
@@ -172,7 +172,7 @@ export default function DesarrolloWebPageClient({ locale = 'es' }: { locale?: 'e
                   <div className="relative w-full aspect-[16/10] bg-card overflow-hidden border-b border-rule">
                     <img
                       src={`/projects/${project.folder}/${project.images[0]}`}
-                      alt={project.title}
+                      alt={isEn ? `${project.title} — High-Performance Next.js Web Platform by Autonomek` : `${project.title} — Plataforma web de alta conversión desarrollada por Autonomek`}
                       width={800}
                       height={500}
                       loading="lazy"

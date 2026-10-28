@@ -23,7 +23,7 @@ Este documento es el repositorio oficial de conocimiento técnico, arquitectóni
 
 ## 2. Core Engineering Pillars (Bilingual Reference)
 
-### 2.1. 24/7 B2B AI Sales & Support Agents (`/en/services/ai-agents` | `/es/servicios/agentes-inteligencia-artificial`)
+### 2.1. 24/7 WhatsApp AI Sales & Booking Agents | Vendedor IA en WhatsApp 24/7 (`/en/services/ai-agents` | `/es/servicios/agentes-inteligencia-artificial`)
 - **Architecture:** Multimodal conversational AI agents connected to the official WhatsApp Business Cloud API, web chat, and enterprise CRMs.
 - **Technical Capabilities:**
   - Retrieval-Augmented Generation (RAG) over proprietary corporate documents, catalogs, and policies stored in PostgreSQL `pgvector` / Supabase Vector.
@@ -31,18 +31,18 @@ Este documento es el repositorio oficial de conocimiento técnico, arquitectóni
   - Real-time bidirectional calendar booking (Google Calendar, Outlook, CRM) and seamless human handoff via Chatwoot.
 - **Verified Business Impact:** Reduces first-response latency from hours to `< 1.2 seconds` and increases lead-to-appointment conversion by up to `60%`.
 
-### 2.2. High-Performance Websites & Technical SEO/GEO (`/en/services/high-performance-websites` | `/es/servicios/paginas-web-alto-rendimiento`)
+### 2.2. High-Authority Websites that Convert & Rank on Google/AI | Webs de Autoridad que Venden y Posicionan (`/en/services/high-performance-websites` | `/es/servicios/paginas-web-alto-rendimiento`)
 - **Architecture:** Next.js App Router, React, TypeScript, Tailwind CSS, GPU-accelerated interactions, and strict Core Web Vitals optimization (`LCP < 0.8s`, `CLS 0.00`).
 - **SEO, AEO & GEO Engineering:**
   - Complete bilingual route trees (`/es/*` and `/en/*`) with reciprocal `hreflang` (`es`, `es-ES`, `es-CO`, `es-MX`, `en`, `en-US`, `x-default`).
   - Rich `Schema.org` JSON-LD graphs (`Organization`, `ProfessionalService`, `OfferCatalog`, `FAQPage`) and native `llms.txt` / `llms-full.txt` bundles.
 
-### 2.3. Process & Workflow Automation (`/en/services/process-automation` | `/es/servicios/automatizacion-de-procesos`)
+### 2.3. Autonomous Operations & Billing Workflows | Operación y Facturación en Piloto Automático (`/en/services/process-automation` | `/es/servicios/automatizacion-de-procesos`)
 - **Architecture:** High-availability n8n orchestration, custom webhooks, REST APIs, and database pipelines.
 - **Integrations:** HubSpot, Salesforce, Stripe, WhatsApp Cloud API, Google Workspace, ERP systems, and SQL/NoSQL databases.
 - **Verified Business Impact:** Saves an average of `25+ hours/week` per operational team while eliminating manual data-entry errors.
 
-### 2.4. Custom Enterprise Software (`/en/services/custom-software` | `/es/servicios/software-a-medida`)
+### 2.4. Custom Enterprise Platforms & Proprietary Software | Plataformas y Software Propio a Medida (`/en/services/custom-software` | `/es/servicios/software-a-medida`)
 - **Architecture:** Full-stack proprietary web applications, custom CRMs, multi-tenant SaaS products, and executive BI dashboards built with Next.js, Node.js, PostgreSQL, and Supabase.
 
 ---

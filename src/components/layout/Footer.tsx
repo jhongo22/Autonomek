@@ -70,22 +70,22 @@ export default function Footer() {
             <ul className="space-y-2 text-muted">
               <li>
                 <Link href={isEn ? `${enBase}/services/ai-agents` : `${esBase}/servicios/agentes-inteligencia-artificial`} className="hover:text-foreground transition-colors">
-                  {isEn ? '24/7 AI Sales Agents' : 'Agentes de IA 24/7'}
+                  {isEn ? '24/7 WhatsApp AI Sales Agents' : 'Vendedor IA en WhatsApp 24/7'}
                 </Link>
               </li>
               <li>
                 <Link href={isEn ? `${enBase}/services/high-performance-websites` : `${esBase}/servicios/paginas-web-alto-rendimiento`} className="hover:text-foreground transition-colors">
-                  {isEn ? 'High-Performance Web & SEO' : 'Páginas web y SEO técnico'}
+                  {isEn ? 'High-Authority Web & Google/AI SEO' : 'Webs Rápidas & Posicionamiento (Google e IA)'}
                 </Link>
               </li>
               <li>
                 <Link href={isEn ? `${enBase}/services/process-automation` : `${esBase}/servicios/automatizacion-de-procesos`} className="hover:text-foreground transition-colors">
-                  {isEn ? 'Process Automation (n8n)' : 'Automatización de procesos'}
+                  {isEn ? 'Autonomous Process Automation (n8n)' : 'Operación en Piloto Automático (n8n)'}
                 </Link>
               </li>
               <li>
                 <Link href={isEn ? `${enBase}/services/custom-software` : `${esBase}/servicios/software-a-medida`} className="hover:text-foreground transition-colors">
-                  {isEn ? 'Custom Cloud Software' : 'Software a medida'}
+                  {isEn ? 'Custom Software & Cloud Platforms' : 'Plataformas y Software a Medida'}
                 </Link>
               </li>
             </ul>

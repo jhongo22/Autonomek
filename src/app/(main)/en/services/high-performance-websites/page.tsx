@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import DesarrolloWebPageClient from '../../../servicios/paginas-web-alto-rendimiento/paginas-web-client';
 
 export const metadata: Metadata = {
-  title: 'High-Performance B2B Websites & Technical SEO | Autonomek',
-  description: 'Sub-second Next.js web platforms engineered for Core Web Vitals, Google SEO, and AI Answer Engines (GEO/AEO) to maximize enterprise B2B conversion.',
+  title: 'High-Converting Websites & #1 Rankings on Google & ChatGPT | Autonomek',
+  description: 'Sub-second Next.js web platforms engineered to project supreme corporate trust, rank #1 on Google, and get cited by ChatGPT and Perplexity to drive WhatsApp conversions.',
   alternates: {
     canonical: 'https://www.autonomek.com/en/services/high-performance-websites',
     languages: {

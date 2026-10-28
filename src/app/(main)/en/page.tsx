@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import HomeClient from '../home-client';
 
 export const metadata: Metadata = {
-  title: 'Autonomek | B2B AI Agents, Process Automation & Web Engineering',
-  description: 'We engineer autonomous AI sales agents, n8n/API workflow automation, custom B2B software, and sub-second Next.js websites built for Google & AI search (GEO/AEO).',
+  title: 'Autonomek | High-Converting Websites, 24/7 AI Sales Agents & B2B Automation',
+  description: 'We engineer sub-second platforms that rank #1 on Google and ChatGPT, autonomous WhatsApp sales agents, and automated CRM/billing workflows for enterprise.',
   alternates: {
     canonical: 'https://www.autonomek.com/en',
     languages: {

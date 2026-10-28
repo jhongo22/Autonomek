@@ -102,13 +102,13 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
           <div className="lg:col-span-7 space-y-6">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground leading-[1.04]">
               {isEn
-                ? 'Process and workflow automation for B2B operations.'
-                : 'Automatización de procesos y flujos de trabajo para empresas.'}
+                ? 'Autonomous business operations & billing workflows.'
+                : 'Operación y facturación en piloto automático con flujos n8n.'}
             </h1>
             <p className="text-muted text-base sm:text-lg leading-relaxed max-w-[60ch]">
               {isEn
-                ? 'We connect your CRM, ERP, WhatsApp, payment gateways, and databases using n8n and custom APIs so information flows without human intervention.'
-                : 'Conectamos tu CRM, software contable, WhatsApp, pasarelas de pago y bases de datos mediante n8n y APIs para que tu operación funcione sin tareas manuales repetitivas.'}
+                ? 'Eliminate manual copy-pasting between WhatsApp, payment gateways, and spreadsheets. We connect your CRM, accounting software, and sales pipelines so contracts, invoices, and alerts execute automatically in milliseconds.'
+                : 'Elimina el copiar y pegar entre WhatsApp, pasarelas de pago y hojas de cálculo. Conectamos tu CRM, software contable y canales de venta para que las facturas, contratos y notificaciones se ejecuten en milisegundos con cero errores humanos.'}
             </p>
             <div className="pt-2">
               <a
@@ -129,7 +129,7 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
         {/* Workflow Specifications */}
         <section className="py-16 md:py-24 border-b border-rule">
           <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-foreground mb-12">
-            {isEn ? 'Autonomous workflows we engineer.' : 'Flujos autónomos que implementamos.'}
+            {isEn ? 'Autonomous workflows we engineer for your business.' : 'Flujos de automatización que activamos en tu operación.'}
           </h2>
 
           <div className="divide-y divide-rule border-y border-rule">
@@ -181,7 +181,7 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
                   <div className="relative w-full aspect-[16/10] bg-card overflow-hidden border-b border-rule">
                     <img
                       src={`/projects/${project.folder}/${project.images[0]}`}
-                      alt={project.title}
+                      alt={isEn ? `${project.title} — Autonomous Workflow Automation Architecture by Autonomek` : `${project.title} — Flujo de automatización de procesos desarrollado por Autonomek`}
                       width={800}
                       height={500}
                       loading="lazy"

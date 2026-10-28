@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import HomeClient from '../home-client';
 
 export const metadata: Metadata = {
-  title: 'Autonomek México | Automatización de Procesos B2B y Desarrollo Web',
-  description: 'Sistemas autónomos de ventas por WhatsApp, desarrollo web ultrarrápido e integración de flujos comerciales con IA para empresas en México.',
+  title: 'Autonomek México | Webs que Venden, Vendedor IA en WhatsApp y Automatización',
+  description: 'Plataformas web que lideran Google y búsquedas de IA, vendedores 24/7 por WhatsApp y automatización de procesos comerciales para empresas en México.',
   alternates: {
     canonical: 'https://www.autonomek.com/mx',
     languages: {

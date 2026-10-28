@@ -187,35 +187,35 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
             'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20want%20to%20deploy%20a%2024%2F7%20WhatsApp%20AI%20Sales%20Agent.',
         },
         web: {
-          tab: 'Next.js Web & SEO',
-          channelTitle: 'High-Performance Web Architecture + Technical SEO/GEO',
+          tab: 'Fast Web & AI Ranking',
+          channelTitle: 'Websites that load in 0.6s and rank #1 on Google & ChatGPT',
           summary:
-            'Sub-second Next.js platforms structured with Schema.org JSON-LD, bilingual hreflang, and direct conversion funnels.',
+            'Sub-second platforms engineered to build instant corporate trust and dominate organic search on Google and AI answer engines like ChatGPT.',
           messages: [
             {
               role: 'system',
-              text: 'Organic search query: "B2B industrial equipment supplier + immediate quote"',
+              text: 'Search on Google & ChatGPT: "B2B industrial equipment supplier + immediate quote"',
               time: '14:02',
             },
             {
               role: 'agent',
-              text: 'Page rendered from Edge cache in 380ms (LCP 0.6s, CLS 0.00). Structured product catalog indexed by Google & Perplexity.',
+              text: 'Page rendered from Edge cache in 380ms (LCP 0.6s). Ranked #1 on Google and cited as authoritative source by ChatGPT & Perplexity.',
               time: '14:02',
             },
             {
               role: 'user',
-              text: 'Visitor selects product specifications and initiates direct WhatsApp quote with pre-filled context.',
+              text: 'Visitor explores the catalog, trusts the brand, and initiates direct WhatsApp quote with pre-filled context.',
               time: '14:03',
             },
           ],
           metrics: [
             { label: 'Largest Contentful Paint', value: '0.6s' },
-            { label: 'Core Web Vitals score', value: '98/100' },
+            { label: 'Performance & SEO score', value: '98/100' },
             { label: 'Layout shift (CLS)', value: '0.00' },
           ],
-          whatsappCta: 'Quote a high-performance website',
+          whatsappCta: 'Quote a high-converting website',
           whatsappLink:
-            'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20want%20to%20quote%20a%20High-Performance%20Website%20with%20Technical%20SEO.',
+            'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20want%20to%20quote%20a%20High-Converting%20Website%20with%20Google%20%26%20AI%20SEO.',
         },
         crm: {
           tab: 'n8n & ERP Automation',
@@ -282,35 +282,35 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
             'https://wa.me/573004435894?text=Hola%20Autonomek%2C%20quiero%20implementar%20un%20Agente%20de%20IA%20en%20WhatsApp%20para%20mi%20empresa.',
         },
         web: {
-          tab: 'Web Next.js y SEO',
-          channelTitle: 'Arquitectura Web de Alto Rendimiento + SEO/GEO',
+          tab: 'Webs Rápidas & Posicionamiento',
+          channelTitle: 'Webs que cargan en 0.6s y lideran búsquedas en Google y ChatGPT',
           summary:
-            'Plataformas construidas en Next.js con tiempos de carga inferiores a un segundo, datos estructurados Schema.org y embudos directos a WhatsApp.',
+            'Plataformas optimizadas para abrir al instante, proyectar máxima autoridad corporativa y aparecer primero en Google y en las recomendaciones de IAs generativas como ChatGPT.',
           messages: [
             {
               role: 'system',
-              text: 'Búsqueda orgánica en Google: "proveedor equipos médicos B2B cotización inmediata"',
+              text: 'Búsqueda en Google / ChatGPT: "proveedor equipos médicos B2B cotización inmediata"',
               time: '14:02',
             },
             {
               role: 'agent',
-              text: 'Página servida desde caché Edge en 380ms (LCP 0.6s, CLS 0.00). Catálogo técnico indexado en Google y motores de IA.',
+              text: 'Página servida desde caché Edge en 380ms (LCP 0.6s). Citada como resultado líder en Google y Perplexity gracias a datos estructurados.',
               time: '14:02',
             },
             {
               role: 'user',
-              text: 'El comprador selecciona especificaciones y abre conversación en WhatsApp con el pedido ya estructurado.',
+              text: 'El comprador revisa la web, confía en la marca y abre WhatsApp con su solicitud lista para cotizar.',
               time: '14:03',
             },
           ],
           metrics: [
             { label: 'Carga principal (LCP)', value: '0.6s' },
-            { label: 'Core Web Vitals', value: '98/100' },
+            { label: 'Rendimiento y SEO', value: '98/100' },
             { label: 'Salto visual (CLS)', value: '0.00' },
           ],
-          whatsappCta: 'Cotizar plataforma web de alto rendimiento',
+          whatsappCta: 'Cotizar web de alta conversión y SEO en Google/IA',
           whatsappLink:
-            'https://wa.me/573004435894?text=Hola%20Autonomek%2C%20quiero%20cotizar%20una%20P%C3%A1gina%20Web%20de%20Alto%20Rendimiento%20con%20SEO.',
+            'https://wa.me/573004435894?text=Hola%20Autonomek%2C%20quiero%20cotizar%20una%20Web%20de%20Alta%20Conversi%C3%B3n%20con%20SEO%20en%20Google%20e%20IAs.',
         },
         crm: {
           tab: 'Automatización n8n y ERP',
@@ -364,7 +364,7 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
         {
           num: '03',
           title: 'Slow websites invisible on Google and AI search',
-          desc: 'Heavy templates that take five seconds to load lose over half of paid and organic traffic before the visitor reads your value proposition.',
+          desc: 'Heavy templates that take over four seconds to open lose over half their visitors and are ignored by Google and AI engines like ChatGPT when recommending providers.',
           metric: '> 4.2s',
           metricLabel: 'Typical legacy web load time',
         },
@@ -386,8 +386,8 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
         },
         {
           num: '03',
-          title: 'Sitios web lentos que no posicionan en Google',
-          desc: 'Las páginas pesadas que tardan más de cuatro segundos en abrir pierden la mitad de las visitas antes de mostrar siquiera qué vende tu empresa.',
+          title: 'Sitios web lentos e invisibles para Google y motores de IA',
+          desc: 'Las páginas pesadas que tardan más de cuatro segundos en abrir pierden la mitad de las visitas y son ignoradas por Google y por IAs como ChatGPT al recomendar empresas.',
           metric: '> 4.2s',
           metricLabel: 'Carga promedio en webs tradicionales',
         },
@@ -397,61 +397,69 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
     ? [
         {
           index: '01',
-          title: '24/7 AI Sales & Support Agents',
-          spec: 'WhatsApp Cloud API · OpenAI RAG · pgvector · Voice & Vision',
-          desc: 'Conversational agents trained on your catalogs and procedures that qualify leads, validate payment receipts, and schedule appointments in your CRM.',
+          title: '24/7 WhatsApp AI Sales & Booking Agent',
+          spec: 'Instant reply · Voice notes & receipts · Live calendar booking',
+          desc: 'Autonomous conversational agent trained on your catalogs and procedures. It qualifies leads, answers complex product questions, validates payment receipts, and schedules appointments in your CRM 24/7.',
           href: `${basePrefix}/services/ai-agents`,
+          ctaText: 'See how this AI Agent sells',
         },
         {
           index: '02',
-          title: 'High-Performance Websites & Technical SEO',
-          spec: 'Next.js App Router · Core Web Vitals 95+ · Schema.org · GEO/AEO',
-          desc: 'Sub-second corporate platforms engineered to rank at the top of Google and get cited by ChatGPT and Perplexity.',
+          title: 'High-Authority Websites that Convert & Rank',
+          spec: '0.6s load time · #1 on Google · Cited by ChatGPT & Perplexity',
+          desc: 'Sub-second web platforms engineered to project supreme corporate trust, load instantly without losing buyers, and dominate organic search on Google and AI answer engines like ChatGPT.',
           href: `${basePrefix}/services/high-performance-websites`,
+          ctaText: 'See how this Web ranks on Google',
         },
         {
           index: '03',
-          title: 'Process & Workflow Automation',
-          spec: 'n8n · REST APIs · Webhooks · HubSpot · ERP · Stripe',
-          desc: 'Autonomous pipelines that synchronize your sales, billing, inventory, and notifications in milliseconds without human error.',
+          title: 'Autonomous Operations & Billing Workflows',
+          spec: 'Zero manual data entry · CRM, ERP & payment sync · n8n engine',
+          desc: 'Autonomous pipelines that synchronize your sales, billing, inventory, and notifications in milliseconds. Invoices, contracts, and CRM pipelines update automatically without human error.',
           href: `${basePrefix}/services/process-automation`,
+          ctaText: 'Explore workflow automations',
         },
         {
           index: '04',
-          title: 'Custom B2B Software & Cloud Platforms',
-          spec: 'TypeScript · Node.js · PostgreSQL · Supabase · BI Dashboards',
-          desc: 'Proprietary web applications, multi-tenant platforms, and real-time operational control panels tailored to your company.',
+          title: 'Custom B2B Platforms & Proprietary Software',
+          spec: 'Proprietary ownership · No per-seat SaaS fees · Custom portals & BI',
+          desc: 'Proprietary web applications, multi-tenant platforms, and real-time operational control panels tailored to your company—owned 100% by you with zero recurring software licensing fees.',
           href: `${basePrefix}/services/custom-software`,
+          ctaText: 'Inspect custom software',
         },
       ]
     : [
         {
           index: '01',
-          title: 'Agentes de Inteligencia Artificial 24/7',
-          spec: 'WhatsApp Cloud API · OpenAI RAG · pgvector · Audio y Visión',
-          desc: 'Asistentes conversacionales entrenados con tus catálogos y procesos que califican prospectos, validan comprobantes y agendan citas en tu calendario.',
+          title: 'Vendedor IA en WhatsApp 24/7',
+          spec: 'Atención inmediata · Audios, fotos y cotización · Citas en calendario',
+          desc: 'Tu vendedor estrella que atiende en 1 segundo, resuelve dudas sobre tu catálogo, transcribe notas de voz, valida comprobantes de pago y agenda citas en tu calendario sin que tus asesores colapsen.',
           href: `${basePrefix}/servicios/agentes-inteligencia-artificial`,
+          ctaText: 'Ver cómo vende este Agente IA',
         },
         {
           index: '02',
-          title: 'Páginas Web de Alto Rendimiento y SEO Técnico',
-          spec: 'Next.js App Router · Core Web Vitals 95+ · Schema.org · GEO/AEO',
-          desc: 'Plataformas corporativas con carga inferior a un segundo, diseñadas para posicionar en Google y ser recomendadas por motores de IA.',
+          title: 'Webs de Autoridad que Venden y Posicionan',
+          spec: 'Carga en 0.6s · 1er lugar en Google · Recomendado por ChatGPT e IAs',
+          desc: 'Tu web se ve brutal y proyecta máxima confianza corporativa. Carga en 0.6 segundos para no perder clientes y está estructurada para liderar las búsquedas de Google y ser citada por IAs como ChatGPT.',
           href: `${basePrefix}/servicios/paginas-web-alto-rendimiento`,
+          ctaText: 'Ver cómo posiciona esta Web en Google',
         },
         {
           index: '03',
-          title: 'Automatización de Procesos Comerciales',
-          spec: 'n8n · REST APIs · Webhooks · HubSpot · ERP · Facturación',
-          desc: 'Flujos autónomos que conectan tus ventas, inventarios, contratos y contabilidad en milisegundos sin errores de digitación.',
+          title: 'Operación y Facturación en Piloto Automático',
+          spec: 'Cero digitación manual · Conexión CRM, ERP y pagos · Sincronización n8n',
+          desc: 'Elimina el copiar y pegar entre WhatsApp, Excel y software contable. Emite facturas electrónicas, genera contratos y actualiza tu CRM automáticamente en milisegundos sin errores de digitación.',
           href: `${basePrefix}/servicios/automatizacion-de-procesos`,
+          ctaText: 'Ver flujos de automatización',
         },
         {
           index: '04',
-          title: 'Software a Medida y Paneles Operativos',
-          spec: 'TypeScript · Node.js · PostgreSQL · Supabase · Dashboards BI',
-          desc: 'Aplicaciones web propietarias, portales de reservas y paneles de control analítico adaptados a las reglas de tu operación.',
+          title: 'Plataformas y Software Propio a Medida',
+          spec: 'Tu propio sistema · Sin pagar suscripciones SaaS · Portales y analítica',
+          desc: 'Construye una herramienta exclusiva adaptada a las reglas exactas de tu operación. Portales para clientes, módulos de reservas y paneles de control sin pagar licencias mensuales por usuario.',
           href: `${basePrefix}/servicios/software-a-medida`,
+          ctaText: 'Ver plataformas a medida',
         },
       ];
 
@@ -651,14 +659,14 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
             <div className="lg:col-span-7 space-y-6">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[62px] font-semibold tracking-tight text-foreground leading-[1.04] max-w-[17ch]">
                 {isEn
-                  ? 'Autonomous web and AI systems for enterprise.'
-                  : 'Sistemas web y ventas autónomas con IA.'}
+                  ? 'High-converting websites and 24/7 AI sales agents.'
+                  : 'Webs que venden primero y vendedores de IA 24/7 en WhatsApp.'}
               </h1>
 
               <p className="text-base sm:text-lg md:text-xl text-muted leading-relaxed max-w-[52ch]">
                 {isEn
-                  ? 'We engineer 0.6-second Next.js platforms, 24/7 WhatsApp AI agents, and automated CRM workflows that turn traffic into revenue.'
-                  : 'Construimos plataformas en Next.js con carga en 0.6 segundos, agentes de IA 24/7 en WhatsApp y automatizaciones conectadas a tu CRM.'}
+                  ? 'We engineer sub-second platforms that rank #1 on Google and ChatGPT, autonomous WhatsApp agents that close deals, and workflows that eliminate manual data entry.'
+                  : 'Desarrollamos webs ultrarrápidas que aparecen primero en Google y en búsquedas de IA como ChatGPT, agentes que atienden y cierran en WhatsApp, y procesos en piloto automático.'}
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
@@ -668,13 +676,13 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center h-12 px-6 rounded-lg bg-primary text-primary-ink font-medium text-sm sm:text-base hover:opacity-90 transition-opacity whitespace-nowrap"
                 >
-                  {isEn ? 'Request technical diagnosis on WhatsApp' : 'Solicitar diagnóstico por WhatsApp'}
+                  {isEn ? 'Talk with a specialist on WhatsApp' : 'Hablar con un especialista por WhatsApp'}
                 </a>
                 <Link
                   href={projectsHref}
                   className="inline-flex items-center justify-center h-12 px-6 rounded-lg border border-rule bg-surface text-foreground font-medium text-sm sm:text-base hover:bg-card transition-colors whitespace-nowrap"
                 >
-                  {isEn ? 'Inspect 15 deployed systems' : 'Ver 15 sistemas en producción'}
+                  {isEn ? 'Inspect 15 production projects' : 'Ver 15 proyectos en producción'}
                 </Link>
               </div>
 
@@ -950,19 +958,19 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
             <div className="space-y-3 max-w-2xl">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground">
                 {isEn
-                  ? 'Four engineering systems built for ROI.'
-                  : 'Cuatro sistemas de ingeniería enfocados en retorno de inversión.'}
+                  ? 'Four systems engineered to win and scale sales.'
+                  : 'Cuatro sistemas diseñados para vender más y operar sin fricción.'}
               </h2>
               <p className="text-muted text-base sm:text-lg">
                 <span className="lg:hidden">
                   {isEn
-                    ? 'Select any capability to inspect its 3D architectural blueprint.'
-                    : 'Selecciona cada sistema para inspeccionar su esquema 3D.'}
+                    ? 'Select any system to see how it accelerates business results.'
+                    : 'Selecciona cada sistema para ver cómo acelera tus resultados de negocio.'}
                 </span>
                 <span className="hidden lg:inline">
                   {isEn
-                    ? 'Scroll to move through each system and inspect its 3D architectural blueprint.'
-                    : 'Haz scroll para recorrer cada sistema e inspeccionar su esquema 3D.'}
+                    ? 'Scroll to move through each system and see how it accelerates business results.'
+                    : 'Haz scroll para recorrer cada sistema y ver cómo acelera tus resultados de negocio.'}
                 </span>
               </p>
             </div>
@@ -970,7 +978,7 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
               href={servicesHref}
               className="text-sm font-medium text-primary hover:underline whitespace-nowrap"
             >
-              {isEn ? 'Compare all service specifications' : 'Ver especificaciones completas de servicios'}
+              {isEn ? 'Explore our full service catalog' : 'Ver catálogo completo de servicios'}
             </Link>
           </div>
 
@@ -1031,7 +1039,7 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
                           onClick={(e) => e.stopPropagation()}
                           className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg border border-rule bg-surface text-xs font-medium text-foreground hover:border-primary hover:text-primary transition-colors shrink-0 self-start"
                         >
-                          <span>{isEn ? 'Inspect' : 'Ver módulo'}</span>
+                          <span>{cap.ctaText}</span>
                           <ArrowUpRight size={14} />
                         </Link>
                       </div>
@@ -1110,7 +1118,7 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
                   <div className="relative w-full aspect-[16/10] bg-card overflow-hidden border-b border-rule">
                     <img
                       src={`/projects/${project.folder}/${project.images[0]}`}
-                      alt={project.title}
+                      alt={isEn ? `${project.title} — ${project.category} production architecture by Autonomek` : `${project.title} — Caso de éxito en ${project.category} desarrollado por Autonomek`}
                       width={800}
                       height={500}
                       loading="lazy"

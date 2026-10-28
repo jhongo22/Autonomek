@@ -7,8 +7,8 @@ const syne = Syne({ subsets: ['latin'], variable: '--font-syne', display: 'swap'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.autonomek.com'),
-  title: 'Autonomek | Ingeniería de Agentes IA, Automatización B2B y Desarrollo Web',
-  description: 'Arquitectura de software B2B, agentes de Inteligencia Artificial 24/7 en WhatsApp, automatización de procesos y páginas web de alto rendimiento con SEO técnico.',
+  title: 'Autonomek | Webs que Venden, Vendedor IA en WhatsApp y Automatización B2B',
+  description: 'Desarrollamos páginas web que lideran Google y ChatGPT, agentes de ventas 24/7 en WhatsApp y automatización de procesos para empresas en Colombia, México, España y EE. UU.',
   icons: {
     icon: [
       {
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   openGraph: {
-    title: 'Autonomek | Ingeniería de Agentes IA, Automatización B2B y Desarrollo Web',
-    description: 'Transformamos la operación de tu empresa con agentes de IA 24/7 en WhatsApp, automatización de procesos B2B y plataformas web ultrarrápidas en Next.js.',
+    title: 'Autonomek | Webs que Venden, Vendedor IA en WhatsApp y Automatización B2B',
+    description: 'Páginas web que lideran Google y ChatGPT, agentes de ventas 24/7 en WhatsApp y automatización de procesos comerciales sin tareas manuales.',
     url: 'https://www.autonomek.com',
     siteName: 'Autonomek',
     images: [
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Autonomek | Ingeniería de Agentes IA, Automatización B2B y Desarrollo Web',
-    description: 'Agentes de IA 24/7 en WhatsApp, automatización de procesos B2B y desarrollo web de alto rendimiento con SEO técnico.',
+    title: 'Autonomek | Webs que Venden, Vendedor IA en WhatsApp y Automatización B2B',
+    description: 'Páginas web que lideran Google y ChatGPT, agentes de ventas 24/7 en WhatsApp y automatización de procesos comerciales sin tareas manuales.',
     images: ['/logo.png'],
   },
   robots: {
@@ -127,14 +127,14 @@ const jsonLd = {
       ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: 'Autonomek B2B Engineering Services / Servicios de Ingeniería B2B',
+        name: 'Autonomek B2B Commercial Systems / Sistemas Comerciales Autonomek',
         itemListElement: [
           {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Agentes de Inteligencia Artificial 24/7 / 24/7 AI Sales Agents',
-              description: 'Asistentes conversacionales multimodales para WhatsApp, Web y CRM que califican prospectos, procesan audios y agendan citas en tiempo real.',
+              name: 'Vendedor IA en WhatsApp 24/7 / 24/7 WhatsApp AI Sales Agents',
+              description: 'Agentes conversacionales autónomos para WhatsApp, Web y CRM que atienden en 1 segundo, responden audios, muestran catálogo y agendan citas en tu calendario.',
               url: 'https://www.autonomek.com/es/servicios/agentes-inteligencia-artificial',
               sameAs: 'https://www.autonomek.com/en/services/ai-agents',
             },
@@ -143,8 +143,8 @@ const jsonLd = {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Páginas Web de Alto Rendimiento / High-Performance B2B Websites',
-              description: 'Plataformas web ultrarrápidas en Next.js con Core Web Vitals óptimos, diseñadas para posicionamiento SEO/GEO y conversión B2B.',
+              name: 'Webs de Autoridad que Venden y Posicionan / High-Authority Websites that Convert & Rank',
+              description: 'Plataformas web en Next.js con carga en 0.6s, diseño ejecutivo y optimización SEO/GEO para posicionar primero en Google y en búsquedas de IA como ChatGPT y Perplexity.',
               url: 'https://www.autonomek.com/es/servicios/paginas-web-alto-rendimiento',
               sameAs: 'https://www.autonomek.com/en/services/high-performance-websites',
             },
@@ -153,8 +153,8 @@ const jsonLd = {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Automatización de Procesos B2B / Process & Workflow Automation',
-              description: 'Orquestación de flujos de trabajo autónomos con n8n, APIs, CRMs, ERPs y pasarelas de pago sin intervención manual.',
+              name: 'Operación y Facturación en Piloto Automático / Autonomous Operations & Billing Workflows',
+              description: 'Orquestación de flujos de trabajo autónomos con n8n, APIs, CRMs, ERPs y facturación electrónica sin digitación manual ni errores humanos.',
               url: 'https://www.autonomek.com/es/servicios/automatizacion-de-procesos',
               sameAs: 'https://www.autonomek.com/en/services/process-automation',
             },
@@ -163,8 +163,8 @@ const jsonLd = {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Software a Medida / Custom Enterprise Software',
-              description: 'Desarrollo de plataformas cloud, CRMs propios y dashboards de inteligencia de negocios para operaciones empresariales.',
+              name: 'Plataformas y Software Propio a Medida / Custom B2B Platforms & Proprietary Software',
+              description: 'Desarrollo de aplicaciones web propietarias, portales de clientes y dashboards analíticos en tiempo real con cero costes de suscripciones SaaS.',
               url: 'https://www.autonomek.com/es/servicios/software-a-medida',
               sameAs: 'https://www.autonomek.com/en/services/custom-software',
             },

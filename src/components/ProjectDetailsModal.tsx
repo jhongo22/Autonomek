@@ -92,7 +92,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
                 <motion.img
                   key={currentImageIndex}
                   src={`/projects/${folder}/${images[currentImageIndex]}`}
-                  alt={`${project.title} — ${currentImageIndex + 1}`}
+                  alt={isEn ? `${project.title} — Production Architecture Screenshot ${currentImageIndex + 1} by Autonomek` : `${project.title} — Captura de arquitectura y diseño ${currentImageIndex + 1} por Autonomek`}
                   width={960}
                   height={600}
                   initial={{ opacity: 0 }}

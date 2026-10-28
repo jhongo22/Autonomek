@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import SolucionesPageClient from '../../../servicios/software-a-medida/software-client';
 
 export const metadata: Metadata = {
-  title: 'Software a Medida y Plataformas Cloud B2B | Autonomek',
-  description: 'Ingeniería de software empresarial a medida: CRMs propios, plataformas SaaS multi-tenant, portales operativos y dashboards de inteligencia de negocios.',
+  title: 'Plataformas y Software Propio a Medida sin Costes SaaS | Autonomek',
+  description: 'Construimos plataformas digitales, portales de clientes y paneles analíticos exclusivos 100% propiedad de tu empresa, sin pagar licencias mensuales por usuario.',
   alternates: {
     canonical: 'https://www.autonomek.com/es/servicios/software-a-medida',
     languages: {

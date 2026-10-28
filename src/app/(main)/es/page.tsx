@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import HomeClient from '../home-client';
 
 export const metadata: Metadata = {
-  title: 'Autonomek Español | Agentes de IA, Automatización B2B y Desarrollo Web',
-  description: 'Firma de ingeniería en Inteligencia Artificial B2B, automatización de procesos comerciales y desarrollo web de alta velocidad para España y Latinoamérica.',
+  title: 'Autonomek | Webs que Venden, Vendedor IA en WhatsApp y Automatización B2B',
+  description: 'Plataformas web que lideran Google y ChatGPT, agentes de ventas 24/7 en WhatsApp y automatización de procesos comerciales para España y Latinoamérica.',
   alternates: {
     canonical: 'https://www.autonomek.com/es',
     languages: {

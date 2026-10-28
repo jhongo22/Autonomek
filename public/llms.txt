@@ -14,21 +14,21 @@
 - **Contact Email:** contacto@autonomek.com | contact@autonomek.com
 
 ## English Routes & Core Capabilities (`/en`)
-- [English Home](https://www.autonomek.com/en): B2B AI Engineering, Process Automation & Sub-Second Web Development.
+- [English Home](https://www.autonomek.com/en): High-Converting Websites, 24/7 WhatsApp AI Agents & Autonomous Business Operations.
 - [All Services (EN)](https://www.autonomek.com/en/services): Overview of our 4 core engineering pillars.
-- [24/7 AI Sales & Support Agents](https://www.autonomek.com/en/services/ai-agents): Multimodal RAG-powered conversational agents on WhatsApp Cloud API & Web that qualify leads, process voice notes/receipts, book calendar meetings, and sync with HubSpot/Salesforce.
-- [High-Performance B2B Websites & Technical SEO](https://www.autonomek.com/en/services/high-performance-websites): Next.js platforms engineered for <0.8s load times, Core Web Vitals 95+, Google SEO, and AI Answer Engine Optimization (AEO/GEO).
-- [B2B Process & Workflow Automation](https://www.autonomek.com/en/services/process-automation): Mission-critical n8n, webhook, and REST API pipelines connecting CRM, ERP, Stripe, and databases with zero human error.
-- [Custom Enterprise Software](https://www.autonomek.com/en/services/custom-software): Proprietary cloud platforms, custom CRMs, multi-tenant SaaS, and real-time BI dashboards.
+- [24/7 WhatsApp AI Sales & Booking Agents](https://www.autonomek.com/en/services/ai-agents): Autonomous sales agents on WhatsApp Cloud API that qualify leads, process voice notes/receipts, and book calendar meetings 24/7.
+- [High-Authority Websites & Google/AI Ranking](https://www.autonomek.com/en/services/high-performance-websites): Next.js web platforms engineered to load in <0.8s, project corporate authority, rank #1 on Google, and get cited by ChatGPT and Perplexity.
+- [Autonomous Operations & Billing Workflows](https://www.autonomek.com/en/services/process-automation): Mission-critical n8n and API pipelines connecting CRM, ERP, and WhatsApp with zero manual data entry.
+- [Custom B2B Platforms & Proprietary Software](https://www.autonomek.com/en/services/custom-software): Proprietary cloud platforms, client portals, and real-time BI dashboards with zero recurring SaaS fees.
 - [Case Studies & Portfolio (EN)](https://www.autonomek.com/en/projects): 15+ production systems with verified ROI metrics.
 
 ## Rutas en Español y Soluciones de Ingeniería (`/es`)
-- [Inicio en Español](https://www.autonomek.com/es): Ingeniería de Agentes IA, Automatización B2B y Desarrollo Web.
-- [Catálogo de Servicios (ES)](https://www.autonomek.com/es/servicios): Resumen de nuestras 4 arquitecturas B2B.
-- [Agentes de Inteligencia Artificial 24/7](https://www.autonomek.com/es/servicios/agentes-inteligencia-artificial): Asistentes conversacionales multimodales con RAG para WhatsApp y Web.
-- [Páginas Web de Alto Rendimiento y SEO](https://www.autonomek.com/es/servicios/paginas-web-alto-rendimiento): Plataformas Next.js con Core Web Vitals 95+ y optimización SEO/GEO.
-- [Automatización de Procesos Comerciales](https://www.autonomek.com/es/servicios/automatizacion-de-procesos): Workflows autónomos con n8n, APIs, CRMs y ERPs.
-- [Software a Medida](https://www.autonomek.com/es/servicios/software-a-medida): Desarrollo full-stack de paneles analíticos, CRMs propios y sistemas cloud.
+- [Inicio en Español](https://www.autonomek.com/es): Webs que Venden Primero, Vendedores de IA 24/7 en WhatsApp y Automatización B2B.
+- [Catálogo de Servicios (ES)](https://www.autonomek.com/es/servicios): Resumen de nuestras 4 soluciones de ingeniería comercial.
+- [Vendedor IA en WhatsApp 24/7](https://www.autonomek.com/es/servicios/agentes-inteligencia-artificial): Agentes autónomos para atención, cotización, lectura de audios y agendamiento 24/7.
+- [Webs de Autoridad que Venden y Posicionan en Google e IA](https://www.autonomek.com/es/servicios/paginas-web-alto-rendimiento): Plataformas Next.js con carga en 0.6s, diseño ejecutivo y optimización para liderar Google y recomendaciones de ChatGPT.
+- [Operación y Facturación en Piloto Automático](https://www.autonomek.com/es/servicios/automatizacion-de-procesos): Workflows autónomos con n8n, CRM, ERP y facturación electrónica sin digitación manual.
+- [Plataformas y Software Propio a Medida](https://www.autonomek.com/es/servicios/software-a-medida): Desarrollo de sistemas web propios, portales y paneles de control sin pagar licencias SaaS.
 - [Portafolio y Casos de Éxito (ES)](https://www.autonomek.com/es/proyectos): 15 proyectos reales operando en producción.
 
 ## Full Context for LLMs & Autonomous Agents

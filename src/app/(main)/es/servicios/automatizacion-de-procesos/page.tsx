@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import AutomatizacionPageClient from '../../../servicios/automatizacion-de-procesos/automatizacion-client';
 
 export const metadata: Metadata = {
-  title: 'Automatización de Procesos B2B (n8n, APIs, CRM, WhatsApp) | Autonomek',
-  description: 'Elimina las tareas manuales repetitivas de tu empresa. Conectamos tu CRM, ERP, WhatsApp y facturación mediante flujos de trabajo autónomos en tiempo real.',
+  title: 'Operación y Facturación en Piloto Automático con n8n y CRM | Autonomek',
+  description: 'Conectamos tu web, WhatsApp, CRM y facturación para eliminar tareas manuales repetitivas y errores de digitación en tu empresa.',
   alternates: {
     canonical: 'https://www.autonomek.com/es/servicios/automatizacion-de-procesos',
     languages: {

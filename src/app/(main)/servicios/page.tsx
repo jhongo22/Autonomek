@@ -2,16 +2,23 @@ import { Metadata } from 'next';
 import ServiciosClient from './servicios-client';
 
 export const metadata: Metadata = {
-  title: 'Sistemas y soluciones de ingeniería digital | Autonomek',
-  description: 'Conoce nuestros sistemas de páginas web de alto rendimiento, agentes de IA 24/7, automatización de procesos y software a medida.',
+  title: 'Servicios de Páginas Web, Agentes de IA y Automatización B2B | Autonomek',
+  description: 'Soluciones de páginas web que lideran Google y ChatGPT, vendedores de IA 24/7 en WhatsApp, automatización con n8n y software a medida para empresas.',
   alternates: {
-    canonical: 'https://autonomek.com/servicios',
+    canonical: 'https://www.autonomek.com/servicios',
     languages: {
-      'es-CO': 'https://autonomek.com/servicios',
-      'en-US': 'https://autonomek.com/us/services',
-      'x-default': 'https://autonomek.com/servicios',
-    }
-  }
+      'es-CO': 'https://www.autonomek.com/servicios',
+      'es-ES': 'https://www.autonomek.com/es/servicios',
+      'en-US': 'https://www.autonomek.com/us/services',
+      'x-default': 'https://www.autonomek.com/servicios',
+    },
+  },
+  openGraph: {
+    title: 'Servicios de Páginas Web, Agentes de IA y Automatización B2B | Autonomek',
+    description: 'Páginas web que convierten, vendedores de IA 24/7 en WhatsApp y automatización de procesos operativos.',
+    url: 'https://www.autonomek.com/servicios',
+    type: 'website',
+  },
 };
 
 const breadcrumbJsonLd = {
@@ -22,13 +29,13 @@ const breadcrumbJsonLd = {
       '@type': 'ListItem',
       position: 1,
       name: 'Inicio',
-      item: 'https://autonomek.com',
+      item: 'https://www.autonomek.com',
     },
     {
       '@type': 'ListItem',
       position: 2,
       name: 'Servicios',
-      item: 'https://autonomek.com/servicios',
+      item: 'https://www.autonomek.com/servicios',
     },
   ],
 };

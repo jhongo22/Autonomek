@@ -17,124 +17,132 @@ export default function ServiciosClient({ locale = 'es' }: { locale?: 'es' | 'en
     ? [
         {
           id: '01',
-          title: '24/7 AI Sales & Support Agents',
-          subtitle: 'WhatsApp Cloud API · OpenAI RAG · pgvector',
+          title: '24/7 WhatsApp AI Sales & Booking Agent',
+          subtitle: 'Instant reply · Voice notes & receipts · Live calendar booking',
           description:
-            'Autonomous conversational agents trained on your company documentation, catalogs, and policies. They answer in 1.1 seconds, process voice notes and payment receipts, qualify buyers, and schedule appointments in your CRM.',
+            'An autonomous sales representative that replies in 1.1 seconds around the clock. It answers catalog questions, transcribes voice notes, validates bank transfer receipts, and schedules qualified appointments directly into your calendar without human intervention.',
           features: [
-            'Multimodal processing (text, voice notes, receipt images)',
-            'Zero-hallucination RAG connected to your knowledge base',
-            'Real-time Google Calendar and CRM booking',
-            'Seamless human handoff when complex negotiation is needed',
+            '24/7 WhatsApp & Instagram customer acquisition with 1.1s latency',
+            'Understands voice notes and verifies bank payment receipts with AI vision',
+            'Direct calendar and CRM booking (Google Calendar, Outlook, HubSpot)',
+            'Seamless human handoff with full executive context when negotiation is needed',
           ],
           href: `${basePrefix}/services/ai-agents`,
+          inspectCta: 'See how the WhatsApp AI Agent sells',
           whatsappText: 'Hello Autonomek, I want to quote a 24/7 WhatsApp AI Agent for my company.',
         },
         {
           id: '02',
-          title: 'High-Performance Websites & Technical SEO',
-          subtitle: 'Next.js App Router · Core Web Vitals 95+ · GEO/AEO',
+          title: 'High-Authority Websites that Convert & Rank',
+          subtitle: '0.6s load time · #1 on Google · Cited by ChatGPT & Perplexity',
           description:
-            'Corporate web platforms engineered for sub-second load times, semantic Schema.org structured data, and bilingual indexing to rank on Google and get cited by ChatGPT and Perplexity.',
+            'Look authoritative, load in under a second, and dominate search results. We engineer sub-second web platforms optimized to appear #1 on Google and get cited by ChatGPT and Perplexity, converting visitors into qualified leads on WhatsApp.',
           features: [
-            'Sub-second Largest Contentful Paint (< 0.8s)',
-            'Reciprocal international hreflang and JSON-LD schema',
-            'Zero Cumulative Layout Shift (CLS 0.00)',
-            'Frictionless conversion funnels directly to WhatsApp',
+            'Rank #1 on Google and get cited by ChatGPT and Perplexity',
+            'Sub-second load times (<0.8s) that retain 90%+ of visitors',
+            'Executive visual design that projects supreme corporate trust',
+            'Direct-to-WhatsApp conversion funnels with pre-filled context',
           ],
           href: `${basePrefix}/services/high-performance-websites`,
-          whatsappText: 'Hello Autonomek, I want to quote a High-Performance B2B Website with Technical SEO.',
+          inspectCta: 'See how this Web ranks on Google & AI',
+          whatsappText: 'Hello Autonomek, I want to quote a High-Converting Website that ranks on Google and ChatGPT.',
         },
         {
           id: '03',
-          title: 'Process & Workflow Automation',
-          subtitle: 'n8n · REST APIs · Webhooks · ERP & Billing',
+          title: 'Autonomous Operations & Billing Workflows',
+          subtitle: 'Zero manual data entry · CRM, ERP & payment sync · n8n engine',
           description:
-            'We connect your CRM, payment gateways, accounting software, and communication channels so data flows automatically in milliseconds without manual entry.',
+            'We connect your CRM, payment gateways, accounting software, and WhatsApp so operations execute automatically in milliseconds. Issue invoices, generate contracts, and dispatch order alerts without manual data entry.',
           features: [
-            'High-availability n8n workflow orchestration',
-            'Automatic invoice, contract, and order generation',
-            'Real-time synchronization across HubSpot, Salesforce, and SQL',
-            'Instant operational alerts on WhatsApp, Slack, or Telegram',
+            'Mission-critical n8n orchestration eliminating manual data entry',
+            'Automatic PDF contract, tax invoice, and order dispatch',
+            'Real-time synchronization across payment gateways, CRM, and ERP',
+            'Instant WhatsApp operational telemetry and status alerts',
           ],
           href: `${basePrefix}/services/process-automation`,
+          inspectCta: 'Explore workflow automations',
           whatsappText: 'Hello Autonomek, I want to audit and automate my company workflows.',
         },
         {
           id: '04',
-          title: 'Custom B2B Software & Cloud Platforms',
-          subtitle: 'TypeScript · Node.js · PostgreSQL · Supabase',
+          title: 'Custom B2B Platforms & Proprietary Software',
+          subtitle: 'Proprietary ownership · No per-seat SaaS fees · Custom portals & BI',
           description:
-            'When off-the-shelf software limits your operation, we engineer proprietary platforms: custom CRMs, booking portals, multi-tenant SaaS, and real-time BI dashboards.',
+            'When off-the-shelf software limits your operation, we engineer proprietary platforms: custom client portals, booking engines, and real-time executive BI dashboards—owned 100% by you without recurring per-seat fees.',
           features: [
-            'Role-based access control and enterprise encryption',
-            'Real-time executive analytics and financial telemetry',
-            'Modular cloud architecture built to scale',
-            'Bi-weekly agile production sprints and ongoing support',
+            '100% code ownership: zero recurring per-user software subscriptions',
+            'Real-time executive analytics and business performance dashboards',
+            'Secure client and booking portals with enterprise role-based access',
+            'Scalable cloud infrastructure backed by direct engineering support',
           ],
           href: `${basePrefix}/services/custom-software`,
+          inspectCta: 'Inspect custom software systems',
           whatsappText: 'Hello Autonomek, I want to quote a Custom B2B Software platform.',
         },
       ]
     : [
         {
           id: '01',
-          title: 'Agentes de Inteligencia Artificial 24/7',
-          subtitle: 'WhatsApp Cloud API · OpenAI RAG · pgvector',
+          title: 'Vendedor IA en WhatsApp 24/7',
+          subtitle: 'Atención inmediata · Audios, fotos y cotización · Citas en calendario',
           description:
-            'Asistentes conversacionales autónomos entrenados con tus catálogos, precios y políticas. Responden en 1.1 segundos, transcriben notas de voz, validan comprobantes de pago y agendan citas en tu calendario.',
+            'Tu vendedor estrella que atiende en 1 segundo a cualquier hora del día o de la noche. Responde preguntas con tu catálogo actualizado, transcribe audios, valida comprobantes de pago y agenda citas directamente en tu calendario sin intervención humana.',
           features: [
-            'Procesamiento multimodal (texto, notas de voz y comprobantes)',
-            'Respuestas exactas fundamentadas en tus documentos (RAG)',
-            'Agendamiento en tiempo real en Google Calendar y CRM',
-            'Transferencia inteligente a asesores humanos cuando se requiere',
+            'Atención 24/7 en WhatsApp e Instagram con respuesta en 1 segundo',
+            'Entiende notas de voz y extrae datos de comprobantes de pago',
+            'Agendamiento automático en Google Calendar o tu CRM',
+            'Transferencia inmediata a un asesor humano ante casos prioritarios',
           ],
           href: `${basePrefix}/servicios/agentes-inteligencia-artificial`,
+          inspectCta: 'Ver cómo vende el Agente de WhatsApp',
           whatsappText: 'Hola Autonomek, quiero cotizar un Agente de IA 24/7 en WhatsApp para mi empresa.',
         },
         {
           id: '02',
-          title: 'Páginas Web de Alto Rendimiento y SEO Técnico',
-          subtitle: 'Next.js App Router · Core Web Vitals 95+ · GEO/AEO',
+          title: 'Webs de Autoridad que Venden y Posicionan',
+          subtitle: 'Carga en 0.6s · 1er lugar en Google · Recomendado por ChatGPT y Perplexity',
           description:
-            'Plataformas corporativas diseñadas para cargar en menos de un segundo, con datos estructurados Schema.org e indexación internacional para posicionar en Google y motores de respuesta con IA.',
+            'Tu empresa se ve impecable ante clientes corporativos y no pierde prospectos por lentitud. Desarrollamos webs ultrarrápidas estructuradas específicamente para aparecer en los primeros resultados de Google y ser recomendadas por IAs como ChatGPT y Perplexity cuando tus clientes buscan tus servicios.',
           features: [
-            'Tiempo de carga principal inferior a 0.8 segundos',
-            'Arquitectura SEO y GEO lista para Google, ChatGPT y Perplexity',
-            'Cero salto visual (CLS 0.00) y diseño ejecutivo adaptable',
-            'Embudos de conversión directa a WhatsApp sin fricción',
+            'Aparece primero en búsquedas de Google y en respuestas de ChatGPT y Perplexity',
+            'Carga instantánea en 0.6s: retiene a más del 90% de los visitantes',
+            'Diseño visual que proyecta solvencia y confianza corporativa inmediata',
+            'Embudos de alta conversión con contacto directo a WhatsApp',
           ],
           href: `${basePrefix}/servicios/paginas-web-alto-rendimiento`,
-          whatsappText: 'Hola Autonomek, quiero cotizar una Página Web de Alto Rendimiento con SEO Técnico.',
+          inspectCta: 'Ver cómo posiciona esta Web en Google',
+          whatsappText: 'Hola Autonomek, quiero cotizar una Web de Alta Conversión que posicione en Google y ChatGPT.',
         },
         {
           id: '03',
-          title: 'Automatización de Procesos Comerciales',
-          subtitle: 'n8n · REST APIs · Webhooks · ERP y Facturación',
+          title: 'Operación y Facturación en Piloto Automático',
+          subtitle: 'Cero digitación manual · Conexión CRM, ERP y pagos · Sincronización n8n',
           description:
-            'Conectamos tu CRM, pasarelas de pago, software contable y WhatsApp para que la información fluya en milisegundos sin digitación manual ni errores humanos.',
+            'Conectamos WhatsApp, pasarelas de pago, software contable y tu CRM para que la información se mueva sola. Emite contratos, genera facturas electrónicas y notifica a tus clientes al instante sin que tu equipo pierda horas en tareas manuales repetitivas.',
           features: [
-            'Orquestación de flujos de alta disponibilidad con n8n',
-            'Generación automática de contratos PDF, facturas y pedidos',
-            'Sincronización bidireccional con HubSpot, Salesforce y bases de datos',
-            'Alertas operativas en tiempo real para tu equipo',
+            'Workflows de alta disponibilidad que eliminan el trabajo manual repetitivo',
+            'Emisión automática de contratos PDF, facturas electrónicas y órdenes',
+            'Sincronización en tiempo real entre pasarelas de pago, CRM y contabilidad',
+            'Alertas inmediatas en WhatsApp para el control de tu operación',
           ],
           href: `${basePrefix}/servicios/automatizacion-de-procesos`,
+          inspectCta: 'Ver flujos de automatización',
           whatsappText: 'Hola Autonomek, quiero auditar y automatizar los procesos de mi empresa.',
         },
         {
           id: '04',
-          title: 'Software a Medida y Plataformas Cloud',
-          subtitle: 'TypeScript · Node.js · PostgreSQL · Supabase',
+          title: 'Plataformas y Software Propio a Medida',
+          subtitle: 'Tu propio sistema · Sin pagar suscripciones SaaS · Portales y analítica',
           description:
-            'Cuando el software comercial genérico queda corto, construimos plataformas propias: CRMs a medida, sistemas de reservas en tiempo real y paneles de control ejecutivo.',
+            'Cuando los programas genéricos limitan tu crecimiento, diseñamos tu propia plataforma. Portales de clientes, módulos de reservas en tiempo real y paneles de control ejecutivo adaptados a tus procesos, siendo 100% propietario del software sin pagar suscripciones mensuales por usuario.',
           features: [
-            'Control de acceso por roles y seguridad de datos corporativa',
-            'Paneles de analítica y métricas operativas en tiempo real',
-            'Arquitectura modular escalable en la nube',
-            'Entregas iterativas cada dos semanas y soporte continuo',
+            'Propiedad absoluta del software: cero pagos mensuales por licencias de usuario',
+            'Paneles de control y analítica comercial en tiempo real',
+            'Portales de clientes y reservas con acceso seguro por roles',
+            'Arquitectura escalable en la nube con soporte directo de ingenieros',
           ],
           href: `${basePrefix}/servicios/software-a-medida`,
+          inspectCta: 'Ver sistemas y software a medida',
           whatsappText: 'Hola Autonomek, quiero cotizar un proyecto de Software a Medida.',
         },
       ];
@@ -146,13 +154,13 @@ export default function ServiciosClient({ locale = 'es' }: { locale?: 'es' | 'en
         <header className="max-w-3xl pb-16 border-b border-rule space-y-4">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground leading-[1.05]">
             {isEn
-              ? 'Engineering systems built for measurable return.'
-              : 'Sistemas de ingeniería diseñados para retorno medible.'}
+              ? 'Systems engineered to win clients and eliminate manual work.'
+              : 'Soluciones diseñadas para vender más y operar sin fricción.'}
           </h1>
           <p className="text-muted text-base sm:text-lg leading-relaxed">
             {isEn
-              ? 'Four specialized architectures that eliminate manual bottlenecks and turn your digital channels into an autonomous sales operation.'
-              : 'Cuatro arquitecturas especializadas que eliminan el trabajo manual repetitivo y convierten tus canales digitales en una operación comercial autónoma.'}
+              ? 'Four specialized architectures designed to turn traffic into revenue and run your commercial operations autonomously.'
+              : 'Cuatro arquitecturas creadas para convertir el tráfico en clientes reales y automatizar los procesos de tu empresa.'}
           </p>
         </header>
 
@@ -207,7 +215,7 @@ export default function ServiciosClient({ locale = 'es' }: { locale?: 'es' | 'en
                     href={service.href}
                     className="inline-flex items-center justify-center h-11 px-5 rounded-lg border border-rule bg-surface text-foreground font-medium text-sm hover:bg-card transition-colors"
                   >
-                    {isEn ? 'Inspect technical specification' : 'Ver especificación técnica'}
+                    {service.inspectCta}
                   </Link>
                 </div>
               </div>

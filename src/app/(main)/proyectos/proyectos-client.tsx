@@ -79,7 +79,7 @@ export default function ProyectosClient({ locale = 'es' }: { locale?: 'es' | 'en
                 <div className="relative w-full aspect-[16/10] bg-card overflow-hidden border-b border-rule">
                   <img
                     src={`/projects/${project.folder}/${project.images[0]}`}
-                    alt={project.title}
+                    alt={isEn ? `${project.title} — Production Case Study in ${project.category} by Autonomek` : `${project.title} — Caso de estudio en producción (${project.category}) por Autonomek`}
                     width={800}
                     height={500}
                     loading="lazy"

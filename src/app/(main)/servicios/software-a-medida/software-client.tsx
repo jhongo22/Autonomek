@@ -94,13 +94,13 @@ export default function SolucionesPageClient({ locale = 'es' }: { locale?: 'es' 
           <div className="lg:col-span-7 space-y-6">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground leading-[1.04]">
               {isEn
-                ? 'Custom B2B software and proprietary cloud platforms.'
-                : 'Software a medida y plataformas en la nube para empresas.'}
+                ? 'Custom B2B platforms & proprietary software without recurring fees.'
+                : 'Plataformas y software propio a medida sin suscripciones SaaS.'}
             </h1>
             <p className="text-muted text-base sm:text-lg leading-relaxed max-w-[60ch]">
               {isEn
-                ? 'When commercial software forces your team into workarounds, we design and build proprietary web applications, dashboards, and internal tools owned 100% by your company.'
-                : 'Cuando el software comercial genérico obliga a tu equipo a trabajar con parches, construimos plataformas web, paneles analíticos y sistemas internos 100% propiedad de tu empresa.'}
+                ? 'Stop paying steep recurring monthly SaaS fees for generic software that limits your growth. We engineer proprietary web applications, client portals, and real-time BI dashboards owned 100% by your company.'
+                : 'Deja de pagar suscripciones mensuales costosas en herramientas genéricas que no se adaptan a tu operación. Diseñamos sistemas web propietarios, portales de clientes y paneles analíticos con control total de tus datos y 100% propiedad de tu empresa.'}
             </p>
             <div className="pt-2">
               <a
@@ -121,7 +121,7 @@ export default function SolucionesPageClient({ locale = 'es' }: { locale?: 'es' 
         {/* Capabilities Ledger */}
         <section className="py-16 md:py-24 border-b border-rule">
           <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-foreground mb-12">
-            {isEn ? 'What we engineer.' : 'Qué construimos.'}
+            {isEn ? 'Proprietary systems we engineer for enterprise.' : 'Sistemas y plataformas que desarrollamos para tu empresa.'}
           </h2>
 
           <div className="divide-y divide-rule border-y border-rule">
@@ -170,7 +170,7 @@ export default function SolucionesPageClient({ locale = 'es' }: { locale?: 'es' 
                   <div className="relative w-full aspect-[16/10] bg-card overflow-hidden border-b border-rule">
                     <img
                       src={`/projects/${project.folder}/${project.images[0]}`}
-                      alt={project.title}
+                      alt={isEn ? `${project.title} — Custom B2B Cloud Platform by Autonomek` : `${project.title} — Software a medida y plataforma cloud desarrollada por Autonomek`}
                       width={800}
                       height={500}
                       loading="lazy"

@@ -102,13 +102,13 @@ export default function AgentesIAPageClient({ locale = 'es' }: { locale?: 'es' |
           <div className="lg:col-span-7 space-y-6">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground leading-[1.04]">
               {isEn
-                ? 'Autonomous AI agents for WhatsApp, web, and CRM.'
-                : 'Agentes de inteligencia artificial para WhatsApp, web y CRM.'}
+                ? '24/7 WhatsApp AI Sales Agents & Booking Concierges.'
+                : 'Vendedor y recepcionista de IA 24/7 en WhatsApp.'}
             </h1>
             <p className="text-muted text-base sm:text-lg leading-relaxed max-w-[60ch]">
               {isEn
-                ? 'Unlike rigid button-tree chatbots, our agents understand natural language, transcribe voice notes, inspect payment receipts, and execute actions inside your calendar and database 24/7.'
-                : 'A diferencia de los bots rígidos de menú numérico, nuestros agentes entienden lenguaje natural, escuchan notas de voz, leen comprobantes de pago y agendan citas en tu calendario 24/7.'}
+                ? 'Reply in 1.1 seconds around the clock, answer complex inquiries with your live catalog, transcribe voice notes, verify payment receipts, and book calendar meetings without human delays.'
+                : 'Atiende en 1 segundo a cualquier hora del día o de la noche, resuelve dudas con tu catálogo, transcribe notas de voz, valida transferencias bancarias y agenda citas en tu calendario sin que tus asesores colapsen.'}
             </p>
             <div className="pt-2">
               <a
@@ -130,8 +130,8 @@ export default function AgentesIAPageClient({ locale = 'es' }: { locale?: 'es' |
         <section className="py-16 md:py-24 border-b border-rule">
           <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-foreground mb-12">
             {isEn
-              ? 'Four specialized AI architectures we deploy.'
-              : 'Cuatro arquitecturas de agentes IA que implementamos.'}
+              ? 'Autonomous commercial modules we deploy.'
+              : 'Módulos comerciales que implementamos para tu empresa.'}
           </h2>
 
           <div className="divide-y divide-rule border-y border-rule">
@@ -185,7 +185,7 @@ export default function AgentesIAPageClient({ locale = 'es' }: { locale?: 'es' |
                   <div className="relative w-full aspect-[16/10] bg-card overflow-hidden border-b border-rule">
                     <img
                       src={`/projects/${project.folder}/${project.images[0]}`}
-                      alt={project.title}
+                      alt={isEn ? `${project.title} — 24/7 AI Agent Architecture by Autonomek` : `${project.title} — Arquitectura de agente de IA desarrollada por Autonomek`}
                       width={800}
                       height={500}
                       loading="lazy"
