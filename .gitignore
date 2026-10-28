@@ -33,6 +33,7 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+update_css.js
 
 # Backup files
 *.bak

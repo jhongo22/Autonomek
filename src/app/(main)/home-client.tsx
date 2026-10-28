@@ -30,42 +30,91 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
   const [activeLeak, setActiveLeak] = useState<number>(0);
   const [leakScrollProgress, setLeakScrollProgress] = useState<number>(0);
   const [activeCapability, setActiveCapability] = useState<number>(0);
+  const [capScrollProgress, setCapScrollProgress] = useState<number>(0);
   const [activeMethodStep, setActiveMethodStep] = useState<number>(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const leakSectionRef = useRef<HTMLElement>(null);
+  const capSectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const el = leakSectionRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const stickyOffset = window.innerWidth >= 1024 ? 80 : 64;
-      const scrollableDistance = Math.max(1, rect.height - (window.innerHeight - stickyOffset));
+      // The scroll-driven, pinned experience is desktop-only.
+      if (window.innerWidth < 1024) {
+        setLeakScrollProgress(0);
+        setCapScrollProgress(0);
+        return;
+      }
 
-      // Start reacting as soon as the section approaches the sticky position (works on both Mobile & PC)
-      const rawProgress = Math.max(0, Math.min(1, (stickyOffset + 60 - rect.top) / scrollableDistance));
-      setLeakScrollProgress(rawProgress);
+      const stickyOffset = 80;
 
-      const nextIdx = rawProgress < 0.28 ? 0 : rawProgress < 0.62 ? 1 : 2;
-      setActiveLeak((prev) => (prev !== nextIdx ? nextIdx : prev));
+      const leakEl = leakSectionRef.current;
+      if (leakEl) {
+        const rect = leakEl.getBoundingClientRect();
+        const scrollableDistance = Math.max(1, rect.height - (window.innerHeight - stickyOffset));
+        const rawProgress = Math.max(
+          0,
+          Math.min(1, (stickyOffset + 60 - rect.top) / scrollableDistance)
+        );
+        setLeakScrollProgress(rawProgress);
+
+        const nextIdx = rawProgress < 0.28 ? 0 : rawProgress < 0.62 ? 1 : 2;
+        setActiveLeak((prev) => (prev !== nextIdx ? nextIdx : prev));
+      }
+
+      const capEl = capSectionRef.current;
+      if (capEl) {
+        const rect = capEl.getBoundingClientRect();
+        const scrollableDistance = Math.max(1, rect.height - (window.innerHeight - stickyOffset));
+        const rawProgress = Math.max(
+          0,
+          Math.min(1, (stickyOffset + 60 - rect.top) / scrollableDistance)
+        );
+        setCapScrollProgress(rawProgress);
+
+        const nextIdx =
+          rawProgress < 0.42 ? 0 : rawProgress < 0.6 ? 1 : rawProgress < 0.78 ? 2 : 3;
+        setActiveCapability((prev) => (prev !== nextIdx ? nextIdx : prev));
+      }
     };
 
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, []);
 
   const handleSelectLeak = (idx: number) => {
     setActiveLeak(idx);
+    if (window.innerWidth < 1024) return;
     const el = leakSectionRef.current;
     if (el) {
       const rect = el.getBoundingClientRect();
-      const stickyOffset = window.innerWidth >= 1024 ? 80 : 64;
+      const stickyOffset = 80;
       const sectionTop = window.scrollY + rect.top - stickyOffset;
       const scrollableDistance = Math.max(1, rect.height - (window.innerHeight - stickyOffset));
       const targetProgress = idx === 0 ? 0.05 : idx === 1 ? 0.45 : 0.82;
       window.scrollTo({
         top: sectionTop + scrollableDistance * targetProgress,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  const handleSelectCapability = (idx: number) => {
+    setActiveCapability(idx);
+    if (window.innerWidth < 1024) return;
+    const el = capSectionRef.current;
+    if (el) {
+      const rect = el.getBoundingClientRect();
+      const stickyOffset = 80;
+      const sectionTop = window.scrollY + rect.top - stickyOffset;
+      const scrollableDistance = Math.max(1, rect.height - (window.innerHeight - stickyOffset));
+      const targets = [0.3, 0.51, 0.69, 0.86];
+      window.scrollTo({
+        top: sectionTop + scrollableDistance * targets[idx],
         behavior: 'smooth',
       });
     }
@@ -671,9 +720,9 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
       {/* ------------------------------------------------------------------ */}
       <section
         ref={leakSectionRef}
-        className="relative h-[165vh] lg:h-[155vh] bg-surface border-b border-rule"
+        className="relative lg:h-[155vh] bg-surface border-b border-rule"
       >
-        <div className="sticky top-16 lg:top-20 min-h-[calc(100dvh-4rem)] lg:min-h-[calc(100vh-5rem)] flex items-center py-6 sm:py-10 lg:py-8">
+        <div className="lg:sticky lg:top-20 lg:min-h-[calc(100vh-5rem)] flex items-center py-14 sm:py-16 lg:py-8">
           <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 md:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 lg:gap-12 items-center">
               {/* Left Column: Heading + Scroll Progress Bar + 3D Isometric Bar Chart */}
@@ -686,7 +735,12 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
                         : `FUGA OPERATIVA 0${activeLeak + 1} DE 03`}
                     </span>
                     <span className="text-muted">
-                      {isEn ? 'Scroll to inspect' : 'Haz scroll para avanzar'}
+                      <span className="lg:hidden">
+                        {isEn ? 'Tap to explore' : 'Toca para explorar'}
+                      </span>
+                      <span className="hidden lg:inline">
+                        {isEn ? 'Scroll to inspect' : 'Haz scroll para avanzar'}
+                      </span>
                     </span>
                   </div>
                   <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-foreground leading-tight">
@@ -696,12 +750,12 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
                   </h2>
                   <p className="text-muted text-xs sm:text-base leading-relaxed">
                     {isEn
-                      ? 'As you scroll, watch how the 3D bar model compares manual bottlenecks against an automated architecture.'
-                      : 'A medida que bajas con el scroll, observa cómo cambia el gráfico de barras 3D entre una operación manual y nuestra arquitectura.'}
+                      ? 'Select any leak to see how the 3D bar model compares manual bottlenecks against an automated architecture.'
+                      : 'Selecciona cada fuga y observa cómo cambia el gráfico de barras 3D entre una operación manual y nuestra arquitectura.'}
                   </p>
 
-                  {/* Continuous Scroll Progress Bar (Mobile & Desktop) */}
-                  <div className="h-1 w-full rounded-full bg-background border border-rule overflow-hidden">
+                  {/* Continuous Scroll Progress Bar (Desktop only) */}
+                  <div className="hidden lg:block h-1 w-full rounded-full bg-background border border-rule overflow-hidden">
                     <div
                       className="h-full bg-primary transition-all duration-150"
                       style={{
@@ -887,9 +941,12 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
       {/* ------------------------------------------------------------------ */}
       {/* 4. ENGINEERING SPECIFICATION INDEX + 3D ARCHITECTURAL SCULPTURE     */}
       {/* ------------------------------------------------------------------ */}
-      <section className="py-20 md:py-32 bg-surface border-b border-rule">
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      <section
+        ref={capSectionRef}
+        className="relative lg:h-[280vh] py-20 md:py-32 lg:py-0 bg-surface border-b border-rule"
+      >
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 lg:h-full lg:pt-32">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 lg:mb-10">
             <div className="space-y-3 max-w-2xl">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground">
                 {isEn
@@ -897,9 +954,16 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
                   : 'Cuatro sistemas de ingeniería enfocados en retorno de inversión.'}
               </h2>
               <p className="text-muted text-base sm:text-lg">
-                {isEn
-                  ? 'Hover or select any capability to inspect its 3D architectural blueprint.'
-                  : 'Pasa el cursor o selecciona cada sistema para inspeccionar su esquema 3D.'}
+                <span className="lg:hidden">
+                  {isEn
+                    ? 'Select any capability to inspect its 3D architectural blueprint.'
+                    : 'Selecciona cada sistema para inspeccionar su esquema 3D.'}
+                </span>
+                <span className="hidden lg:inline">
+                  {isEn
+                    ? 'Scroll to move through each system and inspect its 3D architectural blueprint.'
+                    : 'Haz scroll para recorrer cada sistema e inspeccionar su esquema 3D.'}
+                </span>
               </p>
             </div>
             <Link
@@ -910,59 +974,80 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-            {/* Left: 4 Interactive System Cards */}
-            <div className="lg:col-span-7 space-y-4">
-              {capabilities.map((cap, idx) => {
-                const isSelected = activeCapability === idx;
-                return (
-                  <div
-                    key={cap.index}
-                    onMouseEnter={() => setActiveCapability(idx)}
-                    onClick={() => setActiveCapability(idx)}
-                    className={`p-6 sm:p-7 rounded-2xl border transition-colors cursor-pointer ${
-                      isSelected
-                        ? 'bg-background border-primary'
-                        : 'bg-background/60 border-rule hover:border-rule-strong'
-                    }`}
-                  >
-                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-                      <div className="space-y-2 max-w-xl">
-                        <div className="flex items-center gap-3">
-                          <span className="font-mono text-xs px-2 py-0.5 rounded bg-surface border border-rule text-primary">
-                            {cap.index}
-                          </span>
-                          <span className="font-mono text-xs text-muted">{cap.spec}</span>
-                        </div>
-                        <h3 className="text-xl sm:text-2xl font-semibold text-foreground">
-                          {cap.title}
-                        </h3>
-                        <p className="text-sm sm:text-base text-muted leading-relaxed">
-                          {cap.desc}
-                        </p>
-                      </div>
-
-                      <Link
-                        href={cap.href}
-                        onClick={(e) => e.stopPropagation()}
-                        className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg border border-rule bg-surface text-xs font-medium text-foreground hover:border-primary hover:text-primary transition-colors shrink-0 self-start"
-                      >
-                        <span>{isEn ? 'Inspect' : 'Ver módulo'}</span>
-                        <ArrowUpRight size={14} />
-                      </Link>
-                    </div>
-                  </div>
-                );
-              })}
+          <div className="lg:sticky lg:top-20 lg:py-8">
+            {/* Desktop scroll progress */}
+            <div className="hidden lg:flex items-center justify-between gap-4 mb-6">
+              <span className="font-mono text-xs text-primary">
+                {isEn
+                  ? `SYSTEM 0${activeCapability + 1} OF 04`
+                  : `SISTEMA 0${activeCapability + 1} DE 04`}
+              </span>
+              <div className="h-1 flex-1 max-w-xs rounded-full bg-background border border-rule overflow-hidden">
+                <div
+                  className="h-full bg-primary transition-all duration-150"
+                  style={{ width: `${Math.max(10, Math.min(100, capScrollProgress * 100))}%` }}
+                />
+              </div>
             </div>
 
-            {/* Right (Top on Mobile): Sticky 3D Blueprint Sculpture */}
-            <div className="order-first lg:order-last lg:col-span-5 lg:sticky lg:top-28">
-              <BlueprintSculptureFigure
-                activeIndex={activeCapability}
-                onSelect={setActiveCapability}
-                isEn={isEn}
-              />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+              {/* Left: 4 Interactive System Cards */}
+              <div className="lg:col-span-7 space-y-4">
+                {capabilities.map((cap, idx) => {
+                  const isSelected = activeCapability === idx;
+                  return (
+                    <div
+                      key={cap.index}
+                      onMouseEnter={() => setActiveCapability(idx)}
+                      onClick={() => handleSelectCapability(idx)}
+                      className={`p-6 sm:p-7 lg:p-5 rounded-2xl border transition-colors cursor-pointer ${
+                        isSelected
+                          ? 'bg-background border-primary'
+                          : 'bg-background/60 border-rule hover:border-rule-strong'
+                      }`}
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                        <div className="space-y-2 max-w-xl">
+                          <div className="flex items-center gap-3">
+                            <span className="font-mono text-xs px-2 py-0.5 rounded bg-surface border border-rule text-primary">
+                              {cap.index}
+                            </span>
+                            <span className="font-mono text-xs text-muted">{cap.spec}</span>
+                          </div>
+                          <h3 className="text-xl sm:text-2xl font-semibold text-foreground">
+                            {cap.title}
+                          </h3>
+                          <p
+                            className={`text-sm sm:text-base text-muted leading-relaxed ${
+                              isSelected ? 'block' : 'block lg:hidden'
+                            }`}
+                          >
+                            {cap.desc}
+                          </p>
+                        </div>
+
+                        <Link
+                          href={cap.href}
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg border border-rule bg-surface text-xs font-medium text-foreground hover:border-primary hover:text-primary transition-colors shrink-0 self-start"
+                        >
+                          <span>{isEn ? 'Inspect' : 'Ver módulo'}</span>
+                          <ArrowUpRight size={14} />
+                        </Link>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Right (Top on Mobile): 3D Blueprint Sculpture */}
+              <div className="order-first lg:order-last lg:col-span-5">
+                <BlueprintSculptureFigure
+                  activeIndex={activeCapability}
+                  onSelect={handleSelectCapability}
+                  isEn={isEn}
+                />
+              </div>
             </div>
           </div>
         </div>

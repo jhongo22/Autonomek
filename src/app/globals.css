@@ -107,6 +107,7 @@ html[data-palette="p5"] {
 
 @layer base {
   html {
+    zoom: 0.8;
     background-color: var(--bg);
     color: var(--fg);
     overflow-x: clip;

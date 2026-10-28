@@ -8,6 +8,7 @@ Análisis de competidores directos en el mercado de automatización, IA y desarr
 |---|---|---|
 | [Ciberfobia](./ciberfobia/) | Automatización con IA, bots WhatsApp, desarrollo web | España |
 | [Ventiva.ia](./ventivaia/) | Agentes IA para WhatsApp | Colombia |
+| [MergeOn](./mergeon/) | Agentes de IA para ventas en WhatsApp/Instagram, Seller y CRM | Colombia / Latam |
 | [Ona](./ona/) | Agentes de IA para WhatsApp + CRM | Global |
 | [Togrow Agencia](./togrowagencia/) | Automatización de marketing | Colombia |
 
