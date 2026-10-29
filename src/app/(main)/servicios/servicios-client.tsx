@@ -3,224 +3,269 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Check } from 'lucide-react';
-import { BlueprintSculptureFigure } from '@/components/widgets/ArchitecturalFigures';
+import {
+  Check,
+  ArrowUpRight,
+  LayoutDashboard,
+  Globe,
+  MessageSquare,
+  Workflow,
+} from 'lucide-react';
+import { ServiceMiniApp } from '@/components/ui/service-mini-apps';
 
 export default function ServiciosClient({ locale = 'es' }: { locale?: 'es' | 'en' }) {
   const pathname = usePathname() || '/';
   const isEn = locale === 'en' || pathname.startsWith('/en') || pathname.startsWith('/us');
   const isEsExplicit = pathname.startsWith('/es');
   const isUsExplicit = pathname.startsWith('/us');
-  const basePrefix = isEn ? (isUsExplicit ? '/us' : '/en') : (isEsExplicit ? '/es' : '');
+  const basePrefix = isEn ? (isUsExplicit ? '/us' : '/en') : isEsExplicit ? '/es' : '';
 
   const services = isEn
     ? [
         {
           id: '01',
-          title: '24/7 WhatsApp AI Sales & Booking Agent',
-          subtitle: 'Instant reply · Voice notes & receipts · Live calendar booking',
+          badge: 'Flagship service',
+          title: 'Custom Software',
+          subtitle: 'Platforms, panels, and internal systems tailored to your team',
           description:
-            'An autonomous sales representative that replies in 1.1 seconds around the clock. It answers catalog questions, transcribes voice notes, validates bank transfer receipts, and schedules qualified appointments directly into your calendar without human intervention.',
+            'When generic tools limit how your company operates, we design and build your own platform: client portals, real-time booking systems, and executive control panels owned 100% by your company with zero monthly per-user fees.',
           features: [
-            '24/7 WhatsApp & Instagram customer acquisition with 1.1s latency',
-            'Understands voice notes and verifies bank payment receipts with AI vision',
-            'Direct calendar and CRM booking (Google Calendar, Outlook, HubSpot)',
-            'Seamless human handoff with full executive context when negotiation is needed',
+            'Web applications and custom control panels',
+            'Client portals and real-time reservation or inventory systems',
+            'Integrations with the tools you already use',
+            '100% ownership with zero recurring per-seat licensing fees',
           ],
-          href: `${basePrefix}/services/ai-agents`,
-          inspectCta: 'See how the WhatsApp AI Agent sells',
-          whatsappText: 'Hello Autonomek, I want to quote a 24/7 WhatsApp AI Agent for my company.',
+          href: `${basePrefix}/services/custom-software`,
+          inspectCta: 'Explore Custom Software',
+          whatsappText: 'Hello Autonomek, I want to quote a Custom Software project.',
+          icon: LayoutDashboard,
         },
         {
           id: '02',
-          title: 'High-Authority Websites that Convert & Rank',
-          subtitle: '0.6s load time · #1 on Google · Cited by ChatGPT & Perplexity',
+          badge: 'Service',
+          title: 'Websites that Convert & Rank',
+          subtitle: 'Fast, clear websites built for Google and AI search (ChatGPT)',
           description:
-            'Look authoritative, load in under a second, and dominate search results. We engineer sub-second web platforms optimized to appear #1 on Google and get cited by ChatGPT and Perplexity, converting visitors into qualified leads on WhatsApp.',
+            'Fast, clear websites ready to convert visitors into clients. We handle design and custom code end-to-end, focusing on sub-second speed, corporate trust, and top rankings on Google and AI answer engines like ChatGPT.',
           features: [
-            'Rank #1 on Google and get cited by ChatGPT and Perplexity',
-            'Sub-second load times (<0.8s) that retain 90%+ of visitors',
-            'Executive visual design that projects supreme corporate trust',
-            'Direct-to-WhatsApp conversion funnels with pre-filled context',
+            'Corporate websites, catalogs, and high-converting landing pages',
+            'Custom interface design that builds instant trust',
+            'Technical SEO to rank on Google and get cited by ChatGPT',
+            'Direct WhatsApp conversion funnels',
           ],
           href: `${basePrefix}/services/high-performance-websites`,
-          inspectCta: 'See how this Web ranks on Google & AI',
-          whatsappText: 'Hello Autonomek, I want to quote a High-Converting Website that ranks on Google and ChatGPT.',
+          inspectCta: 'Explore Websites & SEO',
+          whatsappText:
+            'Hello Autonomek, I want to quote a Website that ranks on Google and ChatGPT.',
+          icon: Globe,
         },
         {
           id: '03',
-          title: 'Autonomous Operations & Billing Workflows',
-          subtitle: 'Zero manual data entry · CRM, ERP & payment sync · n8n engine',
+          badge: 'Flagship service',
+          title: '24/7 WhatsApp AI Sales & Booking Agents',
+          subtitle: 'Instant customer care, quotes, and calendar scheduling',
           description:
-            'We connect your CRM, payment gateways, accounting software, and WhatsApp so operations execute automatically in milliseconds. Issue invoices, generate contracts, and dispatch order alerts without manual data entry.',
+            'Your virtual sales assistant that replies in 1 second day and night. It answers questions using your catalog, understands voice notes, checks payment receipts, and schedules appointments directly in your calendar.',
           features: [
-            'Mission-critical n8n orchestration eliminating manual data entry',
-            'Automatic PDF contract, tax invoice, and order dispatch',
-            'Real-time synchronization across payment gateways, CRM, and ERP',
-            'Instant WhatsApp operational telemetry and status alerts',
+            '24/7 instant replies on WhatsApp and Instagram',
+            'Understands text, voice notes, and payment receipts',
+            'Automatic appointment booking in Google Calendar or CRM',
+            'Smooth handoff to a human advisor whenever needed',
           ],
-          href: `${basePrefix}/services/process-automation`,
-          inspectCta: 'Explore workflow automations',
-          whatsappText: 'Hello Autonomek, I want to audit and automate my company workflows.',
+          href: `${basePrefix}/services/ai-agents`,
+          inspectCta: 'Explore WhatsApp AI Agents',
+          whatsappText:
+            'Hello Autonomek, I want to quote a 24/7 WhatsApp AI Agent for my company.',
+          icon: MessageSquare,
         },
         {
           id: '04',
-          title: 'Custom B2B Platforms & Proprietary Software',
-          subtitle: 'Proprietary ownership · No per-seat SaaS fees · Custom portals & BI',
+          badge: 'Service',
+          title: 'System Integration & Process Automation',
+          subtitle: 'Connect your platforms and eliminate repetitive manual work',
           description:
-            'When off-the-shelf software limits your operation, we engineer proprietary platforms: custom client portals, booking engines, and real-time executive BI dashboards—owned 100% by you without recurring per-seat fees.',
+            'We connect your CRM, WhatsApp, spreadsheets, and billing software so information moves on its own. Issue contracts, generate invoices, and notify your team automatically without typing errors.',
           features: [
-            '100% code ownership: zero recurring per-user software subscriptions',
-            'Real-time executive analytics and business performance dashboards',
-            'Secure client and booking portals with enterprise role-based access',
-            'Scalable cloud infrastructure backed by direct engineering support',
+            'Connection between systems via APIs and automated workflows',
+            'Real-time data synchronization across platforms',
+            'Automatic generation of contracts, quotes, and invoices',
+            'Ongoing support, maintenance, and improvements',
           ],
-          href: `${basePrefix}/services/custom-software`,
-          inspectCta: 'Inspect custom software systems',
-          whatsappText: 'Hello Autonomek, I want to quote a Custom B2B Software platform.',
+          href: `${basePrefix}/services/process-automation`,
+          inspectCta: 'Explore Process Automation',
+          whatsappText: 'Hello Autonomek, I want to automate my company workflows.',
+          icon: Workflow,
         },
       ]
     : [
         {
           id: '01',
-          title: 'Vendedor IA en WhatsApp 24/7',
-          subtitle: 'Atención inmediata · Audios, fotos y cotización · Citas en calendario',
+          badge: 'Servicio estrella',
+          title: 'Software a medida',
+          subtitle: 'Plataformas, paneles y sistemas internos hechos para tu operación',
           description:
-            'Tu vendedor estrella que atiende en 1 segundo a cualquier hora del día o de la noche. Responde preguntas con tu catálogo actualizado, transcribe audios, valida comprobantes de pago y agenda citas directamente en tu calendario sin intervención humana.',
+            'Plataformas, paneles de control y sistemas internos construidos alrededor de cómo trabaja tu equipo, no de cómo lo exige una plantilla. Portales de clientes, reservas e inventarios 100% propiedad de tu empresa sin pagar mensualidades por usuario.',
           features: [
-            'Atención 24/7 en WhatsApp e Instagram con respuesta en 1 segundo',
-            'Entiende notas de voz y extrae datos de comprobantes de pago',
-            'Agendamiento automático en Google Calendar o tu CRM',
-            'Transferencia inmediata a un asesor humano ante casos prioritarios',
+            'Aplicaciones web y paneles de control a la medida',
+            'Portales de clientes, reservas y control de inventario en vivo',
+            'Integraciones con tus herramientas actuales',
+            'Propiedad 100% tuya sin cobros mensuales por licencias de usuario',
           ],
-          href: `${basePrefix}/servicios/agentes-inteligencia-artificial`,
-          inspectCta: 'Ver cómo vende el Agente de WhatsApp',
-          whatsappText: 'Hola Autonomek, quiero cotizar un Agente de IA 24/7 en WhatsApp para mi empresa.',
+          href: `${basePrefix}/servicios/software-a-medida`,
+          inspectCta: 'Conocer más sobre Software a medida',
+          whatsappText: 'Hola Autonomek, quiero cotizar un proyecto de Software a Medida.',
+          icon: LayoutDashboard,
         },
         {
           id: '02',
-          title: 'Webs de Autoridad que Venden y Posicionan',
-          subtitle: 'Carga en 0.6s · 1er lugar en Google · Recomendado por ChatGPT y Perplexity',
+          badge: 'Servicio',
+          title: 'Sitios web que venden y posicionan',
+          subtitle: 'Sitios rápidos, claros y listos para liderar en Google y ChatGPT',
           description:
-            'Tu empresa se ve impecable ante clientes corporativos y no pierde prospectos por lentitud. Desarrollamos webs ultrarrápidas estructuradas específicamente para aparecer en los primeros resultados de Google y ser recomendadas por IAs como ChatGPT y Perplexity cuando tus clientes buscan tus servicios.',
+            'Sitios rápidos, claros y listos para convertir visitantes en clientes. Diseño y desarrollo de punta a punta, con foco en velocidad, SEO técnico en Google y visibilidad en motores de IA como ChatGPT.',
           features: [
-            'Aparece primero en búsquedas de Google y en respuestas de ChatGPT y Perplexity',
-            'Carga instantánea en 0.6s: retiene a más del 90% de los visitantes',
-            'Diseño visual que proyecta solvencia y confianza corporativa inmediata',
-            'Embudos de alta conversión con contacto directo a WhatsApp',
+            'Sitios corporativos, catálogos y landings de alta conversión',
+            'Diseño de interfaz a medida que transmite confianza inmediata',
+            'Rendimiento y posicionamiento SEO en Google y ChatGPT',
+            'Contacto directo a WhatsApp listo para cerrar ventas',
           ],
           href: `${basePrefix}/servicios/paginas-web-alto-rendimiento`,
-          inspectCta: 'Ver cómo posiciona esta Web en Google',
-          whatsappText: 'Hola Autonomek, quiero cotizar una Web de Alta Conversión que posicione en Google y ChatGPT.',
+          inspectCta: 'Conocer más sobre Sitios web',
+          whatsappText:
+            'Hola Autonomek, quiero cotizar un Sitio Web optimizado para Google y ChatGPT.',
+          icon: Globe,
         },
         {
           id: '03',
-          title: 'Operación y Facturación en Piloto Automático',
-          subtitle: 'Cero digitación manual · Conexión CRM, ERP y pagos · Sincronización n8n',
+          badge: 'Servicio estrella',
+          title: 'Agentes de IA en WhatsApp 24/7',
+          subtitle: 'Atención inmediata, cotizaciones y citas en tu calendario',
           description:
-            'Conectamos WhatsApp, pasarelas de pago, software contable y tu CRM para que la información se mueva sola. Emite contratos, genera facturas electrónicas y notifica a tus clientes al instante sin que tu equipo pierda horas en tareas manuales repetitivas.',
+            'Tu asistente de ventas que atiende en 1 segundo a cualquier hora del día o de la noche. Responde preguntas con tu catálogo, escucha notas de voz, valida comprobantes de pago y agenda citas directamente en tu calendario.',
           features: [
-            'Workflows de alta disponibilidad que eliminan el trabajo manual repetitivo',
-            'Emisión automática de contratos PDF, facturas electrónicas y órdenes',
-            'Sincronización en tiempo real entre pasarelas de pago, CRM y contabilidad',
-            'Alertas inmediatas en WhatsApp para el control de tu operación',
+            'Atención 24/7 en WhatsApp e Instagram con respuesta en 1 segundo',
+            'Entiende notas de voz y valida comprobantes de pago',
+            'Agendamiento automático en Google Calendar o tu CRM',
+            'Transferencia inmediata a un asesor humano cuando se requiere',
           ],
-          href: `${basePrefix}/servicios/automatizacion-de-procesos`,
-          inspectCta: 'Ver flujos de automatización',
-          whatsappText: 'Hola Autonomek, quiero auditar y automatizar los procesos de mi empresa.',
+          href: `${basePrefix}/servicios/agentes-inteligencia-artificial`,
+          inspectCta: 'Conocer más sobre Agentes de IA',
+          whatsappText:
+            'Hola Autonomek, quiero cotizar un Agente de IA 24/7 en WhatsApp para mi empresa.',
+          icon: MessageSquare,
         },
         {
           id: '04',
-          title: 'Plataformas y Software Propio a Medida',
-          subtitle: 'Tu propio sistema · Sin pagar suscripciones SaaS · Portales y analítica',
+          badge: 'Servicio',
+          title: 'Integración de sistemas y automatización',
+          subtitle: 'Conectamos tus herramientas para eliminar tareas manuales',
           description:
-            'Cuando los programas genéricos limitan tu crecimiento, diseñamos tu propia plataforma. Portales de clientes, módulos de reservas en tiempo real y paneles de control ejecutivo adaptados a tus procesos, siendo 100% propietario del software sin pagar suscripciones mensuales por usuario.',
+            'Conectamos tus plataformas (WhatsApp, pasarelas de pago, Excel, software contable y CRM) para que la información fluya sola entre áreas, reduzcas tareas manuales repetitivas y trabajes sin errores de digitación.',
           features: [
-            'Propiedad absoluta del software: cero pagos mensuales por licencias de usuario',
-            'Paneles de control y analítica comercial en tiempo real',
-            'Portales de clientes y reservas con acceso seguro por roles',
-            'Arquitectura escalable en la nube con soporte directo de ingenieros',
+            'Conexión entre sistemas mediante APIs y flujos automáticos',
+            'Sincronización de datos e inventarios entre plataformas',
+            'Emisión automática de contratos PDF, facturas y alertas',
+            'Acompañamiento, soporte y evolución continua',
           ],
-          href: `${basePrefix}/servicios/software-a-medida`,
-          inspectCta: 'Ver sistemas y software a medida',
-          whatsappText: 'Hola Autonomek, quiero cotizar un proyecto de Software a Medida.',
+          href: `${basePrefix}/servicios/automatizacion-de-procesos`,
+          inspectCta: 'Conocer más sobre Automatización',
+          whatsappText:
+            'Hola Autonomek, quiero automatizar e integrar los procesos de mi empresa.',
+          icon: Workflow,
         },
       ];
 
   return (
-    <main className="min-h-screen w-full bg-background text-foreground pt-28 md:pt-36 pb-20">
-      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12">
+    <main className="min-h-screen w-full bg-background text-foreground pt-28 md:pt-36 pb-24">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Header */}
-        <header className="max-w-3xl pb-16 border-b border-rule space-y-4">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground leading-[1.05]">
+        <header className="max-w-3xl pb-14 space-y-4">
+          <p className="flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.18em] text-primary">
+            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-primary" />
+            {isEn ? 'Our Services' : 'Nuestros Servicios'}
+          </p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground leading-[1.06]">
             {isEn
-              ? 'Systems engineered to win clients and eliminate manual work.'
-              : 'Soluciones diseñadas para vender más y operar sin fricción.'}
+              ? 'Solutions that connect and grow your business.'
+              : 'Soluciones que conectan y hacen crecer tu negocio.'}
           </h1>
           <p className="text-muted text-base sm:text-lg leading-relaxed">
             {isEn
-              ? 'Four specialized architectures designed to turn traffic into revenue and run your commercial operations autonomously.'
-              : 'Cuatro arquitecturas creadas para convertir el tráfico en clientes reales y automatizar los procesos de tu empresa.'}
+              ? 'We design, build, and connect your tools. One team to build your solution cleanly and support you after launch.'
+              : 'Diseñamos, desarrollamos y conectamos tus herramientas. Un solo equipo para construir tu solución y acompañarte después de la entrega.'}
           </p>
         </header>
 
-        {/* Services Ledger */}
-        <div className="divide-y divide-rule border-b border-rule">
-          {services.map((service, sIdx) => (
-            <section
-              key={service.id}
-              className="py-14 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start"
-            >
-              <div className="lg:col-span-5 space-y-5">
-                <div className="space-y-2">
-                  <span className="font-mono text-sm text-primary tabular-nums block">
-                    {service.id}
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-semibold text-foreground tracking-tight">
-                    {service.title}
-                  </h2>
-                  <p className="font-mono text-xs text-subtle">{service.subtitle}</p>
+        {/* 2x2 Grid of Services */}
+        <div className="grid gap-6 lg:grid-cols-2">
+          {services.map((service) => {
+            const IconComponent = service.icon;
+            return (
+              <article
+                key={service.id}
+                className="rounded-3xl border border-rule bg-surface p-5 sm:p-8 flex flex-col justify-between gap-6 sm:gap-8"
+              >
+                <div className="flex flex-1 flex-col gap-5">
+                  <div className="flex items-center justify-between pt-1">
+                    <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-primary">
+                      <IconComponent size={16} />
+                      {service.badge}
+                    </span>
+                    <span className="font-mono text-xs text-muted">{service.id}</span>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h2 className="text-2xl sm:text-3xl font-semibold text-foreground tracking-tight">
+                      {service.title}
+                    </h2>
+                    <p className="text-xs sm:text-sm text-primary font-medium">
+                      {service.subtitle}
+                    </p>
+                  </div>
+
+                  <p className="text-muted text-sm sm:text-base leading-relaxed">
+                    {service.description}
+                  </p>
+
+                  <ul className="grid gap-3 pt-2">
+                    {service.features.map((feat, idx) => (
+                      <li key={idx} className="flex items-center gap-3 text-sm text-foreground">
+                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
+                          <Check size={13} />
+                        </span>
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Interactive mini app (live product preview) */}
+                  <div className="mt-auto pt-2">
+                    <ServiceMiniApp id={service.id} isEn={isEn} />
+                  </div>
                 </div>
 
-                <BlueprintSculptureFigure activeIndex={sIdx} isEn={isEn} />
-              </div>
-
-              <div className="lg:col-span-7 space-y-6">
-                <p className="text-muted text-base leading-relaxed max-w-[62ch]">
-                  {service.description}
-                </p>
-
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                  {service.features.map((feat, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start gap-2.5 text-sm text-foreground bg-surface border border-rule rounded-lg p-3.5"
-                    >
-                      <Check size={15} className="text-primary mt-0.5 shrink-0" />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="pt-4 flex flex-wrap items-center gap-3">
+                <div className="pt-5 border-t border-rule flex flex-wrap items-center gap-3">
                   <a
-                    href={`https://wa.me/573004435894?text=${encodeURIComponent(service.whatsappText)}`}
+                    href={`https://wa.me/573004435894?text=${encodeURIComponent(
+                      service.whatsappText
+                    )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center h-11 px-5 rounded-lg bg-primary text-primary-ink font-medium text-sm hover:opacity-90 transition-opacity"
+                    className="inline-flex items-center justify-center rounded-full bg-primary text-primary-ink px-6 py-3 text-sm font-semibold hover:opacity-90 transition"
                   >
-                    {isEn ? 'Quote this system on WhatsApp' : 'Cotizar este sistema por WhatsApp'}
+                    {isEn ? 'Quote on WhatsApp' : 'Cotizar por WhatsApp'}
                   </a>
                   <Link
                     href={service.href}
-                    className="inline-flex items-center justify-center h-11 px-5 rounded-lg border border-rule bg-surface text-foreground font-medium text-sm hover:bg-card transition-colors"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-rule bg-background text-foreground px-5 py-3 text-sm font-medium hover:bg-card transition"
                   >
-                    {service.inspectCta}
+                    <span>{service.inspectCta}</span>
+                    <ArrowUpRight size={15} />
                   </Link>
                 </div>
-              </div>
-            </section>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </div>
     </main>

@@ -3,17 +3,16 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Check, ExternalLink } from 'lucide-react';
+import { Check, ExternalLink, MessageSquare, Calendar, FileCheck, Users } from 'lucide-react';
 import { PROJECTS, PROJECTS_EN, Project } from '@/data/projects';
 import ProjectDetailsModal from '@/components/ProjectDetailsModal';
-import { BlueprintSculptureFigure } from '@/components/widgets/ArchitecturalFigures';
 
 export default function AgentesIAPageClient({ locale = 'es' }: { locale?: 'es' | 'en' }) {
   const pathname = usePathname() || '/';
   const isEn = locale === 'en' || pathname.startsWith('/en') || pathname.startsWith('/us');
   const isEsExplicit = pathname.startsWith('/es');
   const isUsExplicit = pathname.startsWith('/us');
-  const basePrefix = isEn ? (isUsExplicit ? '/us' : '/en') : (isEsExplicit ? '/es' : '');
+  const basePrefix = isEn ? (isUsExplicit ? '/us' : '/en') : isEsExplicit ? '/es' : '';
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,141 +35,183 @@ export default function AgentesIAPageClient({ locale = 'es' }: { locale?: 'es' |
     ? [
         {
           id: '01',
-          title: 'WhatsApp Sales & Lead Qualification Agent',
-          stack: 'WhatsApp Cloud API · OpenAI · CRM Sync',
-          desc: 'Responds in 1.1 seconds, understands text and voice notes, filters out non-qualified inquiries, and passes hot buyers to your sales executives with a full conversation summary.',
-          metrics: '< 1.2s response · 24/7 operation',
+          title: 'WhatsApp Sales & Lead Qualification Assistant',
+          desc: 'Replies in 1 second, understands text and voice notes, answers product and pricing questions, and transfers qualified buyers to your human sales team with a clear summary.',
+          badge: '24/7 operation · 1s reply',
+          icon: MessageSquare,
         },
         {
           id: '02',
-          title: 'Autonomous Appointment & Calendar Receptionist',
-          stack: 'Google Calendar · Outlook · Medical & B2B CRMs',
-          desc: 'Checks live calendar availability, books appointments, sends automated reminders 24h and 2h before the meeting, and processes reschedules without human intervention.',
-          metrics: 'Up to 90% fewer no-shows',
+          title: 'Automatic Appointment & Calendar Booking',
+          desc: 'Checks live availability in your calendar, books appointments without double-booking, sends automatic reminders, and handles rescheduling on its own.',
+          badge: 'Google Calendar & CRM sync',
+          icon: Calendar,
         },
         {
           id: '03',
-          title: 'Enterprise RAG Knowledge & Support Agent',
-          stack: 'PostgreSQL pgvector · Supabase · Google Drive API',
-          desc: 'Ingests your PDFs, technical manuals, and pricing sheets into a vector database so customers and internal staff receive exact answers with zero hallucinations.',
-          metrics: '100% grounded in company docs',
+          title: 'Customer Support Trained on Your Catalog & Docs',
+          desc: 'Learns from your PDFs, catalogs, price lists, and company policies so it always gives accurate, helpful answers without making things up.',
+          badge: '100% based on your business',
+          icon: Users,
         },
         {
           id: '04',
-          title: 'Order & Payment Receipt Verification Agent',
-          stack: 'OpenAI Vision · SQL · Telegram / ERP Alerts',
-          desc: 'Takes multi-item orders in natural language, reads bank transfer screenshots using computer vision, verifies amounts, and dispatches confirmed orders to operations.',
-          metrics: 'Automated receipt verification',
+          title: 'Order Taking & Payment Receipt Verification',
+          desc: 'Takes full customer orders via text or voice, reads payment transfer screenshots, verifies the amount, and sends the confirmed order to your team.',
+          badge: 'Automatic order & receipt check',
+          icon: FileCheck,
         },
       ]
     : [
         {
           id: '01',
-          title: 'Agente de Ventas y Calificación en WhatsApp',
-          stack: 'WhatsApp Cloud API · OpenAI · Sincronización CRM',
-          desc: 'Responde en 1.1 segundos, comprende texto y notas de voz, filtra prospectos según presupuesto y transfiere clientes listos para compra a tu equipo humano con resumen ejecutivo.',
-          metrics: 'Respuesta < 1.2s · Operación 24/7',
+          title: 'Asistente de Ventas y Atención en WhatsApp',
+          desc: 'Responde en 1 segundo, entiende texto y notas de voz, resuelve dudas de precios o productos y pasa los clientes listos para comprar a tu equipo humano con un resumen claro.',
+          badge: 'Atención 24/7 · Respuesta en 1 seg',
+          icon: MessageSquare,
         },
         {
           id: '02',
-          title: 'Recepcionista IA y Agendamiento de Citas',
-          stack: 'Google Calendar · Outlook · CRMs Médicos y B2B',
-          desc: 'Consulta disponibilidad real en tu agenda, reserva citas sin cruces de horario, envía recordatorios automáticos 24h y 2h antes y gestiona reprogramaciones.',
-          metrics: 'Reducción de inasistencias hasta 90%',
+          title: 'Recepcionista y Agendamiento de Citas',
+          desc: 'Consulta disponibilidad real en tu agenda, reserva citas sin cruces de horario, envía recordatorios automáticos y gestiona reprogramaciones sin quitarle tiempo a tu equipo.',
+          badge: 'Conectado a tu calendario y CRM',
+          icon: Calendar,
         },
         {
           id: '03',
-          title: 'Agente de Soporte con Base de Conocimiento (RAG)',
-          stack: 'PostgreSQL pgvector · Supabase · Google Drive API',
-          desc: 'Se conecta a tus catálogos, manuales técnicos y políticas en PDF para responder preguntas complejas de clientes o empleados sin inventar información.',
-          metrics: '100% basado en tus documentos',
+          title: 'Soporte Entrenado con tu Catálogo y Documentos',
+          desc: 'Aprende de tus catálogos, lista de precios y preguntas frecuentes para responder con precisión sobre tu negocio sin inventar información.',
+          badge: '100% adaptado a tu empresa',
+          icon: Users,
         },
         {
           id: '04',
-          title: 'Agente Tomador de Pedidos y Validador de Pagos',
-          stack: 'OpenAI Vision · PostgreSQL · Alertas a Cocina/Bodega',
-          desc: 'Toma pedidos en lenguaje natural o audio, analiza capturas de transferencias bancarias mediante visión artificial y despacha la orden confirmada a tu operación.',
-          metrics: 'Lectura automática de comprobantes',
+          title: 'Toma de Pedidos y Validación de Comprobantes',
+          desc: 'Recibe pedidos completos por escrito o por audio, revisa fotos de comprobantes de transferencia bancaria y envía la orden lista a tu equipo operativo.',
+          badge: 'Lectura de audios y pagos',
+          icon: FileCheck,
         },
       ];
 
   return (
-    <main className="min-h-screen w-full bg-background text-foreground pt-28 md:pt-36 pb-20">
-      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12">
+    <main className="min-h-screen w-full bg-background text-foreground pt-28 md:pt-36 pb-24">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Hero */}
         <header className="pb-16 md:pb-24 border-b border-rule grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground leading-[1.04]">
+            <p className="flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.18em] text-primary">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-primary" />
+              {isEn ? 'Flagship Service' : 'Servicio Estrella'}
+            </p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground leading-[1.05]">
               {isEn
-                ? '24/7 WhatsApp AI Sales Agents & Booking Concierges.'
-                : 'Vendedor y recepcionista de IA 24/7 en WhatsApp.'}
+                ? '24/7 WhatsApp AI Sales & Booking Assistants.'
+                : 'Agentes de IA en WhatsApp que atienden, cotizan y agendan 24/7.'}
             </h1>
             <p className="text-muted text-base sm:text-lg leading-relaxed max-w-[60ch]">
               {isEn
-                ? 'Reply in 1.1 seconds around the clock, answer complex inquiries with your live catalog, transcribe voice notes, verify payment receipts, and book calendar meetings without human delays.'
-                : 'Atiende en 1 segundo a cualquier hora del día o de la noche, resuelve dudas con tu catálogo, transcribe notas de voz, valida transferencias bancarias y agenda citas en tu calendario sin que tus asesores colapsen.'}
+                ? 'Never lose a customer because of a slow reply again. Your virtual assistant answers in 1 second day and night, listens to voice notes, shares your catalog, and schedules appointments in your calendar.'
+                : 'No vuelvas a perder un cliente por tardar en responder. Tu asistente virtual atiende en 1 segundo día y noche, escucha notas de voz, comparte tu catálogo y agenda citas directamente en tu calendario.'}
             </p>
             <div className="pt-2">
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center h-12 px-6 rounded-lg bg-primary text-primary-ink font-medium text-sm sm:text-base hover:opacity-90 transition-opacity whitespace-nowrap"
+                className="inline-flex items-center justify-center rounded-full bg-primary text-primary-ink px-7 py-3.5 text-sm sm:text-base font-semibold hover:opacity-90 transition"
               >
                 {isEn ? 'Quote an AI agent on WhatsApp' : 'Cotizar agente IA por WhatsApp'}
               </a>
             </div>
           </div>
+
+          {/* Simple Visual Chat Preview */}
           <div className="lg:col-span-5">
-            <BlueprintSculptureFigure activeIndex={0} isEn={isEn} />
+            <div className="rounded-3xl border border-rule bg-surface p-6 shadow-xl space-y-4">
+              <div className="flex items-center justify-between border-b border-rule pb-3">
+                <div className="flex items-center gap-2.5">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/20 text-primary">
+                    <MessageSquare size={18} />
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">
+                      {isEn ? 'WhatsApp Business AI' : 'Asistente Comercial IA'}
+                    </p>
+                    <p className="text-xs text-primary">
+                      {isEn ? 'Online · Replies in 1s' : 'En línea · Responde en 1 seg'}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-3 text-sm">
+                <div className="rounded-2xl bg-background border border-rule p-3.5 text-foreground">
+                  {isEn
+                    ? 'Hi! I need a quote for 12 units next month. Do you have availability?'
+                    : '¡Hola! Necesito cotizar 12 equipos para el próximo mes. ¿Tienen disponibilidad?'}
+                </div>
+                <div className="rounded-2xl bg-card border border-rule-strong p-3.5 text-foreground">
+                  {isEn
+                    ? 'Hello! Yes, we have stock available and corporate pricing for 12 units. Shall I book a 15-minute call tomorrow at 10:00 AM?'
+                    : '¡Hola! Sí tenemos disponibilidad y tarifa especial para 12 unidades. ¿Te agendo una llamada mañana a las 10:00 a. m. para enviarte la cotización formal?'}
+                </div>
+              </div>
+              <div className="rounded-xl bg-primary/10 border border-primary/30 px-4 py-2.5 text-xs text-primary flex items-center gap-2">
+                <Check size={14} />
+                <span>
+                  {isEn
+                    ? 'Customer registered in CRM & appointment booked'
+                    : 'Cliente registrado y cita agendada automáticamente'}
+                </span>
+              </div>
+            </div>
           </div>
         </header>
 
-        {/* 4 Production Blueprints */}
+        {/* 4 Clear Capabilities Grid */}
         <section className="py-16 md:py-24 border-b border-rule">
-          <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-foreground mb-12">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground mb-10">
             {isEn
-              ? 'Autonomous commercial modules we deploy.'
-              : 'Módulos comerciales que implementamos para tu empresa.'}
+              ? 'What can our WhatsApp AI assistant do for your business?'
+              : '¿Qué puede hacer este agente de IA por tu negocio?'}
           </h2>
 
-          <div className="divide-y divide-rule border-y border-rule">
-            {blueprints.map((bp) => (
-              <div
-                key={bp.id}
-                className="py-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start"
-              >
-                <div className="lg:col-span-1 font-mono text-sm text-primary tabular-nums pt-1">
-                  {bp.id}
+          <div className="grid gap-6 md:grid-cols-2">
+            {blueprints.map((bp) => {
+              const IconComponent = bp.icon;
+              return (
+                <div
+                  key={bp.id}
+                  className="rounded-3xl border border-rule bg-surface p-7 space-y-4"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/15 text-primary">
+                      <IconComponent size={20} />
+                    </span>
+                    <span className="rounded-full bg-background border border-rule px-3 py-1 text-xs font-medium text-primary">
+                      {bp.badge}
+                    </span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground">
+                    {bp.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-muted leading-relaxed">{bp.desc}</p>
                 </div>
-                <div className="lg:col-span-4 space-y-1.5">
-                  <h3 className="text-xl font-semibold text-foreground">{bp.title}</h3>
-                  <p className="font-mono text-xs text-subtle">{bp.stack}</p>
-                </div>
-                <div className="lg:col-span-5 text-sm sm:text-base text-muted leading-relaxed">
-                  {bp.desc}
-                </div>
-                <div className="lg:col-span-2 lg:text-right font-mono text-xs text-primary pt-1">
-                  {bp.metrics}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
-        {/* Related AI Case Studies */}
+        {/* Deployed AI Projects */}
         <section className="py-16 md:py-24">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
-            <div>
-              <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-foreground">
-                {isEn ? 'Deployed AI agents in production.' : 'Agentes de IA operando en producción.'}
-              </h2>
-            </div>
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
+              {isEn ? 'Real AI agents working today.' : 'Agentes de IA funcionando en empresas reales.'}
+            </h2>
             <Link
               href={isEn ? `${basePrefix}/projects` : `${basePrefix}/proyectos`}
               className="text-sm font-medium text-primary hover:underline"
             >
-              {isEn ? 'View all 15 case studies' : 'Ver los 15 casos de estudio'}
+              {isEn ? 'See all projects →' : 'Ver todos los proyectos →'}
             </Link>
           </div>
 
@@ -179,13 +220,13 @@ export default function AgentesIAPageClient({ locale = 'es' }: { locale?: 'es' |
               <article
                 key={project.id}
                 onClick={() => handleOpenDetails(project)}
-                className="group min-w-0 rounded-2xl bg-surface border border-rule overflow-hidden flex flex-col justify-between cursor-pointer hover:border-rule-strong transition-colors"
+                className="group rounded-3xl bg-surface border border-rule overflow-hidden flex flex-col justify-between cursor-pointer hover:border-primary transition-colors"
               >
                 <div>
                   <div className="relative w-full aspect-[16/10] bg-card overflow-hidden border-b border-rule">
                     <img
                       src={`/projects/${project.folder}/${project.images[0]}`}
-                      alt={isEn ? `${project.title} — 24/7 AI Agent Architecture by Autonomek` : `${project.title} — Arquitectura de agente de IA desarrollada por Autonomek`}
+                      alt={project.title}
                       width={800}
                       height={500}
                       loading="lazy"
@@ -193,8 +234,11 @@ export default function AgentesIAPageClient({ locale = 'es' }: { locale?: 'es' |
                       className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                     />
                   </div>
-                  <div className="p-6 space-y-2">
-                    <span className="text-xs text-muted block">{project.client}</span>
+                  <div className="p-6 space-y-2.5">
+                    <div className="flex items-center justify-between gap-2 text-xs text-muted">
+                      <span>{project.client}</span>
+                      <span className="text-primary">{project.category}</span>
+                    </div>
                     <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
                       {project.title}
                     </h3>
@@ -204,7 +248,7 @@ export default function AgentesIAPageClient({ locale = 'es' }: { locale?: 'es' |
                   </div>
                 </div>
                 <div className="px-6 pb-5 pt-3 border-t border-rule flex items-center justify-between text-xs text-muted">
-                  <span>{isEn ? 'Inspect architecture' : 'Inspeccionar arquitectura'}</span>
+                  <span>{isEn ? 'View project details' : 'Ver detalles del proyecto'}</span>
                   {project.url && <ExternalLink size={13} className="text-primary" />}
                 </div>
               </article>

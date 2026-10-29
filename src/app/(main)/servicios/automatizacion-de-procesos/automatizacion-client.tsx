@@ -3,17 +3,16 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Workflow, FileText, RefreshCw, Database } from 'lucide-react';
 import { PROJECTS, PROJECTS_EN, Project } from '@/data/projects';
 import ProjectDetailsModal from '@/components/ProjectDetailsModal';
-import { BlueprintSculptureFigure } from '@/components/widgets/ArchitecturalFigures';
 
 export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: 'es' | 'en' }) {
   const pathname = usePathname() || '/';
   const isEn = locale === 'en' || pathname.startsWith('/en') || pathname.startsWith('/us');
   const isEsExplicit = pathname.startsWith('/es');
   const isUsExplicit = pathname.startsWith('/us');
-  const basePrefix = isEn ? (isUsExplicit ? '/us' : '/en') : (isEsExplicit ? '/es' : '');
+  const basePrefix = isEn ? (isUsExplicit ? '/us' : '/en') : isEsExplicit ? '/es' : '';
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,144 +28,171 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
   };
 
   const whatsappUrl = isEn
-    ? 'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20want%20to%20audit%20and%20automate%20my%20company%20workflows.'
-    : 'https://wa.me/573004435894?text=Hola%20Autonomek%2C%20quiero%20auditar%20y%20automatizar%20los%20procesos%20de%20mi%20empresa.';
+    ? 'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20want%20to%20automate%20and%20connect%20my%20company%20processes.'
+    : 'https://wa.me/573004435894?text=Hola%20Autonomek%2C%20quiero%20conectar%20y%20automatizar%20los%20procesos%20de%20mi%20empresa.';
 
   const workflows = isEn
     ? [
         {
           id: '01',
-          title: 'CRM, Billing & Accounting Synchronization',
-          stack: 'n8n · Stripe · HubSpot · ERP APIs',
-          desc: 'When a payment clears or a deal closes in your CRM, the pipeline automatically generates the invoice in your accounting system and updates inventory records.',
-          metric: 'Zero manual entry',
+          title: 'CRM, Billing & Accounting Connection',
+          desc: 'When a client pays or a sale closes, the system automatically creates the invoice in your accounting software and updates customer records.',
+          metric: 'Zero manual typing',
+          icon: RefreshCw,
         },
         {
           id: '02',
-          title: 'Automated Contract Generation & E-Signature Dispatch',
-          stack: 'Google Docs API · PDF Engine · Gmail · WhatsApp API',
-          desc: 'Generates custom legal contracts populated with client data in seconds and sends them for signature via email and WhatsApp upon commercial approval.',
-          metric: 'Execution < 1s',
+          title: 'Automatic Contracts, Quotes & Emails',
+          desc: 'Generates personalized PDF contracts or quotes with client data in seconds and sends them via email and WhatsApp automatically.',
+          metric: 'Ready in seconds',
+          icon: FileText,
         },
         {
           id: '03',
-          title: 'Multi-Channel Calendar & Inventory Sync',
-          stack: 'Supabase · iCal · Google Sheets · Webhooks',
-          desc: 'Synchronizes availability across booking platforms, internal databases, and sales channels in real time to prevent double bookings or stock outs.',
+          title: 'Calendar & Inventory Synchronization',
+          desc: 'Keeps availability unified across your website, spreadsheets, and sales channels in real time so you never double-book or run out of stock.',
           metric: 'Real-time sync',
+          icon: Database,
         },
         {
           id: '04',
-          title: 'B2B Outbound Lead Extraction & Enrichment',
-          stack: 'Apify · Firecrawl · OpenAI · CRM Webhooks',
-          desc: 'Extracts public B2B directories, enriches company profiles, and prepares personalized commercial outreach directly inside your sales pipeline.',
-          metric: 'Automated pipeline',
+          title: 'Automatic Lead Capture & Alerts',
+          desc: 'Organizes every new inquiry from your website, ads, or WhatsApp directly in your CRM and notifies your team immediately.',
+          metric: 'Instant alerts',
+          icon: Workflow,
         },
       ]
     : [
         {
           id: '01',
-          title: 'Sincronización de CRM, Facturación y Contabilidad',
-          stack: 'n8n · Pasarelas de Pago · HubSpot · ERP APIs',
-          desc: 'Cuando un cliente realiza un pago o se cierra un negocio en tu CRM, el sistema emite automáticamente la factura contable y actualiza el inventario.',
+          title: 'Conexión de Ventas, Facturación y Contabilidad',
+          desc: 'Cuando un cliente realiza un pago o se cierra una venta, el sistema genera la factura automáticamente y actualiza tu registro sin digitar a mano.',
           metric: 'Cero digitación manual',
+          icon: RefreshCw,
         },
         {
           id: '02',
-          title: 'Generación Automática de Contratos y Documentos',
-          stack: 'Google Docs API · Motor PDF · Gmail · WhatsApp API',
-          desc: 'Redacta contratos personalizados con los datos del cliente en segundos y los despacha listos para firma por correo y WhatsApp al cerrar una venta.',
-          metric: 'Ejecución < 1s',
+          title: 'Envío Automático de Contratos y Cotizaciones',
+          desc: 'Crea contratos o cotizaciones en PDF con los datos del cliente en segundos y los envía por correo y WhatsApp sin demoras.',
+          metric: 'Listo en segundos',
+          icon: FileText,
         },
         {
           id: '03',
-          title: 'Sincronización Multicanal de Agendas e Inventarios',
-          stack: 'Supabase · iCal · Google Sheets · Webhooks',
-          desc: 'Unifica en tiempo real la disponibilidad de tus equipos, reservas o productos entre tu sitio web, hojas de cálculo y canales comerciales.',
-          metric: 'Sincronización continua',
+          title: 'Sincronización de Agendas e Inventarios',
+          desc: 'Mantiene al día la disponibilidad de tus servicios, reservas o productos entre tu sitio web, hojas de Excel y canales de venta.',
+          metric: 'Siempre actualizado',
+          icon: Database,
         },
         {
           id: '04',
-          title: 'Prospección y Enriquecimiento de Datos B2B',
-          stack: 'Apify · Firecrawl · OpenAI · CRM Webhooks',
-          desc: 'Extrae y organiza información de empresas objetivo, analiza su perfil comercial y registra oportunidades calificadas directamente en tu embudo.',
-          metric: 'Prospección autónoma',
+          title: 'Registro de Clientes y Alertas al Equipo',
+          desc: 'Guarda cada nuevo prospecto que llega por tu web o WhatsApp directamente en tu panel y avisa a tu equipo al instante.',
+          metric: 'Control en tiempo real',
+          icon: Workflow,
         },
       ];
 
   return (
-    <main className="min-h-screen w-full bg-background text-foreground pt-28 md:pt-36 pb-20">
-      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12">
+    <main className="min-h-screen w-full bg-background text-foreground pt-28 md:pt-36 pb-24">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Hero */}
         <header className="pb-16 md:pb-24 border-b border-rule grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground leading-[1.04]">
+            <p className="flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.18em] text-primary">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-primary" />
+              {isEn ? 'System Integration' : 'Integración y Automatización'}
+            </p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground leading-[1.05]">
               {isEn
-                ? 'Autonomous business operations & billing workflows.'
-                : 'Operación y facturación en piloto automático con flujos n8n.'}
+                ? 'Connect your platforms and eliminate repetitive manual tasks.'
+                : 'Conectamos tus sistemas para eliminar el trabajo manual repetitivo.'}
             </h1>
             <p className="text-muted text-base sm:text-lg leading-relaxed max-w-[60ch]">
               {isEn
-                ? 'Eliminate manual copy-pasting between WhatsApp, payment gateways, and spreadsheets. We connect your CRM, accounting software, and sales pipelines so contracts, invoices, and alerts execute automatically in milliseconds.'
-                : 'Elimina el copiar y pegar entre WhatsApp, pasarelas de pago y hojas de cálculo. Conectamos tu CRM, software contable y canales de venta para que las facturas, contratos y notificaciones se ejecuten en milisegundos con cero errores humanos.'}
+                ? 'Stop copying and pasting data between WhatsApp, spreadsheets, and billing software. We connect your tools so information flows automatically and without human errors.'
+                : 'Deja de copiar y pegar datos entre WhatsApp, Excel y tu sistema de facturación. Conectamos tus herramientas para que la información fluya sola entre áreas, ahorres horas cada semana y trabajes con datos claros.'}
             </p>
             <div className="pt-2">
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center h-12 px-6 rounded-lg bg-primary text-primary-ink font-medium text-sm sm:text-base hover:opacity-90 transition-opacity whitespace-nowrap"
+                className="inline-flex items-center justify-center rounded-full bg-primary text-primary-ink px-7 py-3.5 text-sm sm:text-base font-semibold hover:opacity-90 transition"
               >
-                {isEn ? 'Audit my processes on WhatsApp' : 'Auditar mis procesos por WhatsApp'}
+                {isEn ? 'Automate my processes on WhatsApp' : 'Automatizar mis procesos por WhatsApp'}
               </a>
             </div>
           </div>
+
           <div className="lg:col-span-5">
-            <BlueprintSculptureFigure activeIndex={2} isEn={isEn} />
+            <div className="rounded-3xl border border-rule bg-surface p-6 shadow-xl space-y-4">
+              <p className="text-sm font-semibold text-foreground">
+                {isEn ? 'How automatic integration works' : 'Cómo funciona una integración automática'}
+              </p>
+              <div className="space-y-2.5 text-xs sm:text-sm">
+                <div className="rounded-2xl bg-background border border-rule p-3.5 flex items-center justify-between">
+                  <span>1. {isEn ? 'Payment or order received' : 'Cliente confirma pedido o pago'}</span>
+                  <span className="text-primary font-medium">WhatsApp / Web</span>
+                </div>
+                <div className="rounded-2xl bg-background border border-rule p-3.5 flex items-center justify-between">
+                  <span>2. {isEn ? 'Invoice & contract created' : 'Se genera factura y contrato'}</span>
+                  <span className="text-primary font-medium">Automático</span>
+                </div>
+                <div className="rounded-2xl bg-background border border-rule p-3.5 flex items-center justify-between">
+                  <span>3. {isEn ? 'CRM & team notified' : 'Se actualiza tu panel y agenda'}</span>
+                  <span className="text-primary font-medium">En 1 segundo</span>
+                </div>
+              </div>
+            </div>
           </div>
         </header>
 
-        {/* Workflow Specifications */}
+        {/* 4 Workflows Grid */}
         <section className="py-16 md:py-24 border-b border-rule">
-          <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-foreground mb-12">
-            {isEn ? 'Autonomous workflows we engineer for your business.' : 'Flujos de automatización que activamos en tu operación.'}
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground mb-10">
+            {isEn
+              ? 'Processes you can put on autopilot.'
+              : 'Tareas que podemos automatizar en tu empresa.'}
           </h2>
 
-          <div className="divide-y divide-rule border-y border-rule">
-            {workflows.map((wf) => (
-              <div
-                key={wf.id}
-                className="py-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start"
-              >
-                <div className="lg:col-span-1 font-mono text-sm text-primary tabular-nums pt-1">
-                  {wf.id}
+          <div className="grid gap-6 md:grid-cols-2">
+            {workflows.map((wf) => {
+              const IconComponent = wf.icon;
+              return (
+                <div
+                  key={wf.id}
+                  className="rounded-3xl border border-rule bg-surface p-7 space-y-4"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/15 text-primary">
+                      <IconComponent size={20} />
+                    </span>
+                    <span className="rounded-full bg-background border border-rule px-3 py-1 text-xs font-medium text-primary">
+                      {wf.metric}
+                    </span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground">
+                    {wf.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-muted leading-relaxed">{wf.desc}</p>
                 </div>
-                <div className="lg:col-span-4 space-y-1.5">
-                  <h3 className="text-xl font-semibold text-foreground">{wf.title}</h3>
-                  <p className="font-mono text-xs text-subtle">{wf.stack}</p>
-                </div>
-                <div className="lg:col-span-5 text-sm sm:text-base text-muted leading-relaxed">
-                  {wf.desc}
-                </div>
-                <div className="lg:col-span-2 lg:text-right font-mono text-xs text-primary pt-1">
-                  {wf.metric}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
         {/* Deployed Automations */}
         <section className="py-16 md:py-24">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
-            <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-foreground">
-              {isEn ? 'Automations in production.' : 'Automatizaciones en producción.'}
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
+              {isEn ? 'Automation projects in action.' : 'Automatizaciones reales en marcha.'}
             </h2>
             <Link
               href={isEn ? `${basePrefix}/projects` : `${basePrefix}/proyectos`}
               className="text-sm font-medium text-primary hover:underline"
             >
-              {isEn ? 'View full portfolio' : 'Ver portafolio completo'}
+              {isEn ? 'View full portfolio →' : 'Ver portafolio completo →'}
             </Link>
           </div>
 
@@ -175,13 +201,13 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
               <article
                 key={project.id}
                 onClick={() => handleOpenDetails(project)}
-                className="group min-w-0 rounded-2xl bg-surface border border-rule overflow-hidden flex flex-col justify-between cursor-pointer hover:border-rule-strong transition-colors"
+                className="group rounded-3xl bg-surface border border-rule overflow-hidden flex flex-col justify-between cursor-pointer hover:border-primary transition-colors"
               >
                 <div>
                   <div className="relative w-full aspect-[16/10] bg-card overflow-hidden border-b border-rule">
                     <img
                       src={`/projects/${project.folder}/${project.images[0]}`}
-                      alt={isEn ? `${project.title} — Autonomous Workflow Automation Architecture by Autonomek` : `${project.title} — Flujo de automatización de procesos desarrollado por Autonomek`}
+                      alt={project.title}
                       width={800}
                       height={500}
                       loading="lazy"
@@ -189,8 +215,11 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
                       className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                     />
                   </div>
-                  <div className="p-6 space-y-2">
-                    <span className="text-xs text-muted block">{project.client}</span>
+                  <div className="p-6 space-y-2.5">
+                    <div className="flex items-center justify-between gap-2 text-xs text-muted">
+                      <span>{project.client}</span>
+                      <span className="text-primary">{project.category}</span>
+                    </div>
                     <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
                       {project.title}
                     </h3>
@@ -200,7 +229,7 @@ export default function AutomatizacionPageClient({ locale = 'es' }: { locale?: '
                   </div>
                 </div>
                 <div className="px-6 pb-5 pt-3 border-t border-rule flex items-center justify-between text-xs text-muted">
-                  <span>{isEn ? 'Inspect workflow' : 'Inspeccionar flujo'}</span>
+                  <span>{isEn ? 'View project details' : 'Ver detalles del proyecto'}</span>
                   {project.url && <ExternalLink size={13} className="text-primary" />}
                 </div>
               </article>

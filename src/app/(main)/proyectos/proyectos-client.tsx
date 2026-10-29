@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { usePathname } from 'next/navigation';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, ArrowUpRight } from 'lucide-react';
 import { PROJECTS, PROJECTS_EN, Project } from '@/data/projects';
 import ProjectDetailsModal from '@/components/ProjectDetailsModal';
 
@@ -10,7 +10,9 @@ export default function ProyectosClient({ locale = 'es' }: { locale?: 'es' | 'en
   const pathname = usePathname() || '/';
   const isEn = locale === 'en' || pathname.startsWith('/en') || pathname.startsWith('/us');
 
-  const [activeCategory, setActiveCategory] = useState<'ALL' | 'IA' | 'Web' | 'Automatización'>('ALL');
+  const [activeCategory, setActiveCategory] = useState<'ALL' | 'IA' | 'Web' | 'Automatización'>(
+    'ALL'
+  );
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -27,18 +29,22 @@ export default function ProyectosClient({ locale = 'es' }: { locale?: 'es' | 'en
   };
 
   return (
-    <main className="min-h-screen w-full bg-background text-foreground pt-28 md:pt-36 pb-20">
-      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12">
+    <main className="min-h-screen w-full bg-background text-foreground pt-28 md:pt-36 pb-24">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Header */}
         <header className="flex flex-col md:flex-row md:items-end justify-between gap-8 pb-12 border-b border-rule mb-12">
           <div className="max-w-2xl space-y-3">
+            <p className="flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.18em] text-primary">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-primary" />
+              {isEn ? 'Portfolio' : 'Portafolio'}
+            </p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground leading-[1.05]">
-              {isEn ? '15 systems in production.' : '15 sistemas en producción.'}
+              {isEn ? '15 real projects in operation.' : '15 proyectos reales en funcionamiento.'}
             </h1>
             <p className="text-muted text-base sm:text-lg leading-relaxed">
               {isEn
-                ? 'Verified software architectures, WhatsApp AI agents, and high-conversion web platforms operating across healthcare, hospitality, retail, and B2B distribution.'
-                : 'Arquitecturas de software verificadas, agentes de IA en WhatsApp y plataformas web operando en salud, turismo, comercio y distribución B2B.'}
+                ? 'Explore websites, WhatsApp AI assistants, and custom software built for real businesses across healthcare, tourism, commerce, and services.'
+                : 'Conoce sitios web, agentes de IA en WhatsApp y software a medida desarrollados para empresas de salud, turismo, comercio y servicios.'}
             </p>
           </div>
 
@@ -46,8 +52,8 @@ export default function ProyectosClient({ locale = 'es' }: { locale?: 'es' | 'en
             {(
               [
                 { id: 'ALL', label: isEn ? 'All (15)' : 'Todos (15)' },
-                { id: 'IA', label: isEn ? 'AI Agents' : 'Agentes IA' },
-                { id: 'Web', label: isEn ? 'Web & SEO' : 'Páginas web' },
+                { id: 'IA', label: isEn ? 'WhatsApp AI' : 'Agentes IA' },
+                { id: 'Web', label: isEn ? 'Websites' : 'Sitios web' },
                 { id: 'Automatización', label: isEn ? 'Automation' : 'Automatización' },
               ] as const
             ).map((tab) => (
@@ -55,7 +61,7 @@ export default function ProyectosClient({ locale = 'es' }: { locale?: 'es' | 'en
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveCategory(tab.id)}
-                className={`h-10 px-4 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
+                className={`rounded-full px-4 py-2 text-xs sm:text-sm font-medium transition-colors ${
                   activeCategory === tab.id
                     ? 'bg-primary text-primary-ink'
                     : 'bg-surface text-muted hover:text-foreground border border-rule'
@@ -73,13 +79,17 @@ export default function ProyectosClient({ locale = 'es' }: { locale?: 'es' | 'en
             <article
               key={project.id}
               onClick={() => handleOpenDetails(project)}
-              className="group min-w-0 rounded-2xl bg-surface border border-rule overflow-hidden flex flex-col justify-between cursor-pointer hover:border-rule-strong transition-colors"
+              className="group min-w-0 rounded-3xl bg-surface border border-rule overflow-hidden flex flex-col justify-between cursor-pointer hover:border-primary transition-colors"
             >
               <div>
                 <div className="relative w-full aspect-[16/10] bg-card overflow-hidden border-b border-rule">
                   <img
                     src={`/projects/${project.folder}/${project.images[0]}`}
-                    alt={isEn ? `${project.title} — Production Case Study in ${project.category} by Autonomek` : `${project.title} — Caso de estudio en producción (${project.category}) por Autonomek`}
+                    alt={
+                      isEn
+                        ? `${project.title} — ${project.category} project by Autonomek`
+                        : `${project.title} — Proyecto de ${project.category} por Autonomek`
+                    }
                     width={800}
                     height={500}
                     loading="lazy"
@@ -90,7 +100,9 @@ export default function ProyectosClient({ locale = 'es' }: { locale?: 'es' | 'en
                 <div className="p-6 space-y-2.5">
                   <div className="flex items-center justify-between gap-2 text-xs text-muted">
                     <span>{project.client}</span>
-                    <span className="font-mono text-[11px] text-primary">{project.category}</span>
+                    <span className="rounded-full bg-background border border-rule px-2.5 py-0.5 text-[11px] text-primary">
+                      {project.category}
+                    </span>
                   </div>
                   <h2 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
                     {project.title}
@@ -102,8 +114,14 @@ export default function ProyectosClient({ locale = 'es' }: { locale?: 'es' | 'en
               </div>
 
               <div className="px-6 pb-5 pt-3 border-t border-rule flex items-center justify-between text-xs text-muted">
-                <span>{isEn ? 'Inspect architecture & gallery' : 'Ver arquitectura y galería'}</span>
-                {project.url && <ExternalLink size={13} className="text-primary" />}
+                <span className="font-medium text-foreground group-hover:text-primary transition-colors">
+                  {isEn ? 'View project details' : 'Ver detalles y capturas'}
+                </span>
+                {project.url ? (
+                  <ExternalLink size={14} className="text-primary" />
+                ) : (
+                  <ArrowUpRight size={14} className="text-primary" />
+                )}
               </div>
             </article>
           ))}
