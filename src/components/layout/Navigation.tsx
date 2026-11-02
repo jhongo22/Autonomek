@@ -23,6 +23,14 @@ const ES_TO_EN_MAP: Record<string, string> = {
   '/es/proyectos': '/en/projects',
   '/legal': '/en/legal',
   '/es/legal': '/en/legal',
+  '/terminos': '/en/terms',
+  '/es/terminos': '/en/terms',
+  '/privacidad': '/en/privacy',
+  '/es/privacidad': '/en/privacy',
+  '/nosotros': '/en/about',
+  '/es/nosotros': '/en/about',
+  '/blog': '/en/blog',
+  '/es/blog': '/en/blog',
   '/start': '/en/start',
   '/es/start': '/en/start',
 };
@@ -44,9 +52,61 @@ const EN_TO_ES_MAP: Record<string, string> = {
   '/us/projects': '/es/proyectos',
   '/en/legal': '/es/legal',
   '/us/legal': '/es/legal',
+  '/en/terms': '/es/terminos',
+  '/us/terms': '/es/terminos',
+  '/en/privacy': '/es/privacidad',
+  '/us/privacy': '/es/privacidad',
+  '/en/about': '/es/nosotros',
+  '/us/about': '/es/nosotros',
+  '/en/blog': '/es/blog',
+  '/us/blog': '/es/blog',
   '/en/start': '/es/start',
   '/us/start': '/es/start',
 };
+
+function getSwitchLanguageHref(pathname: string, targetLang: 'es' | 'en'): string {
+  const isEn =
+    pathname === '/en' ||
+    pathname.startsWith('/en/') ||
+    pathname === '/us' ||
+    pathname.startsWith('/us/');
+
+  // Si ya estamos en el idioma objetivo, no alteramos la ruta
+  if (targetLang === 'en' && isEn) {
+    return pathname;
+  }
+  if (targetLang === 'es' && !isEn) {
+    return pathname;
+  }
+
+  const clean =
+    pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+
+  if (targetLang === 'en') {
+    if (ES_TO_EN_MAP[clean]) {
+      return ES_TO_EN_MAP[clean];
+    }
+    if (clean.startsWith('/blog/')) {
+      return `/en/blog/${clean.slice('/blog/'.length)}`;
+    }
+    if (clean.startsWith('/es/blog/')) {
+      return `/en/blog/${clean.slice('/es/blog/'.length)}`;
+    }
+    return '/en';
+  }
+
+  // targetLang === 'es'
+  if (EN_TO_ES_MAP[clean]) {
+    return EN_TO_ES_MAP[clean];
+  }
+  if (clean.startsWith('/en/blog/')) {
+    return `/es/blog/${clean.slice('/en/blog/'.length)}`;
+  }
+  if (clean.startsWith('/us/blog/')) {
+    return `/es/blog/${clean.slice('/us/blog/'.length)}`;
+  }
+  return '/es';
+}
 
 function CubeMark({ className = '' }: { className?: string }) {
   return (
@@ -94,8 +154,8 @@ export default function Navigation() {
     ? `${enBase}/services/custom-software`
     : `${esBase}/servicios/software-a-medida`;
 
-  const targetEsHref = isEn ? EN_TO_ES_MAP[pathname] || '/es' : pathname;
-  const targetEnHref = !isEn ? ES_TO_EN_MAP[pathname] || '/en' : pathname;
+  const targetEsHref = getSwitchLanguageHref(pathname, 'es');
+  const targetEnHref = getSwitchLanguageHref(pathname, 'en');
 
   const whatsappHref = isEn
     ? 'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20would%20like%20to%20talk%20about%20a%20project%20for%20my%20business.'

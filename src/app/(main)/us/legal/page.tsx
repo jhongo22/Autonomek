@@ -1,105 +1,96 @@
-import type { Metadata } from 'next';
+﻿import React from 'react';
 import Link from 'next/link';
+import { ShieldCheck, Scale, Lock, Users, ArrowUpRight } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Legal Notice, Privacy & Cookies | Autonomek',
-  description: 'Legal terms, privacy policy, and cookie usage of Autonomek Web & AI.',
-  alternates: {
-    canonical: 'https://www.autonomek.com/us/legal',
-    languages: {
-      'en': 'https://www.autonomek.com/en/legal',
-      'en-US': 'https://www.autonomek.com/us/legal',
-      'es': 'https://www.autonomek.com/es/legal',
-      'es-CO': 'https://www.autonomek.com/legal',
-      'x-default': 'https://www.autonomek.com/en/legal',
-    },
-  },
-};
-
-const sections = [
-  {
-    id: 'privacy',
-    title: 'Privacy policy',
-    content: `
-      At AUTONOMEK WEB & AI, we treat your personal data with complete transparency and security, complying with the General Data Protection Regulation (GDPR) and applicable international privacy frameworks.
-
-      We collect information such as name, email, and phone number when you contact us through WhatsApp or our live AI assistant. This data is used exclusively to:
-
-      - Respond to your requests for technical information and B2B quotes.
-      - Provide our services of web engineering, AI agents, and process automation.
-      - Send communications related to your project (billing, SLA support, updates).
-
-      We do not share your personal data with third parties without your explicit consent, except under legal obligation. Your data is stored on secure cloud servers with restricted access.
-
-      You can exercise your rights of access, rectification, cancellation, and opposition by writing to us at contact@autonomek.com.
-    `,
-  },
-  {
-    id: 'terms',
-    title: 'Terms and conditions',
-    content: `
-      By contracting the services of AUTONOMEK WEB & AI, you accept the following terms:
-
-      1. Scope of service: Each project is defined in a written technical proposal with agreed scope, deliverables, deadlines, and costs mutually approved before starting.
-
-      2. Intellectual property: Once paid in full, the source code and digital assets developed are the property of the client. AUTONOMEK reserves the right to showcase the architecture in its corporate portfolio.
-
-      3. Payments: A 50% advance payment is required to start projects. The remaining 50% is paid upon delivery. SLA maintenance plans are billed monthly.
-
-      4. Confidentiality: All information shared during the development of the project is kept strictly confidential.
-
-      5. Support: Included technical support covers system defects of the delivered software. It does not include new features outside the initial scope.
-    `,
-  },
-  {
-    id: 'cookies',
-    title: 'Cookie policy',
-    content: `
-      This website uses first-party and third-party cookies to improve your browsing experience and analyze traffic.
-
-      Cookies used:
-
-      - Google Analytics (GA4): We use the _ga cookie to analyze how users interact with the site, allowing us to continuously improve performance.
-
-      - Technical cookies: Necessary for basic site operation, language routing, and security.
-
-      You can configure your browser to reject all cookies or indicate when one is sent. By continuing to browse, you accept the use of these cookies.
-    `,
-  },
-];
-
-export default function LegalPage() {
+export default function UsLegalHub() {
   return (
-    <main className="min-h-screen w-full bg-background text-foreground pt-28 md:pt-36 pb-24">
-      <div className="max-w-3xl mx-auto px-5 sm:px-8">
-        <div className="mb-10">
-          <Link href="/en" className="text-sm text-muted hover:text-foreground transition-colors">
-            Back to home
+    <main className="min-h-screen w-full bg-background text-foreground pt-28 md:pt-36 pb-28 selection:bg-primary selection:text-primary-ink">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8">
+        <div className="mb-8">
+          <Link href="/us" className="text-sm text-muted hover:text-foreground transition-colors">
+            ← Back to home
           </Link>
         </div>
-        <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight mb-4 text-foreground">
-          Legal framework & privacy
+
+        <div className="mb-5 flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-muted">
+          <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+          <span>Legal Framework, Privacy & Corporate Commitments</span>
+        </div>
+
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground leading-[1.08]">
+          Legal Center & Transparency
         </h1>
-        <p className="text-muted text-base mb-14 max-w-[60ch]">
-          Legal notice, privacy policy, and corporate terms of use of Autonomek Web & AI.
+
+        <p className="mt-4 text-base sm:text-lg text-muted max-w-2xl leading-relaxed">
+          Review our data protection policies, commercial terms, and engineering principles designed to protect your enterprise and ensure full ownership of your technology.
         </p>
 
-        <div className="divide-y divide-rule border-y border-rule">
-          {sections.map((section) => (
-            <section key={section.id} id={section.id} className="py-12">
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground mb-4">
-                {section.title}
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Card 1: Terms & Conditions */}
+          <Link
+            href="/us/terms"
+            className="group rounded-[24px] border border-rule bg-surface p-7 flex flex-col justify-between gap-6 hover:border-primary transition-all hover:-translate-y-0.5 shadow-lg shadow-black/20"
+          >
+            <div className="space-y-4">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                <Scale size={20} />
+              </span>
+              <h2 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                Terms & Conditions
               </h2>
-              <div className="text-muted text-sm sm:text-base leading-relaxed space-y-4">
-                {section.content
-                  .split('\n')
-                  .filter(Boolean)
-                  .map((paragraph, i) => (
-                    <p key={i}>{paragraph}</p>
-                  ))}
-              </div>
-            </section>
-          ))}
+              <p className="text-sm text-muted leading-relaxed">
+                100% source code ownership transfer, 50/50 milestone billing, 30-day post-launch warranty, and clear limitation of liability.
+              </p>
+            </div>
+            <div className="pt-4 border-t border-rule flex items-center justify-between text-xs font-semibold text-primary">
+              <span>Read complete terms</span>
+              <ArrowUpRight size={14} />
+            </div>
+          </Link>
+
+          {/* Card 2: Privacy Policy */}
+          <Link
+            href="/us/privacy"
+            className="group rounded-[24px] border border-rule bg-surface p-7 flex flex-col justify-between gap-6 hover:border-primary transition-all hover:-translate-y-0.5 shadow-lg shadow-black/20"
+          >
+            <div className="space-y-4">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                <Lock size={20} />
+              </span>
+              <h2 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                Privacy Policy
+              </h2>
+              <p className="text-sm text-muted leading-relaxed">
+                GDPR & international compliance. Zero data sales and a firm commitment that client conversations never train public AI models.
+              </p>
+            </div>
+            <div className="pt-4 border-t border-rule flex items-center justify-between text-xs font-semibold text-primary">
+              <span>Read privacy policy</span>
+              <ArrowUpRight size={14} />
+            </div>
+          </Link>
+
+          {/* Card 3: About Us */}
+          <Link
+            href="/us/about"
+            className="group rounded-[24px] border border-rule bg-surface p-7 flex flex-col justify-between gap-6 hover:border-primary transition-all hover:-translate-y-0.5 shadow-lg shadow-black/20"
+          >
+            <div className="space-y-4">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                <Users size={20} />
+              </span>
+              <h2 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                About Us
+              </h2>
+              <p className="text-sm text-muted leading-relaxed">
+                Discover our engineering philosophy, sub-second speed benchmarks, production case studies, and direct developer communication.
+              </p>
+            </div>
+            <div className="pt-4 border-t border-rule flex items-center justify-between text-xs font-semibold text-primary">
+              <span>Meet Autonomek</span>
+              <ArrowUpRight size={14} />
+            </div>
+          </Link>
         </div>
       </div>
     </main>

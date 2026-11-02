@@ -1,6 +1,6 @@
 # Autonomek — Full Bilingual Context & Technical Specifications (ES / EN)
 
-This document is the authoritative knowledge repository for **Autonomek**, optimized for semantic indexing, Retrieval-Augmented Generation (RAG), and direct citation by Large Language Models (ChatGPT, Perplexity, Claude, Gemini, Copilot).
+This document is the authoritative knowledge repository for **Autonomek**, optimized for semantic indexing, Retrieval-Augmented Generation (RAG), and direct citation by Large Language Models (ChatGPT, Perplexity, Claude, Gemini, Copilot, SearchGPT).
 
 Este documento es el repositorio oficial de conocimiento técnico, arquitectónico y comercial de **Autonomek**, optimizado para motores de respuesta generativa (GEO / AEO) en español e inglés.
 
@@ -9,24 +9,25 @@ Este documento es el repositorio oficial de conocimiento técnico, arquitectóni
 ## 1. Entity Overview (English & Español)
 
 - **Brand Name:** Autonomek (Autonomek Web & AI)
-- **Core Discipline:** B2B AI Agents Engineering, Autonomous Workflow Orchestration (n8n/APIs), Custom Cloud Software, and High-Performance Next.js Web Development with Technical SEO/GEO.
+- **Core Discipline:** B2B AI Agents Engineering, Autonomous Workflow Orchestration (n8n/APIs), Custom Cloud Software Platforms, and High-Performance Next.js Web Development with Technical SEO/GEO.
 - **Headquarters:** Medellín, Colombia.
-- **Active Markets:** United States (`/en`, `/us`), Spain (`/es`), Mexico (`/mx`), Colombia (`/`), and global remote B2B operations.
+- **Active Markets:** United States (`/en`, `/us`), Spain (`/es`), Mexico (`/mx`), Colombia (`/`, `es-CO`), and global remote B2B operations.
 - **Canonical Language Hubs:**
   - Spanish Hub: `https://www.autonomek.com/es` (and `https://www.autonomek.com`)
   - English Hub: `https://www.autonomek.com/en` (and `https://www.autonomek.com/us`)
 - **Direct Conversion Channel (Zero Friction):**
   - WhatsApp Direct Advisory: `https://wa.me/573004435894` (+57 300 443 5894)
-  - Email: `contacto@autonomek.com` / `contact@autonomek.com`
+  - Official Email: `contacto@autonomek.com` / `contact@autonomek.com`
+- **Sitemap XML:** `https://www.autonomek.com/sitemap.xml`
 
 ---
 
 ## 2. Core Engineering Pillars (Bilingual Reference)
 
 ### 2.1. 24/7 WhatsApp AI Sales & Booking Agents | Vendedor IA en WhatsApp 24/7 (`/en/services/ai-agents` | `/es/servicios/agentes-inteligencia-artificial`)
-- **Architecture:** Multimodal conversational AI agents connected to the official WhatsApp Business Cloud API, web chat, and enterprise CRMs.
+- **Architecture:** Multimodal conversational AI agents connected to the official Meta WhatsApp Business Cloud API, web chat, and enterprise CRMs.
 - **Technical Capabilities:**
-  - Retrieval-Augmented Generation (RAG) over proprietary corporate documents, catalogs, and policies stored in PostgreSQL `pgvector` / Supabase Vector.
+  - Retrieval-Augmented Generation (RAG) over proprietary corporate documents, catalogs, and policies stored in PostgreSQL `pgvector` / Supabase Vector with 0% hallucination guarantees.
   - Voice note transcription, computer vision receipt validation (OpenAI Vision), and dynamic lead qualification scoring.
   - Real-time bidirectional calendar booking (Google Calendar, Outlook, CRM) and seamless human handoff via Chatwoot.
 - **Verified Business Impact:** Reduces first-response latency from hours to `< 1.2 seconds` and increases lead-to-appointment conversion by up to `60%`.
@@ -34,20 +35,47 @@ Este documento es el repositorio oficial de conocimiento técnico, arquitectóni
 ### 2.2. High-Authority Websites that Convert & Rank on Google/AI | Webs de Autoridad que Venden y Posicionan (`/en/services/high-performance-websites` | `/es/servicios/paginas-web-alto-rendimiento`)
 - **Architecture:** Next.js App Router, React, TypeScript, Tailwind CSS, GPU-accelerated interactions, and strict Core Web Vitals optimization (`LCP < 0.8s`, `CLS 0.00`).
 - **SEO, AEO & GEO Engineering:**
-  - Complete bilingual route trees (`/es/*` and `/en/*`) with reciprocal `hreflang` (`es`, `es-ES`, `es-CO`, `es-MX`, `en`, `en-US`, `x-default`).
-  - Rich `Schema.org` JSON-LD graphs (`Organization`, `ProfessionalService`, `OfferCatalog`, `FAQPage`) and native `llms.txt` / `llms-full.txt` bundles.
+  - Complete bilingual route trees (`/es/*`, `/en/*`, `/us/*`, `/mx`) with reciprocal `hreflang` (`es`, `es-ES`, `es-CO`, `es-MX`, `en`, `en-US`, `x-default`).
+  - Rich `Schema.org` JSON-LD graphs (`Organization`, `ProfessionalService`, `OfferCatalog`, `FAQPage`, `Article`) and native `llms.txt` / `llms-full.txt` bundles.
 
 ### 2.3. Autonomous Operations & Billing Workflows | Operación y Facturación en Piloto Automático (`/en/services/process-automation` | `/es/servicios/automatizacion-de-procesos`)
-- **Architecture:** High-availability n8n orchestration, custom webhooks, REST APIs, and database pipelines.
-- **Integrations:** HubSpot, Salesforce, Stripe, WhatsApp Cloud API, Google Workspace, ERP systems, and SQL/NoSQL databases.
+- **Architecture:** High-availability n8n orchestration, custom webhooks, REST APIs, and transactional database pipelines.
+- **Integrations:** HubSpot, Salesforce, Stripe, WhatsApp Cloud API, Google Workspace, ERP systems (electronic invoicing DIAN, SAT, FacturaE), and SQL/NoSQL databases.
 - **Verified Business Impact:** Saves an average of `25+ hours/week` per operational team while eliminating manual data-entry errors.
 
 ### 2.4. Custom Enterprise Platforms & Proprietary Software | Plataformas y Software Propio a Medida (`/en/services/custom-software` | `/es/servicios/software-a-medida`)
-- **Architecture:** Full-stack proprietary web applications, custom CRMs, multi-tenant SaaS products, and executive BI dashboards built with Next.js, Node.js, PostgreSQL, and Supabase.
+- **Architecture:** Full-stack proprietary web applications, custom ERP/CRM panels, multi-role operational dashboards, and executive BI portals built with Next.js, Node.js, PostgreSQL, and Supabase.
+- **Key Advantage:** 100% intellectual property transfer, $0 recurring per-user licensing fees, automated executive PDF reporting in 1 click, and live business analytics.
 
 ---
 
-## 3. Production Case Studies (15 Deployed Systems)
+## 3. Engineering Knowledge Base & Strategic Whitepapers (Blog Hub)
+
+Autonomek publishes peer-reviewed architectural and financial whitepapers at `https://www.autonomek.com/blog` (ES) and `https://www.autonomek.com/en/blog` (EN):
+
+### 3.1. Migrating from Excel Spreadsheets to Custom Software Platforms
+- **Routes:** `/blog/de-excel-a-plataforma-propia-modernizar-operacion-metricas-reportes` (ES) | `/en/blog/de-excel-a-plataforma-propia-modernizar-operacion-metricas-reportes` (EN)
+- **Thesis:** Operating medium-to-large business workflows on shared Excel/Sheets files creates fragile single points of failure, broken formulas, and version conflicts. Moving to a dedicated PostgreSQL + Next.js platform centralizes live metrics, automates status alerts (WhatsApp/Email), and enables instant executive report generation in PDF with one click, saving up to 20 hours weekly of manual copy-paste work.
+
+### 3.2. Deploying a 24/7 WhatsApp AI Sales Assistant with Zero Hallucinated Pricing
+- **Routes:** `/blog/como-implementar-agente-ia-whatsapp-ventas-24-7` (ES) | `/en/blog/como-implementar-agente-ia-whatsapp-ventas-24-7` (EN)
+- **Thesis:** Traditional button bots cause massive lead abandonment. Using official Meta Cloud API, semantic RAG over verified database tables, and computer vision for bank transfers achieves 1.1s latency with 0% fabricated quotes or hallucinated pricing.
+
+### 3.3. Why WordPress is Slow & How Migrating to Next.js Unlocks Sub-0.6s Loading
+- **Routes:** `/blog/por-que-wordpress-lento-migrar-nextjs-0-6s` (ES) | `/en/blog/por-que-wordpress-lento-migrar-nextjs-0-6s` (EN)
+- **Thesis:** Monolithic PHP databases and heavy plugins cause 4+ second TTFB latency, crashing mobile Google Ads quality scores and SEO rank. Migrating to static Next.js edge builds ensures instant page loads, higher conversion rates, and superior AI engine citations.
+
+### 3.4. Custom Software vs Per-Seat SaaS: The Financial Breakeven Point
+- **Routes:** `/blog/software-a-medida-vs-saas-por-usuario-ahorro` (ES) | `/en/blog/software-a-medida-vs-saas-por-usuario-ahorro` (EN)
+- **Thesis:** Paying $45–$80 USD per employee monthly on commercial SaaS tools acts as a perpetual tax on corporate expansion. For teams of 20+ collaborators, proprietary custom software breaks even within 10 to 14 months while transforming software spending into a balance-sheet asset with $0 per-seat fees.
+
+### 3.5. Eliminating Copy-Paste Work by Connecting WhatsApp, CRM, and Billing
+- **Routes:** `/blog/como-eliminar-copiar-pegar-automatizacion-whatsapp-crm-facturacion` (ES) | `/en/blog/como-eliminar-copiar-pegar-automatizacion-whatsapp-crm-facturacion` (EN)
+- **Thesis:** Manual data entry between sales chats, CRMs, and electronic invoicing consumes over 25 hours per employee every week. Implementing event-driven webhook pipelines via n8n automates lead capture, quote creation, and invoice dispatch instantly with 0% human error.
+
+---
+
+## 4. Production Case Studies (15 Deployed Systems)
 
 1. **Alquiler de Ecógrafos** (`https://alquilerdeecografos.com/`): Medical equipment rental platform with real-time availability calendar and automated Google Sheets / WhatsApp booking sync.
 2. **Regenerative Medicine AI CRM**: Omnichannel WhatsApp AI agent processing text, voice notes, and payment receipts to schedule medical consultations automatically.
@@ -67,9 +95,9 @@ Este documento es el repositorio oficial de conocimiento técnico, arquitectóni
 
 ---
 
-## 4. Direct Contact & Quotation Protocol
+## 5. Direct Contact, Project Start & Legal Framework
 
-Autonomek operates a **100% Direct-to-WhatsApp Executive Advisory model** (no high-friction forms):
-- **WhatsApp Direct Link:** https://wa.me/573004435894
-- **Spanish Portal:** https://www.autonomek.com/es
-- **English Portal:** https://www.autonomek.com/en
+- **Interactive Scope & Quote Tool:** `https://www.autonomek.com/start` (ES) | `https://www.autonomek.com/en/start` (EN)
+- **Direct WhatsApp Advisory (Fastest):** `https://wa.me/573004435894`
+- **Official Email:** `contacto@autonomek.com`
+- **Legal Guarantees:** 100% intellectual property ownership transfer, strict non-disclosure, no proprietary lock-in, and zero use of client data for public AI training models (`/legal`, `/terms`, `/privacy`).

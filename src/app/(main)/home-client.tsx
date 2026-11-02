@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
@@ -25,6 +25,8 @@ import ProjectDetailsModal from '@/components/ProjectDetailsModal';
 import { AnalyticsBento } from '@/components/ui/analytics-bento';
 import InkOrbitFeatures from '@/components/ui/ink-orbit-features';
 import { ServiceMiniApp } from '@/components/ui/service-mini-apps';
+import { ProcessRoadmap } from '@/components/ui/process-roadmap';
+import TestimonialMarquee from '@/components/ui/marquee-01';
 
 type Region = 'co' | 'mx' | 'es' | 'us' | 'en';
 
@@ -419,12 +421,14 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           {/* Clean, high-impact Hero copy with crisp sans-serif typography */}
           <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-rule-strong bg-surface/80 px-4 py-1.5 text-xs font-medium text-primary mb-6">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              {isEn
-                ? 'Websites · WhatsApp AI Agents 24/7 · Custom Software'
-                : 'Sitios Web · Agentes de IA en WhatsApp 24/7 · Software a Medida'}
-            </span>
+            <div className="mb-6 flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-muted">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+              <span>
+                {isEn
+                  ? 'Applied Engineering · LatAm & International'
+                  : 'Estudio de Ingeniería de Software & IA'}
+              </span>
+            </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-semibold tracking-tight leading-[1.07] text-foreground">
               {isEn ? (
@@ -679,7 +683,7 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
               return (
                 <article
                   key={srv.id}
-                  className="group rounded-[28px] border border-rule bg-surface p-5 sm:p-8 flex flex-col justify-between gap-6 sm:gap-7 hover:border-rule-strong transition-colors shadow-lg shadow-black/20"
+                  className="group rounded-[24px] sm:rounded-[28px] border border-rule bg-surface p-3.5 sm:p-7 md:p-8 flex flex-col justify-between gap-5 sm:gap-7 hover:border-rule-strong transition-colors shadow-lg shadow-black/20"
                 >
                   <div className="flex flex-1 flex-col gap-7">
                     <div className="space-y-4">
@@ -925,52 +929,35 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
       </section>
 
       {/* ================================================================== */}
-      {/* 5. PROCESO Y GARANTÍAS — Clear 4-Step Roadmap + Client Results     */}
+      {/* 5. PROCESO Y GARANTÍAS — Connected 4-Step Roadmap + Client Results */}
       {/* ================================================================== */}
       <section id="proceso" className="scroll-mt-24 py-20 md:py-28 border-b border-rule">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 space-y-20">
           <div>
-            <div className="max-w-2xl mb-12">
-              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                {isEn ? 'How We Work' : 'Cómo Trabajamos'}
-              </span>
-              <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+              <div className="max-w-2xl">
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                  {isEn ? 'How We Work' : 'Cómo Trabajamos'}
+                </span>
+                <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground">
+                  {isEn
+                    ? 'From your idea to a working system in 4 connected steps.'
+                    : 'De tu idea a un sistema funcionando en 4 pasos conectados.'}
+                </h2>
+              </div>
+              <p className="text-muted text-base sm:text-lg max-w-md">
                 {isEn
-                  ? 'From your idea to a working system in 4 simple steps.'
-                  : 'De tu idea a un sistema funcionando en 4 pasos simples.'}
-              </h2>
+                  ? 'Every stage flows into the next with clear deliverables, fixed timelines, and direct WhatsApp communication.'
+                  : 'Cada etapa se conecta con la siguiente con entregables claros, tiempos fijos y comunicación directa por WhatsApp.'}
+              </p>
             </div>
 
-            <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {processSteps.map((step) => {
-                const IconComponent = step.icon;
-                return (
-                  <li
-                    key={step.num}
-                    className="rounded-[24px] border border-rule bg-surface p-6 flex flex-col justify-between"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between mb-6">
-                        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/15 text-primary border border-primary/25">
-                          <IconComponent size={20} />
-                        </span>
-                        <span className="font-mono text-xs font-semibold text-primary">
-                          {step.num}
-                        </span>
-                      </div>
-                      <h3 className="text-xl font-semibold tracking-tight text-foreground">
-                        {step.title}
-                      </h3>
-                      <p className="mt-2.5 text-sm leading-relaxed text-muted">{step.desc}</p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
+            {/* Connected 4-Step Process Circuit */}
+            <ProcessRoadmap isEn={isEn} />
 
             {/* Guarantees Bar */}
-            <div className="mt-10 rounded-[24px] border border-rule bg-surface/60 p-6 sm:p-8">
+            <div className="mt-12 rounded-[24px] border border-rule bg-surface/60 p-6 sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary mb-5">
                 {isEn
                   ? 'What every project with Autonomek includes'
@@ -992,43 +979,28 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
             </div>
           </div>
 
-          {/* Client Testimonials */}
+          {/* Client Testimonials Marquee */}
           <div className="pt-12 border-t border-rule">
-            <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-foreground mb-8">
-              {isEn
-                ? 'What our clients say after launching.'
-                : 'Lo que dicen las empresas que ya operan con nosotros.'}
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {testimonials.map((t) => (
-                <blockquote
-                  key={t.author}
-                  className="p-6 sm:p-7 rounded-[24px] bg-surface border border-rule flex flex-col justify-between gap-6"
-                >
-                  <div className="space-y-3.5">
-                    <div className="flex items-center justify-between">
-                      <span className="rounded-full bg-primary/15 px-3 py-1 text-xs font-medium text-primary">
-                        {t.metric}
-                      </span>
-                      <span className="text-xs text-primary tracking-widest">★★★★★</span>
-                    </div>
-                    <p className="text-sm sm:text-base text-foreground leading-relaxed">
-                      &ldquo;{t.quote}&rdquo;
-                    </p>
-                  </div>
-
-                  <footer className="flex items-center gap-3 pt-4 border-t border-rule">
-                    <div className="w-9 h-9 rounded-full bg-card border border-primary/40 flex items-center justify-center text-xs font-semibold text-primary shrink-0">
-                      {t.initials}
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-foreground">{t.author}</div>
-                      <div className="text-xs text-muted">{t.role}</div>
-                    </div>
-                  </footer>
-                </blockquote>
-              ))}
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+              <div>
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                  {isEn ? 'Verified Client Results' : 'Resultados Verificados'}
+                </span>
+                <h3 className="mt-2.5 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-foreground">
+                  {isEn
+                    ? 'What our clients say after launching.'
+                    : 'Lo que dicen las empresas que ya operan con nosotros.'}
+                </h3>
+              </div>
+              <p className="text-sm sm:text-base text-muted max-w-md">
+                {isEn
+                  ? 'Real impact on sales, response times, and daily operations across Colombia, Mexico, and the US.'
+                  : 'Impacto real en ventas, velocidad de atención y ahorro operativo en empresas reales.'}
+              </p>
             </div>
+
+            <TestimonialMarquee isEn={isEn} />
           </div>
         </div>
       </section>

@@ -29,7 +29,7 @@ import {
 /* -------------------------------------------------------------------------- */
 /*  Service Mini Apps: 4 interactive live miniature apps (dashboard, website  */
 /*  + PageSpeed audit, WhatsApp AI agent + CRM, automation canvas). Fully     */
-/*  responsive: desktop preserves side-by-side split; mobile adapts seamlessly */
+/*  responsive: seamless ergonomic adaptation on iPhone/Android mobile displays */
 /* -------------------------------------------------------------------------- */
 
 interface MiniAppProps {
@@ -79,29 +79,30 @@ function AppWindow({
       ref={innerRef}
       className="relative w-full overflow-hidden rounded-2xl border border-rule-strong bg-background shadow-2xl shadow-black/30 select-none"
     >
-      <div className="flex items-center gap-2 sm:gap-3 border-b border-rule bg-card px-2.5 sm:px-3 py-2">
+      <div className="flex items-center gap-2 border-b border-rule bg-card px-2.5 sm:px-3 py-2">
         <div className="flex shrink-0 items-center gap-1 sm:gap-1.5" aria-hidden="true">
-          <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full" style={{ background: '#ff5f57' }} />
-          <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full" style={{ background: '#febc2e' }} />
-          <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full" style={{ background: '#28c840' }} />
+          <span className="h-2 w-2 rounded-full" style={{ background: '#ff5f57' }} />
+          <span className="h-2 w-2 rounded-full" style={{ background: '#febc2e' }} />
+          <span className="h-2 w-2 rounded-full" style={{ background: '#28c840' }} />
         </div>
-        <div className="flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-md border border-rule bg-background px-2 sm:px-2.5 py-1 text-[9px] sm:text-[10px] font-mono text-muted">
+        <div className="flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-md border border-rule bg-background px-2 py-0.5 sm:py-1 text-[9px] sm:text-[10px] font-mono text-muted">
           {icon}
           <span className="truncate">{address}</span>
         </div>
         {right && <div className="shrink-0">{right}</div>}
       </div>
-      <div className="relative h-[295px] sm:h-[305px]">{children}</div>
+      {/* Dynamic responsive height: 320px on mobile to give ample breathing room, 310px on desktop */}
+      <div className="relative min-h-[315px] sm:h-[310px]">{children}</div>
     </div>
   );
 }
 
 const LivePill = ({ label }: { label: string }) => (
   <span
-    className="inline-flex items-center gap-1 rounded-full px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-semibold text-primary"
+    className="inline-flex items-center gap-1 rounded-full px-1.5 sm:px-2 py-0.5 text-[8.5px] sm:text-[10px] font-semibold text-primary"
     style={{ background: mix('primary', 14) }}
   >
-    <span className="relative flex h-1.5 w-1.5">
+    <span className="relative flex h-1.5 w-1.5 shrink-0">
       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
       <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
     </span>
@@ -136,7 +137,7 @@ function SoftwareDashboardApp({ isEn = false }: { isEn?: boolean }) {
             { code: 'RS-409', name: 'Equipment rental · Bogotá', status: 'In progress' },
           ]
         : [
-            { code: 'RS-410', name: 'Reserva corporativa · 4 días', status: 'Confirmada' },
+            { code: 'RS-410', name: 'Reserva suite · 4 días', status: 'Confirmada' },
             { code: 'RS-409', name: 'Alquiler equipos · Medellín', status: 'En curso' },
           ],
     },
@@ -217,21 +218,21 @@ function SoftwareDashboardApp({ isEn = false }: { isEn?: boolean }) {
         </aside>
 
         {/* Main */}
-        <div className="flex min-w-0 flex-1 flex-col gap-2 sm:gap-2.5 p-2 sm:p-3">
-          <div className="flex items-center justify-between gap-1.5 sm:gap-2">
-            <div className="flex min-w-0 items-center gap-1.5 sm:gap-2">
-              <LayoutDashboard size={12} className="shrink-0 text-primary sm:size-[13px]" />
+        <div className="flex min-w-0 flex-1 flex-col gap-2 p-2 sm:p-3">
+          <div className="flex items-center justify-between gap-1.5">
+            <div className="flex min-w-0 items-center gap-1.5">
+              <LayoutDashboard size={12} className="shrink-0 text-primary" />
               <span className="truncate text-[11px] sm:text-xs font-semibold text-foreground">{v.nav}</span>
               <LivePill label={isEn ? 'Live' : 'En vivo'} />
             </div>
-            <div className="flex items-center gap-1 sm:gap-1.5">
+            <div className="flex items-center gap-1">
               <span className="hidden h-6 w-6 items-center justify-center rounded-md border border-rule text-muted sm:flex">
                 <Bell size={11} />
               </span>
               <button
                 type="button"
                 onClick={() => setBoost((b) => b + 1)}
-                className="inline-flex items-center gap-1 rounded-md bg-primary px-1.5 sm:px-2 py-0.5 sm:py-1 text-[9px] sm:text-[10px] font-semibold text-primary-ink transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-1 rounded-md bg-primary px-1.5 sm:px-2 py-0.5 sm:py-1 text-[9px] sm:text-[10px] font-semibold text-primary-ink transition-opacity hover:opacity-90 shrink-0"
               >
                 <Plus size={10} />
                 <span>{isEn ? 'New' : 'Nuevo'}</span>
@@ -240,23 +241,23 @@ function SoftwareDashboardApp({ isEn = false }: { isEn?: boolean }) {
           </div>
 
           {/* KPIs */}
-          <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
+          <div className="grid grid-cols-3 gap-1.5">
             {v.kpis.map((k) => (
               <div key={k.label} className="rounded-lg border border-rule bg-surface p-1.5 sm:px-2 sm:py-1.5">
-                <p className="truncate text-[8px] sm:text-[9px] uppercase tracking-wider text-muted">{k.label}</p>
-                <div className="mt-0.5 flex items-baseline justify-between gap-0.5 sm:gap-1">
-                  <span className="font-mono text-xs sm:text-sm font-semibold text-foreground truncate">{k.value}</span>
-                  <span className="truncate text-[8px] sm:text-[9px] font-semibold text-primary">{k.delta}</span>
+                <p className="truncate text-[7.5px] sm:text-[9px] uppercase tracking-wider text-muted">{k.label}</p>
+                <div className="mt-0.5 flex flex-wrap items-baseline justify-between gap-0.5">
+                  <span className="font-mono text-[11px] sm:text-sm font-semibold text-foreground truncate">{k.value}</span>
+                  <span className="text-[7.5px] sm:text-[9px] font-semibold text-primary shrink-0">{k.delta}</span>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Chart */}
-          <div className="flex min-h-0 flex-1 flex-col rounded-lg border border-rule bg-surface px-2 sm:px-2.5 pb-1 sm:pb-1.5 pt-1.5 sm:pt-2">
+          <div className="flex min-h-[90px] flex-1 flex-col rounded-lg border border-rule bg-surface px-2 pb-1.5 pt-1.5">
             <div className="flex items-center justify-between text-[8px] sm:text-[9px] text-muted">
-              <span>{isEn ? 'Last 7 days' : 'Últimos 7 días'}</span>
-              <span className="font-mono text-foreground truncate">
+              <span>{isEn ? '7-day trend' : 'Últimos 7 días'}</span>
+              <span className="font-mono text-foreground truncate ml-1">
                 {hover !== null ? `${bars[hover]} ${v.unit}` : `${bars.reduce((a, b) => a + b, 0)} ${v.unit}`}
               </span>
             </div>
@@ -267,14 +268,15 @@ function SoftwareDashboardApp({ isEn = false }: { isEn?: boolean }) {
                 return (
                   <div
                     key={i}
-                    className="flex h-full flex-1 flex-col items-center justify-end gap-0.5 sm:gap-1"
+                    className="flex h-full flex-1 flex-col items-center justify-end gap-0.5 sm:gap-1 cursor-pointer"
                     onMouseEnter={() => setHover(i)}
                     onMouseLeave={() => setHover(null)}
+                    onClick={() => setHover(i)}
                   >
                     <div
-                      className="w-full rounded-[3px] sm:rounded-[4px] transition-all duration-500 ease-out"
+                      className="w-full rounded-[3px] sm:rounded-[4px] transition-all duration-300"
                       style={{
-                        height: `${Math.max(12, (b / max) * 100)}%`,
+                        height: `${Math.max(14, (b / max) * 100)}%`,
                         background: active ? 'var(--primary)' : mix('primary', 28),
                       }}
                     />
@@ -290,14 +292,14 @@ function SoftwareDashboardApp({ isEn = false }: { isEn?: boolean }) {
             {v.rows.map((r) => (
               <div
                 key={r.code}
-                className="flex items-center justify-between gap-1.5 sm:gap-2 rounded-md border border-rule bg-card px-1.5 sm:px-2 py-0.5 sm:py-1"
+                className="flex items-center justify-between gap-1.5 rounded-md border border-rule bg-card px-1.5 sm:px-2 py-1"
               >
-                <div className="flex min-w-0 items-center gap-1.5 sm:gap-2">
-                  <span className="font-mono text-[8.5px] sm:text-[9px] text-primary">{r.code}</span>
-                  <span className="truncate text-[9px] sm:text-[10px] text-foreground">{r.name}</span>
+                <div className="flex min-w-0 items-center gap-1.5">
+                  <span className="font-mono text-[8px] sm:text-[9px] text-primary shrink-0">{r.code}</span>
+                  <span className="truncate text-[8.5px] sm:text-[10px] text-foreground">{r.name}</span>
                 </div>
                 <span
-                  className="shrink-0 rounded-full px-1.5 py-px text-[8px] sm:text-[9px] font-semibold text-primary"
+                  className="shrink-0 rounded-full px-1.5 py-px text-[7.5px] sm:text-[9px] font-semibold text-primary"
                   style={{ background: mix('primary', 14) }}
                 >
                   {r.status}
@@ -318,13 +320,13 @@ function GaugeCircle({ score, label, run }: { score: number; label: string; run:
   const [shown, setShown] = useState(0);
   useEffect(() => {
     setShown(0);
-    const t = setTimeout(() => setShown(score), 120);
+    const t = setTimeout(() => setShown(score), 100);
     return () => clearTimeout(t);
   }, [score, run]);
   const c = 2 * Math.PI * 15;
   return (
-    <div className="flex flex-col items-center gap-0.5 sm:gap-1">
-      <div className="relative h-10 w-10 sm:h-11 sm:w-11">
+    <div className="flex flex-col items-center gap-0.5">
+      <div className="relative h-9 w-9 sm:h-11 sm:w-11">
         <svg viewBox="0 0 36 36" className="h-full w-full -rotate-90">
           <circle cx="18" cy="18" r="15" fill="none" stroke="var(--rule)" strokeWidth="3" />
           <circle
@@ -340,11 +342,11 @@ function GaugeCircle({ score, label, run }: { score: number; label: string; run:
             style={{ transition: 'stroke-dashoffset 1.2s cubic-bezier(.2,.9,.25,1)' }}
           />
         </svg>
-        <span className="absolute inset-0 flex items-center justify-center font-mono text-[10px] sm:text-[11px] font-bold" style={{ color: '#28c840' }}>
+        <span className="absolute inset-0 flex items-center justify-center font-mono text-[9.5px] sm:text-[11px] font-bold" style={{ color: '#28c840' }}>
           {shown === 0 ? '–' : score}
         </span>
       </div>
-      <span className="text-center text-[8px] sm:text-[8.5px] leading-tight text-muted">{label}</span>
+      <span className="text-center text-[7.5px] sm:text-[8.5px] leading-tight text-muted">{label}</span>
     </div>
   );
 }
@@ -378,12 +380,12 @@ function WebsiteSeoApp({ isEn = false }: { isEn?: boolean }) {
       icon={<Lock size={9} className="shrink-0 text-primary" />}
       right={
         <div className="flex items-center gap-1.5">
-          {/* Mobile switcher: Web vs PageSpeed (hidden on desktop) */}
+          {/* Mobile switcher: Web vs PageSpeed */}
           <div className="flex items-center gap-0.5 rounded-md bg-surface p-0.5 border border-rule sm:hidden">
             <button
               type="button"
               onClick={() => setMobileTab('web')}
-              className={`inline-flex items-center gap-1 rounded px-2 py-0.5 text-[9px] font-medium transition-colors ${
+              className={`inline-flex items-center gap-1 rounded px-2 py-0.5 text-[8.5px] font-medium transition-colors ${
                 mobileTab === 'web'
                   ? 'bg-primary text-primary-ink shadow-sm'
                   : 'text-muted hover:text-foreground'
@@ -395,25 +397,25 @@ function WebsiteSeoApp({ isEn = false }: { isEn?: boolean }) {
             <button
               type="button"
               onClick={() => setMobileTab('audit')}
-              className={`inline-flex items-center gap-1 rounded px-2 py-0.5 text-[9px] font-medium transition-colors ${
+              className={`inline-flex items-center gap-1 rounded px-2 py-0.5 text-[8.5px] font-medium transition-colors ${
                 mobileTab === 'audit'
                   ? 'bg-primary text-primary-ink shadow-sm'
                   : 'text-muted hover:text-foreground'
               }`}
             >
               <GaugeIcon size={9} />
-              <span>99</span>
+              <span>99/100</span>
             </button>
           </div>
 
-          {/* Analyze button (visible on desktop and in mobile audit tab) */}
+          {/* Analyze button */}
           <button
             type="button"
             onClick={() => {
               setRun((r) => r + 1);
               setQ((x) => (x + 1) % queries.length);
             }}
-            className="inline-flex items-center gap-1 rounded-md border border-rule bg-background px-1.5 sm:px-2 py-0.5 sm:py-1 text-[9px] sm:text-[10px] font-semibold text-foreground transition-colors hover:border-primary"
+            className="inline-flex items-center gap-1 rounded-md border border-rule bg-background px-1.5 sm:px-2 py-0.5 sm:py-1 text-[8.5px] sm:text-[10px] font-semibold text-foreground transition-colors hover:border-primary shrink-0"
           >
             <RotateCw size={10} />
             <span className="hidden sm:inline">{isEn ? 'Analyze' : 'Analizar'}</span>
@@ -421,9 +423,8 @@ function WebsiteSeoApp({ isEn = false }: { isEn?: boolean }) {
         </div>
       }
     >
-      {/* Desktop: side-by-side grid. Mobile: selected tab view */}
       <div className="h-full sm:grid sm:grid-cols-[1.25fr_1fr]">
-        {/* Left: Website preview (always visible on desktop, tab-controlled on mobile) */}
+        {/* Left: Website preview */}
         <div
           className={`relative min-w-0 flex-col overflow-hidden p-2.5 sm:p-3 h-full ${
             mobileTab === 'web' ? 'flex' : 'hidden sm:flex'
@@ -441,14 +442,14 @@ function WebsiteSeoApp({ isEn = false }: { isEn?: boolean }) {
             </span>
           </div>
 
-          <div className="mt-3 sm:mt-4 space-y-1.5 sm:space-y-2">
+          <div className="mt-3 space-y-1.5">
             <span
-              className="inline-block rounded-full px-2 py-0.5 text-[8.5px] font-semibold text-primary"
+              className="inline-block rounded-full px-2 py-0.5 text-[8px] sm:text-[8.5px] font-semibold text-primary"
               style={{ background: mix('primary', 14) }}
             >
               {isEn ? 'Loads in 0.6s' : 'Carga en 0.6s'}
             </span>
-            <p className="text-[13px] sm:text-[15px] font-semibold leading-tight tracking-tight text-foreground">
+            <p className="text-[12.5px] sm:text-[15px] font-semibold leading-tight tracking-tight text-foreground">
               {isEn ? 'Solutions that grow your business' : 'Soluciones que hacen crecer tu negocio'}
             </p>
             <div className="space-y-1">
@@ -456,16 +457,16 @@ function WebsiteSeoApp({ isEn = false }: { isEn?: boolean }) {
               <span className="block h-1.5 w-8/12 rounded-full bg-rule-strong" />
             </div>
             <div className="flex flex-wrap gap-1.5 pt-1">
-              <span className="rounded-full bg-primary px-2.5 py-1 text-[9px] font-semibold text-primary-ink">
+              <span className="rounded-full bg-primary px-2.5 py-1 text-[8.5px] sm:text-[9px] font-semibold text-primary-ink">
                 {isEn ? 'Quote on WhatsApp' : 'Cotizar por WhatsApp'}
               </span>
-              <span className="hidden rounded-full border border-rule px-2.5 py-1 text-[9px] text-foreground sm:inline">
+              <span className="rounded-full border border-rule px-2 py-1 text-[8.5px] sm:text-[9px] text-foreground">
                 {isEn ? 'Catalog' : 'Catálogo'}
               </span>
             </div>
           </div>
 
-          <div className="mt-auto grid grid-cols-3 gap-1.5">
+          <div className="mt-auto grid grid-cols-3 gap-1.5 pt-2">
             {[22, 34, 16].map((p, i) => (
               <div key={i} className="rounded-md border border-rule bg-surface p-1">
                 <div className="h-7 sm:h-8 rounded" style={{ background: mix('primary', p) }} />
@@ -475,21 +476,21 @@ function WebsiteSeoApp({ isEn = false }: { isEn?: boolean }) {
           </div>
 
           <span
-            className="absolute bottom-12 sm:bottom-14 right-3 flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full text-white shadow-lg"
+            className="absolute bottom-11 sm:bottom-14 right-3 flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full text-white shadow-lg"
             style={{ background: '#25d366' }}
           >
             <MessageCircle size={12} className="sm:size-[13px]" />
           </span>
         </div>
 
-        {/* Right: PageSpeed panel (always visible on desktop, tab-controlled on mobile) */}
+        {/* Right: PageSpeed panel */}
         <div
-          className={`min-w-0 flex-col gap-2 sm:gap-2.5 bg-card p-2.5 sm:p-2.5 h-full sm:border-l border-rule ${
+          className={`min-w-0 flex-col gap-2 bg-card p-2.5 h-full sm:border-l border-rule ${
             mobileTab === 'audit' ? 'flex' : 'hidden sm:flex'
           }`}
         >
           <div className="flex items-center justify-between">
-            <p className="text-[8.5px] sm:text-[9px] font-semibold uppercase tracking-wider text-muted">PageSpeed Audit</p>
+            <p className="text-[8px] sm:text-[9px] font-semibold uppercase tracking-wider text-muted">PageSpeed Audit</p>
             <LivePill label="0.6s LCP" />
           </div>
 
@@ -508,9 +509,9 @@ function WebsiteSeoApp({ isEn = false }: { isEn?: boolean }) {
             </div>
             <div className="mt-1.5 flex items-center gap-1">
               <span className="rounded bg-primary px-1 font-mono text-[7.5px] sm:text-[8px] font-bold text-primary-ink">#1</span>
-              <span className="truncate text-[8.5px] sm:text-[9px] font-semibold text-primary">Tu Empresa — Sitio oficial</span>
+              <span className="truncate text-[8px] sm:text-[9px] font-semibold text-primary">Tu Empresa — Sitio oficial</span>
             </div>
-            <p className="mt-0.5 truncate text-[8px] sm:text-[8.5px] text-muted">
+            <p className="mt-0.5 truncate text-[7.5px] sm:text-[8.5px] text-muted">
               {isEn ? 'Also cited by ChatGPT & Perplexity' : 'También citado por ChatGPT y Perplexity'}
             </p>
           </div>
@@ -662,12 +663,12 @@ function WhatsAppAgentApp({ isEn = false }: { isEn?: boolean }) {
       address={isEn ? 'WhatsApp Business · AI agent' : 'WhatsApp Business · Agente IA'}
       icon={<Bot size={10} className="shrink-0 text-primary" />}
       right={
-        /* Mobile switcher: Chat vs CRM (hidden on desktop) */
+        /* Mobile switcher: Chat vs CRM */
         <div className="flex items-center gap-0.5 rounded-md bg-surface p-0.5 border border-rule sm:hidden">
           <button
             type="button"
             onClick={() => setMobileTab('chat')}
-            className={`inline-flex items-center gap-1 rounded px-2 py-0.5 text-[9px] font-medium transition-colors ${
+            className={`inline-flex items-center gap-1 rounded px-2 py-0.5 text-[8.5px] font-medium transition-colors ${
               mobileTab === 'chat'
                 ? 'bg-primary text-primary-ink shadow-sm'
                 : 'text-muted hover:text-foreground'
@@ -679,7 +680,7 @@ function WhatsAppAgentApp({ isEn = false }: { isEn?: boolean }) {
           <button
             type="button"
             onClick={() => setMobileTab('crm')}
-            className={`inline-flex items-center gap-1 rounded px-2 py-0.5 text-[9px] font-medium transition-colors ${
+            className={`inline-flex items-center gap-1 rounded px-2 py-0.5 text-[8.5px] font-medium transition-colors ${
               mobileTab === 'crm'
                 ? 'bg-primary text-primary-ink shadow-sm'
                 : 'text-muted hover:text-foreground'
@@ -692,7 +693,7 @@ function WhatsAppAgentApp({ isEn = false }: { isEn?: boolean }) {
       }
     >
       <div className="h-full sm:grid sm:grid-cols-[1.35fr_1fr]">
-        {/* Chat (visible on desktop, tab-controlled on mobile) */}
+        {/* Chat */}
         <div
           className={`min-w-0 flex-col h-full ${
             mobileTab === 'chat' ? 'flex' : 'hidden sm:flex'
@@ -700,7 +701,7 @@ function WhatsAppAgentApp({ isEn = false }: { isEn?: boolean }) {
         >
           <div className="flex items-center justify-between gap-2 border-b border-rule bg-card px-2.5 sm:px-3 py-1.5 sm:py-2">
             <div className="flex items-center gap-2 min-w-0">
-              <span className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-primary text-[10px] sm:text-[11px] font-bold text-primary-ink">
+              <span className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-primary text-[10px] sm:text-[11px] font-bold text-primary-ink shrink-0">
                 A
               </span>
               <div className="min-w-0 leading-tight">
@@ -710,9 +711,8 @@ function WhatsAppAgentApp({ isEn = false }: { isEn?: boolean }) {
                 </p>
               </div>
             </div>
-            {/* Live stage badge visible inside chat header */}
             <span
-              className="rounded-full px-2 py-0.5 text-[8.5px] sm:text-[9px] font-semibold text-primary shrink-0"
+              className="rounded-full px-2 py-0.5 text-[8px] sm:text-[9px] font-semibold text-primary shrink-0"
               style={{ background: mix('primary', 14) }}
             >
               {sc.stage} ✓
@@ -720,13 +720,13 @@ function WhatsAppAgentApp({ isEn = false }: { isEn?: boolean }) {
           </div>
 
           <div
-            className="flex min-h-0 flex-1 flex-col justify-end gap-1.5 overflow-hidden px-2.5 sm:px-3 py-2"
+            className="flex min-h-[195px] flex-1 flex-col justify-end gap-1.5 overflow-hidden px-2.5 sm:px-3 py-2"
             style={{ background: mix('surface', 70) }}
           >
             {visible.map((m, i) => (
               <div
                 key={`${scenario}-${i}`}
-                className={`max-w-[85%] rounded-xl px-2.5 py-1.5 text-[10px] sm:text-[10.5px] leading-snug text-foreground shadow-sm ${
+                className={`max-w-[88%] rounded-xl px-2.5 py-1.5 text-[9.5px] sm:text-[10.5px] leading-snug text-foreground shadow-sm ${
                   m.from === 'user' ? 'ml-auto rounded-tr-sm' : 'mr-auto rounded-tl-sm border border-rule bg-card'
                 }`}
                 style={
@@ -737,18 +737,18 @@ function WhatsAppAgentApp({ isEn = false }: { isEn?: boolean }) {
               >
                 {m.kind === 'audio' ? (
                   <span className="flex items-center gap-1.5">
-                    <Mic size={11} className="text-primary" />
+                    <Mic size={11} className="text-primary shrink-0" />
                     <span className="flex items-end gap-[2px]" aria-hidden="true">
                       {[4, 8, 5, 10, 6, 9, 4, 7, 5, 8, 3].map((h, k) => (
                         <span key={k} className="w-[2px] rounded-full bg-primary" style={{ height: h }} />
                       ))}
                     </span>
-                    <span className="font-mono text-[9px] text-muted">{m.text}</span>
+                    <span className="font-mono text-[8.5px] text-muted">{m.text}</span>
                   </span>
                 ) : m.kind === 'image' ? (
                   <span className="flex items-center gap-1.5">
-                    <span className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded bg-background">
-                      <FileCheck size={12} className="text-primary" />
+                    <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded bg-background shrink-0">
+                      <FileCheck size={11} className="text-primary" />
                     </span>
                     <span className="truncate">{m.text}</span>
                   </span>
@@ -756,12 +756,12 @@ function WhatsAppAgentApp({ isEn = false }: { isEn?: boolean }) {
                   m.text
                 )}
                 {m.from === 'user' && (
-                  <CheckCheck size={10} className="ml-1 inline align-[-1px]" style={{ color: '#34b7f1' }} />
+                  <CheckCheck size={10} className="ml-1 inline align-[-1px] shrink-0" style={{ color: '#34b7f1' }} />
                 )}
               </div>
             ))}
             {nextIsBot && (
-              <div className="mr-auto flex gap-1 rounded-xl rounded-tl-sm border border-rule bg-card px-2.5 py-1.5 sm:py-2">
+              <div className="mr-auto flex gap-1 rounded-xl rounded-tl-sm border border-rule bg-card px-2.5 py-1.5">
                 {[0, 1, 2].map((d) => (
                   <span
                     key={d}
@@ -785,7 +785,7 @@ function WhatsAppAgentApp({ isEn = false }: { isEn?: boolean }) {
                     setScenario(i);
                     setStep(1);
                   }}
-                  className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[9px] sm:text-[9.5px] font-medium transition-colors ${
+                  className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[8.5px] sm:text-[9.5px] font-medium transition-colors ${
                     active ? 'border-primary bg-primary text-primary-ink' : 'border-rule text-muted hover:text-foreground'
                   }`}
                 >
@@ -797,14 +797,14 @@ function WhatsAppAgentApp({ isEn = false }: { isEn?: boolean }) {
           </div>
         </div>
 
-        {/* CRM panel (always visible on desktop, tab-controlled on mobile) */}
+        {/* CRM panel */}
         <div
           className={`min-w-0 flex-col gap-2 bg-card p-2.5 h-full sm:border-l border-rule ${
             mobileTab === 'crm' ? 'flex' : 'hidden sm:flex'
           }`}
         >
           <div className="flex items-center justify-between">
-            <span className="text-[8.5px] sm:text-[9px] font-semibold uppercase tracking-wider text-muted">CRM · Lead Pipeline</span>
+            <span className="text-[8px] sm:text-[9px] font-semibold uppercase tracking-wider text-muted">CRM · Lead Pipeline</span>
             <LivePill label="0.9s sync" />
           </div>
 
@@ -813,9 +813,9 @@ function WhatsAppAgentApp({ isEn = false }: { isEn?: boolean }) {
               const done = filled >= f.at;
               return (
                 <div key={f.k} className="flex items-center justify-between gap-2">
-                  <span className="text-[8.5px] sm:text-[9px] text-muted">{f.k}</span>
+                  <span className="text-[8px] sm:text-[9px] text-muted">{f.k}</span>
                   {done ? (
-                    <span className="truncate text-[9.5px] sm:text-[10px] font-semibold text-foreground" style={{ animation: 'miniapp-pop .35s ease-out' }}>
+                    <span className="truncate text-[9px] sm:text-[10px] font-semibold text-foreground" style={{ animation: 'miniapp-pop .35s ease-out' }}>
                       {f.v}
                     </span>
                   ) : (
@@ -838,14 +838,14 @@ function WhatsAppAgentApp({ isEn = false }: { isEn?: boolean }) {
                   >
                     <Check size={8} />
                   </span>
-                  <span className={`text-[9.5px] sm:text-[10px] ${reached ? 'text-foreground' : 'text-muted'}`}>{st}</span>
+                  <span className={`text-[9px] sm:text-[10px] ${reached ? 'text-foreground' : 'text-muted'}`}>{st}</span>
                 </div>
               );
             })}
           </div>
 
           <div className="mt-auto rounded-lg p-2" style={{ background: mix('primary', 12) }}>
-            <p className="text-[8.5px] sm:text-[9px] text-muted">{isEn ? 'Handled today' : 'Atendidos hoy'}</p>
+            <p className="text-[8px] sm:text-[9px] text-muted">{isEn ? 'Handled today' : 'Atendidos hoy'}</p>
             <p className="font-mono text-sm sm:text-base font-semibold text-foreground">{148 + scenario * 3}</p>
           </div>
         </div>
@@ -908,18 +908,18 @@ function AutomationCanvasApp({ isEn = false }: { isEn?: boolean }) {
   };
 
   const nodes = [
-    { key: 'wa', x: 2, y: 38, icon: MessageCircle, name: 'WhatsApp', sub: isEn ? 'New order' : 'Nuevo pedido', at: 0, color: '#25d366' },
-    { key: 'ai', x: 36, y: 38, icon: Bot, name: isEn ? 'AI agent' : 'Agente IA', sub: isEn ? 'Validates' : 'Valida', at: 1 },
-    { key: 'inv', x: 70, y: 4, icon: Receipt, name: isEn ? 'Invoice' : 'Factura', sub: 'DIAN / ERP', at: 2 },
-    { key: 'pdf', x: 70, y: 38, icon: FileText, name: isEn ? 'Contract' : 'Contrato', sub: 'PDF', at: 2 },
-    { key: 'crm', x: 70, y: 72, icon: Database, name: 'CRM', sub: isEn ? 'Updated' : 'Actualizado', at: 2 },
+    { key: 'wa', x: 2, y: 38, icon: MessageCircle, name: 'WhatsApp', sub: isEn ? 'Order' : 'Pedido', at: 0, color: '#25d366' },
+    { key: 'ai', x: 35, y: 38, icon: Bot, name: isEn ? 'AI agent' : 'Agente IA', sub: isEn ? 'Validates' : 'Valida', at: 1 },
+    { key: 'inv', x: 68, y: 4, icon: Receipt, name: isEn ? 'Invoice' : 'Factura', sub: 'DIAN / ERP', at: 2 },
+    { key: 'pdf', x: 68, y: 38, icon: FileText, name: isEn ? 'Contract' : 'Contrato', sub: 'PDF', at: 2 },
+    { key: 'crm', x: 68, y: 72, icon: Database, name: 'CRM', sub: isEn ? 'Updated' : 'Actualizado', at: 2 },
   ];
 
   const edges = [
-    { d: 'M30,50 L36,50', at: 1 },
-    { d: 'M64,50 C67,50 67,16 70,16', at: 2 },
-    { d: 'M64,50 L70,50', at: 2 },
-    { d: 'M64,50 C67,50 67,84 70,84', at: 2 },
+    { d: 'M31,50 L35,50', at: 1 },
+    { d: 'M63,50 C66,50 66,16 68,16', at: 2 },
+    { d: 'M63,50 L68,50', at: 2 },
+    { d: 'M63,50 C66,50 66,84 68,84', at: 2 },
   ];
 
   return (
@@ -931,7 +931,7 @@ function AutomationCanvasApp({ isEn = false }: { isEn?: boolean }) {
         <button
           type="button"
           onClick={advance}
-          className="inline-flex items-center gap-1 rounded-md bg-primary px-1.5 sm:px-2 py-0.5 sm:py-1 text-[9px] sm:text-[10px] font-semibold text-primary-ink transition-opacity hover:opacity-90"
+          className="inline-flex items-center gap-1 rounded-md bg-primary px-1.5 sm:px-2 py-0.5 sm:py-1 text-[8.5px] sm:text-[10px] font-semibold text-primary-ink transition-opacity hover:opacity-90 shrink-0"
         >
           <Play size={9} />
           <span className="hidden sm:inline">{isEn ? 'Run' : 'Ejecutar'}</span>
@@ -941,7 +941,7 @@ function AutomationCanvasApp({ isEn = false }: { isEn?: boolean }) {
       <div className="flex h-full flex-col">
         {/* Canvas */}
         <div
-          className="relative min-h-0 flex-1"
+          className="relative min-h-[195px] flex-1"
           style={{
             backgroundImage: 'radial-gradient(var(--rule-strong) 1px, transparent 1px)',
             backgroundSize: '14px 14px',
@@ -973,7 +973,7 @@ function AutomationCanvasApp({ isEn = false }: { isEn?: boolean }) {
             return (
               <div
                 key={n.key}
-                className={`absolute flex h-[24%] w-[29%] sm:w-[28%] items-center gap-1 sm:gap-1.5 rounded-lg border bg-card px-1 sm:px-2 transition-all duration-300 ${
+                className={`absolute flex h-[24%] w-[30%] sm:w-[28%] items-center gap-1 sm:gap-1.5 rounded-lg border bg-card px-1 sm:px-2 transition-all duration-300 ${
                   active ? 'border-primary shadow-lg' : 'border-rule'
                 }`}
                 style={{
@@ -989,8 +989,8 @@ function AutomationCanvasApp({ isEn = false }: { isEn?: boolean }) {
                   <Icon size={11} className="sm:size-[12px]" />
                 </span>
                 <div className="min-w-0 leading-tight">
-                  <p className="truncate text-[9.5px] sm:text-[10px] font-semibold text-foreground">{n.name}</p>
-                  <p className="hidden truncate text-[8.5px] text-muted sm:block">{n.sub}</p>
+                  <p className="truncate text-[8.5px] sm:text-[10px] font-semibold text-foreground">{n.name}</p>
+                  <p className="truncate text-[7.5px] text-muted sm:text-[8.5px]">{n.sub}</p>
                 </div>
                 <span
                   className={`absolute -right-1 -top-1 flex h-3.5 w-3.5 items-center justify-center rounded-full text-primary-ink transition-opacity ${
@@ -1006,13 +1006,13 @@ function AutomationCanvasApp({ isEn = false }: { isEn?: boolean }) {
 
         {/* Execution log */}
         <div className="border-t border-rule bg-card px-2.5 sm:px-3 py-1.5 sm:py-2">
-          <div className="mb-1 flex items-center justify-between text-[8.5px] sm:text-[9px]">
+          <div className="mb-1 flex items-center justify-between text-[8px] sm:text-[9px]">
             <span className="font-semibold uppercase tracking-wider text-muted">{isEn ? 'Execution log' : 'Registro en vivo'}</span>
-            <span className="font-mono text-primary truncate ml-1">
-              {runs} {isEn ? 'runs today' : 'procesos'} · 0 {isEn ? 'errors' : 'errores'}
+            <span className="font-mono text-primary truncate ml-1 text-[8px] sm:text-[9px]">
+              {runs} {isEn ? 'runs' : 'procesos'} · 0 {isEn ? 'err' : 'errores'}
             </span>
           </div>
-          <div className="h-[52px] sm:h-[60px] space-y-0.5 overflow-hidden font-mono text-[8.5px] sm:text-[9.5px]">
+          <div className="h-[48px] sm:h-[60px] space-y-0.5 overflow-hidden font-mono text-[8px] sm:text-[9.5px]">
             {log.map((l, i) => (
               <p
                 key={`${l.t}-${i}`}
