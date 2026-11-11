@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title-g">
+  <title id="title-g">Autonomek concept G — Wave voice</title>
+  <g id="symbol" fill="#000000">
+    <rect x="27" y="104" width="26" height="48" rx="13"/>
+    <rect x="71" y="84" width="26" height="88" rx="13"/>
+    <rect x="115" y="63" width="26" height="130" rx="13"/>
+    <rect x="159" y="84" width="26" height="88" rx="13"/>
+    <rect x="203" y="104" width="26" height="48" rx="13"/>
+  </g>
+</svg>

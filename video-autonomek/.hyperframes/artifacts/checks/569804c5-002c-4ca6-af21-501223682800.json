@@ -1,0 +1,637 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "composition_file_too_large",
+        "severity": "warning",
+        "message": "This HTML composition file has 318 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek\\compositions\\scene-automation.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split this sub-composition further into smaller .html files, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently."
+      },
+      {
+        "code": "composition_file_too_large",
+        "severity": "warning",
+        "message": "This HTML composition file has 358 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek\\compositions\\scene-web.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split this sub-composition further into smaller .html files, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently."
+      }
+    ],
+    "filesScanned": 6
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 22,
+    "samples": [
+      1.222,
+      3.667,
+      6.111,
+      8.556,
+      11,
+      13.444,
+      15.889,
+      18.333,
+      20.778
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.222,
+      6.111,
+      11,
+      15.889,
+      20.778
+    ],
+    "checked": 126,
+    "passed": 126
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 6,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "film_silent",
+        "severity": "warning",
+        "message": "This 22 s film has no sound source (no <audio>, no <video> with sound): add a music bed and sounds on the visible actions unless the person asked for silence; see references/sound.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"WEB · IA · SOFTWARE B2B\" renders at 26 px for 2.63 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "WEB · IA · SOFTWARE B2B",
+        "selector": "#hook-eyebrow-text",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene-hook.html",
+        "bbox": {
+          "x": 760.07,
+          "y": 298.62,
+          "width": 425.56,
+          "height": 34.6
+        },
+        "time": 0.125,
+        "times": [
+          0.125
+        ],
+        "fontPx": 25.7,
+        "floorPx": 28,
+        "seconds": 2.625,
+        "elements": [
+          {
+            "selector": "#hook-eyebrow-text",
+            "text": "WEB · IA · SOFTWARE B2B",
+            "fontPx": 25.7,
+            "time": 0.125,
+            "seconds": 2.625
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 12 text elements stay under it for 0.5 s or more, the smallest \"tuempresa.com\" at 24 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "tuempresa.com",
+        "selector": "#web-address > span:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene-web.html",
+        "bbox": {
+          "x": 829.66,
+          "y": 342.54,
+          "width": 188.15,
+          "height": 32.47
+        },
+        "time": 3.125,
+        "times": [
+          3.125,
+          3.125,
+          3.125,
+          3.125,
+          3.25,
+          3.5,
+          3.5,
+          3.625,
+          3.75,
+          3.75,
+          4,
+          4
+        ],
+        "fontPx": 24.12,
+        "floorPx": 28,
+        "seconds": 4.625,
+        "elements": [
+          {
+            "selector": "#web-address > span:nth-of-type(2)",
+            "text": "tuempresa.com",
+            "fontPx": 24.12,
+            "time": 3.125,
+            "seconds": 4.625
+          },
+          {
+            "selector": "#web-chrome-tag",
+            "text": "SSR · EDGE",
+            "fontPx": 24.12,
+            "time": 3.125,
+            "seconds": 4.625
+          },
+          {
+            "selector": "#web-audit-title",
+            "text": "PageSpeed Insights",
+            "fontPx": 24.12,
+            "time": 3.125,
+            "seconds": 4.625
+          },
+          {
+            "selector": "#web-audit-live",
+            "text": "PASSED ✓",
+            "fontPx": 24.12,
+            "time": 3.125,
+            "seconds": 4.625
+          },
+          {
+            "selector": "#web-bento-3 > span:nth-of-type(1)",
+            "text": "Rebote",
+            "fontPx": 25.29,
+            "time": 3.75,
+            "seconds": 4
+          },
+          {
+            "selector": "#web-bento-1 > span:nth-of-type(1)",
+            "text": "Velocidad LCP",
+            "fontPx": 25.38,
+            "time": 3.625,
+            "seconds": 4.125
+          },
+          {
+            "selector": "#web-rank-tag",
+            "text": "#1 GOOGLE & IA",
+            "fontPx": 25.74,
+            "time": 4,
+            "seconds": 3.75
+          },
+          {
+            "selector": "#web-rank-sub",
+            "text": "Indexación semántica JSON-LD + llms.txt activo",
+            "fontPx": 25.74,
+            "time": 4,
+            "seconds": 3.75
+          },
+          {
+            "selector": "#web-pillar-badge",
+            "text": "PILAR 01 · NEXT.JS & TECHNICAL SEO",
+            "fontPx": 25.76,
+            "time": 3.25,
+            "seconds": 4.5
+          },
+          {
+            "selector": "#web-speed-chip",
+            "text": "⚡ Carga instantánea 0.6s",
+            "fontPx": 25.94,
+            "time": 3.5,
+            "seconds": 4.25
+          },
+          {
+            "selector": "#web-conv-badge",
+            "text": "+214% Conversión",
+            "fontPx": 25.94,
+            "time": 3.5,
+            "seconds": 4.25
+          },
+          {
+            "selector": "#web-bento-2 > span:nth-of-type(1)",
+            "text": "Ventas Mes",
+            "fontPx": 25.99,
+            "time": 3.75,
+            "seconds": 4
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 15 text elements stay under it for 0.5 s or more, the smallest \"WhatsApp Business · Agente IA\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "WhatsApp Business · Agente IA",
+        "selector": "#wa-address > span:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene-whatsapp.html",
+        "bbox": {
+          "x": 683.19,
+          "y": 320.55,
+          "width": 423.37,
+          "height": 32.76
+        },
+        "time": 8.125,
+        "times": [
+          8.125,
+          8.125,
+          8.125,
+          8.125,
+          8.125,
+          8.25,
+          8.625,
+          9,
+          9,
+          9.875,
+          9.875,
+          10,
+          10,
+          10.125,
+          10.25
+        ],
+        "fontPx": 21.64,
+        "floorPx": 28,
+        "seconds": 4.875,
+        "elements": [
+          {
+            "selector": "#wa-address > span:nth-of-type(2)",
+            "text": "WhatsApp Business · Agente IA",
+            "fontPx": 21.64,
+            "time": 8.125,
+            "seconds": 4.875
+          },
+          {
+            "selector": "#wa-chrome-status",
+            "text": "0.9s CRM SYNC",
+            "fontPx": 21.64,
+            "time": 8.125,
+            "seconds": 4.875
+          },
+          {
+            "selector": "#wa-agent-online",
+            "text": "● en línea 24/7",
+            "fontPx": 21.64,
+            "time": 8.125,
+            "seconds": 4.875
+          },
+          {
+            "selector": "#wa-crm-label",
+            "text": "CRM · LEAD PIPELINE",
+            "fontPx": 21.64,
+            "time": 8.125,
+            "seconds": 4.875
+          },
+          {
+            "selector": "#wa-crm-sync",
+            "text": "AUTO ✓",
+            "fontPx": 21.64,
+            "time": 8.125,
+            "seconds": 4.875
+          },
+          {
+            "selector": "#wa-pillar-badge",
+            "text": "PILAR 02 · WHATSAPP CLOUD API & RAG",
+            "fontPx": 21.64,
+            "time": 8.25,
+            "seconds": 4.75
+          },
+          {
+            "selector": "#wa-ai-node-ms",
+            "text": "1.1 seg",
+            "fontPx": 21.64,
+            "time": 8.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#wa-crm-row-1 > span:nth-of-type(1)",
+            "text": "Cliente",
+            "fontPx": 21.64,
+            "time": 9,
+            "seconds": 4
+          },
+          {
+            "selector": "#wa-crm-row-1 > span:nth-of-type(2)",
+            "text": "Laura M. · Plan Pro",
+            "fontPx": 21.64,
+            "time": 9,
+            "seconds": 4
+          },
+          {
+            "selector": "#wa-crm-row-2 > span:nth-of-type(1)",
+            "text": "Cita Calendar",
+            "fontPx": 21.64,
+            "time": 9.875,
+            "seconds": 3.125
+          },
+          {
+            "selector": "#wa-crm-row-2 > span:nth-of-type(2)",
+            "text": "Mañana 10:00 a. m.",
+            "fontPx": 21.64,
+            "time": 9.875,
+            "seconds": 3.125
+          },
+          {
+            "selector": "#wa-crm-row-3 > span:nth-of-type(1)",
+            "text": "Estado",
+            "fontPx": 21.64,
+            "time": 10,
+            "seconds": 3
+          },
+          {
+            "selector": "span.crm-val.crm-val-accent",
+            "text": "Cotizado y Agendado ✓",
+            "fontPx": 21.64,
+            "time": 10,
+            "seconds": 3
+          },
+          {
+            "selector": "#wa-stage-chip",
+            "text": "Agendado ✓",
+            "fontPx": 21.64,
+            "time": 10.125,
+            "seconds": 2.875
+          },
+          {
+            "selector": "#wa-handled-label",
+            "text": "Prospectos atendidos hoy",
+            "fontPx": 21.64,
+            "time": 10.25,
+            "seconds": 2.75
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 14 text elements stay under it for 0.5 s or more, the smallest \"Valida pago y datos\" at 21 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "Valida pago y datos",
+        "selector": "#node-core > div:nth-of-type(2) > span:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene-automation.html",
+        "bbox": {
+          "x": 854.9,
+          "y": 597.5,
+          "width": 271.23,
+          "height": 30.73
+        },
+        "time": 14,
+        "times": [
+          13.25,
+          13.25,
+          13.25,
+          13.25,
+          13.25,
+          13.375,
+          13.375,
+          13.375,
+          14,
+          14.625,
+          14.625,
+          14.75,
+          15.125,
+          15.25
+        ],
+        "fontPx": 21.29,
+        "floorPx": 28,
+        "seconds": 4,
+        "elements": [
+          {
+            "selector": "#node-core > div:nth-of-type(2) > span:nth-of-type(2)",
+            "text": "Valida pago y datos",
+            "fontPx": 21.29,
+            "time": 14,
+            "seconds": 4
+          },
+          {
+            "selector": "#node-wa > div:nth-of-type(2) > span:nth-of-type(2)",
+            "text": "Orden #A-1042",
+            "fontPx": 22.23,
+            "time": 13.375,
+            "seconds": 4.5
+          },
+          {
+            "selector": "#node-web > div:nth-of-type(2) > span:nth-of-type(2)",
+            "text": "Lead capturado",
+            "fontPx": 22.3,
+            "time": 13.375,
+            "seconds": 4.5
+          },
+          {
+            "selector": "#node-erp > div:nth-of-type(2) > span:nth-of-type(2)",
+            "text": "Emitida en 0.4s",
+            "fontPx": 22.3,
+            "time": 14.625,
+            "seconds": 3.25
+          },
+          {
+            "selector": "#node-pdf > div:nth-of-type(2) > span:nth-of-type(2)",
+            "text": "Firmado y enviado",
+            "fontPx": 22.3,
+            "time": 14.625,
+            "seconds": 3.25
+          },
+          {
+            "selector": "#node-crm > div:nth-of-type(2) > span:nth-of-type(2)",
+            "text": "Sincronizado 24/7",
+            "fontPx": 22.3,
+            "time": 14.75,
+            "seconds": 3.125
+          },
+          {
+            "selector": "#auto-pillar-badge",
+            "text": "PILAR 03 · N8N, WEBHOOKS, ERP & CRM",
+            "fontPx": 23.06,
+            "time": 13.25,
+            "seconds": 4.75
+          },
+          {
+            "selector": "#auto-address > span:nth-of-type(2)",
+            "text": "automatizaciones / nueva-venta-b2b",
+            "fontPx": 23.06,
+            "time": 13.25,
+            "seconds": 4.75
+          },
+          {
+            "selector": "#auto-run-badge",
+            "text": "▶ EN VIVO",
+            "fontPx": 23.06,
+            "time": 13.25,
+            "seconds": 4.75
+          },
+          {
+            "selector": "#auto-log-title",
+            "text": "REGISTRO DE EJECUCIÓN EN VIVO",
+            "fontPx": 23.06,
+            "time": 13.25,
+            "seconds": 4.75
+          },
+          {
+            "selector": "#auto-log-stats",
+            "text": "129 PROCESOS HOY · 0 ERRORES",
+            "fontPx": 23.06,
+            "time": 13.25,
+            "seconds": 4.75
+          },
+          {
+            "selector": "#auto-kpi-text",
+            "text": "0 Digitación Manual",
+            "fontPx": 23.06,
+            "time": 13.375,
+            "seconds": 4.625
+          },
+          {
+            "selector": "#auto-log-1",
+            "text": "09:41:02 ✓ Orden #A-1042 validada",
+            "fontPx": 23.06,
+            "time": 15.125,
+            "seconds": 2.875
+          },
+          {
+            "selector": "#auto-log-2",
+            "text": "09:41:03 ✓ Factura + CRM + PDF listos",
+            "fontPx": 23.06,
+            "time": 15.25,
+            "seconds": 2.75
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 3 text elements stay under it for 0.5 s or more, the smallest \"Webs 99+ SEO\" at 26 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "Webs 99+ SEO",
+        "selector": "#cta-footer-strip > span:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene-cta.html",
+        "bbox": {
+          "x": 466.78,
+          "y": 742.66,
+          "width": 187.2,
+          "height": 35
+        },
+        "time": 19,
+        "times": [
+          19,
+          19,
+          19
+        ],
+        "fontPx": 26,
+        "floorPx": 28,
+        "seconds": 3,
+        "elements": [
+          {
+            "selector": "#cta-footer-strip > span:nth-of-type(1)",
+            "text": "Webs 99+ SEO",
+            "fontPx": 26,
+            "time": 19,
+            "seconds": 3
+          },
+          {
+            "selector": "#cta-footer-strip > span:nth-of-type(3)",
+            "text": "Vendedores IA WhatsApp",
+            "fontPx": 26,
+            "time": 19,
+            "seconds": 3
+          },
+          {
+            "selector": "#cta-footer-strip > span:nth-of-type(5)",
+            "text": "Automatización B2B",
+            "fontPx": 26,
+            "time": 19,
+            "seconds": 3
+          }
+        ]
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 176
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "audio_none",
+        "severity": "info",
+        "message": "The film has no sound: no clip in it plays audio.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ]
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

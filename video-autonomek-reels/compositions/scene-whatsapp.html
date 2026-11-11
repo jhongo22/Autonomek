@@ -1,0 +1,98 @@
+<template>
+  <style>
+    #wa-stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); perspective: 1200px; }
+    #wa-camera { position: absolute; inset: 0; width: 1080px; height: 1920px; transform-style: preserve-3d; transform-origin: 50% 50%; }
+    .wa-header { position: absolute; left: 56px; top: 176px; width: 920px; z-index: 5; }
+    .wa-tag { display: inline-flex; align-items: center; gap: 12px; padding: 10px 22px; border-radius: 999px; background: rgba(19, 33, 27, 0.94); border: 1px solid rgba(165, 208, 185, 0.38); font-family: var(--font-mono); font-size: 32px; font-weight: 600; color: #a5d0b9; margin-bottom: 14px; }
+    .wa-title { font-family: var(--font-display); font-size: 54px; font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; color: #ffffff; }
+    .wa-title-word { display: inline-block; margin-right: 10px; }
+    .wa-title-accent { color: #a5d0b9; }
+    .wa-chat-card { position: absolute; left: 56px; top: 396px; width: 920px; height: 706px; border-radius: 26px; background: linear-gradient(170deg, rgba(19, 33, 27, 0.97) 0%, rgba(7, 13, 10, 0.98) 100%); border: 1px solid rgba(165, 208, 185, 0.40); box-shadow: 0 28px 70px rgba(0, 0, 0, 0.74); overflow: hidden; z-index: 4; display: flex; flex-direction: column; }
+    .wa-chat-top { height: 78px; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; background: rgba(13, 22, 18, 0.96); border-bottom: 1px solid rgba(165, 208, 185, 0.22); }
+    .wa-agent-info { display: flex; align-items: center; gap: 16px; }
+    .wa-avatar { width: 52px; height: 52px; border-radius: 14px; background: rgba(165, 208, 185, 0.16); border: 1px solid rgba(165, 208, 185, 0.45); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 32px; font-weight: 800; color: #a5d0b9; }
+    .wa-agent-name { font-size: 32px; font-weight: 800; color: #ffffff; }
+    .wa-online-pill { padding: 8px 18px; border-radius: 999px; background: rgba(165, 208, 185, 0.16); font-family: var(--font-mono); font-size: 32px; font-weight: 700; color: #a5d0b9; }
+    .wa-messages { padding: 22px; display: flex; flex-direction: column; gap: 15px; flex: 1; }
+    .wa-msg-in { align-self: flex-start; max-width: 820px; padding: 18px 22px; border-radius: 20px 20px 20px 6px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.14); font-size: 32px; font-weight: 500; line-height: 1.3; color: #ffffff; }
+    .wa-msg-out { align-self: flex-end; max-width: 840px; padding: 18px 22px; border-radius: 20px 20px 6px 20px; background: linear-gradient(135deg, rgba(54, 99, 103, 0.62) 0%, rgba(19, 33, 27, 0.95) 100%); border: 1px solid rgba(165, 208, 185, 0.45); font-size: 32px; font-weight: 600; line-height: 1.3; color: #ffffff; }
+    .wa-msg-deal { align-self: flex-end; width: 840px; padding: 18px 22px; border-radius: 18px; background: rgba(165, 208, 185, 0.16); border: 1px solid #a5d0b9; display: flex; align-items: center; justify-content: space-between; font-size: 32px; font-weight: 700; color: #a5d0b9; }
+    .wa-deal-badge { padding: 8px 18px; border-radius: 10px; background: #a5d0b9; color: #070d0a; font-family: var(--font-mono); font-size: 32px; font-weight: 800; }
+    .wa-bottom-stack { position: absolute; left: 56px; top: 1122px; width: 920px; display: grid; grid-template-columns: 440px 456px; gap: 24px; z-index: 5; }
+    .wa-node-card, .wa-crm-card { padding: 20px 24px; border-radius: 22px; background: rgba(19, 33, 27, 0.96); border: 1px solid rgba(165, 208, 185, 0.36); box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6); }
+    .wa-card-kicker { font-family: var(--font-mono); font-size: 32px; font-weight: 700; color: #a5d0b9; margin-bottom: 8px; }
+    .wa-card-main { font-size: 34px; font-weight: 800; color: #ffffff; line-height: 1.15; margin-bottom: 8px; }
+    .wa-card-sub { font-family: var(--font-mono); font-size: 32px; font-weight: 600; color: #b4c8be; }
+  </style>
+
+  <div id="wa-stage" data-composition-id="scene-whatsapp" data-width="1080" data-height="1920">
+    <div id="wa-camera">
+      <div class="wa-header">
+        <div class="wa-tag">PILAR 02 // AGENTES COMERCIALES 24/7</div>
+        <h2 class="wa-title">
+          <span class="wa-title-word">Vendedores</span>
+          <span class="wa-title-word">con</span>
+          <span class="wa-title-word wa-title-accent">IA</span>
+          <span class="wa-title-word">en</span>
+          <span class="wa-title-word wa-title-accent">WhatsApp</span>
+        </h2>
+      </div>
+
+      <div class="wa-chat-card" id="wa-chat-card">
+        <div class="wa-chat-top">
+          <div class="wa-agent-info">
+            <div class="wa-avatar">AI</div>
+            <div class="wa-agent-name">AUTONOMEK_ Sales Agent</div>
+          </div>
+          <div class="wa-online-pill">ONLINE · 1.4s</div>
+        </div>
+
+        <div class="wa-messages">
+          <div class="wa-msg-in" id="wa-msg-1">
+            “Buscamos automatizar ventas B2B para 40 asesores.”
+          </div>
+          <div class="wa-msg-out" id="wa-msg-2">
+            “¡Hola Carlos! Plan Enterprise B2B listo. Demo agendada: Jueves 10:00 AM.”
+          </div>
+          <div class="wa-msg-deal" id="wa-msg-3">
+            <span>Cita confirmada · Jueves 10:00 AM</span>
+            <span class="wa-deal-badge">$4,800 USD</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="wa-bottom-stack">
+        <div class="wa-node-card" id="wa-node-card">
+          <div class="wa-card-kicker">MOTOR IA RAG</div>
+          <div class="wa-card-main">Intención: Compra B2B (98%)</div>
+          <div class="wa-card-sub">Respuesta en 1.4 seg</div>
+        </div>
+        <div class="wa-crm-card" id="wa-crm-card">
+          <div class="wa-card-kicker">PIPELINE CRM</div>
+          <div class="wa-card-main">Lead Calificado + Cita</div>
+          <div class="wa-card-sub">Sincronizado 24/7</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#wa-camera", { scale: 0.92, filter: "blur(6px)" }, { scale: 1, filter: "blur(0px)", duration: 0.42, ease: "power3.out" }, 0);
+    tl.fromTo(".wa-title-word", { opacity: 0.3, y: 18 }, { opacity: 1, y: 0, duration: 0.36, stagger: 0.04, ease: "back.out(1.6)" }, 0.02);
+    tl.fromTo("#wa-chat-card", { y: 26, opacity: 0.65 }, { y: 0, opacity: 1, duration: 0.42, ease: "back.out(1.4)" }, 0);
+    tl.fromTo("#wa-msg-1", { opacity: 0.4, y: 16, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.38, ease: "back.out(1.6)" }, 0.08);
+    tl.fromTo("#wa-node-card", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.5)" }, 0.3);
+    tl.fromTo("#wa-msg-2", { opacity: 0, y: 22, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.6)" }, 0.48);
+    tl.fromTo("#wa-msg-3", { opacity: 0, y: 22, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.8)" }, 0.95);
+    tl.fromTo("#wa-crm-card", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.42, ease: "back.out(1.6)" }, 1.15);
+    tl.to("#wa-msg-3", { scale: 1.02, duration: 0.45, yoyo: true, repeat: 4, ease: "sine.inOut" }, 1.8);
+    tl.to("#wa-camera", { scale: 0.72, y: 90, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 4.6);
+
+    // Ritmo pausado: la coreografía original se estira x1.5 para acompañar la narración natural.
+    const STRETCH = 1.5;
+    const stretched = gsap.timeline({ paused: true });
+    stretched.add(tl.paused(false).timeScale(1 / STRETCH), 0);
+    window.__timelines["scene-whatsapp"] = stretched;
+  </script>
+</template>

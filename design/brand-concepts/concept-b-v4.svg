@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">Autonomek Interlocked Orbital Arches v4</title>
+  <g id="symbol" fill="#111111">
+    <path d="M 20 176 L 20 112 A 78 78 0 0 1 176 112 L 176 124 L 140 160 L 140 112 A 42 42 0 0 0 56 112 L 56 140 Z"/>
+    <path d="M 236 80 L 236 144 A 78 78 0 0 1 80 144 L 80 132 L 116 96 L 116 144 A 42 42 0 0 0 200 144 L 200 116 Z"/>
+  </g>
+</svg>

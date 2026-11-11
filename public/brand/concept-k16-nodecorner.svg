@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title-k16">
+  <title id="title-k16">Autonomek concept K16 - Node corner</title>
+  <g transform="rotate(-8 128 128)">
+    <path d="M 76 48 L 168 48 L 208 88 L 208 180 A 28 28 0 0 1 180 208 L 76 208 A 28 28 0 0 1 48 180 L 48 76 A 28 28 0 0 1 76 48 Z"
+          fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="214" cy="42" r="20" fill="#000000"/>
+  </g>
+</svg>

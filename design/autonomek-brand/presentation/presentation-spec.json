@@ -1,0 +1,54 @@
+{
+  "brand": "Autonomek",
+  "tagline": "Ingeniería de software B2B, webs sub-segundo y agentes IA",
+  "brief": "Estudio aplicado de ingeniería de software, agentes comerciales IA en WhatsApp 24/7, webs Next.js sub-segundo con SEO/GEO y automatización de procesos con propiedad total del código.",
+  "adjectives": [
+    "Autónomo",
+    "Preciso",
+    "Directo",
+    "Soberano",
+    "Ordenado"
+  ],
+  "criteria": "Distintivo frente a clichés de IA, nítido a 16 px en pestaña, sólido en monocromo y adaptable a las 5 paletas nativas de la plataforma.",
+  "industry": "software",
+  "nav": [
+    "Servicios",
+    "Flujos",
+    "Proyectos",
+    "Proceso"
+  ],
+  "brand_color": "#366367",
+  "tile_color": "#070d0a",
+  "greyscale": false,
+  "final": true,
+  "deck_title": "identidad visual definitiva · keystone a",
+  "label": "Identidad Final",
+  "designer": "Autonomek Design System",
+  "concepts": [
+    {
+      "name": "Keystone A",
+      "symbol": "../digital/themes/p4-bosque-petroleo/autonomek-symbol-p4-light.svg",
+      "lockup": "../digital/themes/p4-bosque-petroleo/autonomek-horizontal-p4-light.svg",
+      "stacked": "../digital/themes/p4-bosque-petroleo/autonomek-stacked-p4-light.svg",
+      "avatar": "../source/autonomek-symbol-small.svg",
+      "symbol_on_tile": "../digital/themes/p4-bosque-petroleo/autonomek-symbol-p4-dark.svg",
+      "symbol_on_dark": "../digital/themes/p4-bosque-petroleo/autonomek-symbol-p4-dark.svg",
+      "lockup_on_tile": "../digital/themes/p4-bosque-petroleo/autonomek-horizontal-p4-dark.svg",
+      "lockup_on_dark": "../digital/themes/p4-bosque-petroleo/autonomek-horizontal-p4-dark.svg",
+      "stacked_on_tile": "../digital/themes/p4-bosque-petroleo/autonomek-stacked-p4-dark.svg",
+      "stacked_on_dark": "../digital/themes/p4-bosque-petroleo/autonomek-stacked-p4-dark.svg",
+      "idea": "Una «A» monolítica a 60° abierta por un conducto continuo en espacio negativo que funciona directamente como inicial integrada de AUTONOMEK.",
+      "rationale": [
+        "Keystone A actúa directamente como la primera letra de AUTONOMEK (sin doble AA) y corona la versión apilada AUTO / NOMEK",
+        "Trazado geométrico unificado con altura de mayúscula exacta 1:1, plintos verticales, ángulos a 60°/45° y peso de asta equilibrado",
+        "Corte óptico dedicado de 26u para favicon 16 px y sincronización cromática total con las 5 paletas nativas de la web"
+      ]
+    }
+  ],
+  "recommendation": "Sistema unificado sin redundancia «AA» validado en 5 temas web (Salvia, Glaciar, Mineral, Bosque y Espresso), monocromo, lockups horizontal/apilado y paquete PWA/favicons.",
+  "next_steps": [
+    "Logotipo integrado AutonomekLockup activo en Navigation, Footer y Preloader",
+    "Maestros vectoriales, versiones de 5 temas, web-icons y tarjetas en design/autonomek-brand/",
+    "Recomendado ejecutar búsqueda oficial de antecedentes marcarios antes del registro comercial"
+  ]
+}

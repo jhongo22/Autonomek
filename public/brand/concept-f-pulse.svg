@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title-f">
+  <title id="title-f">Autonomek concept F — Pulse signal</title>
+  <g id="symbol" fill="none">
+    <path d="M52 144 H 92 L 112 82 L 142 194 L 166 144 H 204" stroke="#000000" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="204" cy="144" r="16" fill="#000000"/>
+  </g>
+</svg>

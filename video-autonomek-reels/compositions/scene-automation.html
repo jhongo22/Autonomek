@@ -1,0 +1,112 @@
+<template>
+  <style>
+    #auto-stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); perspective: 1200px; }
+    #auto-camera { position: absolute; inset: 0; width: 1080px; height: 1920px; transform-style: preserve-3d; transform-origin: 50% 50%; }
+    .auto-header { position: absolute; left: 56px; top: 176px; width: 920px; z-index: 5; }
+    .auto-tag { display: inline-flex; align-items: center; gap: 12px; padding: 10px 22px; border-radius: 999px; background: rgba(19, 33, 27, 0.94); border: 1px solid rgba(165, 208, 185, 0.38); font-family: var(--font-mono); font-size: 32px; font-weight: 600; color: #a5d0b9; margin-bottom: 14px; }
+    .auto-title { font-family: var(--font-display); font-size: 50px; font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; color: #ffffff; }
+    .auto-title-word { display: inline-block; margin-right: 10px; }
+    .auto-title-accent { color: #a5d0b9; }
+    .auto-dag-board { position: absolute; left: 56px; top: 396px; width: 920px; height: 730px; border-radius: 26px; background: radial-gradient(circle at 50% 50%, rgba(54, 99, 103, 0.28), rgba(7, 13, 10, 0.96) 72%); border: 1px solid rgba(165, 208, 185, 0.38); box-shadow: 0 28px 70px rgba(0, 0, 0, 0.72); overflow: hidden; z-index: 4; }
+    .auto-wires { position: absolute; inset: 0; width: 920px; height: 730px; pointer-events: none; z-index: 1; }
+    .auto-node { position: absolute; border-radius: 20px; background: rgba(19, 33, 27, 0.96); border: 1px solid rgba(165, 208, 185, 0.42); padding: 18px 22px; z-index: 3; box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55); }
+    .auto-node-kicker { font-family: var(--font-mono); font-size: 32px; font-weight: 700; color: #a5d0b9; margin-bottom: 4px; }
+    .auto-node-title { font-size: 32px; font-weight: 800; color: #ffffff; line-height: 1.15; }
+    .auto-hub { position: absolute; left: 220px; top: 268px; width: 480px; height: 156px; border-radius: 24px; background: linear-gradient(135deg, rgba(54, 99, 103, 0.75) 0%, rgba(19, 33, 27, 0.98) 100%); border: 2px solid #a5d0b9; box-shadow: 0 0 48px rgba(165, 208, 185, 0.28); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; z-index: 4; }
+    .auto-hub-tag { font-family: var(--font-mono); font-size: 32px; font-weight: 700; color: #a5d0b9; margin-bottom: 6px; }
+    .auto-hub-name { font-size: 38px; font-weight: 800; color: #ffffff; }
+    .auto-bottom-bar { position: absolute; left: 56px; top: 1148px; width: 920px; padding: 20px 26px; border-radius: 22px; background: rgba(19, 33, 27, 0.96); border: 1px solid rgba(165, 208, 185, 0.38); display: flex; align-items: center; justify-content: space-between; z-index: 5; }
+    .auto-log-text { font-family: var(--font-mono); font-size: 32px; font-weight: 700; color: #ffffff; }
+    .auto-roi-pill { padding: 12px 22px; border-radius: 14px; background: #a5d0b9; color: #070d0a; font-family: var(--font-mono); font-size: 32px; font-weight: 800; }
+  </style>
+
+  <div id="auto-stage" data-composition-id="scene-automation" data-width="1080" data-height="1920">
+    <div id="auto-camera">
+      <div class="auto-header">
+        <div class="auto-tag">PILAR 03 // ORQUESTACIÓN B2B</div>
+        <h2 class="auto-title">
+          <span class="auto-title-word">Automatización</span>
+          <span class="auto-title-word">de</span>
+          <span class="auto-title-word auto-title-accent">Procesos</span>
+          <span class="auto-title-word">para</span>
+          <span class="auto-title-word">tu</span>
+          <span class="auto-title-word auto-title-accent">Negocio</span>
+        </h2>
+      </div>
+
+      <div class="auto-dag-board" id="auto-dag-board">
+        <svg class="auto-wires" viewBox="0 0 920 730" fill="none">
+          <path d="M230 148 L460 288" stroke="rgba(165,208,185,0.32)" stroke-width="3" />
+          <path d="M690 148 L460 288" stroke="rgba(165,208,185,0.32)" stroke-width="3" />
+          <path d="M460 416 L170 546" stroke="rgba(165,208,185,0.32)" stroke-width="3" />
+          <path d="M460 416 L460 546" stroke="rgba(165,208,185,0.32)" stroke-width="3" />
+          <path d="M460 416 L750 546" stroke="rgba(165,208,185,0.32)" stroke-width="3" />
+          <circle id="pulse-in-1" cx="230" cy="148" r="9" fill="#a5d0b9" />
+          <circle id="pulse-in-2" cx="690" cy="148" r="9" fill="#a5d0b9" />
+          <circle id="pulse-out-1" cx="460" cy="416" r="9" fill="#a5d0b9" />
+          <circle id="pulse-out-2" cx="460" cy="416" r="9" fill="#a5d0b9" />
+          <circle id="pulse-out-3" cx="460" cy="416" r="9" fill="#a5d0b9" />
+        </svg>
+
+        <div class="auto-node" id="node-in-web" style="left:44px; top:44px; width:380px;">
+          <div class="auto-node-kicker">ENTRADA 01</div>
+          <div class="auto-node-title">Web 99+ Lead</div>
+        </div>
+
+        <div class="auto-node" id="node-in-wa" style="left:496px; top:44px; width:380px;">
+          <div class="auto-node-kicker">ENTRADA 02</div>
+          <div class="auto-node-title">WhatsApp IA 24/7</div>
+        </div>
+
+        <div class="auto-hub" id="node-hub">
+          <div class="auto-hub-tag">ORQUESTADOR CENTRAL</div>
+          <div class="auto-hub-name">AUTONOMEK_ AI CORE</div>
+        </div>
+
+        <div class="auto-node" id="node-out-erp" style="left:36px; top:522px; width:268px;">
+          <div class="auto-node-kicker">ERP SYNC</div>
+          <div class="auto-node-title">Factura DIAN</div>
+        </div>
+
+        <div class="auto-node" id="node-out-pdf" style="left:326px; top:522px; width:268px;">
+          <div class="auto-node-kicker">LEGAL</div>
+          <div class="auto-node-title">Contrato PDF</div>
+        </div>
+
+        <div class="auto-node" id="node-out-crm" style="left:616px; top:522px; width:268px;">
+          <div class="auto-node-kicker">CRM + CAL</div>
+          <div class="auto-node-title">Agenda &amp; Deal</div>
+        </div>
+      </div>
+
+      <div class="auto-bottom-bar" id="auto-bottom-bar">
+        <span class="auto-log-text">EJECUCIÓN: 2.3s · 0 INTERVENCIÓN HUMANA</span>
+        <span class="auto-roi-pill">-85% CARGA</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#auto-camera", { scale: 1.15, filter: "blur(6px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 0);
+    tl.fromTo(".auto-title-word", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.045, ease: "back.out(1.6)" }, 0.08);
+    tl.fromTo(["#node-in-web", "#node-in-wa"], { opacity: 0, y: -25 }, { opacity: 1, y: 0, duration: 0.42, stagger: 0.08, ease: "back.out(1.5)" }, 0.22);
+    tl.fromTo("#node-hub", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.48, ease: "back.out(1.7)" }, 0.42);
+    tl.fromTo(["#node-out-erp", "#node-out-pdf", "#node-out-crm"], { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, stagger: 0.08, ease: "back.out(1.6)" }, 0.68);
+    tl.fromTo("#auto-bottom-bar", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" }, 0.95);
+
+    tl.to("#pulse-in-1", { attr: { cx: 460, cy: 288 }, duration: 0.65, repeat: 4, ease: "power1.inOut" }, 0.6);
+    tl.to("#pulse-in-2", { attr: { cx: 460, cy: 288 }, duration: 0.65, repeat: 4, ease: "power1.inOut" }, 0.75);
+    tl.to("#pulse-out-1", { attr: { cx: 170, cy: 546 }, duration: 0.7, repeat: 4, ease: "power1.out" }, 1.1);
+    tl.to("#pulse-out-2", { attr: { cx: 460, cy: 546 }, duration: 0.7, repeat: 4, ease: "power1.out" }, 1.2);
+    tl.to("#pulse-out-3", { attr: { cx: 750, cy: 546 }, duration: 0.7, repeat: 4, ease: "power1.out" }, 1.3);
+    tl.to("#node-hub", { scale: 1.03, duration: 0.45, yoyo: true, repeat: 4, ease: "sine.inOut" }, 1.5);
+    tl.to("#auto-camera", { scale: 0.62, filter: "blur(8px)", duration: 0.42, ease: "power3.in" }, 4.58);
+
+    // Ritmo pausado: la coreografía original se estira x1.5 para acompañar la narración natural.
+    const STRETCH = 1.5;
+    const stretched = gsap.timeline({ paused: true });
+    stretched.add(tl.paused(false).timeScale(1 / STRETCH), 0);
+    window.__timelines["scene-automation"] = stretched;
+  </script>
+</template>

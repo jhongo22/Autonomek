@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="984" viewBox="0 0 1600 984"><defs><filter id="grey"><feColorMatrix type="saturate" values="0"/></filter></defs><rect width="1600" height="984" fill="#f7f7f4"/><text x="60" y="78" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="40" font-weight="700" fill="#161616">Autonomek — Conceptos de Identidad Visual</text><text x="60" y="116" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="20" fill="#6b6b6b">Ronda 1 en escala de grises (512 px a 16 px) · Selecciona una dirección para producir el kit</text><rect x="60" y="150" width="474.667" height="774" rx="18" fill="#fff" stroke="#161616" stroke-width="2"/><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title" viewBox="0 0 256 256" x="90" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+  <title id="c0-title">Autonomek Keystone A v3</title>
+  <g id="c0-symbol" fill="#111111">
+    <path d="M 18 223 L 18 192 L 108 36.12 L 148 36.12 L 198.74 124 L 154.86 124 L 128 77.47 L 61.88 192 L 61.88 223 Z"/>
+    <path d="M 113.84 146 L 211.44 146 L 238 192 L 238 223 L 194.12 223 L 194.12 192 L 187.77 181 L 93.63 181 Z"/>
+  </g>
+</svg>
+</g><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title" viewBox="0 0 1123 256" x="90" y="514" width="414.667" height="120" preserveAspectRatio="xMidYMid meet">
+  <title id="l0-title">Autonomek Keystone A Lockup v3</title>
+  <g id="l0-symbol" fill="#111111">
+    <path d="M 18 223 L 18 192 L 108 36.12 L 148 36.12 L 198.74 124 L 154.86 124 L 128 77.47 L 61.88 192 L 61.88 223 Z"/>
+    <path d="M 113.84 146 L 211.44 146 L 238 192 L 238 223 L 194.12 223 L 194.12 192 L 187.77 181 L 93.63 181 Z"/>
+  </g>
+  <g id="l0-wordmark" fill="#111111">
+    <path fill-rule="evenodd" d="M 282 178 L 309.87 74 L 335.25 74 L 363.12 178 L 345.89 178 L 338.95 152.08 L 306.17 152.08 L 299.23 178 Z  M 322.56 90.92 L 335.02 137.44 L 310.1 137.44 Z"/>
+    <path d="M 375.08 74 L 391.72 74 L 391.72 144.3 A 19.76 19.76 0 0 0 431.24 144.3 L 431.24 74 L 447.88 74 L 447.88 144.3 A 36.4 36.4 0 0 1 375.08 144.3 Z"/>
+    <path d="M 458.28 74 L 529 74 L 529 88.64 L 501.96 88.64 L 501.96 178 L 485.32 178 L 485.32 88.64 L 458.28 88.64 Z"/>
+    <path fill-rule="evenodd" d="M 575.28 71.3 A 40.56 54.7 0 1 1 575.28 180.7 A 40.56 54.7 0 1 1 575.28 71.3 Z  M 575.28 85.94 A 23.92 40.06 0 1 0 575.28 166.06 A 23.92 40.06 0 1 0 575.28 85.94 Z"/>
+    <path d="M 628.84 74 L 644.48 74 L 686.75 147.22 L 686.75 74 L 702.39 74 L 702.39 178 L 686.75 178 L 644.48 104.78 L 644.48 178 L 628.84 178 Z"/>
+    <path fill-rule="evenodd" d="M 755.95 71.3 A 40.56 54.7 0 1 1 755.95 180.7 A 40.56 54.7 0 1 1 755.95 71.3 Z  M 755.95 85.94 A 23.92 40.06 0 1 0 755.95 166.06 A 23.92 40.06 0 1 0 755.95 85.94 Z"/>
+    <path d="M 809.51 74 L 824.32 74 L 874 160.05 L 923.69 74 L 938.5 74 L 938.5 178 L 923.69 178 L 923.69 104.78 L 881.41 178 L 866.6 178 L 824.32 104.78 L 824.32 178 L 809.51 178 Z"/>
+    <path d="M 952.02 74 L 1016.5 74 L 1016.5 88.64 L 968.66 88.64 L 968.66 116.6 L 1006.83 116.6 L 1006.83 131.24 L 968.66 131.24 L 968.66 163.36 L 1016.5 163.36 L 1016.5 178 L 952.02 178 Z"/>
+    <path d="M 1030.02 74 L 1046.66 74 L 1046.66 104.55 L 1077.21 74 L 1100.74 74 L 1048.74 126 L 1100.74 178 L 1077.21 178 L 1046.66 147.45 L 1046.66 178 L 1030.02 178 Z"/>
+  </g>
+</svg>
+</g><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title" viewBox="0 0 256 256" x="90" y="660" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+  <title id="s064-title">Autonomek Keystone A v3</title>
+  <g id="s064-symbol" fill="#111111">
+    <path d="M 18 223 L 18 192 L 108 36.12 L 148 36.12 L 198.74 124 L 154.86 124 L 128 77.47 L 61.88 192 L 61.88 223 Z"/>
+    <path d="M 113.84 146 L 211.44 146 L 238 192 L 238 223 L 194.12 223 L 194.12 192 L 187.77 181 L 93.63 181 Z"/>
+  </g>
+</svg>
+</g><text x="122" y="744" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title" viewBox="0 0 256 256" x="180" y="692" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+  <title id="s032-title">Autonomek Keystone A v3</title>
+  <g id="s032-symbol" fill="#111111">
+    <path d="M 18 223 L 18 192 L 108 36.12 L 148 36.12 L 198.74 124 L 154.86 124 L 128 77.47 L 61.88 192 L 61.88 223 Z"/>
+    <path d="M 113.84 146 L 211.44 146 L 238 192 L 238 223 L 194.12 223 L 194.12 192 L 187.77 181 L 93.63 181 Z"/>
+  </g>
+</svg>
+</g><text x="196" y="744" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title" viewBox="0 0 256 256" x="238" y="708" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+  <title id="s016-title">Autonomek Keystone A v3</title>
+  <g id="s016-symbol" fill="#111111">
+    <path d="M 18 223 L 18 192 L 108 36.12 L 148 36.12 L 198.74 124 L 154.86 124 L 128 77.47 L 61.88 192 L 61.88 223 Z"/>
+    <path d="M 113.84 146 L 211.44 146 L 238 192 L 238 223 L 194.12 223 L 194.12 192 L 187.77 181 L 93.63 181 Z"/>
+  </g>
+</svg>
+</g><text x="246" y="744" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="90.0" y="780" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">A · Keystone A</text><text x="90.0" y="808" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#161616" letter-spacing="1.5">RECOMMENDED</text><text x="90.0" y="842" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">Una «A» monolítica abierta por un conducto</text><text x="90.0" y="868" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">continuo: rigor estructural y flujo</text><text x="90.0" y="894" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">autónomo.</text><rect x="562.667" y="150" width="474.667" height="774" rx="18" fill="#fff" stroke="#e4e4e0" stroke-width="1"/><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title" viewBox="0 0 256 256" x="592.667" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+  <title id="c1-title">Autonomek Twin-Fold Circuit v5</title>
+  <g id="c1-symbol" fill="#111111">
+    <path d="M 24 184 L 24 84 A 60 60 0 0 1 84 24 L 184 24 L 216 56 L 146 126 L 114 94 L 140 68 L 84 68 A 16 16 0 0 0 68 84 L 68 140 Z"/>
+    <path d="M 232 72 L 232 172 A 60 60 0 0 1 172 232 L 72 232 L 40 200 L 110 130 L 142 162 L 116 188 L 172 188 A 16 16 0 0 0 188 172 L 188 116 Z"/>
+  </g>
+</svg>
+</g><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title" viewBox="0 0 1123 256" x="592.667" y="514" width="414.667" height="120" preserveAspectRatio="xMidYMid meet">
+  <title id="l1-title">Autonomek Twin-Fold Circuit Lockup v3</title>
+  <g id="l1-symbol" fill="#111111">
+    <path d="M 24 184 L 24 84 A 60 60 0 0 1 84 24 L 184 24 L 216 56 L 146 126 L 114 94 L 140 68 L 84 68 A 16 16 0 0 0 68 84 L 68 140 Z"/>
+    <path d="M 232 72 L 232 172 A 60 60 0 0 1 172 232 L 72 232 L 40 200 L 110 130 L 142 162 L 116 188 L 172 188 A 16 16 0 0 0 188 172 L 188 116 Z"/>
+  </g>
+  <g id="l1-wordmark" fill="#111111">
+    <path fill-rule="evenodd" d="M 282 178 L 309.87 74 L 335.25 74 L 363.12 178 L 345.89 178 L 338.95 152.08 L 306.17 152.08 L 299.23 178 Z  M 322.56 90.92 L 335.02 137.44 L 310.1 137.44 Z"/>
+    <path d="M 375.08 74 L 391.72 74 L 391.72 144.3 A 19.76 19.76 0 0 0 431.24 144.3 L 431.24 74 L 447.88 74 L 447.88 144.3 A 36.4 36.4 0 0 1 375.08 144.3 Z"/>
+    <path d="M 458.28 74 L 529 74 L 529 88.64 L 501.96 88.64 L 501.96 178 L 485.32 178 L 485.32 88.64 L 458.28 88.64 Z"/>
+    <path fill-rule="evenodd" d="M 575.28 71.3 A 40.56 54.7 0 1 1 575.28 180.7 A 40.56 54.7 0 1 1 575.28 71.3 Z  M 575.28 85.94 A 23.92 40.06 0 1 0 575.28 166.06 A 23.92 40.06 0 1 0 575.28 85.94 Z"/>
+    <path d="M 628.84 74 L 644.48 74 L 686.75 147.22 L 686.75 74 L 702.39 74 L 702.39 178 L 686.75 178 L 644.48 104.78 L 644.48 178 L 628.84 178 Z"/>
+    <path fill-rule="evenodd" d="M 755.95 71.3 A 40.56 54.7 0 1 1 755.95 180.7 A 40.56 54.7 0 1 1 755.95 71.3 Z  M 755.95 85.94 A 23.92 40.06 0 1 0 755.95 166.06 A 23.92 40.06 0 1 0 755.95 85.94 Z"/>
+    <path d="M 809.51 74 L 824.32 74 L 874 160.05 L 923.69 74 L 938.5 74 L 938.5 178 L 923.69 178 L 923.69 104.78 L 881.41 178 L 866.6 178 L 824.32 104.78 L 824.32 178 L 809.51 178 Z"/>
+    <path d="M 952.02 74 L 1016.5 74 L 1016.5 88.64 L 968.66 88.64 L 968.66 116.6 L 1006.83 116.6 L 1006.83 131.24 L 968.66 131.24 L 968.66 163.36 L 1016.5 163.36 L 1016.5 178 L 952.02 178 Z"/>
+    <path d="M 1030.02 74 L 1046.66 74 L 1046.66 104.55 L 1077.21 74 L 1100.74 74 L 1048.74 126 L 1100.74 178 L 1077.21 178 L 1046.66 147.45 L 1046.66 178 L 1030.02 178 Z"/>
+  </g>
+</svg>
+</g><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title" viewBox="0 0 256 256" x="592.667" y="660" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+  <title id="s164-title">Autonomek Twin-Fold Circuit v5</title>
+  <g id="s164-symbol" fill="#111111">
+    <path d="M 24 184 L 24 84 A 60 60 0 0 1 84 24 L 184 24 L 216 56 L 146 126 L 114 94 L 140 68 L 84 68 A 16 16 0 0 0 68 84 L 68 140 Z"/>
+    <path d="M 232 72 L 232 172 A 60 60 0 0 1 172 232 L 72 232 L 40 200 L 110 130 L 142 162 L 116 188 L 172 188 A 16 16 0 0 0 188 172 L 188 116 Z"/>
+  </g>
+</svg>
+</g><text x="624.667" y="744" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title" viewBox="0 0 256 256" x="682.667" y="692" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+  <title id="s132-title">Autonomek Twin-Fold Circuit v5</title>
+  <g id="s132-symbol" fill="#111111">
+    <path d="M 24 184 L 24 84 A 60 60 0 0 1 84 24 L 184 24 L 216 56 L 146 126 L 114 94 L 140 68 L 84 68 A 16 16 0 0 0 68 84 L 68 140 Z"/>
+    <path d="M 232 72 L 232 172 A 60 60 0 0 1 172 232 L 72 232 L 40 200 L 110 130 L 142 162 L 116 188 L 172 188 A 16 16 0 0 0 188 172 L 188 116 Z"/>
+  </g>
+</svg>
+</g><text x="698.667" y="744" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title" viewBox="0 0 256 256" x="740.667" y="708" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+  <title id="s116-title">Autonomek Twin-Fold Circuit v5</title>
+  <g id="s116-symbol" fill="#111111">
+    <path d="M 24 184 L 24 84 A 60 60 0 0 1 84 24 L 184 24 L 216 56 L 146 126 L 114 94 L 140 68 L 84 68 A 16 16 0 0 0 68 84 L 68 140 Z"/>
+    <path d="M 232 72 L 232 172 A 60 60 0 0 1 172 232 L 72 232 L 40 200 L 110 130 L 142 162 L 116 188 L 172 188 A 16 16 0 0 0 188 172 L 188 116 Z"/>
+  </g>
+</svg>
+</g><text x="748.667" y="744" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="592.6666666666667" y="780" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">B · Circuito Dual</text><text x="592.6666666666667" y="814" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">Dos módulos engranados por un canal a 45°:</text><text x="592.6666666666667" y="840" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">automatización continua del caos al orden.</text><rect x="1065.33" y="150" width="474.667" height="774" rx="18" fill="#fff" stroke="#e4e4e0" stroke-width="1"/><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title" viewBox="0 0 256 256" x="1095.33" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+  <title id="c2-title">Autonomek AK Nexus v6</title>
+  <path id="c2-symbol" fill="#111111" fill-rule="evenodd" d="M 16 218 L 96 38 L 140 38 L 140 95.57 L 197.57 38 L 240 38 L 150 128 L 240 218 L 197.57 218 L 140 160.43 L 140 218 L 110 218 L 110 188 L 62.16 188 L 48.83 218 Z  M 110 80.37 L 110 160 L 74.61 160 Z"/>
+</svg>
+</g><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title" viewBox="0 0 1123 256" x="1095.33" y="514" width="414.667" height="120" preserveAspectRatio="xMidYMid meet">
+  <title id="l2-title">Autonomek AK Nexus Lockup v4</title>
+  <path id="l2-symbol" fill="#111111" fill-rule="evenodd" d="M 16 218 L 96 38 L 140 38 L 140 95.57 L 197.57 38 L 240 38 L 150 128 L 240 218 L 197.57 218 L 140 160.43 L 140 218 L 110 218 L 110 188 L 62.16 188 L 48.83 218 Z  M 110 80.37 L 110 160 L 74.61 160 Z"/>
+  <g id="l2-wordmark" fill="#111111">
+    <path fill-rule="evenodd" d="M 282 178 L 309.87 74 L 335.25 74 L 363.12 178 L 345.89 178 L 338.95 152.08 L 306.17 152.08 L 299.23 178 Z  M 322.56 90.92 L 335.02 137.44 L 310.1 137.44 Z"/>
+    <path d="M 375.08 74 L 391.72 74 L 391.72 144.3 A 19.76 19.76 0 0 0 431.24 144.3 L 431.24 74 L 447.88 74 L 447.88 144.3 A 36.4 36.4 0 0 1 375.08 144.3 Z"/>
+    <path d="M 458.28 74 L 529 74 L 529 88.64 L 501.96 88.64 L 501.96 178 L 485.32 178 L 485.32 88.64 L 458.28 88.64 Z"/>
+    <path fill-rule="evenodd" d="M 575.28 71.3 A 40.56 54.7 0 1 1 575.28 180.7 A 40.56 54.7 0 1 1 575.28 71.3 Z  M 575.28 85.94 A 23.92 40.06 0 1 0 575.28 166.06 A 23.92 40.06 0 1 0 575.28 85.94 Z"/>
+    <path d="M 628.84 74 L 644.48 74 L 686.75 147.22 L 686.75 74 L 702.39 74 L 702.39 178 L 686.75 178 L 644.48 104.78 L 644.48 178 L 628.84 178 Z"/>
+    <path fill-rule="evenodd" d="M 755.95 71.3 A 40.56 54.7 0 1 1 755.95 180.7 A 40.56 54.7 0 1 1 755.95 71.3 Z  M 755.95 85.94 A 23.92 40.06 0 1 0 755.95 166.06 A 23.92 40.06 0 1 0 755.95 85.94 Z"/>
+    <path d="M 809.51 74 L 824.32 74 L 874 160.05 L 923.69 74 L 938.5 74 L 938.5 178 L 923.69 178 L 923.69 104.78 L 881.41 178 L 866.6 178 L 824.32 104.78 L 824.32 178 L 809.51 178 Z"/>
+    <path d="M 952.02 74 L 1016.5 74 L 1016.5 88.64 L 968.66 88.64 L 968.66 116.6 L 1006.83 116.6 L 1006.83 131.24 L 968.66 131.24 L 968.66 163.36 L 1016.5 163.36 L 1016.5 178 L 952.02 178 Z"/>
+    <path d="M 1030.02 74 L 1046.66 74 L 1046.66 104.55 L 1077.21 74 L 1100.74 74 L 1048.74 126 L 1100.74 178 L 1077.21 178 L 1046.66 147.45 L 1046.66 178 L 1030.02 178 Z"/>
+  </g>
+</svg>
+</g><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title" viewBox="0 0 256 256" x="1095.33" y="660" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+  <title id="s264-title">Autonomek AK Nexus v6</title>
+  <path id="s264-symbol" fill="#111111" fill-rule="evenodd" d="M 16 218 L 96 38 L 140 38 L 140 95.57 L 197.57 38 L 240 38 L 150 128 L 240 218 L 197.57 218 L 140 160.43 L 140 218 L 110 218 L 110 188 L 62.16 188 L 48.83 218 Z  M 110 80.37 L 110 160 L 74.61 160 Z"/>
+</svg>
+</g><text x="1127.33" y="744" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title" viewBox="0 0 256 256" x="1185.33" y="692" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+  <title id="s232-title">Autonomek AK Nexus v6</title>
+  <path id="s232-symbol" fill="#111111" fill-rule="evenodd" d="M 16 218 L 96 38 L 140 38 L 140 95.57 L 197.57 38 L 240 38 L 150 128 L 240 218 L 197.57 218 L 140 160.43 L 140 218 L 110 218 L 110 188 L 62.16 188 L 48.83 218 Z  M 110 80.37 L 110 160 L 74.61 160 Z"/>
+</svg>
+</g><text x="1201.33" y="744" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title" viewBox="0 0 256 256" x="1243.33" y="708" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+  <title id="s216-title">Autonomek AK Nexus v6</title>
+  <path id="s216-symbol" fill="#111111" fill-rule="evenodd" d="M 16 218 L 96 38 L 140 38 L 140 95.57 L 197.57 38 L 240 38 L 150 128 L 240 218 L 197.57 218 L 140 160.43 L 140 218 L 110 218 L 110 188 L 62.16 188 L 48.83 218 Z  M 110 80.37 L 110 160 L 74.61 160 Z"/>
+</svg>
+</g><text x="1251.33" y="744" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="1095.3333333333335" y="780" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">C · Nexo AK</text><text x="1095.3333333333335" y="814" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">Monograma «AK» sobre un eje compartido:</text><text x="1095.3333333333335" y="840" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">autonomía e ingeniería de software propio.</text></svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">Autonomek Twin-Fold Circuit v2</title>
+  <g id="symbol" fill="#111111">
+    <path d="M 24 184 L 24 84 A 60 60 0 0 1 84 24 L 182 24 L 210 52 L 140 122 L 112 94 L 142 64 L 84 64 A 20 20 0 0 0 64 84 L 64 144 Z"/>
+    <path d="M 232 72 L 232 172 A 60 60 0 0 1 172 232 L 74 232 L 46 204 L 116 134 L 144 162 L 114 192 L 172 192 A 20 20 0 0 0 192 172 L 192 112 Z"/>
+  </g>
+</svg>

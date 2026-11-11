@@ -1,0 +1,227 @@
+<!doctype html>
+<html
+  lang="es"
+  data-composition-variables='[
+    {"id":"brandName","type":"string","label":"Marca","default":"AUTONOMEK_"},
+    {"id":"hookConcept","type":"string","label":"Concepto Escena 1","default":"Ingeniería de software e Inteligencia Artificial para escalar tu negocio"},
+    {"id":"pillar1Title","type":"string","label":"Título Pilar 1","default":"Páginas Web de Alto Impacto"},
+    {"id":"pillar2Title","type":"string","label":"Título Pilar 2","default":"Vendedores con IA en WhatsApp"},
+    {"id":"pillar3Title","type":"string","label":"Título Pilar 3","default":"Automatización de Procesos para tu Negocio"},
+    {"id":"ctaHeadline","type":"string","label":"Cierre CTA","default":"Transforma tu operación hoy"},
+    {"id":"ctaUrl","type":"string","label":"URL","default":"autonomek.com"},
+    {"id":"bg","type":"color","label":"Fondo (--bg)","default":"#070d0a"},
+    {"id":"surface","type":"color","label":"Superficie (--surface)","default":"#0d1612"},
+    {"id":"card","type":"color","label":"Tarjeta (--card)","default":"#13211b"},
+    {"id":"primary","type":"color","label":"Acento Primario (--primary)","default":"#a5d0b9"},
+    {"id":"secondary","type":"color","label":"Acento Secundario (--secondary)","default":"#366367"},
+    {"id":"accent","type":"color","label":"Acento Telemetría (--accent)","default":"#73a2b6"}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>AUTONOMEK_ — Video Promocional Oficial</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --bg: #070d0a;
+        --surface: #0d1612;
+        --card: #13211b;
+        --fg: #ffffff;
+        --muted: #b4c8be;
+        --subtle: #7a9488;
+        --primary: #a5d0b9;
+        --primary-ink: #070d0a;
+        --secondary: #366367;
+        --accent: #73a2b6;
+        --rule: rgba(255, 255, 255, 0.12);
+        --rule-strong: rgba(165, 208, 185, 0.35);
+        --font-display: "Inter", sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--font-display);
+        -webkit-font-smoothing: antialiased;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--bg);
+      }
+      #bg-plate {
+        position: absolute;
+        inset: 0;
+        background: var(--bg);
+        z-index: 0;
+      }
+      .clip {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+      #captions.clip {
+        overflow: visible;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="34"
+      data-fps="60"
+      data-width="1920"
+      data-height="1080"
+      data-motion-blur="on"
+    >
+      <div id="bg-plate" data-layout-ignore></div>
+
+      <!-- Escena 1: El Gancho / Identidad (0s - 6s) -->
+      <div
+        id="scene-hook"
+        class="clip"
+        data-composition-id="scene-hook"
+        data-composition-src="compositions/scene-hook.html"
+        data-start="0"
+        data-duration="6"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+        data-beat="hook"
+        style="z-index: 1"
+      ></div>
+
+      <!-- Escena 2: Pilar 1 — Páginas Web de Alto Impacto (6s - 13s) -->
+      <div
+        id="scene-web"
+        class="clip"
+        data-composition-id="scene-web"
+        data-composition-src="compositions/scene-web.html"
+        data-start="6"
+        data-duration="7"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+        data-beat="web"
+        style="z-index: 2"
+      ></div>
+
+      <!-- Escena 3: Pilar 2 — Vendedores con IA en WhatsApp (13s - 20.5s) -->
+      <div
+        id="scene-whatsapp"
+        class="clip"
+        data-composition-id="scene-whatsapp"
+        data-composition-src="compositions/scene-whatsapp.html"
+        data-start="13"
+        data-duration="7.5"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+        data-beat="whatsapp"
+        style="z-index: 3"
+      ></div>
+
+      <!-- Escena 4: Pilar 3 — Automatización de Procesos (20.5s - 28s) -->
+      <div
+        id="scene-automation"
+        class="clip"
+        data-composition-id="scene-automation"
+        data-composition-src="compositions/scene-automation.html"
+        data-start="20.5"
+        data-duration="7.5"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+        data-beat="automation"
+        style="z-index: 4"
+      ></div>
+
+      <!-- Escena 5: Cierre / Call to Action (28s - 34s) -->
+      <div
+        id="scene-cta"
+        class="clip"
+        data-composition-id="scene-cta"
+        data-composition-src="compositions/scene-cta.html"
+        data-start="28"
+        data-duration="6"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+        data-beat="cta"
+        style="z-index: 5"
+      ></div>
+
+      <!-- Subtítulos dinámicos sincronizados al narrador -->
+      <div
+        id="captions"
+        class="clip"
+        data-composition-id="captions"
+        data-composition-src="compositions/captions.html"
+        data-start="0"
+        data-duration="34"
+        data-track-index="2"
+        data-track-kind="captions"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 20"
+      ></div>
+
+      <!-- Pistas de audio: Voz narradora + Música calibrada + SFX -->
+      <audio
+        id="audio-vo"
+        class="clip"
+        src="assets/voiceover.mp3"
+        data-start="0"
+        data-duration="34"
+        data-track-index="3"
+        data-volume="1"
+      ></audio>
+      <audio
+        id="audio-music"
+        class="clip"
+        src="assets/music-bed.mp3"
+        data-start="0"
+        data-duration="34"
+        data-track-index="4"
+        data-volume="1"
+        data-fade-out="0.6"
+      ></audio>
+      <audio
+        id="audio-sfx"
+        class="clip"
+        src="assets/sfx-track.mp3"
+        data-start="0"
+        data-duration="34"
+        data-track-index="5"
+        data-volume="0.85"
+      ></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

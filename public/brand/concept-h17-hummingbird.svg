@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title-h17">
+  <title id="title-h17">Autonomek concept H17 - Hummingbird</title>
+  <defs>
+    <mask id="cuts" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
+      <rect x="0" y="0" width="256" height="256" fill="#ffffff"/>
+      <g fill="none" stroke="#000000" stroke-width="3.0" stroke-linecap="round">
+        <path d="M 188 116 L 132 96"/>
+        <path d="M 182 126 L 130 108"/>
+        <path d="M 198 94 L 206 102"/>
+      </g>
+      <circle cx="200" cy="98" r="2.5" fill="#000000"/>
+    </mask>
+  </defs>
+  <g transform="translate(128 128) scale(1.08) translate(-170 -134)" fill="#000000" mask="url(#cuts)">
+    <ellipse cx="176" cy="132" rx="26" ry="38" transform="rotate(-35 176 132)"/>
+    <circle cx="198" cy="102" r="16"/>
+    <path d="M 212 100 L 246 96 L 214 112 Z"/>
+    <path d="M 188 116 L 150 96 L 118 70 L 94 48 L 92 44 L 98 64 L 120 90 L 150 116 L 176 134 L 188 138 Z"/>
+    <path d="M 182 126 L 146 110 L 116 90 L 94 78 L 90 76 L 96 92 L 118 108 L 146 126 L 170 140 L 182 144 Z"/>
+    <path d="M 154 172 L 134 184 L 116 198 L 108 206 L 120 206 L 142 194 L 158 180 Z"/>
+    <path d="M 154 172 L 144 188 L 134 202 L 130 210 L 140 208 L 152 192 L 162 178 Z"/>
+    <path d="M 154 172 L 154 188 L 152 202 L 150 210 L 158 208 L 162 192 L 164 178 Z"/>
+  </g>
+</svg>

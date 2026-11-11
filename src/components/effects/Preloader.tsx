@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { AutonomekLockup } from '../brand/AutonomekLogo';
 
 export default function Preloader() {
   const [loading, setLoading] = useState(true);
@@ -54,12 +55,13 @@ export default function Preloader() {
           className="fixed inset-0 z-[999] bg-background flex flex-col items-center justify-center pointer-events-none"
         >
           <div className="w-full max-w-sm px-6 flex flex-col items-center">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-accent font-display font-black text-6xl tracking-tighter mb-4"
+              className="flex flex-col items-center mb-5"
             >
-              AUTONOMEK.
+              <AutonomekLockup className="w-[260px] sm:w-[310px] h-auto text-foreground" />
+              <span className="sr-only">AUTONOMEK</span>
             </motion.div>
             
             <div className="w-full h-[1px] bg-surface relative overflow-hidden">

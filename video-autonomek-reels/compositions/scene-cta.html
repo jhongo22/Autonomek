@@ -1,0 +1,79 @@
+<template>
+  <style>
+    #cta-stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); perspective: 1200px; }
+    #cta-camera { position: absolute; inset: 0; width: 1080px; height: 1920px; transform-style: preserve-3d; transform-origin: 50% 50%; }
+    .cta-glow { position: absolute; width: 820px; height: 820px; left: 130px; top: 430px; border-radius: 50%; background: radial-gradient(circle, rgba(165, 208, 185, 0.24) 0%, rgba(54, 99, 103, 0.14) 45%, rgba(7, 13, 10, 0) 72%); pointer-events: none; }
+    .cta-safe-stack { position: absolute; left: 56px; top: 176px; width: 920px; height: 1110px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; z-index: 4; }
+    .cta-kicker { display: inline-flex; align-items: center; gap: 12px; padding: 10px 24px; border-radius: 999px; background: rgba(19, 33, 27, 0.94); border: 1px solid rgba(165, 208, 185, 0.42); font-family: var(--font-mono); font-size: 32px; font-weight: 700; color: #a5d0b9; margin-bottom: 22px; }
+    .cta-logo-box { display: inline-flex; align-items: center; gap: 22px; padding: 20px 36px; border-radius: 26px; background: linear-gradient(135deg, rgba(19, 33, 27, 0.96) 0%, rgba(13, 22, 18, 0.94) 100%); border: 1px solid rgba(165, 208, 185, 0.45); box-shadow: 0 28px 68px rgba(0, 0, 0, 0.72), 0 0 44px rgba(165, 208, 185, 0.16); margin-bottom: 26px; }
+    .cta-keystone-box { width: 88px; height: 88px; border-radius: 20px; background: #0d1612; border: 2px solid rgba(165, 208, 185, 0.45); display: flex; align-items: center; justify-content: center; }
+    .cta-wordmark-row { display: flex; align-items: baseline; }
+    .cta-char { display: inline-block; font-family: var(--font-display); font-size: 76px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: #ffffff; }
+    .cta-char-a { color: #a5d0b9; }
+    .cta-underscore { display: inline-block; font-family: var(--font-mono); font-size: 74px; font-weight: 800; line-height: 1; color: #a5d0b9; margin-left: 4px; }
+    .cta-headline { font-family: var(--font-display); font-size: 58px; font-weight: 800; line-height: 1.06; letter-spacing: -0.035em; color: #ffffff; max-width: 880px; margin-bottom: 26px; }
+    .cta-word { display: inline-block; margin: 0 8px; }
+    .cta-word-accent { color: #a5d0b9; }
+    .cta-url-pill { display: inline-flex; align-items: center; gap: 18px; padding: 20px 44px; border-radius: 999px; background: #a5d0b9; color: #070d0a; font-family: var(--font-mono); font-size: 38px; font-weight: 800; box-shadow: 0 20px 54px rgba(165, 208, 185, 0.42); margin-bottom: 28px; }
+    .cta-summary-grid { display: flex; flex-direction: column; gap: 12px; width: 820px; }
+    .cta-summary-item { padding: 14px 24px; border-radius: 16px; background: rgba(13, 22, 18, 0.92); border: 1px solid rgba(165, 208, 185, 0.28); font-family: var(--font-mono); font-size: 32px; font-weight: 600; color: #b4c8be; display: flex; justify-content: space-between; }
+    .cta-summary-item strong { color: #ffffff; }
+  </style>
+
+  <div id="cta-stage" data-composition-id="scene-cta" data-width="1080" data-height="1920">
+    <div id="cta-camera" data-layout-allow-overflow>
+      <div class="cta-glow" data-layout-ignore></div>
+
+      <div class="cta-safe-stack">
+        <div class="cta-kicker" id="cta-kicker">SISTEMA B2B LISTO PARA ESCALAR</div>
+
+        <div class="cta-logo-box" id="cta-logo-box">
+          <div class="cta-keystone-box">
+            <svg width="62" height="62" viewBox="0 0 110 110" fill="none">
+              <path d="M51 11 H69 L98 92 H76 L69 70 H42 L49 52 H63 L56 30 L34 92 H12 Z" fill="#a5d0b9" />
+              <path d="M55 43 L62 63 L46 63 Z" fill="#366367" />
+            </svg>
+          </div>
+          <div class="cta-wordmark-row" aria-label="AUTONOMEK_">
+            <span class="cta-char cta-char-a">A</span><span class="cta-char">U</span><span class="cta-char">T</span><span class="cta-char">O</span><span class="cta-char">N</span><span class="cta-char">O</span><span class="cta-char">M</span><span class="cta-char">E</span><span class="cta-char">K</span><span id="cta-cursor" class="cta-underscore">_</span>
+          </div>
+        </div>
+
+        <h2 class="cta-headline">
+          <span class="cta-word">Transforma</span>
+          <span class="cta-word">tu</span>
+          <span class="cta-word cta-word-accent">operación</span>
+          <span class="cta-word cta-word-accent">hoy</span>
+        </h2>
+
+        <div class="cta-url-pill" id="cta-url-pill">
+          <span>autonomek.com</span>
+          <span>→</span>
+        </div>
+
+        <div class="cta-summary-grid">
+          <div class="cta-summary-item"><span>01 // WEB DE ALTO IMPACTO</span><strong>99+ SPEED</strong></div>
+          <div class="cta-summary-item"><span>02 // VENDEDORES CON IA</span><strong>WHATSAPP 24/7</strong></div>
+          <div class="cta-summary-item"><span>03 // AUTOMATIZACIÓN B2B</span><strong>ERP · CRM · API</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#cta-camera", { scale: 1.15, filter: "blur(6px)" }, { scale: 1, filter: "blur(0px)", duration: 0.42, ease: "power3.out" }, 0);
+    tl.fromTo("#cta-logo-box", { scale: 0.9, opacity: 0.65 }, { scale: 1, opacity: 1, duration: 0.44, ease: "back.out(1.7)" }, 0.02);
+    tl.fromTo(".cta-word", { opacity: 0.3, y: 18 }, { opacity: 1, y: 0, duration: 0.36, stagger: 0.05, ease: "back.out(1.6)" }, 0.12);
+    tl.fromTo("#cta-url-pill", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.8)" }, 0.34);
+    tl.fromTo(".cta-summary-item", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.38, stagger: 0.07, ease: "power3.out" }, 0.55);
+    tl.to("#cta-cursor", { opacity: 0.2, duration: 0.28, yoyo: true, repeat: 9, ease: "power1.inOut" }, 0.2);
+    tl.to("#cta-url-pill", { scale: 1.04, duration: 0.5, yoyo: true, repeat: 4, ease: "sine.inOut" }, 1.1);
+
+    // Ritmo pausado: la coreografía original se estira x1.5 para acompañar la narración natural.
+    const STRETCH = 1.5;
+    const stretched = gsap.timeline({ paused: true });
+    stretched.add(tl.paused(false).timeScale(1 / STRETCH), 0);
+    window.__timelines["scene-cta"] = stretched;
+  </script>
+</template>

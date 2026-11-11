@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title-n">
+  <title id="title-n">Autonomek concept N — Keystone stack</title>
+  <g id="symbol" fill="#000000" fill-rule="evenodd">
+    <path d="M68 60 Q68 48 80 48 H188 Q204 48 204 64 L180 192 Q178 208 162 208 H94 Q78 208 76 192 Z
+             M84 96 Q84 86 94 86 H162 Q172 86 172 96 Q172 106 162 106 H94 Q84 106 84 96 Z
+             M84 134 Q84 124 94 124 H162 Q172 124 172 134 Q172 144 162 144 H94 Q84 144 84 134 Z
+             M84 172 Q84 162 94 162 H162 Q172 162 172 172 Q172 182 162 182 H94 Q84 182 84 172 Z"/>
+  </g>
+</svg>

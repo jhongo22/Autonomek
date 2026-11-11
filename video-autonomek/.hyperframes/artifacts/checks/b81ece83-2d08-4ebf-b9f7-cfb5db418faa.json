@@ -1,0 +1,186 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 7
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 2,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 5.667,
+        "selector": "#hook-camera",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -44.14,
+          "top": -68.33,
+          "right": 1999.9,
+          "bottom": 1081.44,
+          "width": 2044.03,
+          "height": 1149.77
+        },
+        "containerSelector": "#hook-stage",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "left": 44.14,
+          "right": 79.9,
+          "top": 68.33
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene-hook.html",
+        "bbox": {
+          "x": -44.14,
+          "y": -68.33,
+          "width": 2044.03,
+          "height": 1149.77
+        },
+        "firstSeen": 5.667,
+        "lastSeen": 5.667,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          5.667
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 13.222,
+        "selector": "#wa-camera",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 0,
+          "top": 3.08,
+          "right": 1920,
+          "bottom": 1083.08,
+          "width": 1920,
+          "height": 1080
+        },
+        "containerSelector": "#wa-stage",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 3.08
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene-whatsapp.html",
+        "bbox": {
+          "x": 0,
+          "y": 3.08,
+          "width": 1920,
+          "height": 1080
+        },
+        "firstSeen": 13.222,
+        "lastSeen": 13.222,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          13.222
+        ]
+      }
+    ],
+    "duration": 34,
+    "samples": [
+      1.889,
+      5.667,
+      9.444,
+      13.222,
+      17,
+      20.778,
+      24.556,
+      28.333,
+      32.111
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 2,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.889,
+      9.444,
+      17,
+      24.556,
+      32.111
+    ],
+    "checked": 137,
+    "passed": 137
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 272
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

@@ -14,6 +14,7 @@ import {
   Users2,
   CheckCircle2,
 } from 'lucide-react';
+import { AutonomekLockup } from '../brand/AutonomekLogo';
 
 export default function Footer() {
   const pathname = usePathname() || '/';
@@ -41,11 +42,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-rule text-sm">
           {/* Brand & Trust Column (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <Link href={homeHref} className="inline-flex flex-col leading-none">
-              <span className="text-xl font-bold tracking-tight text-foreground">
-                AUTONOMEK
-              </span>
-              <span className="mt-1 text-[9px] font-medium tracking-[0.28em] text-primary uppercase">
+            <Link href={homeHref} className="inline-flex flex-col leading-none group">
+              <AutonomekLockup className="h-[22px] w-auto text-foreground transition-transform duration-200 group-hover:scale-[1.015]" />
+              <span className="sr-only">AUTONOMEK</span>
+              <span className="mt-2 text-[9px] font-medium tracking-[0.28em] text-primary uppercase">
                 {isEn ? 'SOFTWARE & AI ENGINEERING' : 'INGENIERÍA DE SOFTWARE & IA'}
               </span>
             </Link>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-fav">
+  <title id="t-fav">Autonomek favicon</title>
+  <rect width="256" height="256" rx="57.6" fill="#a5d0b9"/>
+  <g transform="translate(5.46 6.33) scale(0.9725)" fill="#070d0a">
+    <path d="M128 43.5 L191.2 80 L128 116.5 L64.8 80 Z"/>
+    <path d="M54.9 97.3 L118 133.8 L118 206.7 L54.9 170.2 Z"/>
+    <path d="M197.1 97.3 L197.1 170.2 L138.9 206.7 L138.9 133.8 Z"/>
+  </g>
+</svg>

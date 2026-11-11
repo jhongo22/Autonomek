@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { X, ChevronDown, ArrowUpRight } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import { AutonomekLockup } from '../brand/AutonomekLogo';
 
 const ES_TO_EN_MAP: Record<string, string> = {
   '/': '/en',
@@ -106,25 +107,6 @@ function getSwitchLanguageHref(pathname: string, targetLang: 'es' | 'en'): strin
     return `/es/blog/${clean.slice('/us/blog/'.length)}`;
   }
   return '/es';
-}
-
-function CubeMark({ className = '' }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 32 32" className={className} fill="none" aria-hidden="true">
-      <path
-        d="M16 3.5 27.5 9.6v12.8L16 28.5 4.5 22.4V9.6L16 3.5Z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-      />
-      <path
-        d="M4.5 9.6 16 15.9l11.5-6.3M16 15.9v12.6"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        opacity="0.6"
-      />
-      <circle cx="16" cy="15.9" r="2.2" fill="currentColor" />
-    </svg>
-  );
 }
 
 export default function Navigation() {
@@ -252,16 +234,12 @@ export default function Navigation() {
           href={homeHref}
           onClick={() => setIsOpen(false)}
           aria-label="Autonomek, ir al inicio"
-          className="inline-flex items-center gap-2.5 shrink-0"
+          className="inline-flex flex-col leading-none shrink-0 group"
         >
-          <CubeMark className="h-8 w-8 text-primary" />
-          <span className="flex flex-col leading-none">
-            <span className="text-lg font-bold tracking-tight text-foreground">
-              Autonomek
-            </span>
-            <span className="mt-1 text-[10px] font-medium tracking-wider text-primary uppercase">
-              {isEn ? 'Web · AI · Software' : 'Web · IA · Software'}
-            </span>
+          <AutonomekLockup className="h-[21px] sm:h-6 w-auto text-foreground transition-transform duration-200 group-hover:scale-[1.015]" />
+          <span className="sr-only">Autonomek</span>
+          <span className="mt-1 text-[9.5px] font-medium tracking-[0.22em] text-primary uppercase">
+            {isEn ? 'Web · AI · Software' : 'Web · IA · Software'}
           </span>
         </Link>
 

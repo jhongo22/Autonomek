@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title-h9">
+  <title id="title-h9">Autonomek concept H9 - Origami hummingbird</title>
+  <defs>
+    <mask id="cuts" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
+      <rect x="0" y="0" width="256" height="256" fill="#ffffff"/>
+      <g fill="none" stroke="#000000" stroke-width="3.0" stroke-linecap="round">
+        <path d="M 184 112 L 128 94"/>
+        <path d="M 178 122 L 126 106"/>
+        <path d="M 190 96 L 198 106"/>
+      </g>
+      <circle cx="194" cy="101" r="2.6" fill="#000000"/>
+    </mask>
+  </defs>
+  <g transform="translate(128 128) scale(1.1) translate(-164 -135)" fill="#000000" mask="url(#cuts)">
+    <path d="M 206 100 L 242 96 L 208 108 Z"/>
+    <path d="M 188 90 L 204 96 L 208 106 L 200 116 L 186 112 L 180 102 Z"/>
+    <path d="M 198 108 L 184 114 L 172 132 L 162 152 L 154 168 L 150 178 L 158 180 L 166 170 L 178 154 L 190 136 L 200 122 Z"/>
+    <path d="M 184 112 L 148 94 L 116 70 L 96 48 L 94 46 L 100 66 L 118 90 L 148 116 L 172 132 L 182 134 Z"/>
+    <path d="M 178 122 L 144 108 L 114 90 L 94 78 L 90 78 L 96 92 L 116 108 L 144 126 L 166 138 L 176 140 Z"/>
+    <path d="M 154 178 L 132 188 L 108 202 L 100 210 L 112 210 L 136 198 L 156 186 Z"/>
+    <path d="M 154 178 L 140 194 L 126 210 L 122 218 L 132 216 L 146 200 L 158 184 Z"/>
+    <path d="M 154 178 L 150 196 L 146 212 L 144 220 L 152 218 L 158 202 L 162 186 Z"/>
+  </g>
+</svg>

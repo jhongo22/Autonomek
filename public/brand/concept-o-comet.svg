@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title-o">
+  <title id="title-o">Autonomek concept O — Comet flow</title>
+  <g id="symbol" fill="#000000">
+    <path d="M150 56
+             C 104 74, 66 122, 52 198
+             C 84 156, 116 126, 150 116
+             C 160 96, 160 74, 150 56 Z"/>
+    <circle cx="168" cy="92" r="42"/>
+  </g>
+</svg>

@@ -1,0 +1,560 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": false,
+    "errorCount": 3,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "missing_timeline_registry",
+        "severity": "error",
+        "message": "Missing `window.__timelines` registration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-reels\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Register each composition timeline on `window.__timelines[compositionId]`."
+      },
+      {
+        "code": "invalid_inline_script_syntax",
+        "severity": "error",
+        "message": "Inline script has invalid syntax: Unexpected token (8:14)",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-reels\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Fix the inline script syntax before render verification."
+      },
+      {
+        "code": "gsap_timeline_not_registered",
+        "severity": "error",
+        "message": "GSAP timeline is created but never registered in window.__timelines. The runtime discovers timelines from this registry. Without registration, animations will not play during preview or render.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-reels\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `window.__timelines = window.__timelines || {};` and `window.__timelines[\"root\"] = tl;` after creating the timeline (use the composition's data-composition-id as the key)."
+      }
+    ],
+    "filesScanned": 6
+  },
+  "runtime": {
+    "ok": false,
+    "errorCount": 1,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "page_error",
+        "severity": "error",
+        "message": "Failed to execute 'replaceWith' on 'Element': Unexpected identifier 'timeline'",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-width": "1080",
+          "data-height": "1920",
+          "data-fps": "60",
+          "data-duration": "22",
+          "data-start": "0",
+          "data-motion-blur": "on"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0
+      },
+      {
+        "code": "motion_blur_no_movers",
+        "severity": "info",
+        "message": "data-motion-blur=\"on\" is set but nothing in the composition moves fast enough to blur, so it has no effect",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-width": "1080",
+          "data-height": "1920",
+          "data-fps": "60",
+          "data-duration": "22",
+          "data-start": "0",
+          "data-motion-blur": "on"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "fixHint": "animate an element's transform or position by 2+ px per frame; if the motion is set from a timeline callback (onUpdate, render(t)), add data-motion-blur-events=\"on\"; otherwise drop data-motion-blur"
+      }
+    ]
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 2,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 13.444,
+        "selector": "#auto-camera",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -97.2,
+          "top": -172.8,
+          "right": 1177.2,
+          "bottom": 2092.8,
+          "width": 1274.4,
+          "height": 2265.6
+        },
+        "containerSelector": "#wrap-automation > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 97.2,
+          "right": 97.2,
+          "top": 172.8,
+          "bottom": 172.8
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene-automation.html",
+        "bbox": {
+          "x": -97.2,
+          "y": -172.8,
+          "width": 1274.4,
+          "height": 2265.6
+        },
+        "firstSeen": 13.444,
+        "lastSeen": 15.889,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          13.444,
+          15.889
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "warning",
+        "time": 13.444,
+        "selector": "#auto-dag-board",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": -31.12,
+          "top": 334.6,
+          "right": 1054.48,
+          "bottom": 1255,
+          "width": 1085.6,
+          "height": 920.4
+        },
+        "containerSelector": "#root",
+        "text": "ENTRADA 01 Web 99+ Lead ENTRADA 02 WhatsApp IA 2",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 31.12
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene-automation.html",
+        "bbox": {
+          "x": -31.12,
+          "y": 334.6,
+          "width": 1085.6,
+          "height": 920.4
+        },
+        "firstSeen": 13.444,
+        "lastSeen": 15.889,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          13.444,
+          15.889
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 18.333,
+        "selector": "#cta-camera",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -135,
+          "top": -240,
+          "right": 1215,
+          "bottom": 2160,
+          "width": 1350,
+          "height": 2400
+        },
+        "containerSelector": "#wrap-cta > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 135,
+          "right": 135,
+          "top": 240,
+          "bottom": 240
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene-cta.html",
+        "bbox": {
+          "x": -135,
+          "y": -240,
+          "width": 1350,
+          "height": 2400
+        },
+        "firstSeen": 18.333,
+        "lastSeen": 20.778,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          18.333,
+          20.778
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 8,
+        "selector": "#web-tag",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 134.32,
+          "top": 286.8,
+          "right": 548.28,
+          "bottom": 319.36,
+          "width": 413.96,
+          "height": 32.56
+        },
+        "containerSelector": "div.wa-tag",
+        "text": "PILAR 01 // ARQUITECTURA WEB",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply. Decoration nobody needs to read can take data-layout-ignore.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene-web.html",
+        "bbox": {
+          "x": 134.32,
+          "y": 286.8,
+          "width": 413.96,
+          "height": 32.56
+        },
+        "firstSeen": 8,
+        "lastSeen": 8,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          8
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 13.444,
+        "selector": "div.auto-tag",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -3.98,
+          "top": 57.3,
+          "right": 551.1,
+          "bottom": 100.96,
+          "width": 555.08,
+          "height": 43.66
+        },
+        "containerSelector": "#root",
+        "text": "PILAR 03 // ORQUESTACIÓN B2B",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 3.98
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene-automation.html",
+        "bbox": {
+          "x": -3.98,
+          "y": 57.3,
+          "width": 555.08,
+          "height": 43.66
+        },
+        "firstSeen": 13.444,
+        "lastSeen": 15.889,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          13.444,
+          15.889
+        ]
+      }
+    ],
+    "duration": 22,
+    "samples": [
+      1.222,
+      3.667,
+      6.111,
+      8.556,
+      11,
+      13.444,
+      15.889,
+      18.333,
+      20.778
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 5,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.222,
+      6.111,
+      11,
+      15.889,
+      20.778
+    ],
+    "checked": 6,
+    "passed": 6
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 6,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "film_silent",
+        "severity": "warning",
+        "message": "This 22 s film has no sound source (no <audio>, no <video> with sound): add a music bed and sounds on the visible actions unless the person asked for silence; see references/sound.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"PILAR 01 // ARQUITECTURA WEB\" renders at 25 px for 5.13 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "PILAR 01 // ARQUITECTURA WEB",
+        "selector": "#web-tag",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene-web.html",
+        "bbox": {
+          "x": 134.32,
+          "y": 286.8,
+          "width": 413.96,
+          "height": 32.56
+        },
+        "time": 3,
+        "times": [
+          3
+        ],
+        "fontPx": 24.64,
+        "floorPx": 28,
+        "seconds": 5.125,
+        "elements": [
+          {
+            "selector": "#web-tag",
+            "text": "PILAR 01 // ARQUITECTURA WEB",
+            "fontPx": 24.64,
+            "time": 3,
+            "seconds": 5.125
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 4.75 s (3.13–7.88 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 3.125,
+        "seconds": 4.75,
+        "floorSeconds": 3,
+        "until": 7.875
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"PILAR 02 // AGENTES COMERCIALES 24/7\" renders at 25 px for 5.13 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "PILAR 02 // AGENTES COMERCIALES 24/7",
+        "selector": "div.wa-tag",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene-whatsapp.html",
+        "bbox": {
+          "x": 134.32,
+          "y": 286.8,
+          "width": 532.23,
+          "height": 32.56
+        },
+        "time": 8,
+        "times": [
+          8
+        ],
+        "fontPx": 24.64,
+        "floorPx": 28,
+        "seconds": 5.125,
+        "elements": [
+          {
+            "selector": "div.wa-tag",
+            "text": "PILAR 02 // AGENTES COMERCIALES 24/7",
+            "fontPx": 24.64,
+            "time": 8,
+            "seconds": 5.125
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 4.75 s (8.13–12.88 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 8.125,
+        "seconds": 4.75,
+        "floorSeconds": 3,
+        "until": 12.875
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 4.75 s (13.13–17.88 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 13.125,
+        "seconds": 4.75,
+        "floorSeconds": 3,
+        "until": 17.875
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 176
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "audio_none",
+        "severity": "info",
+        "message": "The film has no sound: no clip in it plays audio.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ]
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

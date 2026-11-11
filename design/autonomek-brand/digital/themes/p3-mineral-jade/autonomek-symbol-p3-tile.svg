@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">Autonomek App Tile (03 · Mineral &amp; Jade)</title>
+  <rect width="256" height="256" rx="57.6" fill="#050706"/>
+  <g id="symbol" transform="translate(40.96 40.96) scale(0.68)" fill="#a4cebb">
+    <path d="M 18 221 L 18 190 L 108 34.12 L 148 34.12 L 198.74 122 L 154.86 122 L 128 75.47 L 61.88 190 L 61.88 221 Z"/>
+    <path d="M 113.84 144 L 211.44 144 L 238 190 L 238 221 L 194.12 221 L 194.12 190 L 187.77 179 L 93.63 179 Z"/>
+  </g>
+</svg>

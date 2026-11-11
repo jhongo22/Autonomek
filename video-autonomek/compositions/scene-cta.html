@@ -1,0 +1,124 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #070d0a; color: #ffffff; font-family: "Inter", sans-serif; overflow: hidden; }
+    .cta-stage-clip { position: absolute; inset: 0; }
+    #cta-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        radial-gradient(rgba(165, 208, 185, 0.24) 1.25px, transparent 1.25px);
+      background-size: 96px 96px, 96px 96px, 24px 24px;
+    }
+    #cta-camera { position: absolute; inset: 0; padding: 52px 192px 164px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    #cta-converge-layer { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+    .converge-token { position: absolute; padding: 16px 28px; border-radius: 18px; background: #13211b; border: 2px solid #a5d0b9; font-family: "JetBrains Mono", monospace; font-size: 28px; font-weight: 700; color: #a5d0b9; }
+    #cta-card {
+      width: 1460px; padding: 52px 76px; border-radius: 36px; background: #0d1612; border: 2px solid rgba(165, 208, 185, 0.42);
+      box-shadow: 0 36px 90px rgba(0, 0, 0, 0.7); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 26px;
+    }
+    #cta-brand-lockup { display: flex; align-items: center; justify-content: center; gap: 12px; }
+    #cta-underscore { font-family: "JetBrains Mono", monospace; font-size: 86px; font-weight: 800; line-height: 1; color: #a5d0b9; }
+    #cta-headline { font-size: 64px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; color: #ffffff; }
+    .cta-word { display: inline-block; margin: 0 8px; }
+    .cta-word-accent { color: #a5d0b9; }
+    #cta-actions { display: flex; align-items: center; justify-content: center; gap: 28px; margin-top: 8px; }
+    #cta-url-pill {
+      display: inline-flex; align-items: center; gap: 16px; padding: 22px 48px; border-radius: 999px;
+      background: #a5d0b9; color: #070d0a; font-family: "JetBrains Mono", monospace; font-size: 38px; font-weight: 800; letter-spacing: -0.02em;
+      box-shadow: 0 20px 50px rgba(165, 208, 185, 0.28);
+    }
+    #cta-wa-pill {
+      display: inline-flex; align-items: center; gap: 14px; padding: 22px 38px; border-radius: 999px;
+      background: #13211b; border: 1px solid rgba(165, 208, 185, 0.38); font-family: "JetBrains Mono", monospace; font-size: 32px; font-weight: 700; color: #ffffff;
+    }
+    #cta-footer-strip { display: flex; align-items: center; gap: 32px; margin-top: 4px; font-family: "JetBrains Mono", monospace; font-size: 30px; font-weight: 600; color: #b4c8be; }
+    .cta-dot-sep { color: #a5d0b9; }
+  </style>
+
+  <div id="root" data-composition-id="scene-cta" data-width="1920" data-height="1080">
+    <div id="cta-stage" class="clip cta-stage-clip" data-start="0" data-duration="6" data-track-index="1">
+      <div id="cta-grid" data-layout-ignore></div>
+
+      <div id="cta-converge-layer" data-layout-ignore>
+        <div id="token-web" class="converge-token">01 · WEB 0.6s</div>
+        <div id="token-wa" class="converge-token">02 · WHATSAPP IA</div>
+        <div id="token-auto" class="converge-token">03 · AUTOMATIZACIÓN</div>
+      </div>
+
+      <div id="cta-camera">
+        <div id="cta-card">
+          <div id="cta-brand-lockup">
+            <svg id="cta-lockup-svg" viewBox="0 0 1592 228" width="660" height="95" fill="none" aria-label="AUTONOMEK">
+              <g transform="translate(0 -14)">
+                <g fill="#a5d0b9">
+                  <path d="M 18 221 L 18 190 L 108 34.12 L 148 34.12 L 198.74 122 L 154.86 122 L 128 75.47 L 61.88 190 L 61.88 221 Z" />
+                  <path d="M 113.84 144 L 211.44 144 L 238 190 L 238 221 L 194.12 221 L 194.12 190 L 187.77 179 L 93.63 179 Z" />
+                </g>
+                <g fill="#ffffff">
+                  <path d="M 246 34.12 L 279.64 34.12 L 279.64 158.39 A 33.64 33.64 0 0 0 346.91 158.39 L 346.91 34.12 L 380.55 34.12 L 380.55 158.39 A 67.28 67.28 0 0 1 246 158.39 Z" />
+                  <path d="M 401.11 34.12 L 528.19 34.12 L 528.19 63.72 L 481.47 63.72 L 481.47 221 L 447.83 221 L 447.83 63.72 L 401.11 63.72 Z" />
+                  <path d="M 614.15 29.45 A 74.75 98.11 0 1 1 614.15 225.67 A 74.75 98.11 0 1 1 614.15 29.45 Z  M 614.15 59.05 A 41.11 68.51 0 1 0 614.15 196.07 A 41.11 68.51 0 1 0 614.15 59.05 Z" fill-rule="evenodd" />
+                  <path d="M 712.26 34.12 L 743.88 34.12 L 816.04 159.1 L 816.04 34.12 L 847.66 34.12 L 847.66 221 L 816.04 221 L 743.88 96.02 L 743.88 221 L 712.26 221 Z" />
+                  <path d="M 945.77 29.45 A 74.75 98.11 0 1 1 945.77 225.67 A 74.75 98.11 0 1 1 945.77 29.45 Z  M 945.77 59.05 A 41.11 68.51 0 1 0 945.77 196.07 A 41.11 68.51 0 1 0 945.77 59.05 Z" fill-rule="evenodd" />
+                  <path d="M 1043.88 34.12 L 1073.82 34.12 L 1160.94 185.03 L 1248.07 34.12 L 1278 34.12 L 1278 221 L 1248.07 221 L 1248.07 96.02 L 1175.91 221 L 1145.97 221 L 1073.82 96.02 L 1073.82 221 L 1043.88 221 Z" />
+                  <path d="M 1305.11 34.12 L 1420.98 34.12 L 1420.98 63.72 L 1338.75 63.72 L 1338.75 109.02 L 1403.6 109.02 L 1403.6 138.62 L 1338.75 138.62 L 1338.75 191.4 L 1420.98 191.4 L 1420.98 221 L 1305.11 221 Z" />
+                  <path d="M 1446.21 34.12 L 1479.85 34.12 L 1479.85 80 L 1525.72 34.12 L 1573.29 34.12 L 1479.85 127.56 L 1573.29 221 L 1525.72 221 L 1479.85 175.13 L 1479.85 221 L 1446.21 221 Z" />
+                </g>
+              </g>
+            </svg>
+            <span id="cta-underscore">_</span>
+          </div>
+
+          <h2 id="cta-headline">
+            <span class="cta-word">Transforma</span>
+            <span class="cta-word">tu</span>
+            <span class="cta-word cta-word-accent">operación</span>
+            <span class="cta-word">hoy</span>
+          </h2>
+
+          <div id="cta-actions">
+            <div id="cta-url-pill">
+              <span data-var-text="ctaUrl">autonomek.com</span>
+              <span>↗</span>
+            </div>
+            <div id="cta-wa-pill">
+              <span style="color: #25d366">●</span>
+              <span>WhatsApp 24/7</span>
+            </div>
+          </div>
+
+          <div id="cta-footer-strip">
+            <span>Webs 99+ SEO</span>
+            <span class="cta-dot-sep">·</span>
+            <span>Vendedores IA WhatsApp</span>
+            <span class="cta-dot-sep">·</span>
+            <span>Automatización B2B</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#token-web", { x: -520, y: -220, scale: 1, opacity: 1 }, { x: 0, y: 0, scale: 0.3, opacity: 0, duration: 0.32, ease: "power3.in" }, 0);
+    tl.fromTo("#token-wa", { x: 520, y: -180, scale: 1, opacity: 1 }, { x: 0, y: 0, scale: 0.3, opacity: 0, duration: 0.32, ease: "power3.in" }, 0);
+    tl.fromTo("#token-auto", { x: 0, y: 320, scale: 1, opacity: 1 }, { x: 0, y: 0, scale: 0.3, opacity: 0, duration: 0.32, ease: "power3.in" }, 0);
+    tl.fromTo("#cta-card", { y: 24, filter: "blur(6px)" }, { y: 0, filter: "blur(0px)", duration: 0.42, ease: "back.out(1.55)" }, 0);
+    tl.fromTo("#cta-lockup-svg", { y: 20, opacity: 0.25 }, { y: 0, opacity: 1, duration: 0.4, ease: "power4.out" }, 0.08);
+    tl.fromTo("#cta-underscore", { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.28, ease: "back.out(2)" }, 0.28);
+    tl.fromTo(".cta-word", { y: 24, opacity: 0.15, filter: "blur(6px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.38, stagger: 0.06, ease: "power4.out" }, 0.18);
+    tl.fromTo("#cta-url-pill, #cta-wa-pill", { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.46, stagger: 0.09, ease: "back.out(1.65)" }, 0.42);
+    tl.fromTo("#cta-footer-strip", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.38, ease: "power3.out" }, 0.62);
+    tl.to("#cta-underscore", { opacity: 0.2, duration: 0.2, ease: "power2.inOut" }, 1.6);
+    tl.to("#cta-underscore", { opacity: 1, duration: 0.2, ease: "power2.inOut" }, 1.82);
+    tl.to("#cta-underscore", { opacity: 0.2, duration: 0.2, ease: "power2.inOut" }, 2.7);
+    tl.to("#cta-underscore", { opacity: 1, duration: 0.2, ease: "power2.inOut" }, 2.92);
+    // Ritmo pausado: la coreografía original se estira x1.5 para acompañar la narración natural.
+    const STRETCH = 1.5;
+    const stretched = gsap.timeline({ paused: true });
+    stretched.add(tl.paused(false).timeScale(1 / STRETCH), 0);
+    window.__timelines["scene-cta"] = stretched;
+  </script>
+</template>
