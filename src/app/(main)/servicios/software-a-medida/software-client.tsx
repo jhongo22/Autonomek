@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -6,6 +6,7 @@ import {
   Check,
   ExternalLink,
   ArrowUpRight,
+  Instagram,
 } from 'lucide-react';
 import { PROJECTS, PROJECTS_EN, Project } from '@/data/projects';
 import ProjectDetailsModal from '@/components/ProjectDetailsModal';
@@ -32,8 +33,8 @@ export default function SoftwareClient({ region = 'co' }: { region?: Region }) {
     .slice(0, 6);
 
   const whatsappDirectUrl = isEn
-    ? 'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20want%20to%20build%20a%20custom%20software%20platform%20for%20my%20business.'
-    : 'https://wa.me/573004435894?text=Hola%20Autonomek%2C%20quiero%20desarrollar%20un%20software%20o%20plataforma%20a%20medida%20para%20mi%20empresa.';
+    ? 'https://wa.me/573010147443?text=Hello%20Autonomek%2C%20I%20want%20to%20build%20a%20custom%20software%20platform%20for%20my%20business.'
+    : 'https://wa.me/573010147443?text=Hola%20Autonomek%2C%20quiero%20desarrollar%20un%20software%20o%20plataforma%20a%20medida%20para%20mi%20empresa.';
 
   const servicesHref = isEn ? `${basePrefix}/services` : `${basePrefix}/servicios`;
   const projectsHref = isEn ? `${basePrefix}/projects` : `${basePrefix}/proyectos`;
@@ -238,7 +239,7 @@ export default function SoftwareClient({ region = 'co' }: { region?: Region }) {
       <section className="relative isolate overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28 border-b border-rule">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-[-10%] -z-10 h-[420px] w-[820px] max-w-[120vw] -translate-x-1/2 rounded-full bg-primary/15 blur-[140px]"
+          className="pointer-events-none absolute left-1/2 top-[-10%] -z-10 h-[420px] w-[min(820px,100%)] -translate-x-1/2 rounded-full bg-primary/15 blur-[140px]"
         />
 
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
@@ -337,9 +338,9 @@ export default function SoftwareClient({ region = 'co' }: { region?: Region }) {
 
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
             {/* Left 5 Cols: Interactive Software MiniApp */}
-            <div className="lg:col-span-5 rounded-[28px] border border-rule bg-surface p-5 sm:p-7 flex flex-col justify-between gap-6 shadow-lg shadow-black/20">
-              <div className="flex items-center justify-between gap-3 border-b border-rule pb-4">
-                <div>
+            <div className="min-w-0 lg:col-span-5 rounded-[24px] sm:rounded-[28px] border border-rule bg-surface p-4 sm:p-7 flex flex-col justify-between gap-6 shadow-lg shadow-black/20">
+              <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3 border-b border-rule pb-4">
+                <div className="min-w-0">
                   <span className="font-mono text-[11px] uppercase tracking-wider text-primary">
                     {isEn ? 'LIVE CONTROL PANEL' : 'PANEL OPERATIVO EN VIVO'}
                   </span>
@@ -347,7 +348,7 @@ export default function SoftwareClient({ region = 'co' }: { region?: Region }) {
                     {isEn ? 'Executive Operations View' : 'Vista Ejecutiva de Operación'}
                   </h3>
                 </div>
-                <span className="rounded-full bg-primary/15 border border-primary/25 px-3 py-1 font-mono text-xs font-semibold text-primary">
+                <span className="shrink-0 rounded-full bg-primary/15 border border-primary/25 px-3 py-1 font-mono text-xs font-semibold text-primary">
                   100% IP
                 </span>
               </div>
@@ -355,24 +356,24 @@ export default function SoftwareClient({ region = 'co' }: { region?: Region }) {
               <ServiceMiniApp id="software" isEn={isEn} />
 
               <div className="grid grid-cols-3 divide-x divide-rule border-t border-rule pt-4 text-center">
-                <div className="px-2">
-                  <div className="font-mono text-lg sm:text-xl font-semibold text-primary tabular-nums">
+                <div className="min-w-0 px-1.5 sm:px-2">
+                  <div className="font-mono text-base sm:text-xl font-semibold text-primary tabular-nums">
                     $0/mo
                   </div>
                   <div className="text-[11px] text-muted mt-0.5">
                     {isEn ? 'Per-seat fee' : 'Licencia/usuario'}
                   </div>
                 </div>
-                <div className="px-2">
-                  <div className="font-mono text-lg sm:text-xl font-semibold text-foreground tabular-nums">
+                <div className="min-w-0 px-1.5 sm:px-2">
+                  <div className="font-mono text-base sm:text-xl font-semibold text-foreground tabular-nums">
                     ∞
                   </div>
                   <div className="text-[11px] text-muted mt-0.5">
                     {isEn ? 'Users & roles' : 'Usuarios y roles'}
                   </div>
                 </div>
-                <div className="px-2">
-                  <div className="font-mono text-lg sm:text-xl font-semibold text-foreground tabular-nums">
+                <div className="min-w-0 px-1.5 sm:px-2">
+                  <div className="font-mono text-base sm:text-xl font-semibold text-foreground tabular-nums">
                     100%
                   </div>
                   <div className="text-[11px] text-muted mt-0.5">
@@ -383,36 +384,36 @@ export default function SoftwareClient({ region = 'co' }: { region?: Region }) {
             </div>
 
             {/* Right 7 Cols: Hallmark Hairline Rows */}
-            <div className="lg:col-span-7 border-t border-rule">
+            <div className="min-w-0 lg:col-span-7 border-t border-rule">
               {architectures.map((arch, idx) => {
                 const isActive = activeArchIndex === idx;
                 return (
                   <div
                     key={arch.num}
                     onClick={() => setActiveArchIndex(idx)}
-                    className={`group border-b border-rule py-6 sm:py-7 px-4 sm:px-6 transition-colors cursor-pointer ${
+                    className={`group border-b border-rule py-6 sm:py-7 px-3 sm:px-6 transition-colors cursor-pointer ${
                       isActive ? 'bg-surface/90' : 'hover:bg-surface/40'
                     }`}
                   >
                     <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 sm:gap-6">
-                      <div className="flex items-baseline gap-4">
+                      <div className="flex min-w-0 items-baseline gap-3 sm:gap-4">
                         <span
-                          className={`font-mono text-xs font-semibold tabular-nums transition-colors ${
+                          className={`font-mono text-xs font-semibold tabular-nums transition-colors shrink-0 ${
                             isActive ? 'text-primary' : 'text-muted group-hover:text-foreground'
                           }`}
                         >
                           /{arch.num}
                         </span>
-                        <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors">
+                        <h3 className="min-w-0 break-words text-xl sm:text-2xl font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors">
                           {arch.title}
                         </h3>
                       </div>
-                      <span className="font-mono text-xs text-primary shrink-0 pl-8 sm:pl-0">
+                      <span className="font-mono text-xs text-primary shrink-0 pl-0">
                         {arch.metric}
                       </span>
                     </div>
 
-                    <div className="mt-3 pl-8 sm:pl-9 space-y-4">
+                    <div className="mt-3 pl-0 sm:pl-9 space-y-4">
                       <p className="text-sm sm:text-base leading-relaxed text-muted">
                         {arch.desc}
                       </p>
@@ -460,7 +461,7 @@ export default function SoftwareClient({ region = 'co' }: { region?: Region }) {
             </p>
           </div>
 
-          <div className="overflow-x-auto">
+          <div className="w-full max-w-full overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[680px]">
               <thead>
                 <tr className="border-b border-rule-strong text-[11px] font-mono uppercase tracking-[0.14em] text-muted">
@@ -541,7 +542,7 @@ export default function SoftwareClient({ region = 'co' }: { region?: Region }) {
                   setSelectedProject(project);
                   setIsModalOpen(true);
                 }}
-                className="group rounded-[24px] bg-surface border border-rule overflow-hidden flex flex-col justify-between cursor-pointer hover:border-primary transition-colors"
+                className="group min-w-0 rounded-[24px] bg-surface border border-rule overflow-hidden flex flex-col justify-between cursor-pointer hover:border-primary transition-colors"
               >
                 <div>
                   <div className="relative w-full aspect-[16/10] bg-card overflow-hidden border-b border-rule">
@@ -669,7 +670,7 @@ export default function SoftwareClient({ region = 'co' }: { region?: Region }) {
         className="scroll-mt-24 py-20 md:py-28 bg-surface/40 border-b border-rule"
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          <div>
+          <div className="min-w-0">
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
               {isEn ? 'FAQ' : 'Preguntas Frecuentes'}
@@ -686,7 +687,7 @@ export default function SoftwareClient({ region = 'co' }: { region?: Region }) {
             </p>
           </div>
 
-          <div className="border-t border-rule">
+          <div className="min-w-0 border-t border-rule">
             {faqs.map((item, idx) => {
               const isOpen = openFaq === idx;
               return (
@@ -728,7 +729,7 @@ export default function SoftwareClient({ region = 'co' }: { region?: Region }) {
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[380px] w-[680px] max-w-[120vw] -translate-x-1/2 rounded-full bg-primary/15 blur-[120px]"
+          className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[380px] w-[min(680px,100%)] -translate-x-1/2 rounded-full bg-primary/15 blur-[120px]"
         />
         <div className="mx-auto max-w-3xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
@@ -744,14 +745,23 @@ export default function SoftwareClient({ region = 'co' }: { region?: Region }) {
               ? 'Write to us on WhatsApp and receive a free technical architecture session and fixed-price proposal.'
               : 'Escríbenos por WhatsApp y recibe una sesión de diagnóstico sin costo con el mapa de módulos y presupuesto cerrado.'}
           </p>
-          <div className="mt-9 flex justify-center">
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3.5">
             <a
               href={whatsappDirectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-primary text-primary-ink px-8 py-4 text-base font-semibold hover:opacity-90 transition"
+              className="inline-flex items-center justify-center rounded-full bg-primary text-primary-ink px-7 sm:px-8 py-4 text-sm sm:text-base font-semibold hover:opacity-90 transition"
             >
               {isEn ? 'Talk with us on WhatsApp — Free Diagnosis' : 'Hablar por WhatsApp — Diagnóstico Gratis'}
+            </a>
+            <a
+              href="https://www.instagram.com/autonomek?psln=bzJtYXI0NzhuZW42"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-rule bg-surface text-foreground px-6 py-4 text-sm sm:text-base font-semibold hover:bg-card transition"
+            >
+              <Instagram size={18} className="text-primary shrink-0" />
+              <span>@autonomek</span>
             </a>
           </div>
         </div>

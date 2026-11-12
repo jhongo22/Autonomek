@@ -1083,7 +1083,7 @@ export function AnalyticsBento({
       <div className="grid grid-cols-12 gap-4">
         {/* revenue */}
         <Card
-          className={`col-span-12 flex flex-col lg:col-span-5 ${enter(0)}`}
+          className={`col-span-12 min-w-0 flex flex-col lg:col-span-5 ${enter(0)}`}
           aria-label={revenue.label}
         >
           <div className="flex flex-1 flex-col gap-5 sm:flex-row">
@@ -1117,7 +1117,7 @@ export function AnalyticsBento({
 
         {/* sessions */}
         <Card
-          className={`col-span-12 flex flex-col lg:col-span-7 ${enter(1)}`}
+          className={`col-span-12 min-w-0 flex flex-col lg:col-span-7 ${enter(1)}`}
           aria-label={sessions.label}
         >
           <div className="flex flex-1 flex-col gap-5 sm:flex-row">
@@ -1178,7 +1178,7 @@ export function AnalyticsBento({
         </Card>
 
         {/* categories */}
-        <Card className={`col-span-12 lg:col-span-7 ${enter(2)}`} aria-label={categories.title}>
+        <Card className={`col-span-12 min-w-0 lg:col-span-7 ${enter(2)}`} aria-label={categories.title}>
           <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
             <h2 className="m-0 text-[17px] font-semibold tracking-[-0.02em] text-foreground">
               {categories.title}
@@ -1199,20 +1199,20 @@ export function AnalyticsBento({
                 type="button"
                 aria-pressed={i === period}
                 onClick={() => setPeriod(i)}
-                className={`-m-2.5 rounded-[14px] p-2.5 text-left outline-none transition-colors hover:bg-card ${
+                className={`m-0 min-w-0 rounded-[14px] p-2 sm:p-2.5 text-left outline-none transition-colors hover:bg-card ${
                   i === period ? "bg-background border border-rule" : ""
                 }`}
               >
-                <div className="flex items-center gap-1.5 text-[13px] font-semibold tracking-[-0.01em] text-foreground">
+                <div className="flex items-center gap-1.5 text-[12px] sm:text-[13px] font-semibold tracking-[-0.01em] text-foreground">
                   <i
-                    className={`size-1.5 rounded-full transition-colors ${
+                    className={`size-1.5 shrink-0 rounded-full transition-colors ${
                       i === period ? "bg-primary" : "bg-muted/50"
                     }`}
                   />
-                  {p.label}
+                  <span className="truncate">{p.label}</span>
                 </div>
                 <div
-                  className="mt-1.5 text-xl font-semibold leading-none sm:text-[26px]"
+                  className="mt-1.5 truncate text-lg font-semibold leading-none sm:text-[26px]"
                   style={mono}
                 >
                   <CountUp value={p.total} prefix={currency} />
@@ -1228,45 +1228,47 @@ export function AnalyticsBento({
           </div>
           <Treemap data={categories} period={period} mono={monoFamily} tip={tip} />
           {categories.table && (
-            <table className="mt-[18px] w-full border-collapse text-sm">
-              <thead>
-                <tr>
-                  {categories.table.columns.map((h, i) => (
-                    <th
-                      key={h}
-                      className={`pb-2 text-xs font-medium tracking-[-0.01em] text-muted ${
-                        i ? "text-right" : "text-left"
-                      }`}
-                    >
-                      {h}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {categories.table.rows.map((r) => (
-                  <tr key={r.label} className="border-t border-rule">
-                    <td className="py-[10px] text-left tracking-[-0.01em] text-muted">
-                      {r.label}
-                    </td>
-                    {r.values.map((v, i) => (
-                      <td
-                        key={i}
-                        className="py-[10px] text-right text-foreground"
-                        style={mono}
+            <div className="mt-[18px] w-full max-w-full overflow-x-auto">
+              <table className="w-full min-w-[360px] border-collapse text-xs sm:text-sm">
+                <thead>
+                  <tr>
+                    {categories.table.columns.map((h, i) => (
+                      <th
+                        key={h}
+                        className={`pb-2 text-xs font-medium tracking-[-0.01em] text-muted ${
+                          i ? "text-right" : "text-left"
+                        }`}
                       >
-                        {v}
-                      </td>
+                        {h}
+                      </th>
                     ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {categories.table.rows.map((r) => (
+                    <tr key={r.label} className="border-t border-rule">
+                      <td className="py-[10px] pr-2 text-left tracking-[-0.01em] text-muted">
+                        {r.label}
+                      </td>
+                      {r.values.map((v, i) => (
+                        <td
+                          key={i}
+                          className="py-[10px] pl-2 text-right text-foreground whitespace-nowrap"
+                          style={mono}
+                        >
+                          {v}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </Card>
 
         {/* seasonality */}
-        <Card className={`col-span-12 lg:col-span-5 ${enter(3)}`} aria-label={seasonality.title}>
+        <Card className={`col-span-12 min-w-0 lg:col-span-5 ${enter(3)}`} aria-label={seasonality.title}>
           <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
             <h2 className="m-0 text-[17px] font-semibold tracking-[-0.02em] text-foreground">
               {seasonality.title}
@@ -1304,7 +1306,7 @@ export function AnalyticsBento({
           />
           <div className="mt-2 grid grid-cols-2 gap-3">
             {Y.stats.map((s) => (
-              <div key={s.label}>
+              <div key={s.label} className="min-w-0">
                 <div className="text-[13px] tracking-[-0.01em] text-muted">{s.label}</div>
                 <div
                   className="mt-1.5 text-[24px] font-semibold leading-none sm:text-[28px]"

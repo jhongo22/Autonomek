@@ -114,7 +114,7 @@ export default function PaletteSwitcher() {
         <div
           role="dialog"
           aria-label="Selector de paleta de colores"
-          className="mb-3 w-[290px] sm:w-[320px] rounded-2xl bg-surface border border-rule p-3.5 shadow-2xl"
+          className="mb-3 w-[min(320px,calc(100vw-2rem))] rounded-2xl bg-surface border border-rule p-3.5 shadow-2xl"
         >
           <div className="flex items-center justify-between pb-2.5 mb-2.5 border-b border-rule">
             <span className="text-xs font-medium text-foreground">
@@ -213,7 +213,8 @@ export default function PaletteSwitcher() {
             />
           </div>
           <span className="text-xs font-medium text-foreground whitespace-nowrap">
-            {currentPalette.name.split(' · ')[0]} · Tema
+            {currentPalette.name.split(' · ')[0]}
+            <span className="hidden sm:inline"> · Tema</span>
           </span>
         </button>
 

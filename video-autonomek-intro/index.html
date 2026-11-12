@@ -1,0 +1,154 @@
+<!doctype html>
+<html
+  lang="es"
+  data-composition-variables='[
+    {"id":"brandName","type":"string","label":"Marca","default":"AUTONOMEK_"},
+    {"id":"headlineMain","type":"string","label":"Titular Escena 1","default":"Tecnología que atrae clientes y ordena tu negocio"},
+    {"id":"ctaText","type":"string","label":"CTA WhatsApp","default":"Escríbenos en autonomek.com"},
+    {"id":"bg","type":"color","label":"Fondo (--bg)","default":"#070d0a"},
+    {"id":"surface","type":"color","label":"Superficie (--surface)","default":"#0d1612"},
+    {"id":"card","type":"color","label":"Tarjeta (--card)","default":"#13211b"},
+    {"id":"primary","type":"color","label":"Acento Primario (--primary)","default":"#a5d0b9"},
+    {"id":"secondary","type":"color","label":"Acento Secundario (--secondary)","default":"#366367"},
+    {"id":"accent","type":"color","label":"Acento Telemetría (--accent)","default":"#73a2b6"}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>AUTONOMEK — Video Introductorio Inmersivo 9:16</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --bg: #070d0a;
+        --surface: #0d1612;
+        --card: #13211b;
+        --fg: #ffffff;
+        --muted: #b4c8be;
+        --subtle: #7a9488;
+        --primary: #a5d0b9;
+        --primary-ink: #070d0a;
+        --secondary: #366367;
+        --accent: #73a2b6;
+        --rule: rgba(255, 255, 255, 0.14);
+        --rule-strong: rgba(165, 208, 185, 0.38);
+        --font-display: "Inter", sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--font-display);
+        -webkit-font-smoothing: antialiased;
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--bg);
+      }
+      .clip {
+        position: absolute;
+        inset: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+      }
+      #captions.clip {
+        overflow: visible;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="41.5"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <!-- Lienzo espacial continuo con rig de cámara virtual GSAP -->
+      <div
+        id="world"
+        class="clip"
+        data-composition-id="world"
+        data-composition-src="compositions/world.html"
+        data-start="0"
+        data-duration="41.5"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 1"
+      ></div>
+
+      <!-- Subtítulos sincronizados palabra a palabra en banda segura móvil -->
+      <div
+        id="captions"
+        class="clip"
+        data-composition-id="captions"
+        data-composition-src="compositions/captions.html"
+        data-start="0"
+        data-duration="41.5"
+        data-track-index="2"
+        data-track-kind="captions"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 10"
+      ></div>
+
+      <!-- Voz narradora Álvaro (es-ES-AlvaroNeural, ritmo +0%) -->
+      <audio
+        id="audio-vo"
+        class="clip"
+        src="assets/voiceover.mp3"
+        data-start="0"
+        data-duration="41.5"
+        data-track-index="3"
+        data-volume="1"
+      ></audio>
+
+      <!-- Música de fondo equilibrada y ducked -->
+      <audio
+        id="audio-music"
+        class="clip"
+        src="assets/music-bed.mp3"
+        data-start="0"
+        data-duration="41.5"
+        data-track-index="4"
+        data-volume="1"
+        data-fade-out="0.8"
+      ></audio>
+
+      <!-- Efectos sutiles de transición e interfaz sincronizados -->
+      <audio
+        id="audio-sfx"
+        class="clip"
+        src="assets/sfx-track.mp3"
+        data-start="0"
+        data-duration="41.5"
+        data-track-index="5"
+        data-volume="1"
+      ></audio>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

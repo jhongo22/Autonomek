@@ -77,15 +77,15 @@ function AppWindow({
   return (
     <div
       ref={innerRef}
-      className="relative w-full overflow-hidden rounded-2xl border border-rule-strong bg-background shadow-2xl shadow-black/30 select-none"
+      className="relative w-full min-w-0 max-w-full overflow-hidden rounded-2xl border border-rule-strong bg-background shadow-2xl shadow-black/30 select-none"
     >
-      <div className="flex items-center gap-2 border-b border-rule bg-card px-2.5 sm:px-3 py-2">
+      <div className="flex min-w-0 items-center gap-2 border-b border-rule bg-card px-2.5 sm:px-3 py-2">
         <div className="flex shrink-0 items-center gap-1 sm:gap-1.5" aria-hidden="true">
           <span className="h-2 w-2 rounded-full" style={{ background: '#ff5f57' }} />
           <span className="h-2 w-2 rounded-full" style={{ background: '#febc2e' }} />
           <span className="h-2 w-2 rounded-full" style={{ background: '#28c840' }} />
         </div>
-        <div className="flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-md border border-rule bg-background px-2 py-0.5 sm:py-1 text-[9px] sm:text-[10px] font-mono text-muted">
+        <div className="flex min-w-0 flex-1 overflow-hidden items-center justify-center gap-1.5 rounded-md border border-rule bg-background px-2 py-0.5 sm:py-1 text-[9px] sm:text-[10px] font-mono text-muted">
           {icon}
           <span className="truncate">{address}</span>
         </div>
@@ -243,7 +243,7 @@ function SoftwareDashboardApp({ isEn = false }: { isEn?: boolean }) {
           {/* KPIs */}
           <div className="grid grid-cols-3 gap-1.5">
             {v.kpis.map((k) => (
-              <div key={k.label} className="rounded-lg border border-rule bg-surface p-1.5 sm:px-2 sm:py-1.5">
+              <div key={k.label} className="min-w-0 rounded-lg border border-rule bg-surface p-1.5 sm:px-2 sm:py-1.5">
                 <p className="truncate text-[7.5px] sm:text-[9px] uppercase tracking-wider text-muted">{k.label}</p>
                 <div className="mt-0.5 flex flex-wrap items-baseline justify-between gap-0.5">
                   <span className="font-mono text-[11px] sm:text-sm font-semibold text-foreground truncate">{k.value}</span>
@@ -773,7 +773,7 @@ function WhatsAppAgentApp({ isEn = false }: { isEn?: boolean }) {
             )}
           </div>
 
-          <div className="flex items-center gap-1 border-t border-rule bg-card px-2 py-1.5">
+          <div className="flex flex-wrap items-center gap-1 border-t border-rule bg-card px-2 py-1.5">
             {scenarios.map((s, i) => {
               const Icon = s.icon;
               const active = scenario === i;

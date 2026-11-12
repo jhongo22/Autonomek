@@ -1090,6 +1090,7 @@ const IB_CSS = `
   --ib-mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   position:relative;
   width:100%;
+  overflow-x:clip;
   box-sizing:border-box;
   color:var(--ib-ink);
   font-family:var(--ib-sans);
@@ -1102,7 +1103,7 @@ const IB_CSS = `
 .ib-root :where(svg){display:block;max-width:none;flex:none}
 .ib-root :where(h2,h3,p){margin:0;padding:0;font-size:inherit;font-weight:inherit}
 .ib-shell{width:100%;max-width:1280px;margin:0 auto;container-type:inline-size}
-.ib-sec{position:relative;background:var(--ib-paper);border:1px solid var(--ib-line);border-radius:28px;padding:clamp(32px,5cqw,64px) clamp(16px,4cqw,48px)}
+.ib-sec{position:relative;overflow:hidden;background:var(--ib-paper);border:1px solid var(--ib-line);border-radius:28px;padding:clamp(32px,5cqw,64px) clamp(16px,4cqw,48px)}
 .ib-reveal{opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 .ib-reveal[data-in="true"]{opacity:1;transform:none}
 .ib-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;margin-bottom:clamp(28px,4.5cqw,48px)}
@@ -1153,7 +1154,7 @@ const IB_CSS = `
 @keyframes ib-dash{to{stroke-dashoffset:-14}}
 @keyframes ib-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(1.35)}}
 @keyframes ib-sheet-in{from{opacity:0;transform:translate(14px,-10px) rotate(4deg)}to{opacity:1;transform:none}}
-.ib-bento>.ib-frame{display:flex;flex-direction:column}
+.ib-bento>.ib-frame{display:flex;flex-direction:column;min-width:0}
 .ib-bento>.ib-frame>.ib-card{flex:1}
 @media (prefers-reduced-motion:reduce){
 .ib-reveal{opacity:1;transform:none;transition:none}

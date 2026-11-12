@@ -10,6 +10,7 @@ import {
   ArrowUpRight,
   Mail,
   Phone,
+  Instagram,
   Globe2,
   Users2,
   CheckCircle2,
@@ -41,7 +42,7 @@ export default function Footer() {
         {/* Main Grid: 5 Columns for balanced, comprehensive hierarchy */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-rule text-sm">
           {/* Brand & Trust Column (4 cols) */}
-          <div className="lg:col-span-4 space-y-4">
+          <div className="min-w-0 lg:col-span-4 space-y-4">
             <Link href={homeHref} className="inline-flex flex-col leading-none group">
               <AutonomekLockup className="h-[22px] w-auto text-foreground transition-transform duration-200 group-hover:scale-[1.015]" />
               <span className="sr-only">AUTONOMEK</span>
@@ -62,19 +63,34 @@ export default function Footer() {
                   href="mailto:contacto@autonomek.com"
                   className="inline-flex items-center gap-2 hover:text-foreground transition-colors"
                 >
-                  <Mail size={13} className="text-primary" />
+                  <Mail size={13} className="text-primary shrink-0" />
                   <span>contacto@autonomek.com</span>
                 </a>
               </p>
               <p>
                 <a
-                  href="https://wa.me/573004435894"
+                  href="https://wa.me/573010147443"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 hover:text-foreground transition-colors"
                 >
-                  <Phone size={13} className="text-primary" />
-                  <span>+57 300 443 5894 (WhatsApp Oficial)</span>
+                  <Phone size={13} className="text-primary shrink-0" />
+                  <span>
+                    +57 301 014 7443 ({isEn ? 'Official WhatsApp' : 'WhatsApp Oficial'})
+                  </span>
+                </a>
+              </p>
+              <p>
+                <a
+                  href="https://www.instagram.com/autonomek?psln=bzJtYXI0NzhuZW42"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:text-foreground transition-colors"
+                >
+                  <Instagram size={13} className="text-primary shrink-0" />
+                  <span>
+                    @autonomek (Instagram)
+                  </span>
                 </a>
               </p>
             </div>

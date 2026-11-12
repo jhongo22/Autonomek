@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -9,6 +9,7 @@ import {
   Globe,
   Workflow,
   LayoutDashboard,
+  Instagram,
 } from 'lucide-react';
 import { ServiceMiniApp } from '@/components/ui/service-mini-apps';
 import InkOrbitFeatures from '@/components/ui/ink-orbit-features';
@@ -25,8 +26,8 @@ export default function ServiciosClient({ region = 'co' }: { region?: Region }) 
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const whatsappDirectUrl = isEn
-    ? 'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20would%20like%20to%20talk%20about%20a%20website%2C%20WhatsApp%20AI%20agent%2C%20or%20custom%20software%20project.'
-    : 'https://wa.me/573004435894?text=Hola%20Autonomek%2C%20quiero%20conversar%20sobre%20un%20proyecto%20de%20sitio%20web%2C%20agente%20de%20IA%20en%20WhatsApp%20o%20software%20a%20medida.';
+    ? 'https://wa.me/573010147443?text=Hello%20Autonomek%2C%20I%20would%20like%20to%20talk%20about%20a%20website%2C%20WhatsApp%20AI%20agent%2C%20or%20custom%20software%20project.'
+    : 'https://wa.me/573010147443?text=Hola%20Autonomek%2C%20quiero%20conversar%20sobre%20un%20proyecto%20de%20sitio%20web%2C%20agente%20de%20IA%20en%20WhatsApp%20o%20software%20a%20medida.';
 
   const services = isEn
     ? [
@@ -280,7 +281,7 @@ export default function ServiciosClient({ region = 'co' }: { region?: Region }) 
       <section className="relative isolate overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28 border-b border-rule">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-[-10%] -z-10 h-[420px] w-[820px] max-w-[120vw] -translate-x-1/2 rounded-full bg-primary/15 blur-[140px]"
+          className="pointer-events-none absolute left-1/2 top-[-10%] -z-10 h-[420px] w-[min(820px,100%)] -translate-x-1/2 rounded-full bg-primary/15 blur-[140px]"
         />
 
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
@@ -325,11 +326,11 @@ export default function ServiciosClient({ region = 'co' }: { region?: Region }) 
               return (
                 <article
                   key={srv.id}
-                  className="group rounded-[24px] sm:rounded-[28px] border border-rule bg-surface p-3.5 sm:p-7 md:p-8 flex flex-col justify-between gap-5 sm:gap-7 hover:border-rule-strong transition-colors shadow-lg shadow-black/20"
+                  className="group min-w-0 rounded-[24px] sm:rounded-[28px] border border-rule bg-surface p-3.5 sm:p-7 md:p-8 flex flex-col justify-between gap-5 sm:gap-7 hover:border-rule-strong transition-colors shadow-lg shadow-black/20"
                 >
-                  <div className="flex flex-1 flex-col gap-7">
+                  <div className="flex min-w-0 flex-1 flex-col gap-7">
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between gap-3">
+                      <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
                         <span className="inline-flex items-center gap-2 rounded-full bg-primary/15 border border-primary/25 px-3.5 py-1 text-xs font-semibold text-primary">
                           <IconComponent size={14} />
                           {srv.badge}
@@ -405,7 +406,7 @@ export default function ServiciosClient({ region = 'co' }: { region?: Region }) 
             </p>
           </div>
 
-          <div className="overflow-x-auto">
+          <div className="w-full max-w-full overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[680px]">
               <thead>
                 <tr className="border-b border-rule-strong text-[11px] font-mono uppercase tracking-[0.14em] text-muted">
@@ -602,7 +603,7 @@ export default function ServiciosClient({ region = 'co' }: { region?: Region }) 
         className="scroll-mt-24 py-20 md:py-28 border-b border-rule"
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          <div>
+          <div className="min-w-0">
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
               {isEn ? 'FAQ' : 'Preguntas Frecuentes'}
@@ -619,7 +620,7 @@ export default function ServiciosClient({ region = 'co' }: { region?: Region }) 
             </p>
           </div>
 
-          <div className="border-t border-rule">
+          <div className="min-w-0 border-t border-rule">
             {faqs.map((item, idx) => {
               const isOpen = openFaq === idx;
               return (
@@ -661,7 +662,7 @@ export default function ServiciosClient({ region = 'co' }: { region?: Region }) 
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[380px] w-[680px] max-w-[120vw] -translate-x-1/2 rounded-full bg-primary/15 blur-[120px]"
+          className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[380px] w-[min(680px,100%)] -translate-x-1/2 rounded-full bg-primary/15 blur-[120px]"
         />
         <div className="mx-auto max-w-3xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
@@ -677,14 +678,23 @@ export default function ServiciosClient({ region = 'co' }: { region?: Region }) 
               ? 'Write to us on WhatsApp and receive a free initial diagnosis with a clear proposal for your company.'
               : 'Escríbenos por WhatsApp y recibe un diagnóstico inicial sin costo con una propuesta clara para tu empresa.'}
           </p>
-          <div className="mt-9 flex justify-center">
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3.5">
             <a
               href={whatsappDirectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-primary text-primary-ink px-8 py-4 text-base font-semibold hover:opacity-90 transition"
+              className="inline-flex items-center justify-center rounded-full bg-primary text-primary-ink px-7 sm:px-8 py-4 text-sm sm:text-base font-semibold hover:opacity-90 transition"
             >
               {isEn ? 'Talk with us on WhatsApp — Free' : 'Hablar por WhatsApp — Diagnóstico Gratis'}
+            </a>
+            <a
+              href="https://www.instagram.com/autonomek?psln=bzJtYXI0NzhuZW42"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-rule bg-surface text-foreground px-6 py-4 text-sm sm:text-base font-semibold hover:bg-card transition"
+            >
+              <Instagram size={18} className="text-primary shrink-0" />
+              <span>@autonomek</span>
             </a>
           </div>
         </div>

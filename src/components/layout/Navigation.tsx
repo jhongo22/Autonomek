@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { X, ChevronDown, ArrowUpRight } from 'lucide-react';
+import { X, ChevronDown, ArrowUpRight, Instagram } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { AutonomekLockup } from '../brand/AutonomekLogo';
 
@@ -140,8 +140,9 @@ export default function Navigation() {
   const targetEnHref = getSwitchLanguageHref(pathname, 'en');
 
   const whatsappHref = isEn
-    ? 'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20would%20like%20to%20talk%20about%20a%20project%20for%20my%20business.'
-    : 'https://wa.me/573004435894?text=Hola%20Autonomek%2C%20quiero%20conversar%20sobre%20un%20proyecto%20para%20mi%20empresa.';
+    ? 'https://wa.me/573010147443?text=Hello%20Autonomek%2C%20I%20would%20like%20to%20talk%20about%20a%20project%20for%20my%20business.'
+    : 'https://wa.me/573010147443?text=Hola%20Autonomek%2C%20quiero%20conversar%20sobre%20un%20proyecto%20para%20mi%20empresa.';
+  const instagramHref = 'https://www.instagram.com/autonomek?psln=bzJtYXI0NzhuZW42';
 
   const navItems = [
     { name: isEn ? 'Home' : 'Inicio', href: `${homeHref}#inicio` },
@@ -361,6 +362,17 @@ export default function Navigation() {
           </div>
 
           <a
+            href={instagramHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram de Autonomek"
+            title="Instagram @autonomek"
+            className="hidden sm:inline-flex h-9 w-9 items-center justify-center rounded-full border border-rule bg-surface text-muted hover:text-primary hover:border-primary transition-colors"
+          >
+            <Instagram size={16} />
+          </a>
+
+          <a
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
@@ -452,7 +464,7 @@ export default function Navigation() {
                 {isEn ? 'Contact us on WhatsApp' : 'Contáctanos por WhatsApp'}
               </a>
 
-              <div className="flex items-center justify-between">
+              <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="inline-flex items-center rounded-full bg-surface border border-rule p-0.5 text-xs">
                   <Link
                     href={targetEsHref}
@@ -475,7 +487,20 @@ export default function Navigation() {
                     English
                   </Link>
                 </div>
-                <span className="text-xs text-muted">WhatsApp: +57 300 443 5894</span>
+                <div className="flex flex-wrap items-center gap-3 text-xs text-muted">
+                  <a
+                    href={instagramHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
+                    className="inline-flex items-center gap-1.5 text-foreground hover:text-primary transition-colors"
+                  >
+                    <Instagram size={14} className="text-primary" />
+                    <span>@autonomek</span>
+                  </a>
+                  <span className="text-rule">·</span>
+                  <span>WhatsApp: +57 301 014 7443</span>
+                </div>
               </div>
             </div>
           </div>

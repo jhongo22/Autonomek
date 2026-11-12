@@ -48,7 +48,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
   const whatsappMessage = isEn
     ? `Hello Autonomek, I inspected the "${project.title}" case study in your portfolio and I would like to quote a similar system.`
     : `Hola Autonomek, vi el caso de estudio "${project.title}" en su portafolio y me gustaría cotizar un sistema similar.`;
-  const whatsappUrl = `https://wa.me/573004435894?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = `https://wa.me/573010147443?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <AnimatePresence>

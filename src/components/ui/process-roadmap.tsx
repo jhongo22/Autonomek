@@ -129,7 +129,7 @@ export function ProcessRoadmap({
             const isLast = index === list.length - 1;
 
             return (
-              <li key={step.num} className="relative flex flex-col">
+              <li key={step.num} className="relative min-w-0 flex flex-col">
                 {/* Minimalist Card matching standard website cards */}
                 <div className="group relative h-full rounded-[24px] border border-rule bg-surface hover:border-rule-strong hover:bg-card/40 transition-colors duration-300 p-6 flex flex-col shadow-lg shadow-black/20 overflow-hidden">
                   {/* Top glowing accent bar + connection port dot */}

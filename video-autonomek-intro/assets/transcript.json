@@ -1,0 +1,613 @@
+{
+  "voice": "es-ES-AlvaroNeural",
+  "rate": "+0%",
+  "duration": 41.5,
+  "words": [
+    {
+      "scene": "scene1",
+      "text": "En",
+      "start": 0.21,
+      "end": 0.435
+    },
+    {
+      "scene": "scene1",
+      "text": "Autonomek",
+      "start": 0.448,
+      "end": 0.948
+    },
+    {
+      "scene": "scene1",
+      "text": "creamos",
+      "start": 0.96,
+      "end": 1.36
+    },
+    {
+      "scene": "scene1",
+      "text": "tecnología",
+      "start": 1.372,
+      "end": 1.972
+    },
+    {
+      "scene": "scene1",
+      "text": "práctica",
+      "start": 1.985,
+      "end": 2.46
+    },
+    {
+      "scene": "scene1",
+      "text": "para",
+      "start": 2.472,
+      "end": 2.672
+    },
+    {
+      "scene": "scene1",
+      "text": "que",
+      "start": 2.685,
+      "end": 2.798
+    },
+    {
+      "scene": "scene1",
+      "text": "tu",
+      "start": 2.81,
+      "end": 2.898
+    },
+    {
+      "scene": "scene1",
+      "text": "negocio",
+      "start": 2.91,
+      "end": 3.335
+    },
+    {
+      "scene": "scene1",
+      "text": "venda",
+      "start": 3.347,
+      "end": 3.61
+    },
+    {
+      "scene": "scene1",
+      "text": "más",
+      "start": 3.623,
+      "end": 3.835
+    },
+    {
+      "scene": "scene1",
+      "text": "y",
+      "start": 3.847,
+      "end": 3.897
+    },
+    {
+      "scene": "scene1",
+      "text": "trabaje",
+      "start": 3.91,
+      "end": 4.322
+    },
+    {
+      "scene": "scene1",
+      "text": "con",
+      "start": 4.335,
+      "end": 4.51
+    },
+    {
+      "scene": "scene1",
+      "text": "menos",
+      "start": 4.522,
+      "end": 4.81
+    },
+    {
+      "scene": "scene1",
+      "text": "esfuerzo",
+      "start": 4.823,
+      "end": 5.41
+    },
+    {
+      "scene": "scene1",
+      "text": "sin",
+      "start": 5.735,
+      "end": 6.073
+    },
+    {
+      "scene": "scene1",
+      "text": "complicarte",
+      "start": 6.085,
+      "end": 6.722
+    },
+    {
+      "scene": "scene1",
+      "text": "con",
+      "start": 6.735,
+      "end": 6.935
+    },
+    {
+      "scene": "scene1",
+      "text": "términos",
+      "start": 6.948,
+      "end": 7.36
+    },
+    {
+      "scene": "scene1",
+      "text": "técnicos",
+      "start": 7.373,
+      "end": 8.073
+    },
+    {
+      "scene": "scene2",
+      "text": "Diseñamos",
+      "start": 8.51,
+      "end": 9.16
+    },
+    {
+      "scene": "scene2",
+      "text": "páginas",
+      "start": 9.172,
+      "end": 9.622
+    },
+    {
+      "scene": "scene2",
+      "text": "web",
+      "start": 9.635,
+      "end": 9.823
+    },
+    {
+      "scene": "scene2",
+      "text": "ultrarrápidas",
+      "start": 9.835,
+      "end": 10.535
+    },
+    {
+      "scene": "scene2",
+      "text": "hechas",
+      "start": 10.548,
+      "end": 10.835
+    },
+    {
+      "scene": "scene2",
+      "text": "para",
+      "start": 10.848,
+      "end": 11.022
+    },
+    {
+      "scene": "scene2",
+      "text": "convertir",
+      "start": 11.035,
+      "end": 11.497
+    },
+    {
+      "scene": "scene2",
+      "text": "visitas",
+      "start": 11.51,
+      "end": 11.948
+    },
+    {
+      "scene": "scene2",
+      "text": "en",
+      "start": 11.96,
+      "end": 12.06
+    },
+    {
+      "scene": "scene2",
+      "text": "clientes",
+      "start": 12.073,
+      "end": 12.535
+    },
+    {
+      "scene": "scene2",
+      "text": "y",
+      "start": 12.548,
+      "end": 12.585
+    },
+    {
+      "scene": "scene2",
+      "text": "lograr",
+      "start": 12.598,
+      "end": 12.923
+    },
+    {
+      "scene": "scene2",
+      "text": "que",
+      "start": 12.935,
+      "end": 13.048
+    },
+    {
+      "scene": "scene2",
+      "text": "te",
+      "start": 13.06,
+      "end": 13.148
+    },
+    {
+      "scene": "scene2",
+      "text": "encuentren",
+      "start": 13.16,
+      "end": 13.635
+    },
+    {
+      "scene": "scene2",
+      "text": "primero",
+      "start": 13.647,
+      "end": 14.197
+    },
+    {
+      "scene": "scene2",
+      "text": "en",
+      "start": 14.385,
+      "end": 14.547
+    },
+    {
+      "scene": "scene2",
+      "text": "Google",
+      "start": 14.56,
+      "end": 14.835
+    },
+    {
+      "scene": "scene2",
+      "text": "y",
+      "start": 14.848,
+      "end": 14.91
+    },
+    {
+      "scene": "scene2",
+      "text": "en",
+      "start": 14.923,
+      "end": 15.022
+    },
+    {
+      "scene": "scene2",
+      "text": "ChatGPT",
+      "start": 15.035,
+      "end": 15.885
+    },
+    {
+      "scene": "scene3",
+      "text": "Creamos",
+      "start": 16.36,
+      "end": 16.835
+    },
+    {
+      "scene": "scene3",
+      "text": "asistentes",
+      "start": 16.848,
+      "end": 17.41
+    },
+    {
+      "scene": "scene3",
+      "text": "virtuales",
+      "start": 17.423,
+      "end": 17.973
+    },
+    {
+      "scene": "scene3",
+      "text": "para",
+      "start": 17.985,
+      "end": 18.173
+    },
+    {
+      "scene": "scene3",
+      "text": "tu",
+      "start": 18.185,
+      "end": 18.31
+    },
+    {
+      "scene": "scene3",
+      "text": "WhatsApp",
+      "start": 18.322,
+      "end": 18.698
+    },
+    {
+      "scene": "scene3",
+      "text": "que",
+      "start": 18.71,
+      "end": 18.798
+    },
+    {
+      "scene": "scene3",
+      "text": "atienden",
+      "start": 18.81,
+      "end": 19.185
+    },
+    {
+      "scene": "scene3",
+      "text": "día",
+      "start": 19.198,
+      "end": 19.398
+    },
+    {
+      "scene": "scene3",
+      "text": "y",
+      "start": 19.41,
+      "end": 19.46
+    },
+    {
+      "scene": "scene3",
+      "text": "noche",
+      "start": 19.472,
+      "end": 19.885
+    },
+    {
+      "scene": "scene3",
+      "text": "responden",
+      "start": 20.198,
+      "end": 20.66
+    },
+    {
+      "scene": "scene3",
+      "text": "audios",
+      "start": 20.672,
+      "end": 21.122
+    },
+    {
+      "scene": "scene3",
+      "text": "revisan",
+      "start": 21.41,
+      "end": 21.998
+    },
+    {
+      "scene": "scene3",
+      "text": "pagos",
+      "start": 22.01,
+      "end": 22.348
+    },
+    {
+      "scene": "scene3",
+      "text": "y",
+      "start": 22.36,
+      "end": 22.41
+    },
+    {
+      "scene": "scene3",
+      "text": "agendan",
+      "start": 22.422,
+      "end": 22.872
+    },
+    {
+      "scene": "scene3",
+      "text": "citas",
+      "start": 22.885,
+      "end": 23.172
+    },
+    {
+      "scene": "scene3",
+      "text": "automáticamente",
+      "start": 23.185,
+      "end": 24.285
+    },
+    {
+      "scene": "scene4",
+      "text": "Desarrollamos",
+      "start": 24.71,
+      "end": 25.485
+    },
+    {
+      "scene": "scene4",
+      "text": "sistemas",
+      "start": 25.497,
+      "end": 25.96
+    },
+    {
+      "scene": "scene4",
+      "text": "a",
+      "start": 25.973,
+      "end": 25.997
+    },
+    {
+      "scene": "scene4",
+      "text": "la",
+      "start": 26.01,
+      "end": 26.097
+    },
+    {
+      "scene": "scene4",
+      "text": "medida",
+      "start": 26.11,
+      "end": 26.41
+    },
+    {
+      "scene": "scene4",
+      "text": "de",
+      "start": 26.422,
+      "end": 26.523
+    },
+    {
+      "scene": "scene4",
+      "text": "tu",
+      "start": 26.535,
+      "end": 26.635
+    },
+    {
+      "scene": "scene4",
+      "text": "equipo",
+      "start": 26.648,
+      "end": 27.072
+    },
+    {
+      "scene": "scene4",
+      "text": "sin",
+      "start": 27.322,
+      "end": 27.523
+    },
+    {
+      "scene": "scene4",
+      "text": "pagos",
+      "start": 27.535,
+      "end": 27.81
+    },
+    {
+      "scene": "scene4",
+      "text": "mensuales",
+      "start": 27.822,
+      "end": 28.31
+    },
+    {
+      "scene": "scene4",
+      "text": "por",
+      "start": 28.322,
+      "end": 28.46
+    },
+    {
+      "scene": "scene4",
+      "text": "usuario",
+      "start": 28.472,
+      "end": 28.985
+    },
+    {
+      "scene": "scene4",
+      "text": "y",
+      "start": 29.21,
+      "end": 29.36
+    },
+    {
+      "scene": "scene4",
+      "text": "conectamos",
+      "start": 29.373,
+      "end": 29.948
+    },
+    {
+      "scene": "scene4",
+      "text": "tus",
+      "start": 29.96,
+      "end": 30.135
+    },
+    {
+      "scene": "scene4",
+      "text": "herramientas",
+      "start": 30.147,
+      "end": 30.735
+    },
+    {
+      "scene": "scene4",
+      "text": "para",
+      "start": 30.748,
+      "end": 30.922
+    },
+    {
+      "scene": "scene4",
+      "text": "eliminar",
+      "start": 30.935,
+      "end": 31.323
+    },
+    {
+      "scene": "scene4",
+      "text": "el",
+      "start": 31.335,
+      "end": 31.435
+    },
+    {
+      "scene": "scene4",
+      "text": "trabajo",
+      "start": 31.448,
+      "end": 31.823
+    },
+    {
+      "scene": "scene4",
+      "text": "repetitivo",
+      "start": 31.835,
+      "end": 32.572
+    },
+    {
+      "scene": "scene5",
+      "text": "Tu",
+      "start": 33.01,
+      "end": 33.185
+    },
+    {
+      "scene": "scene5",
+      "text": "negocio",
+      "start": 33.197,
+      "end": 33.585
+    },
+    {
+      "scene": "scene5",
+      "text": "funcionando",
+      "start": 33.598,
+      "end": 34.16
+    },
+    {
+      "scene": "scene5",
+      "text": "en",
+      "start": 34.172,
+      "end": 34.297
+    },
+    {
+      "scene": "scene5",
+      "text": "piloto",
+      "start": 34.31,
+      "end": 34.635
+    },
+    {
+      "scene": "scene5",
+      "text": "automático",
+      "start": 34.648,
+      "end": 35.26
+    },
+    {
+      "scene": "scene5",
+      "text": "y",
+      "start": 35.272,
+      "end": 35.322
+    },
+    {
+      "scene": "scene5",
+      "text": "bajo",
+      "start": 35.335,
+      "end": 35.585
+    },
+    {
+      "scene": "scene5",
+      "text": "tu",
+      "start": 35.598,
+      "end": 35.685
+    },
+    {
+      "scene": "scene5",
+      "text": "control",
+      "start": 35.698,
+      "end": 36.285
+    },
+    {
+      "scene": "scene5",
+      "text": "Visita",
+      "start": 37.147,
+      "end": 37.61
+    },
+    {
+      "scene": "scene5",
+      "text": "autonomek",
+      "start": 37.623,
+      "end": 38.148
+    },
+    {
+      "scene": "scene5",
+      "text": "punto",
+      "start": 38.16,
+      "end": 38.447
+    },
+    {
+      "scene": "scene5",
+      "text": "com",
+      "start": 38.46,
+      "end": 38.647
+    },
+    {
+      "scene": "scene5",
+      "text": "y",
+      "start": 38.66,
+      "end": 38.697
+    },
+    {
+      "scene": "scene5",
+      "text": "conversemos",
+      "start": 38.71,
+      "end": 39.36
+    },
+    {
+      "scene": "scene5",
+      "text": "hoy",
+      "start": 39.373,
+      "end": 39.485
+    },
+    {
+      "scene": "scene5",
+      "text": "mismo",
+      "start": 39.498,
+      "end": 40.023
+    }
+  ]
+}

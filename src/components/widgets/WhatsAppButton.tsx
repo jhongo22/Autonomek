@@ -4,22 +4,22 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function WhatsAppButton() {
-  const phoneNumber = '573004435894';
+  const phoneNumber = '573010147443';
   const message = encodeURIComponent('Hola Autonomek, me gustaría cotizar un proyecto.');
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-end">
+    <div className="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-50 flex items-end">
       <motion.a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.35)] relative group border border-white/20 transition-all duration-300"
+        className="w-12 h-12 sm:w-14 sm:h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.35)] relative group border border-white/20 transition-all duration-300"
         aria-label="Contactar por WhatsApp"
       >
-        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-ping pointer-events-none group-hover:hidden"></span>
+        <span className="absolute inset-2 rounded-full bg-[#25D366] opacity-30 animate-ping pointer-events-none group-hover:hidden"></span>
         
         {/* WhatsApp SVG Icon */}
         <svg 

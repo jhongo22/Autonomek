@@ -63,8 +63,8 @@ export default function BlogHubClient({ isEn = false, basePrefix = '' }: BlogHub
     : filteredPosts;
 
   const whatsappDirectUrl = isEn
-    ? 'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20read%20your%20blog%20and%20would%20like%20to%20consult%20on%20a%20project.'
-    : 'https://wa.me/573004435894?text=Hola%20Autonomek%2C%20le%C3%AD%20sus%20art%C3%ADculos%20y%20quiero%20consultar%20sobre%20un%20proyecto.';
+    ? 'https://wa.me/573010147443?text=Hello%20Autonomek%2C%20I%20read%20your%20blog%20and%20would%20like%20to%20consult%20on%20a%20project.'
+    : 'https://wa.me/573010147443?text=Hola%20Autonomek%2C%20le%C3%AD%20sus%20art%C3%ADculos%20y%20quiero%20consultar%20sobre%20un%20proyecto.';
 
   return (
     <main className="min-h-screen w-full bg-background text-foreground pt-28 md:pt-36 pb-24 selection:bg-primary selection:text-primary-ink">
@@ -174,7 +174,7 @@ export default function BlogHubClient({ isEn = false, basePrefix = '' }: BlogHub
             })}
           </div>
 
-          <div className="relative min-w-[240px] sm:min-w-[260px]">
+          <div className="relative w-full md:w-64 min-w-0">
             <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
             <input
               type="text"
@@ -192,7 +192,7 @@ export default function BlogHubClient({ isEn = false, basePrefix = '' }: BlogHub
         {selectedCategory === 'all' && searchQuery.trim() === '' && featuredPost && (
           <section className="py-10 border-b border-rule">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              <div className="lg:col-span-8 space-y-4">
+              <div className="min-w-0 lg:col-span-8 space-y-4">
                 <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-muted">
                   <span className="text-primary font-semibold">
                     {isEn ? 'Featured article' : 'Artículo destacado'}
@@ -255,7 +255,7 @@ export default function BlogHubClient({ isEn = false, basePrefix = '' }: BlogHub
               </div>
 
               {/* Clean Metric & Topics Box on the right */}
-              <div className="lg:col-span-4 rounded-2xl border border-rule bg-surface p-6 space-y-4">
+              <div className="min-w-0 lg:col-span-4 rounded-2xl border border-rule bg-surface p-6 space-y-4">
                 <div>
                   <span className="text-3xl sm:text-4xl font-semibold font-mono text-primary tabular-nums">
                     {featuredPost.heroMetric.value}
@@ -305,7 +305,7 @@ export default function BlogHubClient({ isEn = false, basePrefix = '' }: BlogHub
                 className="py-8 sm:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start"
               >
                 {/* Left Column: Date, Category & Read Time */}
-                <div className="md:col-span-3 space-y-1 text-xs font-mono text-muted">
+                <div className="min-w-0 md:col-span-3 space-y-1 text-xs font-mono text-muted">
                   <p className="text-primary font-medium">{categoryLabel}</p>
                   <p className="tabular-nums">
                     {new Date(post.date + 'T00:00:00Z').toLocaleDateString(isEn ? 'en-US' : 'es-CO', {
@@ -322,7 +322,7 @@ export default function BlogHubClient({ isEn = false, basePrefix = '' }: BlogHub
                 </div>
 
                 {/* Middle Column: Title, Description & Underlined Links */}
-                <div className="md:col-span-7 space-y-3">
+                <div className="min-w-0 md:col-span-7 space-y-3">
                   <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground leading-snug">
                     <Link
                       href={articleHref}
@@ -361,7 +361,7 @@ export default function BlogHubClient({ isEn = false, basePrefix = '' }: BlogHub
                 </div>
 
                 {/* Right Column: Key Metric */}
-                <div className="md:col-span-2 md:text-right pt-2 md:pt-0">
+                <div className="min-w-0 md:col-span-2 md:text-right pt-2 md:pt-0">
                   <span className="inline-block font-mono text-lg sm:text-xl font-semibold text-foreground tabular-nums">
                     {post.heroMetric.value}
                   </span>

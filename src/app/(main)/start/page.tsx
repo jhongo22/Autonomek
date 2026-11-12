@@ -13,7 +13,7 @@ function StartRedirectContent() {
   const goal = searchParams.get('goal');
 
   const buildWhatsAppUrl = () => {
-    const phone = '573004435894';
+    const phone = '573010147443';
     if (isEn) {
       let msg = 'Hello Autonomek, I would like to request a technical diagnosis for my business.';
       if (channel || goal) {

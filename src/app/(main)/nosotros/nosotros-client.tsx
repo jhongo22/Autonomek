@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -15,6 +15,7 @@ import {
   Globe2,
   Users2,
   Sparkles,
+  Instagram,
 } from 'lucide-react';
 import { ProcessRoadmap } from '@/components/ui/process-roadmap';
 import TestimonialMarquee from '@/components/ui/marquee-01';
@@ -32,8 +33,8 @@ export default function NosotrosClient({ isEn = false, basePrefix = '' }: Nosotr
   const privacyHref = isEn ? `${basePrefix}/privacy` : `${basePrefix}/privacidad`;
 
   const whatsappDirectUrl = isEn
-    ? 'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20team%20and%20engineering%20solutions.'
-    : 'https://wa.me/573004435894?text=Hola%20Autonomek%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20su%20equipo%20y%20soluciones%20de%20ingenier%C3%ADa.';
+    ? 'https://wa.me/573010147443?text=Hello%20Autonomek%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20team%20and%20engineering%20solutions.'
+    : 'https://wa.me/573010147443?text=Hola%20Autonomek%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20su%20equipo%20y%20soluciones%20de%20ingenier%C3%ADa.';
 
   const pillars = isEn
     ? [
@@ -153,7 +154,7 @@ export default function NosotrosClient({ isEn = false, basePrefix = '' }: Nosotr
       <section className="relative isolate overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28 border-b border-rule">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-[-10%] -z-10 h-[420px] w-[820px] max-w-[120vw] -translate-x-1/2 rounded-full bg-primary/15 blur-[140px]"
+          className="pointer-events-none absolute left-1/2 top-[-10%] -z-10 h-[420px] w-[min(820px,100%)] -translate-x-1/2 rounded-full bg-primary/15 blur-[140px]"
         />
 
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
@@ -266,13 +267,13 @@ export default function NosotrosClient({ isEn = false, basePrefix = '' }: Nosotr
                 key={pillar.num}
                 className="py-8 sm:py-10 grid gap-6 md:grid-cols-12 md:items-baseline"
               >
-                <div className="md:col-span-4 flex items-baseline gap-4">
-                  <span className="font-mono text-xs font-semibold text-primary">/{pillar.num}</span>
-                  <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground">
+                <div className="min-w-0 md:col-span-4 flex items-baseline gap-4">
+                  <span className="font-mono text-xs font-semibold text-primary shrink-0">/{pillar.num}</span>
+                  <h3 className="min-w-0 break-words text-xl sm:text-2xl font-semibold tracking-tight text-foreground">
                     {pillar.title}
                   </h3>
                 </div>
-                <div className="md:col-span-8">
+                <div className="min-w-0 md:col-span-8">
                   <p className="text-sm sm:text-base leading-relaxed text-muted max-w-3xl">
                     {pillar.desc}
                   </p>
@@ -288,7 +289,7 @@ export default function NosotrosClient({ isEn = false, basePrefix = '' }: Nosotr
       {/* ================================================================== */}
       <section className="py-20 md:py-28 border-b border-rule">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
-          <div className="rounded-[32px] border border-rule bg-surface p-8 sm:p-12 lg:p-14">
+          <div className="rounded-[24px] sm:rounded-[32px] border border-rule bg-surface p-5 sm:p-12 lg:p-14">
             <div className="max-w-3xl">
               <div className="mb-5 flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-muted">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
@@ -396,7 +397,7 @@ export default function NosotrosClient({ isEn = false, basePrefix = '' }: Nosotr
       <section className="relative isolate scroll-mt-24 overflow-hidden px-5 pb-24 pt-16 sm:px-8 md:pb-32 md:pt-24">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[380px] w-[680px] max-w-[120vw] -translate-x-1/2 rounded-full bg-primary/15 blur-[120px]"
+          className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[380px] w-[min(680px,100%)] -translate-x-1/2 rounded-full bg-primary/15 blur-[120px]"
         />
         <div className="mx-auto max-w-3xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
@@ -412,14 +413,23 @@ export default function NosotrosClient({ isEn = false, basePrefix = '' }: Nosotr
               ? 'Write directly to our engineering team on WhatsApp and receive a free initial diagnosis and architecture proposal.'
               : 'Escríbenos directamente por WhatsApp y recibe una sesión de diagnóstico técnico sin costo con una propuesta clara para tu empresa.'}
           </p>
-          <div className="mt-9 flex justify-center">
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3.5">
             <a
               href={whatsappDirectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-primary text-primary-ink px-8 py-4 text-base font-semibold hover:opacity-90 transition"
+              className="inline-flex items-center justify-center rounded-full bg-primary text-primary-ink px-7 sm:px-8 py-4 text-sm sm:text-base font-semibold hover:opacity-90 transition"
             >
               {isEn ? 'Talk with our engineering team' : 'Hablar con ingeniería — Diagnóstico Gratis'}
+            </a>
+            <a
+              href="https://www.instagram.com/autonomek?psln=bzJtYXI0NzhuZW42"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-rule bg-surface text-foreground px-6 py-4 text-sm sm:text-base font-semibold hover:bg-card transition"
+            >
+              <Instagram size={18} className="text-primary shrink-0" />
+              <span>@autonomek</span>
             </a>
           </div>
         </div>

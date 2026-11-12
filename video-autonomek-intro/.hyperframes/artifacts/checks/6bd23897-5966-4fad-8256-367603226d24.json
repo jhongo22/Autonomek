@@ -1,0 +1,4104 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 14,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "composition_file_too_large",
+        "severity": "warning",
+        "message": "This HTML composition file has 896 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\compositions\\captions.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split this sub-composition further into smaller .html files, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#st5-whatsapp-cta\" for scale between 37.25s and 37.40s.",
+        "selector": "#st5-whatsapp-cta",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\compositions\\world.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "gsap_timeline_set_initial_hide",
+        "severity": "warning",
+        "message": "Initial hidden state for \"#st1-wordmark\" is set via tl.set(...) at position 0 inside the paused timeline. A zero-duration set at 0 does not render while the playhead sits exactly at 0, so frame 0 shows the un-hidden state.",
+        "selector": "#st1-wordmark",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\compositions\\world.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use gsap.set(...) (immediate, outside the timeline) for initial states, or author the hidden state directly in CSS/attributes."
+      },
+      {
+        "code": "gsap_timeline_set_initial_hide",
+        "severity": "warning",
+        "message": "Initial hidden state for \".st1-word\" is set via tl.set(...) at position 0 inside the paused timeline. A zero-duration set at 0 does not render while the playhead sits exactly at 0, so frame 0 shows the un-hidden state.",
+        "selector": ".st1-word",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\compositions\\world.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use gsap.set(...) (immediate, outside the timeline) for initial states, or author the hidden state directly in CSS/attributes."
+      },
+      {
+        "code": "gsap_timeline_set_initial_hide",
+        "severity": "warning",
+        "message": "Initial hidden state for \"#st1-badge-1, #st1-badge-2\" is set via tl.set(...) at position 0 inside the paused timeline. A zero-duration set at 0 does not render while the playhead sits exactly at 0, so frame 0 shows the un-hidden state.",
+        "selector": "#st1-badge-1, #st1-badge-2",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\compositions\\world.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use gsap.set(...) (immediate, outside the timeline) for initial states, or author the hidden state directly in CSS/attributes."
+      },
+      {
+        "code": "gsap_timeline_set_initial_hide",
+        "severity": "warning",
+        "message": "Initial hidden state for \"#st2-search-card\" is set via tl.set(...) at position 0 inside the paused timeline. A zero-duration set at 0 does not render while the playhead sits exactly at 0, so frame 0 shows the un-hidden state.",
+        "selector": "#st2-search-card",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\compositions\\world.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use gsap.set(...) (immediate, outside the timeline) for initial states, or author the hidden state directly in CSS/attributes."
+      },
+      {
+        "code": "gsap_timeline_set_initial_hide",
+        "severity": "warning",
+        "message": "Initial hidden state for \"#st2-google-row, #st2-gpt-row\" is set via tl.set(...) at position 0 inside the paused timeline. A zero-duration set at 0 does not render while the playhead sits exactly at 0, so frame 0 shows the un-hidden state.",
+        "selector": "#st2-google-row, #st2-gpt-row",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\compositions\\world.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use gsap.set(...) (immediate, outside the timeline) for initial states, or author the hidden state directly in CSS/attributes."
+      },
+      {
+        "code": "gsap_timeline_set_initial_hide",
+        "severity": "warning",
+        "message": "Initial hidden state for \"#st3-msg-1, #st3-msg-2, #st3-voice-bubble, #st3-pay-card, #st3-cal-card\" is set via tl.set(...) at position 0 inside the paused timeline. A zero-duration set at 0 does not render while the playhead sits exactly at 0, so frame 0 shows the un-hidden state.",
+        "selector": "#st3-msg-1, #st3-msg-2, #st3-voice-bubble, #st3-pay-card, #st3-cal-card",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\compositions\\world.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use gsap.set(...) (immediate, outside the timeline) for initial states, or author the hidden state directly in CSS/attributes."
+      },
+      {
+        "code": "gsap_timeline_set_initial_hide",
+        "severity": "warning",
+        "message": "Initial hidden state for \".eco-node-card\" is set via tl.set(...) at position 0 inside the paused timeline. A zero-duration set at 0 does not render while the playhead sits exactly at 0, so frame 0 shows the un-hidden state.",
+        "selector": ".eco-node-card",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\compositions\\world.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use gsap.set(...) (immediate, outside the timeline) for initial states, or author the hidden state directly in CSS/attributes."
+      },
+      {
+        "code": "gsap_timeline_set_initial_hide",
+        "severity": "warning",
+        "message": "Initial hidden state for \"#st4-metric-panel\" is set via tl.set(...) at position 0 inside the paused timeline. A zero-duration set at 0 does not render while the playhead sits exactly at 0, so frame 0 shows the un-hidden state.",
+        "selector": "#st4-metric-panel",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\compositions\\world.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use gsap.set(...) (immediate, outside the timeline) for initial states, or author the hidden state directly in CSS/attributes."
+      },
+      {
+        "code": "gsap_timeline_set_initial_hide",
+        "severity": "warning",
+        "message": "Initial hidden state for \"#st5-cta-panel\" is set via tl.set(...) at position 0 inside the paused timeline. A zero-duration set at 0 does not render while the playhead sits exactly at 0, so frame 0 shows the un-hidden state.",
+        "selector": "#st5-cta-panel",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\compositions\\world.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use gsap.set(...) (immediate, outside the timeline) for initial states, or author the hidden state directly in CSS/attributes."
+      },
+      {
+        "code": "gsap_timeline_set_initial_hide",
+        "severity": "warning",
+        "message": "Initial hidden state for \"#st5-trust-1, #st5-trust-2\" is set via tl.set(...) at position 0 inside the paused timeline. A zero-duration set at 0 does not render while the playhead sits exactly at 0, so frame 0 shows the un-hidden state.",
+        "selector": "#st5-trust-1, #st5-trust-2",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\compositions\\world.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use gsap.set(...) (immediate, outside the timeline) for initial states, or author the hidden state directly in CSS/attributes."
+      },
+      {
+        "code": "gsap_timeline_set_initial_hide",
+        "severity": "warning",
+        "message": "Initial hidden state for \"#st5-whatsapp-cta\" is set via tl.set(...) at position 0 inside the paused timeline. A zero-duration set at 0 does not render while the playhead sits exactly at 0, so frame 0 shows the un-hidden state.",
+        "selector": "#st5-whatsapp-cta",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\compositions\\world.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use gsap.set(...) (immediate, outside the timeline) for initial states, or author the hidden state directly in CSS/attributes."
+      },
+      {
+        "code": "composition_file_too_large",
+        "severity": "warning",
+        "message": "This HTML composition file has 514 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\compositions\\world.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split this sub-composition further into smaller .html files, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently."
+      }
+    ],
+    "filesScanned": 3
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 24,
+    "warningCount": 26,
+    "infoCount": 30,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 0.232,
+        "selector": "#st1-headline",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 0,
+          "top": 1216.84,
+          "right": 1080,
+          "bottom": 1581.94,
+          "width": 1080,
+          "height": 365.1
+        },
+        "containerSelector": "#cap-word-0-0",
+        "text": "Tecnología que atrae clientes y ordena tu negocioTecnologíaqueatraeclientesyordenatunegocio",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply. Decoration nobody needs to read can take data-layout-ignore.",
+        "dataAttributes": {
+          "data-var-text": "headlineMain"
+        },
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 0,
+          "y": 1216.84,
+          "width": 1080,
+          "height": 365.1
+        },
+        "firstSeen": 0.232,
+        "lastSeen": 0.927,
+        "occurrences": 4,
+        "heldMs": 695.0000000000001,
+        "times": [
+          0.232,
+          0.464,
+          0.696,
+          0.927
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "error",
+        "time": 25.361,
+        "selector": "#st1-badge-2 > span:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": -6.13,
+          "top": 88.83,
+          "right": 99.76,
+          "bottom": 113.55,
+          "width": 105.88,
+          "height": 24.73
+        },
+        "containerSelector": "#eco-node-quotes",
+        "text": "100% tuyo",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.89,
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -6.13,
+          "y": 88.83,
+          "width": 105.88,
+          "height": 24.73
+        },
+        "firstSeen": 25.361,
+        "lastSeen": 29.972,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          25.361,
+          29.972
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "#st1-badge-2 > span:nth-of-type(2)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": -53.73,
+          "top": 135.72,
+          "right": 106.57,
+          "bottom": 165.48,
+          "width": 160.3,
+          "height": 29.76
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "100% tuyo",
+        "fixHint": "Text is 160px x 30px inside 1080px x 1920px and overflows by up to 54px; widen the container to at least ~1134px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 53.73
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -53.73,
+          "y": 135.72,
+          "width": 160.3,
+          "height": 29.76
+        },
+        "firstSeen": 25.361,
+        "lastSeen": 39.194,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "#st2-gpt-row > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 924.96,
+          "top": 367.32,
+          "right": 1301.19,
+          "bottom": 426.84,
+          "width": 376.23,
+          "height": 59.52
+        },
+        "containerSelector": "#st5-cta-panel",
+        "text": "\"Te recomiendo Tu Negocio por confianza\"",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.26,
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 924.96,
+          "y": 367.32,
+          "width": 376.23,
+          "height": 59.52
+        },
+        "firstSeen": 29.972,
+        "lastSeen": 39.194,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          29.972,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "div.wa-title",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 943.2,
+          "top": 903.96,
+          "right": 1258.35,
+          "bottom": 941.4,
+          "width": 315.15,
+          "height": 37.44
+        },
+        "containerSelector": "#st5-cta-panel",
+        "text": "Asistente WhatsApp",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.22,
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 943.2,
+          "y": 903.96,
+          "width": 315.15,
+          "height": 37.44
+        },
+        "firstSeen": 29.972,
+        "lastSeen": 39.194,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          29.972,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "div.wa-status",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 943.2,
+          "top": 941.4,
+          "right": 1128.57,
+          "bottom": 971.16,
+          "width": 185.37,
+          "height": 29.76
+        },
+        "containerSelector": "#st5-cta-panel",
+        "text": "● En línea 24/7",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.33,
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 943.2,
+          "y": 941.4,
+          "width": 185.37,
+          "height": 29.76
+        },
+        "firstSeen": 29.972,
+        "lastSeen": 39.194,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          29.972,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "#st3-msg-1 > div:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 868.32,
+          "top": 1034.52,
+          "right": 1117.15,
+          "bottom": 1064.28,
+          "width": 248.83,
+          "height": 29.76
+        },
+        "containerSelector": "#st5-cta-panel",
+        "text": "Cliente · 11:42 PM",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.44,
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 868.32,
+          "y": 1034.52,
+          "width": 248.83,
+          "height": 29.76
+        },
+        "firstSeen": 29.972,
+        "lastSeen": 39.194,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          29.972,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "#st2-search-card > div:nth-of-type(1) > span:nth-of-type(2)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 944.16,
+          "top": 122.52,
+          "right": 1279.64,
+          "bottom": 142.68,
+          "width": 335.48,
+          "height": 20.16
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "TE ENCUENTRAN PRIMERO",
+        "fixHint": "Text is 335px x 20px inside 1080px x 1920px and overflows by up to 200px; widen the container to at least ~1280px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 199.64
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 944.16,
+          "y": 122.52,
+          "width": 335.48,
+          "height": 20.16
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "#st2-google-row > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 924.96,
+          "top": 205.08,
+          "right": 1266.94,
+          "bottom": 233.88,
+          "width": 341.98,
+          "height": 28.8
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "Google · Búsqueda local",
+        "fixHint": "Text is 342px x 29px inside 1080px x 1920px and overflows by up to 187px; widen the container to at least ~1267px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 186.94
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 924.96,
+          "y": 205.08,
+          "width": 341.98,
+          "height": 28.8
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "#st2-google-row > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 924.96,
+          "top": 242.52,
+          "right": 1359.85,
+          "bottom": 267.48,
+          "width": 434.89,
+          "height": 24.96
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "Tu Negocio — Primera opción visible",
+        "fixHint": "Text is 435px x 25px inside 1080px x 1920px and overflows by up to 280px; widen the container to at least ~1360px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 279.85
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 924.96,
+          "y": 242.52,
+          "width": 434.89,
+          "height": 24.96
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "#st2-gpt-row > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 924.96,
+          "top": 333.72,
+          "right": 1305.36,
+          "bottom": 357.72,
+          "width": 380.4,
+          "height": 24
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "ChatGPT · Recomendación",
+        "fixHint": "Text is 380px x 24px inside 1080px x 1920px and overflows by up to 225px; widen the container to at least ~1305px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 225.36
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 924.96,
+          "y": 333.72,
+          "width": 380.4,
+          "height": 24
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "#st2-gpt-row > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 924.96,
+          "top": 372.12,
+          "right": 1301.19,
+          "bottom": 426.84,
+          "width": 376.23,
+          "height": 54.72
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "\"Te recomiendo Tu Negocio por confianza\"",
+        "fixHint": "Text is 376px x 55px inside 1080px x 1920px and overflows by up to 221px; widen the container to at least ~1301px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 221.19
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 924.96,
+          "y": 372.12,
+          "width": 376.23,
+          "height": 54.72
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "div.wa-title",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 943.2,
+          "top": 909.72,
+          "right": 1258.35,
+          "bottom": 940.44,
+          "width": 315.15,
+          "height": 30.72
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "Asistente WhatsApp",
+        "fixHint": "Text is 315px x 31px inside 1080px x 1920px and overflows by up to 178px; widen the container to at least ~1258px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 178.35
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 943.2,
+          "y": 909.72,
+          "width": 315.15,
+          "height": 30.72
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "div.wa-status",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 943.2,
+          "top": 946.2,
+          "right": 1128.57,
+          "bottom": 968.28,
+          "width": 185.37,
+          "height": 22.08
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "● En línea 24/7",
+        "fixHint": "Text is 185px x 22px inside 1080px x 1920px and overflows by up to 49px; widen the container to at least ~1129px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 48.57
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 943.2,
+          "y": 946.2,
+          "width": 185.37,
+          "height": 22.08
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "#st3-msg-1",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 868.32,
+          "top": 1076.94,
+          "right": 1365.07,
+          "bottom": 1102.86,
+          "width": 496.75,
+          "height": 25.92
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "Hola, ¿tienen cupo disponible mañana?",
+        "fixHint": "Text is 497px x 26px inside 1080px x 1920px and overflows by up to 285px; widen the container to at least ~1365px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 285.07
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 868.32,
+          "y": 1076.94,
+          "width": 496.75,
+          "height": 25.92
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "#st3-msg-1 > div:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 868.32,
+          "top": 1039.32,
+          "right": 1117.15,
+          "bottom": 1058.52,
+          "width": 248.83,
+          "height": 19.2
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "Cliente · 11:42 PM",
+        "fixHint": "Text is 249px x 19px inside 1080px x 1920px and overflows by up to 37px; widen the container to at least ~1117px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 37.15
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 868.32,
+          "y": 1039.32,
+          "width": 248.83,
+          "height": 19.2
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "#st3-msg-2",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 963.75,
+          "top": 1206.13,
+          "right": 1495.45,
+          "bottom": 1267.95,
+          "width": 531.7,
+          "height": 61.82
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "¡Hola! Claro, atendemos día y noche. Aquí tienes los horarios.",
+        "fixHint": "Text is 532px x 62px inside 1080px x 1920px and overflows by up to 415px; widen the container to at least ~1495px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 415.45
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 963.75,
+          "y": 1206.13,
+          "width": 531.7,
+          "height": 61.82
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "#st3-msg-2 > div:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 963.75,
+          "top": 1169.47,
+          "right": 1368.09,
+          "bottom": 1192.51,
+          "width": 404.34,
+          "height": 23.04
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "Asistente · Respondió en 1s ✓",
+        "fixHint": "Text is 404px x 23px inside 1080px x 1920px and overflows by up to 288px; widen the container to at least ~1368px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 288.09
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 963.75,
+          "y": 1169.47,
+          "width": 404.34,
+          "height": 23.04
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "#st3-voice-bubble > div:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 1066.09,
+          "top": 1334.56,
+          "right": 1498.08,
+          "bottom": 1353.76,
+          "width": 431.99,
+          "height": 19.2
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "Nota de voz · Audio entendido ✓",
+        "fixHint": "Text is 432px x 19px inside 1080px x 1920px and overflows by up to 418px; widen the container to at least ~1498px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 418.08
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 1066.09,
+          "y": 1334.56,
+          "width": 431.99,
+          "height": 19.2
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "div.play-btn",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 1077.78,
+          "top": 1377.66,
+          "right": 1098.55,
+          "bottom": 1396.86,
+          "width": 20.77,
+          "height": 19.2
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "▶",
+        "fixHint": "Text is 21px x 19px inside 1080px x 1920px and overflows by up to 19px; widen the container to at least ~1099px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 18.55
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 1077.78,
+          "y": 1377.66,
+          "width": 20.77,
+          "height": 19.2
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "#st3-pay-card > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 938.4,
+          "top": 1478.74,
+          "right": 1152.38,
+          "bottom": 1506.58,
+          "width": 213.98,
+          "height": 27.84
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "Pago aprobado",
+        "fixHint": "Text is 214px x 28px inside 1080px x 1920px and overflows by up to 72px; widen the container to at least ~1152px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 72.38
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 938.4,
+          "y": 1478.74,
+          "width": 213.98,
+          "height": 27.84
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "#st3-pay-card > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 938.4,
+          "top": 1511.38,
+          "right": 1351.9,
+          "bottom": 1536.34,
+          "width": 413.5,
+          "height": 24.96
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "Comprobante verificado al instante",
+        "fixHint": "Text is 414px x 25px inside 1080px x 1920px and overflows by up to 272px; widen the container to at least ~1352px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 271.9
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 938.4,
+          "y": 1511.38,
+          "width": 413.5,
+          "height": 24.96
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "#st3-cal-card > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 938.4,
+          "top": 1606.43,
+          "right": 1209.67,
+          "bottom": 1636.18,
+          "width": 271.27,
+          "height": 29.75
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "Cita agendada sola",
+        "fixHint": "Text is 271px x 30px inside 1080px x 1920px and overflows by up to 130px; widen the container to at least ~1210px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 129.67
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 938.4,
+          "y": 1606.43,
+          "width": 271.27,
+          "height": 29.75
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 34.583,
+        "selector": "#st3-cal-card > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 938.4,
+          "top": 1640.98,
+          "right": 1306.33,
+          "bottom": 1661.14,
+          "width": 367.93,
+          "height": 20.16
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "Mañana · 10:00 AM confirmada",
+        "fixHint": "Text is 368px x 20px inside 1080px x 1920px and overflows by up to 226px; widen the container to at least ~1306px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 226.33
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 938.4,
+          "y": 1640.98,
+          "width": 367.93,
+          "height": 20.16
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 2.306,
+        "selector": "#world-stage",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -860,
+          "top": -375,
+          "right": 3540,
+          "bottom": 3625,
+          "width": 4400,
+          "height": 4000
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 860,
+          "right": 2460,
+          "top": 375,
+          "bottom": 1705
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -860,
+          "y": -375,
+          "width": 4400,
+          "height": 4000
+        },
+        "firstSeen": 2.306,
+        "lastSeen": 39.194,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.306,
+          6.917,
+          11.528,
+          16.139,
+          20.75,
+          25.361,
+          29.972,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.306,
+        "selector": "#world-stage",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -860,
+          "top": -375,
+          "right": 3540,
+          "bottom": 3625,
+          "width": 4400,
+          "height": 4000
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "Tecnología que atrae clientes y ordena tu negocioTecnologíaqueatraeclientesyordenatunegocio ✓ Sin complicaciones ✓ 100% tuyo tu-negocio.com EN VIVO Carga al instante Sin esperas en celular 0.6s Hecha para convertir visitas en clientes Cotizar ahora → TE ENCUENTRAN PRIMERO Google · Búsqueda local Tu Negocio — Primera opción visible #1 ChatGPT · Recomendación \"Te recomiendo Tu Negocio por confianza\" #1 IA Asistente WhatsApp ● En línea 24/7 1 segundo Cliente · 11:42 PM Hola, ¿tienen cupo disponible mañana? Asistente · Respondió en 1s ✓ ¡Hola! Claro, atendemos día y noche. Aquí tienes los horarios. Nota de voz · Audio entendido ✓ ▶ 0:14 ✓ Pago aprobado Comprobante verificado al instante 📅 Cita agendada sola Mañana · 10:00 AM confirmada Cotizaciones Se envían solas Página Web Atrae clientes Calendario Citas ordenadas WhatsApp 24/7 Vende por ti -85% trabajo manual Sin pagos por usuario Tu negocio en piloto automático y bajo tu control ✓ Propiedad total ✓ Listo en semanas Escríbenos en autonomek.com",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -860,
+          "y": -375,
+          "width": 4400,
+          "height": 4000
+        },
+        "firstSeen": 2.306,
+        "lastSeen": 39.194,
+        "occurrences": 8,
+        "heldMs": 0,
+        "times": [
+          2.306,
+          6.917,
+          11.528,
+          16.139,
+          20.75,
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "div.wa-title",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 943.2,
+          "top": 903.96,
+          "right": 1258.35,
+          "bottom": 941.4,
+          "width": 315.15,
+          "height": 37.44
+        },
+        "containerSelector": "#root",
+        "text": "Asistente WhatsApp",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 178.35
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 943.2,
+          "y": 903.96,
+          "width": 315.15,
+          "height": 37.44
+        },
+        "firstSeen": 2.306,
+        "lastSeen": 39.194,
+        "occurrences": 5,
+        "heldMs": 0,
+        "times": [
+          2.306,
+          6.917,
+          11.528,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#st1-headline > span:nth-of-type(6)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -62.61,
+          "top": -61.44,
+          "right": 133.41,
+          "bottom": 10.56,
+          "width": 196.02,
+          "height": 72
+        },
+        "containerSelector": "#root",
+        "text": "ordena",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 62.61,
+          "top": 61.44
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -62.61,
+          "y": -61.44,
+          "width": 196.02,
+          "height": 72
+        },
+        "firstSeen": 11.528,
+        "lastSeen": 39.194,
+        "occurrences": 6,
+        "heldMs": 0,
+        "times": [
+          11.528,
+          16.139,
+          20.75,
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#st1-headline > span:nth-of-type(7)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 146.85,
+          "top": -61.44,
+          "right": 203.82,
+          "bottom": 10.56,
+          "width": 56.97,
+          "height": 72
+        },
+        "containerSelector": "#root",
+        "text": "tu",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 61.44
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 146.85,
+          "y": -61.44,
+          "width": 56.97,
+          "height": 72
+        },
+        "firstSeen": 11.528,
+        "lastSeen": 39.194,
+        "occurrences": 6,
+        "heldMs": 0,
+        "times": [
+          11.528,
+          16.139,
+          20.75,
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#st2-search-card > div:nth-of-type(1) > span:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 944.16,
+          "top": 115.8,
+          "right": 1279.64,
+          "bottom": 149.4,
+          "width": 335.48,
+          "height": 33.6
+        },
+        "containerSelector": "#root",
+        "text": "TE ENCUENTRAN PRIMERO",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 199.64
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 944.16,
+          "y": 115.8,
+          "width": 335.48,
+          "height": 33.6
+        },
+        "firstSeen": 20.75,
+        "lastSeen": 39.194,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          20.75,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#st2-google-row > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 924.96,
+          "top": 199.32,
+          "right": 1266.94,
+          "bottom": 233.88,
+          "width": 341.98,
+          "height": 34.56
+        },
+        "containerSelector": "#root",
+        "text": "Google · Búsqueda local",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 186.94
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 924.96,
+          "y": 199.32,
+          "width": 341.98,
+          "height": 34.56
+        },
+        "firstSeen": 20.75,
+        "lastSeen": 39.194,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          20.75,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#st2-google-row > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 924.96,
+          "top": 237.72,
+          "right": 1359.85,
+          "bottom": 267.48,
+          "width": 434.89,
+          "height": 29.76
+        },
+        "containerSelector": "#root",
+        "text": "Tu Negocio — Primera opción visible",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 279.85
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 924.96,
+          "y": 237.72,
+          "width": 434.89,
+          "height": 29.76
+        },
+        "firstSeen": 20.75,
+        "lastSeen": 39.194,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          20.75,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#st2-gpt-row > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 924.96,
+          "top": 328.92,
+          "right": 1305.36,
+          "bottom": 363.48,
+          "width": 380.4,
+          "height": 34.56
+        },
+        "containerSelector": "#root",
+        "text": "ChatGPT · Recomendación",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 225.36
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 924.96,
+          "y": 328.92,
+          "width": 380.4,
+          "height": 34.56
+        },
+        "firstSeen": 20.75,
+        "lastSeen": 39.194,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          20.75,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#st2-gpt-row > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 924.96,
+          "top": 367.32,
+          "right": 1301.19,
+          "bottom": 426.84,
+          "width": 376.23,
+          "height": 59.52
+        },
+        "containerSelector": "#root",
+        "text": "\"Te recomiendo Tu Negocio por confianza\"",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 221.19
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 924.96,
+          "y": 367.32,
+          "width": 376.23,
+          "height": 59.52
+        },
+        "firstSeen": 20.75,
+        "lastSeen": 39.194,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          20.75,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#eco-node-quotes > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -276.96,
+          "top": 65.88,
+          "right": 97.66,
+          "bottom": 135,
+          "width": 374.62,
+          "height": 69.12
+        },
+        "containerSelector": "#root",
+        "text": "Cotizaciones",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 276.96
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -276.96,
+          "y": 65.88,
+          "width": 374.62,
+          "height": 69.12
+        },
+        "firstSeen": 25.361,
+        "lastSeen": 39.194,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#eco-node-quotes > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -276.96,
+          "top": 143.44,
+          "right": 130.75,
+          "bottom": 208.72,
+          "width": 407.71,
+          "height": 65.28
+        },
+        "containerSelector": "#root",
+        "text": "Se envían solas",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 276.96
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -276.96,
+          "y": 143.44,
+          "width": 407.71,
+          "height": 65.28
+        },
+        "firstSeen": 25.361,
+        "lastSeen": 39.194,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#st3-msg-1",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 868.32,
+          "top": 1071.18,
+          "right": 1365.07,
+          "bottom": 1103.82,
+          "width": 496.75,
+          "height": 32.64
+        },
+        "containerSelector": "#root",
+        "text": "Hola, ¿tienen cupo disponible mañana?",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 285.07
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 868.32,
+          "y": 1071.18,
+          "width": 496.75,
+          "height": 32.64
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#st3-msg-2",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 963.75,
+          "top": 1201.33,
+          "right": 1495.45,
+          "bottom": 1268.91,
+          "width": 531.7,
+          "height": 67.58
+        },
+        "containerSelector": "#root",
+        "text": "¡Hola! Claro, atendemos día y noche. Aquí tienes los horarios.",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 415.45
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 963.75,
+          "y": 1201.33,
+          "width": 531.7,
+          "height": 67.58
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#st3-msg-2 > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 963.75,
+          "top": 1164.67,
+          "right": 1368.09,
+          "bottom": 1194.43,
+          "width": 404.34,
+          "height": 29.76
+        },
+        "containerSelector": "#root",
+        "text": "Asistente · Respondió en 1s ✓",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 288.09
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 963.75,
+          "y": 1164.67,
+          "width": 404.34,
+          "height": 29.76
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#st3-voice-bubble > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1066.09,
+          "top": 1329.76,
+          "right": 1498.08,
+          "bottom": 1359.52,
+          "width": 431.99,
+          "height": 29.76
+        },
+        "containerSelector": "#root",
+        "text": "Nota de voz · Audio entendido ✓",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 418.08
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 1066.09,
+          "y": 1329.76,
+          "width": 431.99,
+          "height": 29.76
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#st3-pay-card > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 938.4,
+          "top": 1472.02,
+          "right": 1152.38,
+          "bottom": 1506.58,
+          "width": 213.98,
+          "height": 34.56
+        },
+        "containerSelector": "#root",
+        "text": "Pago aprobado",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 72.38
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 938.4,
+          "y": 1472.02,
+          "width": 213.98,
+          "height": 34.56
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#st3-pay-card > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 938.4,
+          "top": 1506.58,
+          "right": 1351.9,
+          "bottom": 1536.34,
+          "width": 413.5,
+          "height": 29.76
+        },
+        "containerSelector": "#root",
+        "text": "Comprobante verificado al instante",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 271.9
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 938.4,
+          "y": 1506.58,
+          "width": 413.5,
+          "height": 29.76
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#st3-cal-card > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 938.4,
+          "top": 1601.63,
+          "right": 1209.67,
+          "bottom": 1636.18,
+          "width": 271.27,
+          "height": 34.55
+        },
+        "containerSelector": "#root",
+        "text": "Cita agendada sola",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 129.67
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 938.4,
+          "y": 1601.63,
+          "width": 271.27,
+          "height": 34.55
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#st3-cal-card > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 938.4,
+          "top": 1636.18,
+          "right": 1306.33,
+          "bottom": 1665.94,
+          "width": 367.93,
+          "height": 29.76
+        },
+        "containerSelector": "#root",
+        "text": "Mañana · 10:00 AM confirmada",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 226.33
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 938.4,
+          "y": 1636.18,
+          "width": 367.93,
+          "height": 29.76
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#eco-node-web > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 875.04,
+          "top": 65.88,
+          "right": 1211.1,
+          "bottom": 135,
+          "width": 336.06,
+          "height": 69.12
+        },
+        "containerSelector": "#root",
+        "text": "Página Web",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 131.1
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 875.04,
+          "y": 65.88,
+          "width": 336.06,
+          "height": 69.12
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#eco-node-web > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 875.04,
+          "top": 143.44,
+          "right": 1238.08,
+          "bottom": 208.72,
+          "width": 363.04,
+          "height": 65.28
+        },
+        "containerSelector": "#root",
+        "text": "Atrae clientes",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 158.08
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 875.04,
+          "y": 143.44,
+          "width": 363.04,
+          "height": 65.28
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#eco-node-cal > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -276.96,
+          "top": 1198.68,
+          "right": 34.18,
+          "bottom": 1267.8,
+          "width": 311.14,
+          "height": 69.12
+        },
+        "containerSelector": "#root",
+        "text": "Calendario",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 276.96
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -276.96,
+          "y": 1198.68,
+          "width": 311.14,
+          "height": 69.12
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#eco-node-cal > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -276.96,
+          "top": 1276.24,
+          "right": 150.73,
+          "bottom": 1341.52,
+          "width": 427.69,
+          "height": 65.28
+        },
+        "containerSelector": "#root",
+        "text": "Citas ordenadas",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 276.96
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -276.96,
+          "y": 1276.24,
+          "width": 427.69,
+          "height": 65.28
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#eco-node-wa > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 875.04,
+          "top": 1198.68,
+          "right": 1323.91,
+          "bottom": 1267.8,
+          "width": 448.87,
+          "height": 69.12
+        },
+        "containerSelector": "#root",
+        "text": "WhatsApp 24/7",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 243.91
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 875.04,
+          "y": 1198.68,
+          "width": 448.87,
+          "height": 69.12
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 34.583,
+        "selector": "#eco-node-wa > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 875.04,
+          "top": 1276.24,
+          "right": 1191.78,
+          "bottom": 1341.52,
+          "width": 316.74,
+          "height": 65.28
+        },
+        "containerSelector": "#root",
+        "text": "Vende por ti",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 111.78
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 875.04,
+          "y": 1276.24,
+          "width": 316.74,
+          "height": 65.28
+        },
+        "firstSeen": 34.583,
+        "lastSeen": 39.194,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 2.306,
+        "selector": "div.browser-url",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1795.42,
+          "top": 339.38,
+          "right": 2005.09,
+          "bottom": 372.98,
+          "width": 209.67,
+          "height": 33.6
+        },
+        "containerSelector": "#root",
+        "text": "tu-negocio.com",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 925.09
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 1795.42,
+          "y": 339.38,
+          "width": 209.67,
+          "height": 33.6
+        },
+        "firstSeen": 2.306,
+        "lastSeen": 39.194,
+        "occurrences": 6,
+        "heldMs": 0,
+        "times": [
+          2.306,
+          6.917,
+          20.75,
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 2.306,
+        "selector": "div.browser-top > div:nth-of-type(3) > span:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 2146.74,
+          "top": 339.38,
+          "right": 2258.56,
+          "bottom": 372.98,
+          "width": 111.82,
+          "height": 33.6
+        },
+        "containerSelector": "#root",
+        "text": "EN VIVO",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 1178.56
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 2146.74,
+          "y": 339.38,
+          "width": 111.82,
+          "height": 33.6
+        },
+        "firstSeen": 2.306,
+        "lastSeen": 39.194,
+        "occurrences": 6,
+        "heldMs": 0,
+        "times": [
+          2.306,
+          6.917,
+          20.75,
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 2.306,
+        "selector": "div.speed-label",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1669.12,
+          "top": 462.26,
+          "right": 1921.66,
+          "bottom": 499.7,
+          "width": 252.54,
+          "height": 37.44
+        },
+        "containerSelector": "#root",
+        "text": "Carga al instante",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 841.66
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 1669.12,
+          "y": 462.26,
+          "width": 252.54,
+          "height": 37.44
+        },
+        "firstSeen": 2.306,
+        "lastSeen": 39.194,
+        "occurrences": 6,
+        "heldMs": 0,
+        "times": [
+          2.306,
+          6.917,
+          20.75,
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 2.306,
+        "selector": "div.speed-sub",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1669.12,
+          "top": 507.38,
+          "right": 1929.52,
+          "bottom": 537.14,
+          "width": 260.4,
+          "height": 29.76
+        },
+        "containerSelector": "#root",
+        "text": "Sin esperas en celular",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 849.52
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 1669.12,
+          "y": 507.38,
+          "width": 260.4,
+          "height": 29.76
+        },
+        "firstSeen": 2.306,
+        "lastSeen": 39.194,
+        "occurrences": 6,
+        "heldMs": 0,
+        "times": [
+          2.306,
+          6.917,
+          20.75,
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 2.306,
+        "selector": "#st2-speed-num",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 2052.73,
+          "top": 444.98,
+          "right": 2250.88,
+          "bottom": 554.42,
+          "width": 198.15,
+          "height": 109.44
+        },
+        "containerSelector": "#root",
+        "text": "0.6s",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 1170.88
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 2052.73,
+          "y": 444.98,
+          "width": 198.15,
+          "height": 109.44
+        },
+        "firstSeen": 2.306,
+        "lastSeen": 39.194,
+        "occurrences": 6,
+        "heldMs": 0,
+        "times": [
+          2.306,
+          6.917,
+          20.75,
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 2.306,
+        "selector": "div.web-pitch",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1639.36,
+          "top": 632.18,
+          "right": 1934.8,
+          "bottom": 702.74,
+          "width": 295.44,
+          "height": 70.56
+        },
+        "containerSelector": "#root",
+        "text": "Hecha para convertir visitas en clientes",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 854.8
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 1639.36,
+          "y": 632.18,
+          "width": 295.44,
+          "height": 70.56
+        },
+        "firstSeen": 2.306,
+        "lastSeen": 39.194,
+        "occurrences": 6,
+        "heldMs": 0,
+        "times": [
+          2.306,
+          6.917,
+          20.75,
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 2.306,
+        "selector": "#st2-btn",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 2043,
+          "top": 651.86,
+          "right": 2253.76,
+          "bottom": 684.5,
+          "width": 210.76,
+          "height": 32.64
+        },
+        "containerSelector": "#root",
+        "text": "Cotizar ahora →",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 1173.76
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 2043,
+          "y": 651.86,
+          "width": 210.76,
+          "height": 32.64
+        },
+        "firstSeen": 2.306,
+        "lastSeen": 39.194,
+        "occurrences": 6,
+        "heldMs": 0,
+        "times": [
+          2.306,
+          6.917,
+          20.75,
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 2.306,
+        "selector": "div.wa-status",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1750,
+          "top": 1834.37,
+          "right": 1935.37,
+          "bottom": 1864.13,
+          "width": 185.37,
+          "height": 29.76
+        },
+        "containerSelector": "#root",
+        "text": "● En línea 24/7",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 855.37
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 1750,
+          "y": 1834.37,
+          "width": 185.37,
+          "height": 29.76
+        },
+        "firstSeen": 2.306,
+        "lastSeen": 39.194,
+        "occurrences": 5,
+        "heldMs": 0,
+        "times": [
+          2.306,
+          6.917,
+          11.528,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 2.306,
+        "selector": "#st3-speed-badge",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 2152.81,
+          "top": 1813.73,
+          "right": 2287.6,
+          "bottom": 1847.33,
+          "width": 134.79,
+          "height": 33.6
+        },
+        "containerSelector": "#root",
+        "text": "1 segundo",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 1207.6
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 2152.81,
+          "y": 1813.73,
+          "width": 134.79,
+          "height": 33.6
+        },
+        "firstSeen": 2.306,
+        "lastSeen": 39.194,
+        "occurrences": 5,
+        "heldMs": 0,
+        "times": [
+          2.306,
+          6.917,
+          11.528,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 11.528,
+        "selector": "#st1-headline",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -1606.44,
+          "top": 802.85,
+          "right": -579.58,
+          "bottom": 967.52,
+          "width": 1026.86,
+          "height": 164.67
+        },
+        "containerSelector": "#root",
+        "text": "Tecnología que atrae clientes y ordena tu negocio",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 1606.44
+        },
+        "dataAttributes": {
+          "data-var-text": "headlineMain"
+        },
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -1606.44,
+          "y": 802.85,
+          "width": 1026.86,
+          "height": 164.67
+        },
+        "firstSeen": 11.528,
+        "lastSeen": 39.194,
+        "occurrences": 7,
+        "heldMs": 0,
+        "times": [
+          11.528,
+          16.139,
+          20.75,
+          25.361,
+          29.972,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 11.528,
+        "selector": "#st1-headline > span:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -977.23,
+          "top": 881.27,
+          "right": -609.17,
+          "bottom": 967.52,
+          "width": 368.06,
+          "height": 86.25
+        },
+        "containerSelector": "#root",
+        "text": "Tecnología",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 977.23
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -977.23,
+          "y": 881.27,
+          "width": 368.06,
+          "height": 86.25
+        },
+        "firstSeen": 11.528,
+        "lastSeen": 39.194,
+        "occurrences": 6,
+        "heldMs": 0,
+        "times": [
+          11.528,
+          16.139,
+          20.75,
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 11.528,
+        "selector": "#st1-headline > span:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -1587.28,
+          "top": 959.68,
+          "right": -1460.1,
+          "bottom": 1045.93,
+          "width": 127.18,
+          "height": 86.25
+        },
+        "containerSelector": "#root",
+        "text": "que",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 1587.28
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -1587.28,
+          "y": 959.68,
+          "width": 127.18,
+          "height": 86.25
+        },
+        "firstSeen": 11.528,
+        "lastSeen": 39.194,
+        "occurrences": 7,
+        "heldMs": 0,
+        "times": [
+          11.528,
+          16.139,
+          20.75,
+          25.361,
+          29.972,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 11.528,
+        "selector": "#st1-headline > span:nth-of-type(3)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -1444,
+          "top": 959.68,
+          "right": -1272.17,
+          "bottom": 1045.93,
+          "width": 171.83,
+          "height": 86.25
+        },
+        "containerSelector": "#root",
+        "text": "atrae",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 1444
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -1444,
+          "y": 959.68,
+          "width": 171.83,
+          "height": 86.25
+        },
+        "firstSeen": 11.528,
+        "lastSeen": 39.194,
+        "occurrences": 7,
+        "heldMs": 0,
+        "times": [
+          11.528,
+          16.139,
+          20.75,
+          25.361,
+          29.972,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 11.528,
+        "selector": "#st1-headline > span:nth-of-type(4)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -1256.07,
+          "top": 959.68,
+          "right": -992.02,
+          "bottom": 1045.93,
+          "width": 264.05,
+          "height": 86.25
+        },
+        "containerSelector": "#root",
+        "text": "clientes",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 1256.07
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -1256.07,
+          "y": 959.68,
+          "width": 264.05,
+          "height": 86.25
+        },
+        "firstSeen": 11.528,
+        "lastSeen": 39.194,
+        "occurrences": 6,
+        "heldMs": 0,
+        "times": [
+          11.528,
+          16.139,
+          20.75,
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 11.528,
+        "selector": "#st1-headline > span:nth-of-type(5)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -975.92,
+          "top": 959.68,
+          "right": -933.98,
+          "bottom": 1045.93,
+          "width": 41.94,
+          "height": 86.25
+        },
+        "containerSelector": "#root",
+        "text": "y",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 975.92
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -975.92,
+          "y": 959.68,
+          "width": 41.94,
+          "height": 86.25
+        },
+        "firstSeen": 11.528,
+        "lastSeen": 39.194,
+        "occurrences": 6,
+        "heldMs": 0,
+        "times": [
+          11.528,
+          16.139,
+          20.75,
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 11.528,
+        "selector": "#st1-headline > span:nth-of-type(8)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -1227.82,
+          "top": 1038.1,
+          "right": -958.18,
+          "bottom": 1124.35,
+          "width": 269.64,
+          "height": 86.25
+        },
+        "containerSelector": "#root",
+        "text": "negocio",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 1227.82
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -1227.82,
+          "y": 1038.1,
+          "width": 269.64,
+          "height": 86.25
+        },
+        "firstSeen": 11.528,
+        "lastSeen": 39.194,
+        "occurrences": 6,
+        "heldMs": 0,
+        "times": [
+          11.528,
+          16.139,
+          20.75,
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 11.528,
+        "selector": "#st1-badge-1 > span:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -1461.25,
+          "top": 1195.29,
+          "right": -1438.95,
+          "bottom": 1225.19,
+          "width": 22.3,
+          "height": 29.9
+        },
+        "containerSelector": "#root",
+        "text": "✓",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 1461.25
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -1461.25,
+          "y": 1195.29,
+          "width": 22.3,
+          "height": 29.9
+        },
+        "firstSeen": 11.528,
+        "lastSeen": 39.194,
+        "occurrences": 7,
+        "heldMs": 0,
+        "times": [
+          11.528,
+          16.139,
+          20.75,
+          25.361,
+          29.972,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 11.528,
+        "selector": "#st1-badge-1 > span:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -1413.29,
+          "top": 1187.81,
+          "right": -1063.64,
+          "bottom": 1232.66,
+          "width": 349.65,
+          "height": 44.85
+        },
+        "containerSelector": "#root",
+        "text": "Sin complicaciones",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 1413.29
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -1413.29,
+          "y": 1187.81,
+          "width": 349.65,
+          "height": 44.85
+        },
+        "firstSeen": 11.528,
+        "lastSeen": 39.194,
+        "occurrences": 6,
+        "heldMs": 0,
+        "times": [
+          11.528,
+          16.139,
+          20.75,
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 11.528,
+        "selector": "#st1-badge-2 > span:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -955.2,
+          "top": 1195.29,
+          "right": -932.9,
+          "bottom": 1225.19,
+          "width": 22.3,
+          "height": 29.9
+        },
+        "containerSelector": "#root",
+        "text": "✓",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 955.2
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -955.2,
+          "y": 1195.29,
+          "width": 22.3,
+          "height": 29.9
+        },
+        "firstSeen": 11.528,
+        "lastSeen": 39.194,
+        "occurrences": 6,
+        "heldMs": 0,
+        "times": [
+          11.528,
+          16.139,
+          20.75,
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 11.528,
+        "selector": "#st1-badge-2 > span:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -907.24,
+          "top": 1187.81,
+          "right": -715.21,
+          "bottom": 1232.66,
+          "width": 192.03,
+          "height": 44.85
+        },
+        "containerSelector": "#root",
+        "text": "100% tuyo",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 907.24
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -907.24,
+          "y": 1187.81,
+          "width": 192.03,
+          "height": 44.85
+        },
+        "firstSeen": 11.528,
+        "lastSeen": 39.194,
+        "occurrences": 6,
+        "heldMs": 0,
+        "times": [
+          11.528,
+          16.139,
+          20.75,
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 16.139,
+        "selector": "#st3-phone",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 142.06,
+          "top": 1481.72,
+          "right": 860.91,
+          "bottom": 2319.21,
+          "width": 718.85,
+          "height": 837.49
+        },
+        "containerSelector": "#root",
+        "text": "Asistente WhatsApp ● En línea 24/7 1 segundo Cli",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "bottom": 399.21
+        },
+        "dataAttributes": {
+          "data-beat": "whatsapp"
+        },
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 142.06,
+          "y": 1481.72,
+          "width": 718.85,
+          "height": 837.49
+        },
+        "firstSeen": 16.139,
+        "lastSeen": 16.139,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          16.139
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 16.461,
+        "selector": "div.wa-title",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 263.35,
+          "top": 1445.8,
+          "right": 580.05,
+          "bottom": 1483.42,
+          "width": 316.7,
+          "height": 37.62
+        },
+        "containerSelector": "#cap-word-12-1",
+        "text": "Asistente WhatsApp",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply. Decoration nobody needs to read can take data-layout-ignore.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 263.35,
+          "y": 1445.8,
+          "width": 316.7,
+          "height": 37.62
+        },
+        "firstSeen": 16.461,
+        "lastSeen": 16.461,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          16.461
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 20.75,
+        "selector": "#st2-google-row > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 945.71,
+          "top": -709.6,
+          "right": 996.32,
+          "bottom": -653.8,
+          "width": 50.61,
+          "height": 55.8
+        },
+        "containerSelector": "#root",
+        "text": "#1",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 709.6
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 945.71,
+          "y": -709.6,
+          "width": 50.61,
+          "height": 55.8
+        },
+        "firstSeen": 20.75,
+        "lastSeen": 39.194,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          20.75,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 20.75,
+        "selector": "#st2-gpt-row > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 869.84,
+          "top": -522.98,
+          "right": 996.32,
+          "bottom": -467.18,
+          "width": 126.48,
+          "height": 55.8
+        },
+        "containerSelector": "#root",
+        "text": "#1 IA",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 522.98
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 869.84,
+          "y": -522.98,
+          "width": 126.48,
+          "height": 55.8
+        },
+        "firstSeen": 20.75,
+        "lastSeen": 39.194,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          20.75,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 25.361,
+        "selector": "#eco-node-quotes",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": -173.65,
+          "top": 27.95,
+          "right": 184.82,
+          "bottom": 162.18,
+          "width": 358.47,
+          "height": 134.23
+        },
+        "containerSelector": "#root",
+        "text": "Cotizaciones Se envían solas",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 173.65
+        },
+        "dataAttributes": {
+          "data-beat": "ecosystem"
+        },
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -173.65,
+          "y": 27.95,
+          "width": 358.47,
+          "height": 134.23
+        },
+        "firstSeen": 25.361,
+        "lastSeen": 39.194,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          25.361,
+          34.583,
+          39.194
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 29.972,
+        "selector": "#st1-headline",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": -73.23,
+          "top": 258,
+          "right": 373.23,
+          "bottom": 323.09,
+          "width": 446.46,
+          "height": 65.09
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "Tecnología que atrae clientes y ordena tu negocio",
+        "fixHint": "Text is 446px x 65px inside 1080px x 1920px and overflows by up to 73px; widen the container to at least ~1153px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 73.23
+        },
+        "dataAttributes": {
+          "data-var-text": "headlineMain"
+        },
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -73.23,
+          "y": 258,
+          "width": 446.46,
+          "height": 65.09
+        },
+        "firstSeen": 29.972,
+        "lastSeen": 29.972,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          29.972
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 29.972,
+        "selector": "#st1-headline > span:nth-of-type(3)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": -2.61,
+          "top": 329.19,
+          "right": 72.1,
+          "bottom": 350.69,
+          "width": 74.71,
+          "height": 21.5
+        },
+        "containerSelector": "#world > div:nth-of-type(1)",
+        "text": "atrae",
+        "fixHint": "Text is 75px x 22px inside 1080px x 1920px and overflows by up to 3px; widen the container to at least ~1083px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 2.61
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": -2.61,
+          "y": 329.19,
+          "width": 74.71,
+          "height": 21.5
+        },
+        "firstSeen": 29.972,
+        "lastSeen": 29.972,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          29.972
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 29.972,
+        "selector": "#st1-headline > span:nth-of-type(8)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 91.38,
+          "top": 354.28,
+          "right": 208.62,
+          "bottom": 391.78,
+          "width": 117.23,
+          "height": 37.5
+        },
+        "containerSelector": "#eco-node-quotes",
+        "text": "negocio",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.63,
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 91.38,
+          "y": 354.28,
+          "width": 117.23,
+          "height": 37.5
+        },
+        "firstSeen": 29.972,
+        "lastSeen": 29.972,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          29.972
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 29.972,
+        "selector": "#st1-badge-1 > span:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 10.74,
+          "top": 419.38,
+          "right": 162.77,
+          "bottom": 438.88,
+          "width": 152.02,
+          "height": 19.5
+        },
+        "containerSelector": "#eco-node-quotes",
+        "text": "Sin complicaciones",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.44,
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 10.74,
+          "y": 419.38,
+          "width": 152.02,
+          "height": 19.5
+        },
+        "firstSeen": 29.972,
+        "lastSeen": 29.972,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          29.972
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 29.972,
+        "selector": "#st1-badge-2 > span:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 209.91,
+          "top": 422.63,
+          "right": 219.61,
+          "bottom": 435.63,
+          "width": 9.7,
+          "height": 13
+        },
+        "containerSelector": "#eco-node-quotes",
+        "text": "✓",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 209.91,
+          "y": 422.63,
+          "width": 9.7,
+          "height": 13
+        },
+        "firstSeen": 29.972,
+        "lastSeen": 29.972,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          29.972
+        ]
+      }
+    ],
+    "duration": 41.5,
+    "samples": [
+      2.306,
+      6.917,
+      11.528,
+      16.139,
+      20.75,
+      25.361,
+      29.972,
+      34.583,
+      39.194
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 91,
+    "truncated": true
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      2.306,
+      11.528,
+      20.75,
+      29.972,
+      39.194
+    ],
+    "checked": 123,
+    "passed": 123
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 9 text elements stay under it for 0.5 s or more, the smallest \"tu-negocio.com\" at 25 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "tu-negocio.com",
+        "selector": "div.browser-url",
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 319.06,
+          "y": 228.84,
+          "width": 222.73,
+          "height": 35.69
+        },
+        "time": 13.125,
+        "times": [
+          13.125,
+          13.125,
+          13.125,
+          13.125,
+          13.25,
+          14.25,
+          15,
+          17.375,
+          18.375
+        ],
+        "fontPx": 24.96,
+        "floorPx": 28,
+        "seconds": 3.375,
+        "elements": [
+          {
+            "selector": "div.browser-url",
+            "text": "tu-negocio.com",
+            "fontPx": 24.96,
+            "time": 13.125,
+            "seconds": 3.375
+          },
+          {
+            "selector": "div.browser-top > div:nth-of-type(3) > span:nth-of-type(2)",
+            "text": "EN VIVO",
+            "fontPx": 24.96,
+            "time": 13.125,
+            "seconds": 3.375
+          },
+          {
+            "selector": "div.speed-sub",
+            "text": "Sin esperas en celular",
+            "fontPx": 24.96,
+            "time": 13.125,
+            "seconds": 3.5
+          },
+          {
+            "selector": "#st2-search-card > div:nth-of-type(1) > span:nth-of-type(2)",
+            "text": "TE ENCUENTRAN PRIMERO",
+            "fontPx": 24.96,
+            "time": 13.125,
+            "seconds": 3.5
+          },
+          {
+            "selector": "#st2-google-row > div:nth-of-type(1) > div:nth-of-type(2)",
+            "text": "Tu Negocio — Primera opción visible",
+            "fontPx": 24.96,
+            "time": 14.25,
+            "seconds": 2.375
+          },
+          {
+            "selector": "#st2-gpt-row > div:nth-of-type(1) > div:nth-of-type(2)",
+            "text": "\"Te recomiendo Tu Negocio por confianza\"",
+            "fontPx": 24.96,
+            "time": 15,
+            "seconds": 1.625
+          },
+          {
+            "selector": "#st2-btn",
+            "text": "Cotizar ahora →",
+            "fontPx": 26.88,
+            "time": 13.25,
+            "seconds": 3.25
+          },
+          {
+            "selector": "#st3-msg-1 > div:nth-of-type(1)",
+            "text": "Cliente · 11:42 PM",
+            "fontPx": 27.36,
+            "time": 17.375,
+            "seconds": 2.5
+          },
+          {
+            "selector": "#st3-msg-2 > div:nth-of-type(1)",
+            "text": "Asistente · Respondió en 1s ✓",
+            "fontPx": 27.36,
+            "time": 18.375,
+            "seconds": 1.5
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"Tu Negocio — Primera opción visible\" (5 words) is on screen 0.23 s (±0.01 s), under its 1.50 s floor: hold it about 0.5 s + 0.3 s a word (2.00 s here) before it leaves or changes; see references/motion.md.",
+        "text": "Tu Negocio — Primera opción visible",
+        "selector": "#st2-google-row > div:nth-of-type(1) > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 241.59,
+          "y": 642.51,
+          "width": 450.2099999999999,
+          "height": 30.799999999999955
+        },
+        "time": 16.406,
+        "words": 5,
+        "seconds": 0.234,
+        "floorSeconds": 1.5,
+        "measured": [
+          {
+            "time": 16.125,
+            "opacity": 1,
+            "heightPx": 30
+          },
+          {
+            "time": 16.25,
+            "opacity": 1,
+            "heightPx": 30
+          },
+          {
+            "time": 16.375,
+            "opacity": 1,
+            "heightPx": 30
+          },
+          {
+            "time": 16.5,
+            "opacity": 1,
+            "heightPx": 31
+          },
+          {
+            "time": 16.625,
+            "opacity": 1,
+            "heightPx": 33
+          },
+          {
+            "time": 16.75,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 16.875,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 17,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 332
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

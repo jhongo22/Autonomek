@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -252,24 +252,24 @@ export default function PrivacidadClient({ isEn = false, basePrefix = '' }: Priv
         {/* Layout: Sidebar + Sections */}
         <div className="mt-14 grid gap-12 lg:grid-cols-12 lg:items-start">
           {/* Quick Jump Sidebar */}
-          <aside className="lg:col-span-4 rounded-[24px] border border-rule bg-surface p-6 sticky top-28 space-y-4">
+          <aside className="min-w-0 lg:col-span-4 rounded-[24px] border border-rule bg-surface p-5 sm:p-6 lg:sticky lg:top-28 space-y-4">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
               {isEn ? 'Privacy Sections' : 'Secciones de Privacidad'}
             </p>
-            <nav className="space-y-1">
+            <nav className="min-w-0 space-y-1">
               {sections.map((sec) => (
                 <a
                   key={sec.id}
                   href={`#${sec.id}`}
                   onClick={() => setActiveSection(sec.id)}
-                  className={`flex items-baseline justify-between gap-3 px-3 py-2 rounded-xl text-xs sm:text-sm transition-colors ${
+                  className={`flex min-w-0 items-baseline justify-between gap-3 px-3 py-2 rounded-xl text-xs sm:text-sm transition-colors ${
                     activeSection === sec.id
                       ? 'bg-primary/15 text-primary font-semibold'
                       : 'text-muted hover:text-foreground hover:bg-card'
                   }`}
                 >
-                  <span className="truncate">{sec.title}</span>
-                  <span className="font-mono text-[11px] opacity-60">/{sec.num}</span>
+                  <span className="min-w-0 truncate">{sec.title}</span>
+                  <span className="shrink-0 font-mono text-[11px] opacity-60">/{sec.num}</span>
                 </a>
               ))}
             </nav>
@@ -293,7 +293,7 @@ export default function PrivacidadClient({ isEn = false, basePrefix = '' }: Priv
           </aside>
 
           {/* Privacy Content */}
-          <div className="lg:col-span-8 divide-y divide-rule border-t border-rule">
+          <div className="min-w-0 lg:col-span-8 divide-y divide-rule border-t border-rule">
             {sections.map((sec) => (
               <section key={sec.id} id={sec.id} className="py-10 scroll-mt-28 space-y-4">
                 <div className="flex items-baseline gap-4">

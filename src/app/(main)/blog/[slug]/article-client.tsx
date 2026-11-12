@@ -74,10 +74,10 @@ export default function ArticleClient({ post, isEn = false, basePrefix = '' }: A
   const relatedPosts = BLOG_POSTS.filter((p) => post.relatedSlugs.includes(p.slug));
 
   const whatsappDirectUrl = isEn
-    ? `https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20read%20your%20article%20%22${encodeURIComponent(
+    ? `https://wa.me/573010147443?text=Hello%20Autonomek%2C%20I%20read%20your%20article%20%22${encodeURIComponent(
         title
       )}%22%20and%20would%20like%20to%20consult%20on%20implementing%20it.`
-    : `https://wa.me/573004435894?text=Hola%20Autonomek%2C%20le%C3%AD%20su%20art%C3%ADculo%20%22${encodeURIComponent(
+    : `https://wa.me/573010147443?text=Hola%20Autonomek%2C%20le%C3%AD%20su%20art%C3%ADculo%20%22${encodeURIComponent(
         title
       )}%22%20y%20quiero%20consultar%20sobre%20su%20implementaci%C3%B3n.`;
 
@@ -133,7 +133,7 @@ export default function ArticleClient({ post, isEn = false, basePrefix = '' }: A
         {/* ================================================================== */}
         <div className="py-10 grid grid-cols-1 lg:grid-cols-12 gap-10 border-b border-rule">
           {/* LEFT SIDEBAR: Sticky Table of Contents & Service Link */}
-          <aside className="lg:col-span-4 space-y-6">
+          <aside className="min-w-0 lg:col-span-4 space-y-6">
             <div className="lg:sticky lg:top-28 space-y-6">
               <div className="rounded-xl border border-rule bg-surface p-5 space-y-3">
                 <p className="text-xs font-mono text-primary font-semibold">
@@ -195,7 +195,7 @@ export default function ArticleClient({ post, isEn = false, basePrefix = '' }: A
           </aside>
 
           {/* MAIN ARTICLE CONTENT */}
-          <article className="lg:col-span-8 space-y-10">
+          <article className="min-w-0 lg:col-span-8 space-y-10">
             {/* Executive Summary Box */}
             <div className="rounded-xl border border-rule border-l-4 border-l-primary bg-surface p-5 sm:p-6">
               <span className="font-mono text-xs text-primary font-semibold block mb-1.5">
@@ -261,8 +261,8 @@ export default function ArticleClient({ post, isEn = false, basePrefix = '' }: A
                 {isEn ? post.comparisonTable.titleEn : post.comparisonTable.title}
               </h2>
 
-              <div className="overflow-x-auto rounded-xl border border-rule bg-surface">
-                <table className="w-full text-left border-collapse text-xs sm:text-sm">
+              <div className="w-full max-w-full overflow-x-auto rounded-xl border border-rule bg-surface">
+                <table className="w-full min-w-[560px] text-left border-collapse text-xs sm:text-sm">
                   <thead>
                     <tr className="border-b border-rule text-xs font-mono text-muted">
                       <th className="p-4 font-medium">

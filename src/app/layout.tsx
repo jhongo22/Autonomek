@@ -99,8 +99,8 @@ const jsonLd = {
       contactPoint: [
         {
           '@type': 'ContactPoint',
-          telephone: '+57-300-4435894',
-          url: 'https://wa.me/573004435894',
+          telephone: '+57-301-0147443',
+          url: 'https://wa.me/573010147443',
           contactType: 'sales',
           availableLanguage: ['Spanish', 'English'],
           areaServed: ['CO', 'MX', 'ES', 'US'],
@@ -113,7 +113,7 @@ const jsonLd = {
         },
       ],
       sameAs: [
-        'https://www.instagram.com/autonomek',
+        'https://www.instagram.com/autonomek?psln=bzJtYXI0NzhuZW42',
         'https://github.com/jhongo22',
       ],
       knowsAbout: [
@@ -207,7 +207,7 @@ const jsonLd = {
           name: '¿Cómo se inicia un proyecto o cotización en Autonomek?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Toda la atención comercial y diagnóstico técnico se realiza directamente vía WhatsApp (+57 300 443 5894) sin formularios lentos, entregando una hoja de ruta técnica con alcance y presupuesto cerrado.',
+            text: 'Toda la atención comercial y diagnóstico técnico se realiza directamente vía WhatsApp (+57 301 014 7443) sin formularios lentos, entregando una hoja de ruta técnica con alcance y presupuesto cerrado.',
           },
         },
       ],
@@ -230,7 +230,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col overflow-x-hidden selection:bg-accent selection:text-white">
+      <body className="min-h-screen flex flex-col overflow-x-clip selection:bg-accent selection:text-white">
         {children}
       </body>
     </html>

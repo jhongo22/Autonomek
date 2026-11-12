@@ -1,0 +1,552 @@
+[
+  {
+    "id": "scene1",
+    "label": "ESCENA 1: QUIENES SOMOS",
+    "text": "En Autonomek creamos tecnología práctica para que tu negocio venda más y trabaje con menos esfuerzo, sin complicarte con términos técnicos.",
+    "file": "d:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\assets\\tts\\scene1.mp3",
+    "duration": 8.832,
+    "words": [
+      {
+        "text": "En",
+        "start": 0.1,
+        "end": 0.325
+      },
+      {
+        "text": "Autonomek",
+        "start": 0.338,
+        "end": 0.838
+      },
+      {
+        "text": "creamos",
+        "start": 0.85,
+        "end": 1.25
+      },
+      {
+        "text": "tecnología",
+        "start": 1.262,
+        "end": 1.862
+      },
+      {
+        "text": "práctica",
+        "start": 1.875,
+        "end": 2.35
+      },
+      {
+        "text": "para",
+        "start": 2.362,
+        "end": 2.562
+      },
+      {
+        "text": "que",
+        "start": 2.575,
+        "end": 2.688
+      },
+      {
+        "text": "tu",
+        "start": 2.7,
+        "end": 2.788
+      },
+      {
+        "text": "negocio",
+        "start": 2.8,
+        "end": 3.225
+      },
+      {
+        "text": "venda",
+        "start": 3.237,
+        "end": 3.5
+      },
+      {
+        "text": "más",
+        "start": 3.513,
+        "end": 3.725
+      },
+      {
+        "text": "y",
+        "start": 3.737,
+        "end": 3.787
+      },
+      {
+        "text": "trabaje",
+        "start": 3.8,
+        "end": 4.212
+      },
+      {
+        "text": "con",
+        "start": 4.225,
+        "end": 4.4
+      },
+      {
+        "text": "menos",
+        "start": 4.412,
+        "end": 4.7
+      },
+      {
+        "text": "esfuerzo",
+        "start": 4.713,
+        "end": 5.3
+      },
+      {
+        "text": "sin",
+        "start": 5.625,
+        "end": 5.963
+      },
+      {
+        "text": "complicarte",
+        "start": 5.975,
+        "end": 6.612
+      },
+      {
+        "text": "con",
+        "start": 6.625,
+        "end": 6.825
+      },
+      {
+        "text": "términos",
+        "start": 6.838,
+        "end": 7.25
+      },
+      {
+        "text": "técnicos",
+        "start": 7.263,
+        "end": 7.963
+      }
+    ]
+  },
+  {
+    "id": "scene2",
+    "label": "ESCENA 2: PÁGINAS WEB QUE VENDEN",
+    "text": "Diseñamos páginas web ultrarrápidas hechas para convertir visitas en clientes y lograr que te encuentren primero en Google y en ChatGPT.",
+    "file": "d:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\assets\\tts\\scene2.mp3",
+    "duration": 8.352,
+    "words": [
+      {
+        "text": "Diseñamos",
+        "start": 0.1,
+        "end": 0.75
+      },
+      {
+        "text": "páginas",
+        "start": 0.762,
+        "end": 1.212
+      },
+      {
+        "text": "web",
+        "start": 1.225,
+        "end": 1.413
+      },
+      {
+        "text": "ultrarrápidas",
+        "start": 1.425,
+        "end": 2.125
+      },
+      {
+        "text": "hechas",
+        "start": 2.138,
+        "end": 2.425
+      },
+      {
+        "text": "para",
+        "start": 2.438,
+        "end": 2.612
+      },
+      {
+        "text": "convertir",
+        "start": 2.625,
+        "end": 3.087
+      },
+      {
+        "text": "visitas",
+        "start": 3.1,
+        "end": 3.538
+      },
+      {
+        "text": "en",
+        "start": 3.55,
+        "end": 3.65
+      },
+      {
+        "text": "clientes",
+        "start": 3.663,
+        "end": 4.125
+      },
+      {
+        "text": "y",
+        "start": 4.138,
+        "end": 4.175
+      },
+      {
+        "text": "lograr",
+        "start": 4.188,
+        "end": 4.513
+      },
+      {
+        "text": "que",
+        "start": 4.525,
+        "end": 4.638
+      },
+      {
+        "text": "te",
+        "start": 4.65,
+        "end": 4.738
+      },
+      {
+        "text": "encuentren",
+        "start": 4.75,
+        "end": 5.225
+      },
+      {
+        "text": "primero",
+        "start": 5.237,
+        "end": 5.787
+      },
+      {
+        "text": "en",
+        "start": 5.975,
+        "end": 6.137
+      },
+      {
+        "text": "Google",
+        "start": 6.15,
+        "end": 6.425
+      },
+      {
+        "text": "y",
+        "start": 6.438,
+        "end": 6.5
+      },
+      {
+        "text": "en",
+        "start": 6.513,
+        "end": 6.612
+      },
+      {
+        "text": "ChatGPT",
+        "start": 6.625,
+        "end": 7.475
+      }
+    ]
+  },
+  {
+    "id": "scene3",
+    "label": "ESCENA 3: ASISTENTES EN WHATSAPP 24/7",
+    "text": "Creamos asistentes virtuales para tu WhatsApp que atienden día y noche, responden audios, revisan pagos y agendan citas automáticamente.",
+    "file": "d:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\assets\\tts\\scene3.mp3",
+    "duration": 8.904,
+    "words": [
+      {
+        "text": "Creamos",
+        "start": 0.1,
+        "end": 0.575
+      },
+      {
+        "text": "asistentes",
+        "start": 0.588,
+        "end": 1.15
+      },
+      {
+        "text": "virtuales",
+        "start": 1.163,
+        "end": 1.713
+      },
+      {
+        "text": "para",
+        "start": 1.725,
+        "end": 1.913
+      },
+      {
+        "text": "tu",
+        "start": 1.925,
+        "end": 2.05
+      },
+      {
+        "text": "WhatsApp",
+        "start": 2.062,
+        "end": 2.438
+      },
+      {
+        "text": "que",
+        "start": 2.45,
+        "end": 2.538
+      },
+      {
+        "text": "atienden",
+        "start": 2.55,
+        "end": 2.925
+      },
+      {
+        "text": "día",
+        "start": 2.938,
+        "end": 3.138
+      },
+      {
+        "text": "y",
+        "start": 3.15,
+        "end": 3.2
+      },
+      {
+        "text": "noche",
+        "start": 3.212,
+        "end": 3.625
+      },
+      {
+        "text": "responden",
+        "start": 3.938,
+        "end": 4.4
+      },
+      {
+        "text": "audios",
+        "start": 4.412,
+        "end": 4.862
+      },
+      {
+        "text": "revisan",
+        "start": 5.15,
+        "end": 5.738
+      },
+      {
+        "text": "pagos",
+        "start": 5.75,
+        "end": 6.088
+      },
+      {
+        "text": "y",
+        "start": 6.1,
+        "end": 6.15
+      },
+      {
+        "text": "agendan",
+        "start": 6.162,
+        "end": 6.612
+      },
+      {
+        "text": "citas",
+        "start": 6.625,
+        "end": 6.912
+      },
+      {
+        "text": "automáticamente",
+        "start": 6.925,
+        "end": 8.025
+      }
+    ]
+  },
+  {
+    "id": "scene4",
+    "label": "ESCENA 4: SISTEMAS A MEDIDA Y AUTOMATIZACIÓN",
+    "text": "Desarrollamos sistemas a la medida de tu equipo, sin pagos mensuales por usuario, y conectamos tus herramientas para eliminar el trabajo repetitivo.",
+    "file": "d:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\assets\\tts\\scene4.mp3",
+    "duration": 8.832,
+    "words": [
+      {
+        "text": "Desarrollamos",
+        "start": 0.1,
+        "end": 0.875
+      },
+      {
+        "text": "sistemas",
+        "start": 0.887,
+        "end": 1.35
+      },
+      {
+        "text": "a",
+        "start": 1.363,
+        "end": 1.387
+      },
+      {
+        "text": "la",
+        "start": 1.4,
+        "end": 1.487
+      },
+      {
+        "text": "medida",
+        "start": 1.5,
+        "end": 1.8
+      },
+      {
+        "text": "de",
+        "start": 1.812,
+        "end": 1.913
+      },
+      {
+        "text": "tu",
+        "start": 1.925,
+        "end": 2.025
+      },
+      {
+        "text": "equipo",
+        "start": 2.038,
+        "end": 2.462
+      },
+      {
+        "text": "sin",
+        "start": 2.712,
+        "end": 2.913
+      },
+      {
+        "text": "pagos",
+        "start": 2.925,
+        "end": 3.2
+      },
+      {
+        "text": "mensuales",
+        "start": 3.212,
+        "end": 3.7
+      },
+      {
+        "text": "por",
+        "start": 3.712,
+        "end": 3.85
+      },
+      {
+        "text": "usuario",
+        "start": 3.862,
+        "end": 4.375
+      },
+      {
+        "text": "y",
+        "start": 4.6,
+        "end": 4.75
+      },
+      {
+        "text": "conectamos",
+        "start": 4.763,
+        "end": 5.338
+      },
+      {
+        "text": "tus",
+        "start": 5.35,
+        "end": 5.525
+      },
+      {
+        "text": "herramientas",
+        "start": 5.537,
+        "end": 6.125
+      },
+      {
+        "text": "para",
+        "start": 6.138,
+        "end": 6.312
+      },
+      {
+        "text": "eliminar",
+        "start": 6.325,
+        "end": 6.713
+      },
+      {
+        "text": "el",
+        "start": 6.725,
+        "end": 6.825
+      },
+      {
+        "text": "trabajo",
+        "start": 6.838,
+        "end": 7.213
+      },
+      {
+        "text": "repetitivo",
+        "start": 7.225,
+        "end": 7.962
+      }
+    ]
+  },
+  {
+    "id": "scene5",
+    "label": "ESCENA 5: CIERRE Y LLAMADO A LA ACCIÓN",
+    "text": "Tu negocio funcionando en piloto automático y bajo tu control. Visita autonomek punto com y conversemos hoy mismo.",
+    "file": "d:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\video-autonomek-intro\\assets\\tts\\scene5.mp3",
+    "duration": 7.992,
+    "words": [
+      {
+        "text": "Tu",
+        "start": 0.1,
+        "end": 0.275
+      },
+      {
+        "text": "negocio",
+        "start": 0.287,
+        "end": 0.675
+      },
+      {
+        "text": "funcionando",
+        "start": 0.688,
+        "end": 1.25
+      },
+      {
+        "text": "en",
+        "start": 1.262,
+        "end": 1.387
+      },
+      {
+        "text": "piloto",
+        "start": 1.4,
+        "end": 1.725
+      },
+      {
+        "text": "automático",
+        "start": 1.738,
+        "end": 2.35
+      },
+      {
+        "text": "y",
+        "start": 2.362,
+        "end": 2.412
+      },
+      {
+        "text": "bajo",
+        "start": 2.425,
+        "end": 2.675
+      },
+      {
+        "text": "tu",
+        "start": 2.688,
+        "end": 2.775
+      },
+      {
+        "text": "control",
+        "start": 2.788,
+        "end": 3.375
+      },
+      {
+        "text": "Visita",
+        "start": 4.237,
+        "end": 4.7
+      },
+      {
+        "text": "autonomek",
+        "start": 4.713,
+        "end": 5.238
+      },
+      {
+        "text": "punto",
+        "start": 5.25,
+        "end": 5.537
+      },
+      {
+        "text": "com",
+        "start": 5.55,
+        "end": 5.737
+      },
+      {
+        "text": "y",
+        "start": 5.75,
+        "end": 5.787
+      },
+      {
+        "text": "conversemos",
+        "start": 5.8,
+        "end": 6.45
+      },
+      {
+        "text": "hoy",
+        "start": 6.463,
+        "end": 6.575
+      },
+      {
+        "text": "mismo",
+        "start": 6.588,
+        "end": 7.113
+      }
+    ]
+  }
+]

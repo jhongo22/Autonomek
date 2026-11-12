@@ -190,7 +190,7 @@ const ReviewCard = ({
   body,
 }: ReviewItem) => {
   return (
-    <Card className="group/card relative h-full w-[310px] sm:w-[360px] cursor-pointer overflow-hidden rounded-[22px] border border-rule bg-surface/90 hover:border-primary/50 hover:bg-card/80 transition-all duration-300 shadow-lg shadow-black/20 p-5">
+    <Card className="group/card relative h-full w-[min(300px,82vw)] sm:w-[360px] cursor-pointer overflow-hidden rounded-[22px] border border-rule bg-surface/90 hover:border-primary/50 hover:bg-card/80 transition-all duration-300 shadow-lg shadow-black/20 p-5">
       <CardContent className="p-0 flex flex-col justify-between h-full gap-3.5">
         {/* Top bar: metric pill + 5 stars */}
         <div className="flex items-center justify-between gap-2">

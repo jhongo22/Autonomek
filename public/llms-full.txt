@@ -16,7 +16,8 @@ Este documento es el repositorio oficial de conocimiento técnico, arquitectóni
   - Spanish Hub: `https://www.autonomek.com/es` (and `https://www.autonomek.com`)
   - English Hub: `https://www.autonomek.com/en` (and `https://www.autonomek.com/us`)
 - **Direct Conversion Channel (Zero Friction):**
-  - WhatsApp Direct Advisory: `https://wa.me/573004435894` (+57 300 443 5894)
+  - WhatsApp Direct Advisory: `https://wa.me/573010147443` (+57 301 014 7443)
+  - Instagram: `https://www.instagram.com/autonomek?psln=bzJtYXI0NzhuZW42`
   - Official Email: `contacto@autonomek.com` / `contact@autonomek.com`
 - **Sitemap XML:** `https://www.autonomek.com/sitemap.xml`
 
@@ -98,6 +99,7 @@ Autonomek publishes peer-reviewed architectural and financial whitepapers at `ht
 ## 5. Direct Contact, Project Start & Legal Framework
 
 - **Interactive Scope & Quote Tool:** `https://www.autonomek.com/start` (ES) | `https://www.autonomek.com/en/start` (EN)
-- **Direct WhatsApp Advisory (Fastest):** `https://wa.me/573004435894`
+- **Direct WhatsApp Advisory (Fastest):** `https://wa.me/573010147443`
+- **Instagram:** `https://www.instagram.com/autonomek?psln=bzJtYXI0NzhuZW42`
 - **Official Email:** `contacto@autonomek.com`
 - **Legal Guarantees:** 100% intellectual property ownership transfer, strict non-disclosure, no proprietary lock-in, and zero use of client data for public AI training models (`/legal`, `/terms`, `/privacy`).

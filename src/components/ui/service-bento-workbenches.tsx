@@ -352,7 +352,7 @@ export function WhatsAppAiWorkbenchBento({ isEn = false }: { isEn?: boolean }) {
       {/* 3-Column Bento Grid inside Workbench */}
       <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-5">
         {/* Column 1 (5 cols): Live WhatsApp Conversation */}
-        <div className="lg:col-span-5 rounded-2xl border border-rule bg-background flex flex-col justify-between overflow-hidden">
+        <div className="min-w-0 lg:col-span-5 rounded-2xl border border-rule bg-background flex flex-col justify-between overflow-hidden">
           <div className="flex items-center justify-between border-b border-rule bg-card px-4 py-3">
             <div className="flex items-center gap-2.5">
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-ink">
@@ -430,7 +430,7 @@ export function WhatsAppAiWorkbenchBento({ isEn = false }: { isEn?: boolean }) {
         </div>
 
         {/* Column 2 (4 cols): Real-Time AI Reasoning & Extraction */}
-        <div className="lg:col-span-4 rounded-2xl border border-rule bg-background p-5 flex flex-col justify-between gap-4">
+        <div className="min-w-0 lg:col-span-4 rounded-2xl border border-rule bg-background p-4 sm:p-5 flex flex-col justify-between gap-4">
           <div>
             <div className="flex items-center justify-between pb-3 border-b border-rule">
               <span className="text-xs font-semibold text-foreground">
@@ -465,7 +465,7 @@ export function WhatsAppAiWorkbenchBento({ isEn = false }: { isEn?: boolean }) {
         </div>
 
         {/* Column 3 (3 cols): Live Calendar & CRM Impact */}
-        <div className="lg:col-span-3 rounded-2xl border border-rule bg-background p-5 flex flex-col justify-between gap-4">
+        <div className="min-w-0 lg:col-span-3 rounded-2xl border border-rule bg-background p-4 sm:p-5 flex flex-col justify-between gap-4">
           <div>
             <div className="flex items-center justify-between pb-3 border-b border-rule">
               <span className="text-xs font-semibold text-foreground">
@@ -582,7 +582,7 @@ export function WebPerformanceBento({ isEn = false }: { isEn?: boolean }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
       {/* Left 7 Cols: Live Load Speed & Conversion Curve */}
-      <div className="lg:col-span-7 rounded-[28px] border border-rule bg-surface p-6 sm:p-8 flex flex-col justify-between gap-6 shadow-2xl shadow-black/25">
+      <div className="min-w-0 lg:col-span-7 rounded-[28px] border border-rule bg-surface p-4 sm:p-8 flex flex-col justify-between gap-6 shadow-2xl shadow-black/25">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <p className="text-xs font-medium text-primary">
@@ -607,7 +607,7 @@ export function WebPerformanceBento({ isEn = false }: { isEn?: boolean }) {
         {/* Speed Bars Comparison */}
         <div key={raceRun} className="space-y-4">
           <div className="rounded-2xl border border-primary/40 bg-background p-4 space-y-2.5">
-            <div className="flex items-center justify-between text-xs">
+            <div className="flex flex-wrap items-center justify-between gap-1 text-xs">
               <span className="font-semibold text-foreground">
                 {isEn
                   ? "Autonomek Website (Next.js + Edge)"
@@ -623,7 +623,7 @@ export function WebPerformanceBento({ isEn = false }: { isEn?: boolean }) {
           </div>
 
           <div className="rounded-2xl border border-rule bg-background p-4 space-y-2.5">
-            <div className="flex items-center justify-between text-xs">
+            <div className="flex flex-wrap items-center justify-between gap-1 text-xs">
               <span className="font-medium text-muted">
                 {isEn
                   ? "Standard WordPress / Heavy Template"
@@ -661,8 +661,8 @@ export function WebPerformanceBento({ isEn = false }: { isEn?: boolean }) {
       </div>
 
       {/* Right 5 Cols: Interactive Google #1 & ChatGPT Search Simulator */}
-      <div className="lg:col-span-5 rounded-[28px] border border-rule bg-surface p-6 sm:p-8 flex flex-col justify-between gap-5 shadow-2xl shadow-black/25">
-        <div className="flex items-center justify-between gap-2">
+      <div className="min-w-0 lg:col-span-5 rounded-[28px] border border-rule bg-surface p-4 sm:p-8 flex flex-col justify-between gap-5 shadow-2xl shadow-black/25">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <div>
             <p className="text-xs font-medium text-primary">
               {isEn ? "Search Visibility Engine" : "Posicionamiento en Buscadores"}
@@ -876,7 +876,7 @@ export function CustomSoftwareWorkbenchBento({ isEn = false }: { isEn?: boolean 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
       {/* Left 8 Cols: Interactive Custom Platform Preview */}
-      <div className="lg:col-span-8 rounded-[28px] border border-rule bg-surface p-6 sm:p-8 flex flex-col justify-between gap-6 shadow-2xl shadow-black/25">
+      <div className="min-w-0 lg:col-span-8 rounded-[28px] border border-rule bg-surface p-4 sm:p-8 flex flex-col justify-between gap-6 shadow-2xl shadow-black/25">
         <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-rule">
           <div className="flex flex-wrap gap-2">
             {modules.map((m, i) => {
@@ -903,14 +903,14 @@ export function CustomSoftwareWorkbenchBento({ isEn = false }: { isEn?: boolean 
         </div>
 
         {/* KPIs inside module */}
-        <div className="grid grid-cols-3 gap-3 sm:gap-4">
+        <div className="grid grid-cols-3 gap-2 sm:gap-4">
           {cur.kpis.map((k) => (
             <div
               key={k.l}
-              className="rounded-2xl border border-rule bg-background p-4"
+              className="min-w-0 rounded-2xl border border-rule bg-background p-2.5 sm:p-4"
             >
-              <p className="text-xs text-muted">{k.l}</p>
-              <p className="font-mono text-xl sm:text-2xl font-semibold text-foreground mt-1">
+              <p className="text-[11px] sm:text-xs text-muted truncate">{k.l}</p>
+              <p className="font-mono text-base sm:text-2xl font-semibold text-foreground mt-1 truncate">
                 {k.v}
               </p>
             </div>
@@ -941,7 +941,7 @@ export function CustomSoftwareWorkbenchBento({ isEn = false }: { isEn?: boolean 
       </div>
 
       {/* Right 4 Cols: Interactive $0 Per-User License Savings Calculator */}
-      <div className="lg:col-span-4 rounded-[28px] border border-rule bg-surface p-6 sm:p-8 flex flex-col justify-between gap-6 shadow-2xl shadow-black/25">
+      <div className="min-w-0 lg:col-span-4 rounded-[28px] border border-rule bg-surface p-4 sm:p-8 flex flex-col justify-between gap-6 shadow-2xl shadow-black/25">
         <div>
           <p className="text-xs font-medium text-primary">
             {isEn ? "100% Code Ownership" : "Propiedad Total sin Mensualidades"}
@@ -988,7 +988,7 @@ export function CustomSoftwareWorkbenchBento({ isEn = false }: { isEn?: boolean 
 
         {/* Comparison readout */}
         <div className="space-y-2.5">
-          <div className="flex items-center justify-between text-xs px-1">
+          <div className="flex flex-wrap items-center justify-between gap-2 text-xs px-1">
             <span className="text-muted">
               {isEn ? "Rented SaaS cost / year:" : "Costo anual en licencias SaaS:"}
             </span>
@@ -996,7 +996,7 @@ export function CustomSoftwareWorkbenchBento({ isEn = false }: { isEn?: boolean 
               ${annualSavings.toLocaleString("en-US")} USD / {isEn ? "yr" : "año"}
             </span>
           </div>
-          <div className="rounded-2xl border border-primary/40 bg-primary/10 p-4 flex items-center justify-between">
+          <div className="rounded-2xl border border-primary/40 bg-primary/10 p-4 flex flex-wrap items-center justify-between gap-2">
             <div>
               <p className="text-xs font-semibold text-foreground">
                 {isEn ? "Autonomek Monthly License" : "Licencia Mensual Autonomek"}
@@ -1132,7 +1132,7 @@ export function AutomationPipelineBento({ isEn = false }: { isEn?: boolean }) {
           ))}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <span className="font-mono text-xs text-primary">
             {isEn ? "Execution:" : "Tiempo total:"} {pipe.time}
           </span>

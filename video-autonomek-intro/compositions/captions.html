@@ -1,0 +1,974 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: transparent;
+      overflow: visible;
+    }
+
+    #captions-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    /* Zona segura para subtítulos en 9:16 móvil: y 1358..1542, x 44..976 */
+    .captions-safe-band {
+      position: absolute;
+      left: 44px;
+      width: 932px;
+      bottom: 378px;
+      height: 184px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: visible;
+    }
+
+    .cap-group {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      overflow: visible;
+    }
+
+    .cap-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 900px;
+      padding: 18px 34px;
+      border-radius: 22px;
+      background: rgba(11, 20, 16, 0.94);
+      border: 1.5px solid rgba(165, 208, 185, 0.45);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.78), 0 0 28px rgba(165, 208, 185, 0.14);
+      overflow: visible;
+    }
+
+    .cap-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: center;
+      column-gap: 18px;
+      row-gap: 6px;
+      font-family: "Inter", sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+      overflow: visible;
+    }
+
+    .cap-word {
+      display: inline-block;
+      color: #9fb4a9;
+      transform-origin: 50% 60%;
+      overflow: visible;
+    }
+
+    .cap-word-accent {
+      font-weight: 800;
+    }
+  </style>
+
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+    <div id="captions-layer" aria-hidden="true">
+      <div id="captions-safe-band" class="captions-safe-band" data-layout-allow-caption-zone></div>
+    </div>
+  </div>
+
+  <script>
+    const GROUPS = [
+  {
+    "id": "cg-0",
+    "start": 0.16,
+    "end": 1.935,
+    "words": [
+      {
+        "text": "En",
+        "start": 0.21,
+        "end": 0.435,
+        "accent": false
+      },
+      {
+        "text": "Autonomek",
+        "start": 0.448,
+        "end": 0.948,
+        "accent": true
+      },
+      {
+        "text": "creamos",
+        "start": 0.96,
+        "end": 1.36,
+        "accent": false
+      },
+      {
+        "text": "tecnología",
+        "start": 1.372,
+        "end": 1.972,
+        "accent": true
+      }
+    ]
+  },
+  {
+    "id": "cg-1",
+    "start": 1.935,
+    "end": 2.86,
+    "words": [
+      {
+        "text": "práctica",
+        "start": 1.985,
+        "end": 2.46,
+        "accent": true
+      },
+      {
+        "text": "para",
+        "start": 2.472,
+        "end": 2.672,
+        "accent": false
+      },
+      {
+        "text": "que",
+        "start": 2.685,
+        "end": 2.798,
+        "accent": false
+      },
+      {
+        "text": "tu",
+        "start": 2.81,
+        "end": 2.898,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-2",
+    "start": 2.86,
+    "end": 3.86,
+    "words": [
+      {
+        "text": "negocio",
+        "start": 2.91,
+        "end": 3.335,
+        "accent": false
+      },
+      {
+        "text": "venda",
+        "start": 3.347,
+        "end": 3.61,
+        "accent": true
+      },
+      {
+        "text": "más",
+        "start": 3.623,
+        "end": 3.835,
+        "accent": true
+      },
+      {
+        "text": "y",
+        "start": 3.847,
+        "end": 3.897,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-3",
+    "start": 3.86,
+    "end": 5.685,
+    "words": [
+      {
+        "text": "trabaje",
+        "start": 3.91,
+        "end": 4.322,
+        "accent": false
+      },
+      {
+        "text": "con",
+        "start": 4.335,
+        "end": 4.51,
+        "accent": false
+      },
+      {
+        "text": "menos",
+        "start": 4.522,
+        "end": 4.81,
+        "accent": true
+      },
+      {
+        "text": "esfuerzo",
+        "start": 4.823,
+        "end": 5.41,
+        "accent": true
+      }
+    ]
+  },
+  {
+    "id": "cg-4",
+    "start": 5.685,
+    "end": 7.323,
+    "words": [
+      {
+        "text": "sin",
+        "start": 5.735,
+        "end": 6.073,
+        "accent": false
+      },
+      {
+        "text": "complicarte",
+        "start": 6.085,
+        "end": 6.722,
+        "accent": true
+      },
+      {
+        "text": "con",
+        "start": 6.735,
+        "end": 6.935,
+        "accent": false
+      },
+      {
+        "text": "términos",
+        "start": 6.948,
+        "end": 7.36,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-5",
+    "start": 7.323,
+    "end": 8.423,
+    "words": [
+      {
+        "text": "técnicos",
+        "start": 7.373,
+        "end": 8.073,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-6",
+    "start": 8.46,
+    "end": 10.498,
+    "words": [
+      {
+        "text": "Diseñamos",
+        "start": 8.51,
+        "end": 9.16,
+        "accent": false
+      },
+      {
+        "text": "páginas",
+        "start": 9.172,
+        "end": 9.622,
+        "accent": false
+      },
+      {
+        "text": "web",
+        "start": 9.635,
+        "end": 9.823,
+        "accent": false
+      },
+      {
+        "text": "ultrarrápidas",
+        "start": 9.835,
+        "end": 10.535,
+        "accent": true
+      }
+    ]
+  },
+  {
+    "id": "cg-7",
+    "start": 10.498,
+    "end": 11.91,
+    "words": [
+      {
+        "text": "hechas",
+        "start": 10.548,
+        "end": 10.835,
+        "accent": false
+      },
+      {
+        "text": "para",
+        "start": 10.848,
+        "end": 11.022,
+        "accent": false
+      },
+      {
+        "text": "convertir",
+        "start": 11.035,
+        "end": 11.497,
+        "accent": true
+      },
+      {
+        "text": "visitas",
+        "start": 11.51,
+        "end": 11.948,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-8",
+    "start": 11.91,
+    "end": 12.885,
+    "words": [
+      {
+        "text": "en",
+        "start": 11.96,
+        "end": 12.06,
+        "accent": false
+      },
+      {
+        "text": "clientes",
+        "start": 12.073,
+        "end": 12.535,
+        "accent": true
+      },
+      {
+        "text": "y",
+        "start": 12.548,
+        "end": 12.585,
+        "accent": false
+      },
+      {
+        "text": "lograr",
+        "start": 12.598,
+        "end": 12.923,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-9",
+    "start": 12.885,
+    "end": 14.335,
+    "words": [
+      {
+        "text": "que",
+        "start": 12.935,
+        "end": 13.048,
+        "accent": false
+      },
+      {
+        "text": "te",
+        "start": 13.06,
+        "end": 13.148,
+        "accent": false
+      },
+      {
+        "text": "encuentren",
+        "start": 13.16,
+        "end": 13.635,
+        "accent": false
+      },
+      {
+        "text": "primero",
+        "start": 13.647,
+        "end": 14.197,
+        "accent": true
+      }
+    ]
+  },
+  {
+    "id": "cg-10",
+    "start": 14.335,
+    "end": 14.985,
+    "words": [
+      {
+        "text": "en",
+        "start": 14.385,
+        "end": 14.547,
+        "accent": false
+      },
+      {
+        "text": "Google",
+        "start": 14.56,
+        "end": 14.835,
+        "accent": true
+      },
+      {
+        "text": "y",
+        "start": 14.848,
+        "end": 14.91,
+        "accent": false
+      },
+      {
+        "text": "en",
+        "start": 14.923,
+        "end": 15.022,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-11",
+    "start": 14.985,
+    "end": 16.235,
+    "words": [
+      {
+        "text": "ChatGPT",
+        "start": 15.035,
+        "end": 15.885,
+        "accent": true
+      }
+    ]
+  },
+  {
+    "id": "cg-12",
+    "start": 16.31,
+    "end": 18.135,
+    "words": [
+      {
+        "text": "Creamos",
+        "start": 16.36,
+        "end": 16.835,
+        "accent": false
+      },
+      {
+        "text": "asistentes",
+        "start": 16.848,
+        "end": 17.41,
+        "accent": false
+      },
+      {
+        "text": "virtuales",
+        "start": 17.423,
+        "end": 17.973,
+        "accent": false
+      },
+      {
+        "text": "para",
+        "start": 17.985,
+        "end": 18.173,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-13",
+    "start": 18.135,
+    "end": 19.148,
+    "words": [
+      {
+        "text": "tu",
+        "start": 18.185,
+        "end": 18.31,
+        "accent": false
+      },
+      {
+        "text": "WhatsApp",
+        "start": 18.322,
+        "end": 18.698,
+        "accent": true
+      },
+      {
+        "text": "que",
+        "start": 18.71,
+        "end": 18.798,
+        "accent": false
+      },
+      {
+        "text": "atienden",
+        "start": 18.81,
+        "end": 19.185,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-14",
+    "start": 19.148,
+    "end": 20.148,
+    "words": [
+      {
+        "text": "día",
+        "start": 19.198,
+        "end": 19.398,
+        "accent": true
+      },
+      {
+        "text": "y",
+        "start": 19.41,
+        "end": 19.46,
+        "accent": false
+      },
+      {
+        "text": "noche",
+        "start": 19.472,
+        "end": 19.885,
+        "accent": true
+      }
+    ]
+  },
+  {
+    "id": "cg-15",
+    "start": 20.148,
+    "end": 21.36,
+    "words": [
+      {
+        "text": "responden",
+        "start": 20.198,
+        "end": 20.66,
+        "accent": false
+      },
+      {
+        "text": "audios",
+        "start": 20.672,
+        "end": 21.122,
+        "accent": true
+      }
+    ]
+  },
+  {
+    "id": "cg-16",
+    "start": 21.36,
+    "end": 22.835,
+    "words": [
+      {
+        "text": "revisan",
+        "start": 21.41,
+        "end": 21.998,
+        "accent": false
+      },
+      {
+        "text": "pagos",
+        "start": 22.01,
+        "end": 22.348,
+        "accent": true
+      },
+      {
+        "text": "y",
+        "start": 22.36,
+        "end": 22.41,
+        "accent": false
+      },
+      {
+        "text": "agendan",
+        "start": 22.422,
+        "end": 22.872,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-17",
+    "start": 22.835,
+    "end": 24.635,
+    "words": [
+      {
+        "text": "citas",
+        "start": 22.885,
+        "end": 23.172,
+        "accent": true
+      },
+      {
+        "text": "automáticamente",
+        "start": 23.185,
+        "end": 24.285,
+        "accent": true
+      }
+    ]
+  },
+  {
+    "id": "cg-18",
+    "start": 24.66,
+    "end": 26.06,
+    "words": [
+      {
+        "text": "Desarrollamos",
+        "start": 24.71,
+        "end": 25.485,
+        "accent": false
+      },
+      {
+        "text": "sistemas",
+        "start": 25.497,
+        "end": 25.96,
+        "accent": false
+      },
+      {
+        "text": "a",
+        "start": 25.973,
+        "end": 25.997,
+        "accent": false
+      },
+      {
+        "text": "la",
+        "start": 26.01,
+        "end": 26.097,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-19",
+    "start": 26.06,
+    "end": 27.272,
+    "words": [
+      {
+        "text": "medida",
+        "start": 26.11,
+        "end": 26.41,
+        "accent": true
+      },
+      {
+        "text": "de",
+        "start": 26.422,
+        "end": 26.523,
+        "accent": false
+      },
+      {
+        "text": "tu",
+        "start": 26.535,
+        "end": 26.635,
+        "accent": false
+      },
+      {
+        "text": "equipo",
+        "start": 26.648,
+        "end": 27.072,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-20",
+    "start": 27.272,
+    "end": 28.422,
+    "words": [
+      {
+        "text": "sin",
+        "start": 27.322,
+        "end": 27.523,
+        "accent": false
+      },
+      {
+        "text": "pagos",
+        "start": 27.535,
+        "end": 27.81,
+        "accent": true
+      },
+      {
+        "text": "mensuales",
+        "start": 27.822,
+        "end": 28.31,
+        "accent": true
+      },
+      {
+        "text": "por",
+        "start": 28.322,
+        "end": 28.46,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-21",
+    "start": 28.422,
+    "end": 29.16,
+    "words": [
+      {
+        "text": "usuario",
+        "start": 28.472,
+        "end": 28.985,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-22",
+    "start": 29.16,
+    "end": 30.698,
+    "words": [
+      {
+        "text": "y",
+        "start": 29.21,
+        "end": 29.36,
+        "accent": false
+      },
+      {
+        "text": "conectamos",
+        "start": 29.373,
+        "end": 29.948,
+        "accent": true
+      },
+      {
+        "text": "tus",
+        "start": 29.96,
+        "end": 30.135,
+        "accent": false
+      },
+      {
+        "text": "herramientas",
+        "start": 30.147,
+        "end": 30.735,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-23",
+    "start": 30.698,
+    "end": 31.785,
+    "words": [
+      {
+        "text": "para",
+        "start": 30.748,
+        "end": 30.922,
+        "accent": false
+      },
+      {
+        "text": "eliminar",
+        "start": 30.935,
+        "end": 31.323,
+        "accent": true
+      },
+      {
+        "text": "el",
+        "start": 31.335,
+        "end": 31.435,
+        "accent": false
+      },
+      {
+        "text": "trabajo",
+        "start": 31.448,
+        "end": 31.823,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-24",
+    "start": 31.785,
+    "end": 32.922,
+    "words": [
+      {
+        "text": "repetitivo",
+        "start": 31.835,
+        "end": 32.572,
+        "accent": true
+      }
+    ]
+  },
+  {
+    "id": "cg-25",
+    "start": 32.96,
+    "end": 34.26,
+    "words": [
+      {
+        "text": "Tu",
+        "start": 33.01,
+        "end": 33.185,
+        "accent": false
+      },
+      {
+        "text": "negocio",
+        "start": 33.197,
+        "end": 33.585,
+        "accent": false
+      },
+      {
+        "text": "funcionando",
+        "start": 33.598,
+        "end": 34.16,
+        "accent": false
+      },
+      {
+        "text": "en",
+        "start": 34.172,
+        "end": 34.297,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-26",
+    "start": 34.26,
+    "end": 35.548,
+    "words": [
+      {
+        "text": "piloto",
+        "start": 34.31,
+        "end": 34.635,
+        "accent": true
+      },
+      {
+        "text": "automático",
+        "start": 34.648,
+        "end": 35.26,
+        "accent": true
+      },
+      {
+        "text": "y",
+        "start": 35.272,
+        "end": 35.322,
+        "accent": false
+      },
+      {
+        "text": "bajo",
+        "start": 35.335,
+        "end": 35.585,
+        "accent": false
+      }
+    ]
+  },
+  {
+    "id": "cg-27",
+    "start": 35.548,
+    "end": 36.585,
+    "words": [
+      {
+        "text": "tu",
+        "start": 35.598,
+        "end": 35.685,
+        "accent": false
+      },
+      {
+        "text": "control",
+        "start": 35.698,
+        "end": 36.285,
+        "accent": true
+      }
+    ]
+  },
+  {
+    "id": "cg-28",
+    "start": 37.097,
+    "end": 38.61,
+    "words": [
+      {
+        "text": "Visita",
+        "start": 37.147,
+        "end": 37.61,
+        "accent": false
+      },
+      {
+        "text": "autonomek",
+        "start": 37.623,
+        "end": 38.148,
+        "accent": true
+      },
+      {
+        "text": "punto",
+        "start": 38.16,
+        "end": 38.447,
+        "accent": true
+      },
+      {
+        "text": "com",
+        "start": 38.46,
+        "end": 38.647,
+        "accent": true
+      }
+    ]
+  },
+  {
+    "id": "cg-29",
+    "start": 38.61,
+    "end": 40.373,
+    "words": [
+      {
+        "text": "y",
+        "start": 38.66,
+        "end": 38.697,
+        "accent": false
+      },
+      {
+        "text": "conversemos",
+        "start": 38.71,
+        "end": 39.36,
+        "accent": true
+      },
+      {
+        "text": "hoy",
+        "start": 39.373,
+        "end": 39.485,
+        "accent": true
+      },
+      {
+        "text": "mismo",
+        "start": 39.498,
+        "end": 40.023,
+        "accent": false
+      }
+    ]
+  }
+];
+
+    const stage = document.getElementById("captions-safe-band");
+    const tl = gsap.timeline({ paused: true });
+
+    GROUPS.forEach((group, gIdx) => {
+      const groupEl = document.createElement("div");
+      groupEl.id = "cap-group-" + gIdx;
+      groupEl.className = "cap-group";
+
+      const pillEl = document.createElement("div");
+      pillEl.className = "cap-pill";
+
+      const lineEl = document.createElement("div");
+      lineEl.className = "cap-line";
+
+      group.words.forEach((w, wIdx) => {
+        const span = document.createElement("span");
+        span.id = "cap-word-" + gIdx + "-" + wIdx;
+        span.className = "cap-word" + (w.accent ? " cap-word-accent" : "");
+        span.textContent = w.text;
+        lineEl.appendChild(span);
+      });
+
+      pillEl.appendChild(lineEl);
+      groupEl.appendChild(pillEl);
+      stage.appendChild(groupEl);
+
+      const enterDur = 0.08;
+      const exitDur = 0.08;
+
+      tl.set(groupEl, { opacity: 0, y: 12, scale: 0.97 }, 0);
+      tl.fromTo(
+        groupEl,
+        { opacity: 0, y: 12, scale: 0.97 },
+        { opacity: 1, y: 0, scale: 1, duration: enterDur, ease: "power3.out" },
+        group.start
+      );
+      tl.to(
+        groupEl,
+        { opacity: 0, y: -6, scale: 0.98, duration: exitDur, ease: "power2.in" },
+        Math.max(group.start + enterDur, group.end - exitDur)
+      );
+
+      group.words.forEach((w, wIdx) => {
+        const wordEl = document.getElementById("cap-word-" + gIdx + "-" + wIdx);
+        const wStart = Math.max(group.start, w.start - 0.02);
+        const wEnd = Math.min(group.end - 0.03, Math.max(wStart + 0.09, w.end));
+        const activeColor = w.accent ? "#a5d0b9" : "#ffffff";
+
+        tl.set(wordEl, { color: "#9fb4a9", scale: 1, y: 0 }, group.start);
+        tl.to(
+          wordEl,
+          { color: activeColor, scale: w.accent ? 1.03 : 1.01, y: w.accent ? -3 : -1, duration: 0.07, ease: "power2.out" },
+          wStart
+        );
+        tl.to(
+          wordEl,
+          { color: activeColor, scale: 1, y: 0, duration: 0.09, ease: "power2.out" },
+          wEnd
+        );
+      });
+    });
+
+    tl.set("#captions-layer", { opacity: 1 }, 41.5);
+    window.__timelines = window.__timelines || {};
+    window.__timelines["captions"] = tl;
+  </script>
+</template>

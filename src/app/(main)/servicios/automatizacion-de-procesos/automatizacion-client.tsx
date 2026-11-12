@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -6,6 +6,7 @@ import {
   Check,
   ExternalLink,
   ArrowUpRight,
+  Instagram,
 } from 'lucide-react';
 import { PROJECTS, PROJECTS_EN, Project } from '@/data/projects';
 import ProjectDetailsModal from '@/components/ProjectDetailsModal';
@@ -33,8 +34,8 @@ export default function AutomatizacionClient({ region = 'co' }: { region?: Regio
     .slice(0, 6);
 
   const whatsappDirectUrl = isEn
-    ? 'https://wa.me/573004435894?text=Hello%20Autonomek%2C%20I%20want%20to%20automate%20manual%20processes%20and%20connect%20my%20business%20tools.'
-    : 'https://wa.me/573004435894?text=Hola%20Autonomek%2C%20quiero%20automatizar%20procesos%20manuales%20y%20conectar%20las%20herramientas%20de%20mi%20empresa.';
+    ? 'https://wa.me/573010147443?text=Hello%20Autonomek%2C%20I%20want%20to%20automate%20manual%20processes%20and%20connect%20my%20business%20tools.'
+    : 'https://wa.me/573010147443?text=Hola%20Autonomek%2C%20quiero%20automatizar%20procesos%20manuales%20y%20conectar%20las%20herramientas%20de%20mi%20empresa.';
 
   const servicesHref = isEn ? `${basePrefix}/services` : `${basePrefix}/servicios`;
   const projectsHref = isEn ? `${basePrefix}/projects` : `${basePrefix}/proyectos`;
@@ -165,7 +166,7 @@ export default function AutomatizacionClient({ region = 'co' }: { region?: Regio
       <section className="relative isolate overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28 border-b border-rule">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-[-10%] -z-10 h-[420px] w-[820px] max-w-[120vw] -translate-x-1/2 rounded-full bg-primary/15 blur-[140px]"
+          className="pointer-events-none absolute left-1/2 top-[-10%] -z-10 h-[420px] w-[min(820px,100%)] -translate-x-1/2 rounded-full bg-primary/15 blur-[140px]"
         />
 
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
@@ -264,9 +265,9 @@ export default function AutomatizacionClient({ region = 'co' }: { region?: Regio
 
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
             {/* Left 5 Cols: Interactive Automation MiniApp */}
-            <div className="lg:col-span-5 rounded-[28px] border border-rule bg-surface p-5 sm:p-7 flex flex-col justify-between gap-6 shadow-lg shadow-black/20">
-              <div className="flex items-center justify-between gap-3 border-b border-rule pb-4">
-                <div>
+            <div className="min-w-0 lg:col-span-5 rounded-[24px] sm:rounded-[28px] border border-rule bg-surface p-4 sm:p-7 flex flex-col justify-between gap-6 shadow-lg shadow-black/20">
+              <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3 border-b border-rule pb-4">
+                <div className="min-w-0">
                   <span className="font-mono text-[11px] uppercase tracking-wider text-primary">
                     {isEn ? 'LIVE WEBHOOK ENGINE' : 'MOTOR DE INTEGRACIÓN'}
                   </span>
@@ -274,7 +275,7 @@ export default function AutomatizacionClient({ region = 'co' }: { region?: Regio
                     {isEn ? 'Multi-App Execution' : 'Sincronización Multi-Sistema'}
                   </h3>
                 </div>
-                <span className="rounded-full bg-primary/15 border border-primary/25 px-3 py-1 font-mono text-xs font-semibold text-primary">
+                <span className="shrink-0 rounded-full bg-primary/15 border border-primary/25 px-3 py-1 font-mono text-xs font-semibold text-primary">
                   0.3s Sync
                 </span>
               </div>
@@ -282,24 +283,24 @@ export default function AutomatizacionClient({ region = 'co' }: { region?: Regio
               <ServiceMiniApp id="automation" isEn={isEn} />
 
               <div className="grid grid-cols-3 divide-x divide-rule border-t border-rule pt-4 text-center">
-                <div className="px-2">
-                  <div className="font-mono text-lg sm:text-xl font-semibold text-foreground tabular-nums">
+                <div className="min-w-0 px-1.5 sm:px-2">
+                  <div className="font-mono text-base sm:text-xl font-semibold text-foreground tabular-nums">
                     -85%
                   </div>
                   <div className="text-[11px] text-muted mt-0.5">
                     {isEn ? 'Manual typing' : 'Carga operativa'}
                   </div>
                 </div>
-                <div className="px-2">
-                  <div className="font-mono text-lg sm:text-xl font-semibold text-primary tabular-nums">
+                <div className="min-w-0 px-1.5 sm:px-2">
+                  <div className="font-mono text-base sm:text-xl font-semibold text-primary tabular-nums">
                     0%
                   </div>
                   <div className="text-[11px] text-muted mt-0.5">
                     {isEn ? 'Human errors' : 'Errores digitación'}
                   </div>
                 </div>
-                <div className="px-2">
-                  <div className="font-mono text-lg sm:text-xl font-semibold text-foreground tabular-nums">
+                <div className="min-w-0 px-1.5 sm:px-2">
+                  <div className="font-mono text-base sm:text-xl font-semibold text-foreground tabular-nums">
                     24/7
                   </div>
                   <div className="text-[11px] text-muted mt-0.5">
@@ -310,36 +311,36 @@ export default function AutomatizacionClient({ region = 'co' }: { region?: Regio
             </div>
 
             {/* Right 7 Cols: Hallmark Hairline Rows */}
-            <div className="lg:col-span-7 border-t border-rule">
+            <div className="min-w-0 lg:col-span-7 border-t border-rule">
               {workflows.map((wf, idx) => {
                 const isActive = activeFlowIndex === idx;
                 return (
                   <div
                     key={wf.num}
                     onClick={() => setActiveFlowIndex(idx)}
-                    className={`group border-b border-rule py-6 sm:py-7 px-4 sm:px-6 transition-colors cursor-pointer ${
+                    className={`group border-b border-rule py-6 sm:py-7 px-3 sm:px-6 transition-colors cursor-pointer ${
                       isActive ? 'bg-surface/90' : 'hover:bg-surface/40'
                     }`}
                   >
                     <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 sm:gap-6">
-                      <div className="flex items-baseline gap-4">
+                      <div className="flex min-w-0 items-baseline gap-3 sm:gap-4">
                         <span
-                          className={`font-mono text-xs font-semibold tabular-nums transition-colors ${
+                          className={`font-mono text-xs font-semibold tabular-nums transition-colors shrink-0 ${
                             isActive ? 'text-primary' : 'text-muted group-hover:text-foreground'
                           }`}
                         >
                           /{wf.num}
                         </span>
-                        <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors">
+                        <h3 className="min-w-0 break-words text-xl sm:text-2xl font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors">
                           {wf.title}
                         </h3>
                       </div>
-                      <span className="font-mono text-xs text-primary shrink-0 pl-8 sm:pl-0">
+                      <span className="font-mono text-xs text-primary shrink-0 pl-0">
                         {wf.metric}
                       </span>
                     </div>
 
-                    <div className="mt-3 pl-8 sm:pl-9 space-y-4">
+                    <div className="mt-3 pl-0 sm:pl-9 space-y-4">
                       <p className="text-sm sm:text-base leading-relaxed text-muted">
                         {wf.desc}
                       </p>
@@ -472,7 +473,7 @@ export default function AutomatizacionClient({ region = 'co' }: { region?: Regio
                   setSelectedProject(project);
                   setIsModalOpen(true);
                 }}
-                className="group rounded-[24px] bg-surface border border-rule overflow-hidden flex flex-col justify-between cursor-pointer hover:border-primary transition-colors"
+                className="group min-w-0 rounded-[24px] bg-surface border border-rule overflow-hidden flex flex-col justify-between cursor-pointer hover:border-primary transition-colors"
               >
                 <div>
                   <div className="relative w-full aspect-[16/10] bg-card overflow-hidden border-b border-rule">
@@ -600,7 +601,7 @@ export default function AutomatizacionClient({ region = 'co' }: { region?: Regio
         className="scroll-mt-24 py-20 md:py-28 bg-surface/40 border-b border-rule"
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          <div>
+          <div className="min-w-0">
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
               {isEn ? 'FAQ' : 'Preguntas Frecuentes'}
@@ -617,7 +618,7 @@ export default function AutomatizacionClient({ region = 'co' }: { region?: Regio
             </p>
           </div>
 
-          <div className="border-t border-rule">
+          <div className="min-w-0 border-t border-rule">
             {faqs.map((item, idx) => {
               const isOpen = openFaq === idx;
               return (
@@ -659,7 +660,7 @@ export default function AutomatizacionClient({ region = 'co' }: { region?: Regio
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[380px] w-[680px] max-w-[120vw] -translate-x-1/2 rounded-full bg-primary/15 blur-[120px]"
+          className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[380px] w-[min(680px,100%)] -translate-x-1/2 rounded-full bg-primary/15 blur-[120px]"
         />
         <div className="mx-auto max-w-3xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
@@ -675,14 +676,23 @@ export default function AutomatizacionClient({ region = 'co' }: { region?: Regio
               ? 'Write to us on WhatsApp and tell us what repetitive tasks take up your team’s time. We will map the automation for free.'
               : 'Escríbenos por WhatsApp, cuéntanos qué tareas repetitivas le quitan tiempo a tu equipo y diseñamos el flujo sin costo.'}
           </p>
-          <div className="mt-9 flex justify-center">
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3.5">
             <a
               href={whatsappDirectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-primary text-primary-ink px-8 py-4 text-base font-semibold hover:opacity-90 transition"
+              className="inline-flex items-center justify-center rounded-full bg-primary text-primary-ink px-7 sm:px-8 py-4 text-sm sm:text-base font-semibold hover:opacity-90 transition"
             >
               {isEn ? 'Talk with us on WhatsApp — Free Diagnosis' : 'Hablar por WhatsApp — Diagnóstico Gratis'}
+            </a>
+            <a
+              href="https://www.instagram.com/autonomek?psln=bzJtYXI0NzhuZW42"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-rule bg-surface text-foreground px-6 py-4 text-sm sm:text-base font-semibold hover:bg-card transition"
+            >
+              <Instagram size={18} className="text-primary shrink-0" />
+              <span>@autonomek</span>
             </a>
           </div>
         </div>
