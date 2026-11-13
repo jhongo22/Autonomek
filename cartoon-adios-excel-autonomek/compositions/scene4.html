@@ -1,0 +1,291 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #F4F4F5;
+      overflow: hidden;
+      font-family: 'Outfit', sans-serif;
+    }
+    .s4-stage {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+    }
+    .s4-monitor {
+      position: absolute;
+      left: 72px;
+      top: 195px;
+      width: 936px;
+      background: #14532D;
+      border: 6px solid #18181B;
+      box-shadow: 8px 8px 0px #18181B;
+      border-radius: 20px;
+      padding: 24px 32px;
+      box-sizing: border-box;
+      z-index: 18;
+    }
+    .s4-monitor-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 28px;
+      font-weight: 800;
+      color: #86EFAC;
+    }
+    .s4-monitor-main {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 40px;
+      color: #FFFFFF;
+      line-height: 1.12;
+      margin-top: 6px;
+    }
+    .s4-cta-card {
+      position: absolute;
+      left: 72px;
+      top: 1075px;
+      width: 936px;
+      background: #FFFFFF;
+      border: 6px solid #18181B;
+      box-shadow: 10px 10px 0px #18181B;
+      border-radius: 26px;
+      padding: 26px 34px;
+      box-sizing: border-box;
+      z-index: 22;
+    }
+    .s4-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+    .s4-brand-name {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 44px;
+      color: #18181B;
+      letter-spacing: -0.02em;
+    }
+    .s4-brand-sub {
+      font-family: 'Outfit', sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: #52525B;
+    }
+    .s4-cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      width: 100%;
+      background: #16A34A;
+      border: 5px solid #18181B;
+      box-shadow: 6px 6px 0px #18181B;
+      border-radius: 18px;
+      padding: 20px 26px;
+      box-sizing: border-box;
+    }
+    .s4-cta-label {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 36px;
+      color: #FFFFFF;
+      line-height: 1.1;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene4" data-width="1080" data-height="1920">
+    <div id="s4-camera" class="s4-stage" data-layout-allow-overflow>
+      <svg viewBox="0 0 1080 1920" width="1080" height="1920" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;">
+        <defs>
+          <pattern id="s4-hazard" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect width="20" height="40" fill="#FACC15" />
+            <rect x="20" width="20" height="40" fill="#18181B" />
+          </pattern>
+        </defs>
+
+        <!-- Spotless Industrial Plant Background -->
+        <rect x="0" y="0" width="1080" height="1420" fill="#F4F4F5" />
+        <rect x="0" y="0" width="360" height="1420" fill="#E4E4E7" stroke="#D4D4D8" stroke-width="3" />
+        <rect x="720" y="0" width="360" height="1420" fill="#E4E4E7" stroke="#D4D4D8" stroke-width="3" />
+        <rect x="0" y="135" width="1080" height="36" fill="url(#s4-hazard)" stroke="#18181B" stroke-width="4" />
+
+        <!-- Floor -->
+        <rect x="0" y="1420" width="1080" height="500" fill="#D4D4D8" stroke="#18181B" stroke-width="4" />
+        <rect x="0" y="1420" width="1080" height="26" fill="url(#s4-hazard)" stroke="#18181B" stroke-width="4" />
+        <rect x="0" y="1446" width="1080" height="474" fill="#A1A1AA" />
+
+        <!-- Background Swiss-Clockwork Industrial Plant (Right Side) -->
+        <g id="s4-plant-clockwork">
+          <!-- Exhaust Pipes + Steam Puffs -->
+          <rect x="740" y="420" width="46" height="190" fill="#2563EB" stroke="#18181B" stroke-width="4" />
+          <rect x="835" y="450" width="46" height="160" fill="#16A34A" stroke="#18181B" stroke-width="4" />
+          <g id="s4-steam-1">
+            <circle cx="763" cy="390" r="20" fill="#FFFFFF" stroke="#18181B" stroke-width="3" />
+            <circle cx="786" cy="368" r="15" fill="#FFFFFF" stroke="#18181B" stroke-width="3" />
+          </g>
+
+          <!-- Main Plant Engine Unit -->
+          <rect x="520" y="590" width="470" height="310" rx="28" fill="#2563EB" stroke="#18181B" stroke-width="5" />
+          <rect x="545" y="615" width="420" height="260" rx="18" fill="#1D4ED8" stroke="#18181B" stroke-width="4" />
+
+          <!-- Spinning Clockwork Gears (Static translate on outer <g>) -->
+          <g transform="translate(655, 735)">
+            <g id="s4-gear-a">
+              <circle cx="0" cy="0" r="64" fill="#FACC15" stroke="#18181B" stroke-width="5" stroke-dasharray="24 14" />
+              <circle cx="0" cy="0" r="50" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+              <circle cx="0" cy="0" r="18" fill="#18181B" />
+            </g>
+          </g>
+          <g transform="translate(788, 760)">
+            <g id="s4-gear-b">
+              <circle cx="0" cy="0" r="50" fill="#4ADE80" stroke="#18181B" stroke-width="5" stroke-dasharray="20 12" />
+              <circle cx="0" cy="0" r="38" fill="#4ADE80" stroke="#18181B" stroke-width="4" />
+              <circle cx="0" cy="0" r="14" fill="#18181B" />
+            </g>
+          </g>
+          <g transform="translate(895, 705)">
+            <g id="s4-gear-c">
+              <circle cx="0" cy="0" r="38" fill="#F97316" stroke="#18181B" stroke-width="5" stroke-dasharray="16 10" />
+              <circle cx="0" cy="0" r="28" fill="#F97316" stroke="#18181B" stroke-width="4" />
+              <circle cx="0" cy="0" r="10" fill="#18181B" />
+            </g>
+          </g>
+
+          <!-- Smooth Conveyor Line -->
+          <rect x="460" y="965" width="560" height="58" rx="29" fill="#27272A" stroke="#18181B" stroke-width="5" />
+          <circle cx="510" cy="994" r="18" fill="#4ADE80" stroke="#18181B" stroke-width="4" />
+          <circle cx="625" cy="994" r="18" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+          <circle cx="740" cy="994" r="18" fill="#4ADE80" stroke="#18181B" stroke-width="4" />
+          <circle cx="855" cy="994" r="18" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+          <circle cx="970" cy="994" r="18" fill="#4ADE80" stroke="#18181B" stroke-width="4" />
+
+          <!-- Gliding Checked Packages -->
+          <g id="s4-pkg-1">
+            <rect x="520" y="880" width="94" height="84" rx="10" fill="#F59E0B" stroke="#18181B" stroke-width="4" />
+            <circle cx="567" cy="922" r="20" fill="#16A34A" stroke="#18181B" stroke-width="3" />
+            <path d="M 556 922 L 564 930 L 579 914" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+          <g id="s4-pkg-2">
+            <rect x="750" y="880" width="94" height="84" rx="10" fill="#F59E0B" stroke="#18181B" stroke-width="4" />
+            <circle cx="797" cy="922" r="20" fill="#16A34A" stroke="#18181B" stroke-width="3" />
+            <path d="M 786 922 L 794 930 L 809 914" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+        </g>
+
+        <!-- Autonomek Console Don Martin Leans Against -->
+        <rect x="335" y="750" width="125" height="295" rx="18" fill="#27272A" stroke="#18181B" stroke-width="5" />
+        <rect x="355" y="775" width="85" height="65" rx="8" fill="#4ADE80" stroke="#18181B" stroke-width="3" />
+        <text data-layout-ignore x="397" y="816" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="22" font-weight="800" fill="#14532D">100%</text>
+
+        <!-- Don Martin Relaxed & Happy Taking Coffee (Left Hero) -->
+        <g id="s4-don-martin-happy">
+          <!-- Relaxed Crossed Boots/Legs -->
+          <rect x="175" y="945" width="44" height="95" rx="10" fill="#1E3A8A" stroke="#18181B" stroke-width="4" />
+          <rect x="242" y="945" width="44" height="95" rx="10" fill="#1E3A8A" stroke="#18181B" stroke-width="4" />
+          <rect x="160" y="1020" width="66" height="30" rx="12" fill="#27272A" stroke="#18181B" stroke-width="4" />
+          <rect x="236" y="1020" width="66" height="30" rx="12" fill="#27272A" stroke="#18181B" stroke-width="4" />
+
+          <!-- Torso (Blue Overalls) -->
+          <rect x="148" y="765" width="166" height="190" rx="26" fill="#E4E4E7" stroke="#18181B" stroke-width="4" />
+          <path d="M 155 832 L 307 832 L 307 955 L 155 955 Z" fill="#2563EB" stroke="#18181B" stroke-width="4" />
+          <rect x="172" y="768" width="24" height="72" fill="#2563EB" stroke="#18181B" stroke-width="4" />
+          <rect x="266" y="768" width="24" height="72" fill="#2563EB" stroke="#18181B" stroke-width="4" />
+
+          <!-- Right Arm Leaning on Console -->
+          <path d="M 308 795 C 335 790, 355 765, 365 752" fill="none" stroke="#18181B" stroke-width="30" stroke-linecap="round" />
+          <path d="M 308 795 C 335 790, 355 765, 365 752" fill="none" stroke="#E4E4E7" stroke-width="20" stroke-linecap="round" />
+          <circle cx="368" cy="750" r="19" fill="#FDBA74" stroke="#18181B" stroke-width="4" />
+
+          <!-- Left Arm Holding Warm Coffee Mug -->
+          <path d="M 152 795 C 102 815, 102 860, 146 862" fill="none" stroke="#18181B" stroke-width="30" stroke-linecap="round" />
+          <path d="M 152 795 C 102 815, 102 860, 146 862" fill="none" stroke="#E4E4E7" stroke-width="20" stroke-linecap="round" />
+          <g id="s4-coffee-mug" transform="translate(88, 822)">
+            <rect x="0" y="16" width="52" height="58" rx="10" fill="#FFFFFF" stroke="#18181B" stroke-width="4" />
+            <rect x="0" y="34" width="52" height="16" fill="#2563EB" stroke="#18181B" stroke-width="3" />
+            <path d="M -14 28 C -24 28, -24 58, -14 58 L 0 58 L 0 28 Z" fill="none" stroke="#18181B" stroke-width="5" />
+            <!-- Rising Steam -->
+            <path id="s4-coffee-steam" d="M 18 8 Q 10 -6 22 -18 M 34 8 Q 42 -6 30 -18" fill="none" stroke="#71717A" stroke-width="4" stroke-linecap="round" />
+          </g>
+          <circle cx="146" cy="862" r="19" fill="#FDBA74" stroke="#18181B" stroke-width="4" />
+
+          <!-- Head & Happy Smiling Face -->
+          <circle cx="232" cy="686" r="72" fill="#FDBA74" stroke="#18181B" stroke-width="4" />
+          <!-- Happy Curved Eyes -->
+          <path d="M 192 674 Q 208 656 222 674" fill="none" stroke="#18181B" stroke-width="6" stroke-linecap="round" />
+          <path d="M 244 674 Q 260 656 274 674" fill="none" stroke="#18181B" stroke-width="6" stroke-linecap="round" />
+          <!-- Nose & Mustache + Big Smile -->
+          <ellipse cx="232" cy="696" rx="12" ry="9" fill="#FB923C" stroke="#18181B" stroke-width="3" />
+          <path d="M 186 716 Q 210 698 232 712 Q 254 698 278 716 Q 254 726 232 720 Q 210 726 186 716 Z" fill="#3F3F46" stroke="#18181B" stroke-width="3" />
+          <path d="M 206 728 Q 232 752 258 728 Z" fill="#FFFFFF" stroke="#18181B" stroke-width="3" />
+
+          <!-- Yellow Hardhat -->
+          <path d="M 150 648 C 150 580, 314 580, 314 648 Z" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+          <rect x="138" y="640" width="188" height="18" rx="9" fill="#EAB308" stroke="#18181B" stroke-width="4" />
+        </g>
+      </svg>
+
+      <!-- Top Green Factory Monitor -->
+      <div id="s4-monitor" class="s4-monitor">
+        <div class="s4-monitor-kicker">OPERACIÓN EN PILOTO AUTOMÁTICO</div>
+        <div class="s4-monitor-main">-85% TRABAJO MANUAL · 0 ERRORES HUMANOS</div>
+      </div>
+
+      <!-- Bottom Safe-Zone Autonomek CTA Plaque -->
+      <div id="s4-cta-card" class="s4-cta-card">
+        <div class="s4-brand-row">
+          <!-- Custom SVG Autonomek Industrial Gear-Bolt Logo -->
+          <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+            <rect x="4" y="4" width="78" height="78" rx="20" fill="#2563EB" stroke="#18181B" stroke-width="5" />
+            <circle cx="43" cy="43" r="24" fill="none" stroke="#FACC15" stroke-width="7" stroke-dasharray="14 8" />
+            <polygon points="46,20 29,46 42,46 38,66 57,40 44,40" fill="#FFFFFF" stroke="#18181B" stroke-width="3" stroke-linejoin="round" />
+          </svg>
+          <div>
+            <div class="s4-brand-name">AUTONOMEK</div>
+            <div class="s4-brand-sub">Sistema propio para tu empresa</div>
+          </div>
+        </div>
+        <div class="s4-cta-btn">
+          <!-- WhatsApp Chat Icon SVG -->
+          <svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+            <circle cx="22" cy="22" r="20" fill="#FFFFFF" stroke="#18181B" stroke-width="3" />
+            <path d="M 15 14 C 15 14, 18 14, 19 17 L 20 20 L 18 22 C 19 24, 21 26, 23 27 L 25 25 L 28 26 C 31 27, 31 30, 31 30 C 29 33, 24 33, 18 27 C 12 21, 12 16, 15 14 Z" fill="#16A34A" stroke="#18181B" stroke-width="2" />
+          </svg>
+          <div class="s4-cta-label">Automatiza tu operación en autonomek.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // 0.00s..0.35s: Smooth wide shot reveal (no opacity fade on camera)
+    tl.fromTo("#s4-camera", { scale: 1.04 }, { scale: 1, duration: 0.4, ease: "power3.out" }, 0);
+
+    // Top Monitor & Don Martin settle smoothly from frame 0 of Scene 4
+    tl.fromTo("#s4-monitor", { y: -24 }, { y: 0, duration: 0.35, ease: "power3.out" }, 0);
+    tl.fromTo("#s4-don-martin-happy", { x: -35 }, { x: 0, duration: 0.48, ease: "back.out(1.7)" }, 0);
+
+    // Continuous deterministic gear rotation & gliding packages (no repeat:-1)
+    tl.fromTo("#s4-gear-a", { rotation: 0 }, { rotation: 540, duration: 7.9, ease: "none" }, 0);
+    tl.fromTo("#s4-gear-b", { rotation: 0 }, { rotation: -680, duration: 7.9, ease: "none" }, 0);
+    tl.fromTo("#s4-gear-c", { rotation: 0 }, { rotation: 840, duration: 7.9, ease: "none" }, 0);
+
+    tl.fromTo("#s4-pkg-1", { x: -40 }, { x: 350, duration: 7.9, ease: "none" }, 0);
+    tl.fromTo("#s4-pkg-2", { x: -240 }, { x: 160, duration: 7.9, ease: "none" }, 0);
+
+    // Gentle steam puffs (single baseline + sequential to)
+    tl.fromTo("#s4-steam-1", { y: 12, opacity: 0.9 }, { y: -28, opacity: 0.25, duration: 2.2, ease: "power1.out" }, 0);
+    tl.fromTo("#s4-coffee-steam", { y: 4, opacity: 0.85 }, { y: -14, opacity: 0.25, duration: 2.0, ease: "power1.out" }, 0.2);
+    for (let s = 1; s < 3; s++) {
+      const ts = s * 2.5;
+      tl.to("#s4-steam-1", { y: 12, opacity: 0.9, duration: 0.1 }, ts - 0.15);
+      tl.to("#s4-steam-1", { y: -28, opacity: 0.25, duration: 2.2, ease: "power1.out" }, ts);
+      tl.to("#s4-coffee-steam", { y: 4, opacity: 0.85, duration: 0.1 }, ts);
+      tl.to("#s4-coffee-steam", { y: -14, opacity: 0.25, duration: 2.0, ease: "power1.out" }, ts + 0.15);
+    }
+
+    // 3.25s (synced to "Entra a autonomek punto com..."): CTA card lands cleanly and holds still until 7.90s
+    tl.fromTo("#s4-cta-card", { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 3.25);
+
+    window.__timelines["scene4"] = tl;
+  </script>
+</template>

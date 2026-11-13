@@ -1,0 +1,1580 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 21,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 4 overlap (assets/audio/sfx/sfx_hydraulic_slam.mp3 at 16.7-17.8s, assets/audio/sfx/sfx_turbine_start.mp3 at 17.45-19.25s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#s1-siren-bulb\" for scale, opacity between 0.00s and 0.50s.",
+        "selector": "#s1-siren-bulb",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene1.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#s1-siren-bulb\" for scale, opacity between 0.52s and 1.02s.",
+        "selector": "#s1-siren-bulb",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene1.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#s1-don-martin\" for y, rotation between 0.00s and 0.80s.",
+        "selector": "#s1-don-martin",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene1.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#s1-don-martin\" for y, rotation between 0.80s and 1.60s.",
+        "selector": "#s1-don-martin",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene1.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#s1-sweat\" for y, opacity between 0.20s and 1.10s.",
+        "selector": "#s1-sweat",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene1.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#s1-excel-monster\" for scale, y between 0.00s and 0.80s.",
+        "selector": "#s1-excel-monster",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene1.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#s1-excel-monster\" for scale, y between 0.80s and 1.60s.",
+        "selector": "#s1-excel-monster",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene1.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "8 tl.fromTo() calls target \"#s1-siren-bulb\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#s1-siren-bulb",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene1.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 0s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "2 tl.fromTo() calls target \"#s1-crate-2\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#s1-crate-2",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene1.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 0.08s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "5 tl.fromTo() calls target \"#s1-don-martin\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#s1-don-martin",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene1.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 0s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "5 tl.fromTo() calls target \"#s1-sweat\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#s1-sweat",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene1.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 0.2s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "5 tl.fromTo() calls target \"#s1-excel-monster\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#s1-excel-monster",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene1.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 0s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "composition_file_too_large",
+        "severity": "warning",
+        "message": "This HTML composition file has 302 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene1.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split this sub-composition further into smaller .html files, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#s2-workers\" for y between 0.00s and 0.55s.",
+        "selector": "#s2-workers",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene2.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#s2-workers\" for y between 0.55s and 1.10s.",
+        "selector": "#s2-workers",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene2.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "6 tl.fromTo() calls target \"#s2-workers\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#s2-workers",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene2.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 0s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#s4-steam-1\" for y, opacity between 0.00s and 2.20s.",
+        "selector": "#s4-steam-1",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene4.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#s4-coffee-steam\" for y, opacity between 0.20s and 2.20s.",
+        "selector": "#s4-coffee-steam",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene4.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "3 tl.fromTo() calls target \"#s4-steam-1\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#s4-steam-1",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene4.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 0s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "3 tl.fromTo() calls target \"#s4-coffee-steam\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#s4-coffee-steam",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Jhongo\\COSAS DE GCRISK\\Migracion\\back-gcrisk-v13\\tests\\Unit\\Proyectos\\AUTONOMEK\\cartoon-adios-excel-autonomek\\compositions\\scene4.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 0.2s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      }
+    ],
+    "filesScanned": 5
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 1,
+    "warningCount": 0,
+    "infoCount": 2,
+    "findings": [
+      {
+        "code": "text_occluded",
+        "severity": "error",
+        "time": 19,
+        "selector": "#s3-crane > text:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 445.58,
+          "top": 160,
+          "right": 634.42,
+          "bottom": 195,
+          "width": 188.84,
+          "height": 35
+        },
+        "containerSelector": "#s3-header",
+        "text": "AUTONOMEK",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.33,
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene3.html",
+        "bbox": {
+          "x": 445.58,
+          "y": 160,
+          "width": 188.84,
+          "height": 35
+        },
+        "firstSeen": 19,
+        "lastSeen": 27.444,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          19,
+          23.222,
+          27.444
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 6.333,
+        "selector": "#s1-fly-sheet-1 > text:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 469.98,
+          "top": 681.94,
+          "right": 546.25,
+          "bottom": 707.21,
+          "width": 76.27,
+          "height": 25.28
+        },
+        "containerSelector": "div.s1-bubble",
+        "text": "#DIV/0!",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.67,
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene1.html",
+        "bbox": {
+          "x": 469.98,
+          "y": 681.94,
+          "width": 76.27,
+          "height": 25.28
+        },
+        "firstSeen": 6.333,
+        "lastSeen": 6.333,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.333
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 22.715,
+        "selector": "#s3-crane > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 445.58,
+          "top": 160,
+          "right": 634.42,
+          "bottom": 195,
+          "width": 188.84,
+          "height": 35
+        },
+        "containerSelector": "#s3-arm-stamp > text:nth-of-type(1)",
+        "text": "AUTONOMEK",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply. Decoration nobody needs to read can take data-layout-ignore.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene3.html",
+        "bbox": {
+          "x": 445.58,
+          "y": 160,
+          "width": 188.84,
+          "height": 35
+        },
+        "firstSeen": 22.715,
+        "lastSeen": 22.715,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          22.715
+        ]
+      }
+    ],
+    "duration": 38,
+    "samples": [
+      2.111,
+      6.333,
+      10.556,
+      14.778,
+      19,
+      23.222,
+      27.444,
+      31.667,
+      35.889
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 3,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": false,
+    "errorCount": 1,
+    "warningCount": 5,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.44:1; WCAG AA requires 3:1.",
+        "text": "PEDIDO",
+        "fg": "rgb(24,24,27)",
+        "bg": "rgb(39,58,27)",
+        "ratio": 1.44,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(126,126,128)",
+        "large": true,
+        "selector": "div > div:nth-of-type(1) > div > div > svg > g:nth-of-type(4) > text",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene1.html",
+        "bbox": {
+          "x": 190.34579467773438,
+          "y": 1196.088134765625,
+          "width": 80.16690063476562,
+          "height": 31.74658203125
+        },
+        "time": 2.111,
+        "times": [
+          2.111
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.25:1; WCAG AA requires 3:1.",
+        "text": "ERR!",
+        "fg": "rgb(220,38,38)",
+        "bg": "rgb(245,158,11)",
+        "ratio": 2.25,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(183,32,32)",
+        "large": true,
+        "selector": "div > div:nth-of-type(1) > div > div > svg > g:nth-of-type(6) > text",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene1.html",
+        "bbox": {
+          "x": 681.6896362304688,
+          "y": 1197.747802734375,
+          "width": 61.36309814453125,
+          "height": 38.7159423828125
+        },
+        "time": 2.111,
+        "times": [
+          2.111
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 3.76:1; WCAG AA requires 4.5:1.",
+        "text": "#DIV/0!",
+        "fg": "rgb(239,68,68)",
+        "bg": "rgb(255,255,255)",
+        "ratio": 3.76,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(216,61,61)",
+        "large": false,
+        "selector": "div > div:nth-of-type(1) > div > div > svg > g:nth-of-type(10) > text",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene1.html",
+        "bbox": {
+          "x": 457.5733337402344,
+          "y": 679.830322265625,
+          "width": 76.59420776367188,
+          "height": 26.481201171875
+        },
+        "time": 2.111,
+        "times": [
+          2.111
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 3.76:1; WCAG AA requires 4.5:1.",
+        "text": "ERR_V19",
+        "fg": "rgb(239,68,68)",
+        "bg": "rgb(255,255,255)",
+        "ratio": 3.76,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(216,61,61)",
+        "large": false,
+        "selector": "div > div:nth-of-type(1) > div > div > svg > g:nth-of-type(11) > text",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene1.html",
+        "bbox": {
+          "x": 833.75830078125,
+          "y": 1061.9490966796875,
+          "width": 76.7100830078125,
+          "height": 26.205810546875
+        },
+        "time": 2.111,
+        "times": [
+          2.111
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "error",
+        "message": "Contrast is 1.09:1; WCAG AA requires 3:1.",
+        "text": "#¡REF!",
+        "fg": "rgb(254,240,138)",
+        "bg": "rgb(228,228,231)",
+        "ratio": 1.09,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(139,132,76)",
+        "large": true,
+        "selector": "div > div:nth-of-type(3) > div > div > svg > g:nth-of-type(1) > text:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene3.html",
+        "bbox": {
+          "x": 264.3984375,
+          "y": 1012,
+          "width": 151.203125,
+          "height": 56
+        },
+        "time": 27.444,
+        "times": [
+          19,
+          27.444
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.8:1; WCAG AA requires 3:1.",
+        "text": "$$$",
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(249,115,22)",
+        "ratio": 2.8,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(77,77,77)",
+        "large": true,
+        "selector": "div > div:nth-of-type(3) > div > div > svg > g:nth-of-type(1) > text:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene3.html",
+        "bbox": {
+          "x": 651.96875,
+          "y": 990,
+          "width": 96.0625,
+          "height": 65
+        },
+        "time": 19,
+        "times": [
+          19
+        ]
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      2.111,
+      10.556,
+      19,
+      27.444,
+      35.889
+    ],
+    "checked": 16,
+    "passed": 9
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 14,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 5 text elements stay under it for 0.5 s or more, the smallest \"#DIV/0!\" at 18 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "#DIV/0!",
+        "selector": "#s1-fly-sheet-1 > text:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene1.html",
+        "bbox": {
+          "x": 429.95,
+          "y": 678.17,
+          "width": 79.02,
+          "height": 45.24
+        },
+        "time": 0,
+        "times": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fontPx": 18,
+        "floorPx": 28,
+        "seconds": 8.875,
+        "elements": [
+          {
+            "selector": "#s1-fly-sheet-1 > text:nth-of-type(1)",
+            "text": "#DIV/0!",
+            "fontPx": 18,
+            "time": 0,
+            "seconds": 8.875
+          },
+          {
+            "selector": "#s1-fly-sheet-2 > text:nth-of-type(1)",
+            "text": "ERR_V19",
+            "fontPx": 18,
+            "time": 0,
+            "seconds": 8.875
+          },
+          {
+            "selector": "#s1-crate-1 > text:nth-of-type(1)",
+            "text": "PEDIDO",
+            "fontPx": 22,
+            "time": 0,
+            "seconds": 8.75
+          },
+          {
+            "selector": "#s1-crate-3 > text:nth-of-type(1)",
+            "text": "ERR!",
+            "fontPx": 24,
+            "time": 0,
+            "seconds": 8.875
+          },
+          {
+            "selector": "#s1-excel-monster > text:nth-of-type(1)",
+            "text": "fx =#¡REF!",
+            "fontPx": 26,
+            "time": 0,
+            "seconds": 8.875
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 2 text elements stay under it for 0.5 s or more, the smallest \"POR CADA EMPLEADO\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "POR CADA EMPLEADO",
+        "selector": "#s2-slot-monster > text:nth-of-type(5)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene2.html",
+        "bbox": {
+          "x": 1031.73,
+          "y": 958,
+          "width": 48.27,
+          "height": 29
+        },
+        "time": 8.875,
+        "times": [
+          8.875,
+          8.875
+        ],
+        "fontPx": 21.93,
+        "floorPx": 28,
+        "seconds": 7.5,
+        "elements": [
+          {
+            "selector": "#s2-slot-monster > text:nth-of-type(5)",
+            "text": "POR CADA EMPLEADO",
+            "fontPx": 21.93,
+            "time": 8.875,
+            "seconds": 7.5
+          },
+          {
+            "selector": "#s2-metal-door > text:nth-of-type(1)",
+            "text": "ACCESO",
+            "fontPx": 26,
+            "time": 8.875,
+            "seconds": 7.5
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"POR CADA EMPLEADO\" (3 words) is on screen 0.27 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "POR CADA EMPLEADO",
+        "selector": "#s2-slot-monster > text:nth-of-type(5)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene2.html",
+        "bbox": {
+          "x": 671.88,
+          "y": 977,
+          "width": 234.27999999999997,
+          "height": 30.269999999999982
+        },
+        "time": 11.305,
+        "words": 3,
+        "seconds": 0.266,
+        "floorSeconds": 1.05,
+        "measured": [
+          {
+            "time": 11,
+            "opacity": 1,
+            "heightPx": 29
+          },
+          {
+            "time": 11.125,
+            "opacity": 1,
+            "heightPx": 29
+          },
+          {
+            "time": 11.25,
+            "opacity": 1,
+            "heightPx": 30
+          },
+          {
+            "time": 11.375,
+            "opacity": 1,
+            "heightPx": 30
+          },
+          {
+            "time": 11.5,
+            "opacity": 1,
+            "heightPx": 30
+          },
+          {
+            "time": 11.625,
+            "opacity": 1,
+            "heightPx": 29
+          },
+          {
+            "time": 11.75,
+            "opacity": 1,
+            "heightPx": 29
+          },
+          {
+            "time": 11.875,
+            "opacity": 1,
+            "heightPx": 29
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"$\" (1 word) is on screen 0.27 s (±0.01 s), under its 0.40 s floor: hold it about 0.5 s + 0.3 s a word (0.80 s here) before it leaves or changes; see references/motion.md.",
+        "text": "$",
+        "selector": "#s2-bill-1 > text:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene2.html",
+        "bbox": {
+          "x": 408.58,
+          "y": 1022.66,
+          "width": 22.129999999999995,
+          "height": 37.10000000000002
+        },
+        "time": 11.703,
+        "words": 1,
+        "seconds": 0.266,
+        "floorSeconds": 0.4,
+        "measured": [
+          {
+            "time": 11.375,
+            "opacity": 0.1,
+            "heightPx": 38
+          },
+          {
+            "time": 11.5,
+            "opacity": 0.22,
+            "heightPx": 37
+          },
+          {
+            "time": 11.625,
+            "opacity": 0.34,
+            "heightPx": 35
+          },
+          {
+            "time": 11.75,
+            "opacity": 0.58,
+            "heightPx": 37
+          },
+          {
+            "time": 11.875,
+            "opacity": 0.9,
+            "heightPx": 39
+          },
+          {
+            "time": 12,
+            "opacity": 0.51,
+            "heightPx": 26
+          },
+          {
+            "time": 12.125,
+            "opacity": 0.18,
+            "heightPx": 17
+          },
+          {
+            "time": 12.25,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"$\" (1 word) is on screen 0.27 s (±0.01 s), under its 0.40 s floor: hold it about 0.5 s + 0.3 s a word (0.80 s here) before it leaves or changes; see references/motion.md.",
+        "text": "$",
+        "selector": "#s2-bill-2 > text:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene2.html",
+        "bbox": {
+          "x": 493.36,
+          "y": 1044.57,
+          "width": 24.83000000000004,
+          "height": 38.01999999999998
+        },
+        "time": 12.273,
+        "words": 1,
+        "seconds": 0.266,
+        "floorSeconds": 0.4,
+        "measured": [
+          {
+            "time": 12,
+            "opacity": 0.17,
+            "heightPx": 36
+          },
+          {
+            "time": 12.125,
+            "opacity": 0.27,
+            "heightPx": 36
+          },
+          {
+            "time": 12.25,
+            "opacity": 0.48,
+            "heightPx": 36
+          },
+          {
+            "time": 12.375,
+            "opacity": 0.77,
+            "heightPx": 38
+          },
+          {
+            "time": 12.5,
+            "opacity": 0.73,
+            "heightPx": 32
+          },
+          {
+            "time": 12.625,
+            "opacity": 0.33,
+            "heightPx": 21
+          },
+          {
+            "time": 12.75,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 12.875,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"$\" (1 word) is on screen 0.27 s (±0.01 s), under its 0.40 s floor: hold it about 0.5 s + 0.3 s a word (0.80 s here) before it leaves or changes; see references/motion.md.",
+        "text": "$",
+        "selector": "#s2-bill-3 > text:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene2.html",
+        "bbox": {
+          "x": 394.88,
+          "y": 1068.93,
+          "width": 22.560000000000002,
+          "height": 37.25999999999999
+        },
+        "time": 12.805,
+        "words": 1,
+        "seconds": 0.266,
+        "floorSeconds": 0.4,
+        "measured": [
+          {
+            "time": 12.5,
+            "opacity": 0.13,
+            "heightPx": 36
+          },
+          {
+            "time": 12.625,
+            "opacity": 0.22,
+            "heightPx": 36
+          },
+          {
+            "time": 12.75,
+            "opacity": 0.39,
+            "heightPx": 36
+          },
+          {
+            "time": 12.875,
+            "opacity": 0.65,
+            "heightPx": 37
+          },
+          {
+            "time": 13,
+            "opacity": 1,
+            "heightPx": 39
+          },
+          {
+            "time": 13.125,
+            "opacity": 0.51,
+            "heightPx": 25
+          },
+          {
+            "time": 13.25,
+            "opacity": 0.11,
+            "heightPx": 15
+          },
+          {
+            "time": 13.375,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 6 text elements stay under it for 0.5 s or more, the smallest \"DIAN PDF\" at 20 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "DIAN PDF",
+        "selector": "#s3-arm-stamp > text:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene3.html",
+        "bbox": {
+          "x": 491.83,
+          "y": 260.71,
+          "width": 106.71,
+          "height": 27.3
+        },
+        "time": 17.375,
+        "times": [
+          16.375,
+          17.375,
+          17.375,
+          17.375,
+          22.75,
+          25
+        ],
+        "fontPx": 19.95,
+        "floorPx": 28,
+        "seconds": 12.75,
+        "elements": [
+          {
+            "selector": "#s3-arm-stamp > text:nth-of-type(1)",
+            "text": "DIAN PDF",
+            "fontPx": 19.95,
+            "time": 17.375,
+            "seconds": 12.75
+          },
+          {
+            "selector": "#s3-box1-seal-txt",
+            "text": "OK PDF",
+            "fontPx": 20,
+            "time": 22.75,
+            "seconds": 3.5
+          },
+          {
+            "selector": "#s3-box-2 > text:nth-of-type(1)",
+            "text": "SYNC",
+            "fontPx": 20,
+            "time": 25,
+            "seconds": 5.125
+          },
+          {
+            "selector": "#s3-whatsapp-pipe > text:nth-of-type(1)",
+            "text": "WhatsApp",
+            "fontPx": 23.94,
+            "time": 17.375,
+            "seconds": 12.75
+          },
+          {
+            "selector": "#s3-motor-core > text:nth-of-type(1)",
+            "text": "MOTOR ACTIVO",
+            "fontPx": 23.94,
+            "time": 17.375,
+            "seconds": 12.75
+          },
+          {
+            "selector": "#s3-crane > text:nth-of-type(1)",
+            "text": "AUTONOMEK",
+            "fontPx": 26,
+            "time": 16.375,
+            "seconds": 13.75
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"100%\" renders at 22 px for 7.88 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "100%",
+        "selector": "#s4-camera > svg:nth-of-type(1) > text:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene4.html",
+        "bbox": {
+          "x": 363.82,
+          "y": 787.36,
+          "width": 54.92,
+          "height": 30.16
+        },
+        "time": 30.125,
+        "times": [
+          30.125
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 7.875,
+        "elements": [
+          {
+            "selector": "#s4-camera > svg:nth-of-type(1) > text:nth-of-type(1)",
+            "text": "100%",
+            "fontPx": 22,
+            "time": 30.125,
+            "seconds": 7.875
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"100%\" (1 word) is on screen 0.13 s (±0.01 s), under its 0.40 s floor: hold it about 0.5 s + 0.3 s a word (0.80 s here) before it leaves or changes; see references/motion.md.",
+        "text": "100%",
+        "selector": "#s4-camera > svg:nth-of-type(1) > text:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene4.html",
+        "bbox": {
+          "x": 363.82,
+          "y": 787.36,
+          "width": 54.920000000000016,
+          "height": 30.159999999999968
+        },
+        "time": 31.25,
+        "words": 1,
+        "seconds": 0.133,
+        "floorSeconds": 0.4,
+        "measured": [
+          {
+            "time": 30.875,
+            "opacity": 1,
+            "heightPx": 29
+          },
+          {
+            "time": 31,
+            "opacity": 1,
+            "heightPx": 29
+          },
+          {
+            "time": 31.125,
+            "opacity": 1,
+            "heightPx": 29
+          },
+          {
+            "time": 31.25,
+            "opacity": 0.7,
+            "heightPx": 30
+          },
+          {
+            "time": 31.375,
+            "opacity": 0.7,
+            "heightPx": 30
+          },
+          {
+            "time": 31.5,
+            "opacity": 1,
+            "heightPx": 29
+          },
+          {
+            "time": 31.625,
+            "opacity": 1,
+            "heightPx": 29
+          },
+          {
+            "time": 31.75,
+            "opacity": 1,
+            "heightPx": 29
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"OPERACIÓN EN PILOTO AUTOMÁTICO\" (4 words) is on screen 1.25 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "OPERACIÓN EN PILOTO AUTOMÁTICO",
+        "selector": "div.s4-monitor-kicker",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene4.html",
+        "bbox": {
+          "x": 110,
+          "y": 225,
+          "width": 504,
+          "height": 37
+        },
+        "time": 36.758,
+        "words": 4,
+        "seconds": 1.246,
+        "floorSeconds": 2,
+        "measured": [
+          {
+            "time": 36.5,
+            "opacity": 1,
+            "heightPx": 37
+          },
+          {
+            "time": 36.625,
+            "opacity": 1,
+            "heightPx": 37
+          },
+          {
+            "time": 36.75,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 36.875,
+            "opacity": 1,
+            "heightPx": 37
+          },
+          {
+            "time": 37,
+            "opacity": 1,
+            "heightPx": 37
+          },
+          {
+            "time": 37.125,
+            "opacity": 1,
+            "heightPx": 37
+          },
+          {
+            "time": 37.25,
+            "opacity": 1,
+            "heightPx": 37
+          },
+          {
+            "time": 37.5,
+            "opacity": 1,
+            "heightPx": 37
+          },
+          {
+            "time": 37.625,
+            "opacity": 1,
+            "heightPx": 37
+          },
+          {
+            "time": 37.75,
+            "opacity": 1,
+            "heightPx": 37
+          },
+          {
+            "time": 37.875,
+            "opacity": 1,
+            "heightPx": 37
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"-85% TRABAJO MANUAL · 0 ERRORES HUMANOS\" (6 words) is on screen 1.25 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "-85% TRABAJO MANUAL · 0 ERRORES HUMANOS",
+        "selector": "div.s4-monitor-main",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene4.html",
+        "bbox": {
+          "x": 110,
+          "y": 263,
+          "width": 830.56,
+          "height": 97.80000000000001
+        },
+        "time": 36.758,
+        "words": 6,
+        "seconds": 1.246,
+        "floorSeconds": 2,
+        "measured": [
+          {
+            "time": 36.5,
+            "opacity": 1,
+            "heightPx": 98
+          },
+          {
+            "time": 36.625,
+            "opacity": 1,
+            "heightPx": 98
+          },
+          {
+            "time": 36.75,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 36.875,
+            "opacity": 1,
+            "heightPx": 98
+          },
+          {
+            "time": 37,
+            "opacity": 1,
+            "heightPx": 98
+          },
+          {
+            "time": 37.125,
+            "opacity": 1,
+            "heightPx": 98
+          },
+          {
+            "time": 37.25,
+            "opacity": 1,
+            "heightPx": 98
+          },
+          {
+            "time": 37.5,
+            "opacity": 1,
+            "heightPx": 98
+          },
+          {
+            "time": 37.625,
+            "opacity": 1,
+            "heightPx": 98
+          },
+          {
+            "time": 37.75,
+            "opacity": 1,
+            "heightPx": 98
+          },
+          {
+            "time": 37.875,
+            "opacity": 1,
+            "heightPx": 98
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"AUTONOMEK\" (1 word) is on screen 1.25 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "AUTONOMEK",
+        "selector": "div.s4-brand-name",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene4.html",
+        "bbox": {
+          "x": 218,
+          "y": 1107,
+          "width": 311.6600000000001,
+          "height": 60
+        },
+        "time": 36.758,
+        "words": 1,
+        "seconds": 1.246,
+        "floorSeconds": 2,
+        "measured": [
+          {
+            "time": 36.5,
+            "opacity": 1,
+            "heightPx": 60
+          },
+          {
+            "time": 36.625,
+            "opacity": 1,
+            "heightPx": 60
+          },
+          {
+            "time": 36.75,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 36.875,
+            "opacity": 1,
+            "heightPx": 60
+          },
+          {
+            "time": 37,
+            "opacity": 1,
+            "heightPx": 60
+          },
+          {
+            "time": 37.125,
+            "opacity": 1,
+            "heightPx": 60
+          },
+          {
+            "time": 37.25,
+            "opacity": 1,
+            "heightPx": 60
+          },
+          {
+            "time": 37.5,
+            "opacity": 1,
+            "heightPx": 60
+          },
+          {
+            "time": 37.625,
+            "opacity": 1,
+            "heightPx": 60
+          },
+          {
+            "time": 37.75,
+            "opacity": 1,
+            "heightPx": 60
+          },
+          {
+            "time": 37.875,
+            "opacity": 1,
+            "heightPx": 60
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"Sistema propio para tu empresa\" (5 words) is on screen 1.25 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "Sistema propio para tu empresa",
+        "selector": "div.s4-brand-sub",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene4.html",
+        "bbox": {
+          "x": 218,
+          "y": 1167,
+          "width": 439.48,
+          "height": 38
+        },
+        "time": 36.758,
+        "words": 5,
+        "seconds": 1.246,
+        "floorSeconds": 2,
+        "measured": [
+          {
+            "time": 36.5,
+            "opacity": 1,
+            "heightPx": 38
+          },
+          {
+            "time": 36.625,
+            "opacity": 1,
+            "heightPx": 38
+          },
+          {
+            "time": 36.75,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 36.875,
+            "opacity": 1,
+            "heightPx": 38
+          },
+          {
+            "time": 37,
+            "opacity": 1,
+            "heightPx": 38
+          },
+          {
+            "time": 37.125,
+            "opacity": 1,
+            "heightPx": 38
+          },
+          {
+            "time": 37.25,
+            "opacity": 1,
+            "heightPx": 38
+          },
+          {
+            "time": 37.5,
+            "opacity": 1,
+            "heightPx": 38
+          },
+          {
+            "time": 37.625,
+            "opacity": 1,
+            "heightPx": 38
+          },
+          {
+            "time": 37.75,
+            "opacity": 1,
+            "heightPx": 38
+          },
+          {
+            "time": 37.875,
+            "opacity": 1,
+            "heightPx": 38
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"Automatiza tu operación en autonomek.com\" (6 words) is on screen 1.25 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "Automatiza tu operación en autonomek.com",
+        "selector": "div.s4-cta-label",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene4.html",
+        "bbox": {
+          "x": 205,
+          "y": 1243,
+          "width": 543.72,
+          "height": 87.58999999999992
+        },
+        "time": 36.758,
+        "words": 6,
+        "seconds": 1.246,
+        "floorSeconds": 2,
+        "measured": [
+          {
+            "time": 36.5,
+            "opacity": 1,
+            "heightPx": 88
+          },
+          {
+            "time": 36.625,
+            "opacity": 1,
+            "heightPx": 88
+          },
+          {
+            "time": 36.75,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 36.875,
+            "opacity": 1,
+            "heightPx": 88
+          },
+          {
+            "time": 37,
+            "opacity": 1,
+            "heightPx": 88
+          },
+          {
+            "time": 37.125,
+            "opacity": 1,
+            "heightPx": 88
+          },
+          {
+            "time": 37.25,
+            "opacity": 1,
+            "heightPx": 88
+          },
+          {
+            "time": 37.5,
+            "opacity": 1,
+            "heightPx": 88
+          },
+          {
+            "time": 37.625,
+            "opacity": 1,
+            "heightPx": 88
+          },
+          {
+            "time": 37.75,
+            "opacity": 1,
+            "heightPx": 88
+          },
+          {
+            "time": 37.875,
+            "opacity": 1,
+            "heightPx": 88
+          }
+        ]
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 304
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

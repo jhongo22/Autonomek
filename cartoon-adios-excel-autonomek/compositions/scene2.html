@@ -1,0 +1,336 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: transparent;
+      overflow: hidden;
+      font-family: 'Outfit', sans-serif;
+    }
+    .s2-stage {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      background: #F4F4F5;
+    }
+    .s2-board {
+      position: absolute;
+      left: 72px;
+      top: 195px;
+      width: 936px;
+      background: #18181B;
+      border: 5px solid #18181B;
+      box-shadow: 8px 8px 0px #F97316;
+      border-radius: 20px;
+      padding: 22px 28px;
+      box-sizing: border-box;
+      z-index: 15;
+    }
+    .s2-board-tag {
+      display: inline-block;
+      background: #F97316;
+      color: #18181B;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 28px;
+      padding: 6px 16px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .s2-board-line1 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 40px;
+      line-height: 1.1;
+      color: #FFFFFF;
+    }
+    .s2-board-line2 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 32px;
+      font-weight: 800;
+      color: #FACC15;
+      margin-top: 8px;
+    }
+    .s2-annual-pill {
+      position: absolute;
+      left: 72px;
+      top: 430px;
+      width: 936px;
+      background: #EF4444;
+      border: 5px solid #18181B;
+      box-shadow: 8px 8px 0px #18181B;
+      border-radius: 16px;
+      padding: 16px 26px;
+      box-sizing: border-box;
+      z-index: 16;
+    }
+    .s2-annual-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 34px;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-align: center;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene2" data-width="1080" data-height="1920">
+    <div id="s2-camera" class="s2-stage" data-layout-allow-overflow>
+      <svg viewBox="0 0 1080 1920" width="1080" height="1920" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;">
+        <defs>
+          <pattern id="s2-hazard" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect width="20" height="40" fill="#FACC15" />
+            <rect x="20" width="20" height="40" fill="#18181B" />
+          </pattern>
+          <pattern id="s2-redstripe" width="36" height="36" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect width="18" height="36" fill="#EF4444" />
+            <rect x="18" width="18" height="36" fill="#FFFFFF" />
+          </pattern>
+        </defs>
+
+        <!-- Concrete Warehouse Wall -->
+        <rect x="0" y="0" width="1080" height="1420" fill="#F4F4F5" />
+        <rect x="0" y="0" width="360" height="1420" fill="#E4E4E7" stroke="#D4D4D8" stroke-width="3" />
+        <rect x="720" y="0" width="360" height="1420" fill="#E4E4E7" stroke="#D4D4D8" stroke-width="3" />
+
+        <!-- Overhead Industrial Girder & Pipes -->
+        <rect x="0" y="96" width="1080" height="32" fill="#A1A1AA" stroke="#18181B" stroke-width="4" />
+        <rect x="0" y="142" width="1080" height="38" fill="url(#s2-hazard)" stroke="#18181B" stroke-width="4" />
+
+        <!-- Steel Factory Access Door (Left Midground) -->
+        <g id="s2-metal-door">
+          <rect x="64" y="590" width="350" height="530" rx="10" fill="#71717A" stroke="#18181B" stroke-width="5" />
+          <rect x="86" y="615" width="306" height="480" fill="#A1A1AA" stroke="#18181B" stroke-width="4" />
+          <line x1="239" y1="615" x2="239" y2="1095" stroke="#18181B" stroke-width="4" />
+          <rect x="115" y="655" width="95" height="90" rx="8" fill="#BAE6FD" stroke="#18181B" stroke-width="4" />
+          <rect x="268" y="655" width="95" height="90" rx="8" fill="#BAE6FD" stroke="#18181B" stroke-width="4" />
+          <!-- ACCESSO badge on door -->
+          <rect x="114" y="542" width="250" height="52" rx="10" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+          <text data-layout-ignore x="239" y="577" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="28" fill="#18181B">ACCESO</text>
+        </g>
+
+        <!-- Concrete Floor -->
+        <rect x="0" y="1420" width="1080" height="500" fill="#D4D4D8" stroke="#18181B" stroke-width="4" />
+        <rect x="0" y="1420" width="1080" height="26" fill="url(#s2-hazard)" stroke="#18181B" stroke-width="4" />
+        <rect x="0" y="1446" width="1080" height="474" fill="#A1A1AA" />
+
+        <!-- 5 Workers in Line with Yellow Hardhats (Midground Left) -->
+        <g id="s2-workers">
+          <!-- Worker 1 -->
+          <g transform="translate(88, 920)">
+            <rect x="14" y="88" width="44" height="92" rx="12" fill="#2563EB" stroke="#18181B" stroke-width="4" />
+            <circle cx="36" cy="54" r="28" fill="#FDBA74" stroke="#18181B" stroke-width="4" />
+            <path d="M 4 44 C 4 16, 68 16, 68 44 Z" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+            <rect x="0" y="40" width="72" height="10" rx="5" fill="#EAB308" stroke="#18181B" stroke-width="3" />
+            <circle cx="46" cy="54" r="4" fill="#18181B" />
+          </g>
+          <!-- Worker 2 -->
+          <g transform="translate(168, 926)">
+            <rect x="14" y="88" width="44" height="92" rx="12" fill="#2563EB" stroke="#18181B" stroke-width="4" />
+            <circle cx="36" cy="54" r="28" fill="#FED7AA" stroke="#18181B" stroke-width="4" />
+            <path d="M 4 44 C 4 16, 68 16, 68 44 Z" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+            <rect x="0" y="40" width="72" height="10" rx="5" fill="#EAB308" stroke="#18181B" stroke-width="3" />
+            <circle cx="46" cy="54" r="4" fill="#18181B" />
+          </g>
+          <!-- Worker 3 -->
+          <g transform="translate(248, 920)">
+            <rect x="14" y="88" width="44" height="92" rx="12" fill="#2563EB" stroke="#18181B" stroke-width="4" />
+            <circle cx="36" cy="54" r="28" fill="#FDBA74" stroke="#18181B" stroke-width="4" />
+            <path d="M 4 44 C 4 16, 68 16, 68 44 Z" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+            <rect x="0" y="40" width="72" height="10" rx="5" fill="#EAB308" stroke="#18181B" stroke-width="3" />
+            <circle cx="46" cy="54" r="4" fill="#18181B" />
+          </g>
+          <!-- Worker 4 -->
+          <g transform="translate(328, 926)">
+            <rect x="14" y="88" width="44" height="92" rx="12" fill="#2563EB" stroke="#18181B" stroke-width="4" />
+            <circle cx="36" cy="54" r="28" fill="#FED7AA" stroke="#18181B" stroke-width="4" />
+            <path d="M 4 44 C 4 16, 68 16, 68 44 Z" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+            <rect x="0" y="40" width="72" height="10" rx="5" fill="#EAB308" stroke="#18181B" stroke-width="3" />
+            <circle cx="46" cy="54" r="4" fill="#18181B" />
+          </g>
+          <!-- Worker 5 -->
+          <g transform="translate(408, 920)">
+            <rect x="14" y="88" width="44" height="92" rx="12" fill="#2563EB" stroke="#18181B" stroke-width="4" />
+            <circle cx="36" cy="54" r="28" fill="#FDBA74" stroke="#18181B" stroke-width="4" />
+            <path d="M 4 44 C 4 16, 68 16, 68 44 Z" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+            <rect x="0" y="40" width="72" height="10" rx="5" fill="#EAB308" stroke="#18181B" stroke-width="3" />
+            <circle cx="46" cy="54" r="4" fill="#18181B" />
+          </g>
+        </g>
+
+        <!-- Red-White Toll Boom Barrier Arm -->
+        <g id="s2-barrier-arm">
+          <rect x="245" y="1025" width="355" height="32" rx="10" fill="url(#s2-redstripe)" stroke="#18181B" stroke-width="4" />
+          <circle cx="585" cy="1041" r="22" fill="#EF4444" stroke="#18181B" stroke-width="4" />
+        </g>
+
+        <!-- Greedy Slot-Machine / Parking-Meter Toll Robot (Right Hero) -->
+        <g id="s2-slot-monster">
+          <!-- Pedestal Base -->
+          <rect x="650" y="1280" width="260" height="140" rx="16" fill="#52525B" stroke="#18181B" stroke-width="5" />
+          <rect x="720" y="1160" width="120" height="130" fill="#71717A" stroke="#18181B" stroke-width="5" />
+
+          <!-- Main Orange/Red Slot Machine Body -->
+          <rect x="575" y="590" width="415" height="600" rx="44" fill="#F97316" stroke="#18181B" stroke-width="6" />
+          <rect x="605" y="620" width="355" height="540" rx="30" fill="#EA580C" stroke="#18181B" stroke-width="4" />
+
+          <!-- Top Red Alarm Beacon on Machine -->
+          <path d="M 735 590 L 735 545 C 735 520, 825 520, 825 545 L 825 590 Z" fill="#EF4444" stroke="#18181B" stroke-width="4" />
+
+          <!-- Evil Squinting Mechanical Eyes -->
+          <g>
+            <circle cx="715" cy="690" r="40" fill="#FFFFFF" stroke="#18181B" stroke-width="4" />
+            <circle cx="705" cy="696" r="14" fill="#EF4444" stroke="#18181B" stroke-width="3" />
+            <circle cx="845" cy="690" r="40" fill="#FFFFFF" stroke="#18181B" stroke-width="4" />
+            <circle cx="835" cy="696" r="14" fill="#EF4444" stroke="#18181B" stroke-width="3" />
+            <!-- Evil V-eyebrows -->
+            <path d="M 665 654 L 760 680" stroke="#18181B" stroke-width="12" stroke-linecap="round" />
+            <path d="M 895 654 L 800 680" stroke="#18181B" stroke-width="12" stroke-linecap="round" />
+          </g>
+
+          <!-- 3-Reel Slot Display ($ $ $) -->
+          <rect x="635" y="756" width="290" height="118" rx="16" fill="#18181B" stroke="#18181B" stroke-width="4" />
+          <rect x="650" y="770" width="80" height="90" rx="10" fill="#FEF08A" stroke="#18181B" stroke-width="3" />
+          <rect x="740" y="770" width="80" height="90" rx="10" fill="#FEF08A" stroke="#18181B" stroke-width="3" />
+          <rect x="830" y="770" width="80" height="90" rx="10" fill="#FEF08A" stroke="#18181B" stroke-width="3" />
+          <text data-layout-ignore x="690" y="833" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="56" fill="#14532D">$</text>
+          <text data-layout-ignore x="780" y="833" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="56" fill="#14532D">$</text>
+          <text data-layout-ignore x="870" y="833" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="56" fill="#14532D">$</text>
+
+          <!-- Machine LED Price Screen -->
+          <rect x="635" y="896" width="290" height="105" rx="14" fill="#18181B" stroke="#FACC15" stroke-width="4" />
+          <text data-layout-ignore x="780" y="942" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="28" font-weight="800" fill="#4ADE80">$50 USD / MES</text>
+          <text data-layout-ignore x="780" y="980" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="22" font-weight="700" fill="#FCA5A5">POR CADA EMPLEADO</text>
+
+          <!-- Coin Vacuum Mouth / Nozzle -->
+          <rect x="695" y="1024" width="170" height="74" rx="20" fill="#27272A" stroke="#18181B" stroke-width="4" />
+          <ellipse cx="695" cy="1061" rx="22" ry="34" fill="#18181B" stroke="#FACC15" stroke-width="4" />
+
+          <!-- Slot Arm Lever -->
+          <rect x="990" y="780" width="24" height="120" rx="8" fill="#D4D4D8" stroke="#18181B" stroke-width="4" />
+          <circle cx="1002" cy="765" r="24" fill="#EF4444" stroke="#18181B" stroke-width="4" />
+        </g>
+
+        <!-- Vacuum Suction Hose Reaching Workers & Wallet -->
+        <g id="s2-vacuum-hose">
+          <path d="M 685 1061 C 595 1065, 540 1030, 480 990" fill="none" stroke="#18181B" stroke-width="42" stroke-linecap="round" />
+          <path d="M 685 1061 C 595 1065, 540 1030, 480 990" fill="none" stroke="#71717A" stroke-width="30" stroke-linecap="round" stroke-dasharray="18 10" />
+          <polygon points="480,955 435,985 475,1030 505,1005" fill="#52525B" stroke="#18181B" stroke-width="4" stroke-linejoin="round" />
+        </g>
+
+        <!-- Flying Dollar Bills Sucked into Vacuum -->
+        <g id="s2-bill-1">
+          <rect x="260" y="950" width="76" height="42" rx="6" fill="#4ADE80" stroke="#18181B" stroke-width="4" />
+          <text data-layout-ignore x="298" y="980" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="26" fill="#14532D">$</text>
+        </g>
+        <g id="s2-bill-2">
+          <rect x="340" y="990" width="76" height="42" rx="6" fill="#4ADE80" stroke="#18181B" stroke-width="4" />
+          <text data-layout-ignore x="378" y="1020" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="26" fill="#14532D">$</text>
+        </g>
+        <g id="s2-bill-3">
+          <rect x="190" y="980" width="76" height="42" rx="6" fill="#4ADE80" stroke="#18181B" stroke-width="4" />
+          <text data-layout-ignore x="228" y="1010" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="26" fill="#14532D">$</text>
+        </g>
+
+        <!-- Don Martin Foreground Left with Empty Wallet & Moth -->
+        <g id="s2-martin-wallet">
+          <!-- Torso & Legs -->
+          <rect x="165" y="1385" width="44" height="75" rx="10" fill="#1E3A8A" stroke="#18181B" stroke-width="4" />
+          <rect x="245" y="1385" width="44" height="75" rx="10" fill="#1E3A8A" stroke="#18181B" stroke-width="4" />
+          <rect x="145" y="1210" width="166" height="185" rx="26" fill="#E4E4E7" stroke="#18181B" stroke-width="4" />
+          <path d="M 152 1275 L 304 1275 L 304 1395 L 152 1395 Z" fill="#2563EB" stroke="#18181B" stroke-width="4" />
+
+          <!-- Left Hand Clutching Hardhat in Shock -->
+          <path d="M 152 1235 C 95 1200, 95 1135, 136 1102" fill="none" stroke="#18181B" stroke-width="32" stroke-linecap="round" />
+          <path d="M 152 1235 C 95 1200, 95 1135, 136 1102" fill="none" stroke="#E4E4E7" stroke-width="22" stroke-linecap="round" />
+          <circle cx="138" cy="1100" r="20" fill="#FDBA74" stroke="#18181B" stroke-width="4" />
+
+          <!-- Head & Shocked Face -->
+          <circle cx="228" cy="1142" r="72" fill="#FDBA74" stroke="#18181B" stroke-width="4" />
+          <ellipse cx="204" cy="1132" rx="16" ry="20" fill="#FFFFFF" stroke="#18181B" stroke-width="4" />
+          <circle cx="208" cy="1132" r="6" fill="#18181B" />
+          <ellipse cx="254" cy="1132" rx="16" ry="20" fill="#FFFFFF" stroke="#18181B" stroke-width="4" />
+          <circle cx="258" cy="1132" r="6" fill="#18181B" />
+          <path d="M 182 1172 Q 204 1156 228 1170 Q 252 1156 274 1172 Q 252 1184 228 1178 Q 204 1184 182 1172 Z" fill="#3F3F46" stroke="#18181B" stroke-width="3" />
+          <ellipse cx="228" cy="1194" rx="14" ry="12" fill="#7F1D1D" stroke="#18181B" stroke-width="3" />
+
+          <!-- Yellow Hardhat -->
+          <path d="M 146 1102 C 146 1034, 310 1034, 310 1102 Z" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+          <rect x="134" y="1095" width="188" height="18" rx="9" fill="#EAB308" stroke="#18181B" stroke-width="4" />
+
+          <!-- Right Arm Holding Open Empty Brown Wallet -->
+          <path d="M 306 1245 C 350 1255, 376 1250, 396 1230" fill="none" stroke="#18181B" stroke-width="32" stroke-linecap="round" />
+          <path d="M 306 1245 C 350 1255, 376 1250, 396 1230" fill="none" stroke="#E4E4E7" stroke-width="22" stroke-linecap="round" />
+          <g id="s2-wallet" transform="translate(385, 1185)">
+            <polygon points="0,35 72,0 92,48 20,82" fill="#92400E" stroke="#18181B" stroke-width="4" stroke-linejoin="round" />
+            <polygon points="10,40 86,25 102,75 26,90" fill="#78350F" stroke="#18181B" stroke-width="4" stroke-linejoin="round" />
+            <line x1="25" y1="45" x2="72" y2="25" stroke="#18181B" stroke-width="4" />
+          </g>
+
+          <!-- Little Cartoon Moth Fluttering Out of Wallet -->
+          <g id="s2-moth" opacity="0">
+            <ellipse cx="445" cy="1135" rx="14" ry="10" transform="rotate(-25 445 1135)" fill="#FEF3C7" stroke="#18181B" stroke-width="3" />
+            <ellipse cx="468" cy="1142" rx="14" ry="10" transform="rotate(25 468 1142)" fill="#FEF3C7" stroke="#18181B" stroke-width="3" />
+            <ellipse cx="456" cy="1145" rx="6" ry="14" fill="#52525B" stroke="#18181B" stroke-width="3" />
+            <path d="M 442 1185 Q 430 1165 448 1154" fill="none" stroke="#52525B" stroke-width="3" stroke-dasharray="5 5" />
+          </g>
+        </g>
+      </svg>
+
+      <!-- Top Industrial Display Board (Zero bounce on text) -->
+      <div id="s2-board" class="s2-board">
+        <div class="s2-board-tag">SOFTWARE ALQUILADO</div>
+        <div class="s2-board-line1">COBRO POR CADA USUARIO</div>
+        <div class="s2-board-line2">$50 USD / MES POR CADA EMPLEADO</div>
+      </div>
+
+      <!-- -$13,500 USD Annual Penalty Pill (Appears on "mensualidad eterna en dólares") -->
+      <div id="s2-annual-pill" class="s2-annual-pill">
+        <div class="s2-annual-text">-$13,500 USD AL AÑO EN LICENCIAS</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Whip-pan camera arrival (0.00s..0.25s local = 8.55s..8.80s abs, seamlessly overlapping scene1 exit)
+    tl.fromTo("#s2-camera", { x: 1080 }, { x: 0, duration: 0.25, ease: "power3.out" }, 0);
+
+    // Board & Slot Monster entrance tension
+    tl.fromTo("#s2-board", { opacity: 0, y: -18 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, 0.25);
+
+    // Annual cost slam at t=2.70s local (~11.25s abs, synced to "mensualidad eterna en dólares")
+    tl.fromTo("#s2-annual-pill", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.7)" }, 2.7);
+
+    // Workers bobbing impatiently in queue (single baseline + sequential to)
+    tl.fromTo("#s2-workers", { y: 0 }, { y: -8, duration: 0.55, ease: "sine.inOut" }, 0);
+    for (let i = 0; i < 5; i++) {
+      const ti = 0.58 + i * 1.2;
+      tl.to("#s2-workers", { y: 0, duration: 0.55, ease: "sine.inOut" }, ti);
+      tl.to("#s2-workers", { y: -8, duration: 0.55, ease: "sine.inOut" }, ti + 0.58);
+    }
+
+    // Slot machine monster bouncing greedily + vacuuming flying dollar bills (t=2.0s..4.8s)
+    tl.fromTo("#s2-slot-monster", { scale: 1 }, { scale: 1.04, duration: 0.3, ease: "back.out(1.7)" }, 2.65);
+    tl.to("#s2-slot-monster", { scale: 1, duration: 0.35, ease: "elastic.out(1, 0.5)" }, 3.0);
+
+    tl.fromTo("#s2-bill-1", { x: -40, y: 80, opacity: 0, rotation: -15 }, { x: 245, y: 55, opacity: 1, rotation: 25, duration: 1.0, ease: "power2.in" }, 2.35);
+    tl.to("#s2-bill-1", { x: 350, y: 80, scale: 0.3, opacity: 0, duration: 0.35 }, 3.35);
+
+    tl.fromTo("#s2-bill-2", { x: -80, y: 120, opacity: 0, rotation: 10 }, { x: 185, y: 45, opacity: 1, rotation: -20, duration: 1.0, ease: "power2.in" }, 2.9);
+    tl.to("#s2-bill-2", { x: 300, y: 60, scale: 0.3, opacity: 0, duration: 0.35 }, 3.9);
+
+    tl.fromTo("#s2-bill-3", { x: -20, y: 140, opacity: 0, rotation: -8 }, { x: 290, y: 50, opacity: 1, rotation: 18, duration: 1.0, ease: "power2.in" }, 3.45);
+    tl.to("#s2-bill-3", { x: 400, y: 70, scale: 0.3, opacity: 0, duration: 0.35 }, 4.45);
+
+    // Don Martin reacts with empty wallet & moth flying out (t=3.7s..7.4s)
+    tl.fromTo("#s2-martin-wallet", { x: -30, opacity: 0.9 }, { x: 0, opacity: 1, duration: 0.45, ease: "back.out(1.7)" }, 3.6);
+    tl.fromTo("#s2-moth", { opacity: 0, y: 45, x: -20, scale: 0.5 }, { opacity: 1, y: -35, x: 15, scale: 1.15, duration: 1.4, ease: "power2.out" }, 4.0);
+    tl.to("#s2-moth", { y: -70, x: -10, rotation: -12, duration: 1.4, ease: "sine.inOut" }, 5.4);
+
+    // Barrier slams locked shake at t=4.9s
+    tl.fromTo("#s2-barrier-arm", { rotation: -4 }, { rotation: 0, duration: 0.4, ease: "elastic.out(1, 0.5)" }, 4.9);
+
+    window.__timelines["scene2"] = tl;
+  </script>
+</template>

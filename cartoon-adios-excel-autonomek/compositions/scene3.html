@@ -1,0 +1,368 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #F4F4F5;
+      overflow: hidden;
+      font-family: 'Outfit', sans-serif;
+    }
+    .s3-stage {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+    }
+    .s3-header {
+      position: absolute;
+      left: 68px;
+      top: 180px;
+      width: 944px;
+      background: #2563EB;
+      border: 5px solid #18181B;
+      box-shadow: 8px 8px 0px #18181B;
+      border-radius: 18px;
+      padding: 16px 28px;
+      box-sizing: border-box;
+      z-index: 18;
+    }
+    .s3-header-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 28px;
+      font-weight: 800;
+      color: #FEF08A;
+    }
+    .s3-header-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 40px;
+      color: #FFFFFF;
+      line-height: 1.08;
+      margin-top: 4px;
+    }
+    .s3-step-card {
+      position: absolute;
+      border: 5px solid #18181B;
+      box-shadow: 6px 6px 0px #18181B;
+      border-radius: 16px;
+      padding: 12px 22px;
+      box-sizing: border-box;
+      z-index: 20;
+    }
+    .s3-step1 {
+      left: 68px;
+      top: 342px;
+      width: 470px;
+      background: #DCFCE7;
+    }
+    .s3-step2 {
+      right: 68px;
+      top: 448px;
+      width: 585px;
+      background: #FFFFFF;
+    }
+    .s3-step3 {
+      left: 68px;
+      top: 548px;
+      width: 560px;
+      background: #16A34A;
+      color: #FFFFFF;
+    }
+    .s3-sync-badge {
+      position: absolute;
+      right: 68px;
+      top: 548px;
+      width: 310px;
+      background: #FACC15;
+      border: 5px solid #18181B;
+      box-shadow: 6px 6px 0px #18181B;
+      border-radius: 16px;
+      padding: 12px 18px;
+      box-sizing: border-box;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 30px;
+      font-weight: 800;
+      color: #18181B;
+      z-index: 20;
+    }
+    .s3-step-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+    .s3-plaque {
+      position: absolute;
+      left: 78px;
+      top: 1285px;
+      width: 924px;
+      background: #FACC15;
+      border: 6px solid #18181B;
+      box-shadow: 8px 8px 0px #18181B;
+      border-radius: 18px;
+      padding: 18px 34px;
+      box-sizing: border-box;
+      text-align: center;
+      z-index: 22;
+    }
+    .s3-plaque-main {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 36px;
+      color: #18181B;
+      line-height: 1.12;
+    }
+    .s3-plaque-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 30px;
+      font-weight: 800;
+      color: #14532D;
+      margin-top: 6px;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene3" data-width="1080" data-height="1920">
+    <div id="s3-camera" class="s3-stage" data-layout-allow-overflow>
+      <svg viewBox="0 0 1080 1920" width="1080" height="1920" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;">
+        <defs>
+          <pattern id="s3-hazard" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect width="20" height="40" fill="#FACC15" />
+            <rect x="20" width="20" height="40" fill="#18181B" />
+          </pattern>
+        </defs>
+
+        <!-- Clean Industrial Factory Background -->
+        <rect x="0" y="0" width="1080" height="1420" fill="#F4F4F5" />
+        <rect x="0" y="0" width="360" height="1420" fill="#E4E4E7" stroke="#D4D4D8" stroke-width="3" />
+        <rect x="720" y="0" width="360" height="1420" fill="#E4E4E7" stroke="#D4D4D8" stroke-width="3" />
+
+        <!-- Overhead Steel Crane Rail -->
+        <rect x="0" y="135" width="1080" height="36" fill="url(#s3-hazard)" stroke="#18181B" stroke-width="4" />
+
+        <!-- Concrete Floor -->
+        <rect x="0" y="1420" width="1080" height="500" fill="#D4D4D8" stroke="#18181B" stroke-width="4" />
+        <rect x="0" y="1420" width="1080" height="26" fill="url(#s3-hazard)" stroke="#18181B" stroke-width="4" />
+        <rect x="0" y="1446" width="1080" height="474" fill="#A1A1AA" />
+
+        <!-- Old Chaos (Excel Monster + Slot Robot) Sitting on Floor Ready to be Crushed -->
+        <g id="s3-old-chaos">
+          <!-- Mini Excel Monster -->
+          <path d="M 165 1130 C 165 1030, 445 1030, 460 1140 C 470 1280, 440 1390, 315 1400 C 190 1405, 155 1270, 165 1130 Z" fill="#16A34A" stroke="#18181B" stroke-width="5" />
+          <line x1="175" y1="1150" x2="455" y2="1150" stroke="#DCFCE7" stroke-width="2" />
+          <line x1="175" y1="1205" x2="455" y2="1205" stroke="#DCFCE7" stroke-width="2" />
+          <line x1="312" y1="1060" x2="312" y2="1395" stroke="#DCFCE7" stroke-width="2" />
+          <circle cx="265" cy="1150" r="26" fill="#FFFFFF" stroke="#18181B" stroke-width="4" />
+          <circle cx="262" cy="1152" r="10" fill="#EF4444" />
+          <circle cx="360" cy="1150" r="28" fill="#FFFFFF" stroke="#18181B" stroke-width="4" />
+          <circle cx="355" cy="1152" r="11" fill="#EF4444" />
+          <path d="M 225 1230 Q 312 1275 400 1225 Q 380 1315 312 1315 Q 245 1315 225 1230 Z" fill="#18181B" />
+          <polygon points="245,1238 265,1272 285,1242" fill="#FFFFFF" />
+          <polygon points="335,1242 355,1272 375,1235" fill="#FFFFFF" />
+          <text data-layout-ignore x="312" y="1370" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="30" font-weight="800" fill="#FEF08A">#¡REF!</text>
+
+          <!-- Mini Slot Robot -->
+          <rect x="550" y="1020" width="350" height="380" rx="34" fill="#F97316" stroke="#18181B" stroke-width="5" />
+          <circle cx="670" cy="1110" r="28" fill="#FFFFFF" stroke="#18181B" stroke-width="4" />
+          <circle cx="664" cy="1114" r="10" fill="#EF4444" />
+          <circle cx="780" cy="1110" r="28" fill="#FFFFFF" stroke="#18181B" stroke-width="4" />
+          <circle cx="774" cy="1114" r="10" fill="#EF4444" />
+          <path d="M 630 1078 L 705 1102" stroke="#18181B" stroke-width="9" stroke-linecap="round" />
+          <path d="M 820 1078 L 745 1102" stroke="#18181B" stroke-width="9" stroke-linecap="round" />
+          <rect x="605" y="1168" width="240" height="90" rx="12" fill="#18181B" />
+          <rect x="618" y="1178" width="66" height="70" rx="8" fill="#FEF08A" />
+          <rect x="692" y="1178" width="66" height="70" rx="8" fill="#FEF08A" />
+          <rect x="766" y="1178" width="66" height="70" rx="8" fill="#FEF08A" />
+          <text data-layout-ignore x="725" y="1340" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="40" fill="#18181B">$$$ PEAJE</text>
+        </g>
+
+        <!-- Giant Autonomek Magnetic Crane Descending From Ceiling -->
+        <g id="s3-crane">
+          <rect x="515" y="170" width="50" height="470" fill="#52525B" stroke="#18181B" stroke-width="4" />
+          <rect x="270" y="620" width="540" height="82" rx="16" fill="#FACC15" stroke="#18181B" stroke-width="5" />
+          <rect x="300" y="640" width="480" height="42" rx="8" fill="#2563EB" stroke="#18181B" stroke-width="4" />
+          <text data-layout-ignore x="540" y="671" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="28" fill="#FFFFFF">GRÚA AUTONOMEK</text>
+          <rect x="310" y="702" width="80" height="58" rx="8" fill="#2563EB" stroke="#18181B" stroke-width="4" />
+          <rect x="690" y="702" width="80" height="58" rx="8" fill="#2563EB" stroke="#18181B" stroke-width="4" />
+        </g>
+
+        <!-- MAIN HERO: MOTOR CENTRAL AUTONOMEK + AUTOMATED CONVEYOR LINE -->
+        <g id="s3-motor-assembly">
+          <!-- Glowing Connecting Pipes Behind Machine -->
+          <path d="M 140 940 L 940 940" stroke="#18181B" stroke-width="34" stroke-linecap="round" />
+          <path d="M 140 940 L 940 940" stroke="#16A34A" stroke-width="22" stroke-linecap="round" />
+          <path d="M 140 940 L 940 940" stroke="#86EFAC" stroke-width="8" stroke-dasharray="28 18" stroke-linecap="round" />
+
+          <!-- WhatsApp Pneumatic Intake Pipe (Left Station) -->
+          <g id="s3-whatsapp-pipe">
+            <rect x="135" y="665" width="110" height="230" rx="14" fill="#16A34A" stroke="#18181B" stroke-width="5" />
+            <rect x="115" y="870" width="150" height="36" rx="10" fill="#22C55E" stroke="#18181B" stroke-width="4" />
+            <rect x="118" y="645" width="144" height="52" rx="12" fill="#FFFFFF" stroke="#18181B" stroke-width="4" />
+            <text data-layout-ignore x="190" y="681" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="24" fill="#16A34A">WhatsApp</text>
+          </g>
+
+          <!-- Central Motor Housing (Titanium Blue & Emerald) -->
+          <g id="s3-motor-core">
+            <rect x="360" y="710" width="360" height="390" rx="34" fill="#2563EB" stroke="#18181B" stroke-width="6" />
+            <rect x="388" y="740" width="304" height="330" rx="22" fill="#1D4ED8" stroke="#18181B" stroke-width="4" />
+
+            <!-- Spinning Interlocking Cartoon Gears (Static translate on outer <g>) -->
+            <g transform="translate(480, 845)">
+              <g id="s3-gear-1">
+                <circle cx="0" cy="0" r="56" fill="#FACC15" stroke="#18181B" stroke-width="5" stroke-dasharray="24 14" />
+                <circle cx="0" cy="0" r="44" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+                <circle cx="0" cy="0" r="16" fill="#18181B" />
+              </g>
+            </g>
+            <g transform="translate(592, 882)">
+              <g id="s3-gear-2">
+                <circle cx="0" cy="0" r="44" fill="#4ADE80" stroke="#18181B" stroke-width="5" stroke-dasharray="18 12" />
+                <circle cx="0" cy="0" r="34" fill="#4ADE80" stroke="#18181B" stroke-width="4" />
+                <circle cx="0" cy="0" r="12" fill="#18181B" />
+              </g>
+            </g>
+
+            <!-- Pressure Gauge + Status Lights -->
+            <circle cx="595" cy="788" r="32" fill="#FFFFFF" stroke="#18181B" stroke-width="4" />
+            <line x1="595" y1="788" x2="614" y2="770" stroke="#16A34A" stroke-width="5" stroke-linecap="round" />
+            <circle cx="440" cy="968" r="14" fill="#4ADE80" stroke="#18181B" stroke-width="3" />
+            <circle cx="485" cy="968" r="14" fill="#4ADE80" stroke="#18181B" stroke-width="3" />
+            <circle cx="530" cy="968" r="14" fill="#FACC15" stroke="#18181B" stroke-width="3" />
+            <rect x="425" y="998" width="230" height="46" rx="10" fill="#18181B" stroke="#4ADE80" stroke-width="3" />
+            <text data-layout-ignore x="540" y="1029" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="24" font-weight="800" fill="#4ADE80">MOTOR ACTIVO</text>
+          </g>
+
+          <!-- Robotic Arm #1 (DIAN Invoice Stamp — Static translate on outer <g>) -->
+          <g transform="translate(540, 745)">
+            <g id="s3-arm-stamp">
+              <rect x="-24" y="0" width="48" height="145" rx="12" fill="#F97316" stroke="#18181B" stroke-width="4" />
+              <rect x="-52" y="135" width="104" height="42" rx="10" fill="#16A34A" stroke="#18181B" stroke-width="4" />
+              <text data-layout-ignore x="0" y="164" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="20" fill="#FFFFFF">DIAN PDF</text>
+            </g>
+          </g>
+
+          <!-- Robotic Arm #2 (Inventory Scanner Right Station) -->
+          <g id="s3-arm-scanner">
+            <rect x="815" y="700" width="145" height="90" rx="18" fill="#2563EB" stroke="#18181B" stroke-width="5" />
+            <rect x="845" y="790" width="85" height="105" rx="10" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+            <rect x="832" y="885" width="110" height="32" rx="8" fill="#16A34A" stroke="#18181B" stroke-width="4" />
+            <!-- Green laser scan beam -->
+            <polygon id="s3-scan-beam" points="850,917 924,917 965,1135 810,1135" fill="#4ADE80" opacity="0" />
+          </g>
+
+          <!-- Automated Conveyor Belt Base & Legs -->
+          <rect x="120" y="1195" width="38" height="225" fill="#52525B" stroke="#18181B" stroke-width="4" />
+          <rect x="520" y="1195" width="38" height="225" fill="#52525B" stroke="#18181B" stroke-width="4" />
+          <rect x="920" y="1195" width="38" height="225" fill="#52525B" stroke="#18181B" stroke-width="4" />
+          <rect x="64" y="1135" width="952" height="68" rx="34" fill="#27272A" stroke="#18181B" stroke-width="5" />
+          <!-- Conveyor Rollers -->
+          <g id="s3-rollers">
+            <circle cx="115" cy="1169" r="22" fill="#4ADE80" stroke="#18181B" stroke-width="4" />
+            <circle cx="255" cy="1169" r="22" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+            <circle cx="395" cy="1169" r="22" fill="#4ADE80" stroke="#18181B" stroke-width="4" />
+            <circle cx="540" cy="1169" r="22" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+            <circle cx="685" cy="1169" r="22" fill="#4ADE80" stroke="#18181B" stroke-width="4" />
+            <circle cx="825" cy="1169" r="22" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+            <circle cx="965" cy="1169" r="22" fill="#4ADE80" stroke="#18181B" stroke-width="4" />
+          </g>
+
+          <!-- Moving Order Crate #1 (Drops from WhatsApp -> Stamped DIAN -> Synced) -->
+          <g id="s3-box-1" opacity="0">
+            <rect x="125" y="1008" width="132" height="126" rx="12" fill="#F59E0B" stroke="#18181B" stroke-width="4" />
+            <rect x="166" y="1008" width="50" height="30" fill="#FEF3C7" stroke="#18181B" stroke-width="3" />
+            <rect id="s3-box1-seal" x="143" y="1055" width="96" height="44" rx="8" fill="#16A34A" stroke="#18181B" stroke-width="3" opacity="0" />
+            <text data-layout-ignore id="s3-box1-seal-txt" x="191" y="1085" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="20" font-weight="800" fill="#FFFFFF" opacity="0">OK PDF</text>
+          </g>
+
+          <!-- Moving Order Crate #2 (Follow-up crate showing continuous flow) -->
+          <g id="s3-box-2" opacity="0">
+            <rect x="125" y="1008" width="132" height="126" rx="12" fill="#F59E0B" stroke="#18181B" stroke-width="4" />
+            <rect x="166" y="1008" width="50" height="30" fill="#FEF3C7" stroke="#18181B" stroke-width="3" />
+            <rect x="143" y="1055" width="96" height="44" rx="8" fill="#2563EB" stroke="#18181B" stroke-width="3" />
+            <text data-layout-ignore x="191" y="1085" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="20" font-weight="800" fill="#FFFFFF">SYNC</text>
+          </g>
+        </g>
+      </svg>
+
+      <!-- Top Header -->
+      <div id="s3-header" class="s3-header">
+        <div class="s3-header-kicker">PLATAFORMA PROPIA A LA MEDIDA</div>
+        <div class="s3-header-title">MOTOR CENTRAL AUTONOMEK</div>
+      </div>
+
+      <!-- Step 1: WhatsApp Order In -->
+      <div id="s3-step1" class="s3-step-card s3-step1">
+        <div class="s3-step-text" style="color:#14532D;">1. Entra pedido por WhatsApp</div>
+      </div>
+
+      <!-- Step 2: Automated Invoice + PDF -->
+      <div id="s3-step2" class="s3-step-card s3-step2">
+        <div class="s3-step-text" style="color:#18181B;">2. Factura Emitida + PDF en 0.3s</div>
+      </div>
+
+      <!-- Step 3: Exact Inventory Counter + 0.3s Sync Badge -->
+      <div id="s3-step3" class="s3-step-card s3-step3">
+        <div class="s3-step-text" style="color:#FFFFFF;">3. Inventario Bodega: Exacto</div>
+      </div>
+      <div id="s3-sync-badge" class="s3-sync-badge">0.3s SYNC</div>
+
+      <!-- Bolted Golden Metal Plaque (Safe zone y=1285) -->
+      <div id="s3-plaque" class="s3-plaque">
+        <div class="s3-plaque-main">100% PROPIEDAD TUYA · $0 EN LICENCIAS</div>
+        <div class="s3-plaque-sub">USUARIOS ILIMITADOS PARA TU EMPRESA</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // 0.00s..0.95s: Magnetic crane slams down & squashes old Excel + Slot chaos
+    tl.fromTo("#s3-crane", { y: -420, opacity: 1 }, { y: 390, opacity: 1, duration: 0.5, ease: "power3.in" }, 0.05);
+    tl.fromTo("#s3-old-chaos", { scaleY: 1, opacity: 1, visibility: "visible", transformOrigin: "50% 100%" }, { scaleY: 0.08, opacity: 0, duration: 0.32, ease: "power2.in" }, 0.48);
+    tl.set("#s3-old-chaos", { visibility: "hidden" }, 0.82);
+    tl.to("#s3-crane", { y: -480, opacity: 0, duration: 0.42, ease: "power2.in" }, 0.85);
+    tl.set("#s3-crane", { visibility: "hidden" }, 1.28);
+
+    // 0.90s..2.05s: Motor Central Autonomek drops in with physical elastic.out(1, 0.5) bounce
+    tl.fromTo("#s3-motor-assembly", { y: -900, opacity: 0, scale: 0.92 }, { y: 0, opacity: 1, scale: 1, duration: 1.05, ease: "elastic.out(1, 0.5)" }, 0.9);
+
+    // 1.35s: Top header lands cleanly (zero bounce on text)
+    tl.fromTo("#s3-header", { opacity: 0, y: -24 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 1.35);
+
+    // Continuous linear gear rotation across entire scene (no repeat:-1)
+    tl.fromTo("#s3-gear-1", { rotation: 0 }, { rotation: 1080, duration: 12.2, ease: "none" }, 1.4);
+    tl.fromTo("#s3-gear-2", { rotation: 0 }, { rotation: -1350, duration: 12.2, ease: "none" }, 1.4);
+
+    // 4.10s (synced to "Ahora cuando entra una venta"): Step 1 + Box #1 drops from WhatsApp pipe
+    tl.fromTo("#s3-step1", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 4.05);
+    tl.fromTo("#s3-box-1", { opacity: 0, y: -155, x: 0 }, { opacity: 1, y: 0, x: 0, duration: 0.45, ease: "back.out(1.7)" }, 4.15);
+
+    // 4.75s..6.20s: Box #1 glides along conveyor to Center DIAN Stamp Arm
+    tl.to("#s3-box-1", { x: 350, duration: 1.35, ease: "power1.inOut" }, 4.75);
+
+    // 6.15s (synced to "la factura, el contrato"): Arm #1 pneumatic stamp pff-tock! + Step 2 badge
+    tl.fromTo("#s3-arm-stamp", { y: 0 }, { y: 128, duration: 0.16, ease: "power4.in" }, 6.15);
+    tl.to("#s3-arm-stamp", { y: 0, duration: 0.35, ease: "back.out(1.7)" }, 6.32);
+    tl.fromTo("#s3-box1-seal", { opacity: 0 }, { opacity: 1, duration: 0.1 }, 6.3);
+    tl.fromTo("#s3-box1-seal-txt", { opacity: 0 }, { opacity: 1, duration: 0.1 }, 6.3);
+    tl.fromTo("#s3-step2", { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 6.25);
+
+    // 6.80s..8.30s: Box #1 glides to Right Inventory Scanner Arm
+    tl.to("#s3-box-1", { x: 695, duration: 1.35, ease: "power1.inOut" }, 6.8);
+
+    // 8.20s (synced to "inventario de bodega se actualizan solos en medio segundo"): Laser scan + Step 3 + 0.3s Sync
+    tl.fromTo("#s3-scan-beam", { opacity: 0 }, { opacity: 0.55, duration: 0.2 }, 8.15);
+    tl.to("#s3-scan-beam", { opacity: 0, duration: 0.35 }, 8.65);
+    tl.fromTo("#s3-step3", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 8.25);
+    tl.fromTo("#s3-sync-badge", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out" }, 8.4);
+
+    // Box #2 drops and glides continuously to show effortless automated pipeline
+    tl.fromTo("#s3-box-2", { opacity: 0, y: -155, x: 0 }, { opacity: 1, y: 0, x: 0, duration: 0.45, ease: "back.out(1.7)" }, 8.6);
+    tl.to("#s3-box-2", { x: 680, duration: 3.4, ease: "none" }, 9.2);
+    tl.to("#s3-box-1", { x: 960, opacity: 0, duration: 0.8, ease: "power2.in" }, 9.2);
+
+    // 10.55s (synced to "sin pagar ni un peso en licencias por usuario"): Bolted golden plaque lands cleanly
+    tl.fromTo("#s3-plaque", { opacity: 0, y: 36, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out" }, 10.45);
+
+    window.__timelines["scene3"] = tl;
+  </script>
+</template>

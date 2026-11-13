@@ -1,0 +1,261 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #F4F4F5; overflow: hidden; font-family: 'Outfit', sans-serif; }
+    .s1-stage { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+    .comic-sign { position: absolute; border: 5px solid #18181B; box-shadow: 8px 8px 0px #18181B; border-radius: 18px; box-sizing: border-box; }
+    .s1-siren-banner { left: 72px; top: 190px; width: 936px; background: #EF4444; padding: 20px 28px 20px 136px; color: #FFFFFF; }
+    .s1-siren-kicker { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 800; letter-spacing: 0.04em; color: #FEF08A; margin-bottom: 4px; }
+    .s1-siren-title { font-family: 'Archivo Black', sans-serif; font-size: 38px; line-height: 1.08; color: #FFFFFF; text-transform: uppercase; }
+    .s1-error-banner { left: 72px; top: 392px; width: 936px; background: #FEF2F2; padding: 18px 26px; border-color: #18181B; }
+    .s1-error-code { font-family: 'JetBrains Mono', monospace; font-size: 34px; font-weight: 800; color: #DC2626; line-height: 1.2; }
+    .s1-error-sub { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: #18181B; margin-top: 4px; }
+    .s1-bubble-wrap { position: absolute; left: 72px; top: 562px; width: 590px; z-index: 20; transform-origin: 35% 100%; }
+    .s1-bubble { background: #FFFFFF; border: 5px solid #18181B; box-shadow: 8px 8px 0px #18181B; border-radius: 26px; padding: 22px 26px; font-family: 'Outfit', sans-serif; font-size: 33px; font-weight: 800; line-height: 1.2; color: #18181B; }
+    .s1-valor-badge { position: absolute; right: 78px; top: 585px; background: #FACC15; border: 5px solid #18181B; box-shadow: 6px 6px 0px #18181B; border-radius: 14px; padding: 14px 24px; font-family: 'JetBrains Mono', monospace; font-size: 34px; font-weight: 800; color: #18181B; z-index: 22; }
+  </style>
+
+  <div id="root" data-composition-id="scene1" data-width="1080" data-height="1920">
+    <div id="s1-camera" class="s1-stage" data-layout-allow-overflow>
+      <svg viewBox="0 0 1080 1920" width="1080" height="1920" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;">
+        <defs>
+          <pattern id="s1-hazard" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect width="20" height="40" fill="#FACC15" />
+            <rect x="20" width="20" height="40" fill="#18181B" />
+          </pattern>
+          <pattern id="s1-grid" width="36" height="24" patternUnits="userSpaceOnUse">
+            <rect width="36" height="24" fill="#16A34A" />
+            <path d="M 36 0 L 0 0 0 24" fill="none" stroke="#DCFCE7" stroke-width="2" />
+          </pattern>
+        </defs>
+
+        <!-- Concrete Wall Panels & Industrial Framing -->
+        <rect x="0" y="0" width="1080" height="1420" fill="#F4F4F5" />
+        <rect x="0" y="0" width="360" height="1420" fill="#E4E4E7" stroke="#D4D4D8" stroke-width="3" />
+        <rect x="720" y="0" width="360" height="1420" fill="#E4E4E7" stroke="#D4D4D8" stroke-width="3" />
+        <rect x="0" y="96" width="1080" height="34" fill="#A1A1AA" stroke="#18181B" stroke-width="4" />
+        <rect x="0" y="146" width="1080" height="40" fill="url(#s1-hazard)" stroke="#18181B" stroke-width="4" />
+        <rect x="110" y="60" width="42" height="140" fill="#F97316" stroke="#18181B" stroke-width="4" />
+        <circle cx="131" cy="113" r="16" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+        <rect x="920" y="60" width="46" height="150" fill="#2563EB" stroke="#18181B" stroke-width="4" />
+        <rect x="24" y="186" width="52" height="1234" fill="#D4D4D8" stroke="#18181B" stroke-width="4" />
+        <rect x="1004" y="186" width="52" height="1234" fill="#D4D4D8" stroke="#18181B" stroke-width="4" />
+
+        <!-- Floor -->
+        <rect x="0" y="1420" width="1080" height="500" fill="#D4D4D8" stroke="#18181B" stroke-width="4" />
+        <rect x="0" y="1420" width="1080" height="26" fill="url(#s1-hazard)" stroke="#18181B" stroke-width="4" />
+        <rect x="0" y="1446" width="1080" height="474" fill="#A1A1AA" />
+        <line x1="0" y1="1580" x2="1080" y2="1580" stroke="#71717A" stroke-width="4" />
+        <line x1="0" y1="1730" x2="1080" y2="1730" stroke="#71717A" stroke-width="4" />
+
+        <!-- Broken Conveyor Belt & Crashing Crates -->
+        <rect x="140" y="1310" width="38" height="160" fill="#52525B" stroke="#18181B" stroke-width="4" />
+        <rect x="520" y="1325" width="38" height="145" fill="#52525B" stroke="#18181B" stroke-width="4" />
+        <rect x="890" y="1310" width="38" height="160" fill="#52525B" stroke="#18181B" stroke-width="4" />
+        <g id="s1-belt-left">
+          <rect x="78" y="1245" width="465" height="68" rx="34" fill="#3F3F46" stroke="#18181B" stroke-width="5" />
+          <circle cx="122" cy="1279" r="22" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+          <circle cx="235" cy="1279" r="22" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+          <circle cx="350" cy="1279" r="22" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+          <circle cx="485" cy="1279" r="22" fill="#EF4444" stroke="#18181B" stroke-width="4" />
+        </g>
+        <g id="s1-belt-right">
+          <rect x="535" y="1255" width="465" height="68" rx="34" fill="#3F3F46" stroke="#18181B" stroke-width="5" />
+          <circle cx="585" cy="1289" r="22" fill="#EF4444" stroke="#18181B" stroke-width="4" />
+          <circle cx="715" cy="1289" r="22" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+          <circle cx="835" cy="1289" r="22" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+          <circle cx="955" cy="1289" r="22" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+        </g>
+
+        <g id="s1-crate-1">
+          <rect x="148" y="1115" width="142" height="132" rx="10" fill="#F59E0B" stroke="#18181B" stroke-width="4" />
+          <rect x="195" y="1115" width="48" height="34" fill="#FEF3C7" stroke="#18181B" stroke-width="3" />
+          <rect x="164" y="1188" width="110" height="38" rx="6" fill="#FFFFFF" stroke="#18181B" stroke-width="3" />
+          <text data-layout-ignore x="219" y="1215" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="22" font-weight="800" fill="#18181B">PEDIDO</text>
+        </g>
+        <g id="s1-crate-2">
+          <rect x="330" y="1105" width="146" height="138" rx="10" fill="#F97316" stroke="#18181B" stroke-width="4" />
+          <rect x="382" y="1105" width="44" height="32" fill="#FEF3C7" stroke="#18181B" stroke-width="3" />
+          <path d="M358 1170 L446 1210 M446 1170 L358 1210" stroke="#18181B" stroke-width="5" stroke-linecap="round" />
+        </g>
+        <g id="s1-crate-3">
+          <rect x="650" y="1118" width="150" height="136" rx="10" fill="#F59E0B" stroke="#18181B" stroke-width="4" />
+          <rect x="702" y="1118" width="46" height="32" fill="#FEF3C7" stroke="#18181B" stroke-width="3" />
+          <rect x="676" y="1182" width="98" height="40" rx="6" fill="#FFFFFF" stroke="#18181B" stroke-width="3" />
+          <text data-layout-ignore x="725" y="1210" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="24" font-weight="800" fill="#B91C1C">ERR!</text>
+        </g>
+
+        <!-- Excel Monster -->
+        <g id="s1-excel-monster">
+          <path d="M 730 940 C 860 900, 950 780, 920 670 C 900 610, 840 620, 850 680" fill="none" stroke="#18181B" stroke-width="44" stroke-linecap="round" />
+          <path d="M 730 940 C 860 900, 950 780, 920 670 C 900 610, 840 620, 850 680" fill="none" stroke="url(#s1-grid)" stroke-width="34" stroke-linecap="round" />
+          <path d="M 555 775 C 555 660, 845 660, 860 790 C 875 940, 835 1085, 705 1095 C 580 1105, 540 960, 555 775 Z" fill="url(#s1-grid)" stroke="#18181B" stroke-width="5" stroke-linejoin="round" />
+          <rect x="582" y="704" width="250" height="46" rx="10" fill="#14532D" stroke="#18181B" stroke-width="4" />
+          <text x="707" y="737" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="28" font-weight="800" fill="#FEF08A">fx =#¡REF!</text>
+          <circle cx="655" cy="810" r="36" fill="#FFFFFF" stroke="#18181B" stroke-width="4" />
+          <circle cx="650" cy="812" r="14" fill="#EF4444" stroke="#18181B" stroke-width="3" />
+          <circle cx="765" cy="805" r="42" fill="#FFFFFF" stroke="#18181B" stroke-width="4" />
+          <circle cx="756" cy="810" r="16" fill="#EF4444" stroke="#18181B" stroke-width="3" />
+          <path d="M 612 768 L 690 792" stroke="#18181B" stroke-width="10" stroke-linecap="round" />
+          <path d="M 812 758 L 726 788" stroke="#18181B" stroke-width="10" stroke-linecap="round" />
+          <path d="M 610 905 Q 710 965 815 895 Q 785 1005 710 1005 Q 630 1005 610 905 Z" fill="#18181B" stroke="#18181B" stroke-width="4" />
+          <polygon points="635,914 658,954 680,918" fill="#FFFFFF" stroke="#18181B" stroke-width="3" />
+          <polygon points="690,922 714,964 736,920" fill="#FFFFFF" stroke="#18181B" stroke-width="3" />
+          <polygon points="745,916 768,954 790,906" fill="#FFFFFF" stroke="#18181B" stroke-width="3" />
+        </g>
+
+        <!-- Don Martin -->
+        <g id="s1-don-martin">
+          <rect x="242" y="1145" width="46" height="90" rx="10" fill="#1E3A8A" stroke="#18181B" stroke-width="4" />
+          <rect x="330" y="1145" width="46" height="90" rx="10" fill="#1E3A8A" stroke="#18181B" stroke-width="4" />
+          <rect x="228" y="1220" width="68" height="32" rx="12" fill="#27272A" stroke="#18181B" stroke-width="4" />
+          <rect x="326" y="1220" width="68" height="32" rx="12" fill="#27272A" stroke="#18181B" stroke-width="4" />
+          <rect x="224" y="960" width="172" height="195" rx="28" fill="#E4E4E7" stroke="#18181B" stroke-width="4" />
+          <path d="M 232 1030 L 388 1030 L 388 1155 L 232 1155 Z" fill="#2563EB" stroke="#18181B" stroke-width="4" />
+          <rect x="248" y="964" width="26" height="75" fill="#2563EB" stroke="#18181B" stroke-width="4" />
+          <rect x="346" y="964" width="26" height="75" fill="#2563EB" stroke="#18181B" stroke-width="4" />
+          <circle cx="261" cy="1044" r="7" fill="#FACC15" stroke="#18181B" stroke-width="3" />
+          <circle cx="359" cy="1044" r="7" fill="#FACC15" stroke="#18181B" stroke-width="3" />
+          <path d="M 230 985 C 165 960, 145 900, 165 855" fill="none" stroke="#18181B" stroke-width="34" stroke-linecap="round" />
+          <path d="M 230 985 C 165 960, 145 900, 165 855" fill="none" stroke="#E4E4E7" stroke-width="24" stroke-linecap="round" />
+          <circle cx="165" cy="850" r="22" fill="#FDBA74" stroke="#18181B" stroke-width="4" />
+          <g transform="translate(95, 765) rotate(-14)">
+            <rect x="0" y="0" width="84" height="106" rx="8" fill="#B45309" stroke="#18181B" stroke-width="4" />
+            <rect x="10" y="14" width="64" height="80" fill="#FFFFFF" stroke="#18181B" stroke-width="3" />
+            <rect x="26" y="-8" width="32" height="18" rx="4" fill="#71717A" stroke="#18181B" stroke-width="3" />
+            <line x1="20" y1="34" x2="64" y2="34" stroke="#EF4444" stroke-width="4" />
+            <line x1="20" y1="52" x2="58" y2="52" stroke="#18181B" stroke-width="3" />
+          </g>
+          <path d="M 390 985 C 445 975, 470 925, 460 880" fill="none" stroke="#18181B" stroke-width="34" stroke-linecap="round" />
+          <path d="M 390 985 C 445 975, 470 925, 460 880" fill="none" stroke="#E4E4E7" stroke-width="24" stroke-linecap="round" />
+          <circle cx="460" cy="876" r="22" fill="#FDBA74" stroke="#18181B" stroke-width="4" />
+          <circle cx="310" cy="875" r="76" fill="#FDBA74" stroke="#18181B" stroke-width="4" />
+          <ellipse cx="284" cy="865" rx="18" ry="22" fill="#FFFFFF" stroke="#18181B" stroke-width="4" />
+          <circle cx="288" cy="866" r="7" fill="#18181B" />
+          <ellipse cx="338" cy="865" rx="18" ry="22" fill="#FFFFFF" stroke="#18181B" stroke-width="4" />
+          <circle cx="342" cy="866" r="7" fill="#18181B" />
+          <path d="M 264 838 Q 282 826 300 836" fill="none" stroke="#18181B" stroke-width="6" stroke-linecap="round" />
+          <path d="M 322 836 Q 340 826 358 838" fill="none" stroke="#18181B" stroke-width="6" stroke-linecap="round" />
+          <ellipse cx="312" cy="888" rx="13" ry="10" fill="#FB923C" stroke="#18181B" stroke-width="3" />
+          <path d="M 264 912 Q 288 892 312 908 Q 336 892 360 912 Q 336 926 312 918 Q 288 926 264 912 Z" fill="#3F3F46" stroke="#18181B" stroke-width="3" />
+          <ellipse cx="312" cy="933" rx="16" ry="11" fill="#7F1D1D" stroke="#18181B" stroke-width="3" />
+          <path d="M 224 832 C 224 762, 396 762, 396 832 Z" fill="#FACC15" stroke="#18181B" stroke-width="4" />
+          <rect x="210" y="824" width="204" height="20" rx="10" fill="#EAB308" stroke="#18181B" stroke-width="4" />
+          <rect x="294" y="768" width="32" height="58" rx="8" fill="#FEF08A" stroke="#18181B" stroke-width="3" />
+          <g id="s1-sweat">
+            <path d="M 212 855 C 198 872, 200 888, 212 888 C 224 888, 226 872, 212 855 Z" fill="#38BDF8" stroke="#18181B" stroke-width="3" />
+            <path d="M 416 838 C 405 852, 406 866, 416 866 C 426 866, 427 852, 416 838 Z" fill="#38BDF8" stroke="#18181B" stroke-width="3" />
+          </g>
+        </g>
+
+        <!-- Foreground Tentacles -->
+        <g id="s1-tentacles-front">
+          <path d="M 575 965 C 495 1030, 395 1085, 225 1068 C 195 1065, 195 1020, 232 1022 C 365 1030, 480 990, 568 925" fill="none" stroke="#18181B" stroke-width="46" stroke-linecap="round" />
+          <path d="M 575 965 C 495 1030, 395 1085, 225 1068 C 195 1065, 195 1020, 232 1022 C 365 1030, 480 990, 568 925" fill="none" stroke="url(#s1-grid)" stroke-width="36" stroke-linecap="round" />
+          <path d="M 595 1035 C 490 1120, 340 1155, 225 1135" fill="none" stroke="#18181B" stroke-width="40" stroke-linecap="round" />
+          <path d="M 595 1035 C 490 1120, 340 1155, 225 1135" fill="none" stroke="url(#s1-grid)" stroke-width="30" stroke-linecap="round" />
+        </g>
+
+        <!-- Flying Loose Spreadsheets (decorative props, clear of speech bubble) -->
+        <g id="s1-fly-sheet-1">
+          <rect x="78" y="1020" width="110" height="82" rx="6" fill="#FFFFFF" stroke="#18181B" stroke-width="4" />
+          <line x1="78" y1="1048" x2="188" y2="1048" stroke="#16A34A" stroke-width="3" />
+          <text data-layout-ignore x="133" y="1082" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="18" font-weight="800" fill="#B91C1C">#DIV/0!</text>
+        </g>
+        <g id="s1-fly-sheet-2">
+          <rect x="820" y="1020" width="116" height="84" rx="6" fill="#FFFFFF" stroke="#18181B" stroke-width="4" />
+          <line x1="820" y1="1048" x2="936" y2="1048" stroke="#16A34A" stroke-width="3" />
+          <text data-layout-ignore x="878" y="1084" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="18" font-weight="800" fill="#B91C1C">ERR_V19</text>
+        </g>
+
+        <!-- Electric Sparks -->
+        <g id="s1-sparks" opacity="0">
+          <polygon points="510,740 538,795 512,800 546,858 492,812 518,804" fill="#FACC15" stroke="#18181B" stroke-width="4" stroke-linejoin="round" />
+          <polygon points="865,860 915,820 895,862 945,868 892,892 908,925" fill="#EF4444" stroke="#18181B" stroke-width="4" stroke-linejoin="round" />
+          <polygon points="488,1215 524,1170 518,1215 562,1202 528,1244 552,1274" fill="#FACC15" stroke="#18181B" stroke-width="4" stroke-linejoin="round" />
+        </g>
+      </svg>
+
+      <!-- Top Flashing Red Siren + Warning Banner (Visible at Frame 0.0s) -->
+      <div class="comic-sign s1-siren-banner">
+        <div id="s1-siren-bulb" style="position:absolute;left:22px;top:16px;width:96px;height:96px;">
+          <svg viewBox="0 0 96 96" width="96" height="96">
+            <line x1="12" y1="22" x2="2" y2="12" stroke="#FEF08A" stroke-width="6" stroke-linecap="round" />
+            <line x1="48" y1="10" x2="48" y2="0" stroke="#FEF08A" stroke-width="6" stroke-linecap="round" />
+            <line x1="84" y1="22" x2="94" y2="12" stroke="#FEF08A" stroke-width="6" stroke-linecap="round" />
+            <path d="M 24 72 L 24 44 C 24 24, 72 24, 72 44 L 72 72 Z" fill="#FCA5A5" stroke="#18181B" stroke-width="4" />
+            <circle cx="48" cy="48" r="13" fill="#FFFFFF" />
+            <rect x="16" y="70" width="64" height="16" rx="4" fill="#27272A" stroke="#18181B" stroke-width="4" />
+          </svg>
+        </div>
+        <div class="s1-siren-kicker">ALERTA OPERATIVA</div>
+        <div class="s1-siren-title">18 HORAS PERDIDAS COPIANDO Y PEGANDO</div>
+      </div>
+
+      <!-- Red Excel Error Banner (Visible at Frame 0.0s) -->
+      <div class="comic-sign s1-error-banner">
+        <div class="s1-error-code">ERROR #¡REF! · ARCHIVO_FINAL_V19.XLSX</div>
+        <div class="s1-error-sub">20 hojas rotas · celdas desconectadas</div>
+      </div>
+
+      <div id="s1-valor-badge" class="s1-valor-badge">#¡VALOR!</div>
+
+      <div id="s1-bubble-wrap" class="s1-bubble-wrap">
+        <div class="s1-bubble">“¡Alguien borró una fórmula y se dañó toda la facturación!”</div>
+        <svg width="70" height="44" viewBox="0 0 70 44" style="display:block;margin-left:140px;margin-top:-5px;">
+          <polygon points="10,0 56,0 26,40" fill="#FFFFFF" stroke="#18181B" stroke-width="5" stroke-linejoin="round" />
+          <line x1="12" y1="2" x2="54" y2="2" stroke="#FFFFFF" stroke-width="8" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Baselines + clean sequential tweens (no overlapping tweens or repeated fromTo)
+    tl.fromTo("#s1-siren-bulb", { scale: 0.94, opacity: 0.85 }, { scale: 1.12, opacity: 1, duration: 0.5, ease: "power2.out" }, 0);
+    for (let i = 0; i < 7; i++) {
+      const t = 0.52 + i * 1.1;
+      tl.to("#s1-siren-bulb", { scale: 0.94, opacity: 0.82, duration: 0.52, ease: "power2.in" }, t);
+      tl.to("#s1-siren-bulb", { scale: 1.12, opacity: 1, duration: 0.52, ease: "power2.out" }, t + 0.54);
+    }
+
+    tl.fromTo("#s1-crate-1", { x: -20, rotation: -4 }, { x: 26, rotation: 6, duration: 0.45, ease: "back.out(1.7)" }, 0.05);
+    tl.to("#s1-crate-1", { x: 8, rotation: -2, duration: 0.55, ease: "elastic.out(1, 0.5)" }, 0.55);
+    tl.fromTo("#s1-crate-2", { x: 22, y: -12, rotation: 5 }, { x: -16, y: 0, rotation: -7, duration: 0.48, ease: "back.out(1.7)" }, 0.08);
+    tl.to("#s1-crate-2", { x: 0, rotation: 2, duration: 0.6, ease: "elastic.out(1, 0.5)" }, 0.6);
+    tl.fromTo("#s1-crate-3", { y: -22, rotation: -6 }, { y: 4, rotation: 8, duration: 0.55, ease: "back.out(1.7)" }, 0.15);
+
+    tl.fromTo("#s1-don-martin", { y: 0, rotation: -1.5 }, { y: -12, rotation: 2, duration: 0.8, ease: "sine.inOut" }, 0);
+    tl.fromTo("#s1-excel-monster", { scale: 1, y: 0 }, { scale: 1.03, y: -10, duration: 0.8, ease: "sine.inOut" }, 0);
+    tl.fromTo("#s1-sweat", { y: -4, opacity: 1 }, { y: 24, opacity: 0.35, duration: 1.2, ease: "power2.in" }, 0.2);
+    for (let k = 1; k < 5; k++) {
+      const tk = k * 1.65;
+      tl.to("#s1-don-martin", { y: 0, rotation: -1.5, duration: 0.78, ease: "sine.inOut" }, tk - 0.8);
+      tl.to("#s1-don-martin", { y: -12, rotation: 2, duration: 0.78, ease: "sine.inOut" }, tk);
+      tl.to("#s1-excel-monster", { scale: 1, y: 0, duration: 0.78, ease: "sine.inOut" }, tk - 0.8);
+      tl.to("#s1-excel-monster", { scale: 1.03, y: -10, duration: 0.78, ease: "sine.inOut" }, tk);
+      tl.to("#s1-sweat", { y: -4, opacity: 1, duration: 0.15 }, tk - 0.16);
+      tl.to("#s1-sweat", { y: 24, opacity: 0.35, duration: 1.1, ease: "power2.in" }, tk + 0.05);
+    }
+
+    tl.fromTo("#s1-fly-sheet-1", { x: -40, y: 20, rotation: -18 }, { x: 45, y: -35, rotation: 16, duration: 3.9, ease: "power1.inOut" }, 0.2);
+    tl.to("#s1-fly-sheet-1", { x: -10, y: 15, rotation: -10, duration: 3.9, ease: "power1.inOut" }, 4.2);
+    tl.fromTo("#s1-fly-sheet-2", { x: 20, y: 15, rotation: 14 }, { x: -45, y: -40, rotation: -18, duration: 3.9, ease: "power1.inOut" }, 0.4);
+    tl.to("#s1-fly-sheet-2", { x: 10, y: 10, rotation: 10, duration: 3.9, ease: "power1.inOut" }, 4.4);
+
+    tl.fromTo("#s1-sparks", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1.15, duration: 0.2, ease: "back.out(1.7)" }, 2.48);
+    tl.to("#s1-sparks", { opacity: 0.2, scale: 0.9, duration: 0.22 }, 2.72);
+    tl.to("#s1-sparks", { opacity: 1, scale: 1.1, duration: 0.2 }, 3.0);
+    tl.to("#s1-sparks", { opacity: 0, duration: 0.35 }, 3.3);
+    tl.fromTo("#s1-valor-badge", { opacity: 0, scale: 0.3, rotation: -12 }, { opacity: 1, scale: 1, rotation: 4, duration: 0.45, ease: "back.out(1.7)" }, 2.52);
+
+    tl.fromTo("#s1-belt-left", { rotation: 0, y: 0 }, { rotation: 7, y: 18, duration: 0.45, ease: "elastic.out(1, 0.5)" }, 4.45);
+    tl.fromTo("#s1-belt-right", { rotation: 0, y: 0 }, { rotation: -8, y: 22, duration: 0.45, ease: "elastic.out(1, 0.5)" }, 4.48);
+    tl.to("#s1-crate-2", { y: 28, rotation: -22, duration: 0.5, ease: "back.out(1.7)" }, 4.5);
+    tl.fromTo("#s1-bubble-wrap", { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.42, ease: "back.out(1.7)" }, 4.52);
+
+    tl.fromTo("#s1-camera", { x: 0 }, { x: -1080, duration: 0.25, ease: "power3.in" }, 8.55);
+    window.__timelines["scene1"] = tl;
+  </script>
+</template>
