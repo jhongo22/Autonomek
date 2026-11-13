@@ -1,0 +1,347 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #1E293B;
+      font-family: "Nunito", sans-serif;
+    }
+    .s2-stage {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      transform-origin: center center;
+    }
+    .s2-svg-full {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      display: block;
+    }
+    .s2-ask-bubble {
+      position: absolute;
+      left: 340px;
+      top: 235px;
+      width: 580px;
+      background: #FFFFFF;
+      border: 4px solid #1E293B;
+      border-radius: 26px;
+      box-shadow: 6px 8px 0 rgba(30, 41, 59, 0.2);
+      padding: 16px 26px;
+      z-index: 8;
+      transform-origin: left center;
+    }
+    .s2-ask-text {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 38px;
+      color: #1E293B;
+      text-align: center;
+      line-height: 1.15;
+    }
+    .s2-comp-label {
+      position: absolute;
+      left: 580px;
+      top: 720px;
+      width: 360px;
+      background: #FACC15;
+      border: 4px solid #1E293B;
+      border-radius: 14px;
+      padding: 8px 14px;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 28px;
+      color: #1E293B;
+      text-align: center;
+      z-index: 7;
+    }
+    .s2-anvil-wrap {
+      position: absolute;
+      left: 95px;
+      top: 675px;
+      width: 400px;
+      height: 360px;
+      z-index: 10;
+    }
+    .s2-anvil-badge {
+      position: absolute;
+      left: 34px;
+      top: 122px;
+      width: 332px;
+      background: #FF6B6B;
+      border: 4px solid #1E293B;
+      border-radius: 14px;
+      padding: 10px 14px;
+      text-align: center;
+      box-shadow: 0 5px 0 #1E293B;
+    }
+    .s2-anvil-title {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 30px;
+      color: #1E293B;
+      line-height: 1.15;
+    }
+    .s2-anvil-sub {
+      font-family: "Nunito", sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      color: #1E293B;
+      margin-top: 2px;
+    }
+    .s2-error-stamp {
+      position: absolute;
+      left: 118px;
+      top: 1045px;
+      width: 356px;
+      background: #FEE2E2;
+      border: 4px solid #1E293B;
+      border-radius: 14px;
+      padding: 8px 14px;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 29px;
+      color: #1E293B;
+      text-align: center;
+      z-index: 11;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene2-invisible" data-width="1080" data-height="1920">
+    <div id="s2-camera" class="s2-stage" data-layout-allow-overflow>
+      <svg class="s2-svg-full" viewBox="0 0 1080 1920" fill="none" xmlns="http://www.w3.org/2000/svg" data-layout-ignore>
+        <defs>
+          <pattern id="s2-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M40 0 H0 V40" stroke="#E2D5C3" stroke-width="2" opacity="0.5" />
+          </pattern>
+        </defs>
+
+        <!-- Marco de la pantalla de la laptop alrededor del mundo digital -->
+        <rect width="1080" height="1920" fill="#334155" />
+        <rect x="44" y="160" width="992" height="1040" rx="28" fill="#FFF8F0" stroke="#1E293B" stroke-width="5" />
+        <rect x="44" y="160" width="992" height="1040" rx="28" fill="url(#s2-grid)" />
+
+        <!-- Barra de navegador cartoon arriba -->
+        <rect x="44" y="160" width="992" height="58" rx="22" fill="#CBD5E1" stroke="#1E293B" stroke-width="4" />
+        <circle cx="88" cy="189" r="9" fill="#FF6B6B" stroke="#1E293B" stroke-width="3" />
+        <circle cx="118" cy="189" r="9" fill="#FACC15" stroke="#1E293B" stroke-width="3" />
+        <circle cx="148" cy="189" r="9" fill="#10B981" stroke="#1E293B" stroke-width="3" />
+        <rect x="184" y="172" width="680" height="34" rx="14" fill="#FFFFFF" stroke="#1E293B" stroke-width="3" />
+        <text x="524" y="197" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="900" font-size="22" fill="#475569">BUSCADOR &amp; ASISTENTE IA</text>
+
+        <!-- Líneas anime de velocidad al entrar -->
+        <g id="s2-speedlines" stroke="#2563EB" stroke-width="5" stroke-linecap="round" opacity="0.55">
+          <line x1="60" y1="240" x2="180" y2="330" />
+          <line x1="1020" y1="240" x2="900" y2="330" />
+          <line x1="60" y1="1120" x2="180" y2="1030" />
+          <line x1="1020" y1="1120" x2="900" y2="1030" />
+        </g>
+
+        <!-- DOS MUÑEQUITOS CLIENTES (arriba izquierda) -->
+        <g id="s2-customers">
+          <!-- Cliente 1 -->
+          <circle cx="155" cy="315" r="38" fill="#FED7AA" stroke="#1E293B" stroke-width="4" />
+          <path d="M122 300 C128 272 182 272 188 300" fill="#1E293B" />
+          <circle cx="144" cy="316" r="5" fill="#1E293B" />
+          <circle cx="168" cy="316" r="5" fill="#1E293B" />
+          <path d="M115 395 C115 352 195 352 195 395 L202 440 L108 440 Z" fill="#2563EB" stroke="#1E293B" stroke-width="4" />
+          <!-- Cliente 2 -->
+          <circle cx="255" cy="325" r="36" fill="#FDBA74" stroke="#1E293B" stroke-width="4" />
+          <path d="M220 315 C224 282 288 282 290 318" fill="#7C2D12" stroke="#1E293B" stroke-width="3" />
+          <circle cx="244" cy="326" r="5" fill="#1E293B" />
+          <circle cx="266" cy="326" r="5" fill="#1E293B" />
+          <path d="M216 400 C216 360 294 360 294 400 L300 440 L210 440 Z" fill="#FF6B6B" stroke="#1E293B" stroke-width="4" />
+          <!-- Signos de pregunta -->
+          <text x="128" y="264" font-family="Archivo Black, sans-serif" font-size="34" fill="#2563EB">?</text>
+          <text x="275" y="268" font-family="Archivo Black, sans-serif" font-size="34" fill="#FF6B6B">?</text>
+        </g>
+
+        <!-- ROBOT DE CHATGPT (izquierda centro) -->
+        <g id="s2-chatgpt">
+          <rect x="145" y="478" width="170" height="145" rx="34" fill="#10B981" stroke="#1E293B" stroke-width="4" />
+          <!-- Antena -->
+          <line x1="230" y1="478" x2="230" y2="446" stroke="#1E293B" stroke-width="5" />
+          <circle cx="230" cy="440" r="11" fill="#FACC15" stroke="#1E293B" stroke-width="4" />
+          <!-- Visor y ojos -->
+          <rect x="169" y="508" width="122" height="58" rx="18" fill="#1E293B" />
+          <circle cx="204" cy="537" r="10" fill="#10B981" />
+          <circle cx="256" cy="537" r="10" fill="#10B981" />
+          <!-- Logo estilo red en pecho -->
+          <circle cx="230" cy="596" r="14" fill="#FFFFFF" stroke="#1E293B" stroke-width="3" />
+          <circle cx="230" cy="596" r="6" fill="#10B981" />
+          <!-- Etiqueta ChatGPT -->
+          <rect x="150" y="632" width="160" height="36" rx="10" fill="#FFFFFF" stroke="#1E293B" stroke-width="3" />
+          <text x="230" y="657" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="22" fill="#1E293B">ChatGPT</text>
+        </g>
+
+        <!-- LUPA GIGANTE DE GOOGLE (derecha centro) -->
+        <g id="s2-google">
+          <!-- Mango -->
+          <rect x="742" y="575" width="32" height="90" rx="14" fill="#475569" stroke="#1E293B" stroke-width="4" transform="rotate(-38 758 610)" />
+          <!-- Aro colorido de lupa -->
+          <circle cx="675" cy="535" r="78" fill="#FFFFFF" stroke="#1E293B" stroke-width="5" />
+          <path d="M675 466 A69 69 0 0 1 744 535" stroke="#FF6B6B" stroke-width="14" stroke-linecap="round" />
+          <path d="M744 535 A69 69 0 0 1 675 604" stroke="#FACC15" stroke-width="14" stroke-linecap="round" />
+          <path d="M675 604 A69 69 0 0 1 606 535" stroke="#10B981" stroke-width="14" stroke-linecap="round" />
+          <path d="M606 535 A69 69 0 0 1 675 466" stroke="#2563EB" stroke-width="14" stroke-linecap="round" />
+          <text x="675" y="553" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="52" fill="#2563EB">G</text>
+          <!-- Etiqueta Google -->
+          <rect x="605" y="625" width="140" height="36" rx="10" fill="#FFFFFF" stroke="#1E293B" stroke-width="3" />
+          <text x="675" y="650" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="22" fill="#1E293B">Google</text>
+        </g>
+
+        <!-- FLECHAS LUMINOSAS HACIA TU COMPETENCIA -->
+        <g id="s2-arrows">
+          <!-- Flecha desde ChatGPT hacia tienda derecha (sin cruzar texto Google) -->
+          <path d="M335 550 C455 540 505 620 555 710" stroke="#10B981" stroke-width="12" stroke-linecap="round" stroke-dasharray="18 14" />
+          <polygon points="568,732 526,710 564,682" fill="#10B981" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+          <!-- Flecha desde Google hacia tienda derecha -->
+          <path d="M775 565 C845 590 865 640 845 685" stroke="#FACC15" stroke-width="12" stroke-linecap="round" />
+          <polygon points="835,706 822,664 866,678" fill="#FACC15" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+        </g>
+
+        <!-- TIENDA VECINA LLENA DE GENTE ("Tu Competencia") -->
+        <g id="s2-competitor-shop">
+          <rect x="570" y="775" width="380" height="295" rx="18" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" />
+          <!-- Toldo a rayas -->
+          <path d="M555 785 L965 785 L945 835 L575 835 Z" fill="#FF6B6B" stroke="#1E293B" stroke-width="4" />
+          <rect x="615" y="785" width="52" height="50" fill="#FFFFFF" stroke="#1E293B" stroke-width="3" />
+          <rect x="725" y="785" width="52" height="50" fill="#FFFFFF" stroke="#1E293B" stroke-width="3" />
+          <rect x="835" y="785" width="52" height="50" fill="#FFFFFF" stroke="#1E293B" stroke-width="3" />
+          <!-- Ventana y puerta llena de clientes -->
+          <rect x="600" y="865" width="180" height="115" rx="12" fill="#BAE6FD" stroke="#1E293B" stroke-width="4" />
+          <rect x="810" y="865" width="110" height="205" rx="10" fill="#FEF08A" stroke="#1E293B" stroke-width="4" />
+          <!-- Siluetas felices de clientes -->
+          <circle cx="645" cy="915" r="20" fill="#2563EB" stroke="#1E293B" stroke-width="3" />
+          <circle cx="705" cy="925" r="20" fill="#10B981" stroke="#1E293B" stroke-width="3" />
+          <circle cx="750" cy="910" r="18" fill="#FF6B6B" stroke="#1E293B" stroke-width="3" />
+          <circle cx="865" cy="940" r="22" fill="#1E293B" />
+          <path d="M832 1068 C832 1015 898 1015 898 1068 Z" fill="#2563EB" stroke="#1E293B" stroke-width="3" />
+          <!-- Estrellitas de éxito -->
+          <polygon points="590,710 598,728 618,730 603,742 607,762 590,752 573,762 577,742 562,730 582,728" fill="#FACC15" stroke="#1E293B" stroke-width="3" />
+          <polygon points="940,705 948,723 968,725 953,737 957,757 940,747 923,757 927,737 912,725 932,723" fill="#FACC15" stroke="#1E293B" stroke-width="3" />
+        </g>
+
+        <!-- TIENDA DE CARLOS HUNDIDA AL FONDO (izquierda) -->
+        <g id="s2-carlos-shop">
+          <!-- Grieta en el suelo -->
+          <path d="M88 1068 L180 1052 L285 1076 L410 1048 L495 1068" stroke="#1E293B" stroke-width="6" stroke-linecap="round" fill="none" />
+          <g id="s2-carlos-shop-body" transform="rotate(-4 290 960)">
+            <rect x="135" y="855" width="310" height="205" rx="14" fill="#CBD5E1" stroke="#1E293B" stroke-width="4" />
+            <rect x="165" y="910" width="115" height="90" rx="8" fill="#64748B" stroke="#1E293B" stroke-width="4" />
+            <rect x="305" y="910" width="100" height="150" rx="8" fill="#94A3B8" stroke="#1E293B" stroke-width="4" />
+            <text x="290" y="892" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="22" fill="#1E293B">WEB DE CARLOS</text>
+          </g>
+        </g>
+
+        <!-- PANEL INFERIOR: CARLOS AGARRÁNDOSE LA CABEZA EN SHOCK -->
+        <g id="s2-carlos-panic">
+          <!-- Fondo cómic de choque -->
+          <rect x="44" y="1225" width="992" height="325" rx="28" fill="#FFF8F0" stroke="#1E293B" stroke-width="5" />
+          <!-- Líneas de choque cómic -->
+          <g id="s2-shock-lines" stroke="#FF6B6B" stroke-width="7" stroke-linecap="round">
+            <line x1="255" y1="1265" x2="215" y2="1245" />
+            <line x1="250" y1="1335" x2="185" y2="1325" />
+            <line x1="260" y1="1405" x2="205" y2="1425" />
+            <line x1="825" y1="1265" x2="865" y2="1245" />
+            <line x1="830" y1="1335" x2="895" y2="1325" />
+            <line x1="820" y1="1405" x2="875" y2="1425" />
+          </g>
+          <!-- Hombros y camisa de Carlos -->
+          <path d="M390 1445 C390 1390 690 1390 690 1445 L715 1546 L365 1546 Z" fill="#DBEAFE" stroke="#1E293B" stroke-width="4" />
+          <!-- Cabeza de Carlos en shock -->
+          <g id="s2-carlos-head">
+            <rect x="442" y="1268" width="196" height="215" rx="84" fill="#FED7AA" stroke="#1E293B" stroke-width="4" />
+            <path d="M438 1345 C425 1275 478 1228 545 1230 C595 1232 630 1265 642 1320 C622 1280 578 1272 540 1278 C495 1284 456 1306 438 1345 Z" fill="#451A03" stroke="#1E293B" stroke-width="4" />
+            <!-- Ojeras -->
+            <path d="M472 1384 C486 1398 512 1398 524 1384" stroke="#64748B" stroke-width="5" stroke-linecap="round" fill="none" />
+            <path d="M556 1384 C570 1398 596 1398 608 1384" stroke="#64748B" stroke-width="5" stroke-linecap="round" fill="none" />
+            <!-- Ojos enormes de pánico -->
+            <circle cx="498" cy="1358" r="24" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" />
+            <circle cx="582" cy="1358" r="24" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" />
+            <circle cx="498" cy="1358" r="6" fill="#1E293B" />
+            <circle cx="582" cy="1358" r="6" fill="#1E293B" />
+            <!-- Boca abierta gritando -->
+            <ellipse cx="540" cy="1434" rx="34" ry="26" fill="#991B1B" stroke="#1E293B" stroke-width="4" />
+            <!-- Manos agarrándose la cabeza -->
+            <path d="M355 1448 C345 1360 390 1295 438 1295 L448 1352 C420 1365 408 1405 415 1455 Z" fill="#FED7AA" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+            <path d="M725 1448 C735 1360 690 1295 642 1295 L632 1352 C660 1365 672 1405 665 1455 Z" fill="#FED7AA" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+          </g>
+        </g>
+      </svg>
+
+      <!-- Burbuja de pregunta de clientes -->
+      <div id="s2-ask-bubble" class="clip s2-ask-bubble" data-start="0.4" data-duration="8.0">
+        <div id="s2-ask-inner">
+          <p class="s2-ask-text">¿A quién le compro?</p>
+        </div>
+      </div>
+
+      <!-- Letrero Tu Competencia -->
+      <div id="s2-comp-label" class="clip s2-comp-label" data-start="0.2" data-duration="8.4">
+        Tu Competencia
+      </div>
+
+      <!-- Yunque Pesado que cae sobre la web de Carlos (sincronizado con "Su web es tan lenta") -->
+      <div id="s2-anvil" class="clip s2-anvil-wrap" data-start="6.35" data-duration="2.25" data-layout-allow-overflow>
+        <div id="s2-anvil-inner" style="position:relative; width:400px; height:360px;">
+          <svg width="400" height="360" viewBox="0 0 400 360" fill="none">
+            <!-- Cuerpo metálico del yunque -->
+            <path d="M30 85 L370 85 L350 140 L310 145 L295 255 L355 310 L45 310 L105 255 L90 145 L10 115 Z" fill="#475569" stroke="#1E293B" stroke-width="5" stroke-linejoin="round" />
+            <!-- Brillo metálico superior -->
+            <path d="M60 100 H340" stroke="#94A3B8" stroke-width="8" stroke-linecap="round" />
+          </svg>
+          <div class="s2-anvil-badge">
+            <div class="s2-anvil-title">Carga Lenta: 4.8s</div>
+            <div class="s2-anvil-sub">Invisible en IA</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sello error cómico -->
+      <div id="s2-error-stamp" class="clip" style="position:absolute; left:118px; top:1045px; width:356px; z-index:11;" data-start="7.30" data-duration="1.30">
+        <div id="s2-error-stamp-inner" class="s2-error-stamp" style="position:relative; left:0; top:0;">
+          NO ENCONTRADO
+        </div>
+      </div>
+
+      <!-- Destello azul eléctrico de cierre hacia Escena 3 -->
+      <div id="s2-flash" data-layout-ignore style="position:absolute; left:50%; top:50%; width:180px; height:180px; margin:-90px 0 0 -90px; border-radius:50%; background:radial-gradient(circle, #FFFFFF 0%, #60A5FA 45%, #2563EB 100%); opacity:0; z-index:20;"></div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Entrada con zoom aterrizando dentro de la pantalla (0.0s - 0.45s)
+    tl.fromTo("#s2-camera", { scale: 1.32 }, { scale: 1, duration: 0.45, ease: "power3.out" }, 0);
+    tl.fromTo("#s2-speedlines", { opacity: 0.85 }, { opacity: 0, duration: 0.6, ease: "power2.out" }, 0.15);
+
+    // Burbuja "¿A quién le compro?"
+    tl.fromTo("#s2-ask-inner", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.38, ease: "back.out(1.7)" }, 0.4);
+
+    // Flechas hacia Tu Competencia pulsan señalando ("recomiendan a su competencia" en ~3.8s-5.3s)
+    tl.fromTo("#s2-arrows", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 1.2);
+    tl.fromTo("#s2-competitor-shop", { scale: 1 }, { scale: 1.05, duration: 0.35, ease: "back.out(1.7)", repeat: 5, yoyo: true }, 3.4);
+
+    // Caída pesada del yunque sincronizada con "Su web es tan lenta" (6.45s -> impacto 6.85s = 14.65s global)
+    tl.fromTo("#s2-anvil-inner", { y: -620, opacity: 1 }, { y: 0, duration: 0.40, ease: "power4.in" }, 6.45);
+    tl.to("#s2-anvil-inner", { scaleY: 0.9, scaleX: 1.08, duration: 0.08, ease: "power2.out" }, 6.85);
+    tl.to("#s2-anvil-inner", { scaleY: 1, scaleX: 1, duration: 0.24, ease: "back.out(1.7)" }, 6.93);
+    // Sacudida de cámara y hundimiento de tienda al impactar el yunque
+    tl.fromTo("#s2-carlos-shop-body", { y: 0 }, { y: 26, duration: 0.18, ease: "power4.out" }, 6.85);
+    tl.to("#s2-camera", { y: 14, duration: 0.08, repeat: 3, yoyo: true, ease: "none" }, 6.85);
+
+    // Carlos entra en pánico con líneas de choque al caer el yunque (6.85s - 8.45s)
+    tl.fromTo("#s2-carlos-head", { rotation: -3, svgOrigin: "540 1375" }, { rotation: 3, svgOrigin: "540 1375", duration: 0.12, repeat: 11, yoyo: true, ease: "none" }, 6.85);
+    tl.fromTo("#s2-shock-lines", { opacity: 0.25, scale: 0.92, svgOrigin: "540 1375" }, { opacity: 1, scale: 1.06, svgOrigin: "540 1375", duration: 0.20, repeat: 6, yoyo: true, ease: "none" }, 6.85);
+
+    // Sello error cómico ("que nadie la encuentra" en 7.30s = 15.10s global)
+    tl.fromTo("#s2-error-stamp-inner", { scale: 1.6, opacity: 0, rotation: -8 }, { scale: 1, opacity: 1, rotation: -3, duration: 0.26, ease: "back.out(1.7)" }, 7.30);
+
+    // Destello azul eléctrico para lanzar a Mek en Escena 3 (8.10s - 8.60s)
+    tl.fromTo("#s2-flash", { scale: 0.1, opacity: 0 }, { scale: 16, opacity: 1, duration: 0.45, ease: "power3.in" }, 8.15);
+
+    window.__timelines["scene2-invisible"] = tl;
+    tl.seek(0);
+  </script>
+</template>

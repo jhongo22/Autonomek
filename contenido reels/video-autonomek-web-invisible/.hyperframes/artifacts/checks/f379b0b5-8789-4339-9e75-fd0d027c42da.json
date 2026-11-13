@@ -1,0 +1,706 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": false,
+    "errorCount": 1,
+    "warningCount": 19,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "composition_file_too_large",
+        "severity": "warning",
+        "message": "This HTML composition file has 422 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\video-autonomek-web-invisible\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split coherent scenes or layers into separate .html files under compositions/, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently."
+      },
+      {
+        "code": "invalid_composition_variables_declaration",
+        "severity": "error",
+        "message": "data-composition-variables must be a JSON array of variable declarations.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\video-autonomek-web-invisible\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Wrap declarations in [] and give each an id, type, label, and default: '[{\"id\":\"title\",\"type\":\"string\",\"label\":\"Title\",\"default\":\"Hello\"}]'."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 4 overlap (assets/sfx_clean/impact-frame0.mp3 at 0-1.6s, assets/sfx_clean/flatline-subtle.mp3 at 0.5-2.7s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 4 overlap (assets/sfx_clean/impact-frame0.mp3 at 0-1.6s, assets/sfx_clean/tick-digital.mp3 at 0.5-0.68s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 4 overlap (assets/sfx_clean/impact-frame0.mp3 at 0-1.6s, assets/sfx_clean/tick-digital.mp3 at 0.9-1.08s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 4 overlap (assets/sfx_clean/impact-frame0.mp3 at 0-1.6s, assets/sfx_clean/tick-digital.mp3 at 1.3-1.48s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 4 overlap (assets/sfx_clean/flatline-subtle.mp3 at 0.5-2.7s, assets/sfx_clean/tick-digital.mp3 at 0.5-0.68s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 4 overlap (assets/sfx_clean/flatline-subtle.mp3 at 0.5-2.7s, assets/sfx_clean/tick-digital.mp3 at 0.9-1.08s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 4 overlap (assets/sfx_clean/flatline-subtle.mp3 at 0.5-2.7s, assets/sfx_clean/tick-digital.mp3 at 1.3-1.48s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 4 overlap (assets/sfx_clean/flatline-subtle.mp3 at 0.5-2.7s, assets/sfx_clean/tick-digital.mp3 at 1.7-1.88s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 4 overlap (assets/sfx_clean/flatline-subtle.mp3 at 0.5-2.7s, assets/sfx_clean/tick-digital.mp3 at 2.1-2.28s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 4 overlap (assets/sfx_clean/flatline-subtle.mp3 at 0.5-2.7s, assets/sfx_clean/tick-digital.mp3 at 2.5-2.68s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 4 overlap (assets/sfx_clean/sub-zoom.mp3 at 5.38-7.18s, assets/sfx_clean/whoosh-short.mp3 at 5.4-5.85s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 4 overlap (assets/sfx_clean/whoosh-short.mp3 at 7.68-8.13s, assets/sfx_clean/typing-soft.mp3 at 8.12-9.57s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 4 overlap (assets/sfx_clean/typing-soft.mp3 at 8.12-9.57s, assets/sfx_clean/typing-soft.mp3 at 9.55-10.6s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 4 overlap (assets/sfx_clean/chime-success.mp3 at 26.86-28.46s, assets/sfx_clean/data-pulse.mp3 at 28.42-29.07s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 4 overlap (assets/sfx_clean/notif-3.mp3 at 31.02-32.42s, assets/sfx_clean/whoosh-panoramic.mp3 at 32.02-33.52s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 4 overlap (assets/sfx_clean/snap-badge.mp3 at 34.82-35.12s, assets/sfx_clean/pop-2.mp3 at 35.07-35.39s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "2 tl.fromTo() calls target \"#b3-pulse-left, #b3-pulse-right\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#b3-pulse-left, #b3-pulse-right",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\video-autonomek-web-invisible\\compositions\\world.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 28.4s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "composition_file_too_large",
+        "severity": "warning",
+        "message": "This HTML composition file has 518 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\video-autonomek-web-invisible\\compositions\\world.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split this sub-composition further into smaller .html files, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently."
+      }
+    ],
+    "filesScanned": 2
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"vo-beat2\" is 10.99s but its slot (data-duration) is 11.05s — the slot is shortened to the media length when rendered. Set data-duration to ~10.99s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "41.5",
+          "data-width": "1080",
+          "data-height": "1920",
+          "data-fps": "30",
+          "data-motion-blur": "on",
+          "data-composition-variables": "{\"brandName\":\"AUTONOMEK\",\"ctaDomain\":\"autonomek.com\"}"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0
+      },
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"vo-beat4\" is 8.57s but its slot (data-duration) is 8.65s — the slot is shortened to the media length when rendered. Set data-duration to ~8.57s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "41.5",
+          "data-width": "1080",
+          "data-height": "1920",
+          "data-fps": "30",
+          "data-motion-blur": "on",
+          "data-composition-variables": "{\"brandName\":\"AUTONOMEK\",\"ctaDomain\":\"autonomek.com\"}"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0
+      },
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"sfx-b4-panoramic\" is 1.44s but its slot (data-duration) is 1.50s — the slot is shortened to the media length when rendered. Set data-duration to ~1.44s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "41.5",
+          "data-width": "1080",
+          "data-height": "1920",
+          "data-fps": "30",
+          "data-motion-blur": "on",
+          "data-composition-variables": "{\"brandName\":\"AUTONOMEK\",\"ctaDomain\":\"autonomek.com\"}"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0
+      }
+    ]
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 2,
+    "findings": [
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 16.139,
+        "selector": "#b2-serp-list > div:nth-of-type(1) > span:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 138,
+          "top": 309,
+          "right": 482.02,
+          "bottom": 345,
+          "width": 344.02,
+          "height": 36
+        },
+        "containerSelector": "div.b2-search-bar",
+        "text": "Página 1 · Competidor A",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 138,
+          "y": 309,
+          "width": 344.02,
+          "height": 36
+        },
+        "firstSeen": 16.139,
+        "lastSeen": 16.139,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          16.139
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 16.139,
+        "selector": "#b2-serp-list > div:nth-of-type(1) > span:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 788.56,
+          "top": 309,
+          "right": 882,
+          "bottom": 345,
+          "width": 93.44,
+          "height": 36
+        },
+        "containerSelector": "div.b2-search-bar",
+        "text": "Pos #1",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 788.56,
+          "y": 309,
+          "width": 93.44,
+          "height": 36
+        },
+        "firstSeen": 16.139,
+        "lastSeen": 16.139,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          16.139
+        ]
+      }
+    ],
+    "duration": 41.5,
+    "samples": [
+      2.306,
+      6.917,
+      11.528,
+      16.139,
+      20.75,
+      25.361,
+      29.972,
+      34.583,
+      39.194
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 2,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      2.306,
+      11.528,
+      20.75,
+      29.972,
+      39.194
+    ],
+    "checked": 62,
+    "passed": 62
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 4.25 s (19.88–24.13 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 19.875,
+        "seconds": 4.25,
+        "floorSeconds": 3,
+        "until": 24.125
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 13 text elements stay under it for 0.5 s or more, the smallest \"RENDIMIENTO WEB\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "RENDIMIENTO WEB",
+        "selector": "div.b3-mk-kicker",
+        "dataAttributes": {},
+        "sourceFile": "compositions/world.html",
+        "bbox": {
+          "x": 111.61,
+          "y": 255.41,
+          "width": 246.05,
+          "height": 36.13
+        },
+        "time": 27.5,
+        "times": [
+          27.5,
+          27.625,
+          27.875,
+          29.25,
+          30.25,
+          31.125,
+          32.5,
+          32.5,
+          32.75,
+          32.875,
+          32.875,
+          32.875,
+          32.875
+        ],
+        "fontPx": 22.4,
+        "floorPx": 28,
+        "seconds": 14,
+        "elements": [
+          {
+            "selector": "div.b3-mk-kicker",
+            "text": "RENDIMIENTO WEB",
+            "fontPx": 22.4,
+            "time": 27.5,
+            "seconds": 14
+          },
+          {
+            "selector": "#b3-card-google > span:nth-of-type(1)",
+            "text": "✓ VERIFICADO",
+            "fontPx": 22.4,
+            "time": 27.625,
+            "seconds": 13.875
+          },
+          {
+            "selector": "#b3-card-gpt > span:nth-of-type(1)",
+            "text": "✓ PRIORIDAD IA",
+            "fontPx": 22.4,
+            "time": 27.875,
+            "seconds": 13.625
+          },
+          {
+            "selector": "#b3-toast-1 > span:nth-of-type(2)",
+            "text": "AHORA",
+            "fontPx": 22.4,
+            "time": 29.25,
+            "seconds": 12.25
+          },
+          {
+            "selector": "#b3-toast-2 > span:nth-of-type(2)",
+            "text": "GOOGLE #1",
+            "fontPx": 22.4,
+            "time": 30.25,
+            "seconds": 11.25
+          },
+          {
+            "selector": "#b3-toast-3 > span:nth-of-type(2)",
+            "text": "CHATGPT",
+            "fontPx": 22.4,
+            "time": 31.125,
+            "seconds": 10.375
+          },
+          {
+            "selector": "div.b3-wa-head > span:nth-of-type(1)",
+            "text": "WhatsApp Comercial Directo",
+            "fontPx": 24,
+            "time": 32.5,
+            "seconds": 9
+          },
+          {
+            "selector": "div.b3-wa-head > span:nth-of-type(2)",
+            "text": "EN VIVO",
+            "fontPx": 24,
+            "time": 32.5,
+            "seconds": 9
+          },
+          {
+            "selector": "div.b3-mk-caption",
+            "text": "Arquitectura reconstruida para velocidad y ventas",
+            "fontPx": 25.6,
+            "time": 32.75,
+            "seconds": 8.75
+          },
+          {
+            "selector": "#b3-time-badge",
+            "text": "0.6sCarga Instantánea",
+            "fontPx": 27.2,
+            "time": 32.875,
+            "seconds": 8.625
+          },
+          {
+            "selector": "#b3-toast-1 > span:nth-of-type(1)",
+            "text": "+1 Cliente cotizando",
+            "fontPx": 27.2,
+            "time": 32.875,
+            "seconds": 8.625
+          },
+          {
+            "selector": "#b3-toast-2 > span:nth-of-type(1)",
+            "text": "+2 Clientes",
+            "fontPx": 27.2,
+            "time": 32.875,
+            "seconds": 8.625
+          },
+          {
+            "selector": "#b3-toast-3 > span:nth-of-type(1)",
+            "text": "+3 Clientes",
+            "fontPx": 27.2,
+            "time": 32.875,
+            "seconds": 8.625
+          }
+        ]
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 332
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

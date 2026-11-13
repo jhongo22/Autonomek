@@ -1,0 +1,281 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "composition_file_too_large",
+        "severity": "warning",
+        "message": "This HTML composition file has 338 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\cartoon-whatsapp-24-7\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split coherent scenes or layers into separate .html files under compositions/, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently."
+      },
+      {
+        "code": "composition_file_too_large",
+        "severity": "warning",
+        "message": "This HTML composition file has 417 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\cartoon-whatsapp-24-7\\compositions\\scene1-noche.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split this sub-composition further into smaller .html files, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently."
+      }
+    ],
+    "filesScanned": 5
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 27,
+        "selector": "#s3-camera",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -21.6,
+          "top": -30.4,
+          "right": 1101.6,
+          "bottom": 1966.4,
+          "width": 1123.2,
+          "height": 1996.8
+        },
+        "containerSelector": "#s3-stage",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 21.6,
+          "right": 21.6,
+          "top": 30.4,
+          "bottom": 46.4
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene3-neo.html",
+        "bbox": {
+          "x": -21.6,
+          "y": -30.4,
+          "width": 1123.2,
+          "height": 1996.8
+        },
+        "firstSeen": 27,
+        "lastSeen": 27,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          27
+        ]
+      }
+    ],
+    "duration": 42,
+    "samples": [
+      0,
+      3,
+      9.6,
+      14,
+      19.5,
+      27,
+      36.5
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 1,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.4:1; WCAG AA requires 3:1.",
+        "text": "WhatsApp",
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(134,239,172)",
+        "ratio": 1.4,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(123,123,123)",
+        "large": true,
+        "selector": "div > div:nth-of-type(1) > div > div > div:nth-of-type(5) > div > div:nth-of-type(1) > span:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene1-noche.html",
+        "bbox": {
+          "x": 546.1998291015625,
+          "y": 710.1376953125,
+          "width": 153.7666015625,
+          "height": 42.7230224609375
+        },
+        "time": 0,
+        "times": [
+          0
+        ]
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      0,
+      3,
+      14,
+      19.5,
+      36.5
+    ],
+    "checked": 46,
+    "passed": 45
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 3.50 s (9.38–12.88 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 9.375,
+        "seconds": 3.5,
+        "floorSeconds": 3,
+        "until": 12.875
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 3.38 s (19.13–22.50 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 19.125,
+        "seconds": 3.375,
+        "floorSeconds": 3,
+        "until": 22.5
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"Audio 0:30\" renders at 27 px for 6.63 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "Audio 0:30",
+        "selector": "#s3-audio-chip > span:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene3-neo.html",
+        "bbox": {
+          "x": 162.07,
+          "y": 299.36,
+          "width": 138.57,
+          "height": 36.24
+        },
+        "time": 24.875,
+        "times": [
+          24.875
+        ],
+        "fontPx": 26.52,
+        "floorPx": 28,
+        "seconds": 6.625,
+        "elements": [
+          {
+            "selector": "#s3-audio-chip > span:nth-of-type(1)",
+            "text": "Audio 0:30",
+            "fontPx": 26.52,
+            "time": 24.875,
+            "seconds": 6.625
+          }
+        ]
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 336
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": true,
+    "files": [
+      ".hyperframes\\artifacts\\snapshots\\4fa57144-7fae-4535-86cc-d26079663689\\frame-00-at-0.0s.png",
+      ".hyperframes\\artifacts\\snapshots\\4fa57144-7fae-4535-86cc-d26079663689\\frame-01-at-3.0s.png",
+      ".hyperframes\\artifacts\\snapshots\\4fa57144-7fae-4535-86cc-d26079663689\\frame-02-at-14.0s.png",
+      ".hyperframes\\artifacts\\snapshots\\4fa57144-7fae-4535-86cc-d26079663689\\frame-03-at-19.5s.png",
+      ".hyperframes\\artifacts\\snapshots\\4fa57144-7fae-4535-86cc-d26079663689\\frame-04-at-36.5s.png"
+    ],
+    "times": [
+      0,
+      3,
+      14,
+      19.5,
+      36.5
+    ],
+    "findingFiles": []
+  }
+}

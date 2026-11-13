@@ -1,0 +1,14 @@
+{
+  "name": "cartoon-web-autonomek",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.9.40 preview",
+    "check": "npx --yes hyperframes@0.9.40 check",
+    "render": "npx --yes hyperframes@0.9.40 render",
+    "publish": "npx --yes hyperframes@0.9.40 publish"
+  },
+  "devDependencies": {
+    "@hyperframes/core": "^0.9.40"
+  }
+}

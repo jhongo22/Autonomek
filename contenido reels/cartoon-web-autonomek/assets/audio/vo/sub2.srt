@@ -1,0 +1,8 @@
+1
+00:00:00,100 --> 00:00:06,437
+Cuando alguien busca en Google o pregunta en ChatGPT a quién comprarle, recomiendan a su competencia.
+
+2
+00:00:06,387 --> 00:00:09,487
+Su web es tan lenta que nadie la encuentra.
+

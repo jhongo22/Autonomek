@@ -1,0 +1,426 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: var(--color-ground, #FFF8F0);
+      font-family: "Nunito", sans-serif;
+    }
+    .s1-stage {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      transform-origin: 765px 960px;
+    }
+    .s1-svg-full {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      display: block;
+    }
+    .s1-sign-box {
+      position: absolute;
+      left: 120px;
+      top: 196px;
+      width: 840px;
+      background: #FFFFFF;
+      border: 4px solid #1E293B;
+      border-radius: 22px;
+      box-shadow: 0 10px 0 #1E293B;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      z-index: 6;
+    }
+    .s1-sign-label {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 36px;
+      line-height: 1.1;
+      color: #1E293B;
+      letter-spacing: -0.02em;
+    }
+    .s1-sign-badge {
+      background: #FF6B6B;
+      border: 4px solid #1E293B;
+      border-radius: 14px;
+      padding: 8px 18px;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 38px;
+      line-height: 1.05;
+      color: #1E293B;
+    }
+    .s1-bubble {
+      position: absolute;
+      left: 130px;
+      top: 336px;
+      width: 820px;
+      z-index: 9;
+    }
+    #s1-bubble-inner {
+      position: relative;
+      background: #FFFFFF;
+      border: 4px solid #1E293B;
+      border-radius: 28px;
+      box-shadow: 8px 8px 0 rgba(30, 41, 59, 0.22);
+      padding: 20px 30px;
+      transform-origin: 200px 140px;
+    }
+    .s1-bubble-text {
+      font-family: "Nunito", sans-serif;
+      font-weight: 900;
+      font-size: 35px;
+      line-height: 1.22;
+      color: #1E293B;
+      text-align: center;
+    }
+    .s1-bubble-tail {
+      position: absolute;
+      left: 180px;
+      bottom: -27px;
+      width: 48px;
+      height: 28px;
+    }
+    .s1-bill-card {
+      position: absolute;
+      left: 74px;
+      top: 845px;
+      width: 390px;
+      background: #FFFDF9;
+      border: 4px solid #1E293B;
+      border-radius: 14px;
+      box-shadow: 8px 10px 0 rgba(30, 41, 59, 0.2);
+      padding: 20px 22px 24px;
+      z-index: 7;
+      transform-origin: center center;
+    }
+    .s1-bill-header {
+      background: #FF6B6B;
+      border: 3px solid #1E293B;
+      border-radius: 10px;
+      padding: 6px 12px;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 28px;
+      color: #1E293B;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .s1-bill-amount {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 52px;
+      line-height: 1.05;
+      color: #1E293B;
+      text-align: center;
+      letter-spacing: -0.02em;
+    }
+    .s1-bill-lines {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .s1-bill-line {
+      height: 7px;
+      border-radius: 4px;
+      background: #CBD5E1;
+      border: 2px solid #94A3B8;
+    }
+    .s1-bill-stamp {
+      margin-top: 14px;
+      align-self: flex-end;
+      display: inline-block;
+      border: 4px solid #FF6B6B;
+      border-radius: 10px;
+      padding: 4px 12px;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 28px;
+      color: #1E293B;
+      background: #FEE2E2;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene1-telaranas" data-width="1080" data-height="1920">
+    <div id="s1-camera" class="s1-stage" data-layout-allow-overflow>
+      <!-- Fondo estudio cálido, ventana, rayos de cómic y escritorio/mostrador -->
+      <svg class="s1-svg-full" viewBox="0 0 1080 1920" fill="none" xmlns="http://www.w3.org/2000/svg" data-layout-ignore>
+        <defs>
+          <pattern id="s1-dots" width="28" height="28" patternUnits="userSpaceOnUse">
+            <circle cx="14" cy="14" r="3" fill="#E2D5C3" opacity="0.55" />
+          </pattern>
+          <radialGradient id="s1-vig" cx="50%" cy="45%" r="65%">
+            <stop offset="65%" stop-color="#FFF8F0" stop-opacity="0" />
+            <stop offset="100%" stop-color="#D6C7B2" stop-opacity="0.35" />
+          </radialGradient>
+        </defs>
+
+        <!-- Pared crema con patrón halftone -->
+        <rect width="1080" height="1920" fill="#FFF8F0" />
+        <rect width="1080" height="1920" fill="url(#s1-dots)" />
+        <rect width="1080" height="1920" fill="url(#s1-vig)" />
+
+        <!-- Rayos cómic suaves detrás de la acción -->
+        <polygon points="540,760 0,140 180,0" fill="#FEF3C7" opacity="0.7" />
+        <polygon points="540,760 880,0 1080,140" fill="#FEF3C7" opacity="0.7" />
+        <polygon points="540,760 0,680 0,460" fill="#FEF3C7" opacity="0.55" />
+        <polygon points="540,760 1080,460 1080,680" fill="#FEF3C7" opacity="0.55" />
+
+        <!-- Ventana de oficina/tienda al fondo izquierdo -->
+        <g>
+          <rect x="64" y="470" width="220" height="290" rx="14" fill="#E0F2FE" stroke="#1E293B" stroke-width="4" />
+          <line x1="174" y1="470" x2="174" y2="760" stroke="#1E293B" stroke-width="4" />
+          <line x1="64" y1="615" x2="284" y2="615" stroke="#1E293B" stroke-width="4" />
+          <rect x="52" y="756" width="244" height="24" rx="8" fill="#FDE68A" stroke="#1E293B" stroke-width="4" />
+        </g>
+
+        <!-- Cuadro motivacional chueco al fondo derecho -->
+        <g transform="rotate(6 910 560)">
+          <rect x="815" y="485" width="190" height="145" rx="12" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" />
+          <path d="M845 585 L890 535 L930 565 L975 515" stroke="#FF6B6B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+          <circle cx="975" cy="515" r="7" fill="#FF6B6B" stroke="#1E293B" stroke-width="3" />
+        </g>
+
+        <!-- Cuerdas del cartel superior -->
+        <line x1="250" y1="0" x2="250" y2="205" stroke="#1E293B" stroke-width="5" />
+        <line x1="830" y1="0" x2="830" y2="205" stroke="#1E293B" stroke-width="5" />
+        <circle cx="250" cy="214" r="8" fill="#FACC15" stroke="#1E293B" stroke-width="4" />
+        <circle cx="830" cy="214" r="8" fill="#FACC15" stroke="#1E293B" stroke-width="4" />
+
+        <!-- Zócalo de madera -->
+        <rect x="0" y="1140" width="1080" height="26" fill="#E2D5C3" stroke="#1E293B" stroke-width="4" />
+        <rect x="0" y="1166" width="1080" height="754" fill="#F5E6D3" />
+
+        <!-- Mostrador / Escritorio Cartoon -->
+        <g id="s1-desk">
+          <!-- Sombra del mostrador -->
+          <rect x="28" y="1215" width="1040" height="580" rx="28" fill="#1E293B" opacity="0.16" />
+          <!-- Frente del mostrador -->
+          <rect x="16" y="1205" width="1048" height="570" rx="26" fill="#334155" stroke="#1E293B" stroke-width="4" />
+          <rect x="44" y="1245" width="992" height="495" rx="18" fill="#475569" stroke="#1E293B" stroke-width="4" />
+          <!-- Tablero de madera superior -->
+          <rect x="0" y="1148" width="1080" height="72" rx="18" fill="#F59E0B" stroke="#1E293B" stroke-width="4" />
+          <path d="M55 1172 H320 M450 1188 H740 M840 1168 H1025" stroke="#B45309" stroke-width="4" stroke-linecap="round" />
+          <!-- Placa decorativa del mostrador -->
+          <rect x="330" y="1390" width="420" height="90" rx="16" fill="#FFF8F0" stroke="#1E293B" stroke-width="4" />
+          <text x="540" y="1447" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="30" fill="#1E293B">MI NEGOCIO</text>
+        </g>
+
+        <!-- PERSONAJE: CARLOS (Dueño de Negocio frustrado) -->
+        <g id="s1-carlos">
+          <!-- Torso con camisa arremangada -->
+          <path d="M295 810 C295 760 545 760 545 810 L570 1148 L270 1148 Z" fill="#DBEAFE" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+          <!-- Sombra cel-shading camisa -->
+          <path d="M470 795 L545 810 L570 1148 L490 1148 Z" fill="#BFDBFE" />
+          <!-- Cuello y corbata torcida -->
+          <rect x="392" y="742" width="56" height="55" rx="16" fill="#FDBA74" stroke="#1E293B" stroke-width="4" />
+          <polygon points="420,792 385,845 415,815" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+          <polygon points="420,792 455,845 425,815" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+          <path d="M412 812 L428 812 L444 965 L420 995 L396 965 Z" fill="#FF6B6B" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" transform="rotate(9 420 820)" />
+
+          <!-- Cabeza animable de Carlos -->
+          <g id="s1-carlos-head">
+            <!-- Orejas -->
+            <ellipse cx="315" cy="645" rx="22" ry="30" fill="#FDBA74" stroke="#1E293B" stroke-width="4" />
+            <ellipse cx="525" cy="645" rx="22" ry="30" fill="#FDBA74" stroke="#1E293B" stroke-width="4" />
+            <!-- Cráneo -->
+            <rect x="322" y="510" width="196" height="248" rx="88" fill="#FED7AA" stroke="#1E293B" stroke-width="4" />
+            <!-- Sombra cel mejilla -->
+            <path d="M465 530 C505 560 515 670 465 735 C495 725 516 680 516 630 C516 570 492 540 465 530 Z" fill="#FDBA74" />
+            <!-- Cabello alborotado -->
+            <path d="M318 605 C304 530 355 466 425 468 C472 470 505 492 522 528 C545 536 538 585 518 605 C508 552 465 535 422 540 C376 544 338 564 318 605 Z" fill="#451A03" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+            <path d="M385 480 C395 450 432 448 446 474" fill="#451A03" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
+
+            <!-- Ojeras marcadas de cansancio/frustración -->
+            <path d="M352 648 C365 664 395 664 406 648" stroke="#64748B" stroke-width="6" stroke-linecap="round" fill="none" />
+            <path d="M434 648 C447 664 477 664 488 648" stroke="#64748B" stroke-width="6" stroke-linecap="round" fill="none" />
+
+            <!-- Ojos abiertos en pánico -->
+            <g id="s1-carlos-eyes">
+              <ellipse cx="380" cy="622" rx="26" ry="28" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" />
+              <ellipse cx="460" cy="622" rx="26" ry="28" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" />
+              <circle cx="384" cy="625" r="8" fill="#1E293B" />
+              <circle cx="456" cy="625" r="8" fill="#1E293B" />
+              <circle cx="387" cy="621" r="3" fill="#FFFFFF" />
+              <circle cx="459" cy="621" r="3" fill="#FFFFFF" />
+            </g>
+
+            <!-- Cejas angustiadas -->
+            <path id="s1-brow-l" d="M348 588 L404 574" stroke="#1E293B" stroke-width="7" stroke-linecap="round" />
+            <path id="s1-brow-r" d="M436 574 L492 588" stroke="#1E293B" stroke-width="7" stroke-linecap="round" />
+
+            <!-- Nariz cartoon -->
+            <path d="M416 635 C430 650 432 666 414 672" stroke="#1E293B" stroke-width="4" stroke-linecap="round" fill="none" />
+
+            <!-- Boca en mueca de pánico -->
+            <path d="M376 706 C394 690 446 690 464 706 C470 726 452 736 420 736 C388 736 370 726 376 706 Z" fill="#991B1B" stroke="#1E293B" stroke-width="4" />
+            <path d="M388 704 H452" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" />
+
+            <!-- Gotas de sudor -->
+            <path id="s1-sweat-1" d="M510 562 C522 580 526 594 514 600 C502 606 496 592 510 562 Z" fill="#38BDF8" stroke="#1E293B" stroke-width="3" />
+            <path id="s1-sweat-2" d="M302 580 C290 598 286 612 298 618 C310 624 316 610 302 580 Z" fill="#38BDF8" stroke="#1E293B" stroke-width="3" />
+          </g>
+
+          <!-- Brazo izquierdo arremangado sosteniendo factura -->
+          <g id="s1-arm-l">
+            <path d="M298 815 C242 840 212 910 215 955 L268 960 C275 915 292 880 322 865 Z" fill="#DBEAFE" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+            <rect x="206" y="936" width="66" height="26" rx="10" fill="#EFF6FF" stroke="#1E293B" stroke-width="4" />
+            <path d="M214 962 L182 1005 L234 1018 L258 962 Z" fill="#FED7AA" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+            <circle cx="170" cy="1008" r="24" fill="#FED7AA" stroke="#1E293B" stroke-width="4" />
+          </g>
+
+          <!-- Brazo derecho arremangado sosteniendo el otro borde de la factura -->
+          <g id="s1-arm-r">
+            <path d="M542 815 C580 865 550 935 490 965 L455 928 C495 900 508 870 495 845 Z" fill="#DBEAFE" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+            <rect x="442" y="922" width="58" height="26" rx="10" fill="#EFF6FF" stroke="#1E293B" stroke-width="4" transform="rotate(-24 470 935)" />
+            <circle cx="456" cy="968" r="24" fill="#FED7AA" stroke="#1E293B" stroke-width="4" />
+          </g>
+        </g>
+
+        <!-- LAPTOP CON TELARAÑAS Y ARAÑA -->
+        <g id="s1-laptop">
+          <!-- Base teclado -->
+          <polygon points="555,1115 975,1115 1010,1152 520,1152" fill="#CBD5E1" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+          <rect x="575" y="1124" width="380" height="12" rx="4" fill="#64748B" />
+          <!-- Pantalla -->
+          <rect x="568" y="805" width="396" height="310" rx="18" fill="#334155" stroke="#1E293B" stroke-width="4" />
+          <rect x="588" y="825" width="356" height="270" rx="10" fill="#E2E8F0" stroke="#1E293B" stroke-width="4" />
+          <!-- Contenido pantalla triste -->
+          <rect x="588" y="825" width="356" height="38" rx="8" fill="#CBD5E1" stroke="#1E293B" stroke-width="3" />
+          <circle cx="612" cy="844" r="6" fill="#FF6B6B" stroke="#1E293B" stroke-width="2" />
+          <circle cx="632" cy="844" r="6" fill="#FACC15" stroke="#1E293B" stroke-width="2" />
+          <circle cx="652" cy="844" r="6" fill="#10B981" stroke="#1E293B" stroke-width="2" />
+          <text x="766" y="950" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="44" fill="#475569">404</text>
+          <text x="766" y="998" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="900" font-size="30" fill="#64748B">SIN VISITAS</text>
+
+          <!-- Telarañas SVG sobre laptop -->
+          <g id="s1-cobwebs" stroke="#475569" stroke-width="3" stroke-linecap="round" fill="none">
+            <!-- Esquina superior izquierda pantalla -->
+            <path d="M568 805 L710 805 M568 805 L685 885 M568 805 L635 940 M568 805 L568 960" />
+            <path d="M605 805 Q605 835 568 845" />
+            <path d="M645 805 Q635 860 568 890" />
+            <path d="M690 805 Q665 885 568 935" />
+            <!-- Esquina superior derecha pantalla -->
+            <path d="M964 805 L820 805 M964 805 L840 890 M964 805 L890 950 M964 805 L964 975" />
+            <path d="M922 805 Q925 842 964 852" />
+            <path d="M876 805 Q888 872 964 900" />
+            <path d="M832 805 Q858 900 964 948" />
+            <!-- Base teclado telaraña -->
+            <path d="M530 1150 Q620 1075 720 1150" stroke="#64748B" />
+            <path d="M555 1132 Q620 1105 685 1138" stroke="#64748B" />
+          </g>
+
+          <!-- Araña balanceándose de hilo -->
+          <g id="s1-spider" style="transform-origin: 690px 805px;">
+            <line x1="690" y1="805" x2="690" y2="890" stroke="#475569" stroke-width="3" />
+            <circle cx="690" cy="900" r="16" fill="#1E293B" />
+            <circle cx="690" cy="917" r="10" fill="#1E293B" />
+            <circle cx="685" cy="919" r="3" fill="#FFFFFF" />
+            <circle cx="695" cy="919" r="3" fill="#FFFFFF" />
+            <path d="M676 895 L656 880 L650 895 M675 903 L652 900 L648 917 M676 910 L658 919 L656 933" stroke="#1E293B" stroke-width="3" stroke-linecap="round" fill="none" />
+            <path d="M704 895 L724 880 L730 895 M705 903 L728 900 L732 917 M704 910 L722 919 L724 933" stroke="#1E293B" stroke-width="3" stroke-linecap="round" fill="none" />
+          </g>
+        </g>
+
+        <!-- TELÉFONO TEMBLANDO CON POLVO -->
+        <g id="s1-phone-wrap">
+          <!-- Nubes de polvo -->
+          <g id="s1-dust-l" opacity="0">
+            <circle cx="792" cy="1135" r="18" fill="#E2E8F0" stroke="#1E293B" stroke-width="3" />
+            <circle cx="774" cy="1142" r="12" fill="#E2E8F0" stroke="#1E293B" stroke-width="3" />
+          </g>
+          <g id="s1-dust-r" opacity="0">
+            <circle cx="965" cy="1135" r="18" fill="#E2E8F0" stroke="#1E293B" stroke-width="3" />
+            <circle cx="984" cy="1142" r="12" fill="#E2E8F0" stroke="#1E293B" stroke-width="3" />
+          </g>
+          <g id="s1-phone" style="transform-origin: 880px 1090px;">
+            <rect x="836" y="1028" width="88" height="128" rx="16" fill="#1E293B" stroke="#1E293B" stroke-width="4" />
+            <rect x="846" y="1042" width="68" height="96" rx="8" fill="#F8FAFC" />
+            <circle cx="880" cy="1086" r="16" fill="#CBD5E1" stroke="#64748B" stroke-width="3" />
+            <text x="880" y="1093" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="22" fill="#1E293B">0</text>
+          </g>
+        </g>
+      </svg>
+
+      <!-- Letrero Superior: 6 MESES DESPUÉS: 0 CLIENTES -->
+      <div id="s1-sign" class="clip s1-sign-box" data-start="0" data-duration="7.8">
+        <span class="s1-sign-label">6 MESES DESPUÉS:</span>
+        <span class="s1-sign-badge">0 CLIENTES</span>
+      </div>
+
+      <!-- Factura Gigante de Papel: FACTURA WEB: $1,500 USD -->
+      <div id="s1-bill" class="clip s1-bill-card" data-start="0" data-duration="7.8">
+        <div id="s1-bill-inner">
+          <div class="s1-bill-header">FACTURA WEB</div>
+          <div class="s1-bill-amount">$1,500 USD</div>
+          <div class="s1-bill-lines">
+            <div class="s1-bill-line" style="width: 92%"></div>
+            <div class="s1-bill-line" style="width: 78%"></div>
+            <div class="s1-bill-line" style="width: 64%"></div>
+          </div>
+          <div style="display:flex; justify-content:flex-end;">
+            <span class="s1-bill-stamp">PAGADO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Burbuja de diálogo cómic de Carlos -->
+      <div id="s1-bubble" class="clip s1-bubble" data-start="2.8" data-duration="4.7">
+        <div id="s1-bubble-inner">
+          <p class="s1-bubble-text">¡Pagué un dineral por mi web y no entra ni mi mamá!</p>
+          <svg class="s1-bubble-tail" viewBox="0 0 48 28" fill="none">
+            <path d="M2 0 L18 24 L40 0 Z" fill="#FFFFFF" />
+            <path d="M4 2 L18 24 L38 2" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" fill="none" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Planta rodadora del desierto (Tumbleweed) -->
+      <div id="s1-tumbleweed" data-layout-allow-overflow style="position:absolute; left:0; top:1120px; width:190px; height:190px; z-index:10;">
+        <svg id="s1-tumbleweed-spin" width="190" height="190" viewBox="0 0 180 180" fill="none">
+          <circle cx="90" cy="90" r="66" fill="#D97706" opacity="0.22" />
+          <path d="M35 80 C45 30 120 20 145 70 C165 115 110 160 60 145 C22 130 20 65 75 40 C125 22 155 90 110 135 C70 165 30 110 65 65" stroke="#78350F" stroke-width="6" stroke-linecap="round" />
+          <path d="M45 115 C75 150 135 125 130 75 C125 35 60 35 45 85 C35 120 95 155 140 105" stroke="#92400E" stroke-width="5" stroke-linecap="round" />
+          <path d="M25 90 L55 82 M125 55 L155 45 M105 140 L125 162 M65 32 L52 14" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Frame 0.0s: Impacto inmediato sin fade-in en Carlos, factura, letrero y telarañas
+    tl.fromTo("#s1-bill-inner", { scale: 1.07, rotation: -6 }, { scale: 1, rotation: -3, duration: 0.35, ease: "back.out(1.7)" }, 0);
+    tl.fromTo("#s1-carlos-head", { y: -8, rotation: -2, svgOrigin: "330 660" }, { y: 0, rotation: 0, svgOrigin: "330 660", duration: 0.35, ease: "back.out(1.7)" }, 0);
+
+    // Araña balanceándose continuamente
+    tl.fromTo("#s1-spider", { rotation: -12, svgOrigin: "690 805" }, { rotation: 12, svgOrigin: "690 805", duration: 1.2, ease: "sine.inOut", repeat: 5, yoyo: true }, 0);
+
+    // Gotas de sudor y parpadeo/temblor nervioso de Carlos
+    tl.fromTo("#s1-sweat-1", { y: 0, opacity: 1 }, { y: 24, opacity: 0.2, duration: 1.1, ease: "power1.in", repeat: 4, yoyo: false }, 0.3);
+    tl.fromTo("#s1-sweat-2", { y: 0, opacity: 1 }, { y: 22, opacity: 0.2, duration: 1.25, ease: "power1.in", repeat: 4, yoyo: false }, 0.8);
+
+    // Tumbleweed rodando y rebotando por el mostrador (1.45s - 4.35s)
+    tl.fromTo("#s1-tumbleweed", { x: -220 }, { x: 1240, duration: 2.9, ease: "none" }, 1.45);
+    tl.fromTo("#s1-tumbleweed-spin", { y: 0, rotation: 0, transformOrigin: "50% 50%" }, { y: -64, rotation: 1080, transformOrigin: "50% 50%", duration: 0.42, ease: "power2.out", repeat: 6, yoyo: true }, 1.45);
+
+    // Teléfono tiembla con nubes de polvo (1.8s - 3.3s)
+    tl.fromTo("#s1-phone", { rotation: -6, x: -4, svgOrigin: "880 1090" }, { rotation: 6, x: 4, svgOrigin: "880 1090", duration: 0.07, repeat: 18, yoyo: true, ease: "none" }, 1.85);
+    tl.fromTo("#s1-dust-l", { opacity: 0, x: 10, scale: 0.5 }, { opacity: 0.9, x: -22, scale: 1.1, duration: 0.45, repeat: 2, yoyo: true }, 1.85);
+    tl.fromTo("#s1-dust-r", { opacity: 0, x: -10, scale: 0.5 }, { opacity: 0.9, x: 22, scale: 1.1, duration: 0.45, repeat: 2, yoyo: true }, 1.95);
+
+    // Burbuja de diálogo de Carlos (2.8s, back.out)
+    tl.fromTo("#s1-bubble-inner", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.42, ease: "back.out(1.7)" }, 2.8);
+    tl.to("#s1-bubble-inner", { opacity: 0, scale: 0.92, duration: 0.22, ease: "power2.in" }, 7.1);
+
+    // Zoom dinámico hacia la pantalla de la laptop antes de entrar a Escena 2 (7.25s - 7.80s)
+    tl.fromTo("#s1-camera", { scale: 1, x: 0, y: 0 }, { scale: 2.75, x: -120, y: -40, duration: 0.55, ease: "power3.in" }, 7.25);
+
+    window.__timelines["scene1-telaranas"] = tl;
+    tl.seek(0);
+  </script>
+</template>
+

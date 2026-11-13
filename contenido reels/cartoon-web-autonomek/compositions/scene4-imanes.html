@@ -1,0 +1,341 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #FFF8F0;
+      font-family: "Nunito", sans-serif;
+    }
+    .s4-stage {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      transform-origin: center center;
+    }
+    .s4-svg-full {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      display: block;
+    }
+    .s4-wa-bubble {
+      position: absolute;
+      right: 76px;
+      width: 470px;
+      z-index: 12;
+    }
+    .s4-wa-card {
+      background: #10B981;
+      border: 4px solid #1E293B;
+      border-radius: 22px;
+      box-shadow: 0 7px 0 #1E293B;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .s4-wa-text {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 30px;
+      color: #1E293B;
+      line-height: 1.1;
+    }
+    .s4-cta-wrap {
+      position: absolute;
+      left: 100px;
+      top: 1192px;
+      width: 880px;
+      z-index: 15;
+    }
+    .s4-cta-card {
+      background: #FFFFFF;
+      border: 5px solid #1E293B;
+      border-radius: 30px;
+      box-shadow: 0 12px 0 #1E293B;
+      padding: 22px 34px 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .s4-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .s4-brand-name {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 34px;
+      letter-spacing: 0.04em;
+      color: #2563EB;
+    }
+    .s4-cta-sub {
+      font-family: "Nunito", sans-serif;
+      font-weight: 900;
+      font-size: 34px;
+      color: #1E293B;
+      text-align: center;
+      line-height: 1.15;
+    }
+    .s4-cta-btn {
+      background: #10B981;
+      border: 4px solid #1E293B;
+      border-radius: 22px;
+      box-shadow: 0 7px 0 #1E293B;
+      padding: 14px 36px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .s4-cta-btn-text {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 42px;
+      color: #1E293B;
+      letter-spacing: -0.01em;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene4-imanes" data-width="1080" data-height="1920">
+    <div id="s4-camera" class="s4-stage" data-layout-allow-overflow>
+      <svg class="s4-svg-full" viewBox="0 0 1080 1920" fill="none" xmlns="http://www.w3.org/2000/svg" data-layout-ignore>
+        <defs>
+          <pattern id="s4-dots" width="28" height="28" patternUnits="userSpaceOnUse">
+            <circle cx="14" cy="14" r="3" fill="#E2D5C3" opacity="0.45" />
+          </pattern>
+        </defs>
+
+        <!-- Pared luminosa crema cálido -->
+        <rect width="1080" height="1920" fill="#FFF8F0" />
+        <rect width="1080" height="1920" fill="url(#s4-dots)" />
+
+        <!-- Rayos solares alegres -->
+        <polygon points="180,520 580,0 820,0" fill="#FEF3C7" opacity="0.7" />
+        <polygon points="180,520 1080,140 1080,440" fill="#D1FAE5" opacity="0.5" />
+
+        <!-- Ventana soleada izquierda -->
+        <rect x="44" y="250" width="180" height="240" rx="14" fill="#BAE6FD" stroke="#1E293B" stroke-width="4" />
+        <circle cx="105" cy="315" r="28" fill="#FACC15" stroke="#1E293B" stroke-width="3" />
+        <line x1="134" y1="250" x2="134" y2="490" stroke="#1E293B" stroke-width="4" />
+        <line x1="44" y1="370" x2="224" y2="370" stroke="#1E293B" stroke-width="4" />
+
+        <!-- Confeti vectorial determinista -->
+        <g id="s4-confetti">
+          <rect x="140" y="180" width="22" height="12" rx="3" fill="#2563EB" stroke="#1E293B" stroke-width="2" transform="rotate(25 151 186)" />
+          <rect x="310" y="120" width="20" height="12" rx="3" fill="#FF6B6B" stroke="#1E293B" stroke-width="2" transform="rotate(-18 320 126)" />
+          <circle cx="480" cy="175" r="9" fill="#FACC15" stroke="#1E293B" stroke-width="2" />
+          <rect x="650" y="140" width="22" height="12" rx="3" fill="#10B981" stroke="#1E293B" stroke-width="2" transform="rotate(40 661 146)" />
+          <circle cx="860" cy="195" r="9" fill="#2563EB" stroke="#1E293B" stroke-width="2" />
+          <rect x="930" y="130" width="20" height="12" rx="3" fill="#FACC15" stroke="#1E293B" stroke-width="2" transform="rotate(-32 940 136)" />
+          <rect x="230" y="240" width="18" height="10" rx="3" fill="#10B981" stroke="#1E293B" stroke-width="2" transform="rotate(14 239 245)" />
+          <rect x="540" y="220" width="20" height="12" rx="3" fill="#FF6B6B" stroke="#1E293B" stroke-width="2" transform="rotate(-24 550 226)" />
+        </g>
+
+        <!-- Mostrador cálido -->
+        <rect x="0" y="1140" width="1080" height="26" fill="#E2D5C3" stroke="#1E293B" stroke-width="4" />
+        <rect x="0" y="1166" width="1080" height="754" fill="#334155" stroke="#1E293B" stroke-width="4" />
+        <rect x="0" y="1142" width="1080" height="68" rx="18" fill="#F59E0B" stroke="#1E293B" stroke-width="4" />
+        <path d="M55 1166 H320 M450 1180 H740 M840 1164 H1025" stroke="#B45309" stroke-width="4" stroke-linecap="round" />
+
+        <!-- Laptop brillante y limpia -->
+        <g id="s4-laptop">
+          <polygon points="485,1112 765,1112 795,1142 455,1142" fill="#CBD5E1" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+          <rect x="505" y="925" width="240" height="186" rx="14" fill="#334155" stroke="#1E293B" stroke-width="4" />
+          <rect x="519" y="939" width="212" height="158" rx="8" fill="#D1FAE5" stroke="#1E293B" stroke-width="3" />
+          <circle cx="625" cy="998" r="32" fill="#10B981" stroke="#1E293B" stroke-width="4" />
+          <path d="M610 998 L621 1009 L642 986" stroke="#1E293B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+          <text x="625" y="1068" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="22" fill="#1E293B">WEB #1</text>
+        </g>
+
+        <!-- TELÉFONO SALTANDO DE ALEGRÍA -->
+        <g id="s4-phone" style="transform-origin: 890px 1090px;">
+          <rect x="842" y="975" width="96" height="145" rx="18" fill="#1E293B" stroke="#1E293B" stroke-width="4" />
+          <rect x="854" y="990" width="72" height="110" rx="10" fill="#ECFDF5" />
+          <circle cx="890" cy="1038" r="22" fill="#10B981" stroke="#1E293B" stroke-width="3" />
+          <path d="M879 1038 L887 1046 L902 1030" stroke="#1E293B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <text x="890" y="1085" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="20" fill="#1E293B">+99</text>
+        </g>
+
+        <!-- PERSONAJE: CARLOS RELAJADO Y SONRIENTE CON CAFÉ -->
+        <g id="s4-carlos" transform="translate(32, 0)">
+          <!-- Torso camisa limpia arremangada -->
+          <path d="M185 835 C185 785 415 785 415 835 L438 1142 L162 1142 Z" fill="#DBEAFE" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+          <rect x="274" y="768" width="52" height="52" rx="16" fill="#FDBA74" stroke="#1E293B" stroke-width="4" />
+          <polygon points="300,816 266,862 296,836" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+          <polygon points="300,816 334,862 304,836" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+
+          <!-- Cabeza de Carlos (SIN ojeras, gran sonrisa) -->
+          <g id="s4-carlos-head">
+            <ellipse cx="206" cy="672" rx="20" ry="28" fill="#FDBA74" stroke="#1E293B" stroke-width="4" />
+            <ellipse cx="394" cy="672" rx="20" ry="28" fill="#FDBA74" stroke="#1E293B" stroke-width="4" />
+            <rect x="212" y="544" width="176" height="232" rx="80" fill="#FED7AA" stroke="#1E293B" stroke-width="4" />
+            <!-- Cabello ordenado alegre -->
+            <path d="M210 630 C198 558 245 502 305 504 C350 506 382 528 394 562 C412 572 408 614 392 630 C382 582 344 568 302 572 C260 576 228 594 210 630 Z" fill="#451A03" stroke="#1E293B" stroke-width="4" />
+            <!-- Ojos felices -->
+            <ellipse cx="264" cy="648" rx="18" ry="20" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" />
+            <ellipse cx="336" cy="648" rx="18" ry="20" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" />
+            <circle cx="268" cy="648" r="7" fill="#1E293B" />
+            <circle cx="340" cy="648" r="7" fill="#1E293B" />
+            <!-- Cejas relajadas -->
+            <path d="M242 618 Q264 606 284 618" stroke="#1E293B" stroke-width="6" stroke-linecap="round" fill="none" />
+            <path d="M316 618 Q336 606 358 618" stroke="#1E293B" stroke-width="6" stroke-linecap="round" fill="none" />
+            <!-- Mejillas alegres -->
+            <ellipse cx="240" cy="686" rx="14" ry="8" fill="#FF6B6B" opacity="0.4" />
+            <ellipse cx="360" cy="686" rx="14" ry="8" fill="#FF6B6B" opacity="0.4" />
+            <!-- Gran sonrisa -->
+            <path d="M258 708 C276 742 324 742 342 708 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+
+            <!-- GAFAS DE SOL QUE CAEN SOBRE CARLOS -->
+            <g id="s4-sunglasses" opacity="0">
+              <rect x="228" y="628" width="64" height="40" rx="10" fill="#1E293B" stroke="#1E293B" stroke-width="4" />
+              <rect x="308" y="628" width="64" height="40" rx="10" fill="#1E293B" stroke="#1E293B" stroke-width="4" />
+              <line x1="292" y1="642" x2="308" y2="642" stroke="#1E293B" stroke-width="6" />
+              <line x1="212" y1="638" x2="228" y2="642" stroke="#1E293B" stroke-width="5" />
+              <line x1="372" y1="642" x2="388" y2="638" stroke="#1E293B" stroke-width="5" />
+              <!-- Brillo en gafas -->
+              <line x1="242" y1="636" x2="256" y2="658" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" />
+              <line x1="322" y1="636" x2="336" y2="658" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" />
+            </g>
+          </g>
+
+          <!-- Brazo izquierdo sosteniendo taza de café caliente -->
+          <g id="s4-carlos-mug-arm">
+            <path d="M185 842 C130 885 112 955 135 1005 L182 995 C166 955 174 915 206 890 Z" fill="#DBEAFE" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+            <!-- Taza de café -->
+            <rect x="92" y="968" width="66" height="72" rx="12" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" />
+            <path d="M158 982 C180 982 180 1022 158 1022" stroke="#1E293B" stroke-width="5" fill="none" />
+            <rect x="92" y="995" width="66" height="16" fill="#FF6B6B" stroke="#1E293B" stroke-width="3" />
+            <!-- Vapor del café -->
+            <path id="s4-steam-1" d="M112 955 C102 935 124 918 112 898" stroke="#94A3B8" stroke-width="4" stroke-linecap="round" fill="none" />
+            <path id="s4-steam-2" d="M136 955 C146 935 124 918 136 898" stroke="#94A3B8" stroke-width="4" stroke-linecap="round" fill="none" />
+          </g>
+
+          <!-- Brazo derecho que sube para chocar los cinco con Mek (termina en x=474, y=645 local => 506, 645 global) -->
+          <g id="s4-carlos-highfive-arm">
+            <path d="M402 845 C450 802 478 725 478 656 L438 666 C440 722 414 778 375 815 Z" fill="#DBEAFE" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+            <circle cx="462" cy="645" r="24" fill="#FED7AA" stroke="#1E293B" stroke-width="4" />
+          </g>
+        </g>
+
+        <!-- PERSONAJE: MEK CHOCANDO LOS CINCO (desplazado a x=697 centro) -->
+        <g id="s4-mek" transform="translate(72, -20)">
+          <path d="M598 795 L625 855 L652 795 Z" fill="#FACC15" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+          <!-- Brazo izquierdo de Mek extendido hacia Carlos (llega a (440, 665) local => (512, 645) global) -->
+          <g id="s4-mek-arm-l">
+            <path d="M558 715 C512 702 474 684 446 668" stroke="#1E293B" stroke-width="14" stroke-linecap="round" fill="none" />
+            <path d="M558 715 C512 702 474 684 446 668" stroke="#10B981" stroke-width="6" stroke-linecap="round" fill="none" />
+            <circle cx="440" cy="665" r="15" fill="#FACC15" stroke="#1E293B" stroke-width="4" />
+          </g>
+          <!-- Brazo derecho saludando -->
+          <path d="M695 715 C735 700 755 668 744 645" stroke="#1E293B" stroke-width="14" stroke-linecap="round" fill="none" />
+          <path d="M695 715 C735 700 755 668 744 645" stroke="#10B981" stroke-width="6" stroke-linecap="round" fill="none" />
+          <circle cx="742" cy="640" r="11" fill="#FACC15" stroke="#1E293B" stroke-width="3" />
+          <!-- Cuerpo Mek -->
+          <path d="M562 688 L688 688 L672 795 L578 795 Z" fill="#2563EB" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+          <rect x="595" y="712" width="60" height="46" rx="12" fill="#10B981" stroke="#1E293B" stroke-width="4" />
+          <!-- Cabeza Mek -->
+          <rect x="544" y="562" width="162" height="124" rx="38" fill="#2563EB" stroke="#1E293B" stroke-width="4" />
+          <rect x="526" y="598" width="20" height="50" rx="8" fill="#10B981" stroke="#1E293B" stroke-width="4" />
+          <rect x="704" y="598" width="20" height="50" rx="8" fill="#10B981" stroke="#1E293B" stroke-width="4" />
+          <line x1="625" y1="562" x2="625" y2="528" stroke="#1E293B" stroke-width="5" />
+          <circle cx="625" cy="522" r="11" fill="#FACC15" stroke="#1E293B" stroke-width="4" />
+          <!-- Visor con Check Verde -->
+          <rect x="564" y="584" width="122" height="78" rx="22" fill="#1E293B" />
+          <path d="M585 622 L597 634 L615 612" stroke="#10B981" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M635 622 L647 634 L665 612" stroke="#10B981" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+
+        <!-- Estrella de choque de los cinco (CLAP!) justo entre Carlos y Mek (x=503, y=645) -->
+        <g id="s4-clap-burst" opacity="0">
+          <polygon points="503,585 519,619 555,611 533,641 561,669 523,669 503,703 483,669 445,669 473,641 451,611 487,619" fill="#FACC15" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+        </g>
+      </svg>
+
+      <!-- Burbujas verdes de WhatsApp flotando hacia arriba -->
+      <div id="s4-wa-1" class="clip s4-wa-bubble" style="top: 215px;" data-start="0.5" data-duration="7.9">
+        <div id="s4-wa-1-inner" class="s4-wa-card">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="17" fill="#FFFFFF" stroke="#1E293B" stroke-width="3" /><path d="M12 19 L17 24 L27 14" stroke="#10B981" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <span class="s4-wa-text">+1 Nuevo Cliente</span>
+        </div>
+      </div>
+
+      <div id="s4-wa-2" class="clip s4-wa-bubble" style="top: 325px;" data-start="1.15" data-duration="7.25">
+        <div id="s4-wa-2-inner" class="s4-wa-card">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="17" fill="#FFFFFF" stroke="#1E293B" stroke-width="3" /><path d="M12 19 L17 24 L27 14" stroke="#10B981" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <span class="s4-wa-text">+1 Cita Agendada</span>
+        </div>
+      </div>
+
+      <div id="s4-wa-3" class="clip s4-wa-bubble" style="top: 435px;" data-start="1.8" data-duration="6.6">
+        <div id="s4-wa-3-inner" class="s4-wa-card">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="17" fill="#FFFFFF" stroke="#1E293B" stroke-width="3" /><path d="M12 19 L17 24 L27 14" stroke="#10B981" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <span class="s4-wa-text">+1 Venta Cerrada</span>
+        </div>
+      </div>
+
+      <!-- Cartel Cartoon Final con Logo Autonomek y Botón WhatsApp -->
+      <div id="s4-cta" class="clip s4-cta-wrap" data-start="3.5" data-duration="4.9" data-hold="true">
+        <div id="s4-cta-inner" class="s4-cta-card">
+          <div class="s4-brand-row">
+            <svg width="52" height="44" viewBox="0 0 52 44" fill="none">
+              <rect x="2" y="2" width="48" height="40" rx="12" fill="#2563EB" stroke="#1E293B" stroke-width="4" />
+              <rect x="10" y="10" width="32" height="24" rx="8" fill="#1E293B" />
+              <circle cx="20" cy="22" r="4" fill="#10B981" />
+              <circle cx="32" cy="22" r="4" fill="#10B981" />
+            </svg>
+            <span class="s4-brand-name">AUTONOMEK</span>
+          </div>
+          <div class="s4-cta-sub">Audita tu web gratis en</div>
+          <div class="s4-cta-btn">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <path d="M20 4 C11 4 4 11 4 19.5 C4 22.8 5 25.8 6.8 28.3 L4.5 35.5 L12 33.3 C14.4 34.7 17.1 35.4 20 35.4 C29 35.4 36 28.4 36 19.5 C36 11 29 4 20 4 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="3.5" stroke-linejoin="round" />
+              <path d="M14 14 C14.5 14 15.2 14 15.7 15.2 L17 18.2 C17.3 18.9 17 19.5 16.5 20 C16 20.5 16.2 21.5 17.8 23.1 C19.4 24.7 20.4 24.9 20.9 24.4 C21.4 23.9 22 23.6 22.7 23.9 L25.7 25.2 C26.9 25.7 26.9 26.4 26.9 26.9 C26.9 28.5 25.1 29.8 23.2 29.4 C19.6 28.7 12.2 21.3 11.5 17.7 C11.1 15.8 12.4 14 14 14 Z" fill="#1E293B" />
+            </svg>
+            <span class="s4-cta-btn-text">autonomek.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Regreso al plano general desde Escena 3 (0.0s - 0.45s)
+    tl.fromTo("#s4-camera", { scale: 1.08, opacity: 1 }, { scale: 1, opacity: 1, duration: 0.45, ease: "power2.out" }, 0);
+
+    // Confeti cayendo alegremente
+    tl.fromTo("#s4-confetti", { y: -120, opacity: 0 }, { y: 260, opacity: 1, duration: 3.5, ease: "power1.out" }, 0.3);
+    tl.to("#s4-confetti", { opacity: 0.85, duration: 4.0, ease: "none" }, 3.8);
+
+    // Teléfono saltando de alegría sobre la mesa
+    tl.fromTo("#s4-phone", { y: 0, rotation: 0, svgOrigin: "890 1090" }, { y: -42, rotation: -6, svgOrigin: "890 1090", duration: 0.24, ease: "power2.out", repeat: 9, yoyo: true }, 0.4);
+
+    // Burbujas WhatsApp flotan hacia arriba
+    tl.fromTo("#s4-wa-1-inner", { y: 280, scale: 0.4, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.7)" }, 0.5);
+    tl.fromTo("#s4-wa-2-inner", { y: 280, scale: 0.4, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.7)" }, 1.15);
+    tl.fromTo("#s4-wa-3-inner", { y: 280, scale: 0.4, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.7)" }, 1.8);
+
+    // Vapor de la taza de café de Carlos
+    tl.fromTo("#s4-steam-1", { y: 8, opacity: 0.3 }, { y: -14, opacity: 0.9, duration: 1.2, repeat: 5, yoyo: true, ease: "sine.inOut" }, 0.4);
+    tl.fromTo("#s4-steam-2", { y: 10, opacity: 0.4 }, { y: -16, opacity: 0.85, duration: 1.35, repeat: 5, yoyo: true, ease: "sine.inOut" }, 0.6);
+
+    // Carlos y Mek chocan los cinco a los 2.8s locales (27.4s global)
+    tl.fromTo("#s4-carlos-highfive-arm", { rotation: -24, svgOrigin: "400 845" }, { rotation: 0, svgOrigin: "400 845", duration: 0.32, ease: "back.out(1.7)" }, 2.48);
+    tl.fromTo("#s4-mek-arm-l", { rotation: 20, svgOrigin: "555 715" }, { rotation: 0, svgOrigin: "555 715", duration: 0.32, ease: "back.out(1.7)" }, 2.48);
+    tl.fromTo("#s4-clap-burst", { scale: 0, opacity: 0, svgOrigin: "503 645" }, { scale: 1.15, opacity: 1, svgOrigin: "503 645", duration: 0.18, ease: "back.out(1.7)" }, 2.75);
+    tl.to("#s4-clap-burst", { scale: 1.35, opacity: 0, svgOrigin: "503 645", duration: 0.28, ease: "power2.out" }, 2.95);
+
+    // Gafas de sol caen sobre los ojos de Carlos (3.0s)
+    tl.fromTo("#s4-sunglasses", { y: -200, opacity: 0, rotation: -12, svgOrigin: "300 648" }, { y: 0, opacity: 1, rotation: 0, svgOrigin: "300 648", duration: 0.45, ease: "back.out(1.7)" }, 3.0);
+
+    // Cartel CTA final aterriza limpio y se queda quieto para lectura clara (3.5s - 8.4s)
+    tl.fromTo("#s4-cta-inner", { y: 140, scale: 0.86, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }, 3.5);
+
+    window.__timelines["scene4-imanes"] = tl;
+    tl.seek(0);
+  </script>
+</template>
+

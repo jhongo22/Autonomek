@@ -1,0 +1,618 @@
+[
+  {
+    "id": "beat1",
+    "text": "Pagaste por una página web hace meses. Te dijeron que quedó preciosa... pero hoy sigues con cero clientes nuevos.",
+    "file": "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\video-autonomek-web-invisible\\assets\\tts\\beat1.mp3",
+    "duration": 7.968,
+    "last_word_end": 7.1,
+    "words": [
+      {
+        "text": "Pagaste",
+        "start": 0.1,
+        "end": 0.575
+      },
+      {
+        "text": "por",
+        "start": 0.588,
+        "end": 0.738
+      },
+      {
+        "text": "una",
+        "start": 0.75,
+        "end": 0.912
+      },
+      {
+        "text": "página",
+        "start": 0.925,
+        "end": 1.312
+      },
+      {
+        "text": "web",
+        "start": 1.325,
+        "end": 1.525
+      },
+      {
+        "text": "hace",
+        "start": 1.538,
+        "end": 1.713
+      },
+      {
+        "text": "meses",
+        "start": 1.725,
+        "end": 2.338
+      },
+      {
+        "text": "Te",
+        "start": 3.2,
+        "end": 3.375
+      },
+      {
+        "text": "dijeron",
+        "start": 3.388,
+        "end": 3.788
+      },
+      {
+        "text": "que",
+        "start": 3.8,
+        "end": 3.9
+      },
+      {
+        "text": "quedó",
+        "start": 3.913,
+        "end": 4.138
+      },
+      {
+        "text": "preciosa",
+        "start": 4.15,
+        "end": 4.713
+      },
+      {
+        "text": "pero",
+        "start": 4.975,
+        "end": 5.175
+      },
+      {
+        "text": "hoy",
+        "start": 5.188,
+        "end": 5.338
+      },
+      {
+        "text": "sigues",
+        "start": 5.35,
+        "end": 5.688
+      },
+      {
+        "text": "con",
+        "start": 5.7,
+        "end": 5.9
+      },
+      {
+        "text": "cero",
+        "start": 5.912,
+        "end": 6.137
+      },
+      {
+        "text": "clientes",
+        "start": 6.15,
+        "end": 6.588
+      },
+      {
+        "text": "nuevos",
+        "start": 6.6,
+        "end": 7.1
+      }
+    ]
+  },
+  {
+    "id": "beat2",
+    "text": "Cuando alguien pregunta en ChatGPT quién es el mejor de tu sector, recomienda a tu competencia. Y en Google ni apareces, porque tu web tarda tanto en abrir que la mitad se va antes de verla.",
+    "file": "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\video-autonomek-web-invisible\\assets\\tts\\beat2.mp3",
+    "duration": 11.64,
+    "last_word_end": 10.762,
+    "words": [
+      {
+        "text": "Cuando",
+        "start": 0.1,
+        "end": 0.45
+      },
+      {
+        "text": "alguien",
+        "start": 0.463,
+        "end": 0.713
+      },
+      {
+        "text": "pregunta",
+        "start": 0.725,
+        "end": 1.113
+      },
+      {
+        "text": "en",
+        "start": 1.125,
+        "end": 1.225
+      },
+      {
+        "text": "ChatGPT",
+        "start": 1.238,
+        "end": 1.913
+      },
+      {
+        "text": "quién",
+        "start": 1.925,
+        "end": 2.1
+      },
+      {
+        "text": "es",
+        "start": 2.112,
+        "end": 2.225
+      },
+      {
+        "text": "el",
+        "start": 2.237,
+        "end": 2.325
+      },
+      {
+        "text": "mejor",
+        "start": 2.337,
+        "end": 2.65
+      },
+      {
+        "text": "de",
+        "start": 2.663,
+        "end": 2.738
+      },
+      {
+        "text": "tu",
+        "start": 2.75,
+        "end": 2.85
+      },
+      {
+        "text": "sector",
+        "start": 2.862,
+        "end": 3.287
+      },
+      {
+        "text": "recomienda",
+        "start": 3.5,
+        "end": 4.037
+      },
+      {
+        "text": "a",
+        "start": 4.05,
+        "end": 4.087
+      },
+      {
+        "text": "tu",
+        "start": 4.1,
+        "end": 4.2
+      },
+      {
+        "text": "competencia",
+        "start": 4.213,
+        "end": 5.013
+      },
+      {
+        "text": "Y",
+        "start": 5.875,
+        "end": 6.037
+      },
+      {
+        "text": "en",
+        "start": 6.05,
+        "end": 6.188
+      },
+      {
+        "text": "Google",
+        "start": 6.2,
+        "end": 6.487
+      },
+      {
+        "text": "ni",
+        "start": 6.5,
+        "end": 6.6
+      },
+      {
+        "text": "apareces",
+        "start": 6.612,
+        "end": 7.225
+      },
+      {
+        "text": "porque",
+        "start": 7.463,
+        "end": 7.738
+      },
+      {
+        "text": "tu",
+        "start": 7.75,
+        "end": 7.862
+      },
+      {
+        "text": "web",
+        "start": 7.875,
+        "end": 8.075
+      },
+      {
+        "text": "tarda",
+        "start": 8.088,
+        "end": 8.338
+      },
+      {
+        "text": "tanto",
+        "start": 8.35,
+        "end": 8.625
+      },
+      {
+        "text": "en",
+        "start": 8.637,
+        "end": 8.712
+      },
+      {
+        "text": "abrir",
+        "start": 8.725,
+        "end": 9.025
+      },
+      {
+        "text": "que",
+        "start": 9.037,
+        "end": 9.137
+      },
+      {
+        "text": "la",
+        "start": 9.15,
+        "end": 9.238
+      },
+      {
+        "text": "mitad",
+        "start": 9.25,
+        "end": 9.575
+      },
+      {
+        "text": "se",
+        "start": 9.588,
+        "end": 9.738
+      },
+      {
+        "text": "va",
+        "start": 9.75,
+        "end": 9.875
+      },
+      {
+        "text": "antes",
+        "start": 9.887,
+        "end": 10.162
+      },
+      {
+        "text": "de",
+        "start": 10.175,
+        "end": 10.25
+      },
+      {
+        "text": "verla",
+        "start": 10.262,
+        "end": 10.762
+      }
+    ]
+  },
+  {
+    "id": "beat3",
+    "text": "Una web no es un folleto de adorno; es un sistema para atraer ventas. En Autonomek reconstruimos tu web para que abra en menos de un segundo, lidere en Google y sea la primera que ChatGPT recomienda.",
+    "file": "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\video-autonomek-web-invisible\\assets\\tts\\beat3.mp3",
+    "duration": 12.672,
+    "last_word_end": 11.8,
+    "words": [
+      {
+        "text": "Una",
+        "start": 0.1,
+        "end": 0.375
+      },
+      {
+        "text": "web",
+        "start": 0.388,
+        "end": 0.613
+      },
+      {
+        "text": "no",
+        "start": 0.625,
+        "end": 0.75
+      },
+      {
+        "text": "es",
+        "start": 0.762,
+        "end": 0.875
+      },
+      {
+        "text": "un",
+        "start": 0.887,
+        "end": 1.0
+      },
+      {
+        "text": "folleto",
+        "start": 1.012,
+        "end": 1.387
+      },
+      {
+        "text": "de",
+        "start": 1.4,
+        "end": 1.475
+      },
+      {
+        "text": "adorno",
+        "start": 1.488,
+        "end": 1.888
+      },
+      {
+        "text": "es",
+        "start": 2.112,
+        "end": 2.25
+      },
+      {
+        "text": "un",
+        "start": 2.263,
+        "end": 2.388
+      },
+      {
+        "text": "sistema",
+        "start": 2.4,
+        "end": 2.825
+      },
+      {
+        "text": "para",
+        "start": 2.837,
+        "end": 3.012
+      },
+      {
+        "text": "atraer",
+        "start": 3.025,
+        "end": 3.3
+      },
+      {
+        "text": "ventas",
+        "start": 3.312,
+        "end": 3.888
+      },
+      {
+        "text": "En",
+        "start": 4.75,
+        "end": 4.975
+      },
+      {
+        "text": "Autonomek",
+        "start": 4.987,
+        "end": 5.487
+      },
+      {
+        "text": "reconstruimos",
+        "start": 5.5,
+        "end": 6.188
+      },
+      {
+        "text": "tu",
+        "start": 6.2,
+        "end": 6.312
+      },
+      {
+        "text": "web",
+        "start": 6.325,
+        "end": 6.538
+      },
+      {
+        "text": "para",
+        "start": 6.55,
+        "end": 6.75
+      },
+      {
+        "text": "que",
+        "start": 6.763,
+        "end": 6.888
+      },
+      {
+        "text": "abra",
+        "start": 6.9,
+        "end": 7.088
+      },
+      {
+        "text": "en",
+        "start": 7.1,
+        "end": 7.175
+      },
+      {
+        "text": "menos",
+        "start": 7.188,
+        "end": 7.463
+      },
+      {
+        "text": "de",
+        "start": 7.475,
+        "end": 7.55
+      },
+      {
+        "text": "un",
+        "start": 7.562,
+        "end": 7.688
+      },
+      {
+        "text": "segundo",
+        "start": 7.7,
+        "end": 8.213
+      },
+      {
+        "text": "lidere",
+        "start": 8.463,
+        "end": 8.95
+      },
+      {
+        "text": "en",
+        "start": 8.963,
+        "end": 9.075
+      },
+      {
+        "text": "Google",
+        "start": 9.088,
+        "end": 9.388
+      },
+      {
+        "text": "y",
+        "start": 9.4,
+        "end": 9.463
+      },
+      {
+        "text": "sea",
+        "start": 9.475,
+        "end": 9.688
+      },
+      {
+        "text": "la",
+        "start": 9.7,
+        "end": 9.812
+      },
+      {
+        "text": "primera",
+        "start": 9.825,
+        "end": 10.175
+      },
+      {
+        "text": "que",
+        "start": 10.188,
+        "end": 10.325
+      },
+      {
+        "text": "ChatGPT",
+        "start": 10.338,
+        "end": 10.975
+      },
+      {
+        "text": "recomienda",
+        "start": 10.988,
+        "end": 11.8
+      }
+    ]
+  },
+  {
+    "id": "beat4",
+    "text": "Deja de tener una página invisible. Entra a autonomek punto com, envíanos tu enlace por WhatsApp y auditamos tu web hoy mismo sin costo.",
+    "file": "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\video-autonomek-web-invisible\\assets\\tts\\beat4.mp3",
+    "duration": 9.216,
+    "last_word_end": 8.35,
+    "words": [
+      {
+        "text": "Deja",
+        "start": 0.1,
+        "end": 0.475
+      },
+      {
+        "text": "de",
+        "start": 0.487,
+        "end": 0.575
+      },
+      {
+        "text": "tener",
+        "start": 0.588,
+        "end": 0.838
+      },
+      {
+        "text": "una",
+        "start": 0.85,
+        "end": 1.012
+      },
+      {
+        "text": "página",
+        "start": 1.025,
+        "end": 1.375
+      },
+      {
+        "text": "invisible",
+        "start": 1.387,
+        "end": 2.075
+      },
+      {
+        "text": "Entra",
+        "start": 2.938,
+        "end": 3.3
+      },
+      {
+        "text": "a",
+        "start": 3.312,
+        "end": 3.337
+      },
+      {
+        "text": "autonomek",
+        "start": 3.35,
+        "end": 3.862
+      },
+      {
+        "text": "punto",
+        "start": 3.875,
+        "end": 4.162
+      },
+      {
+        "text": "com",
+        "start": 4.175,
+        "end": 4.438
+      },
+      {
+        "text": "envíanos",
+        "start": 4.725,
+        "end": 5.175
+      },
+      {
+        "text": "tu",
+        "start": 5.188,
+        "end": 5.287
+      },
+      {
+        "text": "enlace",
+        "start": 5.3,
+        "end": 5.65
+      },
+      {
+        "text": "por",
+        "start": 5.662,
+        "end": 5.825
+      },
+      {
+        "text": "WhatsApp",
+        "start": 5.838,
+        "end": 6.25
+      },
+      {
+        "text": "y",
+        "start": 6.263,
+        "end": 6.3
+      },
+      {
+        "text": "auditamos",
+        "start": 6.312,
+        "end": 6.825
+      },
+      {
+        "text": "tu",
+        "start": 6.838,
+        "end": 6.938
+      },
+      {
+        "text": "web",
+        "start": 6.95,
+        "end": 7.15
+      },
+      {
+        "text": "hoy",
+        "start": 7.162,
+        "end": 7.275
+      },
+      {
+        "text": "mismo",
+        "start": 7.287,
+        "end": 7.575
+      },
+      {
+        "text": "sin",
+        "start": 7.588,
+        "end": 7.8
+      },
+      {
+        "text": "costo",
+        "start": 7.812,
+        "end": 8.35
+      }
+    ]
+  }
+]

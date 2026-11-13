@@ -1,0 +1,1356 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #070d0a;
+      font-family: "Inter", sans-serif;
+      color: #ffffff;
+    }
+
+    /* Fondo base y transición cromática Beat 1-2 (rojo/carbón) -> Beat 3-4 (esmeralda/azul oscuro) */
+    #bg-problem-plate {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 24%, rgba(239, 68, 68, 0.14) 0%, rgba(7, 13, 10, 0) 58%),
+        radial-gradient(circle at 50% 76%, rgba(30, 41, 59, 0.25) 0%, rgba(7, 13, 10, 0) 60%),
+        #070a0d;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #bg-solution-plate {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 22%, rgba(16, 185, 129, 0.24) 0%, rgba(4, 21, 29, 0) 58%),
+        radial-gradient(circle at 50% 78%, rgba(6, 78, 59, 0.36) 0%, rgba(4, 21, 29, 0) 62%),
+        linear-gradient(180deg, #04151d 0%, #06231c 55%, #041319 100%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Flash radial para cinematic-zoom (19.20s - 19.60s) */
+    #cinematic-zoom-flash {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.85) 0%, rgba(6, 78, 59, 0.92) 45%, #04151d 100%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 8;
+    }
+
+    /* Capa 1: Cuadrícula espacial con parallax profundo (0.32x) */
+    #bg-grid-parallax {
+      position: absolute;
+      left: -2600px;
+      top: -2600px;
+      width: 9600px;
+      height: 8200px;
+      transform-origin: 0 0;
+      background-image:
+        linear-gradient(to right, rgba(165, 208, 185, 0.045) 1.5px, transparent 1.5px),
+        linear-gradient(to bottom, rgba(165, 208, 185, 0.045) 1.5px, transparent 1.5px),
+        linear-gradient(to right, rgba(115, 162, 182, 0.09) 1.5px, transparent 1.5px),
+        linear-gradient(to bottom, rgba(115, 162, 182, 0.09) 1.5px, transparent 1.5px);
+      background-size: 80px 80px, 80px 80px, 400px 400px, 400px 400px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Capa 2: Lienzo Espacial Continuo (1.0x) */
+    #world-stage {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 5200px;
+      height: 3600px;
+      transform-origin: 0 0;
+      z-index: 2;
+    }
+
+    /* Capa 3: Puntos de profundidad en primer plano (1.15x) */
+    #fg-parallax {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 5200px;
+      height: 3600px;
+      transform-origin: 0 0;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .fg-node {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(165, 208, 185, 0.35) 0%, rgba(165, 208, 185, 0) 70%);
+    }
+
+    /* Rieles arquitectónicos conectando estaciones en el lienzo */
+    #world-rails-svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 5200px;
+      height: 3600px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Base adaptada de lt-dark-card */
+    .lt-dark-card {
+      background: #12151c;
+      border-radius: 24px;
+      border: 2px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+    }
+
+    /* ============================================================
+       BEAT 1: EL DOLOR EN EL FRAME 0 (cx=800, cy=900)
+       ============================================================ */
+    #beat1-station {
+      position: absolute;
+      left: 350px;
+      top: 340px;
+      width: 900px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 4;
+    }
+
+    #b1-receipt {
+      width: 900px;
+      padding: 32px 38px;
+      border: 2.5px solid rgba(239, 68, 68, 0.62);
+      background: linear-gradient(160deg, #16181f 0%, #101217 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .b1-receipt-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .b1-receipt-kicker {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #cbd5e1;
+    }
+
+    #b1-stamp {
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: 2px solid #ef4444;
+      background: rgba(239, 68, 68, 0.16);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #fca5a5;
+      white-space: nowrap;
+    }
+
+    .b1-receipt-amount {
+      font-size: 54px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.1;
+    }
+
+    #b1-receipt-line {
+      height: 5px;
+      width: 100%;
+      background: #ef4444;
+      border-radius: 3px;
+      transform-origin: 0% 50%;
+    }
+
+    #b1-zero-wrap {
+      margin-top: 32px;
+      width: 900px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #b1-zero-num {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 132px;
+      font-weight: 700;
+      line-height: 0.95;
+      color: #ff4444;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.04em;
+    }
+
+    #b1-zero-label {
+      margin-top: 8px;
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: #ff6b6b;
+      line-height: 1.05;
+    }
+
+    #b1-chart-card {
+      margin-top: 32px;
+      width: 900px;
+      padding: 26px 34px;
+      border: 2px solid rgba(239, 68, 68, 0.35);
+      background: #111319;
+    }
+
+    .b1-chart-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .b1-visits-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 30px;
+      font-weight: 700;
+      color: #fca5a5;
+    }
+
+    .red-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #ef4444;
+      flex-shrink: 0;
+    }
+
+    #b1-month-clock {
+      padding: 8px 20px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 30px;
+      font-weight: 700;
+      color: #ffffff;
+      font-variant-numeric: tabular-nums;
+    }
+
+    #b1-support-copy {
+      margin-top: 34px;
+      width: 900px;
+      text-align: center;
+      font-size: 50px;
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+      opacity: 0;
+    }
+
+    .text-red-accent {
+      color: #ff5555;
+    }
+
+    /* ============================================================
+       BEAT 2: CHATGPT & GOOGLE 4.8s (cx=2400, cy=740 -> cy=1760)
+       ============================================================ */
+    #beat2-top-station {
+      position: absolute;
+      left: 1950px;
+      top: 230px;
+      width: 900px;
+      z-index: 4;
+    }
+
+    #b2-ai-card {
+      width: 900px;
+      padding: 32px 36px;
+      background: #12151c;
+      border: 2px solid rgba(148, 163, 184, 0.28);
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .b2-win-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 18px;
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .b2-win-title {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 30px;
+      font-weight: 700;
+      color: #e2e8f0;
+    }
+
+    .b2-win-tag {
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      color: #94a3b8;
+    }
+
+    .b2-prompt-box {
+      padding: 24px 28px;
+      border-radius: 18px;
+      background: #1a1f29;
+      border: 1.5px solid rgba(255, 255, 255, 0.16);
+      font-size: 34px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: #ffffff;
+      min-height: 132px;
+    }
+
+    #b2-typed-caret {
+      display: inline-block;
+      width: 4px;
+      height: 36px;
+      background: #a5d0b9;
+      vertical-align: -5px;
+      margin-left: 4px;
+    }
+
+    #b2-ai-response {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      opacity: 0;
+    }
+
+    .b2-ai-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      border-radius: 16px;
+      background: #171c25;
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      font-size: 32px;
+      font-weight: 700;
+      color: #e2e8f0;
+    }
+
+    .b2-rank-badge {
+      padding: 6px 16px;
+      border-radius: 8px;
+      background: rgba(16, 185, 129, 0.16);
+      color: #6ee7b7;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    #b2-your-row {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 24px;
+      border-radius: 18px;
+      background: rgba(239, 68, 68, 0.1);
+      border: 2px solid rgba(239, 68, 68, 0.45);
+    }
+
+    .b2-your-name {
+      font-size: 32px;
+      font-weight: 700;
+      color: #cbd5e1;
+      text-decoration: line-through;
+      text-decoration-color: #ef4444;
+      text-decoration-thickness: 3px;
+    }
+
+    #b2-not-rec-stamp {
+      align-self: flex-start;
+      padding: 12px 22px;
+      border-radius: 12px;
+      background: #dc2626;
+      color: #ffffff;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      opacity: 0;
+    }
+
+    /* Beat 2 Parte inferior: Google + Carga 4.8s (fuera de cuadro hasta pan Y) */
+    #beat2-bottom-station {
+      position: absolute;
+      left: 1950px;
+      top: 1820px;
+      width: 900px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      z-index: 4;
+    }
+
+    #b2-google-card {
+      width: 900px;
+      padding: 30px 34px;
+      background: #12151c;
+      border: 2px solid rgba(148, 163, 184, 0.28);
+    }
+
+    .b2-search-bar {
+      padding: 18px 24px;
+      border-radius: 999px;
+      background: #1d222d;
+      border: 1.5px solid rgba(255, 255, 255, 0.16);
+      font-size: 30px;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 20px;
+    }
+
+    .b2-serp-viewport {
+      height: 290px;
+      overflow: hidden;
+      position: relative;
+      border-radius: 16px;
+      background: #0d1016;
+      border: 1.5px solid rgba(255, 255, 255, 0.08);
+      padding: 18px;
+    }
+
+    #b2-serp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .b2-serp-item {
+      padding: 18px 22px;
+      border-radius: 14px;
+      background: #161b24;
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 30px;
+      font-weight: 600;
+      color: #94a3b8;
+    }
+
+    .b2-serp-item.is-page4 {
+      background: rgba(239, 68, 68, 0.16);
+      border: 2px solid #ef4444;
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    #b2-speed-card {
+      width: 900px;
+      padding: 30px 36px;
+      background: #12151c;
+      border: 2px solid rgba(239, 68, 68, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .b2-spinner-box {
+      position: relative;
+      width: 190px;
+      height: 190px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #b2-spinner-center {
+      position: absolute;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 46px;
+      font-weight: 700;
+      color: #ff5555;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .b2-speed-info {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .b2-speed-title {
+      font-size: 44px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.1;
+    }
+
+    #b2-abandon-pill {
+      align-self: flex-start;
+      padding: 12px 22px;
+      border-radius: 12px;
+      background: rgba(239, 68, 68, 0.2);
+      border: 2px solid #ef4444;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 32px;
+      font-weight: 700;
+      color: #fca5a5;
+      opacity: 0;
+    }
+
+    /* ============================================================
+       BEAT 3 & 4: SOLUCIÓN AUTONOMEK & CIERRE (cx=4050)
+       ============================================================ */
+    #beat3-4-station {
+      position: absolute;
+      left: 3600px;
+      top: 430px;
+      width: 900px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 4;
+    }
+
+    #b3-top-header {
+      position: relative;
+      width: 900px;
+      height: 98px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #b3-eng-stamp {
+      position: relative;
+      z-index: 2;
+      padding: 12px 28px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.16);
+      border: 2px solid #10b981;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #a7f3d0;
+      opacity: 0;
+    }
+
+    /* Logo oficial horizontal de Autonomek para Beat 4 (en el slot superior sin colisionar) */
+    #b4-logo-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+    }
+
+    /* Tarjeta de auditoría adaptada de mk-progress-stat */
+    #b3-audit-card {
+      width: 900px;
+      padding: 30px 38px;
+      background: linear-gradient(155deg, #09242d 0%, #071b18 100%);
+      border: 2.5px solid rgba(16, 185, 129, 0.6);
+      border-radius: 28px;
+      box-shadow: 0 28px 65px rgba(0, 0, 0, 0.65);
+      opacity: 0;
+    }
+
+    .b3-audit-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .b3-mk-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .b3-mk-kicker {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 36px;
+      font-weight: 700;
+      color: #a5d0b9;
+      margin-bottom: 6px;
+    }
+
+    #b3-mk-num {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 108px;
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      font-variant-numeric: tabular-nums;
+    }
+
+    #b3-time-badge {
+      padding: 16px 24px;
+      border-radius: 18px;
+      background: #10b981;
+      color: #031510;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: right;
+      opacity: 0;
+    }
+
+    .b3-mk-track {
+      position: relative;
+      margin-top: 22px;
+      width: 100%;
+      height: 14px;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.14);
+      overflow: hidden;
+    }
+
+    #b3-mk-fill {
+      position: absolute;
+      inset: 0;
+      border-radius: 7px;
+      background: linear-gradient(90deg, #34d399 0%, #a5d0b9 100%);
+      transform-origin: left center;
+    }
+
+    .b3-mk-caption {
+      margin-top: 16px;
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #d1fae5;
+      white-space: nowrap;
+    }
+
+    /* Dos tarjetas de prueba conectadas por líneas de luz */
+    #b3-proof-row {
+      margin-top: 24px;
+      width: 900px;
+      display: flex;
+      gap: 24px;
+      justify-content: space-between;
+    }
+
+    .b3-proof-card {
+      width: 438px;
+      padding: 22px 26px;
+      background: #081e24;
+      border: 2px solid rgba(16, 185, 129, 0.48);
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      opacity: 0;
+    }
+
+    .b3-verified-pill {
+      align-self: flex-start;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.22);
+      border: 1.5px solid #10b981;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #6ee7b7;
+    }
+
+    .b3-proof-title {
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1.15;
+      color: #ffffff;
+    }
+
+    /* Líneas de luz conectando Google & ChatGPT -> WhatsApp */
+    #b3-wires-svg {
+      width: 900px;
+      height: 68px;
+      display: block;
+      opacity: 0;
+    }
+
+    /* Tarjeta WhatsApp recibiendo clientes en vivo */
+    #b3-wa-card {
+      width: 900px;
+      padding: 24px 32px;
+      background: linear-gradient(155deg, #072219 0%, #051614 100%);
+      border: 2.5px solid rgba(34, 197, 94, 0.65);
+      border-radius: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      opacity: 0;
+    }
+
+    .b3-wa-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 36px;
+      font-weight: 700;
+      color: #86efac;
+    }
+
+    .b3-wa-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .b3-client-toast {
+      padding: 14px 22px;
+      border-radius: 16px;
+      background: rgba(34, 197, 94, 0.16);
+      border: 1.5px solid rgba(74, 222, 128, 0.55);
+      font-size: 38px;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      opacity: 0;
+    }
+
+    .b3-toast-tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #4ade80;
+    }
+
+    /* ============================================================
+       BEAT 4: INSIGNIAS & BOTÓN WHATSAPP CTA
+       ============================================================ */
+    #b4-badges-row {
+      margin-top: 22px;
+      width: 900px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .b4-badge {
+      width: 438px;
+      padding: 18px 14px;
+      border-radius: 20px;
+      background: #0a232a;
+      border: 2px solid rgba(165, 208, 185, 0.55);
+      font-size: 36px;
+      font-weight: 800;
+      color: #ffffff;
+      text-align: center;
+      white-space: nowrap;
+      opacity: 0;
+    }
+
+    #b4-cta-btn {
+      margin-top: 22px;
+      width: 900px;
+      padding: 26px 36px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+      border: 3px solid #86efac;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      color: #ffffff;
+      text-align: center;
+      opacity: 0;
+    }
+
+    .b4-cta-text-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.15;
+    }
+
+    .b4-cta-top {
+      font-size: 38px;
+      font-weight: 700;
+      color: #ecfdf5;
+    }
+
+    .b4-cta-url {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 46px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    #b4-cta-confirm-ring {
+      position: relative;
+      display: inline-flex;
+    }
+  </style>
+
+  <div id="root" data-composition-id="world">
+    <div id="bg-problem-plate" data-layout-ignore></div>
+    <div id="bg-solution-plate" data-layout-ignore></div>
+    <div id="cinematic-zoom-flash" data-layout-ignore></div>
+
+    <!-- Capa 1: Cuadrícula espacial parallax -->
+    <div id="bg-grid-parallax" data-layout-ignore data-layout-allow-overflow></div>
+
+    <!-- Capa 2: Lienzo Espacial Continuo -->
+    <div id="world-stage" data-layout-allow-overflow>
+      <!-- Rieles arquitectónicos entre estaciones -->
+      <svg id="world-rails-svg" viewBox="0 0 5200 3600" fill="none" data-layout-ignore>
+        <!-- Riel horizontal Beat 1 -> Beat 2 -->
+        <line x1="1260" y1="840" x2="1940" y2="740" stroke="rgba(239,68,68,0.28)" stroke-width="3" stroke-dasharray="14 12" />
+        <!-- Riel vertical Beat 2 Top -> Beat 2 Bottom -->
+        <line x1="2400" y1="1040" x2="2400" y2="1820" stroke="rgba(239,68,68,0.35)" stroke-width="3" stroke-dasharray="10 10" />
+        <!-- Riel Beat 2 -> Beat 3 -->
+        <line x1="2860" y1="2240" x2="3580" y2="1100" stroke="rgba(16,185,129,0.28)" stroke-width="3" stroke-dasharray="14 12" />
+      </svg>
+
+      <!-- ========================================================
+           BEAT 1: EL GANCHO PSICOLÓGICO (Frame 0 visible!)
+           ======================================================== -->
+      <div id="beat1-station" class="clip" data-beat="hook" data-start="0" data-duration="41.5">
+        <div id="b1-receipt" class="lt-dark-card">
+          <div class="b1-receipt-top">
+            <span class="b1-receipt-kicker">FACTURA SITIO WEB</span>
+            <span id="b1-stamp">HACE 6 MESES</span>
+          </div>
+          <div class="b1-receipt-amount">PAGADO: $1,500 USD</div>
+          <div id="b1-receipt-line"></div>
+        </div>
+
+        <div id="b1-zero-wrap">
+          <div id="b1-zero-num">0</div>
+          <div id="b1-zero-label">CLIENTES NUEVOS</div>
+        </div>
+
+        <div id="b1-chart-card" class="lt-dark-card">
+          <div class="b1-chart-head">
+            <div class="b1-visits-pill">
+              <span class="red-dot"></span>
+              <span>0 visitas hoy</span>
+            </div>
+            <div id="b1-month-clock">Mes 1</div>
+          </div>
+          <svg width="832" height="120" viewBox="0 0 832 120" fill="none">
+            <line x1="0" y1="30" x2="832" y2="30" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+            <line x1="0" y1="65" x2="832" y2="65" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+            <line x1="0" y1="100" x2="832" y2="100" stroke="rgba(239,68,68,0.22)" stroke-width="2" />
+            <path
+              id="b1-flatline-path"
+              d="M 8 100 L 140 100 L 280 99 L 420 100 L 580 100 L 710 99 L 824 100"
+              stroke="#ef4444"
+              stroke-width="6"
+              stroke-linecap="round"
+              stroke-dasharray="830"
+              stroke-dashoffset="830"
+            />
+            <circle id="b1-flatline-dot" cx="8" cy="100" r="9" fill="#ff4444" />
+          </svg>
+        </div>
+
+        <div id="b1-support-copy">
+          Bonita por fuera.<br />
+          <span class="text-red-accent">Invisible por dentro.</span>
+        </div>
+      </div>
+
+      <!-- ========================================================
+           BEAT 2A: CHATGPT INVISIBLE (cx=2400, cy=740)
+           ======================================================== -->
+      <div id="beat2-top-station" class="clip" data-beat="diagnostico-ia" data-start="7.5" data-duration="34">
+        <div id="b2-ai-card" class="lt-dark-card">
+          <div class="b2-win-header">
+            <span class="b2-win-title">ChatGPT · Búsqueda IA</span>
+            <span class="b2-win-tag">En vivo</span>
+          </div>
+
+          <div class="b2-prompt-box">
+            <span id="b2-typed-text"></span><span id="b2-typed-caret"></span>
+          </div>
+
+          <div id="b2-ai-response">
+            <div class="b2-ai-row">
+              <span>1. Competidor A</span>
+              <span class="b2-rank-badge">Recomendado</span>
+            </div>
+            <div class="b2-ai-row">
+              <span>2. Competidor B</span>
+              <span class="b2-rank-badge">Recomendado</span>
+            </div>
+            <div id="b2-your-row">
+              <div class="b2-your-name">Tu empresa</div>
+              <div id="b2-not-rec-stamp">Tu web: No recomendada por IA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================
+           BEAT 2B: GOOGLE PÁGINA 4 + CARGA 4.8s (cx=2400, cy=1760)
+           ======================================================== -->
+      <div id="beat2-bottom-station" class="clip" data-beat="diagnostico-google" data-start="13.2" data-duration="28.3">
+        <div id="b2-google-card" class="lt-dark-card">
+          <div class="b2-search-bar">Google · mejor empresa de mi sector</div>
+          <div class="b2-serp-viewport" data-layout-allow-occlusion>
+            <div id="b2-serp-list" data-layout-allow-occlusion>
+              <div class="b2-serp-item"><span>Página 1 · Competidor A</span><span>Pos #1</span></div>
+              <div class="b2-serp-item"><span>Página 2 · Directorios</span><span>Pos #14</span></div>
+              <div class="b2-serp-item"><span>Página 3 · Resultados viejos</span><span>Pos #28</span></div>
+              <div class="b2-serp-item is-page4">
+                <span>Página 4 de Google (Nadie llega aquí)</span>
+                <span>Pos #39</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="b2-speed-card" class="lt-dark-card">
+          <div class="b2-spinner-box">
+            <svg width="190" height="190" viewBox="0 0 190 190">
+              <circle cx="95" cy="95" r="76" stroke="rgba(239,68,68,0.2)" stroke-width="14" fill="none" />
+              <circle
+                id="b2-spinner-arc"
+                cx="95"
+                cy="95"
+                r="76"
+                stroke="#ef4444"
+                stroke-width="14"
+                stroke-linecap="round"
+                fill="none"
+                stroke-dasharray="478"
+                stroke-dashoffset="160"
+                style="transform-origin: 95px 95px"
+              />
+            </svg>
+            <div id="b2-spinner-center">4.8s</div>
+          </div>
+          <div class="b2-speed-info">
+            <div class="b2-speed-title">4.8s Carga Lenta</div>
+            <div id="b2-abandon-pill">-53% abandonan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================
+           BEAT 3 & 4: SOLUCIÓN AUTONOMEK + CIERRE CTA (cx=4050)
+           ======================================================== -->
+      <div id="beat3-4-station" class="clip" data-beat="solucion" data-start="19.1" data-duration="22.4">
+        <div id="b3-top-header">
+          <div id="b3-eng-stamp">INGENIERÍA AUTONOMEK</div>
+
+          <div id="b4-logo-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1592 256" width="560" height="90" role="img" aria-label="Autonomek" style="display: block">
+              <g fill="#a5d0b9">
+                <path d="M 18 221 L 18 190 L 108 34.12 L 148 34.12 L 198.74 122 L 154.86 122 L 128 75.47 L 61.88 190 L 61.88 221 Z" />
+                <path d="M 113.84 144 L 211.44 144 L 238 190 L 238 221 L 194.12 221 L 194.12 190 L 187.77 179 L 93.63 179 Z" />
+              </g>
+              <g fill="#ffffff">
+                <path d="M 246 34.12 L 279.64 34.12 L 279.64 158.39 A 33.64 33.64 0 0 0 346.91 158.39 L 346.91 34.12 L 380.55 34.12 L 380.55 158.39 A 67.28 67.28 0 0 1 246 158.39 Z" />
+                <path d="M 401.11 34.12 L 528.19 34.12 L 528.19 63.72 L 481.47 63.72 L 481.47 221 L 447.83 221 L 447.83 63.72 L 401.11 63.72 Z" />
+                <path fill-rule="evenodd" d="M 614.15 29.45 A 74.75 98.11 0 1 1 614.15 225.67 A 74.75 98.11 0 1 1 614.15 29.45 Z  M 614.15 59.05 A 41.11 68.51 0 1 0 614.15 196.07 A 41.11 68.51 0 1 0 614.15 59.05 Z" />
+                <path d="M 712.26 34.12 L 743.88 34.12 L 816.04 159.1 L 816.04 34.12 L 847.66 34.12 L 847.66 221 L 816.04 221 L 743.88 96.02 L 743.88 221 L 712.26 221 Z" />
+                <path fill-rule="evenodd" d="M 945.77 29.45 A 74.75 98.11 0 1 1 945.77 225.67 A 74.75 98.11 0 1 1 945.77 29.45 Z  M 945.77 59.05 A 41.11 68.51 0 1 0 945.77 196.07 A 41.11 68.51 0 1 0 945.77 59.05 Z" />
+                <path d="M 1043.88 34.12 L 1073.82 34.12 L 1160.94 185.03 L 1248.07 34.12 L 1278 34.12 L 1278 221 L 1248.07 221 L 1248.07 96.02 L 1175.91 221 L 1145.97 221 L 1073.82 96.02 L 1073.82 221 L 1043.88 221 Z" />
+                <path d="M 1305.11 34.12 L 1420.98 34.12 L 1420.98 63.72 L 1338.75 63.72 L 1338.75 109.02 L 1403.6 109.02 L 1403.6 138.62 L 1338.75 138.62 L 1338.75 191.4 L 1420.98 191.4 L 1420.98 221 L 1305.11 221 Z" />
+                <path d="M 1446.21 34.12 L 1479.85 34.12 L 1479.85 80 L 1525.72 34.12 L 1573.29 34.12 L 1479.85 127.56 L 1573.29 221 L 1525.72 221 L 1479.85 175.13 L 1479.85 221 L 1446.21 221 Z" />
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Tarjeta auditoría adaptada de mk-progress-stat -->
+        <div id="b3-audit-card">
+          <div class="b3-audit-top">
+            <div class="b3-mk-group">
+              <div class="b3-mk-kicker">RENDIMIENTO WEB</div>
+              <div id="b3-mk-num">0/100</div>
+            </div>
+            <div id="b3-time-badge">0.6s<br />Carga Instantánea</div>
+          </div>
+          <div class="b3-mk-track">
+            <div id="b3-mk-fill"></div>
+          </div>
+          <div id="b3-mk-caption" class="b3-mk-caption">Arquitectura reconstruida para velocidad y ventas</div>
+        </div>
+
+        <!-- Dos tarjetas conectadas por líneas de luz -->
+        <div id="b3-proof-row">
+          <div id="b3-card-google" class="b3-proof-card">
+            <span class="b3-verified-pill" data-layout-ignore>✓ VERIFICADO</span>
+            <div class="b3-proof-title">Puesto #1 en Google</div>
+          </div>
+          <div id="b3-card-gpt" class="b3-proof-card">
+            <span class="b3-verified-pill" data-layout-ignore>✓ PRIORIDAD IA</span>
+            <div class="b3-proof-title">Citado primero por ChatGPT</div>
+          </div>
+        </div>
+
+        <svg id="b3-wires-svg" viewBox="0 0 900 68" fill="none" data-layout-ignore>
+          <path
+            id="b3-wire-left"
+            d="M 219 0 C 219 36, 450 30, 450 68"
+            stroke="rgba(16, 185, 129, 0.35)"
+            stroke-width="4"
+          />
+          <path
+            id="b3-wire-right"
+            d="M 681 0 C 681 36, 450 30, 450 68"
+            stroke="rgba(16, 185, 129, 0.35)"
+            stroke-width="4"
+          />
+          <path
+            id="b3-pulse-left"
+            d="M 219 0 C 219 36, 450 30, 450 68"
+            stroke="#6ee7b7"
+            stroke-width="6"
+            stroke-linecap="round"
+            stroke-dasharray="55 240"
+            stroke-dashoffset="55"
+          />
+          <path
+            id="b3-pulse-right"
+            d="M 681 0 C 681 36, 450 30, 450 68"
+            stroke="#6ee7b7"
+            stroke-width="6"
+            stroke-linecap="round"
+            stroke-dasharray="55 240"
+            stroke-dashoffset="55"
+          />
+        </svg>
+
+        <!-- Flujo WhatsApp recibiendo clientes en vivo -->
+        <div id="b3-wa-card">
+          <div class="b3-wa-head">
+            <span>WhatsApp Comercial Directo</span>
+            <span data-layout-ignore>EN VIVO</span>
+          </div>
+          <div class="b3-wa-feed">
+            <div id="b3-toast-1" class="b3-client-toast">
+              <span>+1 Cliente cotizando</span>
+              <span class="b3-toast-tag" data-layout-ignore>AHORA</span>
+            </div>
+            <div id="b3-toast-2" class="b3-client-toast">
+              <span>+2 Clientes</span>
+              <span class="b3-toast-tag" data-layout-ignore>GOOGLE #1</span>
+            </div>
+            <div id="b3-toast-3" class="b3-client-toast">
+              <span>+3 Clientes</span>
+              <span class="b3-toast-tag" data-layout-ignore>CHATGPT</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Beat 4: Insignias + Botón WhatsApp CTA -->
+        <div id="b4-badges-row">
+          <div id="b4-badge-1" class="b4-badge">✓ Auditoría Gratis</div>
+          <div id="b4-badge-2" class="b4-badge">✓ Código 100% Tuyo</div>
+        </div>
+
+        <div id="b4-cta-btn" class="clip" data-beat="cta" data-start="32.0" data-duration="9.5">
+          <svg width="58" height="58" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM17.6 15.96C17.37 16.61 16.26 17.2 15.74 17.27C15.27 17.34 14.67 17.37 14.01 17.16C13.61 17.03 13.1 16.86 12.45 16.58C9.72 15.4 7.93 12.64 7.79 12.45C7.66 12.27 6.68 10.97 6.68 9.63C6.68 8.29 7.38 7.63 7.63 7.36C7.88 7.09 8.17 7.02 8.35 7.02C8.53 7.02 8.71 7.02 8.87 7.03C9.04 7.04 9.26 6.97 9.48 7.5C9.71 8.05 10.26 9.39 10.33 9.53C10.4 9.67 10.44 9.83 10.35 10.01C10.26 10.19 10.22 10.3 10.08 10.46C9.94 10.62 9.79 10.82 9.67 10.94C9.53 11.08 9.39 11.23 9.55 11.5C9.71 11.77 10.26 12.68 11.08 13.41C12.13 14.35 13.02 14.64 13.29 14.78C13.56 14.92 13.72 14.89 13.88 14.71C14.04 14.53 14.56 13.91 14.74 13.64C14.92 13.37 15.1 13.41 15.35 13.5C15.6 13.59 16.94 14.25 17.21 14.39C17.48 14.53 17.66 14.59 17.73 14.71C17.8 14.83 17.8 15.31 17.6 15.96Z"/>
+          </svg>
+          <div class="b4-cta-text-wrap">
+            <span class="b4-cta-top">Audita tu web gratis en</span>
+            <span class="b4-cta-url" data-var-text="ctaUrl">autonomek.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Capa 3: Nodos parallax primer plano -->
+    <div id="fg-parallax" data-layout-ignore data-layout-allow-overflow>
+      <div class="fg-node" style="left: 420px; top: 480px"></div>
+      <div class="fg-node" style="left: 1480px; top: 1050px"></div>
+      <div class="fg-node" style="left: 2880px; top: 420px"></div>
+      <div class="fg-node" style="left: 3420px; top: 1750px"></div>
+      <div class="fg-node" style="left: 4680px; top: 820px"></div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Rig de cámara virtual: enfoca (wx, wy) en centro seguro móvil (510, 740)
+    function camKey(wx, wy, s) {
+      const x = 510 - wx * s;
+      const y = 740 - wy * s;
+      return {
+        world: { x: x, y: y, scale: s },
+        grid: { x: x * 0.32, y: y * 0.32, scale: 1 + (s - 1) * 0.2 },
+        fg: { x: x * 1.15, y: y * 1.15, scale: s },
+      };
+    }
+
+    function moveCamera(atSec, durSec, wx, wy, s, easeName) {
+      const k = camKey(wx, wy, s);
+      tl.to("#world-stage", { x: k.world.x, y: k.world.y, scale: k.world.scale, duration: durSec, ease: easeName }, atSec);
+      tl.to("#bg-grid-parallax", { x: k.grid.x, y: k.grid.y, scale: k.grid.scale, duration: durSec, ease: easeName }, atSec);
+      tl.to("#fg-parallax", { x: k.fg.x, y: k.fg.y, scale: k.fg.scale, duration: durSec, ease: easeName }, atSec);
+    }
+
+    // =========================================================================
+    // FRAME 0 (0.00s): VISIBLE DESDE EL FOTOGRAMA 1 (SIN FADE-IN)
+    // =========================================================================
+    const kStart = camKey(800, 860, 1.0);
+    tl.set("#world-stage", kStart.world, 0);
+    tl.set("#bg-grid-parallax", kStart.grid, 0);
+    tl.set("#fg-parallax", kStart.fg, 0);
+    tl.set("#b1-receipt-line", { scaleX: 1 }, 0);
+    tl.set("#b3-mk-fill", { scaleX: 0 }, 0);
+
+    // =========================================================================
+    // BEAT 1: EL DOLOR EN EL FRAME 0 [0.00s - 7.70s]
+    // Audio Álvaro: 0.10s -> 7.10s ("Pagaste por una página web hace meses...")
+    // =========================================================================
+    // 0.50s - 2.80s: Línea plana roja avanza en vivo + reloj digital Mes 1 -> Mes 6
+    tl.fromTo(
+      "#b1-flatline-path",
+      { strokeDashoffset: 830 },
+      { strokeDashoffset: 0, duration: 2.30, ease: "none" },
+      0.50,
+    );
+    tl.fromTo(
+      "#b1-flatline-dot",
+      { attr: { cx: 8 } },
+      { attr: { cx: 824 }, duration: 2.30, ease: "none" },
+      0.50,
+    );
+
+    const monthClockEl = document.getElementById("b1-month-clock");
+    const monthState = { m: 1 };
+    tl.to(
+      monthState,
+      {
+        m: 6,
+        duration: 2.00,
+        ease: "none",
+        onUpdate: () => {
+          monthClockEl.textContent = "Mes " + Math.min(6, Math.max(1, Math.floor(monthState.m + 0.001)));
+        },
+      },
+      0.50,
+    );
+
+    // 3.15s: Texto de apoyo ("Bonita por fuera. / Invisible por dentro.") - sin rebote, queda quieto
+    tl.fromTo(
+      "#b1-support-copy",
+      { opacity: 0, y: 18 },
+      { opacity: 1, y: 0, duration: 0.28, ease: "power4.out" },
+      3.15,
+    );
+
+    // 5.40s: Acercamiento dramático (expo.out) hacia el número "0"
+    moveCamera(5.40, 1.00, 800, 770, 1.62, "expo.out");
+
+    // =========================================================================
+    // BEAT 2: INVISIBLE EN CHATGPT Y GOOGLE [7.70s - 19.20s]
+    // Audio Álvaro: 7.90s -> 18.56s ("Cuando alguien pregunta en ChatGPT...")
+    // =========================================================================
+    // 7.70s: Whip-pan lateral rápido (0.30s) hacia estación 2
+    moveCamera(7.70, 0.30, 2400, 740, 1.0, "power2.inOut");
+
+    // 8.10s - 10.60s: Escritura en vivo letra por letra en ChatGPT
+    const promptQuery = "Recomiéndame la mejor empresa para mi negocio";
+    const typedEl = document.getElementById("b2-typed-text");
+    const typeState = { idx: 0 };
+    tl.to(
+      typeState,
+      {
+        idx: promptQuery.length,
+        duration: 2.50,
+        ease: "none",
+        onUpdate: () => {
+          typedEl.textContent = promptQuery.slice(0, Math.round(typeState.idx));
+        },
+      },
+      8.10,
+    );
+
+    // Parpadeo determinista del cursor y cierre limpio antes de la respuesta IA
+    tl.set("#b2-typed-caret", { opacity: 1 }, 10.65);
+    tl.set("#b2-typed-caret", { opacity: 0 }, 10.95);
+
+    // 11.15s: Aparece la respuesta de la IA recomendando Competidor A y B
+    tl.fromTo(
+      "#b2-ai-response",
+      { opacity: 0, y: 16 },
+      { opacity: 1, y: 0, duration: 0.26, ease: "power4.out" },
+      11.15,
+    );
+
+    // 12.00s: Estampa insignia roja "Tu web: No recomendada por IA" (power4.out, sin rebote)
+    tl.fromTo(
+      "#b2-not-rec-stamp",
+      { opacity: 0, scale: 1.18 },
+      { opacity: 1, scale: 1.0, duration: 0.22, ease: "power4.out" },
+      12.00,
+    );
+
+    // 13.45s: Pan Y suave hacia tarjeta Google + Velocidad 4.8s
+    moveCamera(13.45, 0.60, 2400, 2230, 1.0, "power2.inOut");
+
+    // 14.20s - 16.00s: Scroll del listado Google hasta Página 4
+    tl.fromTo(
+      "#b2-serp-list",
+      { y: 0 },
+      { y: -115, duration: 1.75, ease: "power2.inOut" },
+      14.20,
+    );
+
+    // 14.10s - 16.80s: Círculo de carga gira lento y se congela en seco a 16.80s (4.8s)
+    tl.fromTo(
+      "#b2-spinner-arc",
+      { rotation: 0 },
+      { rotation: 620, duration: 2.70, ease: "power2.out" },
+      14.10,
+    );
+    tl.fromTo(
+      "#b2-abandon-pill",
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: 0.22, ease: "power4.out" },
+      16.85,
+    );
+
+    // =========================================================================
+    // BEAT 3: EL GIRO — LA SOLUCIÓN DE AUTONOMEK [19.20s - 32.00s]
+    // Audio Álvaro: 19.40s -> 31.10s ("Una web no es un folleto de adorno...")
+    // =========================================================================
+    // 19.20s: Cinematic-zoom (0.40s) atravesando el círculo congelado hacia entorno esmeralda/azul
+    moveCamera(19.20, 0.20, 2081, 2405, 3.1, "power3.in");
+    tl.to("#cinematic-zoom-flash", { opacity: 0.92, duration: 0.20, ease: "power2.in" }, 19.20);
+    tl.to("#bg-solution-plate", { opacity: 1, duration: 0.24, ease: "none" }, 19.34);
+
+    // Salida del zoom ya dentro de Estación 3 (cx=4050, cy=920)
+    const k3 = camKey(4050, 920, 1.0);
+    tl.set("#world-stage", camKey(4050, 920, 1.38).world, 19.40);
+    tl.set("#bg-grid-parallax", camKey(4050, 920, 1.38).grid, 19.40);
+    tl.set("#fg-parallax", camKey(4050, 920, 1.38).fg, 19.40);
+    moveCamera(19.40, 0.22, 4050, 920, 1.0, "expo.out");
+    tl.to("#cinematic-zoom-flash", { opacity: 0, duration: 0.26, ease: "power2.out" }, 19.40);
+
+    // Sello INGENIERÍA AUTONOMEK y tarjeta mk-progress-stat aterrizan fijos
+    tl.fromTo("#b3-eng-stamp", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.26, ease: "power4.out" }, 19.52);
+    tl.fromTo("#b3-audit-card", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.30, ease: "power4.out" }, 19.60);
+
+    // 21.40s - 26.50s: Arranque de diagnóstico en vivo (21.40s -> 24.00s) + impulso final a 99/100 (24.10s -> 26.50s)
+    const speedNumEl = document.getElementById("b3-mk-num");
+    const speedState = { score: 0 };
+    tl.to(
+      speedState,
+      {
+        score: 24,
+        duration: 2.30,
+        ease: "power2.out",
+        onUpdate: () => {
+          speedNumEl.textContent = Math.round(speedState.score) + "/100";
+        },
+      },
+      21.40,
+    );
+    tl.to("#b3-mk-fill", { scaleX: 0.24, duration: 2.30, ease: "power2.out" }, 21.40);
+    tl.to(
+      speedState,
+      {
+        score: 99,
+        duration: 2.40,
+        ease: "power2.out",
+        onUpdate: () => {
+          speedNumEl.textContent = Math.round(speedState.score) + "/100";
+        },
+      },
+      24.10,
+    );
+    tl.to("#b3-mk-fill", { scaleX: 0.99, duration: 2.40, ease: "power2.out" }, 24.10);
+
+    // 26.85s: Cronómetro clava en seco en "0.6s Carga Instantánea"
+    tl.fromTo(
+      "#b3-time-badge",
+      { opacity: 0, scale: 1.08 },
+      { opacity: 1, scale: 1.0, duration: 0.20, ease: "power4.out" },
+      26.85,
+    );
+
+    // 27.20s: Cámara desciende levemente para revelar Google #1, ChatGPT y WhatsApp
+    moveCamera(27.20, 0.65, 4050, 1210, 0.94, "power2.inOut");
+    tl.fromTo("#b3-card-google", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.28, ease: "power4.out" }, 27.55);
+    tl.fromTo("#b3-card-gpt", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.28, ease: "power4.out" }, 27.80);
+    tl.to("#b3-wires-svg", { opacity: 1, duration: 0.24, ease: "none" }, 27.85);
+
+    // 28.40s: Líneas de luz conectan Google y ChatGPT hacia WhatsApp
+    tl.fromTo("#b3-wa-card", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.30, ease: "power4.out" }, 28.25);
+    tl.fromTo(
+      "#b3-pulse-left, #b3-pulse-right",
+      { strokeDashoffset: 55 },
+      { strokeDashoffset: -240, duration: 1.15, ease: "power2.inOut" },
+      28.40,
+    );
+
+    // 29.20s, 30.10s, 31.00s: Tres notificaciones en cascada (+1, +2, +3 Clientes)
+    tl.fromTo("#b3-toast-1", { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.22, ease: "power4.out" }, 29.20);
+    tl.fromTo("#b3-toast-2", { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.22, ease: "power4.out" }, 30.10);
+    tl.fromTo("#b3-toast-3", { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.22, ease: "power4.out" }, 31.00);
+
+    // =========================================================================
+    // BEAT 4: CIERRE Y LLAMADO A LA ACCIÓN [32.00s - 41.50s]
+    // Audio Álvaro: 32.10s -> 40.35s ("Deja de tener una página invisible...")
+    // =========================================================================
+    // 32.00s: Alejamiento panorámico suave (power2.inOut)
+    moveCamera(32.00, 1.15, 4050, 1020, 0.78, "power2.inOut");
+    tl.to("#b3-eng-stamp", { opacity: 0, duration: 0.30, ease: "power2.in" }, 32.10);
+    tl.fromTo("#b4-logo-wrap", { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: 0.45, ease: "power4.out" }, 33.00);
+
+    // 34.80s: Aterrizan insignias laterales ("Auditoría Gratis" y "Código 100% Tuyo")
+    tl.fromTo("#b4-badge-1", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.28, ease: "power4.out" }, 34.80);
+    tl.fromTo("#b4-badge-2", { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.28, ease: "power4.out" }, 35.05);
+
+    // 37.40s: Botón vibrante WhatsApp ("Audita tu web gratis en / autonomek.com")
+    tl.fromTo("#b4-cta-btn", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.32, ease: "power4.out" }, 37.40);
+    // 38.50s: Pulso de confirmación/clic limpio sin rebote
+    tl.to("#b4-cta-btn", { scale: 0.97, duration: 0.09, ease: "power2.in" }, 38.50);
+    tl.to("#b4-cta-btn", { scale: 1.0, duration: 0.16, ease: "power4.out" }, 38.59);
+
+    // Pulso secundario de líneas de luz en el cierre panorámico
+    tl.fromTo(
+      "#b3-pulse-left, #b3-pulse-right",
+      { strokeDashoffset: 55 },
+      { strokeDashoffset: -240, duration: 1.40, ease: "none", immediateRender: false },
+      34.00,
+    );
+
+    // Ancla final al cierre de la composición (41.50s)
+    tl.set("#root", { opacity: 1 }, 41.50);
+
+    window.__timelines["world"] = tl;
+  </script>
+</template>

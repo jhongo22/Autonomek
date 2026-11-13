@@ -1,0 +1,41 @@
+# SPEC — Autonomek: Web Invisible -> Sistema de Ventas (9:16 Vertical)
+
+- **GOAL**: El dueño de negocio reconoce de inmediato por qué su web bonita de $1,500 USD no le trae clientes (invisible en ChatGPT, página 4 de Google, carga de 4.8s) y siente alivio concreto al ver la ingeniería Autonomek (`0.6s`, `#1`, `+3 Clientes`), tocando el botón de WhatsApp para auditar su web gratis en `autonomek.com`.
+- **OUTPUT**: HyperFrames, `1080 × 1920` (9:16 vertical), `30 fps`.
+- **TIME**: `41.50 s × 30 fps = 1245 frames` (calibrado al ritmo natural `+0%` de `es-ES-AlvaroNeural` medido en `assets/tts/timing.json`: `7.10s + 10.76s + 11.80s + 8.35s = 38.01s` de locución real más pausas respiratorias y cierre, evitando cortar ninguna frase o respiración; BGM electrónica minimalista continua en loop).
+- **SAFE ZONE (9:16 móvil)**:
+  - Banda superior libre: `0..168 px`
+  - Banda de contenido esencial: `y: 176..1320 px`, `x: 56..964 px` (`width <= 908 px`, dejando libre el carril derecho de acciones `976..1080 px` y la zona inferior de HUD/descripción `1330..1920 px`).
+- **LOOK**:
+  - Ground: `#070D0A` (Beats 1–2 problema con acento alerta `#EF4444` y carbón `#121419`) → transición cromática a `#04151D` / `#06231C` (Beats 3–4 solución ingeniería Autonomek: azul oscuro profundo + verde esmeralda `#10B981` + Mineral Mint `#A5D0B9`).
+  - Grid espacial parallax (`0.32×`): líneas `1.5px` cada `80px` (`rgba(165,208,185,0.05)`) y `400px` (`rgba(115,162,182,0.10)`).
+  - Ink: `#FFFFFF` títulos y cifras principales; `#CBD5E1` / `#B4C8BE` cuerpo secundario.
+  - Display face: `Inter`, weight `800`, `46–116 px`, tracking `-0.03em`.
+  - Body / UI face: `Inter`, weight `500–700`, `30–40 px` (siempre `>= 28 px` en pantalla).
+  - Telemetry / Counters: `JetBrains Mono`, weight `700`, `font-variant-numeric: tabular-nums`, `28–116 px`.
+  - Shadow & depth: tarjetas `lt-dark-card` adaptadas (`border-radius: 24px`, sombra `0 24px 60px rgba(0,0,0,0.65)`, borde `2px solid`), sin glow neón ni partículas decorativas.
+- **OBJECTS**:
+  - Recibo de factura oscura (`#b1-receipt`, `lt-dark-card` adaptado con borde rojo `rgba(239,68,68,0.65)` y sello lateral `HACE 6 MESES`), contador gigante `0 CLIENTES NUEVOS`, gráfica de línea plana roja SVG (`0 visitas hoy`) + reloj digital `Mes 1..Mes 6`.
+  - Ventana oscura ChatGPT con prompt mecanografiado en vivo, respuesta con Competidor A/B y sello rojo estampado `Tu web: No recomendada por IA`.
+  - Tarjeta de resultados Google con scroll vertical a `Página 4 de Google (Nadie llega aquí)` + indicador circular SVG congelado en `4.8s Carga Lenta / -53% abandonan`.
+  - Tarjeta de auditoría `mk-progress-stat` adaptada (`99/100` + barra de progreso esmeralda + `0.6s Carga Instantánea`), nodos `Puesto #1 en Google` y `Citado primero por ChatGPT` conectados por líneas vectoriales animadas hacia tarjeta WhatsApp (`+1 Cliente cotizando`, `+2 Clientes`, `+3 Clientes`).
+  - Logo oficial vectorial `[Keystone A]UTONOMEK` (`assets/autonomek-horizontal.svg`), dos insignias (`Auditoría Gratis`, `Código 100% Tuyo`) y botón WhatsApp (`Audita tu web gratis en / autonomek.com`).
+- **MOTION**:
+  - Regla **Move only what is live**: toda tarjeta o título aterrizado queda 100% inmóvil (`0` flotación/breathing). Solo animan datos en vivo y el rig de cámara.
+  - Regla **No bounce**: `power4.out` para impactos (`0.22–0.35s`), `power2.inOut` y `expo.out` para viajes de cámara (`0.30–1.00s`). Prohibido `back.out` y `elastic.out` en textos y cifras.
+  - `data-motion-blur="on"` (`180°`) en el root para desenfoque direccional físico en el `whip-pan` (`0.30s`) y `cinematic-zoom` (`0.40s`).
+- **SHOTS (ajustados al audio real de `es-ES-AlvaroNeural` +0%)**:
+  - **Beat 1 (`0.00s – 7.70s` | frames `0..231`)** · `(cx=800, cy=900, s=1.0 -> 1.68)`: Frame 0 visible sin fade-in (`FACTURA SITIO WEB / PAGADO: $1,500 USD`, `HACE 6 MESES`, `0 CLIENTES NUEVOS`). `0.50–2.80s` línea plana roja + reloj `Mes 1..Mes 6`. `3.20s` texto `Bonita por fuera. / Invisible por dentro.` `5.40–6.40s` zoom `expo.out` hacia `"0"`. Audio: `beat1` (`0.10–7.10s`), `impact-bass-1` (`0.00s`), `tick` (`0.50–2.50s`), `flatline` (`0.50–2.80s`), `sub-bass + whoosh-short` (`5.40s`).
+  - **Beat 2 (`7.70s – 19.20s` | frames `231..576`)** · `whip-pan` (`0.30s` a `cx=2400, cy=740, s=1.0`), luego pan Y (`13.45–14.05s` a `cy=1740`): ChatGPT escribe `"Recomiéndame la mejor empresa para mi negocio"` (`8.10–10.60s`), respuesta Competidor A/B (`11.15s`) + sello rojo `"Tu web: No recomendada por IA"` (`12.00s`). Pan Y a Google `Página 4 de Google (Nadie llega aquí)` (`14.20–16.00s`) y círculo congelado `4.8s Carga Lenta / -53% abandonan` (`16.50–17.30s`). Audio: `beat2` (`7.80–18.56s`), `whoosh-short` (`7.70s`), `typing/key-press` (`8.10–10.50s`), `error` (`12.00s`), `whoosh` (`13.45s`), `power-down` (`16.80s`).
+  - **Beat 3 (`19.20s – 32.00s` | frames `576..960`)** · `cinematic-zoom` (`0.40s` atravesando el círculo `4.8s` hacia `cx=4050, cy=940, s=1.0` en mundo esmeralda + azul oscuro con sello `INGENIERÍA AUTONOMEK`): Tarjeta `mk-progress-stat` aterriza fija (`19.60s`). `24.10–26.80s` velocímetro sube a `99/100` y cronómetro clava en `0.6s Carga Instantánea`. `27.20–27.80s` pan a `cy=1360, s=0.94` mostrando `Puesto #1 en Google` y `Citado primero por ChatGPT` conectados por líneas de luz animadas a WhatsApp con `+1 Cliente cotizando` (`29.20s`), `+2 Clientes` (`30.10s`), `+3 Clientes` (`31.00s`). Audio: `beat3` (`19.30–31.10s`), `whoosh-cinematic` (`19.20s`), `rising gauge + chime` (`24.10–26.80s`), `electric pulse` (`28.40s`), 3× `pop/notification` (`29.20, 30.10, 31.00s`).
+  - **Beat 4 (`32.00s – 41.50s` | frames `960..1245`)** · Pull-back panorámico `power2.inOut` (`32.00–33.20s` a `cx=4050, cy=1240, s=0.80`): Muestra el ecosistema completo (`0.6s` → WhatsApp) coronado por el logo oficial `[Keystone A]UTONOMEK` (`33.20s`). Aterrizan insignias `Auditoría Gratis` y `Código 100% Tuyo` (`34.80s`), y botón WhatsApp `Audita tu web gratis en / autonomek.com` (`37.40s`) con confirmación `click` (`38.50s`) y corte final intencional de música en `41.50s`. Audio: `beat4` (`32.00–40.35s`), `whoosh` (`32.00s`), 2× `click-soft/pop` (`34.80s`), `click + chord` (`38.50–41.50s`).
+- **BANNED**:
+  - Oscuridad vacía con tarjetas pequeñas flotando;
+  - Glow/neón excesivo, partículas flotantes decorativas, glassmorphism borroso ilegible;
+  - `back.out` / `elastic.out` / rebote en textos o cifras;
+  - Flotación/respiración/escala continua sobre títulos o tarjetas aterrizadas;
+  - Cortar locución o respiración en cambios de escena;
+  - Texto bajo `< 28 px` efectivos en pantalla o fuera de `[x: 56..964, y: 176..1320]`;
+  - Duplicar la "A" junto al isotipo Keystone A.
+- **QA**: Verificar con `npx hyperframes check --json`, `npx hyperframes snapshot --review` (Frame `0.00s`, Beat 1 zoom `6.5s`, Whip-pan `7.85s`, ChatGPT `12.3s`, Google/4.8s `17.5s`, Cinematic zoom `19.4s`, Speed 99/0.6s `27.0s`, WhatsApp +3 `31.4s`, Cierre CTA `39.5s`) y `npx hyperframes audio` + `ffmpeg ebur128` en el MP4 final.
+

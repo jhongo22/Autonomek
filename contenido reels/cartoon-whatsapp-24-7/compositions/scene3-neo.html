@@ -1,0 +1,492 @@
+<template>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@700;800&family=Nunito:wght@700;800;900&display=swap');
+
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #1E1B4B;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    #s3-stage {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+    }
+
+    #s3-camera {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+    }
+
+    #s3-bg-svg {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      z-index: 1;
+    }
+
+    /* Top Status Banner (y >= 176) */
+    #s3-top-banner {
+      position: absolute;
+      top: 176px;
+      left: 64px;
+      width: 952px;
+      z-index: 25;
+      background: #0F172A;
+      border: 5px solid #22C55E;
+      border-radius: 26px;
+      padding: 12px 24px;
+      box-shadow: 0 10px 0 #06B6D4;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+
+    #s3-banner-title {
+      color: #FFFFFF;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 33px;
+      line-height: 1.1;
+    }
+
+    #s3-banner-speed {
+      background: #FACC15;
+      color: #0F172A;
+      border: 3px solid #0F172A;
+      border-radius: 16px;
+      padding: 8px 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      font-size: 29px;
+      white-space: nowrap;
+    }
+
+    /* Action 1: Voice Note -> Text Bubble (Top Left, y=300..565) */
+    #s3-act1-wrap {
+      position: absolute;
+      top: 300px;
+      left: 64px;
+      width: 455px;
+      z-index: 20;
+    }
+
+    #s3-audio-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #DCFCE7;
+      color: #0F172A;
+      border: 4px solid #0F172A;
+      border-radius: 22px;
+      padding: 10px 18px;
+      font-weight: 900;
+      font-size: 32px;
+      box-shadow: 0 6px 0 #166534;
+    }
+
+    #s3-text-result {
+      margin-top: 14px;
+      background: #FFFFFF;
+      color: #0F172A;
+      border: 5px solid #0F172A;
+      border-radius: 24px;
+      padding: 14px 20px;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 31px;
+      line-height: 1.15;
+      box-shadow: 0 8px 0 #06B6D4;
+    }
+
+    /* Action 3: Spinning Calendar Card (Top Right, y=300..565) */
+    #s3-act3-wrap {
+      position: absolute;
+      top: 300px;
+      left: 556px;
+      width: 460px;
+      z-index: 20;
+    }
+
+    #s3-cal-card {
+      background: #FFFFFF;
+      border: 5px solid #0F172A;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 10px 0 #0F172A;
+    }
+
+    #s3-cal-head {
+      background: #166534;
+      color: #FFFFFF;
+      border-bottom: 4px solid #0F172A;
+      padding: 10px 18px;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 29px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #s3-cal-body {
+      padding: 14px 18px;
+      color: #0F172A;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 32px;
+      line-height: 1.2;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    #s3-cal-star {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      background: #FACC15;
+      border: 4px solid #0F172A;
+      border-radius: 50%;
+      font-size: 30px;
+      flex-shrink: 0;
+    }
+
+    /* Action 2: Bank Transfer Slip + Rubber Stamp (Bottom Safe Zone y=995..1310) */
+    #s3-act2-wrap {
+      position: absolute;
+      top: 998px;
+      left: 130px;
+      width: 820px;
+      z-index: 22;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    #s3-receipt-card {
+      width: 470px;
+      background: #FEF9C3;
+      color: #0F172A;
+      border: 5px solid #0F172A;
+      border-radius: 22px;
+      padding: 16px 22px;
+      box-shadow: 0 9px 0 #0F172A;
+    }
+
+    #s3-receipt-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 29px;
+      color: #0F172A;
+      border-bottom: 3px dashed #0F172A;
+      padding-bottom: 6px;
+    }
+
+    #s3-receipt-amt {
+      margin-top: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      font-size: 36px;
+      color: #166534;
+    }
+
+    #s3-stamp-badge {
+      background: #166534;
+      color: #FFFFFF;
+      border: 6px solid #0F172A;
+      border-radius: 20px;
+      padding: 16px 24px;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 34px;
+      line-height: 1.1;
+      text-align: center;
+      box-shadow: 0 9px 0 #0F172A;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene3-neo" data-width="1080" data-height="1920">
+    <div id="s3-stage" class="clip" data-start="0" data-duration="12.3">
+      <div id="s3-camera">
+
+        <!-- STARRY RECEPTION ROOM + GLOWING POD + 4-ARMED NEO ROBOT SVG -->
+        <svg id="s3-bg-svg" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg" data-layout-ignore>
+          <!-- Night Reception Wall & Starry Panoramic Window -->
+          <rect x="0" y="0" width="1080" height="1920" fill="#EEF2FF"/>
+          <rect x="0" y="0" width="1080" height="1140" fill="#312E81" stroke="#0F172A" stroke-width="4"/>
+          <!-- Huge Panoramic Window showing Midnight Starry Sky -->
+          <rect x="52" y="130" width="976" height="940" rx="40" fill="#1E1B4B" stroke="#0F172A" stroke-width="6"/>
+          <!-- Moon & Stars in panoramic window -->
+          <circle cx="885" cy="245" r="46" fill="#FACC15" stroke="#0F172A" stroke-width="4"/>
+          <g fill="#FACC15">
+            <circle cx="150" cy="230" r="5"/>
+            <circle cx="290" cy="195" r="6"/>
+            <circle cx="520" cy="210" r="5"/>
+            <circle cx="710" cy="180" r="6"/>
+            <circle cx="195" cy="540" r="5"/>
+            <circle cx="920" cy="495" r="5"/>
+            <polygon points="435,235 441,250 456,256 441,262 435,277 429,262 414,256 429,250"/>
+          </g>
+
+          <!-- RECEPTION COUNTER DESK (Fills bottom half cleanly y=1140..1920) -->
+          <rect x="0" y="1140" width="1080" height="58" fill="#06B6D4" stroke="#0F172A" stroke-width="5"/>
+          <rect x="0" y="1198" width="1080" height="722" fill="#1E1B4B" stroke="#0F172A" stroke-width="5"/>
+          <!-- Reception desk cartoon trim -->
+          <rect x="80" y="1360" width="920" height="460" rx="28" fill="#312E81" stroke="#0F172A" stroke-width="5"/>
+          <circle cx="540" cy="1590" r="95" fill="#0F172A" stroke="#06B6D4" stroke-width="6"/>
+          <text x="540" y="1605" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="38" fill="#22C55E">24/7 AI</text>
+
+          <!-- TELEPORTATION POD BEAM & BASE -->
+          <g id="s3-pod">
+            <polygon points="330,1140 750,1140 845,250 235,250" fill="#06B6D4" opacity="0.22"/>
+            <ellipse cx="540" cy="1140" rx="215" ry="34" fill="#22C55E" stroke="#0F172A" stroke-width="5"/>
+            <ellipse cx="540" cy="1132" rx="165" ry="22" fill="#06B6D4" stroke="#0F172A" stroke-width="4"/>
+          </g>
+
+          <!-- NEO: CHARISMATIC 4-ARMED CARTOON AI ROBOT -->
+          <g id="s3-neo-rig">
+            <!-- Mechanical Arm 1 (Top-Left: Parabolic Ear Dish) -->
+            <g id="s3-arm-tl">
+              <path d="M 435 740 Q 315 685 265 570" fill="none" stroke="#0F172A" stroke-width="34" stroke-linecap="round"/>
+              <path d="M 435 740 Q 315 685 265 570" fill="none" stroke="#CBD5E1" stroke-width="22" stroke-linecap="round"/>
+              <!-- Giant Parabolic Ear Dish -->
+              <path d="M 205 585 Q 250 485 335 535 Z" fill="#06B6D4" stroke="#0F172A" stroke-width="4"/>
+              <circle cx="268" cy="545" r="16" fill="#FACC15" stroke="#0F172A" stroke-width="4"/>
+            </g>
+
+            <!-- Mechanical Arm 2 (Top-Right: Calendar Pin Hand) -->
+            <g id="s3-arm-tr">
+              <path d="M 645 740 Q 765 685 810 565" fill="none" stroke="#0F172A" stroke-width="34" stroke-linecap="round"/>
+              <path d="M 645 740 Q 765 685 810 565" fill="none" stroke="#CBD5E1" stroke-width="22" stroke-linecap="round"/>
+              <circle cx="810" cy="558" r="22" fill="#22C55E" stroke="#0F172A" stroke-width="4"/>
+            </g>
+
+            <!-- Mechanical Arm 3 (Bottom-Left: Green Laser Magnifying Glass) -->
+            <g id="s3-arm-bl">
+              <path d="M 445 835 Q 320 880 325 930" fill="none" stroke="#0F172A" stroke-width="34" stroke-linecap="round"/>
+              <path d="M 445 835 Q 320 880 325 930" fill="none" stroke="#CBD5E1" stroke-width="22" stroke-linecap="round"/>
+              <circle cx="325" cy="930" r="46" fill="#86EFAC" fill-opacity="0.72" stroke="#0F172A" stroke-width="5"/>
+              <line x1="292" y1="930" x2="358" y2="930" stroke="#22C55E" stroke-width="6"/>
+            </g>
+
+            <!-- Mechanical Arm 4 (Bottom-Right: Heavy Wooden Rubber Stamp) -->
+            <g id="s3-arm-br">
+              <path d="M 635 835 Q 755 895 735 968" fill="none" stroke="#0F172A" stroke-width="34" stroke-linecap="round"/>
+              <path d="M 635 835 Q 755 895 735 968" fill="none" stroke="#CBD5E1" stroke-width="22" stroke-linecap="round"/>
+              <!-- Stamp Handle & Base -->
+              <rect x="705" y="925" width="60" height="46" rx="14" fill="#B45309" stroke="#0F172A" stroke-width="4"/>
+              <rect x="680" y="968" width="110" height="22" rx="6" fill="#166534" stroke="#0F172A" stroke-width="4"/>
+            </g>
+
+            <!-- Robot Hover Jet & Torso -->
+            <path d="M 480 945 L 600 945 L 575 1035 L 505 1035 Z" fill="#06B6D4" stroke="#0F172A" stroke-width="4"/>
+            <path d="M 410 700 C 410 660 670 660 670 700 L 650 935 C 650 960 430 960 430 935 Z" fill="#FFFFFF" stroke="#0F172A" stroke-width="5"/>
+            <!-- Chest Autonomek Core Emblem -->
+            <rect x="465" y="750" width="150" height="105" rx="22" fill="#0F172A" stroke="#06B6D4" stroke-width="4"/>
+            <polygon points="548,768 518,808 545,808 532,840 568,798 540,798" fill="#22C55E" stroke="#FFFFFF" stroke-width="2"/>
+
+            <!-- Robot Head + Expressive Cyan Visor -->
+            <rect x="422" y="510" width="236" height="162" rx="48" fill="#FFFFFF" stroke="#0F172A" stroke-width="5"/>
+            <rect x="444" y="534" width="192" height="114" rx="30" fill="#0F172A" stroke="#06B6D4" stroke-width="4"/>
+            <!-- Friendly Glowing Visor Eyes & Smile -->
+            <path id="s3-eye-l" d="M 476 588 Q 498 558 520 588" fill="none" stroke="#06B6D4" stroke-width="10" stroke-linecap="round"/>
+            <path id="s3-eye-r" d="M 560 588 Q 582 558 604 588" fill="none" stroke="#06B6D4" stroke-width="10" stroke-linecap="round"/>
+            <path d="M 512 618 Q 540 636 568 618" fill="none" stroke="#22C55E" stroke-width="7" stroke-linecap="round"/>
+
+            <!-- Receptionist Headset + Boom Microphone -->
+            <path d="M 412 575 A 132 132 0 0 1 668 575" fill="none" stroke="#22C55E" stroke-width="14" stroke-linecap="round"/>
+            <rect x="392" y="550" width="34" height="74" rx="14" fill="#06B6D4" stroke="#0F172A" stroke-width="4"/>
+            <rect x="654" y="550" width="34" height="74" rx="14" fill="#06B6D4" stroke="#0F172A" stroke-width="4"/>
+            <path d="M 408 615 Q 430 658 504 652" fill="none" stroke="#0F172A" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="508" cy="652" r="10" fill="#FACC15" stroke="#0F172A" stroke-width="3"/>
+          </g>
+        </svg>
+
+        <!-- TOP STATUS BANNER -->
+        <div id="s3-top-banner">
+          <div id="s3-banner-title">AGENTE IA ACTIVO 24/7</div>
+          <div id="s3-banner-speed">RESPUESTA EN 1.1s</div>
+        </div>
+
+        <!-- ACTION 1: VOICE NOTE -> TEXT -->
+        <div id="s3-act1-wrap">
+          <div id="s3-audio-chip">
+            <svg width="32" height="32" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+              <rect x="12" y="4" width="12" height="18" rx="6" fill="#166534" stroke="#0F172A" stroke-width="3"/>
+              <path d="M 8 17 A 10 10 0 0 0 28 17" fill="none" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+              <line x1="18" y1="27" x2="18" y2="33" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span>Audio 0:30</span>
+          </div>
+          <div id="s3-text-result">
+            "¡Pedido confirmado!"
+          </div>
+        </div>
+
+        <!-- ACTION 3: CALENDAR APPOINTMENT -->
+        <div id="s3-act3-wrap">
+          <div id="s3-cal-card">
+            <div id="s3-cal-head">
+              <span>CITA AGENDADA</span>
+              <svg width="32" height="32" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+                <rect x="4" y="8" width="28" height="24" rx="5" fill="#FFFFFF" stroke="#0F172A" stroke-width="3"/>
+                <rect x="4" y="8" width="28" height="8" rx="3" fill="#FACC15" stroke="#0F172A" stroke-width="3"/>
+                <line x1="12" y1="4" x2="12" y2="11" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+                <line x1="24" y1="4" x2="24" y2="11" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div id="s3-cal-body">
+              <div id="s3-cal-star">★</div>
+              <div>JUEVES · 9:30 AM</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTION 2: PAYMENT RECEIPT + STAMP -->
+        <div id="s3-act2-wrap">
+          <div id="s3-receipt-card">
+            <div id="s3-receipt-title">COMPROBANTE #8492</div>
+            <div id="s3-receipt-amt">$180 USD RECIBIDO</div>
+          </div>
+          <div id="s3-stamp-badge">
+            ¡PAGO VALIDADO ✓!
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // 1. Neo pod & robot energetic landing (0.0s - 1.2s)
+    tl.fromTo(
+      "#s3-pod",
+      { scaleY: 0.2, opacity: 0, transformOrigin: "540px 1140px" },
+      { scaleY: 1, opacity: 1, duration: 0.6, ease: "power3.out" },
+      0.05
+    );
+    tl.fromTo(
+      "#s3-neo-rig",
+      { y: -320, scale: 0.5, opacity: 0, transformOrigin: "540px 820px" },
+      { y: 0, scale: 1, opacity: 1, duration: 0.85, ease: "back.out(1.7)" },
+      0.25
+    );
+
+    // Subtle hover bob for Neo + top banner & pod pulse during 1.2s-3.4s (prevents dead stretch!)
+    tl.fromTo(
+      "#s3-top-banner",
+      { y: -30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.7)" },
+      1.1
+    );
+    tl.fromTo(
+      "#s3-neo-rig",
+      { y: 0 },
+      { y: -22, duration: 0.7, repeat: 13, yoyo: true, ease: "sine.inOut", immediateRender: false },
+      1.2
+    );
+    tl.fromTo(
+      "#s3-pod",
+      { scale: 1, transformOrigin: "540px 1140px" },
+      { scale: 1.07, duration: 0.55, repeat: 3, yoyo: true, ease: "sine.inOut", immediateRender: false },
+      1.7
+    );
+
+    // 2. Dynamic zoom into Neo's comic station around 3.2s ("Ahora responde en un segundo...")
+    tl.fromTo(
+      "#s3-camera",
+      { scale: 1, transformOrigin: "540px 760px" },
+      { scale: 1.04, duration: 1.0, ease: "power2.inOut" },
+      3.4
+    );
+
+    // 3. ACTION 1 (Voice note suction & text conversion ~4.6s)
+    tl.fromTo(
+      "#s3-audio-chip",
+      { scale: 0.4, x: -90, opacity: 0 },
+      { scale: 1, x: 0, opacity: 1, duration: 0.45, ease: "back.out(1.7)" },
+      4.5
+    );
+    tl.fromTo(
+      "#s3-arm-tl",
+      { rotation: 0, transformOrigin: "435px 740px" },
+      { rotation: -12, duration: 0.3, repeat: 1, yoyo: true, ease: "back.out(1.7)" },
+      5.1
+    );
+    tl.to(
+      "#s3-audio-chip",
+      { scale: 0.96, x: 35, opacity: 0.92, duration: 0.4, ease: "power2.in" },
+      5.3
+    );
+    tl.fromTo(
+      "#s3-text-result",
+      { scale: 0.4, y: 20, opacity: 0 },
+      { scale: 1, y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.7)" },
+      5.7
+    );
+
+    // 4. ACTION 2 (Laser scan bank slip + heavy physical rubber stamp ~7.2s)
+    tl.fromTo(
+      "#s3-receipt-card",
+      { y: 70, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.7)" },
+      6.9
+    );
+    tl.fromTo(
+      "#s3-arm-bl",
+      { rotation: -8, transformOrigin: "425px 815px" },
+      { rotation: 10, duration: 0.45, repeat: 1, yoyo: true, ease: "sine.inOut" },
+      7.2
+    );
+    tl.fromTo(
+      "#s3-arm-br",
+      { y: -35, rotation: -14, transformOrigin: "655px 815px" },
+      { y: 12, rotation: 8, duration: 0.22, ease: "power4.in" },
+      7.75
+    );
+    tl.to(
+      "#s3-arm-br",
+      { y: 0, rotation: 0, duration: 0.3, ease: "back.out(1.7)" },
+      8.0
+    );
+    tl.fromTo(
+      "#s3-stamp-badge",
+      { scale: 2.1, rotation: -12, opacity: 0 },
+      { scale: 1, rotation: -3, opacity: 1, duration: 0.4, ease: "elastic.out(1, 0.5)" },
+      7.9
+    );
+
+    // 5. ACTION 3 (Calendar spin + golden star pin ~9.6s)
+    tl.fromTo(
+      "#s3-arm-tr",
+      { rotation: 0, transformOrigin: "665px 730px" },
+      { rotation: 14, duration: 0.35, repeat: 1, yoyo: true, ease: "back.out(1.7)" },
+      9.4
+    );
+    tl.fromTo(
+      "#s3-cal-card",
+      { scale: 0.35, rotationY: -90, opacity: 0 },
+      { scale: 1, rotationY: 0, opacity: 1, duration: 0.55, ease: "back.out(1.7)" },
+      9.55
+    );
+    tl.fromTo(
+      "#s3-cal-star",
+      { scale: 1.8, rotation: -45, opacity: 0 },
+      { scale: 1, rotation: 0, opacity: 1, duration: 0.45, ease: "elastic.out(1, 0.5)" },
+      10.1
+    );
+
+    window.__timelines = window.__timelines || {};
+    window.__timelines["scene3-neo"] = tl;
+  </script>
+</template>

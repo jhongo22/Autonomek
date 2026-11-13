@@ -1,0 +1,411 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 7,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "2 tl.fromTo() calls target \"#s1-tumbleweed\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#s1-tumbleweed",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\cartoon-web-autonomek\\compositions\\scene1-telaranas.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 1.45s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "2 tl.fromTo() calls target \"#s1-bubble-inner\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#s1-bubble-inner",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\cartoon-web-autonomek\\compositions\\scene1-telaranas.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 2.8s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "2 tl.fromTo() calls target \"#s3-mek\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#s3-mek",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\cartoon-web-autonomek\\compositions\\scene3-rescate.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 0.08s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "2 tl.fromTo() calls target \"#s3-laser\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#s3-laser",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\cartoon-web-autonomek\\compositions\\scene3-rescate.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 1s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "2 tl.fromTo() calls target \"#s3-zap-puffs\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#s3-zap-puffs",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\cartoon-web-autonomek\\compositions\\scene3-rescate.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 1.22s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "2 tl.fromTo() calls target \"#s4-confetti\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#s4-confetti",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\cartoon-web-autonomek\\compositions\\scene4-imanes.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 0.3s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "2 tl.fromTo() calls target \"#s4-clap-burst\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#s4-clap-burst",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\cartoon-web-autonomek\\compositions\\scene4-imanes.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 2.78s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      }
+    ],
+    "filesScanned": 5
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 3,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_occluded",
+        "severity": "error",
+        "time": 19.8,
+        "selector": "#s3-lego-1-inner > span:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 242,
+          "top": 660.41,
+          "right": 482.84,
+          "bottom": 703.41,
+          "width": 240.84,
+          "height": 43
+        },
+        "containerSelector": "#s3-lego-2-inner",
+        "text": "Carga en 0.6s",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "lifetime": {
+          "start": 18.599999999999998,
+          "end": 24.5
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene3-rescate.html",
+        "bbox": {
+          "x": 242,
+          "y": 660.41,
+          "width": 240.84,
+          "height": 43
+        },
+        "firstSeen": 19.8,
+        "lastSeen": 19.8,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          19.8
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 19.8,
+        "selector": "#s3-lego-1-inner > span:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 242,
+          "top": 660.41,
+          "right": 482.84,
+          "bottom": 703.41,
+          "width": 240.84,
+          "height": 43
+        },
+        "containerSelector": "#s3-lego-2-inner > span:nth-of-type(1)",
+        "text": "Carga en 0.6s",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply. Decoration nobody needs to read can take data-layout-ignore.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene3-rescate.html",
+        "bbox": {
+          "x": 242,
+          "y": 660.41,
+          "width": 240.84,
+          "height": 43
+        },
+        "firstSeen": 19.358,
+        "lastSeen": 24.335,
+        "occurrences": 29,
+        "heldMs": 4977,
+        "times": [
+          19.358,
+          19.542,
+          19.726,
+          19.8,
+          19.911,
+          20.095,
+          20.279,
+          20.464,
+          20.648,
+          20.832,
+          21.017,
+          21.201,
+          21.385,
+          21.57,
+          21.754,
+          21.939,
+          22.123,
+          22.307,
+          22.492,
+          22.676,
+          22.86,
+          23.045,
+          23.229,
+          23.413,
+          23.598,
+          23.782,
+          23.966,
+          24.151,
+          24.335
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 19.911,
+        "selector": "#s3-lego-2-inner > span:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 242,
+          "top": 660.41,
+          "right": 471.48,
+          "bottom": 703.41,
+          "width": 229.48,
+          "height": 43
+        },
+        "containerSelector": "#s3-lego-3-inner > span:nth-of-type(1)",
+        "text": "#1 en Google",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply. Decoration nobody needs to read can take data-layout-ignore.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene3-rescate.html",
+        "bbox": {
+          "x": 242,
+          "y": 660.41,
+          "width": 229.48,
+          "height": 43
+        },
+        "firstSeen": 19.911,
+        "lastSeen": 24.335,
+        "occurrences": 25,
+        "heldMs": 4423.999999999999,
+        "times": [
+          19.911,
+          20.095,
+          20.279,
+          20.464,
+          20.648,
+          20.832,
+          21.017,
+          21.201,
+          21.385,
+          21.57,
+          21.754,
+          21.939,
+          22.123,
+          22.307,
+          22.492,
+          22.676,
+          22.86,
+          23.045,
+          23.229,
+          23.413,
+          23.598,
+          23.782,
+          23.966,
+          24.151,
+          24.335
+        ]
+      }
+    ],
+    "duration": 33,
+    "samples": [
+      0,
+      3.5,
+      10.8,
+      19.8,
+      28.5
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 3,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      0,
+      3.5,
+      10.8,
+      19.8,
+      28.5
+    ],
+    "checked": 18,
+    "passed": 18
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"PAGADO\" renders at 26 px for 7.38 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "PAGADO",
+        "selector": "span.s1-bill-stamp",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene1-telaranas.html",
+        "bbox": {
+          "x": 306.13,
+          "y": 1056.33,
+          "width": 122.22,
+          "height": 41.64
+        },
+        "time": 0.125,
+        "times": [
+          0.125
+        ],
+        "fontPx": 25.86,
+        "floorPx": 28,
+        "seconds": 7.375,
+        "elements": [
+          {
+            "selector": "span.s1-bill-stamp",
+            "text": "PAGADO",
+            "fontPx": 25.86,
+            "time": 0.125,
+            "seconds": 7.375
+          }
+        ]
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 264
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": true,
+    "files": [
+      ".hyperframes\\artifacts\\snapshots\\bc1f0ae4-3cfb-4602-a184-a808e5b08ac7\\frame-00-at-0.0s.png",
+      ".hyperframes\\artifacts\\snapshots\\bc1f0ae4-3cfb-4602-a184-a808e5b08ac7\\frame-01-at-3.5s.png",
+      ".hyperframes\\artifacts\\snapshots\\bc1f0ae4-3cfb-4602-a184-a808e5b08ac7\\frame-02-at-10.8s.png",
+      ".hyperframes\\artifacts\\snapshots\\bc1f0ae4-3cfb-4602-a184-a808e5b08ac7\\frame-03-at-19.8s.png",
+      ".hyperframes\\artifacts\\snapshots\\bc1f0ae4-3cfb-4602-a184-a808e5b08ac7\\frame-04-at-28.5s.png"
+    ],
+    "times": [
+      0,
+      3.5,
+      10.8,
+      19.8,
+      28.5
+    ],
+    "findingFiles": [
+      "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\cartoon-web-autonomek\\.hyperframes\\artifacts\\snapshots\\bc1f0ae4-3cfb-4602-a184-a808e5b08ac7\\finding-00-text_occluded.png",
+      "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\cartoon-web-autonomek\\.hyperframes\\artifacts\\snapshots\\bc1f0ae4-3cfb-4602-a184-a808e5b08ac7\\finding-01-content_overlap.png",
+      "C:\\Users\\Usuario\\Desktop\\Proyectos\\AUTONOMEK\\Autonomek\\cartoon-web-autonomek\\.hyperframes\\artifacts\\snapshots\\bc1f0ae4-3cfb-4602-a184-a808e5b08ac7\\finding-02-content_overlap.png"
+    ]
+  }
+}

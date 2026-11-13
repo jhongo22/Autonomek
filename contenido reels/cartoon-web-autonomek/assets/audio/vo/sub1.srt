@@ -1,0 +1,8 @@
+1
+00:00:00,100 --> 00:00:03,925
+Carlos pagó una fortuna por su página web hace meses.
+
+2
+00:00:03,875 --> 00:00:08,650
+Le dijeron que quedó preciosa... pero hoy tiene más telarañas que clientes.
+

@@ -1,0 +1,357 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #FFF8F0;
+      font-family: "Nunito", sans-serif;
+    }
+    .s3-stage {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      transform-origin: center center;
+    }
+    .s3-svg-full {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      display: block;
+    }
+    .s3-mek-bubble {
+      position: absolute;
+      left: 76px;
+      top: 215px;
+      width: 520px;
+      background: #FACC15;
+      border: 4px solid #1E293B;
+      border-radius: 26px;
+      box-shadow: 8px 8px 0 #1E293B;
+      padding: 20px 24px;
+      z-index: 12;
+      transform-origin: right center;
+    }
+    .s3-mek-bubble-text {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 34px;
+      line-height: 1.15;
+      color: #1E293B;
+      text-align: center;
+    }
+    .s3-lego-stack {
+      position: absolute;
+      left: 140px;
+      top: 630px;
+      width: 800px;
+      height: 310px;
+      z-index: 11;
+    }
+    .s3-lego-slot {
+      position: absolute;
+      left: 0;
+      width: 800px;
+      height: 86px;
+    }
+    .s3-lego-block {
+      position: relative;
+      border: 4px solid #1E293B;
+      border-radius: 18px;
+      box-shadow: 0 7px 0 #1E293B;
+      padding: 15px 24px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    /* Tacos tipo Lego arriba del bloque */
+    .s3-lego-studs {
+      position: absolute;
+      top: -12px;
+      left: 36px;
+      display: flex;
+      gap: 28px;
+    }
+    .s3-stud {
+      width: 34px;
+      height: 10px;
+      border: 4px solid #1E293B;
+      border-bottom: none;
+      border-radius: 6px 6px 0 0;
+      background: inherit;
+    }
+    .s3-lego-text {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 32px;
+      line-height: 1.1;
+    }
+    .s3-speedo-card {
+      position: absolute;
+      left: 200px;
+      top: 1205px;
+      width: 680px;
+      height: 295px;
+      background: #FFFFFF;
+      border: 4px solid #1E293B;
+      border-radius: 28px;
+      box-shadow: 0 10px 0 #1E293B;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    .s3-speedo-score {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 52px;
+      color: #1E293B;
+      line-height: 1;
+      margin-top: -10px;
+    }
+    .s3-speedo-label {
+      font-family: "Nunito", sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      color: #1E293B;
+      margin-top: 4px;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene3-rescate" data-width="1080" data-height="1920">
+    <div id="s3-camera" class="s3-stage" data-layout-allow-overflow>
+      <svg class="s3-svg-full" viewBox="0 0 1080 1920" fill="none" xmlns="http://www.w3.org/2000/svg" data-layout-ignore>
+        <!-- Fondo vibrante con líneas de acción estilo anime -->
+        <rect width="1080" height="1920" fill="#FFF8F0" />
+        <g id="s3-anime-rays" style="transform-origin: 540px 800px;" opacity="0.55">
+          <polygon points="540,800 0,0 140,0" fill="#DBEAFE" />
+          <polygon points="540,800 320,0 470,0" fill="#DBEAFE" />
+          <polygon points="540,800 640,0 790,0" fill="#DBEAFE" />
+          <polygon points="540,800 940,0 1080,0" fill="#DBEAFE" />
+          <polygon points="540,800 1080,350 1080,530" fill="#D1FAE5" />
+          <polygon points="540,800 0,350 0,530" fill="#D1FAE5" />
+          <polygon points="540,800 0,1300 0,1520" fill="#FEF3C7" />
+          <polygon points="540,800 1080,1300 1080,1520" fill="#FEF3C7" />
+        </g>
+
+        <!-- Mostrador cálido debajo de la laptop -->
+        <rect x="0" y="1148" width="1080" height="72" rx="18" fill="#F59E0B" stroke="#1E293B" stroke-width="4" />
+        <rect x="0" y="1210" width="1080" height="710" fill="#334155" stroke="#1E293B" stroke-width="4" />
+
+        <!-- Laptop sobre la mesa -->
+        <g id="s3-laptop">
+          <polygon points="150,1115 930,1115 975,1152 105,1152" fill="#CBD5E1" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+          <rect x="180" y="925" width="720" height="190" rx="18" fill="#334155" stroke="#1E293B" stroke-width="4" />
+          <rect x="200" y="942" width="680" height="155" rx="10" fill="#EFF6FF" stroke="#1E293B" stroke-width="4" />
+          <!-- Barra luminosa verde dentro de pantalla -->
+          <rect x="230" y="975" width="620" height="32" rx="12" fill="#10B981" stroke="#1E293B" stroke-width="3" />
+          <rect x="230" y="1025" width="440" height="22" rx="10" fill="#2563EB" stroke="#1E293B" stroke-width="3" />
+        </g>
+
+        <!-- Telarañas residuales que Mek rompe con láser -->
+        <g id="s3-cobwebs" stroke="#475569" stroke-width="4" stroke-linecap="round" fill="none">
+          <path d="M180 925 L360 925 M180 925 L320 1020 M180 925 L260 1090 M180 925 L180 1105" />
+          <path d="M230 925 Q235 975 180 985" />
+          <path d="M285 925 Q275 1010 180 1035" />
+          <path d="M900 925 L720 925 M900 925 L760 1020 M900 925 L820 1090" />
+          <path d="M845 925 Q845 975 900 985" />
+        </g>
+
+        <!-- Nubes de humo al romperse telarañas -->
+        <g id="s3-zap-puffs" opacity="0">
+          <circle cx="240" cy="960" r="28" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" />
+          <circle cx="280" cy="945" r="22" fill="#FEF08A" stroke="#1E293B" stroke-width="4" />
+          <circle cx="835" cy="960" r="28" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" />
+          <circle cx="795" cy="945" r="22" fill="#FEF08A" stroke="#1E293B" stroke-width="4" />
+        </g>
+
+        <!-- Rayo láser de Mek -->
+        <g id="s3-laser" opacity="0">
+          <line x1="680" y1="480" x2="245" y2="955" stroke="#10B981" stroke-width="18" stroke-linecap="round" />
+          <line x1="680" y1="480" x2="245" y2="955" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" />
+          <circle cx="245" cy="955" r="26" fill="#FACC15" stroke="#1E293B" stroke-width="4" />
+        </g>
+
+        <!-- PERSONAJE: MEK (El Agente Robot de Autonomek) -->
+        <g id="s3-mek" style="transform-origin: 790px 410px;">
+          <!-- Llama propulsora -->
+          <path id="s3-thruster" d="M760 548 L790 618 L820 548 Z" fill="#FACC15" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+          <path d="M774 548 L790 590 L806 548 Z" fill="#10B981" />
+
+          <!-- Brazo magnético izquierdo (apunta a las telarañas/bloques) -->
+          <g id="s3-mek-arm-l" transform-origin="695 435">
+            <path d="M695 435 C655 445 632 475 648 502" stroke="#1E293B" stroke-width="14" stroke-linecap="round" fill="none" />
+            <path d="M695 435 C655 445 632 475 648 502" stroke="#10B981" stroke-width="6" stroke-linecap="round" fill="none" />
+            <!-- Pinza magnética -->
+            <path d="M626 495 C612 515 632 538 654 528" stroke="#2563EB" stroke-width="10" stroke-linecap="round" fill="none" />
+            <circle cx="647" cy="505" r="10" fill="#FACC15" stroke="#1E293B" stroke-width="3" />
+          </g>
+
+          <!-- Brazo magnético derecho -->
+          <g id="s3-mek-arm-r" style="transform-origin: 890px 440px;">
+            <path d="M885 435 C940 420 965 385 950 355" stroke="#1E293B" stroke-width="14" stroke-linecap="round" fill="none" />
+            <path d="M885 435 C940 420 965 385 950 355" stroke="#10B981" stroke-width="6" stroke-linecap="round" fill="none" />
+            <circle cx="948" cy="350" r="12" fill="#FACC15" stroke="#1E293B" stroke-width="4" />
+          </g>
+
+          <!-- Cuerpo/Torso geométrico -->
+          <path d="M715 415 L865 415 L845 548 L735 548 Z" fill="#2563EB" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+          <rect x="752" y="445" width="76" height="58" rx="14" fill="#10B981" stroke="#1E293B" stroke-width="4" />
+          <path d="M775 474 L786 485 L808 462" stroke="#1E293B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+
+          <!-- Cabeza geométrica de Mek -->
+          <rect x="692" y="268" width="196" height="145" rx="44" fill="#2563EB" stroke="#1E293B" stroke-width="4" />
+          <!-- Reflejo cel-shading -->
+          <path d="M722 282 H852" stroke="#60A5FA" stroke-width="8" stroke-linecap="round" />
+          <!-- Orejas/Audífonos esmeralda -->
+          <rect x="670" y="310" width="24" height="62" rx="10" fill="#10B981" stroke="#1E293B" stroke-width="4" />
+          <rect x="886" y="310" width="24" height="62" rx="10" fill="#10B981" stroke="#1E293B" stroke-width="4" />
+          <!-- Antena -->
+          <line x1="790" y1="268" x2="790" y2="226" stroke="#1E293B" stroke-width="5" />
+          <circle cx="790" cy="218" r="13" fill="#FACC15" stroke="#1E293B" stroke-width="4" />
+
+          <!-- Visor digital oscuro -->
+          <rect x="716" y="294" width="148" height="92" rx="26" fill="#1E293B" stroke="#0F172A" stroke-width="4" />
+
+          <!-- Ojos modo Rayo (inicio) -->
+          <g id="s3-eyes-bolt">
+            <polygon points="762,314 744,344 758,344 750,368 776,336 760,336" fill="#10B981" />
+            <polygon points="826,314 808,344 822,344 814,368 840,336 824,336" fill="#10B981" />
+          </g>
+          <!-- Ojos modo Estrella (con burbuja) -->
+          <g id="s3-eyes-star" opacity="0">
+            <polygon points="756,315 763,331 780,333 767,344 770,361 756,352 742,361 745,344 732,333 749,331" fill="#FACC15" />
+            <polygon points="824,315 831,331 848,333 835,344 838,361 824,352 810,361 813,344 800,333 817,331" fill="#FACC15" />
+          </g>
+        </g>
+
+        <!-- Destello inicial de entrada desde Escena 2 -->
+        <rect id="s3-entry-flash" width="1080" height="1920" fill="#60A5FA" opacity="0" />
+      </svg>
+
+      <!-- Burbuja de diálogo de Mek -->
+      <div id="s3-mek-bubble" class="clip s3-mek-bubble" data-start="1.6" data-duration="6.4">
+        <div id="s3-mek-bubble-inner">
+          <p class="s3-mek-bubble-text">¡Activando Ingeniería Autonomek!</p>
+        </div>
+      </div>
+
+      <!-- Bloques brillantes tipo Lego sobre la laptop -->
+      <div class="s3-lego-stack">
+        <!-- Bloque 1: Cohete Verde -->
+        <div id="s3-lego-1" class="clip s3-lego-slot" style="top: 0px;" data-start="2.2" data-duration="5.9">
+          <div id="s3-lego-1-inner" class="s3-lego-block" style="background:#10B981;">
+            <div class="s3-lego-studs"><div class="s3-stud"></div><div class="s3-stud"></div></div>
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+              <path d="M28 6 C38 14 42 26 38 38 L18 38 C14 26 18 14 28 6 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" />
+              <circle cx="28" cy="23" r="5" fill="#2563EB" stroke="#1E293B" stroke-width="3" />
+              <path d="M20 38 L14 48 L24 44 M36 38 L42 48 L32 44" fill="#FF6B6B" stroke="#1E293B" stroke-width="3" stroke-linejoin="round" />
+              <path d="M23 40 L28 52 L33 40 Z" fill="#FACC15" stroke="#1E293B" stroke-width="3" />
+            </svg>
+            <span class="s3-lego-text" style="color:#1E293B;">Carga en 0.6s</span>
+          </div>
+        </div>
+
+        <!-- Bloque 2: Corona Dorada -->
+        <div id="s3-lego-2" class="clip s3-lego-slot" style="top: 108px;" data-start="2.8" data-duration="5.3">
+          <div id="s3-lego-2-inner" class="s3-lego-block" style="background:#FACC15;">
+            <div class="s3-lego-studs"><div class="s3-stud"></div><div class="s3-stud"></div></div>
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+              <path d="M8 42 L12 16 L22 28 L28 12 L34 28 L44 16 L48 42 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+              <rect x="8" y="42" width="40" height="8" rx="3" fill="#FF6B6B" stroke="#1E293B" stroke-width="3" />
+            </svg>
+            <span class="s3-lego-text" style="color:#1E293B;">#1 en Google</span>
+          </div>
+        </div>
+
+        <!-- Bloque 3: Megáfono Azul Eléctrico -->
+        <div id="s3-lego-3" class="clip s3-lego-slot" style="top: 216px;" data-start="3.4" data-duration="4.7">
+          <div id="s3-lego-3-inner" class="s3-lego-block" style="background:#2563EB;">
+            <div class="s3-lego-studs"><div class="s3-stud"></div><div class="s3-stud"></div></div>
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+              <path d="M10 24 L38 12 L38 40 L10 28 Z" fill="#FACC15" stroke="#1E293B" stroke-width="4" stroke-linejoin="round" />
+              <rect x="14" y="29" width="8" height="15" rx="3" fill="#FFFFFF" stroke="#1E293B" stroke-width="3" />
+              <path d="M44 20 L52 16 M45 26 H53 M44 32 L52 36" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" />
+            </svg>
+            <span class="s3-lego-text" style="color:#FFFFFF;">Recomendado por ChatGPT</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Velocímetro rojo -> verde brillante 99/100 -->
+      <div id="s3-speedo" class="clip" style="position:absolute; left:200px; top:1205px; width:680px; height:295px; z-index:10;" data-start="3.9" data-duration="4.3">
+        <div id="s3-speedo-inner" class="s3-speedo-card" style="position:relative; left:0; top:0;">
+          <svg width="340" height="175" viewBox="0 0 340 175" fill="none">
+            <!-- Arco rojo, amarillo, verde -->
+            <path d="M38 155 A132 132 0 0 1 110 38" stroke="#FF6B6B" stroke-width="24" stroke-linecap="round" />
+            <path d="M122 32 A132 132 0 0 1 218 32" stroke="#FACC15" stroke-width="24" stroke-linecap="round" />
+            <path d="M230 38 A132 132 0 0 1 302 155" stroke="#10B981" stroke-width="24" stroke-linecap="round" />
+            <!-- Aguja animada -->
+            <g id="s3-needle" style="transform-origin: 170px 155px;">
+              <polygon points="163,155 170,38 177,155" fill="#1E293B" />
+              <circle cx="170" cy="155" r="16" fill="#2563EB" stroke="#1E293B" stroke-width="4" />
+            </g>
+          </svg>
+          <div id="s3-speedo-num" class="s3-speedo-score">99/100</div>
+          <div class="s3-speedo-label">VELOCIDAD &amp; VISIBILIDAD</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Destello azul de llegada
+    tl.fromTo("#s3-entry-flash", { opacity: 0.95 }, { opacity: 0, duration: 0.32, ease: "power2.out" }, 0);
+
+    // Líneas anime girando suavemente
+    tl.fromTo("#s3-anime-rays", { rotation: -12, scale: 1.08, svgOrigin: "540 960" }, { rotation: 16, scale: 1, svgOrigin: "540 960", duration: 7.5, ease: "none" }, 0);
+
+    // Mek entra volando con voltereta energética (elastic.out)
+    tl.fromTo("#s3-mek", { y: 420, scale: 0.35, rotation: -360 }, { y: 0, scale: 1, rotation: 0, duration: 0.95, ease: "elastic.out(1, 0.5)" }, 0.08);
+    // Flotación sutil de Mek (en eje y sin conflicto de baseline)
+    tl.to("#s3-mek", { y: -16, duration: 1.1, repeat: 5, yoyo: true, ease: "sine.inOut" }, 1.1);
+    tl.fromTo("#s3-thruster", { scaleY: 0.8, svgOrigin: "790 548" }, { scaleY: 1.25, svgOrigin: "790 548", duration: 0.14, repeat: 48, yoyo: true, ease: "none" }, 0.2);
+
+    // Rayo láser de Mek rompiendo las telarañas (0.95s - 1.65s)
+    tl.fromTo("#s3-mek-arm-l", { rotation: 0, svgOrigin: "695 435" }, { rotation: -12, svgOrigin: "695 435", duration: 0.25, ease: "back.out(1.7)" }, 0.9);
+    tl.fromTo("#s3-laser", { opacity: 0 }, { opacity: 1, duration: 0.08 }, 1.0);
+    tl.to("#s3-laser", { opacity: 0, duration: 0.18 }, 1.5);
+    tl.fromTo("#s3-cobwebs", { opacity: 1, scale: 1, svgOrigin: "540 1000" }, { opacity: 0, scale: 1.08, svgOrigin: "540 1000", duration: 0.28, ease: "power2.in" }, 1.2);
+    tl.fromTo("#s3-zap-puffs", { opacity: 0, scale: 0.4, svgOrigin: "540 955" }, { opacity: 1, scale: 1.2, svgOrigin: "540 955", duration: 0.22, ease: "back.out(1.7)" }, 1.22);
+    tl.to("#s3-zap-puffs", { opacity: 0, y: -25, duration: 0.35 }, 1.48);
+
+    // Ojos de estrella y burbuja "¡Activando Ingeniería Autonomek!" (1.6s)
+    tl.fromTo("#s3-eyes-bolt", { opacity: 1 }, { opacity: 0, duration: 0.1 }, 1.55);
+    tl.fromTo("#s3-eyes-star", { opacity: 0, scale: 0.4, svgOrigin: "790 340" }, { opacity: 1, scale: 1, svgOrigin: "790 340", duration: 0.25, ease: "back.out(1.7)" }, 1.6);
+    tl.fromTo("#s3-mek-bubble-inner", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.38, ease: "back.out(1.7)" }, 1.6);
+
+    // Bloques Lego encajan rápidamente uno tras otro (2.2s, 2.8s, 3.4s)
+    tl.fromTo("#s3-lego-1-inner", { y: -140, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.7)" }, 2.2);
+    tl.fromTo("#s3-lego-2-inner", { y: -140, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.7)" }, 2.8);
+    tl.fromTo("#s3-lego-3-inner", { y: -140, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.7)" }, 3.4);
+
+    // Velocímetro aparece y la aguja barre de rojo (-75deg) a verde brillante (+74deg)
+    tl.fromTo("#s3-speedo-inner", { y: 90, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)" }, 3.9);
+    tl.fromTo("#s3-needle", { rotation: -75, svgOrigin: "170 155" }, { rotation: 74, svgOrigin: "170 155", duration: 1.45, ease: "back.out(1.2)" }, 4.25);
+
+    // Texto dinámico del score 24 -> 99/100 (sin rebote en dígitos)
+    const scoreObj = { val: 24 };
+    tl.to(scoreObj, {
+      val: 99,
+      duration: 1.45,
+      ease: "power2.out",
+      onUpdate: () => {
+        const el = document.getElementById("s3-speedo-num");
+        if (el) el.textContent = `${Math.round(scoreObj.val)}/100`;
+      }
+    }, 4.25);
+
+    // Regreso rápido al plano general (7.65s - 8.20s)
+    tl.fromTo("#s3-camera", { scale: 1 }, { scale: 0.86, opacity: 0.25, duration: 0.55, ease: "power2.inOut" }, 7.65);
+
+    window.__timelines["scene3-rescate"] = tl;
+    tl.seek(0);
+  </script>
+</template>

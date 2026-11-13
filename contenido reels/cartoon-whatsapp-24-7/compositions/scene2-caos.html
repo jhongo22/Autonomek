@@ -1,0 +1,404 @@
+<template>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@700;800&family=Nunito:wght@700;800;900&display=swap');
+
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #FEF9C3;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    #s2-stage {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+    }
+
+    #s2-bg-svg {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      z-index: 1;
+    }
+
+    /* Top Morning Clock & Status Plaque (inside safe zone y >= 174) */
+    #s2-clock-wrap {
+      position: absolute;
+      top: 176px;
+      left: 72px;
+      width: 936px;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    #s2-clock-pill {
+      background: #0F172A;
+      border: 5px solid #0F172A;
+      border-radius: 24px;
+      padding: 12px 26px;
+      box-shadow: 0 8px 0 #B45309;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    #s2-clock-digits {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      font-size: 48px;
+      color: #FACC15;
+      line-height: 1.05;
+    }
+
+    #s2-clock-tag {
+      background: #B91C1C;
+      color: #FFFFFF;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 29px;
+      padding: 8px 16px;
+      border-radius: 14px;
+      border: 3px solid #FF6B6B;
+    }
+
+    #s2-20-badge {
+      background: #166534;
+      color: #FFFFFF;
+      border: 5px solid #0F172A;
+      border-radius: 24px;
+      padding: 12px 24px;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 32px;
+      box-shadow: 0 8px 0 #0F172A;
+    }
+
+    /* Sofía's Comic Speech Bubble (Top-right clear zone) */
+    #s2-sofia-bubble {
+      position: absolute;
+      top: 306px;
+      left: 446px;
+      width: 556px;
+      z-index: 22;
+      background: #FFFFFF;
+      color: #0F172A;
+      border: 5px solid #0F172A;
+      border-radius: 32px;
+      padding: 20px 26px;
+      box-shadow: 0 10px 0 #0F172A;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 34px;
+      line-height: 1.18;
+    }
+
+    /* Voice-Note Snake Container (springs out of phone) */
+    #s2-snake-wrap {
+      position: absolute;
+      top: 560px;
+      left: 390px;
+      width: 620px;
+      height: 410px;
+      z-index: 18;
+      pointer-events: none;
+    }
+
+    .s2-audio-pill {
+      position: absolute;
+      background: #DCFCE7;
+      color: #0F172A;
+      border: 4px solid #0F172A;
+      border-radius: 26px;
+      padding: 12px 20px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 32px;
+      box-shadow: 0 7px 0 #166534;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+    }
+
+    #s2-audio-1 { top: 215px; left: 260px; }
+    #s2-audio-2 { top: 105px; left: 195px; background: #BBF7D0; }
+    #s2-audio-3 { top: 0px; left: 235px; background: #22C55E; color: #0F172A; }
+
+    /* Angry Client Red Comic Bubbles */
+    #s2-angry-1 {
+      position: absolute;
+      top: 665px;
+      left: 48px;
+      width: 455px;
+      z-index: 23;
+      background: #B91C1C;
+      color: #FFFFFF;
+      border: 5px solid #0F172A;
+      border-radius: 26px;
+      padding: 16px 20px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 31px;
+      line-height: 1.18;
+      box-shadow: 0 9px 0 #0F172A;
+    }
+
+    #s2-angry-2 {
+      position: absolute;
+      top: 1125px;
+      left: 470px;
+      width: 520px;
+      z-index: 24;
+      background: #FF6B6B;
+      color: #0F172A;
+      border: 5px solid #0F172A;
+      border-radius: 24px;
+      padding: 14px 22px;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 32px;
+      line-height: 1.15;
+      box-shadow: 0 8px 0 #0F172A;
+      text-align: center;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene2-caos" data-width="1080" data-height="1920">
+    <div id="s2-stage" class="clip" data-start="0" data-duration="9.8">
+
+      <!-- MORNING BEDROOM + WHIP-PAN SUNRISE WINDOW + PANICKED SOFÍA + GIANT PHONE -->
+      <svg id="s2-bg-svg" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg" data-layout-ignore>
+        <!-- Sunny Morning Bedroom Wall -->
+        <rect x="0" y="0" width="1080" height="1920" fill="#FEF9C3"/>
+        <rect x="0" y="1090" width="1080" height="830" fill="#FDE68A" stroke="#0F172A" stroke-width="4"/>
+        <rect x="0" y="1090" width="1080" height="24" fill="#F59E0B" stroke="#0F172A" stroke-width="4"/>
+
+        <!-- ARCHED WINDOW WITH WHIP-PAN SKY TRANSITION -->
+        <g id="s2-window">
+          <path d="M 74 715 L 74 475 A 168 168 0 0 1 410 475 L 410 715 Z" fill="#FFFFFF" stroke="#0F172A" stroke-width="5"/>
+          <clipPath id="s2-win-clip">
+            <path d="M 90 700 L 90 477 A 152 152 0 0 1 394 477 L 394 700 Z"/>
+          </clipPath>
+          <g clip-path="url(#s2-win-clip)">
+            <!-- Night sky layer that whips down -->
+            <rect x="85" y="300" width="320" height="410" fill="#1E1B4B"/>
+            <!-- Morning sky + radiant Sun that whips up -->
+            <g id="s2-sunrise-sky">
+              <rect x="85" y="300" width="320" height="410" fill="#7DD3FC"/>
+              <!-- Sun rays -->
+              <g id="s2-sun-rays" stroke="#FACC15" stroke-width="10" stroke-linecap="round">
+                <line x1="242" y1="365" x2="242" y2="325"/>
+                <line x1="242" y1="545" x2="242" y2="585"/>
+                <line x1="152" y1="455" x2="112" y2="455"/>
+                <line x1="332" y1="455" x2="372" y2="455"/>
+                <line x1="178" y1="391" x2="150" y2="363"/>
+                <line x1="306" y1="519" x2="334" y2="547"/>
+                <line x1="306" y1="391" x2="334" y2="363"/>
+                <line x1="178" y1="519" x2="150" y2="547"/>
+              </g>
+              <circle cx="242" cy="455" r="60" fill="#FACC15" stroke="#0F172A" stroke-width="4"/>
+              <!-- Fluffy cartoon clouds -->
+              <path d="M 105 605 Q 130 570 175 585 Q 205 560 245 588 Q 275 582 285 608 Z" fill="#FFFFFF" stroke="#0F172A" stroke-width="3"/>
+            </g>
+          </g>
+          <rect x="60" y="700" width="364" height="24" rx="8" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+        </g>
+
+        <!-- COZY BED & PANICKED SOFÍA CLUTCHING HER HEAD -->
+        <g id="s2-bed-base">
+          <rect x="24" y="885" width="490" height="285" rx="26" fill="#92400E" stroke="#0F172A" stroke-width="4"/>
+          <rect x="48" y="908" width="442" height="235" rx="18" fill="#B45309" stroke="#0F172A" stroke-width="4"/>
+        </g>
+
+        <g id="s2-sofia-panic">
+          <!-- Wild messy morning hair spikes -->
+          <path d="M 102 910 L 70 865 L 122 872 L 114 818 L 166 854 L 196 802 L 228 852 L 280 818 L 274 872 L 328 868 L 296 914 Z" fill="#451A03" stroke="#0F172A" stroke-width="4"/>
+          <!-- Head -->
+          <circle cx="198" cy="948" r="68" fill="#FDBA74" stroke="#0F172A" stroke-width="4"/>
+          <!-- Sleep mask crooked on forehead -->
+          <rect x="142" y="876" width="110" height="32" rx="16" fill="#FF6B6B" stroke="#0F172A" stroke-width="4" transform="rotate(-8 197 892)"/>
+          <!-- Wide panicked cartoon eyes -->
+          <circle cx="172" cy="942" r="18" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+          <circle cx="224" cy="942" r="18" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+          <circle cx="176" cy="944" r="6" fill="#0F172A"/>
+          <circle cx="228" cy="944" r="6" fill="#0F172A"/>
+          <!-- Sweat drops -->
+          <path d="M 118 930 Q 104 950 118 958 Q 132 950 118 930 Z" fill="#06B6D4" stroke="#0F172A" stroke-width="3"/>
+          <!-- Screaming comic mouth -->
+          <ellipse cx="198" cy="988" rx="22" ry="16" fill="#991B1B" stroke="#0F172A" stroke-width="4"/>
+          <!-- Pajama torso -->
+          <path d="M 112 1030 C 130 1005 268 1005 288 1040 L 320 1245 L 82 1245 Z" fill="#06B6D4" stroke="#0F172A" stroke-width="4"/>
+          <!-- Arms raised grabbing her head / phone (outer outline underneath, fill on top) -->
+          <path d="M 120 1065 Q 68 995 128 945" fill="none" stroke="#0F172A" stroke-width="34" stroke-linecap="round"/>
+          <path d="M 120 1065 Q 68 995 128 945" fill="none" stroke="#06B6D4" stroke-width="24" stroke-linecap="round"/>
+          <circle cx="128" cy="944" r="20" fill="#FDBA74" stroke="#0F172A" stroke-width="4"/>
+          <path d="M 278 1065 Q 332 995 272 945" fill="none" stroke="#0F172A" stroke-width="34" stroke-linecap="round"/>
+          <path d="M 278 1065 Q 332 995 272 945" fill="none" stroke="#06B6D4" stroke-width="24" stroke-linecap="round"/>
+          <circle cx="272" cy="944" r="20" fill="#FDBA74" stroke="#0F172A" stroke-width="4"/>
+        </g>
+
+        <!-- Quilt filling bottom-left foreground (below y=1200) -->
+        <path d="M 18 1210 Q 250 1175 510 1225 L 545 1920 L 0 1920 Z" fill="#38BDF8" stroke="#0F172A" stroke-width="5"/>
+        <path d="M 18 1210 Q 250 1175 510 1225 L 516 1285 Q 250 1245 14 1278 Z" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+
+        <!-- NIGHTSTAND & GIANT OVERWHELMING SMARTPHONE (Right) -->
+        <rect x="520" y="1350" width="530" height="570" rx="18" fill="#92400E" stroke="#0F172A" stroke-width="4"/>
+        <rect x="500" y="1325" width="555" height="44" rx="12" fill="#B45309" stroke="#0F172A" stroke-width="4"/>
+
+        <g id="s2-phone-chaos">
+          <rect x="655" y="760" width="350" height="560" rx="38" fill="#B91C1C" stroke="#0F172A" stroke-width="5"/>
+          <rect x="635" y="750" width="350" height="560" rx="38" fill="#1E1B4B" stroke="#0F172A" stroke-width="5"/>
+          <rect x="656" y="796" width="308" height="476" rx="22" fill="#DCFCE7" stroke="#0F172A" stroke-width="4"/>
+          <!-- Giant green WhatsApp logo pulsing inside phone -->
+          <circle cx="810" cy="1005" r="78" fill="#22C55E" stroke="#0F172A" stroke-width="4"/>
+          <path d="M 780 980 Q 810 960 842 985 Q 852 1018 825 1038 L 780 1045 L 788 1015 Q 770 998 780 980 Z" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+        </g>
+
+        <!-- Cartoon Spring Coil connecting phone to voice-note snake -->
+        <path id="s2-spring-coil" d="M 760 890 C 700 840 620 870 610 810 C 600 750 510 770 500 710 C 490 650 560 630 580 585" fill="none" stroke="#166534" stroke-width="16" stroke-linecap="round"/>
+      </svg>
+
+      <!-- TOP MORNING CLOCK + 20 AUDIOS BADGE -->
+      <div id="s2-clock-wrap">
+        <div id="s2-clock-pill">
+          <div id="s2-clock-digits">08:30 AM</div>
+          <div id="s2-clock-tag">TARDE</div>
+        </div>
+        <div id="s2-20-badge">20 AUDIOS</div>
+      </div>
+
+      <!-- SOFÍA COMIC SPEECH BUBBLE -->
+      <div id="s2-sofia-bubble">
+        "¡No puedo vivir pegada al celular día y noche!"
+      </div>
+
+      <!-- SNAKE OF WHATSAPP VOICE NOTES SPRINGING OUT -->
+      <div id="s2-snake-wrap" data-layout-allow-overlap>
+        <div id="s2-audio-1" class="s2-audio-pill">
+          <span>▶</span><span>Audio 1:20</span>
+        </div>
+        <div id="s2-audio-2" class="s2-audio-pill">
+          <span>▶</span><span>Audio 2:10</span>
+        </div>
+        <div id="s2-audio-3" class="s2-audio-pill">
+          <span>▶</span><span>Audio 1:45</span>
+        </div>
+      </div>
+
+      <!-- ANGRY CLIENT RED BUBBLES -->
+      <div id="s2-angry-1">
+        "¡Como no me respondiste, ya compré en otro lado!"
+      </div>
+      <div id="s2-angry-2">
+        VENTA PERDIDA ✗
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // 1. Fast vertical whip-pan sunrise inside the window (0.0s - 0.85s)
+    tl.fromTo(
+      "#s2-sunrise-sky",
+      { y: 420 },
+      { y: 0, duration: 0.75, ease: "power4.out" },
+      0.05
+    );
+    tl.fromTo(
+      "#s2-sun-rays",
+      { rotation: 0, transformOrigin: "242px 455px" },
+      { rotation: 90, duration: 9.0, ease: "none" },
+      0.5
+    );
+
+    // 2. Sofía jolts awake + phone hops & "20 AUDIOS" badge lands during 1.0s-3.4s (prevents dead stretch!)
+    tl.fromTo(
+      "#s2-sofia-panic",
+      { y: 70, scaleY: 0.88, scaleX: 1.08, transformOrigin: "200px 1150px" },
+      { y: 0, scaleY: 1, scaleX: 1, duration: 0.55, ease: "back.out(1.7)" },
+      0.25
+    );
+    tl.fromTo(
+      "#s2-phone-chaos",
+      { y: 80, scale: 0.9, transformOrigin: "810px 1030px" },
+      { y: 0, scale: 1, duration: 0.5, ease: "back.out(1.7)" },
+      1.15
+    );
+    tl.fromTo(
+      "#s2-20-badge",
+      { scale: 0.3, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.7)" },
+      2.15
+    );
+    tl.fromTo(
+      "#s2-phone-chaos",
+      { y: 0, rotation: 0, transformOrigin: "810px 1030px" },
+      { y: -18, rotation: -2, duration: 0.14, repeat: 5, yoyo: true, ease: "sine.inOut", immediateRender: false },
+      2.65
+    );
+    // Subtle shake of frustration while holding head
+    tl.fromTo(
+      "#s2-sofia-panic",
+      { x: -4 },
+      { x: 4, duration: 0.1, repeat: 24, yoyo: true, ease: "sine.inOut" },
+      6.4
+    );
+
+    // 3. Phone pops forward, then voice-note snake springs out into Sofía's face at ~3.5s
+    tl.fromTo(
+      "#s2-spring-coil",
+      { scale: 0.1, opacity: 0, transformOrigin: "760px 890px" },
+      { scale: 1, opacity: 1, duration: 0.65, ease: "elastic.out(1, 0.5)" },
+      3.5
+    );
+    tl.fromTo(
+      "#s2-audio-1",
+      { scale: 0.2, x: 160, y: 150, opacity: 0 },
+      { scale: 1, x: 0, y: 0, opacity: 1, duration: 0.6, ease: "elastic.out(1, 0.5)" },
+      3.6
+    );
+    tl.fromTo(
+      "#s2-audio-2",
+      { scale: 0.2, x: 200, y: 200, opacity: 0 },
+      { scale: 1, x: 0, y: 0, opacity: 1, duration: 0.65, ease: "elastic.out(1, 0.5)" },
+      3.85
+    );
+    tl.fromTo(
+      "#s2-audio-3",
+      { scale: 0.2, x: 120, y: 240, opacity: 0 },
+      { scale: 1, x: 0, y: 0, opacity: 1, duration: 0.7, ease: "elastic.out(1, 0.5)" },
+      4.1
+    );
+
+    // 4. Angry client bubbles burst in synced to "los clientes ya pagaron en otro lugar" (~5.8s)
+    tl.fromTo(
+      "#s2-angry-1",
+      { scale: 0.3, y: 50, opacity: 0 },
+      { scale: 1, y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.7)" },
+      5.8
+    );
+    tl.fromTo(
+      "#s2-angry-2",
+      { scale: 1.5, rotation: -6, opacity: 0 },
+      { scale: 1, rotation: -2, opacity: 1, duration: 0.4, ease: "back.out(1.7)" },
+      6.5
+    );
+
+    // 5. Sofía's speech bubble slams in at ~7.2s
+    tl.fromTo(
+      "#s2-sofia-bubble",
+      { scale: 0.4, y: 40, opacity: 0 },
+      { scale: 1, y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.7)" },
+      7.1
+    );
+
+    window.__timelines = window.__timelines || {};
+    window.__timelines["scene2-caos"] = tl;
+  </script>
+</template>
