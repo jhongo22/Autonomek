@@ -84,3 +84,5 @@ storybook-static
 tmp/
 temp/
 .vercel
+
+gen-lang-client-*.json
