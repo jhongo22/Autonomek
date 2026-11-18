@@ -5,13 +5,15 @@ export const metadata: Metadata = {
   title: 'Términos y Condiciones de Servicio | Autonomek',
   description: 'Marco contractual, propiedad intelectual del código fuente, condiciones de pago, garantías y políticas de Autonomek.',
   alternates: {
-    canonical: 'https://www.autonomek.com/terminos',
+    canonical: 'https://autonomek.com/terminos',
     languages: {
-      'es': 'https://www.autonomek.com/es/terminos',
-      'es-CO': 'https://www.autonomek.com/terminos',
-      'en': 'https://www.autonomek.com/en/terms',
-      'en-US': 'https://www.autonomek.com/us/terms',
-      'x-default': 'https://www.autonomek.com/terminos',
+      'es': 'https://autonomek.com/terminos',
+      'es-CO': 'https://autonomek.com/terminos',
+      'es-MX': 'https://autonomek.com/terminos',
+      'es-ES': 'https://autonomek.com/terminos',
+      'en': 'https://autonomek.com/en/terms',
+      'en-US': 'https://autonomek.com/en/terms',
+      'x-default': 'https://autonomek.com/terminos',
     },
   },
 };

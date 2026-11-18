@@ -17,10 +17,15 @@ import { WhatsAppAiWorkbenchBento } from '@/components/ui/service-bento-workbenc
 
 type Region = 'co' | 'mx' | 'es' | 'us' | 'en';
 
-export default function AgentesClient({ region = 'co' }: { region?: Region }) {
-  const isEn = region === 'us' || region === 'en';
-  const basePrefix =
-    region === 'en' ? '/en' : region === 'us' ? '/us' : region === 'es' ? '/es' : '';
+export default function AgentesClient({
+  region = 'co',
+  locale,
+}: {
+  region?: Region;
+  locale?: 'es' | 'en';
+}) {
+  const isEn = locale === 'en' || region === 'us' || region === 'en';
+  const basePrefix = isEn ? '/en' : '';
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -261,26 +266,122 @@ export default function AgentesClient({ region = 'co' }: { region?: Region }) {
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-semibold tracking-tight leading-[1.07] text-foreground">
               {isEn ? (
                 <>
-                  Your AI sales advisor on WhatsApp{' '}
+                  24/7 WhatsApp AI Sales Agents:{' '}
                   <span className="text-muted font-normal">
-                    that replies, quotes, and books in 1 second.
+                    instant replies, quotes, and calendar booking in 1 second.
                   </span>
                 </>
               ) : (
                 <>
-                  Tu asesor de IA en WhatsApp{' '}
+                  Agentes de Inteligencia Artificial para WhatsApp 24/7:{' '}
                   <span className="text-muted font-normal">
-                    que responde, cotiza y agenda citas en 1 segundo.
+                    ventas, atención y agendamiento en 1 segundo.
                   </span>
                 </>
               )}
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted">
-              {isEn
-                ? 'Stop losing buyers who message at night or on weekends. We train an AI agent with your catalog that listens to voice notes, verifies payment receipts, and schedules appointments in your calendar 24/7.'
-                : 'Deja de perder clientes por tardar horas en contestar o no atender de noche. Entrenamos un agente con tu catálogo real que escucha audios, valida comprobantes de pago y agenda citas en tu calendario 24/7.'}
+              {isEn ? (
+                <>
+                  Engineered by{' '}
+                  <Link
+                    href="/en"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    Autonomek
+                  </Link>{' '}
+                  on the official Meta WhatsApp Business Cloud API with RAG retrieval: listens to voice notes, verifies payment receipts, books Google Calendar slots, and syncs with{' '}
+                  <Link
+                    href="/en/services/process-automation"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    CRM & ERP process automation
+                  </Link>
+                  .
+                </>
+              ) : (
+                <>
+                  Desarrollados por{' '}
+                  <Link
+                    href="/"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    Autonomek
+                  </Link>{' '}
+                  sobre la API oficial de WhatsApp Cloud con arquitectura RAG: escuchan notas de voz, validan comprobantes bancarios, agendan citas en Google Calendar y se conectan con{' '}
+                  <Link
+                    href="/servicios/automatizacion-de-procesos"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    automatización de procesos y CRM
+                  </Link>
+                  .
+                </>
+              )}
             </p>
+
+            {/* GEO Direct Definition Block (130-165 words, first 30% of page) */}
+            <aside className="mt-8 w-full max-w-3xl rounded-2xl border border-rule bg-surface/80 p-5 sm:p-6 text-left">
+              <h2 className="text-xs font-mono uppercase tracking-[0.16em] text-primary font-semibold mb-2">
+                {isEn
+                  ? 'What is an Autonomek WhatsApp AI Agent?'
+                  : '¿Qué es un Agente de IA para WhatsApp de Autonomek?'}
+              </h2>
+              <p className="text-xs sm:text-sm text-muted leading-relaxed">
+                {isEn ? (
+                  <>
+                    A 24/7 WhatsApp AI Agent by{' '}
+                    <Link
+                      href="/en"
+                      className="text-foreground font-medium underline decoration-primary/60 hover:decoration-primary underline-offset-4"
+                    >
+                      Autonomek
+                    </Link>{' '}
+                    is an autonomous conversational sales and support system connected directly to Meta Cloud API and your proprietary catalog via Retrieval-Augmented Generation (RAG). Unlike rigid button chatbots, it answers open questions in 1.1 seconds with 0% hallucinated pricing, transcribes voice notes, reads transfer screenshots with computer vision OCR, qualifies B2B and e-commerce leads, and books appointments straight into Google Calendar or HubSpot. Implemented in 2 to 3 weeks, it pairs natively with{' '}
+                    <Link
+                      href="/en/services/high-performance-websites"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      high-converting Next.js websites
+                    </Link>{' '}
+                    and our{' '}
+                    <Link
+                      href="/en/blog/how-to-deploy-24-7-whatsapp-ai-sales-agent-rag"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      technical RAG deployment guide
+                    </Link>
+                    .
+                  </>
+                ) : (
+                  <>
+                    Un Agente de Inteligencia Artificial para WhatsApp de{' '}
+                    <Link
+                      href="/"
+                      className="text-foreground font-medium underline decoration-primary/60 hover:decoration-primary underline-offset-4"
+                    >
+                      Autonomek
+                    </Link>{' '}
+                    es un asesor comercial y recepcionista autónomo conectado a la API oficial de WhatsApp Business Cloud y a tu catálogo real mediante arquitectura RAG (Generación Aumentada por Recuperación). A diferencia de los chatbots rígidos de botones, responde en 1.1 segundos sin inventar precios, transcribe notas de voz, valida transferencias (Nequi, Bancolombia, Zelle) por visión artificial OCR, califica prospectos 24/7 y agenda citas directo en Google Calendar o CRM. Se implementa en 2 a 3 semanas e integra tráfico desde{' '}
+                    <Link
+                      href="/servicios/paginas-web-alto-rendimiento"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      páginas web en Next.js de alto rendimiento
+                    </Link>{' '}
+                    y nuestra{' '}
+                    <Link
+                      href="/blog/como-implementar-agente-ia-whatsapp-ventas-24-7"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      guía técnica sobre arquitectura RAG en WhatsApp
+                    </Link>
+                    .
+                  </>
+                )}
+              </p>
+            </aside>
 
             <div className="mt-8 flex w-full flex-col items-stretch gap-3.5 sm:w-auto sm:flex-row sm:items-center sm:justify-center">
               <a
@@ -657,6 +758,112 @@ export default function AgentesClient({ region = 'co' }: { region?: Region }) {
             </div>
 
             <TestimonialMarquee isEn={isEn} />
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================== */}
+      {/* 5B. VERTICALES POR INDUSTRIA Y ECOSISTEMA RELACIONADO (SEO + GEO)  */}
+      {/* ================================================================== */}
+      <section className="py-16 md:py-20 border-b border-rule">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 space-y-10">
+          <div className="max-w-3xl space-y-3">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              {isEn ? 'Industry Deployments' : 'Agentes IA por Industria'}
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-foreground">
+              {isEn
+                ? 'WhatsApp AI Agents for Clinics, E-Commerce, Real Estate & B2B Sales'
+                : 'Agentes de IA en WhatsApp para Clínicas, E-Commerce, Inmobiliarias y Ventas B2B'}
+            </h2>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            <div className="rounded-2xl border border-rule bg-surface p-6 space-y-2">
+              <h3 className="text-lg font-semibold text-foreground">
+                {isEn ? 'Clinics & Healthcare Booking' : 'Agente IA WhatsApp para Clínicas y Salud'}
+              </h3>
+              <p className="text-sm text-muted leading-relaxed">
+                {isEn
+                  ? 'Pre-screens patient inquiries, clarifies procedure requirements, schedules medical evaluations in Google Calendar, and sends 24-hour reminders automatically.'
+                  : 'Responde dudas médicas frecuentes sobre procedimientos, verifica disponibilidad por sede o especialista, agenda valoraciones y envía recordatorios automáticos.'}
+              </p>
+            </div>
+            <div className="rounded-2xl border border-rule bg-surface p-6 space-y-2">
+              <h3 className="text-lg font-semibold text-foreground">
+                {isEn ? 'E-Commerce 24/7 Support & Orders' : 'Agente IA 24/7 Atención y Ventas E-Commerce'}
+              </h3>
+              <p className="text-sm text-muted leading-relaxed">
+                {isEn
+                  ? 'Recommends live stock items, verifies bank transfer screenshots via OCR, tracks shipments, and captures nighttime orders with zero manual intervention.'
+                  : 'Recomienda referencias según stock en vivo, valida comprobantes de transferencia por visión artificial, consulta guías de despacho y toma pedidos nocturnos.'}
+              </p>
+            </div>
+            <div className="rounded-2xl border border-rule bg-surface p-6 space-y-2">
+              <h3 className="text-lg font-semibold text-foreground">
+                {isEn ? 'B2B Lead Qualification & Custom Software' : 'Calificación Comercial B2B y Software'}
+              </h3>
+              <p className="text-sm text-muted leading-relaxed">
+                {isEn ? (
+                  <>
+                    Qualifies budget and timeline, logs deals in your CRM, and connects directly with{' '}
+                    <Link
+                      href="/en/services/custom-software"
+                      className="text-foreground underline decoration-primary/60 hover:decoration-primary underline-offset-4"
+                    >
+                      custom enterprise platforms
+                    </Link>
+                    .
+                  </>
+                ) : (
+                  <>
+                    Filtra presupuesto, ciudad y urgencia del prospecto, registra la oportunidad en el CRM o en{' '}
+                    <Link
+                      href="/servicios/software-a-medida"
+                      className="text-foreground underline decoration-primary/60 hover:decoration-primary underline-offset-4"
+                    >
+                      plataformas de software a medida
+                    </Link>
+                    .
+                  </>
+                )}
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-rule bg-surface/60 p-6 flex flex-wrap items-center justify-between gap-4 text-sm">
+            <span className="text-muted">
+              {isEn
+                ? 'Explore related engineering pillars and technical guides:'
+                : 'Explora nuestras guías técnicas y soluciones complementarias:'}
+            </span>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-medium">
+              <Link
+                href={basePrefix || '/'}
+                className="text-foreground underline decoration-primary/70 hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'Autonomek Home' : 'Inicio Autonomek'}
+              </Link>
+              <Link
+                href={isEn ? '/en/blog/how-to-deploy-24-7-whatsapp-ai-sales-agent-rag' : '/blog/como-implementar-agente-ia-whatsapp-ventas-24-7'}
+                className="text-primary underline decoration-primary/70 hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'RAG WhatsApp Guide' : 'Guía Arquitectura RAG WhatsApp'}
+              </Link>
+              <Link
+                href={isEn ? '/en/services/process-automation' : '/servicios/automatizacion-de-procesos'}
+                className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'Process Automation' : 'Automatización de Procesos'}
+              </Link>
+              <Link
+                href={isEn ? '/en/services/high-performance-websites' : '/servicios/paginas-web-alto-rendimiento'}
+                className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'Next.js Websites' : 'Páginas Web Next.js'}
+              </Link>
+            </div>
           </div>
         </div>
       </section>

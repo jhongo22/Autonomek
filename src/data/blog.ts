@@ -25,6 +25,7 @@ export interface ArchitectureStep {
 
 export interface BlogPost {
   slug: string;
+  slugEn: string;
   issueNumber: string;
   category: 'ia' | 'web' | 'software' | 'automatizacion';
   categoryLabel: string;
@@ -94,6 +95,7 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'de-excel-a-plataforma-propia-modernizar-operacion-metricas-reportes',
+    slugEn: 'replace-excel-spreadsheets-with-custom-software-dashboard-reporting',
     issueNumber: '05',
     category: 'software',
     categoryLabel: 'Software y plataformas',
@@ -314,6 +316,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'como-implementar-agente-ia-whatsapp-ventas-24-7',
+    slugEn: 'how-to-deploy-24-7-whatsapp-ai-sales-agent-rag',
     issueNumber: '01',
     category: 'ia',
     categoryLabel: 'Inteligencia artificial',
@@ -321,7 +324,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: '2026-10-28',
     readTime: '6 min de lectura',
     readTimeEn: '6 min read',
-    title: 'Cómo implementar un agente de inteligencia artificial en WhatsApp para ventas 24/7 sin inventar precios',
+    title: 'Arquitectura RAG para WhatsApp Cloud API: cómo entrenar un asistente de IA sin inventar precios (Guía Técnica)',
     titleEn: 'How to deploy a 24/7 WhatsApp AI sales assistant with zero hallucinated pricing',
     description: 'Guía técnica y comercial para empresas que buscan automatizar la atención en WhatsApp con arquitectura RAG, transcripción de audios y agendamiento en calendario.',
     descriptionEn: 'Technical and commercial guide for enterprises looking to automate WhatsApp sales using RAG retrieval, voice note transcription, and calendar booking.',
@@ -562,6 +565,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'por-que-wordpress-lento-migrar-nextjs-0-6s',
+    slugEn: 'why-wordpress-is-slow-migrate-to-nextjs',
     issueNumber: '02',
     category: 'web',
     categoryLabel: 'Ingeniería web',
@@ -772,6 +776,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'software-a-medida-vs-saas-por-usuario-ahorro',
+    slugEn: 'custom-software-vs-per-seat-saas-pricing-roi',
     issueNumber: '03',
     category: 'software',
     categoryLabel: 'Software a medida',
@@ -980,6 +985,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'como-eliminar-copiar-pegar-automatizacion-whatsapp-crm-facturacion',
+    slugEn: 'automate-whatsapp-crm-billing-workflows-n8n',
     issueNumber: '04',
     category: 'automatizacion',
     categoryLabel: 'Automatización',

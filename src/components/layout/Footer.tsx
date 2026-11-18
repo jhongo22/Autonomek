@@ -16,6 +16,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import { AutonomekLockup } from '../brand/AutonomekLogo';
+import { BLOG_POSTS } from '@/data/blog';
 
 export default function Footer() {
   const pathname = usePathname() || '/';
@@ -24,17 +25,17 @@ export default function Footer() {
     pathname.startsWith('/en/') ||
     pathname === '/us' ||
     pathname.startsWith('/us/');
-  const isEsPrefix = pathname === '/es' || pathname.startsWith('/es/');
-  const enBase = pathname === '/us' || pathname.startsWith('/us/') ? '/us' : '/en';
-  const esBase = isEsPrefix ? '/es' : '';
-  const homeHref = isEn ? enBase : isEsPrefix ? '/es' : '/';
+  const prefix = isEn ? '/en' : '';
+  const homeHref = isEn ? '/en' : '/';
 
-  const termsHref = isEn ? `${enBase}/terms` : `${esBase}/terminos`;
-  const privacyHref = isEn ? `${enBase}/privacy` : `${esBase}/privacidad`;
-  const aboutHref = isEn ? `${enBase}/about` : `${esBase}/nosotros`;
-  const legalHubHref = isEn ? `${enBase}/legal` : `${esBase}/legal`;
-  const blogHref = isEn ? `${enBase}/blog` : `${esBase}/blog`;
-  const startHref = isEn ? `${enBase}/start` : `${esBase}/start`;
+  const termsHref = isEn ? '/en/terms' : '/terminos';
+  const privacyHref = isEn ? '/en/privacy' : '/privacidad';
+  const aboutHref = isEn ? '/en/about' : '/nosotros';
+  const legalHubHref = `${prefix}/legal`;
+  const blogHref = `${prefix}/blog`;
+  const startHref = `${prefix}/start`;
+  const servicesHref = isEn ? '/en/services' : '/servicios';
+  const projectsHref = isEn ? '/en/projects' : '/proyectos';
 
   return (
     <footer className="w-full bg-background border-t border-rule text-foreground pt-16 pb-20 selection:bg-primary selection:text-primary-ink">
@@ -114,10 +115,10 @@ export default function Footer() {
                 <Link
                   href={
                     isEn
-                      ? `${enBase}/services/ai-agents`
-                      : `${esBase}/servicios/agentes-inteligencia-artificial`
+                      ? '/en/services/ai-agents'
+                      : '/servicios/agentes-inteligencia-artificial'
                   }
-                  className="hover:text-foreground transition-colors"
+                  className="hover:text-foreground underline decoration-rule hover:decoration-primary underline-offset-4 transition-colors"
                 >
                   {isEn ? 'WhatsApp AI Agents' : 'Agentes de IA WhatsApp'}
                 </Link>
@@ -126,42 +127,42 @@ export default function Footer() {
                 <Link
                   href={
                     isEn
-                      ? `${enBase}/services/high-performance-websites`
-                      : `${esBase}/servicios/paginas-web-alto-rendimiento`
+                      ? '/en/services/high-performance-websites'
+                      : '/servicios/paginas-web-alto-rendimiento'
                   }
-                  className="hover:text-foreground transition-colors"
+                  className="hover:text-foreground underline decoration-rule hover:decoration-primary underline-offset-4 transition-colors"
                 >
-                  {isEn ? 'Websites & SEO/GEO' : 'Sitios Web de Alto Rendimiento'}
+                  {isEn ? 'Websites & SEO/GEO' : 'Desarrollo Web Next.js'}
                 </Link>
               </li>
               <li>
                 <Link
                   href={
                     isEn
-                      ? `${enBase}/services/custom-software`
-                      : `${esBase}/servicios/software-a-medida`
+                      ? '/en/services/custom-software'
+                      : '/servicios/software-a-medida'
                   }
-                  className="hover:text-foreground transition-colors"
+                  className="hover:text-foreground underline decoration-rule hover:decoration-primary underline-offset-4 transition-colors"
                 >
-                  {isEn ? 'Custom Software' : 'Software a Medida ($0 licencias)'}
+                  {isEn ? 'Custom Software' : 'Software a Medida'}
                 </Link>
               </li>
               <li>
                 <Link
                   href={
                     isEn
-                      ? `${enBase}/services/process-automation`
-                      : `${esBase}/servicios/automatizacion-de-procesos`
+                      ? '/en/services/process-automation'
+                      : '/servicios/automatizacion-de-procesos'
                   }
-                  className="hover:text-foreground transition-colors"
+                  className="hover:text-foreground underline decoration-rule hover:decoration-primary underline-offset-4 transition-colors"
                 >
-                  {isEn ? 'Process Automation' : 'Automatizaciones y APIs'}
+                  {isEn ? 'Process Automation' : 'Automatización de Procesos'}
                 </Link>
               </li>
               <li className="pt-1">
                 <Link
-                  href={isEn ? `${enBase}/services` : `${esBase}/servicios`}
-                  className="inline-flex items-center gap-1 text-primary hover:underline font-medium"
+                  href={servicesHref}
+                  className="inline-flex items-center gap-1 text-primary underline decoration-primary/60 hover:decoration-primary underline-offset-4 font-medium"
                 >
                   <span>{isEn ? 'All solutions' : 'Ver las 4 soluciones'}</span>
                   <ArrowUpRight size={13} />
@@ -178,8 +179,16 @@ export default function Footer() {
             <ul className="space-y-2 text-xs sm:text-sm text-muted">
               <li>
                 <Link
+                  href={homeHref}
+                  className="hover:text-foreground underline decoration-rule hover:decoration-primary underline-offset-4 transition-colors font-medium text-foreground/90"
+                >
+                  {isEn ? 'Home — Autonomek' : 'Inicio — Autonomek'}
+                </Link>
+              </li>
+              <li>
+                <Link
                   href={aboutHref}
-                  className="hover:text-foreground transition-colors font-medium text-foreground/90"
+                  className="hover:text-foreground underline decoration-rule hover:decoration-primary underline-offset-4 transition-colors"
                 >
                   {isEn ? 'About Us' : 'Sobre nosotros'}
                 </Link>
@@ -187,15 +196,15 @@ export default function Footer() {
               <li>
                 <Link
                   href={blogHref}
-                  className="hover:text-foreground transition-colors"
+                  className="hover:text-foreground underline decoration-rule hover:decoration-primary underline-offset-4 transition-colors"
                 >
                   Blog
                 </Link>
               </li>
               <li>
                 <Link
-                  href={isEn ? `${enBase}/projects` : `${esBase}/proyectos`}
-                  className="hover:text-foreground transition-colors"
+                  href={projectsHref}
+                  className="hover:text-foreground underline decoration-rule hover:decoration-primary underline-offset-4 transition-colors"
                 >
                   {isEn ? 'Case studies (15)' : 'Casos reales (15)'}
                 </Link>
@@ -216,18 +225,10 @@ export default function Footer() {
                   {isEn ? 'FAQ' : 'Preguntas frecuentes'}
                 </Link>
               </li>
-              <li>
-                <Link
-                  href={`${homeHref}#contacto`}
-                  className="hover:text-foreground transition-colors"
-                >
-                  {isEn ? 'Direct Contact' : 'Contacto directo'}
-                </Link>
-              </li>
               <li className="pt-1">
                 <Link
                   href={startHref}
-                  className="inline-flex items-center gap-1 text-primary hover:underline font-medium"
+                  className="inline-flex items-center gap-1 text-primary underline decoration-primary/60 hover:decoration-primary underline-offset-4 font-medium"
                 >
                   <span>{isEn ? 'Start a project' : 'Iniciar proyecto'}</span>
                   <ArrowUpRight size={13} />
@@ -274,50 +275,41 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Editions & Regions Column (2 cols) */}
+          {/* Guides & Canonical Language Column (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground">
-              {isEn ? 'Global Editions' : 'Regiones'}
+              {isEn ? 'Guides & Edition' : 'Guías & Idioma'}
             </p>
             <ul className="space-y-2 text-xs text-muted">
-              <li>
+              {BLOG_POSTS.slice(0, 4).map((post) => (
+                <li key={post.slug}>
+                  <Link
+                    href={`${blogHref}/${isEn ? post.slugEn : post.slug}`}
+                    className="hover:text-foreground underline decoration-rule hover:decoration-primary underline-offset-4 transition-colors line-clamp-1"
+                  >
+                    {isEn ? post.categoryLabelEn : post.categoryLabel}
+                  </Link>
+                </li>
+              ))}
+              <li className="pt-2 border-t border-rule flex items-center gap-3">
                 <Link
                   href="/"
-                  hrefLang="es-CO"
-                  className="hover:text-foreground transition-colors flex items-center justify-between"
+                  hrefLang="es"
+                  className={`font-medium transition-colors ${
+                    !isEn ? 'text-primary underline underline-offset-4' : 'hover:text-foreground'
+                  }`}
                 >
-                  <span>Colombia (ES)</span>
-                  <span className="font-mono text-[10px] text-subtle">COP</span>
+                  Español
                 </Link>
-              </li>
-              <li>
+                <span className="text-rule">·</span>
                 <Link
-                  href="/mx"
-                  hrefLang="es-MX"
-                  className="hover:text-foreground transition-colors flex items-center justify-between"
+                  href="/en"
+                  hrefLang="en"
+                  className={`font-medium transition-colors ${
+                    isEn ? 'text-primary underline underline-offset-4' : 'hover:text-foreground'
+                  }`}
                 >
-                  <span>México (ES)</span>
-                  <span className="font-mono text-[10px] text-subtle">MXN</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/es"
-                  hrefLang="es-ES"
-                  className="hover:text-foreground transition-colors flex items-center justify-between"
-                >
-                  <span>España (ES)</span>
-                  <span className="font-mono text-[10px] text-subtle">EUR</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/us"
-                  hrefLang="en-US"
-                  className="hover:text-foreground transition-colors flex items-center justify-between"
-                >
-                  <span>United States (EN)</span>
-                  <span className="font-mono text-[10px] text-subtle">USD</span>
+                  English
                 </Link>
               </li>
             </ul>

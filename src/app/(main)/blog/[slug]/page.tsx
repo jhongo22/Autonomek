@@ -22,13 +22,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${post.title} | Autonomek`,
     description: post.description,
     alternates: {
-      canonical: `https://www.autonomek.com/blog/${slug}`,
+      canonical: `https://autonomek.com/blog/${post.slug}`,
       languages: {
-        'es': `https://www.autonomek.com/es/blog/${slug}`,
-        'es-CO': `https://www.autonomek.com/blog/${slug}`,
-        'en': `https://www.autonomek.com/en/blog/${slug}`,
-        'en-US': `https://www.autonomek.com/us/blog/${slug}`,
-        'x-default': `https://www.autonomek.com/blog/${slug}`,
+        'es': `https://autonomek.com/blog/${post.slug}`,
+        'es-CO': `https://autonomek.com/blog/${post.slug}`,
+        'es-MX': `https://autonomek.com/blog/${post.slug}`,
+        'es-ES': `https://autonomek.com/blog/${post.slug}`,
+        'en': `https://autonomek.com/en/blog/${post.slugEn}`,
+        'en-US': `https://autonomek.com/en/blog/${post.slugEn}`,
+        'x-default': `https://autonomek.com/blog/${post.slug}`,
       },
     },
     openGraph: {
@@ -36,8 +38,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: post.description,
       type: 'article',
       publishedTime: post.date,
-      authors: ['Autonomek Engineering'],
-      url: `https://www.autonomek.com/blog/${slug}`,
+      authors: ['Jhonatan González'],
+      url: `https://autonomek.com/blog/${post.slug}`,
     },
   };
 }
@@ -49,25 +51,55 @@ export default async function ArticlePage({ params }: PageProps) {
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'TechArticle',
-    headline: post.title,
-    description: post.description,
-    datePublished: post.date,
-    dateModified: post.date,
-    author: {
-      '@type': 'Organization',
-      name: 'Autonomek',
-      url: 'https://www.autonomek.com',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Autonomek',
-      url: 'https://www.autonomek.com',
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `https://www.autonomek.com/blog/${slug}`,
-    },
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Inicio',
+            item: 'https://autonomek.com',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Blog',
+            item: 'https://autonomek.com/blog',
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: post.title,
+            item: `https://autonomek.com/blog/${post.slug}`,
+          },
+        ],
+      },
+      {
+        '@type': 'TechArticle',
+        headline: post.title,
+        description: post.description,
+        datePublished: post.date,
+        dateModified: post.date,
+        inLanguage: 'es',
+        author: {
+          '@type': 'Person',
+          '@id': 'https://autonomek.com/#founder',
+          name: 'Jhonatan González',
+          url: 'https://autonomek.com/nosotros',
+        },
+        publisher: {
+          '@type': 'Organization',
+          '@id': 'https://autonomek.com/#organization',
+          name: 'Autonomek',
+          url: 'https://autonomek.com',
+        },
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `https://autonomek.com/blog/${post.slug}`,
+        },
+      },
+    ],
   };
 
   return (

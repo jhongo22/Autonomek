@@ -181,7 +181,8 @@ function Tooltip({ mono, api }: { mono: string; api: TipRef }) {
   return (
     <div
       ref={box}
-      role="tooltip"
+      role={tip ? "tooltip" : undefined}
+      aria-hidden={!tip}
       className={`pointer-events-none fixed z-50 whitespace-nowrap rounded-xl border border-rule bg-surface/95 px-2.5 py-2 text-xs text-foreground shadow-lg backdrop-blur-md transition-opacity duration-150 ${
         tip ? "opacity-100" : "opacity-0"
       }`}

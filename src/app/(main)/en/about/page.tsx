@@ -5,13 +5,15 @@ export const metadata: Metadata = {
   title: 'About Us | Autonomek — Software, Web & AI Engineering',
   description: 'Meet the engineering team behind Autonomek. We build custom software, 0.6s websites, and WhatsApp AI agents with 100% code ownership and fixed pricing.',
   alternates: {
-    canonical: 'https://www.autonomek.com/en/about',
+    canonical: 'https://autonomek.com/en/about',
     languages: {
-      'en': 'https://www.autonomek.com/en/about',
-      'en-US': 'https://www.autonomek.com/us/about',
-      'es': 'https://www.autonomek.com/es/nosotros',
-      'es-CO': 'https://www.autonomek.com/nosotros',
-      'x-default': 'https://www.autonomek.com/en/about',
+      'en': 'https://autonomek.com/en/about',
+      'en-US': 'https://autonomek.com/en/about',
+      'es': 'https://autonomek.com/nosotros',
+      'es-CO': 'https://autonomek.com/nosotros',
+      'es-MX': 'https://autonomek.com/nosotros',
+      'es-ES': 'https://autonomek.com/nosotros',
+      'x-default': 'https://autonomek.com/nosotros',
     },
   },
 };

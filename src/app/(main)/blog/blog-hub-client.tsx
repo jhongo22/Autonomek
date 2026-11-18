@@ -98,7 +98,14 @@ export default function BlogHubClient({ isEn = false, basePrefix = '' }: BlogHub
           <p className="mt-4 text-base sm:text-lg text-muted leading-relaxed">
             {isEn ? (
               <>
-                Practical analyses written by our team on{' '}
+                Practical analyses written by{' '}
+                <Link
+                  href={homeHref}
+                  className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary underline-offset-4"
+                >
+                  Autonomek
+                </Link>{' '}
+                on{' '}
                 <Link
                   href={`${basePrefix}/services/ai-agents`}
                   className="text-foreground underline decoration-primary/60 hover:decoration-primary underline-offset-4"
@@ -111,6 +118,13 @@ export default function BlogHubClient({ isEn = false, basePrefix = '' }: BlogHub
                   className="text-foreground underline decoration-primary/60 hover:decoration-primary underline-offset-4"
                 >
                   fast Next.js websites
+                </Link>
+                ,{' '}
+                <Link
+                  href={`${basePrefix}/services/process-automation`}
+                  className="text-foreground underline decoration-primary/60 hover:decoration-primary underline-offset-4"
+                >
+                  process automation
                 </Link>{' '}
                 and{' '}
                 <Link
@@ -123,7 +137,14 @@ export default function BlogHubClient({ isEn = false, basePrefix = '' }: BlogHub
               </>
             ) : (
               <>
-                Análisis prácticos escritos por nuestro equipo sobre{' '}
+                Análisis prácticos escritos por{' '}
+                <Link
+                  href={homeHref}
+                  className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary underline-offset-4"
+                >
+                  Autonomek
+                </Link>{' '}
+                sobre{' '}
                 <Link
                   href={`${basePrefix}/servicios/agentes-inteligencia-artificial`}
                   className="text-foreground underline decoration-primary/60 hover:decoration-primary underline-offset-4"
@@ -136,6 +157,13 @@ export default function BlogHubClient({ isEn = false, basePrefix = '' }: BlogHub
                   className="text-foreground underline decoration-primary/60 hover:decoration-primary underline-offset-4"
                 >
                   sitios web rápidos
+                </Link>
+                ,{' '}
+                <Link
+                  href={`${basePrefix}/servicios/automatizacion-de-procesos`}
+                  className="text-foreground underline decoration-primary/60 hover:decoration-primary underline-offset-4"
+                >
+                  automatización de procesos
                 </Link>{' '}
                 y{' '}
                 <Link
@@ -217,7 +245,7 @@ export default function BlogHubClient({ isEn = false, basePrefix = '' }: BlogHub
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-foreground leading-snug">
                   <Link
-                    href={`${blogBaseHref}/${featuredPost.slug}`}
+                    href={`${blogBaseHref}/${isEn ? featuredPost.slugEn : featuredPost.slug}`}
                     className="hover:text-primary underline decoration-rule hover:decoration-primary underline-offset-4 transition-colors"
                   >
                     {isEn ? featuredPost.titleEn : featuredPost.title}
@@ -230,7 +258,7 @@ export default function BlogHubClient({ isEn = false, basePrefix = '' }: BlogHub
 
                 <div className="pt-2 flex flex-wrap items-center gap-6">
                   <Link
-                    href={`${blogBaseHref}/${featuredPost.slug}`}
+                    href={`${blogBaseHref}/${isEn ? featuredPost.slugEn : featuredPost.slug}`}
                     className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary underline decoration-primary/60 hover:decoration-primary underline-offset-4"
                   >
                     <span>{isEn ? 'Read complete article' : 'Leer artículo completo'}</span>
@@ -273,7 +301,7 @@ export default function BlogHubClient({ isEn = false, basePrefix = '' }: BlogHub
                     {featuredPost.tableOfContents.slice(0, 3).map((toc) => (
                       <li key={toc.id}>
                         <Link
-                          href={`${blogBaseHref}/${featuredPost.slug}#${toc.id}`}
+                          href={`${blogBaseHref}/${isEn ? featuredPost.slugEn : featuredPost.slug}#${toc.id}`}
                           className="text-xs text-muted hover:text-foreground underline decoration-rule hover:decoration-primary underline-offset-4 line-clamp-1"
                         >
                           {isEn ? toc.titleEn : toc.title}
@@ -296,7 +324,7 @@ export default function BlogHubClient({ isEn = false, basePrefix = '' }: BlogHub
             const description = isEn ? post.descriptionEn : post.description;
             const categoryLabel = isEn ? post.categoryLabelEn : post.categoryLabel;
             const readTime = isEn ? post.readTimeEn : post.readTime;
-            const articleHref = `${blogBaseHref}/${post.slug}`;
+            const articleHref = `${blogBaseHref}/${isEn ? post.slugEn : post.slug}`;
             const serviceLink = post.sections[0]?.linkedService;
 
             return (

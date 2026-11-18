@@ -27,6 +27,70 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   outputFileTracingRoot: path.resolve(process.cwd()),
+  async redirects() {
+    const enBlogSlugRedirects = [
+      {
+        oldSlug: 'de-excel-a-plataforma-propia-modernizar-operacion-metricas-reportes',
+        newSlug: 'replace-excel-spreadsheets-with-custom-software-dashboard-reporting',
+      },
+      {
+        oldSlug: 'como-implementar-agente-ia-whatsapp-ventas-24-7',
+        newSlug: 'how-to-deploy-24-7-whatsapp-ai-sales-agent-rag',
+      },
+      {
+        oldSlug: 'por-que-wordpress-lento-migrar-nextjs-0-6s',
+        newSlug: 'why-wordpress-is-slow-migrate-to-nextjs',
+      },
+      {
+        oldSlug: 'software-a-medida-vs-saas-por-usuario-ahorro',
+        newSlug: 'custom-software-vs-per-seat-saas-pricing-roi',
+      },
+      {
+        oldSlug: 'como-eliminar-copiar-pegar-automatizacion-whatsapp-crm-facturacion',
+        newSlug: 'automate-whatsapp-crm-billing-workflows-n8n',
+      },
+    ];
+
+    return [
+      ...enBlogSlugRedirects.flatMap(({ oldSlug, newSlug }) => [
+        {
+          source: `/us/blog/${oldSlug}`,
+          destination: `/en/blog/${newSlug}`,
+          permanent: true,
+        },
+        {
+          source: `/en/blog/${oldSlug}`,
+          destination: `/en/blog/${newSlug}`,
+          permanent: true,
+        },
+      ]),
+      {
+        source: '/es',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/es/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
+      {
+        source: '/mx',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/us',
+        destination: '/en',
+        permanent: true,
+      },
+      {
+        source: '/us/:path*',
+        destination: '/en/:path*',
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return [
       {
@@ -37,6 +101,15 @@ const nextConfig = {
   },
   async headers() {
     return [
+      {
+        source: '/en/:path*',
+        headers: [
+          {
+            key: 'Content-Language',
+            value: 'en',
+          },
+        ],
+      },
       {
         source: '/:path*',
         headers: [

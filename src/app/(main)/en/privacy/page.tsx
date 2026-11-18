@@ -5,13 +5,15 @@ export const metadata: Metadata = {
   title: 'Privacy Policy & Data Protection | Autonomek',
   description: 'Data protection policies, GDPR & international compliance, encrypted storage, and zero AI public training guarantee by Autonomek.',
   alternates: {
-    canonical: 'https://www.autonomek.com/en/privacy',
+    canonical: 'https://autonomek.com/en/privacy',
     languages: {
-      'en': 'https://www.autonomek.com/en/privacy',
-      'en-US': 'https://www.autonomek.com/us/privacy',
-      'es': 'https://www.autonomek.com/es/privacidad',
-      'es-CO': 'https://www.autonomek.com/privacidad',
-      'x-default': 'https://www.autonomek.com/en/privacy',
+      'en': 'https://autonomek.com/en/privacy',
+      'en-US': 'https://autonomek.com/en/privacy',
+      'es': 'https://autonomek.com/privacidad',
+      'es-CO': 'https://autonomek.com/privacidad',
+      'es-MX': 'https://autonomek.com/privacidad',
+      'es-ES': 'https://autonomek.com/privacidad',
+      'x-default': 'https://autonomek.com/privacidad',
     },
   },
 };

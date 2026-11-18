@@ -18,10 +18,15 @@ import TestimonialMarquee from '@/components/ui/marquee-01';
 
 type Region = 'co' | 'mx' | 'es' | 'us' | 'en';
 
-export default function ServiciosClient({ region = 'co' }: { region?: Region }) {
-  const isEn = region === 'us' || region === 'en';
-  const basePrefix =
-    region === 'en' ? '/en' : region === 'us' ? '/us' : region === 'es' ? '/es' : '';
+export default function ServiciosClient({
+  region = 'co',
+  locale,
+}: {
+  region?: Region;
+  locale?: 'es' | 'en';
+}) {
+  const isEn = locale === 'en' || region === 'us' || region === 'en';
+  const basePrefix = isEn ? '/en' : '';
 
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
@@ -298,25 +303,45 @@ export default function ServiciosClient({ region = 'co' }: { region?: Region }) 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-semibold tracking-tight leading-[1.07] text-foreground">
               {isEn ? (
                 <>
-                  Four technological pillars{' '}
+                  B2B Software, AI Agents & Web Engineering{' '}
                   <span className="text-muted font-normal">
-                    to attract clients and automate your company.
+                    built to attract clients and automate operations.
                   </span>
                 </>
               ) : (
                 <>
-                  Cuatro pilares tecnológicos{' '}
+                  Servicios de Ingeniería Web, Agentes de IA y Software B2B{' '}
                   <span className="text-muted font-normal">
-                    para atraer clientes y automatizar tu empresa.
+                    para vender más y automatizar tu empresa.
                   </span>
                 </>
               )}
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted">
-              {isEn
-                ? 'Test each interactive module below and enter the solution your business needs today — or connect all four into one unified ecosystem.'
-                : 'Prueba cada módulo interactivo a continuación y entra a la solución que tu negocio necesita hoy, o conecta las cuatro en un mismo sistema.'}
+              {isEn ? (
+                <>
+                  Explore the four pillars engineered by{' '}
+                  <Link
+                    href="/en"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    Autonomek
+                  </Link>
+                  : test each interactive module below and open the dedicated solution your company needs today.
+                </>
+              ) : (
+                <>
+                  Explora los cuatro pilares tecnológicos de{' '}
+                  <Link
+                    href="/"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    Autonomek
+                  </Link>
+                  : prueba cada módulo interactivo y entra a la solución que tu negocio necesita hoy.
+                </>
+              )}
             </p>
           </div>
 
@@ -339,7 +364,12 @@ export default function ServiciosClient({ region = 'co' }: { region?: Region }) 
                       </div>
 
                       <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-foreground">
-                        {srv.title}
+                        <Link
+                          href={srv.href}
+                          className="hover:text-primary underline decoration-rule hover:decoration-primary underline-offset-4 transition-colors"
+                        >
+                          {srv.title}
+                        </Link>
                       </h2>
 
                       <p className="text-sm sm:text-base leading-relaxed text-muted">
@@ -369,7 +399,7 @@ export default function ServiciosClient({ region = 'co' }: { region?: Region }) 
                   <div className="pt-5 border-t border-rule flex items-center justify-between">
                     <Link
                       href={srv.href}
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary underline decoration-primary/60 hover:decoration-primary underline-offset-4"
                     >
                       <span>{srv.cta}</span>
                       <ArrowUpRight size={16} />

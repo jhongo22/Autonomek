@@ -62,7 +62,7 @@ function StartRedirectContent() {
           </a>
 
           <Link
-            href={isEn ? '/en' : '/es'}
+            href={isEn ? '/en' : '/'}
             className="text-xs text-muted hover:text-foreground transition-colors pt-1"
           >
             {isEn ? 'Return to website' : 'Volver al sitio web'}

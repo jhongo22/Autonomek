@@ -2,21 +2,23 @@ import type { Metadata } from 'next';
 import ServiciosClient from '../../servicios/servicios-client';
 
 export const metadata: Metadata = {
-  title: 'B2B AI & Software Engineering Services | Autonomek',
-  description: 'Explore our B2B engineering pillars: 24/7 AI Sales Agents, Process Automation (n8n/APIs), Custom Enterprise Software, and High-Performance SEO Websites.',
+  title: 'B2B Software, AI Agents & Web Engineering Services | Autonomek',
+  description: 'Explore our four B2B engineering pillars: 24/7 WhatsApp AI sales agents, sub-second Next.js websites, n8n process automation, and custom software.',
   alternates: {
-    canonical: 'https://www.autonomek.com/en/services',
+    canonical: 'https://autonomek.com/en/services',
     languages: {
-      'en': 'https://www.autonomek.com/en/services',
-      'en-US': 'https://www.autonomek.com/us/services',
-      'es': 'https://www.autonomek.com/es/servicios',
-      'es-CO': 'https://www.autonomek.com/servicios',
-      'x-default': 'https://www.autonomek.com/servicios',
+      'es': 'https://autonomek.com/servicios',
+      'es-CO': 'https://autonomek.com/servicios',
+      'es-MX': 'https://autonomek.com/servicios',
+      'es-ES': 'https://autonomek.com/servicios',
+      'en': 'https://autonomek.com/en/services',
+      'en-US': 'https://autonomek.com/en/services',
+      'x-default': 'https://autonomek.com/servicios',
     },
   },
 };
 
 export default function EnServicesPage() {
-  return <ServiciosClient locale="en" />;
+  return <ServiciosClient region="en" locale="en" />;
 }
 

@@ -1,17 +1,18 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Servicios de Ingeniería IA, Automatización y Software B2B | Autonomek',
-  description: 'Conoce nuestros sistemas de páginas web de alto rendimiento, agentes de IA 24/7, automatización de procesos y software a medida.',
+  title: 'Servicios de Páginas Web, Agentes de IA y Software B2B | Autonomek',
+  description: 'Soluciones de desarrollo web Next.js, agentes de IA 24/7 en WhatsApp, automatización de procesos con n8n y software a medida sin licencias por usuario.',
   alternates: {
-    canonical: 'https://www.autonomek.com/servicios',
+    canonical: 'https://autonomek.com/servicios',
     languages: {
-      'es': 'https://www.autonomek.com/es/servicios',
-      'es-ES': 'https://www.autonomek.com/es/servicios',
-      'es-CO': 'https://www.autonomek.com/servicios',
-      'en': 'https://www.autonomek.com/en/services',
-      'en-US': 'https://www.autonomek.com/us/services',
-      'x-default': 'https://www.autonomek.com/servicios',
+      'es': 'https://autonomek.com/servicios',
+      'es-CO': 'https://autonomek.com/servicios',
+      'es-MX': 'https://autonomek.com/servicios',
+      'es-ES': 'https://autonomek.com/servicios',
+      'en': 'https://autonomek.com/en/services',
+      'en-US': 'https://autonomek.com/en/services',
+      'x-default': 'https://autonomek.com/servicios',
     },
   },
 };

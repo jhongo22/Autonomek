@@ -5,13 +5,15 @@ export const metadata: Metadata = {
   title: 'Sobre Nosotros | Autonomek — Ingeniería de Software, Web e IA',
   description: 'Conoce al equipo detrás de Autonomek. Desarrollamos software a medida, sitios web ultrarrápidos y agentes de IA en WhatsApp con código 100% propiedad de tu empresa.',
   alternates: {
-    canonical: 'https://www.autonomek.com/nosotros',
+    canonical: 'https://autonomek.com/nosotros',
     languages: {
-      'es': 'https://www.autonomek.com/es/nosotros',
-      'es-CO': 'https://www.autonomek.com/nosotros',
-      'en': 'https://www.autonomek.com/en/about',
-      'en-US': 'https://www.autonomek.com/us/about',
-      'x-default': 'https://www.autonomek.com/nosotros',
+      'es': 'https://autonomek.com/nosotros',
+      'es-CO': 'https://autonomek.com/nosotros',
+      'es-MX': 'https://autonomek.com/nosotros',
+      'es-ES': 'https://autonomek.com/nosotros',
+      'en': 'https://autonomek.com/en/about',
+      'en-US': 'https://autonomek.com/en/about',
+      'x-default': 'https://autonomek.com/nosotros',
     },
   },
 };

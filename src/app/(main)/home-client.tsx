@@ -22,6 +22,7 @@ import {
   Instagram,
 } from 'lucide-react';
 import { PROJECTS, PROJECTS_EN, Project } from '@/data/projects';
+import { BLOG_POSTS } from '@/data/blog';
 import ProjectDetailsModal from '@/components/ProjectDetailsModal';
 import { AnalyticsBento } from '@/components/ui/analytics-bento';
 import InkOrbitFeatures from '@/components/ui/ink-orbit-features';
@@ -60,8 +61,7 @@ const salesSeriesValues = [
 
 export default function HomeClient({ region = 'co' }: { region?: Region }) {
   const isEn = region === 'us' || region === 'en';
-  const basePrefix =
-    region === 'en' ? '/en' : region === 'us' ? '/us' : region === 'es' ? '/es' : '';
+  const basePrefix = isEn ? '/en' : '';
 
   const [activeCategory, setActiveCategory] = useState<'ALL' | 'IA' | 'Web' | 'Automatización'>(
     'ALL'
@@ -434,25 +434,87 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-semibold tracking-tight leading-[1.07] text-foreground">
               {isEn ? (
                 <>
-                  Technology that brings you clients{' '}
+                  Custom Business Software, 24/7 WhatsApp AI Agents{' '}
                   <span className="text-muted font-normal">
-                    and runs your operation without friction.
+                    and B2B Process Automation.
                   </span>
                 </>
               ) : (
                 <>
-                  Tecnología que atrae más clientes{' '}
+                  Ingeniería de Software a Medida, Agentes de IA en WhatsApp{' '}
                   <span className="text-muted font-normal">
-                    y ordena tu operación sin complicarte.
+                    y Automatización B2B.
                   </span>
                 </>
               )}
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted">
-              {isEn
-                ? 'We build fast websites that rank #1 on Google and ChatGPT, WhatsApp AI assistants that reply and book appointments in 1 second, and custom software tailored to your team.'
-                : 'Desarrollamos páginas web que aparecen primero en Google y ChatGPT, asistentes de ventas en WhatsApp que atienden y agendan citas 24/7, y software hecho a la medida de tu negocio.'}
+              {isEn ? (
+                <>
+                  We engineer{' '}
+                  <Link
+                    href="/en/services/high-performance-websites"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    high-performance Next.js websites
+                  </Link>
+                  , deploy{' '}
+                  <Link
+                    href="/en/services/ai-agents"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    24/7 WhatsApp AI sales agents
+                  </Link>
+                  , build{' '}
+                  <Link
+                    href="/en/services/custom-software"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    custom business software
+                  </Link>{' '}
+                  with $0 seat fees, and orchestrate{' '}
+                  <Link
+                    href="/en/services/process-automation"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    B2B process automation with n8n & ERP
+                  </Link>
+                  .
+                </>
+              ) : (
+                <>
+                  Diseñamos soluciones de{' '}
+                  <Link
+                    href="/servicios/paginas-web-alto-rendimiento"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    desarrollo de páginas web en Next.js
+                  </Link>
+                  , implementamos{' '}
+                  <Link
+                    href="/servicios/agentes-inteligencia-artificial"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    agentes de IA para WhatsApp 24/7
+                  </Link>
+                  , creamos{' '}
+                  <Link
+                    href="/servicios/software-a-medida"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    software empresarial a medida
+                  </Link>{' '}
+                  sin licencias por usuario y ejecutamos{' '}
+                  <Link
+                    href="/servicios/automatizacion-de-procesos"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    automatización de procesos con n8n y ERP
+                  </Link>
+                  .
+                </>
+              )}
             </p>
 
             <div className="mt-8 flex w-full flex-col items-stretch gap-3.5 sm:w-auto sm:flex-row sm:items-center sm:justify-center">
@@ -464,12 +526,12 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
               >
                 {isEn ? 'Talk with us on WhatsApp' : 'Hablar por WhatsApp'}
               </a>
-              <a
-                href="#servicios"
+              <Link
+                href={isEn ? '/en/services' : '/servicios'}
                 className="inline-flex items-center justify-center rounded-full border border-rule bg-surface text-foreground px-7 py-3.5 text-sm sm:text-base font-semibold hover:bg-card transition"
               >
-                {isEn ? 'Explore our solutions' : 'Ver nuestras soluciones'}
-              </a>
+                {isEn ? 'Explore our 4 solutions' : 'Explorar los 4 servicios'}
+              </Link>
             </div>
           </div>
 
@@ -697,7 +759,12 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
                       </div>
 
                       <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-foreground">
-                        {srv.title}
+                        <Link
+                          href={srv.href}
+                          className="hover:text-primary underline decoration-rule hover:decoration-primary underline-offset-4 transition-colors"
+                        >
+                          {srv.title}
+                        </Link>
                       </h3>
 
                       <p className="text-sm sm:text-base leading-relaxed text-muted">
@@ -728,7 +795,7 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
                   <div className="pt-5 border-t border-rule flex items-center justify-between">
                     <Link
                       href={srv.href}
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary underline decoration-primary/60 hover:decoration-primary underline-offset-4"
                     >
                       <span>{srv.cta}</span>
                       <ArrowUpRight size={16} />
@@ -738,6 +805,31 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
               );
             })}
           </div>
+
+          {/* GEO Citability Block & Services Hub Link */}
+          <aside className="mt-10 rounded-[24px] border border-rule bg-surface/90 p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div className="space-y-2.5 max-w-3xl">
+              <span className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                {isEn ? 'Engineering Architecture Summary' : 'Arquitectura e Ingeniería Comercial Autonomek'}
+              </span>
+              <p className="text-sm sm:text-base text-muted leading-relaxed">
+                {isEn
+                  ? 'Autonomek is a B2B software and AI engineering firm headquartered in Medellín serving companies across Colombia, Mexico, Spain, and the United States. We deliver four integrated systems in 2 to 4 week sprints with fixed pricing and 100% source code ownership: sub-second Next.js websites built for Google SEO and AI search engines, 24/7 WhatsApp Business Cloud API sales agents backed by zero-hallucination RAG, n8n workflow automation connecting CRM and electronic billing, and proprietary PostgreSQL platforms with $0 monthly per-user licensing fees.'
+                  : 'Autonomek es una firma de ingeniería de software e inteligencia artificial B2B con sede en Medellín que opera para empresas en Colombia, México, España y Estados Unidos. Implementamos cuatro sistemas conectados en sprints de 2 a 4 semanas con presupuesto cerrado y 100% propiedad del código: desarrollo web en Next.js con carga en 0.6s para Google y ChatGPT, agentes de IA en WhatsApp Cloud API con arquitectura RAG (respuesta en 1.1s), automatización de procesos con n8n conectada a Siigo, Alegra, DIAN y CRMs, y software a medida en PostgreSQL con $0 en licencias mensuales por usuario.'}
+              </p>
+            </div>
+            <Link
+              href={isEn ? '/en/services' : '/servicios'}
+              className="inline-flex items-center gap-2 shrink-0 text-sm font-semibold text-primary underline decoration-primary/70 hover:decoration-primary underline-offset-4"
+            >
+              <span>
+                {isEn
+                  ? 'Compare all 4 engineering pillars'
+                  : 'Ver comparativa técnica de los 4 servicios'}
+              </span>
+              <ArrowUpRight size={16} />
+            </Link>
+          </aside>
         </div>
       </section>
 
@@ -1002,6 +1094,91 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
             </div>
 
             <TestimonialMarquee isEn={isEn} />
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================== */}
+      {/* 5B. GUÍAS DE INGENIERÍA (BLOG HUB) — Link Equity Bidireccional     */}
+      {/* ================================================================== */}
+      <section
+        id="guias-ingenieria"
+        className="scroll-mt-24 py-20 md:py-24 border-b border-rule"
+      >
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                {isEn ? 'Technical Whitepapers' : 'Guías Técnicas y Análisis ROI'}
+              </span>
+              <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
+                {isEn
+                  ? 'Deep dives on custom software, Next.js SEO & WhatsApp AI.'
+                  : 'Guías prácticas sobre software a medida, Next.js e IA.'}
+              </h2>
+            </div>
+            <Link
+              href={isEn ? '/en/blog' : '/blog'}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary underline decoration-primary/70 hover:decoration-primary underline-offset-4"
+            >
+              <span>{isEn ? 'Explore all engineering guides' : 'Explorar todas las guías del blog'}</span>
+              <ArrowUpRight size={16} />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {BLOG_POSTS.slice(0, 4).map((post) => {
+              const postHref = `${basePrefix}/blog/${isEn ? post.slugEn : post.slug}`;
+              const serviceLink = post.sections[0]?.linkedService;
+              const serviceHref = serviceLink
+                ? `${basePrefix}${isEn ? serviceLink.hrefEn : serviceLink.href}`
+                : isEn
+                ? '/en/services'
+                : '/servicios';
+
+              return (
+                <article
+                  key={post.slug}
+                  className="rounded-[22px] border border-rule bg-surface p-6 flex flex-col justify-between gap-4 hover:border-rule-strong transition-colors"
+                >
+                  <div className="space-y-2.5">
+                    <div className="flex items-center justify-between gap-2 text-xs font-mono">
+                      <span className="text-primary font-semibold">
+                        {isEn ? post.categoryLabelEn : post.categoryLabel}
+                      </span>
+                      <span className="text-muted tabular-nums">{post.heroMetric.value}</span>
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-semibold text-foreground leading-snug">
+                      <Link
+                        href={postHref}
+                        className="hover:text-primary underline decoration-rule hover:decoration-primary underline-offset-4 transition-colors"
+                      >
+                        {isEn ? post.titleEn : post.title}
+                      </Link>
+                    </h3>
+                    <p className="text-sm text-muted leading-relaxed line-clamp-2">
+                      {isEn ? post.descriptionEn : post.description}
+                    </p>
+                  </div>
+                  <div className="pt-3 border-t border-rule flex flex-wrap items-center justify-between gap-3 text-xs">
+                    <Link
+                      href={postHref}
+                      className="inline-flex items-center gap-1 font-semibold text-primary underline decoration-primary/60 hover:decoration-primary underline-offset-4"
+                    >
+                      <span>{isEn ? 'Read technical guide' : 'Leer guía completa'}</span>
+                      <ArrowUpRight size={14} />
+                    </Link>
+                    <Link
+                      href={serviceHref}
+                      className="text-muted hover:text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      {isEn ? 'View service' : 'Ver servicio relacionado'}
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -19,46 +19,73 @@ interface ArticleClientProps {
 }
 
 /**
- * Injects underlined internal SEO links into paragraph text.
+ * Resolves localized internal href avoiding double /en prefixes.
+ */
+function resolveInternalHref(rawHref: string, basePrefix: string): string {
+  if (rawHref === '/' || rawHref === '/en' || rawHref.startsWith('/en/')) {
+    return rawHref;
+  }
+  return `${basePrefix}${rawHref}`;
+}
+
+/**
+ * Injects underlined internal SEO links into paragraph text across all matching specs.
  */
 function renderParagraphWithInlineLinks(
   text: string,
   inlineLinks: InlineLinkSpec[] | undefined,
   isEn: boolean,
   basePrefix: string
-) {
+): React.ReactNode {
   if (!inlineLinks || inlineLinks.length === 0) {
     return text;
   }
 
+  let nodes: React.ReactNode[] = [text];
+
   for (const spec of inlineLinks) {
     const phrase = isEn ? spec.phraseEn : spec.phrase;
     const rawHref = isEn ? spec.hrefEn : spec.href;
-    const href = rawHref.startsWith('/en/')
-      ? rawHref
-      : `${basePrefix}${rawHref}`;
+    if (!phrase) continue;
+    const href = resolveInternalHref(rawHref, basePrefix);
 
-    const index = text.indexOf(phrase);
-    if (index !== -1) {
-      const before = text.slice(0, index);
-      const match = text.slice(index, index + phrase.length);
-      const after = text.slice(index + phrase.length);
-      return (
-        <>
-          {before}
-          <Link
-            href={href}
-            className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
-          >
-            {match}
-          </Link>
-          {after}
-        </>
+    const nextNodes: React.ReactNode[] = [];
+    let replaced = false;
+
+    for (const node of nodes) {
+      if (typeof node !== 'string' || replaced) {
+        nextNodes.push(node);
+        continue;
+      }
+
+      const index = node.indexOf(phrase);
+      if (index === -1) {
+        nextNodes.push(node);
+        continue;
+      }
+
+      const before = node.slice(0, index);
+      const match = node.slice(index, index + phrase.length);
+      const after = node.slice(index + phrase.length);
+
+      if (before) nextNodes.push(before);
+      nextNodes.push(
+        <Link
+          key={`${href}-${match}`}
+          href={href}
+          className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+        >
+          {match}
+        </Link>
       );
+      if (after) nextNodes.push(after);
+      replaced = true;
     }
+
+    nodes = nextNodes;
   }
 
-  return text;
+  return nodes.length === 1 && typeof nodes[0] === 'string' ? nodes[0] : <>{nodes}</>;
 }
 
 export default function ArticleClient({ post, isEn = false, basePrefix = '' }: ArticleClientProps) {
@@ -197,13 +224,39 @@ export default function ArticleClient({ post, isEn = false, basePrefix = '' }: A
           {/* MAIN ARTICLE CONTENT */}
           <article className="min-w-0 lg:col-span-8 space-y-10">
             {/* Executive Summary Box */}
-            <div className="rounded-xl border border-rule border-l-4 border-l-primary bg-surface p-5 sm:p-6">
-              <span className="font-mono text-xs text-primary font-semibold block mb-1.5">
+            <div className="rounded-xl border border-rule border-l-4 border-l-primary bg-surface p-5 sm:p-6 space-y-3">
+              <span className="font-mono text-xs text-primary font-semibold block">
                 {isEn ? 'Key takeaway' : 'Resumen ejecutivo'}
               </span>
               <p className="text-sm sm:text-base text-foreground/90 leading-relaxed">
                 {summary}
               </p>
+              <div className="pt-2 border-t border-rule/70 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm">
+                <Link
+                  href={homeHref}
+                  className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                >
+                  {isEn ? 'Autonomek B2B Engineering' : 'Autonomek — Ingeniería B2B'}
+                </Link>
+                {post.sections[0]?.linkedService && (
+                  <Link
+                    href={resolveInternalHref(
+                      isEn
+                        ? post.sections[0].linkedService.hrefEn
+                        : post.sections[0].linkedService.href,
+                      basePrefix
+                    )}
+                    className="inline-flex items-center gap-1 font-semibold text-primary underline decoration-primary/70 hover:decoration-primary underline-offset-4"
+                  >
+                    <span>
+                      {isEn
+                        ? post.sections[0].linkedService.labelEn
+                        : post.sections[0].linkedService.label}
+                    </span>
+                    <ArrowUpRight size={14} />
+                  </Link>
+                )}
+              </div>
             </div>
 
             {/* Sections */}
@@ -335,7 +388,7 @@ export default function ArticleClient({ post, isEn = false, basePrefix = '' }: A
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {relatedPosts.map((rel) => {
-                const relHref = `${blogBaseHref}/${rel.slug}`;
+                const relHref = `${blogBaseHref}/${isEn ? rel.slugEn : rel.slug}`;
                 return (
                   <div key={rel.slug} className="rounded-xl border border-rule bg-surface p-6 space-y-2.5">
                     <p className="text-xs font-mono text-primary">
@@ -361,7 +414,7 @@ export default function ArticleClient({ post, isEn = false, basePrefix = '' }: A
 
         {/* Simple Closing CTA */}
         <section className="mt-12 rounded-2xl border border-rule bg-surface p-7 sm:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="space-y-2 max-w-xl">
+          <div className="space-y-3 max-w-xl">
             <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground">
               {isEn
                 ? 'Ready to implement this solution in your company?'
@@ -372,6 +425,32 @@ export default function ArticleClient({ post, isEn = false, basePrefix = '' }: A
                 ? 'Talk directly with our team on WhatsApp for a free initial diagnosis.'
                 : 'Habla directamente con nuestro equipo por WhatsApp para recibir un diagnóstico inicial sin costo.'}
             </p>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm">
+              {post.sections[0]?.linkedService && (
+                <Link
+                  href={resolveInternalHref(
+                    isEn
+                      ? post.sections[0].linkedService.hrefEn
+                      : post.sections[0].linkedService.href,
+                    basePrefix
+                  )}
+                  className="inline-flex items-center gap-1 font-medium text-foreground underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                >
+                  <span>
+                    {isEn
+                      ? post.sections[0].linkedService.labelEn
+                      : post.sections[0].linkedService.label}
+                  </span>
+                  <ArrowUpRight size={14} />
+                </Link>
+              )}
+              <Link
+                href={homeHref}
+                className="font-medium text-muted hover:text-primary underline decoration-rule hover:decoration-primary underline-offset-4 transition-colors"
+              >
+                {isEn ? 'Explore all solutions at Autonomek' : 'Ver arquitectura completa en Autonomek'}
+              </Link>
+            </div>
           </div>
           <a
             href={whatsappDirectUrl}

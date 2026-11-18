@@ -7,8 +7,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://autonomek.com/proyectos',
     languages: {
+      'es': 'https://autonomek.com/proyectos',
       'es-CO': 'https://autonomek.com/proyectos',
-      'en-US': 'https://autonomek.com/us/projects',
+      'es-MX': 'https://autonomek.com/proyectos',
+      'es-ES': 'https://autonomek.com/proyectos',
+      'en': 'https://autonomek.com/en/projects',
+      'en-US': 'https://autonomek.com/en/projects',
       'x-default': 'https://autonomek.com/proyectos',
     },
   },
@@ -17,6 +21,7 @@ export const metadata: Metadata = {
 const breadcrumbJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
+  name: 'Casos de Éxito — Autonomek',
   itemListElement: [
     {
       '@type': 'ListItem',

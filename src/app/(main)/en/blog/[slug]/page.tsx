@@ -9,26 +9,28 @@ interface PageProps {
 
 export async function generateStaticParams() {
   return BLOG_POSTS.map((post) => ({
-    slug: post.slug,
+    slug: post.slugEn,
   }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = BLOG_POSTS.find((p) => p.slug === slug);
+  const post = BLOG_POSTS.find((p) => p.slugEn === slug || p.slug === slug);
   if (!post) return {};
 
   return {
     title: `${post.titleEn} | Autonomek`,
     description: post.descriptionEn,
     alternates: {
-      canonical: `https://www.autonomek.com/en/blog/${slug}`,
+      canonical: `https://autonomek.com/en/blog/${post.slugEn}`,
       languages: {
-        'en': `https://www.autonomek.com/en/blog/${slug}`,
-        'en-US': `https://www.autonomek.com/us/blog/${slug}`,
-        'es': `https://www.autonomek.com/es/blog/${slug}`,
-        'es-CO': `https://www.autonomek.com/blog/${slug}`,
-        'x-default': `https://www.autonomek.com/blog/${slug}`,
+        'es': `https://autonomek.com/blog/${post.slug}`,
+        'es-CO': `https://autonomek.com/blog/${post.slug}`,
+        'es-MX': `https://autonomek.com/blog/${post.slug}`,
+        'es-ES': `https://autonomek.com/blog/${post.slug}`,
+        'en': `https://autonomek.com/en/blog/${post.slugEn}`,
+        'en-US': `https://autonomek.com/en/blog/${post.slugEn}`,
+        'x-default': `https://autonomek.com/blog/${post.slug}`,
       },
     },
     openGraph: {
@@ -36,38 +38,68 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: post.descriptionEn,
       type: 'article',
       publishedTime: post.date,
-      authors: ['Autonomek Engineering'],
-      url: `https://www.autonomek.com/en/blog/${slug}`,
+      authors: ['Jhonatan González'],
+      url: `https://autonomek.com/en/blog/${post.slugEn}`,
     },
   };
 }
 
 export default async function EnArticlePage({ params }: PageProps) {
   const { slug } = await params;
-  const post = BLOG_POSTS.find((p) => p.slug === slug);
+  const post = BLOG_POSTS.find((p) => p.slugEn === slug || p.slug === slug);
   if (!post) notFound();
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'TechArticle',
-    headline: post.titleEn,
-    description: post.descriptionEn,
-    datePublished: post.date,
-    dateModified: post.date,
-    author: {
-      '@type': 'Organization',
-      name: 'Autonomek',
-      url: 'https://www.autonomek.com',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Autonomek',
-      url: 'https://www.autonomek.com',
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `https://www.autonomek.com/en/blog/${slug}`,
-    },
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://autonomek.com/en',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Blog',
+            item: 'https://autonomek.com/en/blog',
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: post.titleEn,
+            item: `https://autonomek.com/en/blog/${post.slugEn}`,
+          },
+        ],
+      },
+      {
+        '@type': 'TechArticle',
+        headline: post.titleEn,
+        description: post.descriptionEn,
+        datePublished: post.date,
+        dateModified: post.date,
+        inLanguage: 'en',
+        author: {
+          '@type': 'Person',
+          '@id': 'https://autonomek.com/#founder',
+          name: 'Jhonatan González',
+          url: 'https://autonomek.com/en/about',
+        },
+        publisher: {
+          '@type': 'Organization',
+          '@id': 'https://autonomek.com/#organization',
+          name: 'Autonomek',
+          url: 'https://autonomek.com',
+        },
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `https://autonomek.com/en/blog/${post.slugEn}`,
+        },
+      },
+    ],
   };
 
   return (

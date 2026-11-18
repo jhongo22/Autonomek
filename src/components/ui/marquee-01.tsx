@@ -197,9 +197,9 @@ const ReviewCard = ({
           <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/15 border border-primary/25 px-2.5 py-0.5 text-[11px] font-semibold text-primary">
             {metric}
           </span>
-          <div className="flex items-center gap-0.5 text-primary" aria-label="5 out of 5 stars">
+          <div className="flex items-center gap-0.5 text-primary" role="img" aria-label="5 out of 5 stars">
             {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} size={12} className="fill-primary text-primary" />
+              <Star key={i} size={12} aria-hidden="true" className="fill-primary text-primary" />
             ))}
           </div>
         </div>

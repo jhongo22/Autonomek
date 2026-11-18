@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://www.autonomek.com';
-  
+  const baseUrl = 'https://autonomek.com';
+
   return {
     rules: [
       {
@@ -11,14 +11,23 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/private/', '/api/'],
       },
       {
+        // AI Search Citability & User-Triggered Agent Browsing
+        userAgent: [
+          'OAI-SearchBot',
+          'Claude-SearchBot',
+          'PerplexityBot',
+          'ChatGPT-User',
+          'Claude-User',
+          'Perplexity-User',
+        ],
+        allow: ['/', '/llms.txt', '/llms-full.txt'],
+        disallow: ['/private/', '/api/'],
+      },
+      {
+        // Foundation Model Training & Grounding Crawlers
         userAgent: [
           'GPTBot',
-          'ChatGPT-User',
-          'OAI-SearchBot',
-          'PerplexityBot',
           'ClaudeBot',
-          'Claude-Web',
-          'anthropic-ai',
           'Google-Extended',
           'Applebot-Extended',
           'Amazonbot',
@@ -32,6 +41,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
   };
 }

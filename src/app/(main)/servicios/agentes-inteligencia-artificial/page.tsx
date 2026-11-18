@@ -2,21 +2,24 @@ import { Metadata } from 'next';
 import AgentesIAPageClient from './agentes-client';
 
 export const metadata: Metadata = {
-  title: 'Agentes de IA para WhatsApp 24/7 y Ventas B2B | Autonomek',
-  description: 'Vendedores y recepcionistas de IA en WhatsApp que atienden en 1 segundo, responden audios, muestran catálogos y agendan citas en tu calendario sin esperas.',
+  title: 'Agentes de IA para WhatsApp 24/7: Ventas y CRM | Autonomek',
+  description: 'Implementamos agentes de inteligencia artificial para WhatsApp 24/7 con API oficial de Meta. Atienden en 1s, leen audios y pagos, y agendan en CRM.',
   alternates: {
-    canonical: 'https://www.autonomek.com/servicios/agentes-inteligencia-artificial',
+    canonical: 'https://autonomek.com/servicios/agentes-inteligencia-artificial',
     languages: {
-      'es-CO': 'https://www.autonomek.com/servicios/agentes-inteligencia-artificial',
-      'es-ES': 'https://www.autonomek.com/es/servicios/agentes-inteligencia-artificial',
-      'en-US': 'https://www.autonomek.com/us/services/ai-agents',
-      'x-default': 'https://www.autonomek.com/servicios/agentes-inteligencia-artificial',
+      'es': 'https://autonomek.com/servicios/agentes-inteligencia-artificial',
+      'es-CO': 'https://autonomek.com/servicios/agentes-inteligencia-artificial',
+      'es-MX': 'https://autonomek.com/servicios/agentes-inteligencia-artificial',
+      'es-ES': 'https://autonomek.com/servicios/agentes-inteligencia-artificial',
+      'en': 'https://autonomek.com/en/services/ai-agents',
+      'en-US': 'https://autonomek.com/en/services/ai-agents',
+      'x-default': 'https://autonomek.com/servicios/agentes-inteligencia-artificial',
     },
   },
   openGraph: {
-    title: 'Agentes de IA para WhatsApp 24/7 y Ventas B2B | Autonomek',
-    description: 'Atención 24/7 en WhatsApp: respuestas en 1.1s, comprensión de notas de voz, validación de pagos y citas en Google Calendar.',
-    url: 'https://www.autonomek.com/servicios/agentes-inteligencia-artificial',
+    title: 'Agentes de IA para WhatsApp 24/7: Ventas y CRM | Autonomek',
+    description: 'Atención 24/7 en WhatsApp: respuestas en 1.1s, lectura de notas de voz, validación de pagos y citas en Google Calendar.',
+    url: 'https://autonomek.com/servicios/agentes-inteligencia-artificial',
     type: 'website',
   },
 };
@@ -26,39 +29,41 @@ const serviceSchemaJsonLd = {
   '@graph': [
     {
       '@type': 'BreadcrumbList',
+      name: 'Agentes de IA en WhatsApp',
       itemListElement: [
         {
           '@type': 'ListItem',
           position: 1,
           name: 'Inicio',
-          item: 'https://www.autonomek.com',
+          item: 'https://autonomek.com',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Servicios',
-          item: 'https://www.autonomek.com/servicios',
+          item: 'https://autonomek.com/servicios',
         },
         {
           '@type': 'ListItem',
           position: 3,
-          name: 'Vendedor IA en WhatsApp 24/7',
-          item: 'https://www.autonomek.com/servicios/agentes-inteligencia-artificial',
+          name: 'Agentes de IA en WhatsApp 24/7',
+          item: 'https://autonomek.com/servicios/agentes-inteligencia-artificial',
         },
       ],
     },
     {
       '@type': 'Service',
-      name: 'Vendedor IA en WhatsApp 24/7',
-      serviceType: 'Conversational AI & Sales Automation Engineering',
+      name: 'Agentes de Inteligencia Artificial para WhatsApp 24/7',
+      serviceType: 'Conversational AI & WhatsApp Sales Automation Engineering',
       provider: {
         '@type': 'Organization',
+        '@id': 'https://autonomek.com/#organization',
         name: 'Autonomek',
-        url: 'https://www.autonomek.com',
+        url: 'https://autonomek.com',
       },
-      description: 'Agentes de IA conectados a la API oficial de WhatsApp Cloud que atienden en 1 segundo, transcriben audios, recomiendan catálogos y agendan citas en CRM.',
+      description: 'Agentes de IA conectados a la API oficial de WhatsApp Cloud que atienden en 1 segundo, transcriben audios, validan comprobantes y agendan citas en CRM.',
       areaServed: ['CO', 'MX', 'ES', 'US'],
-      url: 'https://www.autonomek.com/servicios/agentes-inteligencia-artificial',
+      url: 'https://autonomek.com/servicios/agentes-inteligencia-artificial',
     },
   ],
 };
@@ -70,7 +75,7 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchemaJsonLd) }}
       />
-      <AgentesIAPageClient locale="es" />
+      <AgentesIAPageClient region="co" locale="es" />
     </>
   );
 }

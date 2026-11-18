@@ -1,17 +1,18 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Automatización de Procesos Empresariales B2B con IA | Autonomek',
-  description: 'Conectamos tu web, WhatsApp, CRM y ERP mediante n8n y APIs para erradicar tareas manuales y errores humanos. Tu operación en piloto automático.',
+  title: 'Automatización de Procesos con IA, n8n y ERP | Autonomek',
+  description: 'Servicio de automatización de procesos empresariales con IA y n8n. Integramos WhatsApp, CRM y facturación electrónica (Siigo, Alegra, DIAN, ERP).',
   alternates: {
-    canonical: 'https://www.autonomek.com/servicios/automatizacion-de-procesos',
+    canonical: 'https://autonomek.com/servicios/automatizacion-de-procesos',
     languages: {
-      'es': 'https://www.autonomek.com/es/servicios/automatizacion-de-procesos',
-      'es-ES': 'https://www.autonomek.com/es/servicios/automatizacion-de-procesos',
-      'es-CO': 'https://www.autonomek.com/servicios/automatizacion-de-procesos',
-      'en': 'https://www.autonomek.com/en/services/process-automation',
-      'en-US': 'https://www.autonomek.com/us/services/process-automation',
-      'x-default': 'https://www.autonomek.com/servicios/automatizacion-de-procesos',
+      'es': 'https://autonomek.com/servicios/automatizacion-de-procesos',
+      'es-CO': 'https://autonomek.com/servicios/automatizacion-de-procesos',
+      'es-MX': 'https://autonomek.com/servicios/automatizacion-de-procesos',
+      'es-ES': 'https://autonomek.com/servicios/automatizacion-de-procesos',
+      'en': 'https://autonomek.com/en/services/process-automation',
+      'en-US': 'https://autonomek.com/en/services/process-automation',
+      'x-default': 'https://autonomek.com/servicios/automatizacion-de-procesos',
     },
   },
 };

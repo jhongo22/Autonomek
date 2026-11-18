@@ -17,10 +17,15 @@ import { WebPerformanceBento } from '@/components/ui/service-bento-workbenches';
 
 type Region = 'co' | 'mx' | 'es' | 'us' | 'en';
 
-export default function PaginasWebClient({ region = 'co' }: { region?: Region }) {
-  const isEn = region === 'us' || region === 'en';
-  const basePrefix =
-    region === 'en' ? '/en' : region === 'us' ? '/us' : region === 'es' ? '/es' : '';
+export default function PaginasWebClient({
+  region = 'co',
+  locale,
+}: {
+  region?: Region;
+  locale?: 'es' | 'en';
+}) {
+  const isEn = locale === 'en' || region === 'us' || region === 'en';
+  const basePrefix = isEn ? '/en' : '';
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -261,26 +266,122 @@ export default function PaginasWebClient({ region = 'co' }: { region?: Region })
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-semibold tracking-tight leading-[1.07] text-foreground">
               {isEn ? (
                 <>
-                  Websites that load in 0.6 seconds{' '}
+                  Custom Next.js Web Development & Design:{' '}
                   <span className="text-muted font-normal">
-                    and rank first on Google and ChatGPT.
+                    0.6s load speed and Google + ChatGPT SEO.
                   </span>
                 </>
               ) : (
                 <>
-                  Sitios web que abren en 0.6 segundos{' '}
+                  Desarrollo y Diseño de Páginas Web para Empresas:{' '}
                   <span className="text-muted font-normal">
-                    y lideran en Google y ChatGPT.
+                    carga en 0.6s y posicionamiento SEO + ChatGPT.
                   </span>
                 </>
               )}
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted">
-              {isEn
-                ? 'A slow template website costs you clients every single day. We design and code bespoke, ultra-fast websites engineered to turn visitors into qualified WhatsApp conversations and sales.'
-                : 'Una página lenta hecha con plantilla te hace perder clientes todos los días. Diseñamos y programamos sitios web a medida, ultrarrápidos y estructurados para convertir visitas en ventas reales por WhatsApp.'}
+              {isEn ? (
+                <>
+                  Engineered from scratch by{' '}
+                  <Link
+                    href="/en"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    Autonomek
+                  </Link>{' '}
+                  with Next.js and semantic JSON-LD + GEO architecture to rank #1 on Google, earn citations in AI search, and send qualified leads straight to your{' '}
+                  <Link
+                    href="/en/services/ai-agents"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    24/7 WhatsApp AI sales agents
+                  </Link>
+                  .
+                </>
+              ) : (
+                <>
+                  Desarrollamos desde cero en{' '}
+                  <Link
+                    href="/"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    Autonomek
+                  </Link>{' '}
+                  sitios web en Next.js con arquitectura SEO técnica y GEO para posicionar en Google y ChatGPT, enviando clientes directos a tus{' '}
+                  <Link
+                    href="/servicios/agentes-inteligencia-artificial"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    agentes de IA en WhatsApp 24/7
+                  </Link>
+                  .
+                </>
+              )}
             </p>
+
+            {/* GEO Direct Definition Block (first 30% of page) */}
+            <aside className="mt-8 w-full max-w-3xl rounded-2xl border border-rule bg-surface/80 p-5 sm:p-6 text-left">
+              <h2 className="text-xs font-mono uppercase tracking-[0.16em] text-primary font-semibold mb-2">
+                {isEn
+                  ? 'What is Next.js High-Performance Web Development at Autonomek?'
+                  : '¿En qué consiste el Desarrollo de Páginas Web B2B de Autonomek?'}
+              </h2>
+              <p className="text-xs sm:text-sm text-muted leading-relaxed">
+                {isEn ? (
+                  <>
+                    High-performance web development at{' '}
+                    <Link
+                      href="/en"
+                      className="text-foreground font-medium underline decoration-primary/60 hover:decoration-primary underline-offset-4"
+                    >
+                      Autonomek
+                    </Link>{' '}
+                    replaces slow WordPress and Wix templates with edge-rendered Next.js, React, and TypeScript platforms achieving 0.6s mobile LCP and 0.00 CLS. Every corporate website, product catalog, and B2B landing page ships in 2 to 4 weeks with 100% source code ownership, clean Schema.org entity graphs, and direct WhatsApp + CRM conversion funnels — scaling cleanly into{' '}
+                    <Link
+                      href="/en/services/custom-software"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      custom business software
+                    </Link>{' '}
+                    when needed. See our benchmark in{' '}
+                    <Link
+                      href="/en/blog/why-wordpress-is-slow-migrate-to-nextjs"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      why WordPress slows ad conversion vs. Next.js
+                    </Link>
+                    .
+                  </>
+                ) : (
+                  <>
+                    El servicio de desarrollo y diseño de páginas web de{' '}
+                    <Link
+                      href="/"
+                      className="text-foreground font-medium underline decoration-primary/60 hover:decoration-primary underline-offset-4"
+                    >
+                      Autonomek
+                    </Link>{' '}
+                    reemplaza plantillas pesadas de WordPress o Wix por plataformas en Next.js y TypeScript compiladas en Edge CDN con carga móvil de 0.6 segundos y CLS 0.00. Cada sitio web corporativo, catálogo o landing page B2B se entrega en 2 a 4 semanas con propiedad total del código, datos estructurados Schema.org, SEO técnico para Google, optimización GEO para ChatGPT y embudos directos a WhatsApp — escalable hacia{' '}
+                    <Link
+                      href="/servicios/software-a-medida"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      software y portales web a medida
+                    </Link>
+                    . Revisa el análisis en{' '}
+                    <Link
+                      href="/blog/por-que-wordpress-lento-migrar-nextjs-0-6s"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      por qué migrar de WordPress a Next.js en 0.6s
+                    </Link>
+                    .
+                  </>
+                )}
+              </p>
+            </aside>
 
             <div className="mt-8 flex w-full flex-col items-stretch gap-3.5 sm:w-auto sm:flex-row sm:items-center sm:justify-center">
               <a
@@ -654,6 +755,53 @@ export default function PaginasWebClient({ region = 'co' }: { region?: Region })
             </div>
 
             <TestimonialMarquee isEn={isEn} />
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================== */}
+      {/* 5B. GUÍAS Y ECOSISTEMA RELACIONADO (LINK EQUITY)                   */}
+      {/* ================================================================== */}
+      <section className="py-12 border-b border-rule">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <div className="rounded-2xl border border-rule bg-surface/60 p-6 flex flex-wrap items-center justify-between gap-4 text-sm">
+            <span className="text-muted">
+              {isEn
+                ? 'Explore related engineering guides and connected solutions:'
+                : 'Guías técnicas y soluciones conectadas con tu sitio web:'}
+            </span>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-medium">
+              <Link
+                href={basePrefix || '/'}
+                className="text-foreground underline decoration-primary/70 hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'Autonomek Home' : 'Inicio Autonomek'}
+              </Link>
+              <Link
+                href={isEn ? '/en/blog/why-wordpress-is-slow-migrate-to-nextjs' : '/blog/por-que-wordpress-lento-migrar-nextjs-0-6s'}
+                className="text-primary underline decoration-primary/70 hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'WordPress vs Next.js Speed Guide' : 'Guía: WordPress vs Next.js 0.6s'}
+              </Link>
+              <Link
+                href={isEn ? '/en/services/ai-agents' : '/servicios/agentes-inteligencia-artificial'}
+                className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'WhatsApp AI Agents' : 'Agentes de IA en WhatsApp'}
+              </Link>
+              <Link
+                href={isEn ? '/en/services/process-automation' : '/servicios/automatizacion-de-procesos'}
+                className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'Process Automation' : 'Automatización de Procesos'}
+              </Link>
+              <Link
+                href={isEn ? '/en/services/custom-software' : '/servicios/software-a-medida'}
+                className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'Custom Software' : 'Software a Medida'}
+              </Link>
+            </div>
           </div>
         </div>
       </section>

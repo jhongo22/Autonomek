@@ -411,13 +411,14 @@ function WebsiteSeoApp({ isEn = false }: { isEn?: boolean }) {
           {/* Analyze button */}
           <button
             type="button"
+            aria-label={isEn ? 'Analyze' : 'Analizar'}
             onClick={() => {
               setRun((r) => r + 1);
               setQ((x) => (x + 1) % queries.length);
             }}
             className="inline-flex items-center gap-1 rounded-md border border-rule bg-background px-1.5 sm:px-2 py-0.5 sm:py-1 text-[8.5px] sm:text-[10px] font-semibold text-foreground transition-colors hover:border-primary shrink-0"
           >
-            <RotateCw size={10} />
+            <RotateCw size={10} aria-hidden="true" />
             <span className="hidden sm:inline">{isEn ? 'Analyze' : 'Analizar'}</span>
           </button>
         </div>
@@ -930,10 +931,11 @@ function AutomationCanvasApp({ isEn = false }: { isEn?: boolean }) {
       right={
         <button
           type="button"
+          aria-label={isEn ? 'Run' : 'Ejecutar'}
           onClick={advance}
           className="inline-flex items-center gap-1 rounded-md bg-primary px-1.5 sm:px-2 py-0.5 sm:py-1 text-[8.5px] sm:text-[10px] font-semibold text-primary-ink transition-opacity hover:opacity-90 shrink-0"
         >
-          <Play size={9} />
+          <Play size={9} aria-hidden="true" />
           <span className="hidden sm:inline">{isEn ? 'Run' : 'Ejecutar'}</span>
         </button>
       }

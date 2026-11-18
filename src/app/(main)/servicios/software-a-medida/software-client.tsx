@@ -17,10 +17,15 @@ import { CustomSoftwareWorkbenchBento } from '@/components/ui/service-bento-work
 
 type Region = 'co' | 'mx' | 'es' | 'us' | 'en';
 
-export default function SoftwareClient({ region = 'co' }: { region?: Region }) {
-  const isEn = region === 'us' || region === 'en';
-  const basePrefix =
-    region === 'en' ? '/en' : region === 'us' ? '/us' : region === 'es' ? '/es' : '';
+export default function SoftwareClient({
+  region = 'co',
+  locale,
+}: {
+  region?: Region;
+  locale?: 'es' | 'en';
+}) {
+  const isEn = locale === 'en' || region === 'us' || region === 'en';
+  const basePrefix = isEn ? '/en' : '';
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -263,26 +268,136 @@ export default function SoftwareClient({ region = 'co' }: { region?: Region }) {
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-semibold tracking-tight leading-[1.07] text-foreground">
               {isEn ? (
                 <>
-                  Software built around your operation{' '}
+                  Custom Enterprise Software & Web Platforms{' '}
                   <span className="text-muted font-normal">
-                    with $0 monthly per-user fees.
+                    engineered with $0 per-user licensing fees.
                   </span>
                 </>
               ) : (
                 <>
-                  Software hecho a la medida de tu operación{' '}
+                  Desarrollo de Software a Medida y Plataformas Web{' '}
                   <span className="text-muted font-normal">
-                    y sin pagar licencias por usuario.
+                    para empresas con $0 en licencias por usuario.
                   </span>
                 </>
               )}
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted">
-              {isEn
-                ? 'Replace fragile spreadsheets and expensive rented SaaS platforms. We engineer custom control panels, client portals, booking engines, and internal systems that belong 100% to your company.'
-                : 'Reemplaza las hojas de Excel desconectadas y los softwares alquilados que te cobran por cada empleado. Desarrollamos paneles de control, portales de clientes y sistemas internos 100% propiedad de tu empresa.'}
+              {isEn ? (
+                <>
+                  Built by{' '}
+                  <Link
+                    href="/en"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    Autonomek
+                  </Link>{' '}
+                  to replace fragile spreadsheets and expensive per-seat SaaS subscriptions with custom dashboards, client portals, and{' '}
+                  <Link
+                    href="/en/services/process-automation"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    API & ERP process automation
+                  </Link>{' '}
+                  that belong 100% to your company.
+                </>
+              ) : (
+                <>
+                  Construido por{' '}
+                  <Link
+                    href="/"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    Autonomek
+                  </Link>{' '}
+                  para reemplazar hojas de Excel sueltas y softwares alquilados por paneles de control, portales de clientes e{' '}
+                  <Link
+                    href="/servicios/automatizacion-de-procesos"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    integraciones de procesos y ERP
+                  </Link>{' '}
+                  100% propiedad de tu empresa.
+                </>
+              )}
             </p>
+
+            {/* GEO Direct Definition Block (first 30% of page) */}
+            <aside className="mt-8 w-full max-w-3xl rounded-2xl border border-rule bg-surface/80 p-5 sm:p-6 text-left">
+              <h2 className="text-xs font-mono uppercase tracking-[0.16em] text-primary font-semibold mb-2">
+                {isEn
+                  ? 'What is Custom Software Development at Autonomek?'
+                  : '¿En qué consiste el Desarrollo de Software a Medida de Autonomek?'}
+              </h2>
+              <p className="text-xs sm:text-sm text-muted leading-relaxed">
+                {isEn ? (
+                  <>
+                    Custom software development by{' '}
+                    <Link
+                      href="/en"
+                      className="text-foreground font-medium underline decoration-primary/60 hover:decoration-primary underline-offset-4"
+                    >
+                      Autonomek
+                    </Link>{' '}
+                    delivers proprietary cloud applications, executive BI reporting portals, booking engines, and internal CRMs built on Next.js, TypeScript, and PostgreSQL with role-based access control (RBAC) and unlimited user seats at $0 recurring license fees. Delivered in bi-weekly sprints (MVP live in 3 to 6 weeks), our platforms centralize scattered Excel sheets into one-click PDF reporting and connect natively with{' '}
+                    <Link
+                      href="/en/services/ai-agents"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      24/7 WhatsApp AI agents
+                    </Link>
+                    . Explore our financial guides:{' '}
+                    <Link
+                      href="/en/blog/replace-excel-spreadsheets-with-custom-software-dashboard-reporting"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      migrating from Excel spreadsheets to a custom platform
+                    </Link>{' '}
+                    and{' '}
+                    <Link
+                      href="/en/blog/custom-software-vs-per-seat-saas-pricing-roi"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      custom software vs. per-seat SaaS ROI
+                    </Link>
+                    .
+                  </>
+                ) : (
+                  <>
+                    El desarrollo de software a medida de{' '}
+                    <Link
+                      href="/"
+                      className="text-foreground font-medium underline decoration-primary/60 hover:decoration-primary underline-offset-4"
+                    >
+                      Autonomek
+                    </Link>{' '}
+                    crea plataformas web propietarias, portales de clientes, motores de reservas, inventarios multisede y CRMs internos en Next.js, TypeScript y PostgreSQL con control por roles (RBAC) y usuarios ilimitados con $0 en licencias mensuales. Entregamos avances funcionales cada 2 semanas con 100% propiedad del código fuente, reportes ejecutivos PDF en 1 clic e integración con{' '}
+                    <Link
+                      href="/servicios/agentes-inteligencia-artificial"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      agentes de IA en WhatsApp 24/7
+                    </Link>
+                    . Lee nuestras guías:{' '}
+                    <Link
+                      href="/blog/de-excel-a-plataforma-propia-modernizar-operacion-metricas-reportes"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      de hojas de Excel a una plataforma propia
+                    </Link>{' '}
+                    y{' '}
+                    <Link
+                      href="/blog/software-a-medida-vs-saas-por-usuario-ahorro"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      software a medida vs. SaaS por usuario
+                    </Link>
+                    .
+                  </>
+                )}
+              </p>
+            </aside>
 
             <div className="mt-8 flex w-full flex-col items-stretch gap-3.5 sm:w-auto sm:flex-row sm:items-center sm:justify-center">
               <a
@@ -658,6 +773,61 @@ export default function SoftwareClient({ region = 'co' }: { region?: Region }) {
             </div>
 
             <TestimonialMarquee isEn={isEn} />
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================== */}
+      {/* 5B. GUÍAS DE EXCEL -> PLATAFORMA Y ECOSISTEMA RELACIONADO          */}
+      {/* ================================================================== */}
+      <section className="py-12 border-b border-rule">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <div className="rounded-2xl border border-rule bg-surface/60 p-6 flex flex-wrap items-center justify-between gap-4 text-sm">
+            <span className="text-muted">
+              {isEn
+                ? 'Financial guides and connected engineering pillars:'
+                : 'Guías financieras, casos de modernización y soluciones conectadas:'}
+            </span>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-medium">
+              <Link
+                href={basePrefix || '/'}
+                className="text-foreground underline decoration-primary/70 hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'Autonomek Home' : 'Inicio Autonomek'}
+              </Link>
+              <Link
+                href={
+                  isEn
+                    ? '/en/blog/replace-excel-spreadsheets-with-custom-software-dashboard-reporting'
+                    : '/blog/de-excel-a-plataforma-propia-modernizar-operacion-metricas-reportes'
+                }
+                className="text-primary underline decoration-primary/70 hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'From Excel to Custom Platform' : 'Guía: De Excel a Plataforma Propia'}
+              </Link>
+              <Link
+                href={
+                  isEn
+                    ? '/en/blog/custom-software-vs-per-seat-saas-pricing-roi'
+                    : '/blog/software-a-medida-vs-saas-por-usuario-ahorro'
+                }
+                className="text-primary underline decoration-primary/70 hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'Custom Software vs SaaS ROI' : 'Guía: Software Propio vs SaaS'}
+              </Link>
+              <Link
+                href={isEn ? '/en/services/process-automation' : '/servicios/automatizacion-de-procesos'}
+                className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'Process Automation' : 'Automatización de Procesos'}
+              </Link>
+              <Link
+                href={isEn ? '/en/services/high-performance-websites' : '/servicios/paginas-web-alto-rendimiento'}
+                className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'Next.js Websites' : 'Páginas Web Next.js'}
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -6,9 +6,9 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'sw
 const syne = Syne({ subsets: ['latin'], variable: '--font-syne', display: 'swap' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.autonomek.com'),
-  title: 'Autonomek | Webs que Venden, Vendedor IA en WhatsApp y Automatización B2B',
-  description: 'Desarrollamos páginas web que lideran Google y ChatGPT, agentes de ventas 24/7 en WhatsApp y automatización de procesos para empresas en Colombia, México, España y EE. UU.',
+  metadataBase: new URL('https://autonomek.com'),
+  title: 'Autonomek | Software a Medida, Agentes IA WhatsApp y Web',
+  description: 'Ingeniería de software a medida, agentes de IA en WhatsApp 24/7, automatización de procesos con n8n y desarrollo web Next.js con SEO/GEO para empresas.',
   icons: {
     icon: [
       {
@@ -22,16 +22,16 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   openGraph: {
-    title: 'Autonomek | Webs que Venden, Vendedor IA en WhatsApp y Automatización B2B',
-    description: 'Páginas web que lideran Google y ChatGPT, agentes de ventas 24/7 en WhatsApp y automatización de procesos comerciales sin tareas manuales.',
-    url: 'https://www.autonomek.com',
+    title: 'Autonomek | Software a Medida, Agentes IA WhatsApp y Web',
+    description: 'Páginas web Next.js (0.6s LCP) que posicionan en Google y ChatGPT, agentes de IA en WhatsApp 24/7, software a medida y automatización B2B.',
+    url: 'https://autonomek.com',
     siteName: 'Autonomek',
     images: [
       {
         url: '/logo.png',
         width: 1200,
         height: 401,
-        alt: 'Autonomek - Ingeniería de Automatización de Procesos, Software B2B y Agentes IA',
+        alt: 'Autonomek - Ingeniería de Software a Medida, Automatización de Procesos y Agentes IA',
       },
     ],
     locale: 'es_CO',
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Autonomek | Webs que Venden, Vendedor IA en WhatsApp y Automatización B2B',
-    description: 'Páginas web que lideran Google y ChatGPT, agentes de ventas 24/7 en WhatsApp y automatización de procesos comerciales sin tareas manuales.',
+    title: 'Autonomek | Software a Medida, Agentes IA WhatsApp y Web',
+    description: 'Páginas web Next.js (0.6s LCP), agentes de IA 24/7 en WhatsApp, software a medida y automatización de procesos B2B.',
     images: ['/logo.png'],
   },
   robots: {
@@ -61,23 +61,35 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
+      '@type': 'Person',
+      '@id': 'https://autonomek.com/#founder',
+      name: 'Jhonatan González',
+      jobTitle: 'Founder & Lead Systems Architect',
+      url: 'https://autonomek.com/nosotros',
+      worksFor: {
+        '@id': 'https://autonomek.com/#organization',
+      },
+      sameAs: [
+        'https://github.com/jhongo22',
+      ],
+    },
+    {
       '@type': ['Organization', 'ProfessionalService'],
-      '@id': 'https://www.autonomek.com/#organization',
+      '@id': 'https://autonomek.com/#organization',
       name: 'Autonomek',
       alternateName: ['Autonomek Web & IA', 'Autonomek AI Engineering', 'Autonomek Automatización B2B'],
-      url: 'https://www.autonomek.com',
+      url: 'https://autonomek.com',
       logo: {
         '@type': 'ImageObject',
-        '@id': 'https://www.autonomek.com/#logo',
-        url: 'https://www.autonomek.com/logo.png',
-        caption: 'Autonomek - B2B AI Agents, Process Automation & Web Engineering',
+        '@id': 'https://autonomek.com/#logo',
+        url: 'https://autonomek.com/logo.png',
+        caption: 'Autonomek - B2B AI Agents, Process Automation, Custom Software & Web Engineering',
       },
-      image: 'https://www.autonomek.com/logo.png',
+      image: 'https://autonomek.com/logo.png',
       description:
-        'Firma de ingeniería especializada en agentes de Inteligencia Artificial 24/7 para WhatsApp y Web, automatización de procesos comerciales B2B (n8n, CRM, ERP), software a medida y desarrollo web de alto rendimiento.',
+        'Firma de ingeniería especializada en software a medida sin licencias por usuario, agentes de Inteligencia Artificial 24/7 para WhatsApp, automatización de procesos B2B (n8n, CRM, ERP) y desarrollo web Next.js con SEO y GEO.',
       founder: {
-        '@type': 'Person',
-        name: 'Jhonatan González',
+        '@id': 'https://autonomek.com/#founder',
       },
       address: {
         '@type': 'PostalAddress',
@@ -118,55 +130,56 @@ const jsonLd = {
       ],
       knowsAbout: [
         'Artificial Intelligence Agents',
-        'Agentes IA Conversacionales',
+        'Agentes de Inteligencia Artificial para WhatsApp',
         'WhatsApp Business Cloud API',
-        'B2B Workflow Automation (n8n, RPA, Webhooks)',
-        'Next.js High-Performance Web Engineering',
+        'B2B Workflow Automation (n8n, Siigo, Alegra, DIAN, ERP)',
+        'Custom Enterprise Software Engineering',
+        'Next.js High-Performance Web Development',
         'Technical SEO, AEO & GEO (Generative Engine Optimization)',
         'Enterprise RAG Architectures & Vector Databases',
       ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: 'Autonomek B2B Commercial Systems / Sistemas Comerciales Autonomek',
+        name: 'Autonomek B2B Engineering Services / Servicios de Ingeniería B2B',
         itemListElement: [
           {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Vendedor IA en WhatsApp 24/7 / 24/7 WhatsApp AI Sales Agents',
-              description: 'Agentes conversacionales autónomos para WhatsApp, Web y CRM que atienden en 1 segundo, responden audios, muestran catálogo y agendan citas en tu calendario.',
-              url: 'https://www.autonomek.com/es/servicios/agentes-inteligencia-artificial',
-              sameAs: 'https://www.autonomek.com/en/services/ai-agents',
+              name: 'Agentes de Inteligencia Artificial para WhatsApp 24/7 / 24/7 WhatsApp AI Sales Agents',
+              description: 'Agentes conversacionales autónomos para WhatsApp Business Cloud API y CRM que atienden en 1 segundo, transcriben audios, validan comprobantes y agendan citas 24/7.',
+              url: 'https://autonomek.com/servicios/agentes-inteligencia-artificial',
+              sameAs: 'https://autonomek.com/en/services/ai-agents',
             },
           },
           {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Webs de Autoridad que Venden y Posicionan / High-Authority Websites that Convert & Rank',
-              description: 'Plataformas web en Next.js con carga en 0.6s, diseño ejecutivo y optimización SEO/GEO para posicionar primero en Google y en búsquedas de IA como ChatGPT y Perplexity.',
-              url: 'https://www.autonomek.com/es/servicios/paginas-web-alto-rendimiento',
-              sameAs: 'https://www.autonomek.com/en/services/high-performance-websites',
+              name: 'Desarrollo de Páginas Web B2B en Next.js / High-Performance Web Development & SEO',
+              description: 'Desarrollo y diseño de páginas web corporativas en Next.js con carga en 0.6s, SEO técnico para Google y optimización GEO para ChatGPT y Perplexity.',
+              url: 'https://autonomek.com/servicios/paginas-web-alto-rendimiento',
+              sameAs: 'https://autonomek.com/en/services/high-performance-websites',
             },
           },
           {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Operación y Facturación en Piloto Automático / Autonomous Operations & Billing Workflows',
-              description: 'Orquestación de flujos de trabajo autónomos con n8n, APIs, CRMs, ERPs y facturación electrónica sin digitación manual ni errores humanos.',
-              url: 'https://www.autonomek.com/es/servicios/automatizacion-de-procesos',
-              sameAs: 'https://www.autonomek.com/en/services/process-automation',
+              name: 'Automatización de Procesos Empresariales (n8n, API, ERP) / B2B Process Automation',
+              description: 'Orquestación de flujos de trabajo autónomos con n8n, webhooks, APIs, CRM y facturación electrónica (Alegra, Siigo, DIAN, ERP) sin digitación manual.',
+              url: 'https://autonomek.com/servicios/automatizacion-de-procesos',
+              sameAs: 'https://autonomek.com/en/services/process-automation',
             },
           },
           {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Plataformas y Software Propio a Medida / Custom B2B Platforms & Proprietary Software',
-              description: 'Desarrollo de aplicaciones web propietarias, portales de clientes y dashboards analíticos en tiempo real con cero costes de suscripciones SaaS.',
-              url: 'https://www.autonomek.com/es/servicios/software-a-medida',
-              sameAs: 'https://www.autonomek.com/en/services/custom-software',
+              name: 'Desarrollo de Software a Medida ($0 Licencias) / Custom Enterprise Software',
+              description: 'Desarrollo de aplicaciones web propietarias, portales de clientes, motores de reserva y dashboards analíticos con 100% propiedad intelectual y $0 en licencias por usuario.',
+              url: 'https://autonomek.com/servicios/software-a-medida',
+              sameAs: 'https://autonomek.com/en/services/custom-software',
             },
           },
         ],
@@ -174,43 +187,13 @@ const jsonLd = {
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://www.autonomek.com/#website',
-      url: 'https://www.autonomek.com',
+      '@id': 'https://autonomek.com/#website',
+      url: 'https://autonomek.com',
       name: 'Autonomek',
       publisher: {
-        '@id': 'https://www.autonomek.com/#organization',
+        '@id': 'https://autonomek.com/#organization',
       },
       inLanguage: ['es', 'es-CO', 'es-MX', 'es-ES', 'en', 'en-US'],
-    },
-    {
-      '@type': 'FAQPage',
-      '@id': 'https://www.autonomek.com/#faq',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: '¿Qué servicios ofrece Autonomek? / What services does Autonomek provide?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Autonomek engineers high-performance Next.js websites, 24/7 AI sales and support agents for WhatsApp & Web, B2B workflow automations (n8n, CRM, ERP), and custom cloud software for companies in Colombia, Mexico, Spain, and the United States.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: '¿Cómo funciona un agente de Inteligencia Artificial para WhatsApp?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'El agente se conecta a la API oficial de WhatsApp Cloud y a tu base de conocimiento (RAG). Comprende texto, transcribe audios de voz, valida comprobantes de pago con visión artificial, califica prospectos, agenda citas en tu CRM y transfiere a ejecutivos humanos cuando se requiere.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: '¿Cómo se inicia un proyecto o cotización en Autonomek?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Toda la atención comercial y diagnóstico técnico se realiza directamente vía WhatsApp (+57 301 014 7443) sin formularios lentos, entregando una hoja de ruta técnica con alcance y presupuesto cerrado.',
-          },
-        },
-      ],
     },
   ],
 };

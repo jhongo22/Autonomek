@@ -5,13 +5,15 @@ export const metadata: Metadata = {
   title: 'Software engineering, AI agents & business automation blog | Autonomek',
   description: 'Technical breakdowns, financial analyses, and architectural guides on Next.js web development, 24/7 WhatsApp AI agents, and process automation for modern companies.',
   alternates: {
-    canonical: 'https://www.autonomek.com/en/blog',
+    canonical: 'https://autonomek.com/en/blog',
     languages: {
-      'en': 'https://www.autonomek.com/en/blog',
-      'en-US': 'https://www.autonomek.com/us/blog',
-      'es': 'https://www.autonomek.com/es/blog',
-      'es-CO': 'https://www.autonomek.com/blog',
-      'x-default': 'https://www.autonomek.com/en/blog',
+      'en': 'https://autonomek.com/en/blog',
+      'en-US': 'https://autonomek.com/en/blog',
+      'es': 'https://autonomek.com/blog',
+      'es-CO': 'https://autonomek.com/blog',
+      'es-MX': 'https://autonomek.com/blog',
+      'es-ES': 'https://autonomek.com/blog',
+      'x-default': 'https://autonomek.com/blog',
     },
   },
 };

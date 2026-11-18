@@ -18,10 +18,15 @@ import { AutomationPipelineBento } from '@/components/ui/service-bento-workbench
 
 type Region = 'co' | 'mx' | 'es' | 'us' | 'en';
 
-export default function AutomatizacionClient({ region = 'co' }: { region?: Region }) {
-  const isEn = region === 'us' || region === 'en';
-  const basePrefix =
-    region === 'en' ? '/en' : region === 'us' ? '/us' : region === 'es' ? '/es' : '';
+export default function AutomatizacionClient({
+  region = 'co',
+  locale,
+}: {
+  region?: Region;
+  locale?: 'es' | 'en';
+}) {
+  const isEn = locale === 'en' || region === 'us' || region === 'en';
+  const basePrefix = isEn ? '/en' : '';
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -190,26 +195,122 @@ export default function AutomatizacionClient({ region = 'co' }: { region?: Regio
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-semibold tracking-tight leading-[1.07] text-foreground">
               {isEn ? (
                 <>
-                  Connect your systems{' '}
+                  B2B Process Automation & API Integrations:{' '}
                   <span className="text-muted font-normal">
-                    so data moves without manual typing.
+                    connect WhatsApp, CRM, and ERP billing without manual typing.
                   </span>
                 </>
               ) : (
                 <>
-                  Conecta tus herramientas{' '}
+                  Servicio de Automatización de Procesos Empresariales{' '}
                   <span className="text-muted font-normal">
-                    para que los datos viajen solos sin digitar a mano.
+                    con IA, n8n e integración ERP, CRM y contabilidad.
                   </span>
                 </>
               )}
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted">
-              {isEn
-                ? 'We integrate your WhatsApp, CRM, spreadsheets, calendar, and billing software so quotes, invoices, and customer records update automatically in 0.3 seconds with zero human errors.'
-                : 'Integramos tu WhatsApp, CRM, hojas de Excel, agenda y facturación para que las cotizaciones, facturas y registros de clientes se creen y actualicen solos en 0.3 segundos sin errores humanos.'}
+              {isEn ? (
+                <>
+                  Engineered by{' '}
+                  <Link
+                    href="/en"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    Autonomek
+                  </Link>{' '}
+                  with n8n, durable webhooks, and official APIs so quotes, electronic invoices, inventory, and leads from{' '}
+                  <Link
+                    href="/en/services/ai-agents"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    WhatsApp AI agents
+                  </Link>{' '}
+                  sync automatically in 0.3 seconds.
+                </>
+              ) : (
+                <>
+                  Diseñado por{' '}
+                  <Link
+                    href="/"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    Autonomek
+                  </Link>{' '}
+                  con n8n, webhooks cifrados y APIs oficiales para conectar tus{' '}
+                  <Link
+                    href="/servicios/agentes-inteligencia-artificial"
+                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                  >
+                    agentes de IA en WhatsApp
+                  </Link>
+                  , CRM, Excel y facturación electrónica (Alegra, Siigo, DIAN) en 0.3 segundos.
+                </>
+              )}
             </p>
+
+            {/* GEO Direct Definition Block (first 30% of page) */}
+            <aside className="mt-8 w-full max-w-3xl rounded-2xl border border-rule bg-surface/80 p-5 sm:p-6 text-left">
+              <h2 className="text-xs font-mono uppercase tracking-[0.16em] text-primary font-semibold mb-2">
+                {isEn
+                  ? 'What is B2B Process Automation at Autonomek?'
+                  : '¿Qué incluye la Automatización de Procesos con IA y n8n de Autonomek?'}
+              </h2>
+              <p className="text-xs sm:text-sm text-muted leading-relaxed">
+                {isEn ? (
+                  <>
+                    Business Process Automation (BPA) by{' '}
+                    <Link
+                      href="/en"
+                      className="text-foreground font-medium underline decoration-primary/60 hover:decoration-primary underline-offset-4"
+                    >
+                      Autonomek
+                    </Link>{' '}
+                    connects WhatsApp Business API, CRMs (HubSpot, Pipedrive, Zoho), accounting software, and spreadsheets through resilient n8n and Node.js webhook pipelines with automatic retry queues. Implemented in 1 to 3 weeks, it eliminates 15 to 40+ weekly hours of copy-pasting for quotes, PDF contracts, inventory updates, and electronic invoices. For teams outgrowing sheets completely, these flows feed directly into{' '}
+                    <Link
+                      href="/en/services/custom-software"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      custom software platforms
+                    </Link>
+                    . Read our{' '}
+                    <Link
+                      href="/en/blog/automate-whatsapp-crm-billing-workflows-n8n"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      three-node WhatsApp-to-ERP automation blueprint
+                    </Link>
+                    .
+                  </>
+                ) : (
+                  <>
+                    La automatización de procesos empresariales de{' '}
+                    <Link
+                      href="/"
+                      className="text-foreground font-medium underline decoration-primary/60 hover:decoration-primary underline-offset-4"
+                    >
+                      Autonomek
+                    </Link>{' '}
+                    orquesta integraciones en tiempo real mediante n8n, Node.js, colas de reintento y APIs oficiales entre WhatsApp, CRM, Google Sheets y software contable (Alegra, Siigo, facturación electrónica DIAN, SAT y ERPs). En 1 a 3 semanas eliminamos de 15 a 40+ horas semanales de digitación manual en cotizaciones PDF, conciliación de cartera, cuentas por cobrar e inventarios. Si necesitas reemplazar hojas sueltas por un sistema propio, conectamos estos flujos con{' '}
+                    <Link
+                      href="/servicios/software-a-medida"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      software a medida sin licencias por usuario
+                    </Link>
+                    . Consulta la{' '}
+                    <Link
+                      href="/blog/como-eliminar-copiar-pegar-automatizacion-whatsapp-crm-facturacion"
+                      className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+                    >
+                      arquitectura de tres nodos para eliminar el copiar y pegar
+                    </Link>
+                    .
+                  </>
+                )}
+              </p>
+            </aside>
 
             <div className="mt-8 flex w-full flex-col items-stretch gap-3.5 sm:w-auto sm:flex-row sm:items-center sm:justify-center">
               <a
@@ -589,6 +690,97 @@ export default function AutomatizacionClient({ region = 'co' }: { region?: Regio
             </div>
 
             <TestimonialMarquee isEn={isEn} />
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================== */}
+      {/* 5B. INTEGRACIONES CONTABLES, DIAN/ERP Y ECOSISTEMA (GSC TRACTION)  */}
+      {/* ================================================================== */}
+      <section className="py-16 md:py-20 border-b border-rule">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 space-y-10">
+          <div className="max-w-3xl space-y-3">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              {isEn ? 'Accounting, Invoicing & ERP Sync' : 'Automatización Contable, DIAN y ERP'}
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-foreground">
+              {isEn
+                ? 'Automated Accounting, Electronic Invoicing, Receivables & Inventory Sync'
+                : 'Integración Automática con Alegra, Siigo, Facturación DIAN, Inventario y Conciliación'}
+            </h2>
+            <p className="text-sm sm:text-base text-muted leading-relaxed">
+              {isEn
+                ? 'Connect sales orders from WhatsApp or your e-commerce checkout directly to your accounting software and ERP without manual tax ID or line-item re-entry.'
+                : 'Elimina la digitación manual entre ventas y contabilidad: conectamos tu sistema contable (Alegra, Siigo, Odoo, SAP o ERPs locales) con WhatsApp, bancos y bodega en tiempo real.'}
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            <div className="rounded-2xl border border-rule bg-surface p-6 space-y-2">
+              <h3 className="text-lg font-semibold text-foreground">
+                {isEn ? 'Electronic Invoicing & Tax Validation' : 'Facturación Electrónica DIAN y Validación RUT'}
+              </h3>
+              <p className="text-sm text-muted leading-relaxed">
+                {isEn
+                  ? 'Automatic extraction of tax IDs, customer profiles, and payment confirmations to trigger compliant electronic invoices immediately upon closing.'
+                  : 'Lectura automática de datos del RUT y comprobantes para emitir facturas electrónicas en Alegra o Siigo ante la DIAN sin digitar NIT ni conceptos a mano.'}
+              </p>
+            </div>
+            <div className="rounded-2xl border border-rule bg-surface p-6 space-y-2">
+              <h3 className="text-lg font-semibold text-foreground">
+                {isEn ? 'Accounts Receivable & Bank Reconciliation' : 'Conciliación Bancaria y Cuentas por Cobrar'}
+              </h3>
+              <p className="text-sm text-muted leading-relaxed">
+                {isEn
+                  ? 'Cross-checks bank receipts, updates customer balances in your accounting software, and triggers preventive WhatsApp collection reminders.'
+                  : 'Cruza transferencias recibidas con facturas abiertas en tu software contable, actualiza cuentas por cobrar y envía recordatorios preventivos por WhatsApp.'}
+              </p>
+            </div>
+            <div className="rounded-2xl border border-rule bg-surface p-6 space-y-2">
+              <h3 className="text-lg font-semibold text-foreground">
+                {isEn ? 'Multi-Channel Inventory & Dispatch Sync' : 'Sincronización de Inventario y Despacho'}
+              </h3>
+              <p className="text-sm text-muted leading-relaxed">
+                {isEn
+                  ? 'Synchronizes stock levels across your accounting ERP, website catalog, and warehouse dispatch queues with instant low-stock alerts.'
+                  : 'Descuenta inventario en vivo entre tu sistema contable, tienda web y bodega tras cada pedido confirmado, enviando alertas automáticas de reposición.'}
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-rule bg-surface/60 p-6 flex flex-wrap items-center justify-between gap-4 text-sm">
+            <span className="text-muted">
+              {isEn
+                ? 'Explore related engineering guides and connected solutions:'
+                : 'Explora guías técnicas y soluciones conectadas con tu automatización:'}
+            </span>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-medium">
+              <Link
+                href={basePrefix || '/'}
+                className="text-foreground underline decoration-primary/70 hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'Autonomek Home' : 'Inicio Autonomek'}
+              </Link>
+              <Link
+                href={isEn ? '/en/blog/automate-whatsapp-crm-billing-workflows-n8n' : '/blog/como-eliminar-copiar-pegar-automatizacion-whatsapp-crm-facturacion'}
+                className="text-primary underline decoration-primary/70 hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'WhatsApp + CRM + Billing Guide' : 'Guía: Eliminar Copiar y Pegar'}
+              </Link>
+              <Link
+                href={isEn ? '/en/services/ai-agents' : '/servicios/agentes-inteligencia-artificial'}
+                className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'WhatsApp AI Agents' : 'Agentes de IA en WhatsApp'}
+              </Link>
+              <Link
+                href={isEn ? '/en/services/custom-software' : '/servicios/software-a-medida'}
+                className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
+              >
+                {isEn ? 'Custom Software' : 'Software a Medida'}
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { X, ChevronDown, ArrowUpRight, Instagram } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { AutonomekLockup } from '../brand/AutonomekLogo';
+import { BLOG_POSTS } from '@/data/blog';
 
 const ES_TO_EN_MAP: Record<string, string> = {
   '/': '/en',
@@ -37,32 +38,32 @@ const ES_TO_EN_MAP: Record<string, string> = {
 };
 
 const EN_TO_ES_MAP: Record<string, string> = {
-  '/en': '/es',
-  '/us': '/es',
-  '/en/services': '/es/servicios',
-  '/us/services': '/es/servicios',
-  '/en/services/high-performance-websites': '/es/servicios/paginas-web-alto-rendimiento',
-  '/us/services/high-performance-websites': '/es/servicios/paginas-web-alto-rendimiento',
-  '/en/services/ai-agents': '/es/servicios/agentes-inteligencia-artificial',
-  '/us/services/ai-agents': '/es/servicios/agentes-inteligencia-artificial',
-  '/en/services/process-automation': '/es/servicios/automatizacion-de-procesos',
-  '/us/services/process-automation': '/es/servicios/automatizacion-de-procesos',
-  '/en/services/custom-software': '/es/servicios/software-a-medida',
-  '/us/services/custom-software': '/es/servicios/software-a-medida',
-  '/en/projects': '/es/proyectos',
-  '/us/projects': '/es/proyectos',
-  '/en/legal': '/es/legal',
-  '/us/legal': '/es/legal',
-  '/en/terms': '/es/terminos',
-  '/us/terms': '/es/terminos',
-  '/en/privacy': '/es/privacidad',
-  '/us/privacy': '/es/privacidad',
-  '/en/about': '/es/nosotros',
-  '/us/about': '/es/nosotros',
-  '/en/blog': '/es/blog',
-  '/us/blog': '/es/blog',
-  '/en/start': '/es/start',
-  '/us/start': '/es/start',
+  '/en': '/',
+  '/us': '/',
+  '/en/services': '/servicios',
+  '/us/services': '/servicios',
+  '/en/services/high-performance-websites': '/servicios/paginas-web-alto-rendimiento',
+  '/us/services/high-performance-websites': '/servicios/paginas-web-alto-rendimiento',
+  '/en/services/ai-agents': '/servicios/agentes-inteligencia-artificial',
+  '/us/services/ai-agents': '/servicios/agentes-inteligencia-artificial',
+  '/en/services/process-automation': '/servicios/automatizacion-de-procesos',
+  '/us/services/process-automation': '/servicios/automatizacion-de-procesos',
+  '/en/services/custom-software': '/servicios/software-a-medida',
+  '/us/services/custom-software': '/servicios/software-a-medida',
+  '/en/projects': '/proyectos',
+  '/us/projects': '/proyectos',
+  '/en/legal': '/legal',
+  '/us/legal': '/legal',
+  '/en/terms': '/terminos',
+  '/us/terms': '/terminos',
+  '/en/privacy': '/privacidad',
+  '/us/privacy': '/privacidad',
+  '/en/about': '/nosotros',
+  '/us/about': '/nosotros',
+  '/en/blog': '/blog',
+  '/us/blog': '/blog',
+  '/en/start': '/start',
+  '/us/start': '/start',
 };
 
 function getSwitchLanguageHref(pathname: string, targetLang: 'es' | 'en'): string {
@@ -72,7 +73,6 @@ function getSwitchLanguageHref(pathname: string, targetLang: 'es' | 'en'): strin
     pathname === '/us' ||
     pathname.startsWith('/us/');
 
-  // Si ya estamos en el idioma objetivo, no alteramos la ruta
   if (targetLang === 'en' && isEn) {
     return pathname;
   }
@@ -87,26 +87,27 @@ function getSwitchLanguageHref(pathname: string, targetLang: 'es' | 'en'): strin
     if (ES_TO_EN_MAP[clean]) {
       return ES_TO_EN_MAP[clean];
     }
-    if (clean.startsWith('/blog/')) {
-      return `/en/blog/${clean.slice('/blog/'.length)}`;
-    }
-    if (clean.startsWith('/es/blog/')) {
-      return `/en/blog/${clean.slice('/es/blog/'.length)}`;
+    if (clean.startsWith('/blog/') || clean.startsWith('/es/blog/')) {
+      const slug = clean.startsWith('/es/blog/')
+        ? clean.slice('/es/blog/'.length)
+        : clean.slice('/blog/'.length);
+      const matched = BLOG_POSTS.find((p) => p.slug === slug);
+      return matched ? `/en/blog/${matched.slugEn}` : '/en/blog';
     }
     return '/en';
   }
 
-  // targetLang === 'es'
   if (EN_TO_ES_MAP[clean]) {
     return EN_TO_ES_MAP[clean];
   }
-  if (clean.startsWith('/en/blog/')) {
-    return `/es/blog/${clean.slice('/en/blog/'.length)}`;
+  if (clean.startsWith('/en/blog/') || clean.startsWith('/us/blog/')) {
+    const slug = clean.startsWith('/us/blog/')
+      ? clean.slice('/us/blog/'.length)
+      : clean.slice('/en/blog/'.length);
+    const matched = BLOG_POSTS.find((p) => p.slugEn === slug || p.slug === slug);
+    return matched ? `/blog/${matched.slug}` : '/blog';
   }
-  if (clean.startsWith('/us/blog/')) {
-    return `/es/blog/${clean.slice('/us/blog/'.length)}`;
-  }
-  return '/es';
+  return '/';
 }
 
 export default function Navigation() {
@@ -116,25 +117,17 @@ export default function Navigation() {
     pathname.startsWith('/en/') ||
     pathname === '/us' ||
     pathname.startsWith('/us/');
-  const isEsPrefix = pathname === '/es' || pathname.startsWith('/es/');
-  const enBase = pathname === '/us' || pathname.startsWith('/us/') ? '/us' : '/en';
-  const esBase = isEsPrefix ? '/es' : '';
+  const basePrefix = isEn ? '/en' : '';
 
-  const homeHref = isEn ? enBase : isEsPrefix ? '/es' : '/';
-  const servicesPageHref = isEn ? `${enBase}/services` : `${esBase}/servicios`;
-  const projectsHref = isEn ? `${enBase}/projects` : `${esBase}/proyectos`;
-  const agentsHref = isEn
-    ? `${enBase}/services/ai-agents`
-    : `${esBase}/servicios/agentes-inteligencia-artificial`;
-  const webHref = isEn
-    ? `${enBase}/services/high-performance-websites`
-    : `${esBase}/servicios/paginas-web-alto-rendimiento`;
-  const automationHref = isEn
-    ? `${enBase}/services/process-automation`
-    : `${esBase}/servicios/automatizacion-de-procesos`;
-  const softwareHref = isEn
-    ? `${enBase}/services/custom-software`
-    : `${esBase}/servicios/software-a-medida`;
+  const homeHref = isEn ? '/en' : '/';
+  const servicesPageHref = isEn ? '/en/services' : '/servicios';
+  const projectsHref = isEn ? '/en/projects' : '/proyectos';
+  const blogHref = isEn ? '/en/blog' : '/blog';
+  const aboutHref = isEn ? '/en/about' : '/nosotros';
+  const agentsHref = `${basePrefix}${isEn ? '/services/ai-agents' : '/servicios/agentes-inteligencia-artificial'}`;
+  const webHref = `${basePrefix}${isEn ? '/services/high-performance-websites' : '/servicios/paginas-web-alto-rendimiento'}`;
+  const automationHref = `${basePrefix}${isEn ? '/services/process-automation' : '/servicios/automatizacion-de-procesos'}`;
+  const softwareHref = `${basePrefix}${isEn ? '/services/custom-software' : '/servicios/software-a-medida'}`;
 
   const targetEsHref = getSwitchLanguageHref(pathname, 'es');
   const targetEnHref = getSwitchLanguageHref(pathname, 'en');
@@ -145,12 +138,11 @@ export default function Navigation() {
   const instagramHref = 'https://www.instagram.com/autonomek?psln=bzJtYXI0NzhuZW42';
 
   const navItems = [
-    { name: isEn ? 'Home' : 'Inicio', href: `${homeHref}#inicio` },
-    { name: isEn ? 'Services' : 'Servicios', href: `${homeHref}#servicios`, hasDropdown: true },
-    { name: isEn ? 'Workflows' : 'Flujos', href: `${homeHref}#flujos` },
+    { name: isEn ? 'Home' : 'Inicio', href: homeHref },
+    { name: isEn ? 'Services' : 'Servicios', href: servicesPageHref, hasDropdown: true },
     { name: isEn ? 'Projects' : 'Proyectos', href: projectsHref },
-    { name: isEn ? 'Process' : 'Proceso', href: `${homeHref}#proceso` },
-    { name: isEn ? 'FAQ' : 'Preguntas', href: `${homeHref}#preguntas` },
+    { name: 'Blog', href: blogHref },
+    { name: isEn ? 'About' : 'Nosotros', href: aboutHref },
   ];
 
   const serviceLinks = isEn
@@ -206,7 +198,10 @@ export default function Navigation() {
   useEffect(() => {
     setIsOpen(false);
     setServicesOpen(false);
-  }, [pathname]);
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = isEn ? 'en' : 'es';
+    }
+  }, [pathname, isEn]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -234,7 +229,6 @@ export default function Navigation() {
         <Link
           href={homeHref}
           onClick={() => setIsOpen(false)}
-          aria-label="Autonomek, ir al inicio"
           className="inline-flex flex-col leading-none shrink-0 group"
         >
           <AutonomekLockup className="h-[21px] sm:h-6 w-auto text-foreground transition-transform duration-200 group-hover:scale-[1.015]" />
@@ -282,40 +276,44 @@ export default function Navigation() {
                     </button>
                   </div>
 
-                  {servicesOpen && (
-                    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[340px]">
-                      <div className="rounded-2xl border border-rule bg-surface p-3 shadow-2xl shadow-black/50 space-y-1">
-                        {serviceLinks.map((srv) => (
-                          <Link
-                            key={srv.href}
-                            href={srv.href}
-                            onClick={() => setServicesOpen(false)}
-                            className="group flex items-start justify-between gap-3 rounded-xl p-3 hover:bg-card transition-colors"
-                          >
-                            <div>
-                              <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                                {srv.name}
-                              </p>
-                              <p className="text-xs text-muted mt-0.5 leading-snug">{srv.desc}</p>
-                            </div>
-                            <ArrowUpRight
-                              size={15}
-                              className="text-subtle group-hover:text-primary shrink-0 mt-0.5"
-                            />
-                          </Link>
-                        ))}
-                        <div className="pt-2 mt-1 border-t border-rule px-3 pb-1 flex items-center justify-between">
-                          <Link
-                            href={servicesPageHref}
-                            onClick={() => setServicesOpen(false)}
-                            className="text-xs font-medium text-primary hover:underline"
-                          >
-                            {isEn ? 'View all services →' : 'Ver todos los servicios →'}
-                          </Link>
-                        </div>
+                  <div
+                    className={`absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[340px] transition-all duration-200 ${
+                      servicesOpen
+                        ? 'opacity-100 visible translate-y-0 pointer-events-auto'
+                        : 'opacity-0 invisible -translate-y-1 pointer-events-none'
+                    }`}
+                  >
+                    <div className="rounded-2xl border border-rule bg-surface p-3 shadow-2xl shadow-black/50 space-y-1">
+                      {serviceLinks.map((srv) => (
+                        <Link
+                          key={srv.href}
+                          href={srv.href}
+                          onClick={() => setServicesOpen(false)}
+                          className="group flex items-start justify-between gap-3 rounded-xl p-3 hover:bg-card transition-colors"
+                        >
+                          <div>
+                            <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                              {srv.name}
+                            </p>
+                            <p className="text-xs text-muted mt-0.5 leading-snug">{srv.desc}</p>
+                          </div>
+                          <ArrowUpRight
+                            size={15}
+                            className="text-subtle group-hover:text-primary shrink-0 mt-0.5"
+                          />
+                        </Link>
+                      ))}
+                      <div className="pt-2 mt-1 border-t border-rule px-3 pb-1 flex items-center justify-between">
+                        <Link
+                          href={servicesPageHref}
+                          onClick={() => setServicesOpen(false)}
+                          className="text-xs font-medium text-primary underline decoration-primary/60 hover:decoration-primary underline-offset-4"
+                        >
+                          {isEn ? 'View all services →' : 'Ver todos los servicios →'}
+                        </Link>
                       </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               );
             }
