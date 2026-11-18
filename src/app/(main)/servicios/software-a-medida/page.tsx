@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import SolucionesPageClient from './software-client';
 
 export const metadata: Metadata = {
@@ -16,12 +17,11 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/servicios/software-a-medida',
     },
   },
-  openGraph: {
+  ...buildSocialMetadata({
     title: 'Desarrollo de Software a Medida para Empresas | Autonomek',
     description: 'Sistemas web propietarios, CRMs exclusivos y paneles BI en tiempo real con $0 en licencias mensuales por usuario.',
     url: 'https://autonomek.com/servicios/software-a-medida',
-    type: 'website',
-  },
+  }),
 };
 
 const serviceSchemaJsonLd = {

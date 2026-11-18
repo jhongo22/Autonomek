@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import AgentesIAPageClient from '../../../servicios/agentes-inteligencia-artificial/agentes-client';
 
 export const metadata: Metadata = {
@@ -16,6 +17,12 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/servicios/agentes-inteligencia-artificial',
     },
   },
+  ...buildSocialMetadata({
+    title: '24/7 WhatsApp AI Sales Agents & Booking Bots | Autonomek',
+    description: 'Deploy autonomous 24/7 WhatsApp AI sales agents on official Meta Cloud API with RAG retrieval, voice note transcription, OCR receipts, and CRM booking.',
+    url: 'https://autonomek.com/en/services/ai-agents',
+    locale: 'en_US',
+  }),
 };
 
 const enServiceJsonLd = {

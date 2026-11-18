@@ -339,7 +339,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     stackTags: ['Meta Cloud API', 'Arquitectura RAG', 'Visión OCR', 'Google Calendar API'],
     verifiedCase: {
-      client: 'Villa Grande La Misia & Toxxic',
+      client: 'Empresas de Hospitalidad y Comercio Electrónico',
       industry: 'Turismo de experiencias y comercio electrónico',
       industryEn: 'Experiential tourism & e-commerce',
       result: 'Atención instantánea 24/7, validación de transferencias y reservas sin pérdida de chats nocturnos.',
@@ -588,7 +588,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     stackTags: ['Next.js App Router', 'TypeScript', 'Edge CDN', 'JSON-LD + llms.txt'],
     verifiedCase: {
-      client: 'Hot Cheese & MezclandoConJohnny',
+      client: 'Cadenas Gastronómicas y Plataformas Digitales',
       industry: 'Comercio y educación digital internacional',
       industryEn: 'Commerce & international digital education',
       result: 'Carga instantánea en móvil, posicionamiento orgánico #1 y embudos directos a compra.',

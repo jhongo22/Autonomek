@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import ServiciosClient from './servicios-client';
 
 export const metadata: Metadata = {
@@ -16,12 +17,11 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/servicios',
     },
   },
-  openGraph: {
+  ...buildSocialMetadata({
     title: 'Servicios de Páginas Web, Agentes de IA y Software B2B | Autonomek',
     description: 'Páginas web en Next.js, agentes de IA 24/7 en WhatsApp, automatización con n8n y software a medida sin licencias por usuario.',
     url: 'https://autonomek.com/servicios',
-    type: 'website',
-  },
+  }),
 };
 
 const breadcrumbJsonLd = {

@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import {
   Check,
-  ExternalLink,
   ArrowUpRight,
   Instagram,
 } from 'lucide-react';
@@ -576,43 +575,36 @@ export default function AutomatizacionClient({
                 }}
                 className="group min-w-0 rounded-[24px] bg-surface border border-rule overflow-hidden flex flex-col justify-between cursor-pointer hover:border-primary transition-colors"
               >
-                <div>
-                  <div className="relative w-full aspect-[16/10] bg-card overflow-hidden border-b border-rule">
-                    <img
-                      src={`/projects/${project.folder}/${project.images[0]}`}
-                      alt={project.title}
-                      width={800}
-                      height={500}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
-                    />
+                <div className="p-6 space-y-3.5">
+                  <div className="flex items-center justify-between gap-2 text-xs text-muted">
+                    <span className="truncate">{project.client}</span>
+                    <span className="rounded-full bg-background border border-rule px-2.5 py-0.5 text-[11px] font-mono text-primary shrink-0">
+                      {project.category}
+                    </span>
                   </div>
-                  <div className="p-6 space-y-2.5">
-                    <div className="flex items-center justify-between gap-2 text-xs text-muted">
-                      <span>{project.client}</span>
-                      <span className="rounded-full bg-background border border-rule px-2.5 py-0.5 text-[11px] text-primary">
-                        {project.category}
+                  <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {project.stack.slice(0, 4).map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-md bg-background border border-rule px-2 py-0.5 text-[11px] text-muted"
+                      >
+                        {tech}
                       </span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-muted text-sm leading-relaxed line-clamp-2">
-                      {project.description}
-                    </p>
+                    ))}
                   </div>
                 </div>
 
                 <div className="px-6 pb-5 pt-3 border-t border-rule flex items-center justify-between text-xs text-muted">
                   <span className="font-medium text-foreground group-hover:text-primary transition-colors">
-                    {isEn ? 'Inspect workflow & results' : 'Ver arquitectura y resultados'}
+                    {isEn ? 'Inspect workflow & what was built' : 'Ver flujo y qué se desarrolló'}
                   </span>
-                  {project.url ? (
-                    <ExternalLink size={14} className="text-primary" />
-                  ) : (
-                    <ArrowUpRight size={14} className="text-primary" />
-                  )}
+                  <ArrowUpRight size={14} className="text-primary" />
                 </div>
               </article>
             ))}

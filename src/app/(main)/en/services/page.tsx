@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import ServiciosClient from '../../servicios/servicios-client';
 
 export const metadata: Metadata = {
@@ -16,6 +17,12 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/servicios',
     },
   },
+  ...buildSocialMetadata({
+    title: 'B2B Software, AI Agents & Web Engineering Services | Autonomek',
+    description: 'Explore our four B2B engineering pillars: 24/7 WhatsApp AI sales agents, sub-second Next.js websites, n8n process automation, and custom software.',
+    url: 'https://autonomek.com/en/services',
+    locale: 'en_US',
+  }),
 };
 
 export default function EnServicesPage() {

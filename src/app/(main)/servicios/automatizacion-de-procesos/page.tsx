@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import AutomatizacionPageClient from './automatizacion-client';
 
 export const metadata: Metadata = {
@@ -16,12 +17,11 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/servicios/automatizacion-de-procesos',
     },
   },
-  openGraph: {
+  ...buildSocialMetadata({
     title: 'Automatización de Procesos con IA, n8n y ERP | Autonomek',
     description: 'Flujos de n8n y APIs de alta disponibilidad: sincronización entre WhatsApp, CRM, pasarelas de pago y facturación electrónica (Alegra, Siigo, DIAN).',
     url: 'https://autonomek.com/servicios/automatizacion-de-procesos',
-    type: 'website',
-  },
+  }),
 };
 
 const serviceSchemaJsonLd = {

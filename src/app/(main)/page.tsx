@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import HomeClient from './home-client';
 
 export const metadata: Metadata = {
@@ -16,6 +17,11 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com',
     },
   },
+  ...buildSocialMetadata({
+    title: 'Autonomek | Software a Medida, Agentes IA WhatsApp y Web',
+    description: 'Páginas web Next.js (0.6s LCP) que posicionan en Google y ChatGPT, agentes de IA en WhatsApp 24/7, software a medida y automatización B2B.',
+    url: 'https://autonomek.com',
+  }),
 };
 
 const homeFaqJsonLd = {

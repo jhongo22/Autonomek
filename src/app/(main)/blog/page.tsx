@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import BlogHubClient from './blog-hub-client';
 
 export const metadata: Metadata = {
@@ -16,6 +17,11 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/blog',
     },
   },
+  ...buildSocialMetadata({
+    title: 'Blog de ingeniería de software, agentes de IA y automatización | Autonomek',
+    description: 'Artículos técnicos, análisis financieros y guías de arquitectura sobre desarrollo web en Next.js, agentes de IA en WhatsApp y automatización de procesos para empresas.',
+    url: 'https://autonomek.com/blog',
+  }),
 };
 
 export default function BlogHubPage() {

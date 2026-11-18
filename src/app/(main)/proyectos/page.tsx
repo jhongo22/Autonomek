@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import ProyectosClient from './proyectos-client';
 
 export const metadata: Metadata = {
-  title: 'Casos de éxito y sistemas en operación | Autonomek',
-  description: 'Descubre cómo nuestras plataformas web y agentes de IA resuelven problemas reales de ventas, reservas y organización en empresas.',
+  title: 'Casos técnicos y arquitecturas en operación | Autonomek',
+  description: 'Descubre cómo nuestras plataformas web, automatizaciones y agentes de IA resuelven retos reales de ventas, reservas y operación empresarial.',
   alternates: {
     canonical: 'https://autonomek.com/proyectos',
     languages: {
@@ -16,6 +17,11 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/proyectos',
     },
   },
+  ...buildSocialMetadata({
+    title: 'Casos técnicos y arquitecturas en operación | Autonomek',
+    description: 'Descubre cómo nuestras plataformas web, automatizaciones y agentes de IA resuelven retos reales de ventas, reservas y operación empresarial.',
+    url: 'https://autonomek.com/proyectos',
+  }),
 };
 
 const breadcrumbJsonLd = {

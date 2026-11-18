@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import DesarrolloWebPageClient from '../../../servicios/paginas-web-alto-rendimiento/paginas-web-client';
 
 export const metadata: Metadata = {
@@ -16,6 +17,12 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/servicios/paginas-web-alto-rendimiento',
     },
   },
+  ...buildSocialMetadata({
+    title: 'High-Performance Next.js Web Development & SEO | Autonomek',
+    description: 'Custom Next.js websites engineered to load in 0.6s, rank #1 on Google and ChatGPT (GEO), and convert B2B traffic into qualified WhatsApp sales.',
+    url: 'https://autonomek.com/en/services/high-performance-websites',
+    locale: 'en_US',
+  }),
 };
 
 const enServiceJsonLd = {

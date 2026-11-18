@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import PrivacidadClient from './privacidad-client';
 
 export const metadata: Metadata = {
@@ -16,6 +17,11 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/privacidad',
     },
   },
+  ...buildSocialMetadata({
+    title: 'Política de Privacidad y Tratamiento de Datos | Autonomek',
+    description: 'Tratamiento de datos personales bajo la Ley 1581 de 2012 (Habeas Data) y RGPD. Cero venta de datos y protección en agentes de IA de Autonomek.',
+    url: 'https://autonomek.com/privacidad',
+  }),
 };
 
 export default function PrivacidadPage() {

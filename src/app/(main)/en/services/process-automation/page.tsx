@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import AutomatizacionPageClient from '../../../servicios/automatizacion-de-procesos/automatizacion-client';
 
 export const metadata: Metadata = {
@@ -16,6 +17,12 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/servicios/automatizacion-de-procesos',
     },
   },
+  ...buildSocialMetadata({
+    title: 'B2B Process Automation Services (n8n, API, ERP) | Autonomek',
+    description: 'Enterprise workflow and process automation with n8n, webhooks, and APIs. Connect WhatsApp, CRM, spreadsheets, and ERP billing with zero manual typing.',
+    url: 'https://autonomek.com/en/services/process-automation',
+    locale: 'en_US',
+  }),
 };
 
 const enServiceJsonLd = {

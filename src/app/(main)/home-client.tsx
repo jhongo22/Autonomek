@@ -4,7 +4,6 @@ import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import {
   Check,
-  ExternalLink,
   ArrowUpRight,
   MessageSquare,
   Globe,
@@ -301,25 +300,25 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
     ? [
         {
           quote:
-            'We doubled our sales in the first month after launching the website with WhatsApp integration. The entire process was clear and fast.',
-          author: 'Mateo Gómez',
-          role: 'Founder · Toxxic',
+            'We doubled our sales in the first month after launching our custom web platform with WhatsApp integration. Load speed and clarity changed everything.',
+          author: 'Mateo G.',
+          role: 'Founder · Urban Retail E-Commerce',
           initials: 'MG',
           metric: '2x sales in 30 days',
         },
         {
           quote:
-            'We used to spend all day answering availability inquiries. With the automated booking assistant, dates are reserved on their own and manual work dropped by 80%.',
-          author: 'Carolina Rojas',
-          role: 'Manager · Villa Grande La Misia',
+            'We used to spend all day answering availability inquiries. With the automated booking engine, dates are reserved on their own and manual work dropped by 80%.',
+          author: 'Carolina R.',
+          role: 'Manager · Exclusive Hospitality Estate',
           initials: 'CR',
           metric: '-80% manual workload',
         },
         {
           quote:
             'The WhatsApp AI assistant replies to customers and takes full orders at midnight automatically. We no longer lose a single nighttime sale.',
-          author: 'Sofía Medina',
-          role: 'Manager · Fast Food AI Agent',
+          author: 'Sofía M.',
+          role: 'Manager · Multi-Branch Restaurant Chain',
           initials: 'SM',
           metric: '24/7 automatic orders',
         },
@@ -327,25 +326,25 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
     : [
         {
           quote:
-            'Duplicamos nuestras ventas en el primer mes de lanzar el sitio web con integración a WhatsApp. Todo el proceso fue súper claro y rápido.',
-          author: 'Mateo Gómez',
-          role: 'Fundador · Toxxic',
+            'Duplicamos nuestras ventas en el primer mes de lanzar la plataforma web con integración directa a WhatsApp. Todo el proceso fue súper claro y rápido.',
+          author: 'Mateo G.',
+          role: 'Fundador · E-Commerce de Moda Urbana',
           initials: 'MG',
           metric: '2x ventas en el 1er mes',
         },
         {
           quote:
-            'Antes pasábamos el día respondiendo disponibilidades de la finca. Con el asistente de reservas, las fechas se agendan solas y redujimos el trabajo manual un 80%.',
-          author: 'Carolina Rojas',
-          role: 'Administradora · Villa Grande La Misia',
+            'Antes pasábamos el día respondiendo disponibilidades. Con el sistema de reservas sincronizado, las fechas se agendan solas y redujimos el trabajo manual un 80%.',
+          author: 'Carolina R.',
+          role: 'Administradora · Propiedad Vacacional Exclusiva',
           initials: 'CR',
           metric: '-80% carga manual',
         },
         {
           quote:
             'El agente de ventas en WhatsApp atiende y toma pedidos automáticos a la medianoche. Ya no perdemos ni un solo cliente fuera de horario.',
-          author: 'Sofía Medina',
-          role: 'Gerente · Agente IA Comidas Rápidas',
+          author: 'Sofía M.',
+          role: 'Gerente · Cadena Gastronómica',
           initials: 'SM',
           metric: 'Pedidos 24/7 en WhatsApp',
         },
@@ -926,8 +925,8 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
               </h2>
               <p className="mt-3 text-base sm:text-lg text-muted">
                 {isEn
-                  ? 'Select any project to view real screenshots, live links, and results.'
-                  : 'Toca cualquier proyecto para ver capturas reales, enlaces en vivo y resultados.'}
+                  ? 'Select any case to inspect the architecture, technology stack, and what was engineered.'
+                  : 'Selecciona cualquier caso para ver la arquitectura, tecnologías y exactamente qué se desarrolló.'}
               </p>
             </div>
 
@@ -964,47 +963,36 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
                 onClick={() => handleOpenProject(project)}
                 className="group min-w-0 rounded-[24px] bg-surface border border-rule overflow-hidden flex flex-col justify-between cursor-pointer hover:border-primary transition-colors"
               >
-                <div>
-                  <div className="relative w-full aspect-[16/10] bg-card overflow-hidden border-b border-rule">
-                    <img
-                      src={`/projects/${project.folder}/${project.images[0]}`}
-                      alt={
-                        isEn
-                          ? `${project.title} — ${project.category} project by Autonomek`
-                          : `${project.title} — Proyecto de ${project.category} desarrollado por Autonomek`
-                      }
-                      width={800}
-                      height={500}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
-                    />
+                <div className="p-6 space-y-3.5">
+                  <div className="flex items-center justify-between gap-2 text-xs text-muted">
+                    <span className="truncate">{project.client}</span>
+                    <span className="rounded-full bg-background border border-rule px-2.5 py-0.5 text-[11px] font-mono text-primary shrink-0">
+                      {project.category}
+                    </span>
                   </div>
-                  <div className="p-6 space-y-2.5">
-                    <div className="flex items-center justify-between gap-2 text-xs text-muted">
-                      <span>{project.client}</span>
-                      <span className="rounded-full bg-background border border-rule px-2.5 py-0.5 text-[11px] text-primary">
-                        {project.category}
+                  <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {project.stack.slice(0, 4).map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-md bg-background border border-rule px-2 py-0.5 text-[11px] text-muted"
+                      >
+                        {tech}
                       </span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-muted text-sm leading-relaxed line-clamp-2">
-                      {project.description}
-                    </p>
+                    ))}
                   </div>
                 </div>
 
                 <div className="px-6 pb-5 pt-3 border-t border-rule flex items-center justify-between text-xs text-muted">
                   <span className="font-medium text-foreground group-hover:text-primary transition-colors">
-                    {isEn ? 'View project details' : 'Ver detalles del proyecto'}
+                    {isEn ? 'View what was built' : 'Ver qué se desarrolló'}
                   </span>
-                  {project.url ? (
-                    <ExternalLink size={14} className="text-primary" />
-                  ) : (
-                    <ArrowUpRight size={14} className="text-primary" />
-                  )}
+                  <ArrowUpRight size={14} className="text-primary" />
                 </div>
               </article>
             ))}

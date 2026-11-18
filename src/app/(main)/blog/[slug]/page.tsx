@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { BLOG_POSTS } from '@/data/blog';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import ArticleClient from './article-client';
 
 interface PageProps {
@@ -33,14 +34,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         'x-default': `https://autonomek.com/blog/${post.slug}`,
       },
     },
-    openGraph: {
+    ...buildSocialMetadata({
       title: post.title,
       description: post.description,
+      url: `https://autonomek.com/blog/${post.slug}`,
       type: 'article',
       publishedTime: post.date,
       authors: ['Jhonatan González'],
-      url: `https://autonomek.com/blog/${post.slug}`,
-    },
+    }),
   };
 }
 

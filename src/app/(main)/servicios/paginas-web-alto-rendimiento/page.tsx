@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import DesarrolloWebPageClient from './paginas-web-client';
 
 export const metadata: Metadata = {
@@ -16,12 +17,11 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/servicios/paginas-web-alto-rendimiento',
     },
   },
-  openGraph: {
+  ...buildSocialMetadata({
     title: 'Desarrollo y Diseño de Páginas Web B2B Next.js | Autonomek',
     description: 'Páginas web Next.js que cargan en 0.6s, proyectan solvencia corporativa y lideran en Google y ChatGPT.',
     url: 'https://autonomek.com/servicios/paginas-web-alto-rendimiento',
-    type: 'website',
-  },
+  }),
 };
 
 const serviceSchemaJsonLd = {

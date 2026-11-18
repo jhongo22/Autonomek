@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import StartPage from '../../start/page';
 
 export const metadata: Metadata = {
@@ -8,6 +9,12 @@ export const metadata: Metadata = {
     index: false,
     follow: true,
   },
+  ...buildSocialMetadata({
+    title: 'Direct WhatsApp Advisory | Autonomek',
+    description: 'Connect directly with a Senior Systems Architect at Autonomek via WhatsApp.',
+    url: 'https://autonomek.com/en/start',
+    locale: 'en_US',
+  }),
 };
 
 export default function EnStartPage() {

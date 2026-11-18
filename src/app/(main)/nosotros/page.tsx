@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import NosotrosClient from './nosotros-client';
 
 export const metadata: Metadata = {
@@ -16,6 +17,11 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/nosotros',
     },
   },
+  ...buildSocialMetadata({
+    title: 'Sobre Nosotros | Autonomek — Ingeniería de Software, Web e IA',
+    description: 'Conoce al equipo detrás de Autonomek. Desarrollamos software a medida, sitios web ultrarrápidos y agentes de IA en WhatsApp con código 100% propiedad de tu empresa.',
+    url: 'https://autonomek.com/nosotros',
+  }),
 };
 
 export default function NosotrosPage() {

@@ -204,8 +204,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={`${inter.variable} ${syne.variable} bg-background text-foreground antialiased`}>
+    <html
+      lang="es"
+      suppressHydrationWarning
+      className={`${inter.variable} ${syne.variable} bg-background text-foreground antialiased`}
+    >
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "if(location.pathname==='/en'||location.pathname.startsWith('/en/'))document.documentElement.lang='en';",
+          }}
+        />
         <link rel="alternate" type="text/markdown" href="/llms.txt" title="Autonomek LLM & Agent Documentation (ES/EN)" />
         <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="Autonomek Full Context for LLMs (ES/EN)" />
         <script

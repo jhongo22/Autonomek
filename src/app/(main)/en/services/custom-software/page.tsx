@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import SolucionesPageClient from '../../../servicios/software-a-medida/software-client';
 
 export const metadata: Metadata = {
@@ -16,6 +17,12 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/servicios/software-a-medida',
     },
   },
+  ...buildSocialMetadata({
+    title: 'Custom Enterprise Software Development ($0/Seat) | Autonomek',
+    description: 'Bespoke business software, executive dashboards, and client portals built on Next.js & PostgreSQL with 100% IP ownership and $0 monthly per-seat fees.',
+    url: 'https://autonomek.com/en/services/custom-software',
+    locale: 'en_US',
+  }),
 };
 
 const enServiceJsonLd = {

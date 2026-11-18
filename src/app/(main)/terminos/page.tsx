@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import TerminosClient from './terminos-client';
 
 export const metadata: Metadata = {
@@ -16,6 +17,11 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/terminos',
     },
   },
+  ...buildSocialMetadata({
+    title: 'Términos y Condiciones de Servicio | Autonomek',
+    description: 'Marco contractual, propiedad intelectual del código fuente, condiciones de pago, garantías y políticas de Autonomek.',
+    url: 'https://autonomek.com/terminos',
+  }),
 };
 
 export default function TerminosPage() {

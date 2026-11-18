@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import AgentesIAPageClient from './agentes-client';
 
 export const metadata: Metadata = {
@@ -16,12 +17,11 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/servicios/agentes-inteligencia-artificial',
     },
   },
-  openGraph: {
+  ...buildSocialMetadata({
     title: 'Agentes de IA para WhatsApp 24/7: Ventas y CRM | Autonomek',
     description: 'Atención 24/7 en WhatsApp: respuestas en 1.1s, lectura de notas de voz, validación de pagos y citas en Google Calendar.',
     url: 'https://autonomek.com/servicios/agentes-inteligencia-artificial',
-    type: 'website',
-  },
+  }),
 };
 
 const serviceSchemaJsonLd = {

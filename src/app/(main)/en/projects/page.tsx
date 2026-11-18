@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import ProyectosClient from '../../proyectos/proyectos-client';
 
 export const metadata: Metadata = {
@@ -16,6 +17,12 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/proyectos',
     },
   },
+  ...buildSocialMetadata({
+    title: 'B2B Case Studies & Engineering Portfolio | Autonomek',
+    description: 'Explore our deployed production systems: AI conversational agents, B2B process automations, custom cloud software, and high-conversion web platforms.',
+    url: 'https://autonomek.com/en/projects',
+    locale: 'en_US',
+  }),
 };
 
 export default function EnProjectsPage() {

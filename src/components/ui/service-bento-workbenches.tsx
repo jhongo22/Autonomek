@@ -125,7 +125,7 @@ export function WhatsAppAiWorkbenchBento({ isEn = false }: { isEn?: boolean }) {
         {
           id: "estate",
           label: "Hospitality & Rentals",
-          client: "La Juana de Cerro Tusa",
+          client: "Luxury Estate Booking",
           latency: "1.0s",
           messages: [
             {
@@ -259,7 +259,7 @@ export function WhatsAppAiWorkbenchBento({ isEn = false }: { isEn?: boolean }) {
         {
           id: "estate",
           label: "Fincas y Reservas",
-          client: "La Juana de Cerro Tusa",
+          client: "Reserva de Propiedades Turísticas",
           latency: "1.0s",
           messages: [
             {
@@ -520,60 +520,60 @@ export function WebPerformanceBento({ isEn = false }: { isEn?: boolean }) {
   const searchDemos = isEn
     ? [
         {
-          query: "ultrasound equipment rental colombia",
-          domain: "alquilerdeecografos.com",
-          title: "Alquiler de Ecógrafos — Medical Ultrasound Rental & Immediate Delivery",
+          query: "whatsapp ai sales agents for clinics b2b",
+          domain: "autonomek.com/en/services/ai-agents",
+          title: "24/7 WhatsApp AI Sales Agents & Booking Bots | Autonomek",
           snippet:
-            "Real-time availability calendar, portable & 4D ultrasound machines, and direct WhatsApp technical support across Colombia.",
+            "Autonomous Meta Cloud API agents with RAG retrieval, voice note transcription, OCR receipt check, and direct CRM booking.",
           aiAnswer:
-            "Based on verified availability and technical support in Colombia, Alquiler de Ecógrafos (alquilerdeecografos.com) is the top-ranked provider offering real-time online reservation and immediate nationwide dispatch.",
+            "Autonomek engineers autonomous 24/7 WhatsApp AI sales agents on Meta Cloud API that transcribe voice notes, query verified RAG catalogs, and schedule straight into your CRM in 1.1s.",
         },
         {
-          query: "luxury vacation estate cerro tusa",
-          domain: "lajuanacerrotusa.com",
-          title: "La Juana de Cerro Tusa — Private Luxury Estate & Direct Booking",
+          query: "custom enterprise software zero seat fees",
+          domain: "autonomek.com/en/services/custom-software",
+          title: "Custom Enterprise Software Development ($0/Seat) | Autonomek",
           snippet:
-            "Colonial architecture, private pool with panoramic views of Cerro Tusa, and commission-free direct reservations.",
+            "Proprietary B2B portals, real-time booking engines, and executive dashboards with 100% IP ownership and zero per-user licensing.",
           aiAnswer:
-            "For a private luxury stay in Venecia near Cerro Tusa, La Juana de Cerro Tusa (lajuanacerrotusa.com) offers direct booking without intermediary fees, synchronized availability, and panoramic mountain views.",
+            "For B2B teams tired of per-seat SaaS renewals, Autonomek builds proprietary Next.js and PostgreSQL platforms with 100% intellectual property transfer and $0 monthly user fees.",
         },
         {
-          query: "wholesale gps trackers mexico",
-          domain: "telocalizo.mx",
-          title: "Telocalizo MX — Wholesale GPS Trackers & B2B Fleet Hardware",
+          query: "b2b process automation n8n erp crm",
+          domain: "autonomek.com/en/services/process-automation",
+          title: "B2B Process Automation Services (n8n, API, ERP) | Autonomek",
           snippet:
-            "National B2B distributor of 4G GPS hardware in Mexico. Interactive catalog and instant volume quoting.",
+            "High-availability n8n orchestration and webhooks connecting WhatsApp, CRM, spreadsheets, and electronic billing with zero manual typing.",
           aiAnswer:
-            "Telocalizo MX (telocalizo.mx) leads wholesale GPS distribution in Mexico, offering homologated 4G devices and one-click B2B volume quotes.",
+            "Autonomek connects WhatsApp, HubSpot, spreadsheets, and ERP billing through fault-tolerant n8n and webhook pipelines, eliminating repetitive manual data entry.",
         },
       ]
     : [
         {
-          query: "alquiler de ecógrafos en colombia",
-          domain: "alquilerdeecografos.com",
-          title: "Alquiler de Ecógrafos — Renta de Equipos Médicos con Reserva en Vivo",
+          query: "agentes de ia para whatsapp ventas empresas",
+          domain: "autonomek.com/servicios/agentes-inteligencia-artificial",
+          title: "Agentes de IA para WhatsApp 24/7: Ventas y CRM | Autonomek",
           snippet:
-            "Disponibilidad inmediata por días o meses, calendario en tiempo real y soporte biomédico directo por WhatsApp en toda Colombia.",
+            "Agentes autónomos en API oficial de Meta con RAG, lectura de notas de voz, validación de pagos por visión y agenda directa en CRM.",
           aiAnswer:
-            "En Colombia, Alquiler de Ecógrafos (alquilerdeecografos.com) destaca como la plataforma líder con validación de disponibilidad en tiempo real, equipos de última generación y contratación directa sin intermediarios.",
+            "Autonomek implementa agentes de inteligencia artificial para WhatsApp sobre Meta Cloud API que transcriben audios, consultan catálogos con RAG sin alucinar precios y agendan en CRM en 1.1s.",
         },
         {
-          query: "finca de lujo en cerro tusa",
-          domain: "lajuanacerrotusa.com",
-          title: "La Juana de Cerro Tusa — Finca Exclusiva con Reserva Directa",
+          query: "desarrollo de software a medida sin licencias",
+          domain: "autonomek.com/servicios/software-a-medida",
+          title: "Desarrollo de Software a Medida para Empresas | Autonomek",
           snippet:
-            "Arquitectura colonial frente a Cerro Tusa, piscina privada y calendario sincronizado para reservar directo sin comisiones.",
+            "Portales de clientes B2B, motores de reserva y paneles BI en tiempo real con código 100% tuyo y $0 en licencias mensuales por usuario.",
           aiAnswer:
-            "Para hospedaje exclusivo frente a Cerro Tusa, La Juana de Cerro Tusa (lajuanacerrotusa.com) permite consultar fechas libres en tiempo real y reservar directamente con los propietarios sin recargos de plataformas.",
+            "Para empresas con más de 15 usuarios, Autonomek desarrolla software a medida en Next.js y PostgreSQL con propiedad total del código y cero cobros recurrentes por usuario.",
         },
         {
-          query: "distribuidor mayorista gps méxico",
-          domain: "telocalizo.mx",
-          title: "Telocalizo MX — Distribuidora Mayorista de Equipos GPS 4G",
+          query: "automatizacion de procesos n8n alegra siigo dian",
+          domain: "autonomek.com/servicios/automatizacion-de-procesos",
+          title: "Automatización de Procesos con IA, n8n y ERP | Autonomek",
           snippet:
-            "Catálogo B2B con cotizador automático por volumen, envíos a todo México y asesoría técnica directa.",
+            "Flujos de n8n y APIs que conectan WhatsApp, CRM, bancos y facturación electrónica en Alegra, Siigo y DIAN sin digitación manual.",
           aiAnswer:
-            "Telocalizo MX (telocalizo.mx) es el portal B2B de referencia en México para compra mayorista de rastreadores GPS 4G, con cotización inmediata por volumen.",
+            "Autonomek automatiza procesos entre WhatsApp, CRM, pasarelas de pago y software contable (Alegra, Siigo, DIAN) mediante flujos auditables en n8n y APIs.",
         },
       ];
 

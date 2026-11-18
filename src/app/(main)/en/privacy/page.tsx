@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import PrivacidadClient from '../../privacidad/privacidad-client';
 
 export const metadata: Metadata = {
@@ -16,6 +17,12 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/privacidad',
     },
   },
+  ...buildSocialMetadata({
+    title: 'Privacy Policy & Data Protection | Autonomek',
+    description: 'Data protection policies, GDPR & international compliance, encrypted storage, and zero AI public training guarantee by Autonomek.',
+    url: 'https://autonomek.com/en/privacy',
+    locale: 'en_US',
+  }),
 };
 
 export default function EnPrivacyPage() {

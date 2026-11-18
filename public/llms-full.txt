@@ -76,23 +76,23 @@ Autonomek publishes peer-reviewed architectural and financial whitepapers at `ht
 
 ---
 
-## 4. Production Case Studies (15 Deployed Systems)
+## 4. Production Case Studies (15 Anonymous Technical Architectures)
 
-1. **Alquiler de Ecógrafos** (`https://alquilerdeecografos.com/`): Medical equipment rental platform with real-time availability calendar and automated Google Sheets / WhatsApp booking sync.
-2. **Regenerative Medicine AI CRM**: Omnichannel WhatsApp AI agent processing text, voice notes, and payment receipts to schedule medical consultations automatically.
-3. **Winners AI Operations Dashboard**: Real-time telemetry dashboard monitoring AI agent latency, sentiment analysis, and prompt performance.
-4. **La Juana de Cerro Tusa** (`https://lajuanacerrotusa.com/`): Luxury hospitality platform with multi-channel iCal calendar synchronization (Airbnb, Booking, VRBO).
-5. **Toxxic E-commerce** (`https://toxxic.vercel.app/`): High-speed retail e-commerce with inventory management and automated order routing.
-6. **Telocalizo MX** (`https://telocalizo.mx/`): B2B wholesale GPS tracking portal in Mexico engineered for national organic search dominance.
-7. **Villa Grande La Misia**: Hospitality booking portal with direct WhatsApp conversion funnel.
-8. **B2B AI Lead Prospector**: Autonomous outbound pipeline using Apify, Firecrawl, OpenAI, and n8n to research prospects and generate personalized outreach.
-9. **Mexican Restaurant AI Ordering Agent**: WhatsApp AI agent handling natural-language orders, voice notes, and AI vision bank-transfer verification.
-10. **Enterprise RAG Knowledge System**: Automated Google Drive to PostgreSQL `pgvector` ingestion pipeline for zero-hallucination internal corporate support.
-11. **Hot Cheese E-commerce** (`https://www.hotcheese.com.co/`): Multi-branch digital ordering platform with geolocation-based WhatsApp order routing.
-12. **Fast-Food High-Concurrency AI Bot**: WhatsApp ordering bot handling hundreds of simultaneous weekend orders.
-13. **Vive Feliz Sin Dolor** (`https://vivefelizsindolor.com/`): Medical clinic portal featuring an interactive ElevenLabs Voice AI orientation assistant.
-14. **Automated Digital Contracts**: Legal-tech workflow generating custom PDF contracts and dispatching e-signatures via Gmail and WhatsApp upon deal closure.
-15. **Dual Cloud n8n Backup Infrastructure**: Automated redundant backup pipeline for mission-critical enterprise workflows.
+1. **Biomedical & Ultrasound Equipment Rental Platform**: Full-stack TypeScript, Node.js, n8n, and Supabase platform with live stock control, interactive availability calendar, automated Google Sheets booking sync, and WhatsApp/email alerts.
+2. **Omnichannel AI Reception & CRM Ecosystem for Medical Clinic**: WhatsApp, Instagram, Facebook, and Chatwoot CRM AI agent backed by RAG and Redis memory, processing text, voice notes, payment receipts, and CRM data extraction.
+3. **Real-Time AI Agent Command Center & Telemetry Dashboard**: Next.js, TypeScript, Chart.js, and n8n webhook dashboard monitoring conversations, escalation rates, response latency, sentiment analysis, and editable AI response templates.
+4. **Direct Hospitality Booking Platform with Multi-Channel Sync**: Next.js, Supabase, and Tailwind CSS booking engine featuring two-way real-time calendar synchronization across Airbnb, Booking, and VRBO plus local hospitality SEO.
+5. **Full-Stack Streetwear E-Commerce & Inventory System**: Scalable Laravel, PHP, and MySQL online store with shopping cart, integrated order/payment management, admin catalog dashboard, and mobile-first UX.
+6. **B2B Wholesale GPS Hardware Portal & Volume Quoter**: Next.js and TypeScript corporate portal showcasing 5+ 4G GPS models, wholesale pricing tiers, volume quote builder, and national B2B search optimization.
+7. **Direct Booking Engine & Centralized Calendar for Country Estate**: Custom Next.js and Supabase hospitality booking flow synchronizing OTA availability calendars and converting commission-free reservations via WhatsApp.
+8. **Autonomous B2B Lead Prospecting & AI Qualification Engine**: Scalable outbound automation combining Apify extraction, Firecrawl scraping, OpenAI lead scoring, 3 personalized Instagram/email outreach variants, and 7-day n8n follow-ups.
+9. **Multimodal AI Ordering & Payment Vision Agent for Restaurant**: WhatsApp Cloud API agent backed by PostgreSQL menu queries, OpenAI Vision payment receipt OCR, automated payment links, and interactive Telegram kitchen Accept/Reject buttons.
+10. **Real-Time Enterprise RAG Knowledge Base System**: Automated Google Drive folder watcher performing intelligent chunking with source traceability metadata, contextual summaries, OpenAI Embeddings vectorization, and live Supabase `pgvector` indexing.
+11. **Multi-Branch Digital Menu & WhatsApp Order Routing Platform**: Minimalist sub-second Next.js menu with full pricing and an interactive 5-location branch selector routing structured orders straight to each branch's WhatsApp.
+12. **High-Concurrency Fast Food WhatsApp Ordering AI Agent**: 24/7 multimodal ordering bot interpreting voice notes and local expressions, calculating SQL menu combos/delivery fees, validating transfer receipts via OCR, and dispatching Telegram kitchen tickets.
+13. **Medical Practice Portal with 24/7 ElevenLabs Voice & Text AI**: Conversion-focused medical website featuring local SEO, Google Analytics + Search Console telemetry, and a real-time ElevenLabs voice and text patient orientation assistant.
+14. **Automated Legal Contract Drafting & Multi-Channel Dispatch**: n8n webhook workflow generating dynamic legal contracts in seconds, attaching corporate policies, dispatching simultaneously via Gmail and WhatsApp API, and auditing in Google Sheets.
+15. **Redundant Dual-Instance n8n Cloud Backup Infrastructure**: Scheduled cloud continuity pipeline extracting live workflows from two independent n8n servers and archiving timestamped backups automatically to Google Drive.
 
 ---
 

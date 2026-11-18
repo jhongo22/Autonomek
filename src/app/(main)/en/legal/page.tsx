@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 
 export const metadata: Metadata = {
   title: 'Legal Notice, Privacy & Cookies | Autonomek',
@@ -16,6 +17,12 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com/legal',
     },
   },
+  ...buildSocialMetadata({
+    title: 'Legal Notice, Privacy & Cookies | Autonomek',
+    description: 'Legal terms, privacy policy, and cookie usage of Autonomek Web & AI.',
+    url: 'https://autonomek.com/en/legal',
+    locale: 'en_US',
+  }),
 };
 
 export default function EnLegalPage() {

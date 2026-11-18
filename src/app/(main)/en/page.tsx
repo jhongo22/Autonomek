@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { buildSocialMetadata } from '@/lib/seo-metadata';
 import HomeClient from '../home-client';
 
 export const metadata: Metadata = {
@@ -16,13 +17,12 @@ export const metadata: Metadata = {
       'x-default': 'https://autonomek.com',
     },
   },
-  openGraph: {
+  ...buildSocialMetadata({
     title: 'Autonomek | Custom Software, WhatsApp AI Agents & B2B Web',
     description: 'Autonomous AI sales infrastructure, custom B2B software ($0 per-seat fees), n8n automation, and 0.6s Next.js websites.',
     url: 'https://autonomek.com/en',
     locale: 'en_US',
-    type: 'website',
-  },
+  }),
 };
 
 const enHomeFaqJsonLd = {
