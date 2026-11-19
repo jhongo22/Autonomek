@@ -178,7 +178,7 @@ export default function ServiciosClient({
         },
         {
           need: 'Our website is slow, looks outdated, or does not appear on Google and ChatGPT.',
-          solution: 'High-Performance Website (Next.js + GEO)',
+          solution: 'High-Performance Website & SEO/GEO',
           timeline: '2 – 4 weeks',
           href: `${basePrefix}/services/high-performance-websites`,
         },
@@ -204,7 +204,7 @@ export default function ServiciosClient({
         },
         {
           need: 'Nuestra web es lenta, no transmite autoridad o no aparece primero en Google y ChatGPT.',
-          solution: 'Sitio Web de Alto Rendimiento (Next.js + GEO)',
+          solution: 'Sitio Web de Alto Rendimiento y SEO/GEO',
           timeline: '2 – 4 semanas',
           href: `${basePrefix}/servicios/paginas-web-alto-rendimiento`,
         },

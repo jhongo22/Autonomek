@@ -87,12 +87,12 @@ export default function NosotrosClient({ isEn = false, basePrefix = '' }: Nosotr
         {
           label: 'Frontend Speed',
           value: '0.6s LCP',
-          detail: 'Next.js 15 pure code on Global Edge CDN without bloated plugins.',
+          detail: 'Custom-built code on Global Edge CDN without bloated plugins.',
         },
         {
           label: 'Data Sovereignty',
           value: '100% IP',
-          detail: 'Full transfer of bespoke source code and encrypted PostgreSQL schemas.',
+          detail: 'Full transfer of bespoke source code and your private cloud database.',
         },
         {
           label: 'WhatsApp Stability',
@@ -109,12 +109,12 @@ export default function NosotrosClient({ isEn = false, basePrefix = '' }: Nosotr
         {
           label: 'Velocidad de Carga',
           value: '0.6s LCP',
-          detail: 'Código puro en Next.js 15 desplegado en CDN global sin plugins lentos.',
+          detail: 'Código propio a medida desplegado en CDN global sin plugins lentos.',
         },
         {
           label: 'Propiedad del Código',
           value: '100% Tuya',
-          detail: 'Transferencia total del código fuente y base de datos PostgreSQL.',
+          detail: 'Transferencia total del código fuente y tu base de datos privada.',
         },
         {
           label: 'Estabilidad WhatsApp',

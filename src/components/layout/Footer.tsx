@@ -132,7 +132,7 @@ export default function Footer() {
                   }
                   className="hover:text-foreground underline decoration-rule hover:decoration-primary underline-offset-4 transition-colors"
                 >
-                  {isEn ? 'Websites & SEO/GEO' : 'Desarrollo Web Next.js'}
+                  {isEn ? 'Websites & SEO/GEO' : 'Sitios Web y SEO'}
                 </Link>
               </li>
               <li>

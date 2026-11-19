@@ -43,8 +43,8 @@ export default function ProyectosClient({ locale = 'es' }: { locale?: 'es' | 'en
             </h1>
             <p className="text-muted text-base sm:text-lg leading-relaxed">
               {isEn
-                ? 'Explore the technical breakdown, technology stack, and engineered modules behind each anonymous system across healthcare, hospitality, retail, and B2B services.'
-                : 'Explora la arquitectura técnica, el stack implementado y exactamente qué se desarrolló en cada solución anónima para salud, turismo, comercio y operaciones B2B.'}
+                ? 'Explore what was built and how each real-world solution operates across healthcare, hospitality, retail, and B2B services.'
+                : 'Explora exactamente qué se desarrolló y cómo opera cada solución real para salud, turismo, comercio y operaciones B2B.'}
             </p>
           </div>
 

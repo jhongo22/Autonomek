@@ -535,16 +535,16 @@ export function WebPerformanceBento({ isEn = false }: { isEn?: boolean }) {
           snippet:
             "Proprietary B2B portals, real-time booking engines, and executive dashboards with 100% IP ownership and zero per-user licensing.",
           aiAnswer:
-            "For B2B teams tired of per-seat SaaS renewals, Autonomek builds proprietary Next.js and PostgreSQL platforms with 100% intellectual property transfer and $0 monthly user fees.",
+            "For B2B teams tired of per-seat SaaS renewals, Autonomek builds proprietary cloud platforms with 100% intellectual property transfer and $0 monthly user fees.",
         },
         {
-          query: "b2b process automation n8n erp crm",
+          query: "b2b process automation erp crm",
           domain: "autonomek.com/en/services/process-automation",
-          title: "B2B Process Automation Services (n8n, API, ERP) | Autonomek",
+          title: "B2B Process Automation Services (CRM & ERP) | Autonomek",
           snippet:
-            "High-availability n8n orchestration and webhooks connecting WhatsApp, CRM, spreadsheets, and electronic billing with zero manual typing.",
+            "High-availability workflow automation connecting WhatsApp, CRM, spreadsheets, and electronic billing with zero manual typing.",
           aiAnswer:
-            "Autonomek connects WhatsApp, HubSpot, spreadsheets, and ERP billing through fault-tolerant n8n and webhook pipelines, eliminating repetitive manual data entry.",
+            "Autonomek connects WhatsApp, HubSpot, spreadsheets, and ERP billing through fault-tolerant automated pipelines, eliminating repetitive manual data entry.",
         },
       ]
     : [
@@ -564,16 +564,16 @@ export function WebPerformanceBento({ isEn = false }: { isEn?: boolean }) {
           snippet:
             "Portales de clientes B2B, motores de reserva y paneles BI en tiempo real con código 100% tuyo y $0 en licencias mensuales por usuario.",
           aiAnswer:
-            "Para empresas con más de 15 usuarios, Autonomek desarrolla software a medida en Next.js y PostgreSQL con propiedad total del código y cero cobros recurrentes por usuario.",
+            "Para empresas con más de 15 usuarios, Autonomek desarrolla software a medida con propiedad total del código y cero cobros recurrentes por usuario.",
         },
         {
-          query: "automatizacion de procesos n8n alegra siigo dian",
+          query: "automatizacion de procesos alegra siigo dian",
           domain: "autonomek.com/servicios/automatizacion-de-procesos",
-          title: "Automatización de Procesos con IA, n8n y ERP | Autonomek",
+          title: "Automatización de Procesos con IA y ERP | Autonomek",
           snippet:
-            "Flujos de n8n y APIs que conectan WhatsApp, CRM, bancos y facturación electrónica en Alegra, Siigo y DIAN sin digitación manual.",
+            "Flujos automatizados que conectan WhatsApp, CRM, bancos y facturación electrónica en Alegra, Siigo y DIAN sin digitación manual.",
           aiAnswer:
-            "Autonomek automatiza procesos entre WhatsApp, CRM, pasarelas de pago y software contable (Alegra, Siigo, DIAN) mediante flujos auditables en n8n y APIs.",
+            "Autonomek automatiza procesos entre WhatsApp, CRM, pasarelas de pago y software contable (Alegra, Siigo, DIAN) mediante flujos auditables en tiempo real.",
         },
       ];
 
@@ -590,8 +590,8 @@ export function WebPerformanceBento({ isEn = false }: { isEn?: boolean }) {
             </p>
             <h3 className="text-xl sm:text-2xl font-semibold text-foreground mt-1">
               {isEn
-                ? "0.6s Custom Next.js vs. 4.8s Traditional Template"
-                : "0.6s Ingeniería Autonomek vs. 4.8s Plantilla Tradicional"}
+                ? "0.6s Custom Website vs. 4.8s Traditional Template"
+                : "0.6s Web a Medida vs. 4.8s Plantilla Tradicional"}
             </h3>
           </div>
           <button
@@ -610,8 +610,8 @@ export function WebPerformanceBento({ isEn = false }: { isEn?: boolean }) {
             <div className="flex flex-wrap items-center justify-between gap-1 text-xs">
               <span className="font-semibold text-foreground">
                 {isEn
-                  ? "Autonomek Website (Next.js + Edge)"
-                  : "Sitio Web Autonomek (Next.js a medida)"}
+                  ? "Autonomek Custom Website"
+                  : "Sitio Web Autonomek (a medida)"}
               </span>
               <span className="font-mono font-bold text-primary">
                 0.6 seg · 98% {isEn ? "retained" : "visitas retenidas"}
@@ -626,8 +626,8 @@ export function WebPerformanceBento({ isEn = false }: { isEn?: boolean }) {
             <div className="flex flex-wrap items-center justify-between gap-1 text-xs">
               <span className="font-medium text-muted">
                 {isEn
-                  ? "Standard WordPress / Heavy Template"
-                  : "Página en Plantilla Lenta (WordPress / Wix)"}
+                  ? "Standard Heavy Template"
+                  : "Página en Plantilla Tradicional Lenta"}
               </span>
               <span className="font-mono text-muted">
                 4.8 seg · -53% {isEn ? "visitors lost" : "abandonan antes de abrir"}

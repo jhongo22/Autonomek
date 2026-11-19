@@ -30,8 +30,8 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
   if (!project) return null;
 
   const whatsappMessage = isEn
-    ? `Hello Autonomek, I inspected the "${project.title}" technical architecture case study and I would like to quote a similar system.`
-    : `Hola Autonomek, vi el caso técnico "${project.title}" en su portafolio y me gustaría cotizar una solución similar.`;
+    ? `Hello Autonomek, I saw the "${project.title}" case study in your portfolio and I would like to quote a similar solution.`
+    : `Hola Autonomek, vi el caso de éxito "${project.title}" en su portafolio y me gustaría cotizar una solución similar.`;
   const whatsappUrl = `https://wa.me/573010147443?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
@@ -52,7 +52,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
             className="fixed inset-0 bg-background/90 backdrop-blur-md cursor-zoom-out"
           />
 
-          {/* Modal Container — Full-width Technical Implementation Breakdown */}
+          {/* Modal Container */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -101,7 +101,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
               {project.keyFeatures && project.keyFeatures.length > 0 && (
                 <div className="rounded-xl border border-rule bg-background/60 p-5 space-y-3">
                   <h3 className="font-mono uppercase tracking-[0.14em] text-xs font-semibold text-primary">
-                    {isEn ? 'What was engineered in this project' : 'Qué se desarrolló en este proyecto'}
+                    {isEn ? 'What was built in this project' : 'Qué se desarrolló en este proyecto'}
                   </h3>
                   <ul className="space-y-2.5">
                     {project.keyFeatures.map((feat, fIdx) => (
@@ -116,7 +116,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
 
               <div>
                 <span className="block font-mono uppercase tracking-[0.14em] text-[11px] text-muted mb-2.5">
-                  {isEn ? 'Technology stack & architecture' : 'Stack tecnológico y arquitectura implementada'}
+                  {isEn ? 'Implemented capabilities & modules' : 'Capacidades y módulos implementados'}
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {project.stack.map((item) => (

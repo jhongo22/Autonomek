@@ -45,9 +45,9 @@ export default function PaginasWebClient({
     ? [
         {
           num: '01',
-          title: 'Sub-second load speed (0.6s LCP) on Next.js & Edge CDN',
+          title: 'Sub-second load speed (0.6s LCP) on Global Edge CDN',
           metric: '99/100 Core Web Vitals',
-          desc: '53% of mobile visitors abandon websites that take more than 3 seconds to open. We code your site on Next.js without heavy WordPress plugins so every page opens instantaneously.',
+          desc: '53% of mobile visitors abandon websites that take more than 3 seconds to open. We build your site from scratch without heavy plugins so every page opens instantaneously.',
           specs: ['0.6s Largest Contentful Paint', 'Global Edge Caching', 'Zero Plugin Vulnerabilities'],
         },
         {
@@ -75,9 +75,9 @@ export default function PaginasWebClient({
     : [
         {
           num: '01',
-          title: 'Carga instantánea en 0.6 segundos con Next.js y CDN Global',
+          title: 'Carga instantánea en 0.6 segundos en CDN Global',
           metric: '99/100 Core Web Vitals',
-          desc: 'El 53% de las visitas en celular abandona una página si tarda más de 3 segundos en abrir. Desarrollamos tu web en código puro (Next.js) sin plantillas pesadas para que abra al instante.',
+          desc: 'El 53% de las visitas en celular abandona una página si tarda más de 3 segundos en abrir. Desarrollamos tu web a medida sin plantillas pesadas para que abra al instante.',
           specs: ['LCP en 0.6 Segundos', 'Red Edge Mundial', 'Cero Plugins Vulnerables'],
         },
         {
@@ -108,8 +108,8 @@ export default function PaginasWebClient({
         {
           metric: 'Mobile load speed (LCP)',
           template: '4.2s – 6.8s (high bounce rate)',
-          agency: '2.8s – 4.0s (WordPress theme)',
-          autonomek: '0.6s instant load (Next.js Edge)',
+          agency: '2.8s – 4.0s (traditional theme)',
+          autonomek: '0.6s instant load (Global Edge)',
         },
         {
           metric: 'Google PageSpeed & Core Web Vitals',
@@ -140,8 +140,8 @@ export default function PaginasWebClient({
         {
           metric: 'Velocidad de carga en celular (LCP)',
           template: '4.2s – 6.8s (alto abandono)',
-          agency: '2.8s – 4.0s (tema de WordPress)',
-          autonomek: '0.6 segundos instantáneo (Next.js)',
+          agency: '2.8s – 4.0s (plantilla tradicional)',
+          autonomek: '0.6 segundos instantáneo (a medida)',
         },
         {
           metric: 'Puntaje en Google Core Web Vitals',
@@ -190,8 +190,8 @@ export default function PaginasWebClient({
   const faqs = isEn
     ? [
         {
-          q: 'Why do you build with Next.js instead of WordPress, Wix, or Shopify templates?',
-          a: 'Templates load dozens of heavy scripts and third-party plugins that slow down your site to 4+ seconds, hurting both Google rankings and ad conversion rates. With Next.js, your website loads in 0.6 seconds, is immune to plugin hacks, and converts significantly more visitors.',
+          q: 'Why do you build custom websites instead of using WordPress, Wix, or generic templates?',
+          a: 'Templates load dozens of heavy scripts and third-party plugins that slow down your site to 4+ seconds, hurting both Google rankings and ad conversion rates. A custom-built website loads in 0.6 seconds, is immune to plugin hacks, and converts significantly more visitors.',
         },
         {
           q: 'How do you make my company appear on ChatGPT and AI search engines?',
@@ -212,8 +212,8 @@ export default function PaginasWebClient({
       ]
     : [
         {
-          q: '¿Por qué desarrollan en Next.js en lugar de usar plantillas de WordPress o Wix?',
-          a: 'Las plantillas cargan decenas de plugins pesados que hacen que la web tarde más de 4 segundos en abrir, haciendo que pierdas más de la mitad de los clics de tus anuncios. Con Next.js tu web abre en 0.6 segundos, es imposible de hackear por plugins y posiciona mucho mejor en Google.',
+          q: '¿Por qué desarrollan sitios web a medida en lugar de usar plantillas lentas?',
+          a: 'Las plantillas cargan decenas de plugins pesados que hacen que la web tarde más de 4 segundos en abrir, haciendo que pierdas más de la mitad de los clics de tus anuncios. Un sitio web a medida abre en 0.6 segundos, es imposible de hackear por plugins y posiciona mucho mejor en Google.',
         },
         {
           q: '¿Cómo logran que mi empresa aparezca cuando alguien pregunta en ChatGPT?',
@@ -265,7 +265,7 @@ export default function PaginasWebClient({
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-semibold tracking-tight leading-[1.07] text-foreground">
               {isEn ? (
                 <>
-                  Custom Next.js Web Development & Design:{' '}
+                  Custom Web Development & Design:{' '}
                   <span className="text-muted font-normal">
                     0.6s load speed and Google + ChatGPT SEO.
                   </span>
@@ -283,17 +283,17 @@ export default function PaginasWebClient({
             <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted">
               {isEn ? (
                 <>
-                  Engineered from scratch by{' '}
+                  Built from scratch by{' '}
                   <Link
                     href="/en"
-                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
                   >
                     Autonomek
                   </Link>{' '}
-                  with Next.js and semantic JSON-LD + GEO architecture to rank #1 on Google, earn citations in AI search, and send qualified leads straight to your{' '}
+                  with semantic SEO + GEO architecture to rank #1 on Google, earn citations in AI search, and send qualified leads straight to your{' '}
                   <Link
                     href="/en/services/ai-agents"
-                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
                   >
                     24/7 WhatsApp AI sales agents
                   </Link>
@@ -304,14 +304,14 @@ export default function PaginasWebClient({
                   Desarrollamos desde cero en{' '}
                   <Link
                     href="/"
-                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
                   >
                     Autonomek
                   </Link>{' '}
-                  sitios web en Next.js con arquitectura SEO técnica y GEO para posicionar en Google y ChatGPT, enviando clientes directos a tus{' '}
+                  sitios web a medida con SEO técnico y GEO para posicionar en Google y ChatGPT, enviando clientes directos a tus{' '}
                   <Link
                     href="/servicios/agentes-inteligencia-artificial"
-                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
                   >
                     agentes de IA en WhatsApp 24/7
                   </Link>
@@ -324,7 +324,7 @@ export default function PaginasWebClient({
             <aside className="mt-8 w-full max-w-3xl rounded-2xl border border-rule bg-surface/80 p-5 sm:p-6 text-left">
               <h2 className="text-xs font-mono uppercase tracking-[0.16em] text-primary font-semibold mb-2">
                 {isEn
-                  ? 'What is Next.js High-Performance Web Development at Autonomek?'
+                  ? 'What is High-Performance Web Development at Autonomek?'
                   : '¿En qué consiste el Desarrollo de Páginas Web B2B de Autonomek?'}
               </h2>
               <p className="text-xs sm:text-sm text-muted leading-relaxed">
@@ -337,7 +337,7 @@ export default function PaginasWebClient({
                     >
                       Autonomek
                     </Link>{' '}
-                    replaces slow WordPress and Wix templates with edge-rendered Next.js, React, and TypeScript platforms achieving 0.6s mobile LCP and 0.00 CLS. Every corporate website, product catalog, and B2B landing page ships in 2 to 4 weeks with 100% source code ownership, clean Schema.org entity graphs, and direct WhatsApp + CRM conversion funnels — scaling cleanly into{' '}
+                    replaces slow templates with custom-built platforms achieving 0.6s mobile load speed and 0.00 layout shift. Every corporate website, product catalog, and B2B landing page ships in 2 to 4 weeks with 100% source code ownership, clean Schema.org entity graphs, and direct WhatsApp + CRM conversion funnels — scaling cleanly into{' '}
                     <Link
                       href="/en/services/custom-software"
                       className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
@@ -349,7 +349,7 @@ export default function PaginasWebClient({
                       href="/en/blog/why-wordpress-is-slow-migrate-to-nextjs"
                       className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
                     >
-                      why WordPress slows ad conversion vs. Next.js
+                      why slow templates hurt ad conversion
                     </Link>
                     .
                   </>
@@ -362,7 +362,7 @@ export default function PaginasWebClient({
                     >
                       Autonomek
                     </Link>{' '}
-                    reemplaza plantillas pesadas de WordPress o Wix por plataformas en Next.js y TypeScript compiladas en Edge CDN con carga móvil de 0.6 segundos y CLS 0.00. Cada sitio web corporativo, catálogo o landing page B2B se entrega en 2 a 4 semanas con propiedad total del código, datos estructurados Schema.org, SEO técnico para Google, optimización GEO para ChatGPT y embudos directos a WhatsApp — escalable hacia{' '}
+                    reemplaza plantillas pesadas por plataformas desarrolladas a medida en CDN global con carga móvil de 0.6 segundos y cero saltos visuales. Cada sitio web corporativo, catálogo o landing page B2B se entrega en 2 a 4 semanas con propiedad total del código, datos estructurados Schema.org, SEO técnico para Google, optimización GEO para ChatGPT y embudos directos a WhatsApp — escalable hacia{' '}
                     <Link
                       href="/servicios/software-a-medida"
                       className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
@@ -374,7 +374,7 @@ export default function PaginasWebClient({
                       href="/blog/por-que-wordpress-lento-migrar-nextjs-0-6s"
                       className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
                     >
-                      por qué migrar de WordPress a Next.js en 0.6s
+                      por qué una web lenta te hace perder clientes
                     </Link>
                     .
                   </>
@@ -546,13 +546,13 @@ export default function PaginasWebClient({
               </span>
               <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground">
                 {isEn
-                  ? 'Custom Next.js engineering vs. generic templates.'
-                  : 'Ingeniería web a medida frente a plantillas genéricas.'}
+                  ? 'Custom websites vs. generic templates.'
+                  : 'Sitios web a medida frente a plantillas genéricas.'}
               </h2>
             </div>
             <p className="text-muted text-base sm:text-lg max-w-md">
               {isEn
-                ? 'See why high-growth brands migrate away from slow WordPress themes and rented site builders.'
+                ? 'See why high-growth brands migrate away from slow templates and rented site builders.'
                 : 'Descubre por qué las empresas que buscan liderar su sector dejan atrás los constructores lentos de plantillas.'}
             </p>
           </div>
@@ -565,13 +565,13 @@ export default function PaginasWebClient({
                     {isEn ? 'Performance & SEO Metric' : 'Métrica de Rendimiento y SEO'}
                   </th>
                   <th className="py-4 px-6 font-semibold w-[23%]">
-                    {isEn ? 'Wix / Squarespace Builder' : 'Constructor Wix / Plantilla'}
+                    {isEn ? 'Generic Site Builder' : 'Constructor de Plantillas'}
                   </th>
                   <th className="py-4 px-6 font-semibold w-[23%]">
-                    {isEn ? 'Traditional WordPress' : 'WordPress Tradicional'}
+                    {isEn ? 'Traditional Templates' : 'Plantillas Tradicionales'}
                   </th>
                   <th className="py-4 pl-6 font-semibold text-primary w-[24%]">
-                    {isEn ? 'Autonomek Next.js + GEO' : 'Ingeniería Web Autonomek'}
+                    {isEn ? 'Autonomek Custom Web' : 'Sitio Web Autonomek'}
                   </th>
                 </tr>
               </thead>
@@ -773,7 +773,7 @@ export default function PaginasWebClient({
                 href={isEn ? '/en/blog/why-wordpress-is-slow-migrate-to-nextjs' : '/blog/por-que-wordpress-lento-migrar-nextjs-0-6s'}
                 className="text-primary underline decoration-primary/70 hover:decoration-primary underline-offset-4"
               >
-                {isEn ? 'WordPress vs Next.js Speed Guide' : 'Guía: WordPress vs Next.js 0.6s'}
+                {isEn ? 'Fast vs. Slow Websites Guide' : 'Guía: Velocidad Web en 0.6s'}
               </Link>
               <Link
                 href={isEn ? '/en/services/ai-agents' : '/servicios/agentes-inteligencia-artificial'}

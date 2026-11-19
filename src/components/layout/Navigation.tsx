@@ -223,192 +223,194 @@ export default function Navigation() {
   }, [isOpen]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-[150] bg-background/85 backdrop-blur-xl border-b border-rule transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 h-16 md:h-20 flex items-center justify-between gap-4">
-        {/* Brand */}
-        <Link
-          href={homeHref}
-          onClick={() => setIsOpen(false)}
-          className="inline-flex flex-col leading-none shrink-0 group"
-        >
-          <AutonomekLockup className="h-[21px] sm:h-6 w-auto text-foreground transition-transform duration-200 group-hover:scale-[1.015]" />
-          <span className="sr-only">Autonomek</span>
-          <span className="mt-1 text-[9.5px] font-medium tracking-[0.22em] text-primary uppercase">
-            {isEn ? 'Web · AI · Software' : 'Web · IA · Software'}
-          </span>
-        </Link>
+    <>
+      <header className="fixed inset-x-0 top-0 z-[150] bg-background/85 backdrop-blur-xl border-b border-rule transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 h-16 md:h-20 flex items-center justify-between gap-4">
+          {/* Brand */}
+          <Link
+            href={homeHref}
+            onClick={() => setIsOpen(false)}
+            className="inline-flex flex-col leading-none shrink-0 group"
+          >
+            <AutonomekLockup className="h-[21px] sm:h-6 w-auto text-foreground transition-transform duration-200 group-hover:scale-[1.015]" />
+            <span className="sr-only">Autonomek</span>
+            <span className="mt-1 text-[9.5px] font-medium tracking-[0.22em] text-primary uppercase">
+              {isEn ? 'Web · AI · Software' : 'Web · IA · Software'}
+            </span>
+          </Link>
 
-        {/* Desktop Nav */}
-        <nav
-          aria-label={isEn ? 'Primary navigation' : 'Navegación principal'}
-          className="hidden lg:flex items-center gap-6 xl:gap-8"
-        >
-          {navItems.map((item) => {
-            if (item.hasDropdown) {
-              return (
-                <div
-                  key={item.name}
-                  ref={dropdownRef}
-                  className="relative"
-                  onMouseEnter={() => setServicesOpen(true)}
-                  onMouseLeave={() => setServicesOpen(false)}
-                >
-                  <div className="flex items-center gap-1">
-                    <Link
-                      href={item.href}
-                      className="text-sm font-medium text-muted hover:text-foreground transition-colors py-2"
-                    >
-                      {item.name}
-                    </Link>
-                    <button
-                      type="button"
-                      onClick={() => setServicesOpen((prev) => !prev)}
-                      aria-label={isEn ? 'Toggle services menu' : 'Ver menú de servicios'}
-                      aria-expanded={servicesOpen}
-                      className="p-1 text-muted hover:text-foreground transition-colors"
-                    >
-                      <ChevronDown
-                        size={14}
-                        className={`transition-transform duration-200 ${
-                          servicesOpen ? 'rotate-180 text-primary' : ''
-                        }`}
-                      />
-                    </button>
-                  </div>
-
+          {/* Desktop Nav */}
+          <nav
+            aria-label={isEn ? 'Primary navigation' : 'Navegación principal'}
+            className="hidden lg:flex items-center gap-6 xl:gap-8"
+          >
+            {navItems.map((item) => {
+              if (item.hasDropdown) {
+                return (
                   <div
-                    className={`absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[340px] transition-all duration-200 ${
-                      servicesOpen
-                        ? 'opacity-100 visible translate-y-0 pointer-events-auto'
-                        : 'opacity-0 invisible -translate-y-1 pointer-events-none'
-                    }`}
+                    key={item.name}
+                    ref={dropdownRef}
+                    className="relative"
+                    onMouseEnter={() => setServicesOpen(true)}
+                    onMouseLeave={() => setServicesOpen(false)}
                   >
-                    <div className="rounded-2xl border border-rule bg-surface p-3 shadow-2xl shadow-black/50 space-y-1">
-                      {serviceLinks.map((srv) => (
-                        <Link
-                          key={srv.href}
-                          href={srv.href}
-                          onClick={() => setServicesOpen(false)}
-                          className="group flex items-start justify-between gap-3 rounded-xl p-3 hover:bg-card transition-colors"
-                        >
-                          <div>
-                            <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                              {srv.name}
-                            </p>
-                            <p className="text-xs text-muted mt-0.5 leading-snug">{srv.desc}</p>
-                          </div>
-                          <ArrowUpRight
-                            size={15}
-                            className="text-subtle group-hover:text-primary shrink-0 mt-0.5"
-                          />
-                        </Link>
-                      ))}
-                      <div className="pt-2 mt-1 border-t border-rule px-3 pb-1 flex items-center justify-between">
-                        <Link
-                          href={servicesPageHref}
-                          onClick={() => setServicesOpen(false)}
-                          className="text-xs font-medium text-primary underline decoration-primary/60 hover:decoration-primary underline-offset-4"
-                        >
-                          {isEn ? 'View all services →' : 'Ver todos los servicios →'}
-                        </Link>
+                    <div className="flex items-center gap-1">
+                      <Link
+                        href={item.href}
+                        className="text-sm font-medium text-muted hover:text-foreground transition-colors py-2"
+                      >
+                        {item.name}
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => setServicesOpen((prev) => !prev)}
+                        aria-label={isEn ? 'Toggle services menu' : 'Ver menú de servicios'}
+                        aria-expanded={servicesOpen}
+                        className="p-1 text-muted hover:text-foreground transition-colors"
+                      >
+                        <ChevronDown
+                          size={14}
+                          className={`transition-transform duration-200 ${
+                            servicesOpen ? 'rotate-180 text-primary' : ''
+                          }`}
+                        />
+                      </button>
+                    </div>
+
+                    <div
+                      className={`absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[340px] transition-all duration-200 ${
+                        servicesOpen
+                          ? 'opacity-100 visible translate-y-0 pointer-events-auto'
+                          : 'opacity-0 invisible -translate-y-1 pointer-events-none'
+                      }`}
+                    >
+                      <div className="rounded-2xl border border-rule bg-surface p-3 shadow-2xl shadow-black/50 space-y-1">
+                        {serviceLinks.map((srv) => (
+                          <Link
+                            key={srv.href}
+                            href={srv.href}
+                            onClick={() => setServicesOpen(false)}
+                            className="group flex items-start justify-between gap-3 rounded-xl p-3 hover:bg-card transition-colors"
+                          >
+                            <div>
+                              <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                                {srv.name}
+                              </p>
+                              <p className="text-xs text-muted mt-0.5 leading-snug">{srv.desc}</p>
+                            </div>
+                            <ArrowUpRight
+                              size={15}
+                              className="text-subtle group-hover:text-primary shrink-0 mt-0.5"
+                            />
+                          </Link>
+                        ))}
+                        <div className="pt-2 mt-1 border-t border-rule px-3 pb-1 flex items-center justify-between">
+                          <Link
+                            href={servicesPageHref}
+                            onClick={() => setServicesOpen(false)}
+                            className="text-xs font-medium text-primary underline decoration-primary/60 hover:decoration-primary underline-offset-4"
+                          >
+                            {isEn ? 'View all services →' : 'Ver todos los servicios →'}
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-medium text-muted hover:text-foreground transition-colors"
+                >
+                  {item.name}
+                </Link>
               );
-            }
+            })}
+          </nav>
 
-            return (
+          {/* Right Actions */}
+          <div className="flex items-center gap-3">
+            <div
+              role="group"
+              aria-label={isEn ? 'Language switcher' : 'Selector de idioma'}
+              className="hidden sm:inline-flex items-center rounded-full bg-surface border border-rule p-0.5 text-xs"
+            >
               <Link
-                key={item.name}
-                href={item.href}
-                className="text-sm font-medium text-muted hover:text-foreground transition-colors"
+                href={targetEsHref}
+                hrefLang="es"
+                onClick={() => setIsOpen(false)}
+                className={`px-2.5 py-1 rounded-full font-medium transition-colors ${
+                  !isEn ? 'bg-primary text-primary-ink' : 'text-muted hover:text-foreground'
+                }`}
               >
-                {item.name}
+                ES
               </Link>
-            );
-          })}
-        </nav>
+              <Link
+                href={targetEnHref}
+                hrefLang="en"
+                onClick={() => setIsOpen(false)}
+                className={`px-2.5 py-1 rounded-full font-medium transition-colors ${
+                  isEn ? 'bg-primary text-primary-ink' : 'text-muted hover:text-foreground'
+                }`}
+              >
+                EN
+              </Link>
+            </div>
 
-        {/* Right Actions */}
-        <div className="flex items-center gap-3">
-          <div
-            role="group"
-            aria-label={isEn ? 'Language switcher' : 'Selector de idioma'}
-            className="hidden sm:inline-flex items-center rounded-full bg-surface border border-rule p-0.5 text-xs"
-          >
-            <Link
-              href={targetEsHref}
-              hrefLang="es"
-              onClick={() => setIsOpen(false)}
-              className={`px-2.5 py-1 rounded-full font-medium transition-colors ${
-                !isEn ? 'bg-primary text-primary-ink' : 'text-muted hover:text-foreground'
-              }`}
+            <a
+              href={instagramHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram de Autonomek"
+              title="Instagram @autonomek"
+              className="hidden sm:inline-flex h-9 w-9 items-center justify-center rounded-full border border-rule bg-surface text-muted hover:text-primary hover:border-primary transition-colors"
             >
-              ES
-            </Link>
-            <Link
-              href={targetEnHref}
-              hrefLang="en"
-              onClick={() => setIsOpen(false)}
-              className={`px-2.5 py-1 rounded-full font-medium transition-colors ${
-                isEn ? 'bg-primary text-primary-ink' : 'text-muted hover:text-foreground'
-              }`}
+              <Instagram size={16} />
+            </a>
+
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:inline-flex items-center justify-center rounded-full bg-primary text-primary-ink px-5 py-2.5 text-sm font-semibold hover:opacity-90 transition-opacity"
             >
-              EN
-            </Link>
+              {isEn ? 'Contact us' : 'Contáctanos'}
+            </a>
+
+            <button
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex lg:hidden h-11 w-11 items-center justify-center rounded-xl border border-rule bg-surface text-foreground"
+              aria-expanded={isOpen}
+              aria-controls="menu-movil"
+              aria-label={
+                isOpen
+                  ? isEn
+                    ? 'Close menu'
+                    : 'Cerrar menú'
+                  : isEn
+                  ? 'Open menu'
+                  : 'Abrir menú'
+              }
+            >
+              {isOpen ? (
+                <X size={20} />
+              ) : (
+                <span className="relative block h-4 w-5">
+                  <span className="absolute left-0 top-0.5 h-0.5 w-5 bg-current" />
+                  <span className="absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 bg-current" />
+                  <span className="absolute left-0 bottom-0.5 h-0.5 w-5 bg-current" />
+                </span>
+              )}
+            </button>
           </div>
-
-          <a
-            href={instagramHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram de Autonomek"
-            title="Instagram @autonomek"
-            className="hidden sm:inline-flex h-9 w-9 items-center justify-center rounded-full border border-rule bg-surface text-muted hover:text-primary hover:border-primary transition-colors"
-          >
-            <Instagram size={16} />
-          </a>
-
-          <a
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center justify-center rounded-full bg-primary text-primary-ink px-5 py-2.5 text-sm font-semibold hover:opacity-90 transition-opacity"
-          >
-            {isEn ? 'Contact us' : 'Contáctanos'}
-          </a>
-
-          <button
-            type="button"
-            onClick={() => setIsOpen(!isOpen)}
-            className="flex lg:hidden h-11 w-11 items-center justify-center rounded-xl border border-rule bg-surface text-foreground"
-            aria-expanded={isOpen}
-            aria-controls="menu-movil"
-            aria-label={
-              isOpen
-                ? isEn
-                  ? 'Close menu'
-                  : 'Cerrar menú'
-                : isEn
-                ? 'Open menu'
-                : 'Abrir menú'
-            }
-          >
-            {isOpen ? (
-              <X size={20} />
-            ) : (
-              <span className="relative block h-4 w-5">
-                <span className="absolute left-0 top-0.5 h-0.5 w-5 bg-current" />
-                <span className="absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 bg-current" />
-                <span className="absolute left-0 bottom-0.5 h-0.5 w-5 bg-current" />
-              </span>
-            )}
-          </button>
         </div>
-      </div>
+      </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu — rendered outside <header> so backdrop-filter does not trap fixed positioning */}
       {isOpen && (
         <div
           id="menu-movil"
@@ -504,6 +506,6 @@ export default function Navigation() {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

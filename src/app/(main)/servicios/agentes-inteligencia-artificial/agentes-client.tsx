@@ -342,7 +342,7 @@ export default function AgentesClient({
                       href="/en/services/high-performance-websites"
                       className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
                     >
-                      high-converting Next.js websites
+                      high-converting websites
                     </Link>{' '}
                     and our{' '}
                     <Link
@@ -367,7 +367,7 @@ export default function AgentesClient({
                       href="/servicios/paginas-web-alto-rendimiento"
                       className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
                     >
-                      páginas web en Next.js de alto rendimiento
+                      páginas web de alto rendimiento
                     </Link>{' '}
                     y nuestra{' '}
                     <Link
@@ -853,7 +853,7 @@ export default function AgentesClient({
                 href={isEn ? '/en/services/high-performance-websites' : '/servicios/paginas-web-alto-rendimiento'}
                 className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
               >
-                {isEn ? 'Next.js Websites' : 'Páginas Web Next.js'}
+                {isEn ? 'High-Performance Websites' : 'Sitios Web y SEO'}
               </Link>
             </div>
           </div>

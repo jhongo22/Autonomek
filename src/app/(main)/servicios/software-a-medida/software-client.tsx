@@ -71,7 +71,7 @@ export default function SoftwareClient({
           title: '100% proprietary code with $0 per-user monthly fees',
           metric: '$0/mo Seat Licenses',
           desc: 'Stop paying $45 to $90 per employee every month to rented SaaS platforms. Your company owns the source code and database outright — add 10 or 500 users at zero extra license cost.',
-          specs: ['Full IP & Source Code Ownership', 'Unlimited Team Users', 'PostgreSQL Cloud Database'],
+          specs: ['Full IP & Source Code Ownership', 'Unlimited Team Users', 'Private Cloud Database'],
         },
       ]
     : [
@@ -101,7 +101,7 @@ export default function SoftwareClient({
           title: 'Código 100% propiedad de tu empresa sin cobros por usuario',
           metric: '$0 Licencias por Usuario',
           desc: 'Deja de pagar entre $30 y $90 USD mensuales por cada empleado en softwares alquilados. Tu empresa es dueña del código y la base de datos: crea 10 o 500 usuarios sin pagar mensualidades.',
-          specs: ['Propiedad Intelectual 100% Tuya', 'Usuarios y Sedes Ilimitados', 'Base de Datos PostgreSQL'],
+          specs: ['Propiedad Intelectual 100% Tuya', 'Usuarios y Sedes Ilimitados', 'Base de Datos Privada'],
         },
       ];
 
@@ -209,7 +209,7 @@ export default function SoftwareClient({
         },
         {
           q: 'What happens if we want to add new modules next year?',
-          a: 'Because the architecture is modular and documented (Next.js, TypeScript, PostgreSQL), we can add new modules, reports, or AI capabilities at any time without rebuilding from scratch.',
+          a: 'Because the platform is built with clean, modular architecture, we can add new modules, reports, or AI capabilities at any time without rebuilding from scratch.',
         },
       ]
     : [
@@ -231,7 +231,7 @@ export default function SoftwareClient({
         },
         {
           q: '¿Qué pasa si más adelante queremos agregar nuevas funciones?',
-          a: 'Tu plataforma queda construida con arquitectura modular limpia (Next.js, TypeScript y PostgreSQL). Podemos agregar nuevos módulos, reportes o agentes de IA cuando tu operación crezca.',
+          a: 'Tu plataforma queda construida con arquitectura modular limpia y escalable. Podemos agregar nuevos módulos, reportes o agentes de IA cuando tu operación crezca.',
         },
       ];
 
@@ -339,7 +339,7 @@ export default function SoftwareClient({
                     >
                       Autonomek
                     </Link>{' '}
-                    delivers proprietary cloud applications, executive BI reporting portals, booking engines, and internal CRMs built on Next.js, TypeScript, and PostgreSQL with role-based access control (RBAC) and unlimited user seats at $0 recurring license fees. Delivered in bi-weekly sprints (MVP live in 3 to 6 weeks), our platforms centralize scattered Excel sheets into one-click PDF reporting and connect natively with{' '}
+                    delivers proprietary cloud applications, executive BI reporting portals, booking engines, and internal CRMs with role-based access control (RBAC) and unlimited user seats at $0 recurring license fees. Delivered in bi-weekly sprints (MVP live in 3 to 6 weeks), our platforms centralize scattered Excel sheets into one-click PDF reporting and connect natively with{' '}
                     <Link
                       href="/en/services/ai-agents"
                       className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
@@ -371,7 +371,7 @@ export default function SoftwareClient({
                     >
                       Autonomek
                     </Link>{' '}
-                    crea plataformas web propietarias, portales de clientes, motores de reservas, inventarios multisede y CRMs internos en Next.js, TypeScript y PostgreSQL con control por roles (RBAC) y usuarios ilimitados con $0 en licencias mensuales. Entregamos avances funcionales cada 2 semanas con 100% propiedad del código fuente, reportes ejecutivos PDF en 1 clic e integración con{' '}
+                    crea plataformas web propietarias, portales de clientes, motores de reservas, inventarios multisede y CRMs internos con control por roles (RBAC) y usuarios ilimitados con $0 en licencias mensuales. Entregamos avances funcionales cada 2 semanas con 100% propiedad del código fuente, reportes ejecutivos PDF en 1 clic e integración con{' '}
                     <Link
                       href="/servicios/agentes-inteligencia-artificial"
                       className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
@@ -817,7 +817,7 @@ export default function SoftwareClient({
                 href={isEn ? '/en/services/high-performance-websites' : '/servicios/paginas-web-alto-rendimiento'}
                 className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
               >
-                {isEn ? 'Next.js Websites' : 'Páginas Web Next.js'}
+                {isEn ? 'High-Performance Websites' : 'Sitios Web y SEO'}
               </Link>
             </div>
           </div>

@@ -425,8 +425,8 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
               <span>
                 {isEn
-                  ? 'Applied Engineering · LatAm & International'
-                  : 'Estudio de Ingeniería de Software & IA'}
+                  ? 'Software · AI Agents · Automation'
+                  : 'Software · Agentes IA · Automatización'}
               </span>
             </div>
 
@@ -440,7 +440,7 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
                 </>
               ) : (
                 <>
-                  Ingeniería de Software a Medida, Agentes de IA en WhatsApp{' '}
+                  Software a Medida, Agentes de IA en WhatsApp{' '}
                   <span className="text-muted font-normal">
                     y Automatización B2B.
                   </span>
@@ -451,65 +451,65 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
             <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted">
               {isEn ? (
                 <>
-                  We engineer{' '}
+                  We build{' '}
                   <Link
                     href="/en/services/high-performance-websites"
-                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
                   >
-                    high-performance Next.js websites
+                    high-performance websites
                   </Link>
                   , deploy{' '}
                   <Link
                     href="/en/services/ai-agents"
-                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
                   >
                     24/7 WhatsApp AI sales agents
                   </Link>
-                  , build{' '}
+                  , create{' '}
                   <Link
                     href="/en/services/custom-software"
-                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
                   >
                     custom business software
                   </Link>{' '}
-                  with $0 seat fees, and orchestrate{' '}
+                  with $0 seat fees, and set up{' '}
                   <Link
                     href="/en/services/process-automation"
-                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
                   >
-                    B2B process automation with n8n & ERP
+                    B2B process and billing automation
                   </Link>
                   .
                 </>
               ) : (
                 <>
-                  Diseñamos soluciones de{' '}
+                  Diseñamos{' '}
                   <Link
                     href="/servicios/paginas-web-alto-rendimiento"
-                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
                   >
-                    desarrollo de páginas web en Next.js
+                    páginas web de alto rendimiento
                   </Link>
                   , implementamos{' '}
                   <Link
                     href="/servicios/agentes-inteligencia-artificial"
-                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
                   >
                     agentes de IA para WhatsApp 24/7
                   </Link>
                   , creamos{' '}
                   <Link
                     href="/servicios/software-a-medida"
-                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
                   >
                     software empresarial a medida
                   </Link>{' '}
                   sin licencias por usuario y ejecutamos{' '}
                   <Link
                     href="/servicios/automatizacion-de-procesos"
-                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
                   >
-                    automatización de procesos con n8n y ERP
+                    automatización de procesos y facturación
                   </Link>
                   .
                 </>
@@ -809,12 +809,12 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
           <aside className="mt-10 rounded-[24px] border border-rule bg-surface/90 p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="space-y-2.5 max-w-3xl">
               <span className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                {isEn ? 'Engineering Architecture Summary' : 'Arquitectura e Ingeniería Comercial Autonomek'}
+                {isEn ? 'Autonomek Solutions Summary' : 'Ecosistema Comercial Autonomek'}
               </span>
               <p className="text-sm sm:text-base text-muted leading-relaxed">
                 {isEn
-                  ? 'Autonomek is a B2B software and AI engineering firm headquartered in Medellín serving companies across Colombia, Mexico, Spain, and the United States. We deliver four integrated systems in 2 to 4 week sprints with fixed pricing and 100% source code ownership: sub-second Next.js websites built for Google SEO and AI search engines, 24/7 WhatsApp Business Cloud API sales agents backed by zero-hallucination RAG, n8n workflow automation connecting CRM and electronic billing, and proprietary PostgreSQL platforms with $0 monthly per-user licensing fees.'
-                  : 'Autonomek es una firma de ingeniería de software e inteligencia artificial B2B con sede en Medellín que opera para empresas en Colombia, México, España y Estados Unidos. Implementamos cuatro sistemas conectados en sprints de 2 a 4 semanas con presupuesto cerrado y 100% propiedad del código: desarrollo web en Next.js con carga en 0.6s para Google y ChatGPT, agentes de IA en WhatsApp Cloud API con arquitectura RAG (respuesta en 1.1s), automatización de procesos con n8n conectada a Siigo, Alegra, DIAN y CRMs, y software a medida en PostgreSQL con $0 en licencias mensuales por usuario.'}
+                  ? 'Autonomek is a B2B software and AI studio headquartered in Medellín serving companies across Colombia, Mexico, Spain, and the United States. We deliver four integrated systems in 2 to 4 week sprints with fixed pricing and 100% ownership: sub-second websites built for Google SEO and AI search engines, 24/7 WhatsApp sales agents trained on your catalog, process automation connecting CRM and electronic billing, and custom business platforms with $0 monthly per-user licensing fees.'
+                  : 'Autonomek es un estudio de software e inteligencia artificial B2B con sede en Medellín que trabaja para empresas en Colombia, México, España y Estados Unidos. Implementamos cuatro sistemas conectados en sprints de 2 a 4 semanas con presupuesto cerrado y 100% propiedad de tu plataforma: sitios web con carga en 0.6s para liderar en Google y ChatGPT, agentes de ventas 24/7 en WhatsApp (respuesta en 1.1s), automatización de procesos conectada a Siigo, Alegra, DIAN y CRMs, y software a medida con $0 en licencias mensuales por usuario.'}
               </p>
             </div>
             <Link
@@ -823,8 +823,8 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
             >
               <span>
                 {isEn
-                  ? 'Compare all 4 engineering pillars'
-                  : 'Ver comparativa técnica de los 4 servicios'}
+                  ? 'Compare all 4 solutions'
+                  : 'Ver comparativa de los 4 servicios'}
               </span>
               <ArrowUpRight size={16} />
             </Link>
@@ -925,8 +925,8 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
               </h2>
               <p className="mt-3 text-base sm:text-lg text-muted">
                 {isEn
-                  ? 'Select any case to inspect the architecture, technology stack, and what was engineered.'
-                  : 'Selecciona cualquier caso para ver la arquitectura, tecnologías y exactamente qué se desarrolló.'}
+                  ? 'Select any case to see what was built and how it operates in production.'
+                  : 'Selecciona cualquier caso para ver qué se desarrolló y cómo funciona en producción.'}
               </p>
             </div>
 
@@ -1098,19 +1098,19 @@ export default function HomeClient({ region = 'co' }: { region?: Region }) {
             <div className="max-w-2xl">
               <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                {isEn ? 'Technical Whitepapers' : 'Guías Técnicas y Análisis ROI'}
+                {isEn ? 'Practical Guides & ROI' : 'Guías Prácticas y Análisis ROI'}
               </span>
               <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
                 {isEn
-                  ? 'Deep dives on custom software, Next.js SEO & WhatsApp AI.'
-                  : 'Guías prácticas sobre software a medida, Next.js e IA.'}
+                  ? 'Deep dives on custom software, SEO & WhatsApp AI.'
+                  : 'Guías prácticas sobre software a medida, SEO e IA.'}
               </h2>
             </div>
             <Link
               href={isEn ? '/en/blog' : '/blog'}
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary underline decoration-primary/70 hover:decoration-primary underline-offset-4"
             >
-              <span>{isEn ? 'Explore all engineering guides' : 'Explorar todas las guías del blog'}</span>
+              <span>{isEn ? 'Explore all blog guides' : 'Explorar todas las guías del blog'}</span>
               <ArrowUpRight size={16} />
             </Link>
           </div>

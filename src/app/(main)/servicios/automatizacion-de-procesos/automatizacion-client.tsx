@@ -194,7 +194,7 @@ export default function AutomatizacionClient({
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-semibold tracking-tight leading-[1.07] text-foreground">
               {isEn ? (
                 <>
-                  B2B Process Automation & API Integrations:{' '}
+                  B2B Process Automation & Integrations:{' '}
                   <span className="text-muted font-normal">
                     connect WhatsApp, CRM, and ERP billing without manual typing.
                   </span>
@@ -203,7 +203,7 @@ export default function AutomatizacionClient({
                 <>
                   Servicio de Automatización de Procesos Empresariales{' '}
                   <span className="text-muted font-normal">
-                    con IA, n8n e integración ERP, CRM y contabilidad.
+                    con IA e integración a ERP, CRM y contabilidad.
                   </span>
                 </>
               )}
@@ -212,17 +212,17 @@ export default function AutomatizacionClient({
             <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted">
               {isEn ? (
                 <>
-                  Engineered by{' '}
+                  Built by{' '}
                   <Link
                     href="/en"
-                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
                   >
                     Autonomek
                   </Link>{' '}
-                  with n8n, durable webhooks, and official APIs so quotes, electronic invoices, inventory, and leads from{' '}
+                  with secure integrations and official APIs so quotes, electronic invoices, inventory, and leads from{' '}
                   <Link
                     href="/en/services/ai-agents"
-                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
                   >
                     WhatsApp AI agents
                   </Link>{' '}
@@ -233,14 +233,14 @@ export default function AutomatizacionClient({
                   Diseñado por{' '}
                   <Link
                     href="/"
-                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
                   >
                     Autonomek
                   </Link>{' '}
-                  con n8n, webhooks cifrados y APIs oficiales para conectar tus{' '}
+                  con integraciones seguras y conexiones oficiales para unir tus{' '}
                   <Link
                     href="/servicios/agentes-inteligencia-artificial"
-                    className="text-foreground font-medium underline decoration-primary/70 hover:decoration-primary hover:text-primary underline-offset-4 transition-colors"
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
                   >
                     agentes de IA en WhatsApp
                   </Link>
@@ -254,7 +254,7 @@ export default function AutomatizacionClient({
               <h2 className="text-xs font-mono uppercase tracking-[0.16em] text-primary font-semibold mb-2">
                 {isEn
                   ? 'What is B2B Process Automation at Autonomek?'
-                  : '¿Qué incluye la Automatización de Procesos con IA y n8n de Autonomek?'}
+                  : '¿Qué incluye la Automatización de Procesos con IA de Autonomek?'}
               </h2>
               <p className="text-xs sm:text-sm text-muted leading-relaxed">
                 {isEn ? (
@@ -266,7 +266,7 @@ export default function AutomatizacionClient({
                     >
                       Autonomek
                     </Link>{' '}
-                    connects WhatsApp Business API, CRMs (HubSpot, Pipedrive, Zoho), accounting software, and spreadsheets through resilient n8n and Node.js webhook pipelines with automatic retry queues. Implemented in 1 to 3 weeks, it eliminates 15 to 40+ weekly hours of copy-pasting for quotes, PDF contracts, inventory updates, and electronic invoices. For teams outgrowing sheets completely, these flows feed directly into{' '}
+                    connects WhatsApp Business, CRMs (HubSpot, Pipedrive, Zoho), accounting software, and spreadsheets through resilient automated pipelines with automatic retry protection. Implemented in 1 to 3 weeks, it eliminates 15 to 40+ weekly hours of copy-pasting for quotes, PDF contracts, inventory updates, and electronic invoices. For teams outgrowing sheets completely, these flows feed directly into{' '}
                     <Link
                       href="/en/services/custom-software"
                       className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
@@ -278,7 +278,7 @@ export default function AutomatizacionClient({
                       href="/en/blog/automate-whatsapp-crm-billing-workflows-n8n"
                       className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
                     >
-                      three-node WhatsApp-to-ERP automation blueprint
+                      three-step WhatsApp-to-ERP automation guide
                     </Link>
                     .
                   </>
@@ -291,7 +291,7 @@ export default function AutomatizacionClient({
                     >
                       Autonomek
                     </Link>{' '}
-                    orquesta integraciones en tiempo real mediante n8n, Node.js, colas de reintento y APIs oficiales entre WhatsApp, CRM, Google Sheets y software contable (Alegra, Siigo, facturación electrónica DIAN, SAT y ERPs). En 1 a 3 semanas eliminamos de 15 a 40+ horas semanales de digitación manual en cotizaciones PDF, conciliación de cartera, cuentas por cobrar e inventarios. Si necesitas reemplazar hojas sueltas por un sistema propio, conectamos estos flujos con{' '}
+                    conecta en tiempo real WhatsApp, CRM, Google Sheets y software contable (Alegra, Siigo, facturación electrónica DIAN, SAT y ERPs) mediante flujos seguros con respaldo automático. En 1 a 3 semanas eliminamos de 15 a 40+ horas semanales de digitación manual en cotizaciones PDF, conciliación de cartera, cuentas por cobrar e inventarios. Si necesitas reemplazar hojas sueltas por un sistema propio, conectamos estos flujos con{' '}
                     <Link
                       href="/servicios/software-a-medida"
                       className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
@@ -303,7 +303,7 @@ export default function AutomatizacionClient({
                       href="/blog/como-eliminar-copiar-pegar-automatizacion-whatsapp-crm-facturacion"
                       className="text-foreground underline decoration-rule hover:decoration-primary underline-offset-4"
                     >
-                      arquitectura de tres nodos para eliminar el copiar y pegar
+                      guía práctica para eliminar el copiar y pegar
                     </Link>
                     .
                   </>
