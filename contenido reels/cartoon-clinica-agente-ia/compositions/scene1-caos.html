@@ -1,0 +1,311 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #F0F9FF;
+      font-family: "Inter", sans-serif;
+      color: #0F172A;
+      overflow: hidden;
+    }
+    .s1-stage-svg {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+    }
+    /* Top flashing chaos alert banner inside safe zone */
+    .s1-alert-banner {
+      position: absolute;
+      left: 125px;
+      top: 295px;
+      width: 705px;
+      background: #DC2626;
+      border: 4px solid #18181B;
+      border-radius: 22px;
+      padding: 16px 24px;
+      box-shadow: 0 8px 0 #18181B, 0 18px 32px rgba(220, 38, 38, 0.28);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .s1-alert-count {
+      font-size: 36px;
+      font-weight: 900;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+    }
+    .s1-alert-wait {
+      background: #FACC15;
+      color: #0F172A;
+      border: 3px solid #18181B;
+      border-radius: 14px;
+      padding: 8px 16px;
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    /* Giant falling cartoon message bubbles */
+    .s1-cbub {
+      position: absolute;
+      border: 4px solid #18181B;
+      border-radius: 24px;
+      padding: 14px 20px;
+      box-shadow: 0 6px 0 #18181B;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .s1-cbub.wa { background: #047857; color: #FFFFFF; }
+    .s1-cbub.ig { background: #FACC15; color: #0F172A; }
+    .s1-cbub.web { background: #FFFFFF; color: #0F172A; }
+    .s1-cbub.red { background: #EF4444; color: #FFFFFF; }
+
+    .s1-cbub-txt {
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+    .s1-cbub-badge {
+      background: #DC2626;
+      color: #FFFFFF;
+      border: 3px solid #18181B;
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 28px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    .s1-cbub.red .s1-cbub-badge {
+      background: #FACC15;
+      color: #0F172A;
+    }
+
+    /* Angry patient leaving speech bubble */
+    .s1-angry-bub {
+      position: absolute;
+      left: 120px;
+      top: 792px;
+      background: #FFFFFF;
+      border: 4px solid #18181B;
+      border-radius: 22px;
+      padding: 8px 14px;
+      box-shadow: 0 6px 0 #18181B;
+      font-size: 28px;
+      font-weight: 900;
+      color: #B91C1C;
+      white-space: nowrap;
+      z-index: 4;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene1-caos" data-width="1080" data-height="1920">
+    <!-- Full-Screen 1080x1920 Cartoon Clinic Reception Stage -->
+    <svg class="s1-stage-svg" viewBox="0 0 1080 1920" fill="none" data-layout-ignore="true">
+      <!-- Wall & Ceiling -->
+      <rect x="0" y="0" width="1080" height="1340" fill="#E0F2FE"/>
+      <rect x="0" y="0" width="1080" height="240" fill="#BAE6FD"/>
+      <!-- Subtle vertical clinic wall stripes -->
+      <rect x="0" y="240" width="1080" height="14" fill="#18181B"/>
+      <rect x="0" y="1060" width="1080" height="280" fill="#BAE6FD"/>
+      <line x1="0" y1="1060" x2="1080" y2="1060" stroke="#18181B" stroke-width="4"/>
+
+      <!-- Left Clinic Glass Exit Door -->
+      <g id="s1-door">
+        <rect x="24" y="420" width="230" height="640" rx="14" fill="#FFFFFF" stroke="#18181B" stroke-width="4"/>
+        <rect x="44" y="446" width="190" height="390" rx="8" fill="#7DD3FC" stroke="#18181B" stroke-width="4"/>
+        <path d="M74 470L170 610M74 540L140 640" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" opacity="0.65"/>
+        <rect x="196" y="700" width="18" height="72" rx="9" fill="#94A3B8" stroke="#18181B" stroke-width="4"/>
+        <!-- Exit red sign above door -->
+        <rect x="64" y="370" width="150" height="40" rx="10" fill="#EF4444" stroke="#18181B" stroke-width="4"/>
+      </g>
+
+      <!-- Clinic Wall Cross Poster (right side) -->
+      <g>
+        <rect x="820" y="430" width="200" height="220" rx="18" fill="#FFFFFF" stroke="#18181B" stroke-width="4"/>
+        <path d="M920 480V600M860 540H980" stroke="#EF4444" stroke-width="26" stroke-linecap="round"/>
+      </g>
+
+      <!-- Giant Spinning Wall Clock (center-top wall) -->
+      <g id="s1-clock" transform="translate(540, 520)">
+        <circle cx="0" cy="0" r="115" fill="#DC2626" stroke="#18181B" stroke-width="5"/>
+        <circle cx="0" cy="0" r="95" fill="#FFFFFF" stroke="#18181B" stroke-width="4"/>
+        <circle cx="0" cy="-76" r="6" fill="#18181B"/>
+        <circle cx="76" cy="0" r="6" fill="#18181B"/>
+        <circle cx="0" cy="76" r="6" fill="#18181B"/>
+        <circle cx="-76" cy="0" r="6" fill="#18181B"/>
+        <line id="s1-clock-hr" x1="0" y1="0" x2="0" y2="-48" stroke="#18181B" stroke-width="8" stroke-linecap="round"/>
+        <line id="s1-clock-min" x1="0" y1="0" x2="66" y2="0" stroke="#EF4444" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="0" cy="0" r="10" fill="#DC2626" stroke="#18181B" stroke-width="3"/>
+      </g>
+
+      <!-- Angry Patient Turning Away & Leaving at Left -->
+      <g id="s1-angry-patient">
+        <!-- Legs walking left -->
+        <path d="M135 1230L105 1350M180 1230L215 1345" stroke="#1E293B" stroke-width="24" stroke-linecap="round"/>
+        <ellipse cx="95" cy="1355" rx="26" ry="12" fill="#18181B"/>
+        <ellipse cx="222" cy="1350" rx="26" ry="12" fill="#18181B"/>
+        <!-- Jacket / Torso -->
+        <path d="M96 1055C96 1005 130 985 162 985C194 985 228 1005 228 1055V1235H96V1055Z" fill="#EF4444" stroke="#18181B" stroke-width="4"/>
+        <!-- Crossed angry arm -->
+        <path d="M210 1075L145 1125" stroke="#18181B" stroke-width="18" stroke-linecap="round"/>
+        <path d="M210 1075L145 1125" stroke="#FDBA74" stroke-width="11" stroke-linecap="round"/>
+        <!-- Head turned left -->
+        <circle cx="158" cy="942" r="46" fill="#FDBA74" stroke="#18181B" stroke-width="4"/>
+        <path d="M122 925C128 892 162 884 194 900C206 906 210 924 206 942C190 928 158 920 122 925Z" fill="#334155" stroke="#18181B" stroke-width="4"/>
+        <!-- Furrowed brow & scowl -->
+        <path d="M126 932L146 942" stroke="#18181B" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="136" cy="948" r="4.5" fill="#18181B"/>
+        <path d="M124 968C132 960 144 960 150 968" stroke="#18181B" stroke-width="4" stroke-linecap="round"/>
+        <!-- Cartoon anger steam mark -->
+        <path d="M204 888L222 874M212 902L232 898" stroke="#DC2626" stroke-width="5" stroke-linecap="round"/>
+      </g>
+
+      <!-- Laura (Stressed Receptionist behind counter, x: 420..680, y: 740..1120) -->
+      <g id="s1-laura">
+        <!-- Hair back -->
+        <path d="M474 845C466 765 516 720 568 720C620 720 672 765 664 845L672 910H466L474 845Z" fill="#1E293B" stroke="#18181B" stroke-width="4"/>
+        <!-- Blue Medical Scrubs Torso -->
+        <path d="M440 1090C440 975 495 935 568 935C641 935 696 975 696 1090V1145H440V1090Z" fill="#0EA5E9" stroke="#18181B" stroke-width="4"/>
+        <path d="M532 935L568 986L604 935" fill="#E0F2FE" stroke="#18181B" stroke-width="4"/>
+        <!-- Neck & Face -->
+        <rect x="546" y="886" width="44" height="54" rx="16" fill="#FDBA74" stroke="#18181B" stroke-width="4"/>
+        <circle cx="568" cy="832" r="68" fill="#FED7AA" stroke="#18181B" stroke-width="4"/>
+        <!-- Messy Hair Bangs -->
+        <path d="M498 818C502 770 538 752 572 754C610 756 638 780 640 818C616 798 594 794 568 798C542 802 520 806 498 818Z" fill="#1E293B" stroke="#18181B" stroke-width="4"/>
+        <!-- Crooked Headset -->
+        <path d="M498 830C494 762 638 748 644 824" stroke="#334155" stroke-width="9" stroke-linecap="round"/>
+        <circle cx="496" cy="834" r="18" fill="#475569" stroke="#18181B" stroke-width="4"/>
+        <path d="M496 846L544 870" stroke="#18181B" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="546" cy="870" r="7" fill="#EF4444" stroke="#18181B" stroke-width="3"/>
+        <!-- Dark Under-Eye Bags & Wide Panicked Eyes -->
+        <path d="M524 848C532 856 548 856 556 848" stroke="#64748B" stroke-width="4" stroke-linecap="round"/>
+        <path d="M582 848C590 856 606 856 614 848" stroke="#64748B" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="540" cy="830" r="14" fill="#FFFFFF" stroke="#18181B" stroke-width="3.5"/>
+        <circle cx="598" cy="830" r="14" fill="#FFFFFF" stroke="#18181B" stroke-width="3.5"/>
+        <circle cx="540" cy="832" r="5.5" fill="#18181B"/>
+        <circle cx="598" cy="832" r="5.5" fill="#18181B"/>
+        <!-- Wavy Stressed Mouth -->
+        <path d="M542 874Q556 864 568 874Q580 884 594 874" stroke="#18181B" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+        <!-- Arms raised frantically -->
+        <path d="M452 1015L395 935" stroke="#0EA5E9" stroke-width="28" stroke-linecap="round"/>
+        <path d="M452 1015L395 935" stroke="#18181B" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="390" cy="924" r="20" fill="#FED7AA" stroke="#18181B" stroke-width="4"/>
+        <path d="M684 1015L742 935" stroke="#0EA5E9" stroke-width="28" stroke-linecap="round"/>
+        <circle cx="748" cy="924" r="20" fill="#FED7AA" stroke="#18181B" stroke-width="4"/>
+      </g>
+
+      <!-- Sweat Drops -->
+      <path id="s1-sweat1" d="M642 780C642 780 658 800 658 810C658 818 651 824 642 824C633 824 626 818 626 810C626 800 642 780 642 780Z" fill="#38BDF8" stroke="#18181B" stroke-width="3"/>
+      <path id="s1-sweat2" d="M480 786C480 786 494 804 494 812C494 819 488 824 480 824C472 824 466 819 466 812C466 804 480 786 480 786Z" fill="#38BDF8" stroke="#18181B" stroke-width="3"/>
+
+      <!-- Full-Width Foreground Reception Counter & Tiled Clinic Floor (y: 1120..1920) -->
+      <rect x="0" y="1330" width="1080" height="590" fill="#CBD5E1"/>
+      <path d="M0 1520H1080M0 1720H1080M270 1330V1920M540 1330V1920M810 1330V1920" stroke="#94A3B8" stroke-width="3" opacity="0.55"/>
+      <!-- Reception Counter Body -->
+      <rect x="-10" y="1120" width="1100" height="260" rx="18" fill="#FFFFFF" stroke="#18181B" stroke-width="5"/>
+      <rect x="-10" y="1120" width="1100" height="36" fill="#0284C7" stroke="#18181B" stroke-width="4"/>
+      <rect x="60" y="1196" width="960" height="140" rx="16" fill="#E0F2FE" stroke="#18181B" stroke-width="4"/>
+
+      <!-- Vibrating Desk Monitor + Smoke/Sparks -->
+      <g id="s1-monitor">
+        <rect x="640" y="1005" width="180" height="118" rx="14" fill="#1E293B" stroke="#18181B" stroke-width="4"/>
+        <rect x="654" y="1018" width="152" height="90" rx="8" fill="#FEE2E2" stroke="#18181B" stroke-width="3"/>
+        <path d="M700 1045L760 1085M760 1045L700 1085" stroke="#DC2626" stroke-width="9" stroke-linecap="round"/>
+        <rect x="712" y="1122" width="36" height="16" fill="#475569" stroke="#18181B" stroke-width="3"/>
+      </g>
+      <g id="s1-smoke">
+        <circle cx="710" cy="968" r="18" fill="#CBD5E1" stroke="#18181B" stroke-width="3"/>
+        <circle cx="742" cy="944" r="22" fill="#E2E8F0" stroke="#18181B" stroke-width="3"/>
+        <path d="M778 966L796 952M784 982L806 984" stroke="#FACC15" stroke-width="6" stroke-linecap="round"/>
+      </g>
+
+      <!-- Vibrating Smartphone on Counter -->
+      <g id="s1-phone">
+        <rect x="330" y="1032" width="76" height="120" rx="14" fill="#0F172A" stroke="#18181B" stroke-width="4"/>
+        <rect x="339" y="1044" width="58" height="92" rx="8" fill="#EF4444"/>
+        <circle cx="368" cy="1090" r="16" fill="#FACC15" stroke="#18181B" stroke-width="3"/>
+        <path d="M308 1066Q294 1090 308 1114M428 1066Q442 1090 428 1114" stroke="#EF4444" stroke-width="5" stroke-linecap="round" fill="none"/>
+      </g>
+    </svg>
+
+    <!-- Top Alert Banner -->
+    <div id="s1-banner" class="s1-alert-banner">
+      <div id="s1-counter-val" class="s1-alert-count">12 SIN LEER</div>
+      <div id="s1-wait-badge" class="s1-alert-wait">ESPERA: +4 HORAS</div>
+    </div>
+
+    <!-- Angry departing patient speech bubble -->
+    <div id="s1-angry-bub" class="s1-angry-bub" data-layout-allow-overlap="true" data-layout-allow-safe-zone="true">Me voy a otra clínica</div>
+
+    <!-- Giant Avalanche of Chat Bubbles burying Laura & counter -->
+    <div id="s1-b1" class="s1-cbub wa" style="left: 125px; top: 430px;" data-layout-allow-overlap="true">
+      <div class="s1-cbub-txt">¿Tienen cita hoy?</div>
+      <div class="s1-cbub-badge">WA</div>
+    </div>
+
+    <div id="s1-b2" class="s1-cbub ig" style="left: 445px; top: 610px;" data-layout-allow-overlap="true">
+      <div class="s1-cbub-txt">¿Cuánto vale?</div>
+      <div class="s1-cbub-badge">IG</div>
+    </div>
+
+    <div id="s1-b3" class="s1-cbub red" style="left: 125px; top: 550px;" data-layout-allow-overlap="true">
+      <div class="s1-cbub-txt">¿Atienden urgencias?</div>
+      <div class="s1-cbub-badge">99+</div>
+    </div>
+
+    <div id="s1-b4" class="s1-cbub web" style="left: 445px; top: 720px;" data-layout-allow-overlap="true">
+      <div class="s1-cbub-txt">¡Necesito reagendar!</div>
+      <div class="s1-cbub-badge">WEB</div>
+    </div>
+
+    <div id="s1-b5" class="s1-cbub wa" style="left: 385px; top: 865px;" data-layout-allow-overlap="true">
+      <div class="s1-cbub-txt">¿Nadie responde?!</div>
+      <div class="s1-cbub-badge">4h</div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Frame 0 Hook: B1, B2, Laura, Clock, Banner, Angry Patient ALL visible right at t=0!
+    tl.fromTo("#s1-b3", { opacity: 0, y: -140, rotation: -6, scale: 0.85 }, { opacity: 1, y: 0, rotation: -2, scale: 1, duration: 0.45, ease: "back.out(1.7)" }, 0.40);
+    tl.fromTo("#s1-b4", { opacity: 0, y: -140, rotation: 5, scale: 0.85 }, { opacity: 1, y: 0, rotation: 2, scale: 1, duration: 0.48, ease: "elastic.out(1, 0.55)" }, 1.15);
+    tl.fromTo("#s1-b5", { opacity: 0, y: -120, rotation: -4, scale: 0.85 }, { opacity: 1, y: 0, rotation: 1.5, scale: 1, duration: 0.48, ease: "elastic.out(1, 0.55)" }, 1.95);
+
+    // Laura frantic bounce & sweat drops
+    tl.fromTo("#s1-laura", { y: 0 }, { y: 10, duration: 0.22, ease: "power2.inOut", yoyo: true, repeat: 9 }, 0.2);
+    tl.fromTo("#s1-sweat1", { y: 0, opacity: 1 }, { y: 38, opacity: 0.3, duration: 0.55, ease: "power2.in", yoyo: true, repeat: 5 }, 0.3);
+    tl.fromTo("#s1-sweat2", { y: 0, opacity: 1 }, { y: 34, opacity: 0.3, duration: 0.5, ease: "power2.in", yoyo: true, repeat: 5 }, 0.55);
+
+    // Vibrating phone & smoking monitor shakes
+    tl.fromTo("#s1-phone", { rotation: -4, x: -4 }, { rotation: 5, x: 5, duration: 0.08, yoyo: true, repeat: 24, transformOrigin: "center bottom" }, 0.1);
+    tl.fromTo("#s1-monitor", { x: -4 }, { x: 4, duration: 0.09, yoyo: true, repeat: 22 }, 0.2);
+    tl.fromTo("#s1-smoke", { y: 0, scale: 0.85, opacity: 0.7 }, { y: -26, scale: 1.12, opacity: 1, duration: 0.65, yoyo: true, repeat: 5 }, 0.15);
+
+    // Angry patient stomping left + speech bubble pop
+    tl.fromTo("#s1-angry-bub", { opacity: 0, scale: 0.75, y: 16 }, { opacity: 1, scale: 1, y: 0, duration: 0.42, ease: "back.out(1.7)" }, 2.75);
+    tl.fromTo("#s1-angry-patient", { x: 24 }, { x: -34, duration: 2.2, ease: "power2.inOut" }, 2.75);
+
+    // Counter ramps 12 -> 248 SIN LEER
+    const cnt = { v: 12 };
+    const cntEl = document.getElementById("s1-counter-val");
+    tl.fromTo(
+      cnt,
+      { v: 12 },
+      { v: 248, duration: 3.8, ease: "power2.inOut", onUpdate: () => { cntEl.textContent = Math.round(cnt.v) + " SIN LEER"; } },
+      0.8
+    );
+
+    // Wildly spinning wall clock hands
+    tl.fromTo("#s1-clock-min", { rotation: 0, svgOrigin: "0 0" }, { rotation: 2160, duration: 8.0, ease: "none", svgOrigin: "0 0" }, 0.0);
+    tl.fromTo("#s1-clock-hr", { rotation: 0, svgOrigin: "0 0" }, { rotation: 420, duration: 8.0, ease: "none", svgOrigin: "0 0" }, 0.0);
+
+    // Banner urgency flash
+    tl.fromTo("#s1-banner", { scale: 1 }, { scale: 1.03, duration: 0.26, yoyo: true, repeat: 9 }, 2.8);
+
+    window.__timelines["scene1-caos"] = tl;
+  </script>
+</template>

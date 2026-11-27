@@ -1,0 +1,11 @@
+{
+  "name": "clinica-agente-ia",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.9.104 preview",
+    "check": "npx --yes hyperframes@0.9.104 check",
+    "render": "npx --yes hyperframes@0.9.104 render",
+    "publish": "npx --yes hyperframes@0.9.104 publish"
+  }
+}

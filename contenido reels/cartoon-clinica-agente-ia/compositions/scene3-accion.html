@@ -1,0 +1,424 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: transparent;
+      font-family: "Inter", sans-serif;
+      color: #0F172A;
+      overflow: hidden;
+    }
+    .s3-world {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      background: #F0F9FF;
+      overflow: hidden;
+    }
+    .s3-stage-svg {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+    }
+
+    /* Full-width 85% Action Boards inside Safe Area */
+    .s3-board {
+      position: absolute;
+      left: 125px;
+      top: 590px;
+      width: 700px;
+      background: #FFFFFF;
+      border: 5px solid #18181B;
+      border-radius: 26px;
+      padding: 24px;
+      box-shadow: 0 10px 0 #18181B, 0 24px 48px rgba(15, 23, 42, 0.14);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    #s3-b2, #s3-b3 {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .s3-b-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      border-bottom: 4px solid #E2E8F0;
+    }
+    .s3-b-title {
+      font-size: 34px;
+      font-weight: 900;
+      color: #0F172A;
+    }
+    .s3-b-tag {
+      background: #0891B2;
+      color: #FFFFFF;
+      border: 3px solid #18181B;
+      border-radius: 14px;
+      padding: 6px 16px;
+      font-size: 28px;
+      font-weight: 900;
+    }
+
+    /* Action 1: Giant Stylized Chat + Laser Beam */
+    .s3-q-bub {
+      align-self: flex-end;
+      background: #FACC15;
+      color: #0F172A;
+      border: 4px solid #18181B;
+      border-radius: 22px 22px 6px 22px;
+      padding: 18px 24px;
+      font-size: 34px;
+      font-weight: 900;
+      box-shadow: 0 5px 0 #18181B;
+    }
+    .s3-a-box {
+      background: #ECFEFF;
+      border: 4px solid #18181B;
+      border-radius: 22px 22px 22px 6px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      opacity: 0;
+    }
+    .s3-a-txt {
+      font-size: 32px;
+      font-weight: 800;
+      color: #0F172A;
+    }
+    .s3-slots {
+      display: flex;
+      gap: 16px;
+    }
+    .s3-slot {
+      flex: 1;
+      background: #FFFFFF;
+      border: 4px solid #18181B;
+      border-radius: 16px;
+      padding: 14px;
+      font-size: 32px;
+      font-weight: 900;
+      text-align: center;
+      color: #0F172A;
+      box-shadow: 0 5px 0 #06B6D4;
+    }
+    .s3-3s-badge {
+      align-self: flex-end;
+      background: #047857;
+      color: #FFFFFF;
+      border: 3px solid #18181B;
+      border-radius: 14px;
+      padding: 8px 18px;
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    /* Action 2: Giant Cartoon Calendar + Mechanical Stamp */
+    .s3-cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+    }
+    .s3-cal-dow {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 900;
+      color: #475569;
+    }
+    .s3-cal-d {
+      height: 68px;
+      border-radius: 14px;
+      background: #F8FAFC;
+      border: 3px solid #18181B;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 29px;
+      font-weight: 900;
+      color: #0F172A;
+    }
+    .s3-cal-d.off {
+      background: #E2E8F0;
+      color: #64748B;
+    }
+    .s3-stamp-badge {
+      background: #047857;
+      color: #FFFFFF;
+      border: 4px solid #18181B;
+      border-radius: 20px;
+      padding: 18px 24px;
+      box-shadow: 0 7px 0 #18181B;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      opacity: 0;
+    }
+    .s3-stamp-main {
+      font-size: 36px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+    }
+    .s3-stamp-boom {
+      background: #FACC15;
+      color: #0F172A;
+      border: 3px solid #18181B;
+      border-radius: 14px;
+      padding: 6px 14px;
+      font-size: 29px;
+      font-weight: 900;
+    }
+    .s3-mech-arm {
+      position: absolute;
+      left: 340px;
+      top: 470px;
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    /* Action 3: Parallel 24/7 Dispatch Strips */
+    .s3-p-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .s3-p-row {
+      background: #F8FAFC;
+      border: 4px solid #18181B;
+      border-left: 12px solid #06B6D4;
+      border-radius: 18px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .s3-p-topic {
+      font-size: 30px;
+      font-weight: 900;
+      color: #0F172A;
+    }
+    .s3-p-sub {
+      font-size: 28px;
+      font-weight: 700;
+      color: #334155;
+    }
+    .s3-p-ok {
+      background: #047857;
+      color: #FFFFFF;
+      border: 3px solid #18181B;
+      border-radius: 12px;
+      padding: 8px 16px;
+      font-size: 28px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    .s3-night-pill {
+      background: #0F172A;
+      color: #FACC15;
+      border: 3px solid #18181B;
+      border-radius: 14px;
+      padding: 6px 16px;
+      font-size: 28px;
+      font-weight: 900;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene3-accion" data-width="1080" data-height="1920">
+    <div id="s3-world" class="s3-world">
+      <svg class="s3-stage-svg" viewBox="0 0 1080 1920" fill="none" data-layout-ignore="true">
+        <!-- Clinic Wall -->
+        <rect x="0" y="0" width="1080" height="1340" fill="#F0F9FF"/>
+        <rect x="0" y="0" width="1080" height="240" fill="#BAE6FD"/>
+        <rect x="0" y="240" width="1080" height="12" fill="#18181B"/>
+
+        <!-- Large Clinic Window behind AI Agent (Day -> Night Morph) -->
+        <g id="s3-window">
+          <rect x="85" y="268" width="760" height="290" rx="24" fill="#FFFFFF" stroke="#18181B" stroke-width="5"/>
+          <rect id="s3-sky-day" x="103" y="286" width="724" height="254" rx="16" fill="#7DD3FC" stroke="#18181B" stroke-width="4"/>
+          <rect id="s3-sky-night" x="103" y="286" width="724" height="254" rx="16" fill="#1E1B4B" stroke="#18181B" stroke-width="4" opacity="0"/>
+          <!-- Sun & Cloud -->
+          <g id="s3-sun-group">
+            <circle cx="725" cy="360" r="44" fill="#FACC15" stroke="#18181B" stroke-width="4"/>
+            <path d="M165 380Q195 348 235 370Q268 360 285 385Q295 405 268 412H165Q145 400 165 380Z" fill="#FFFFFF" stroke="#18181B" stroke-width="3"/>
+          </g>
+          <!-- Moon & Stars -->
+          <g id="s3-moon-group" opacity="0">
+            <path d="M735 398A42 42 0 0 1 690 352C690 344 692 337 696 330A44 44 0 1 0 760 392A41 41 0 0 1 735 398Z" fill="#FACC15" stroke="#18181B" stroke-width="3.5"/>
+            <circle cx="180" cy="346" r="7" fill="#FACC15"/>
+            <circle cx="255" cy="390" r="5" fill="#FFFFFF"/>
+            <circle cx="620" cy="335" r="6" fill="#22D3EE"/>
+            <circle cx="315" cy="336" r="6" fill="#FACC15"/>
+          </g>
+          <!-- Window Mullion -->
+          <line x1="465" y1="286" x2="465" y2="540" stroke="#18181B" stroke-width="4"/>
+        </g>
+
+        <!-- Foreground Clinic Counter & Floor -->
+        <rect x="0" y="1330" width="1080" height="590" fill="#CBD5E1"/>
+        <path d="M0 1520H1080M0 1720H1080M270 1330V1920M540 1330V1920M810 1330V1920" stroke="#94A3B8" stroke-width="3" opacity="0.55"/>
+        <rect x="-10" y="1180" width="1100" height="200" rx="18" fill="#FFFFFF" stroke="#18181B" stroke-width="5"/>
+        <rect x="-10" y="1180" width="1100" height="32" fill="#06B6D4" stroke="#18181B" stroke-width="4"/>
+
+        <!-- Turquoise Energy Laser Ray for Action 1 -->
+        <path id="s3-ray" d="M465 495L465 760" stroke="#06B6D4" stroke-width="26" stroke-linecap="round" opacity="0"/>
+        <path id="s3-ray-core" d="M465 495L465 760" stroke="#FACC15" stroke-width="10" stroke-linecap="round" opacity="0"/>
+
+        <!-- AI Agent Hovering at Top Center directing the 3 actions (outer g preserves translate!) -->
+        <g transform="translate(475, 425)">
+          <g id="s3-agent">
+            <g id="s3-halo">
+              <ellipse cx="0" cy="0" rx="135" ry="48" stroke="#06B6D4" stroke-width="5" stroke-dasharray="14 10" transform="rotate(-8)"/>
+            </g>
+            <circle cx="0" cy="0" r="88" fill="#06B6D4" stroke="#18181B" stroke-width="5"/>
+            <path d="M-62 -38C-38 -68 18 -74 52 -50" stroke="#A5F3FC" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+            <rect x="-60" y="-36" width="120" height="58" rx="28" fill="#0F172A" stroke="#18181B" stroke-width="4"/>
+            <path d="M-34 -10C-29 -20 -16 -20 -11 -10" stroke="#22D3EE" stroke-width="7" stroke-linecap="round"/>
+            <path d="M11 -10C16 -20 29 -20 34 -10" stroke="#22D3EE" stroke-width="7" stroke-linecap="round"/>
+            <path d="M-16 8Q0 20 16 8" stroke="#10B981" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+            <!-- Pointing Arm -->
+            <path d="M84 18L130 62" stroke="#18181B" stroke-width="20" stroke-linecap="round"/>
+            <path d="M84 18L130 62" stroke="#22D3EE" stroke-width="11" stroke-linecap="round"/>
+            <circle cx="132" cy="64" r="14" fill="#FACC15" stroke="#18181B" stroke-width="3.5"/>
+          </g>
+        </g>
+      </svg>
+
+      <!-- ACTION 1: GIANT STYLIZED CHAT (0.0 - 4.0s) -->
+      <div id="s3-b1" class="s3-board">
+        <div class="s3-b-head">
+          <div class="s3-b-title">Chat Instantáneo</div>
+          <div class="s3-b-tag">En línea</div>
+        </div>
+        <div id="s3-q1" class="s3-q-bub">¿Tienen cita mañana?</div>
+        <div id="s3-a1" class="s3-a-box">
+          <div class="s3-a-txt">¡Claro! Elige tu horario:</div>
+          <div class="s3-slots">
+            <div class="s3-slot">10:30 AM</div>
+            <div class="s3-slot">4:00 PM</div>
+          </div>
+          <div class="s3-3s-badge">⚡ 3 SEG</div>
+        </div>
+      </div>
+
+      <!-- ACTION 2: GIANT CARTOON CALENDAR + MECHANICAL STAMP (4.0 - 8.0s) -->
+      <div id="s3-b2" class="s3-board">
+        <div class="s3-b-head">
+          <div class="s3-b-title">Agenda Directa</div>
+          <div class="s3-b-tag">Noviembre</div>
+        </div>
+        <div class="s3-cal-grid">
+          <div class="s3-cal-dow">L</div>
+          <div class="s3-cal-dow">M</div>
+          <div class="s3-cal-dow">X</div>
+          <div class="s3-cal-dow">J</div>
+          <div class="s3-cal-dow">V</div>
+          <div class="s3-cal-dow">S</div>
+          <div class="s3-cal-dow">D</div>
+          <div class="s3-cal-d off">9</div>
+          <div class="s3-cal-d">10</div>
+          <div class="s3-cal-d">11</div>
+          <div class="s3-cal-d">12</div>
+          <div class="s3-cal-d">13</div>
+          <div class="s3-cal-d">14</div>
+          <div id="s3-cal-day15" class="s3-cal-d">15</div>
+        </div>
+        <div id="s3-stamp-badge" class="s3-stamp-badge">
+          <div class="s3-stamp-main">✓ CITA CONFIRMADA</div>
+          <div class="s3-stamp-boom">¡PUM!</div>
+        </div>
+      </div>
+
+      <!-- Cartoon Mechanical Green Stamp Arm -->
+      <svg id="s3-mech-arm" class="s3-mech-arm" width="240" height="220" viewBox="0 0 240 220" fill="none" data-layout-ignore="true">
+        <rect x="96" y="0" width="48" height="120" rx="12" fill="#475569" stroke="#18181B" stroke-width="5"/>
+        <rect x="30" y="112" width="180" height="62" rx="16" fill="#10B981" stroke="#18181B" stroke-width="5"/>
+        <rect x="20" y="168" width="200" height="28" rx="10" fill="#065F46" stroke="#18181B" stroke-width="5"/>
+      </svg>
+
+      <!-- ACTION 3: NIGHT MODE PARALLEL DISPATCH (8.0 - 12.0s) -->
+      <div id="s3-b3" class="s3-board">
+        <div class="s3-b-head">
+          <div class="s3-b-title">Atención en Paralelo</div>
+          <div class="s3-night-pill">🌙 02:14 AM</div>
+        </div>
+        <div class="s3-p-list">
+          <div id="s3-pr1" class="s3-p-row">
+            <div>
+              <div class="s3-p-topic">Precios y planes</div>
+              <div class="s3-p-sub">Consulta desde $45</div>
+            </div>
+            <div class="s3-p-ok">✓ Enviado</div>
+          </div>
+          <div id="s3-pr2" class="s3-p-row">
+            <div>
+              <div class="s3-p-topic">Ubicación exacta</div>
+              <div class="s3-p-sub">Av. Central 420</div>
+            </div>
+            <div class="s3-p-ok">✓ Enviado</div>
+          </div>
+          <div id="s3-pr3" class="s3-p-row">
+            <div>
+              <div class="s3-p-topic">Cita madrugada</div>
+              <div class="s3-p-sub">Confirmada 9:00 AM</div>
+            </div>
+            <div class="s3-p-ok">✓ 24/7</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Local 0.00 = abs 13.85s: Fast whip-pan over Scene 2
+    tl.fromTo("#s3-world", { x: 1080 }, { x: 0, duration: 0.32, ease: "power4.out" }, 0.0);
+    tl.to("#s3-halo", { rotation: 360, duration: 11.8, ease: "none", svgOrigin: "0 0" }, 0.1);
+    tl.fromTo("#s3-agent", { y: -12 }, { y: 8, duration: 1.4, yoyo: true, repeat: 7, ease: "power1.inOut" }, 0.2);
+
+    // --- ACTION 1: Chat + Turquoise Laser Beam (0.0 - 4.15s) ---
+    tl.fromTo("#s3-b1", { opacity: 0, y: 40, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.30, ease: "back.out(1.5)" }, 0.12);
+    tl.fromTo("#s3-q1", { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.25, ease: "back.out(1.6)" }, 0.16);
+    // Laser beam zaps down
+    tl.fromTo("#s3-ray", { opacity: 0, scaleY: 0, transformOrigin: "top center" }, { opacity: 0.85, scaleY: 1, duration: 0.22, ease: "power3.out" }, 0.85);
+    tl.fromTo("#s3-ray-core", { opacity: 0, scaleY: 0, transformOrigin: "top center" }, { opacity: 1, scaleY: 1, duration: 0.22, ease: "power3.out" }, 0.85);
+    tl.to(["#s3-ray", "#s3-ray-core"], { opacity: 0, duration: 0.22 }, 1.25);
+    // AI Reply bounces in
+    tl.fromTo("#s3-a1", { opacity: 0, y: 26, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "elastic.out(1, 0.55)" }, 1.05);
+
+    tl.to("#s3-b1", { opacity: 0, x: -160, duration: 0.22, ease: "power3.in" }, 3.92);
+    tl.set("#s3-b1", { visibility: "hidden" }, 4.15);
+
+    // --- ACTION 2: Cartoon Calendar + Mechanical Stamp "¡PUM!" (4.15 - 8.15s) ---
+    tl.set("#s3-b2", { visibility: "visible" }, 4.15);
+    tl.fromTo("#s3-b2", { opacity: 0, x: 180 }, { opacity: 1, x: 0, duration: 0.38, ease: "back.out(1.4)" }, 4.15);
+    tl.to("#s3-cal-day15", { backgroundColor: "#0E7490", color: "#FFFFFF", scale: 1.12, duration: 0.28, ease: "back.out(1.7)" }, 4.85);
+    // Mechanical arm slams down onto day 15 cleanly without obscuring bottom banner text
+    tl.fromTo("#s3-mech-arm", { opacity: 0, y: -240 }, { opacity: 1, y: 185, duration: 0.22, ease: "power4.in" }, 5.18);
+    tl.to("#s3-b2", { y: 12, duration: 0.08, yoyo: true, repeat: 1 }, 5.40);
+    tl.to("#s3-mech-arm", { y: -240, opacity: 0, duration: 0.26, ease: "power3.out" }, 5.50);
+    tl.fromTo("#s3-stamp-badge", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.45, ease: "elastic.out(1, 0.5)" }, 5.42);
+
+    tl.to("#s3-b2", { opacity: 0, x: -160, duration: 0.22, ease: "power3.in" }, 7.92);
+    tl.set("#s3-b2", { visibility: "hidden" }, 8.15);
+
+    // --- ACTION 3: Day -> Night Window Morph + Parallel Replies (8.15 - 12.15s) ---
+    tl.set("#s3-b3", { visibility: "visible" }, 8.15);
+    tl.fromTo("#s3-b3", { opacity: 0, x: 180 }, { opacity: 1, x: 0, duration: 0.38, ease: "back.out(1.4)" }, 8.15);
+    tl.fromTo("#s3-pr1", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.36, ease: "back.out(1.6)" }, 8.45);
+    tl.fromTo("#s3-pr2", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.36, ease: "back.out(1.6)" }, 8.85);
+    tl.fromTo("#s3-pr3", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.36, ease: "back.out(1.6)" }, 9.25);
+
+    // Window behind AI Agent morphs from sunny day to starry night ("incluso de madrugada")
+    tl.to("#s3-sun-group", { opacity: 0, y: 55, duration: 0.55, ease: "power2.inOut" }, 10.15);
+    tl.to("#s3-sky-night", { opacity: 1, duration: 0.70, ease: "power2.inOut" }, 10.20);
+    tl.to("#s3-moon-group", { opacity: 1, duration: 0.65, ease: "power2.out" }, 10.45);
+
+    window.__timelines["scene3-accion"] = tl;
+  </script>
+</template>

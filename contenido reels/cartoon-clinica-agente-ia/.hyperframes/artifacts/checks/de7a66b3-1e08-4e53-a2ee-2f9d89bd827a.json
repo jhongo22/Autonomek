@@ -1,0 +1,658 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Audible clips overlap on Studio track 5: assets/sfx/phone-vibrate.mp3 at 0.02-1.17s and assets/sfx/pop-1.mp3 at 1.15-1.55s. Both play at once whatever their track (the render mixes every audible clip; data-track-index only picks the Studio lane), and Studio draws them over each other in that lane.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "If both should sound (a whoosh into a hit), give one its own data-track-index; the mix does not change. If one is a leftover duplicate, remove it or move it so the windows do not overlap."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Audible clips overlap on Studio track 5: assets/sfx/whoosh-panoramic.mp3 at 7.8-9s and assets/sfx/suction-zip.mp3 at 8.95-9.75s. Both play at once whatever their track (the render mixes every audible clip; data-track-index only picks the Studio lane), and Studio draws them over each other in that lane.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "If both should sound (a whoosh into a hit), give one its own data-track-index; the mix does not change. If one is a leftover duplicate, remove it or move it so the windows do not overlap."
+      }
+    ],
+    "filesScanned": 7
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"sfx-s2-suction\" is 0.73s but its slot (data-duration) is 0.80s — the slot is shortened to the media length when rendered. Set data-duration to ~0.73s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "40",
+          "data-fps": "60",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0
+      }
+    ]
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 8,
+    "infoCount": 2,
+    "findings": [
+      {
+        "selector": "#s1-b1 > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene1-caos.html",
+        "bbox": {
+          "x": 119,
+          "y": 453.75,
+          "width": 264.59,
+          "height": 36
+        },
+        "time": 2.222,
+        "rect": {
+          "left": 119,
+          "top": 453.75,
+          "right": 383.59,
+          "bottom": 489.75,
+          "width": 264.59,
+          "height": 36
+        },
+        "code": "outside_safe_zone",
+        "severity": "warning",
+        "text": "¿Tienen cita hoy?",
+        "message": "<div> \"¿Tienen cita hoy?\" is outside the safe area: TikTok (left edge).",
+        "fixHint": "Move the text inside the safe area, or mark text meant to sit there with data-layout-allow-safe-zone.",
+        "firstSeen": 2.222,
+        "lastSeen": 6.667,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          2.222,
+          6.667
+        ]
+      },
+      {
+        "selector": "#s1-angry-bub",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene1-caos.html",
+        "bbox": {
+          "x": 117,
+          "y": 776,
+          "width": 295.64,
+          "height": 35
+        },
+        "time": 6.667,
+        "rect": {
+          "left": 117,
+          "top": 776,
+          "right": 412.64,
+          "bottom": 811,
+          "width": 295.64,
+          "height": 35
+        },
+        "code": "outside_safe_zone",
+        "severity": "warning",
+        "text": "Me voy a otra clínica",
+        "message": "<div> \"Me voy a otra clínica\" is outside the safe area: TikTok (left edge).",
+        "fixHint": "Move the text inside the safe area, or mark text meant to sit there with data-layout-allow-safe-zone.",
+        "firstSeen": 6.667,
+        "lastSeen": 6.667,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.667
+        ]
+      },
+      {
+        "selector": "#s2-l1 > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene2-activacion.html",
+        "bbox": {
+          "x": 685.88,
+          "y": 874,
+          "width": 106.12,
+          "height": 34
+        },
+        "time": 11.111,
+        "rect": {
+          "left": 685.88,
+          "top": 874,
+          "right": 792,
+          "bottom": 908,
+          "width": 106.12,
+          "height": 34
+        },
+        "code": "outside_safe_zone",
+        "severity": "warning",
+        "text": "✓ 3 seg",
+        "message": "<div> \"✓ 3 seg\" is outside the safe area: TikTok (right edge).",
+        "fixHint": "Move the text inside the safe area, or mark text meant to sit there with data-layout-allow-safe-zone.",
+        "firstSeen": 11.111,
+        "lastSeen": 11.111,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.111
+        ]
+      },
+      {
+        "selector": "#s2-l2 > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene2-activacion.html",
+        "bbox": {
+          "x": 686.5,
+          "y": 982,
+          "width": 105.5,
+          "height": 34
+        },
+        "time": 11.111,
+        "rect": {
+          "left": 686.5,
+          "top": 982,
+          "right": 792,
+          "bottom": 1016,
+          "width": 105.5,
+          "height": 34
+        },
+        "code": "outside_safe_zone",
+        "severity": "warning",
+        "text": "✓ 2 seg",
+        "message": "<div> \"✓ 2 seg\" is outside the safe area: TikTok (right edge).",
+        "fixHint": "Move the text inside the safe area, or mark text meant to sit there with data-layout-allow-safe-zone.",
+        "firstSeen": 11.111,
+        "lastSeen": 11.111,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.111
+        ]
+      },
+      {
+        "selector": "#s3-b1 > div:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene3-accion.html",
+        "bbox": {
+          "x": 116,
+          "y": 626.5,
+          "width": 294.2,
+          "height": 41
+        },
+        "time": 15.556,
+        "rect": {
+          "left": 116,
+          "top": 626.5,
+          "right": 410.2,
+          "bottom": 667.5,
+          "width": 294.2,
+          "height": 41
+        },
+        "code": "outside_safe_zone",
+        "severity": "warning",
+        "text": "Chat Instantáneo",
+        "message": "<div> \"Chat Instantáneo\" is outside the safe area: TikTok (left edge).",
+        "fixHint": "Move the text inside the safe area, or mark text meant to sit there with data-layout-allow-safe-zone.",
+        "firstSeen": 15.556,
+        "lastSeen": 15.556,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          15.556
+        ]
+      },
+      {
+        "selector": "#s3-b2 > div:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene3-accion.html",
+        "bbox": {
+          "x": 116,
+          "y": 626.5,
+          "width": 262.78,
+          "height": 41
+        },
+        "time": 20,
+        "rect": {
+          "left": 116,
+          "top": 626.5,
+          "right": 378.78,
+          "bottom": 667.5,
+          "width": 262.78,
+          "height": 41
+        },
+        "code": "outside_safe_zone",
+        "severity": "warning",
+        "text": "Agenda Directa",
+        "message": "<div> \"Agenda Directa\" is outside the safe area: TikTok (left edge).",
+        "fixHint": "Move the text inside the safe area, or mark text meant to sit there with data-layout-allow-safe-zone.",
+        "firstSeen": 20,
+        "lastSeen": 20,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          20
+        ]
+      },
+      {
+        "selector": "#s3-b3 > div:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene3-accion.html",
+        "bbox": {
+          "x": 116,
+          "y": 628,
+          "width": 349.92,
+          "height": 41
+        },
+        "time": 24.444,
+        "rect": {
+          "left": 116,
+          "top": 628,
+          "right": 465.92,
+          "bottom": 669,
+          "width": 349.92,
+          "height": 41
+        },
+        "code": "outside_safe_zone",
+        "severity": "warning",
+        "text": "Atención en Paralelo",
+        "message": "<div> \"Atención en Paralelo\" is outside the safe area: TikTok (left edge).",
+        "fixHint": "Move the text inside the safe area, or mark text meant to sit there with data-layout-allow-safe-zone.",
+        "firstSeen": 24.444,
+        "lastSeen": 24.444,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          24.444
+        ]
+      },
+      {
+        "selector": "#s5-headline",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene5-cta.html",
+        "bbox": {
+          "x": 117.41,
+          "y": 686.81,
+          "width": 695.17,
+          "height": 131.83
+        },
+        "time": 37.778,
+        "rect": {
+          "left": 117.41,
+          "top": 686.81,
+          "right": 812.58,
+          "bottom": 818.64,
+          "width": 695.17,
+          "height": 131.83
+        },
+        "code": "outside_safe_zone",
+        "severity": "warning",
+        "text": "Automatiza la atención de tu hoy clínica",
+        "message": "<h1> \"Automatiza la atención de tu hoy clínica\" is outside the safe area: TikTok (left edge).",
+        "fixHint": "Move the text inside the safe area, or mark text meant to sit there with data-layout-allow-safe-zone.",
+        "firstSeen": 37.778,
+        "lastSeen": 37.778,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          37.778
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 0.447,
+        "selector": "#s1-b1 > div:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 119,
+          "top": 453.75,
+          "right": 383.59,
+          "bottom": 489.75,
+          "width": 264.59,
+          "height": 36
+        },
+        "containerSelector": "#s1-b3 > div:nth-of-type(1)",
+        "text": "¿Tienen cita hoy?",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply. Decoration nobody needs to read can take data-layout-ignore.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene1-caos.html",
+        "bbox": {
+          "x": 119,
+          "y": 453.75,
+          "width": 264.59,
+          "height": 36
+        },
+        "firstSeen": 0.447,
+        "lastSeen": 0.447,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          0.447
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 8.045,
+        "selector": "#s1-angry-bub",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 117,
+          "top": 776,
+          "right": 412.64,
+          "bottom": 811,
+          "width": 295.64,
+          "height": 35
+        },
+        "containerSelector": "#s2-chaos3",
+        "text": "Me voy a otra clínica",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply. Decoration nobody needs to read can take data-layout-ignore.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene1-caos.html",
+        "bbox": {
+          "x": 117,
+          "y": 776,
+          "width": 295.64,
+          "height": 35
+        },
+        "firstSeen": 8.045,
+        "lastSeen": 8.045,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          8.045
+        ]
+      }
+    ],
+    "duration": 40,
+    "samples": [
+      2.222,
+      6.667,
+      11.111,
+      15.556,
+      20,
+      24.444,
+      28.889,
+      33.333,
+      37.778
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 10,
+    "truncated": false,
+    "faceCheck": {
+      "ran": true,
+      "candidates": 0,
+      "faces": 0
+    }
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 7,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.54:1; WCAG AA requires 3:1.",
+        "text": "¿Tienen cita hoy?",
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(16,185,129)",
+        "ratio": 2.54,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(83,83,83)",
+        "large": true,
+        "selector": "div > div:nth-of-type(1) > div > div:nth-of-type(3) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene1-caos.html",
+        "bbox": {
+          "x": 119,
+          "y": 454.75,
+          "width": 264.59375,
+          "height": 34.5
+        },
+        "time": 2.222,
+        "times": [
+          2.222
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.62:1; WCAG AA requires 3:1.",
+        "text": "¿Nadie responde?!",
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(16,182,128)",
+        "ratio": 2.62,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(81,81,81)",
+        "large": true,
+        "selector": "div > div:nth-of-type(1) > div > div:nth-of-type(7) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene1-caos.html",
+        "bbox": {
+          "x": 409.2197570800781,
+          "y": 882.8871459960938,
+          "width": 283.7610778808594,
+          "height": 41.2117919921875
+        },
+        "time": 2.222,
+        "times": [
+          2.222
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.54:1; WCAG AA requires 3:1.",
+        "text": "✓ 3 seg",
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(16,185,129)",
+        "ratio": 2.54,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(83,83,83)",
+        "large": true,
+        "selector": "div > div:nth-of-type(2) > div > div > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene2-activacion.html",
+        "bbox": {
+          "x": 668.875,
+          "y": 865,
+          "width": 140.125,
+          "height": 52
+        },
+        "time": 11.111,
+        "times": [
+          11.111
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.54:1; WCAG AA requires 3:1.",
+        "text": "✓ 2 seg",
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(16,185,129)",
+        "ratio": 2.54,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(83,83,83)",
+        "large": true,
+        "selector": "div > div:nth-of-type(2) > div > div > div:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene2-activacion.html",
+        "bbox": {
+          "x": 669.5,
+          "y": 973,
+          "width": 139.5,
+          "height": 52
+        },
+        "time": 11.111,
+        "times": [
+          11.111
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.54:1; WCAG AA requires 3:1.",
+        "text": "✓ Listo",
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(16,185,129)",
+        "ratio": 2.54,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(83,83,83)",
+        "large": true,
+        "selector": "div > div:nth-of-type(2) > div > div > div:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene2-activacion.html",
+        "bbox": {
+          "x": 633.217529296875,
+          "y": 1082.15185546875,
+          "width": 127.33209228515625,
+          "height": 49.6962890625
+        },
+        "time": 11.111,
+        "times": [
+          11.111
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.43:1; WCAG AA requires 3:1.",
+        "text": "15",
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(6,182,212)",
+        "ratio": 2.43,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(86,86,86)",
+        "large": true,
+        "selector": "#s3-cal-day15",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene3-accion.html",
+        "bbox": {
+          "x": 717.3743896484375,
+          "y": 748.9199829101562,
+          "width": 102.094970703125,
+          "height": 76.1600341796875
+        },
+        "time": 20,
+        "times": [
+          20
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.54:1; WCAG AA requires 3:1.",
+        "text": "✓ CITA CONFIRMADA",
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(16,185,129)",
+        "ratio": 2.54,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(83,83,83)",
+        "large": true,
+        "selector": "div > div:nth-of-type(3) > div > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/scene3-accion.html",
+        "bbox": {
+          "x": 144,
+          "y": 865.5,
+          "width": 381.328125,
+          "height": 44
+        },
+        "time": 20,
+        "times": [
+          20
+        ]
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      2.222,
+      11.111,
+      20,
+      28.889,
+      37.778
+    ],
+    "checked": 62,
+    "passed": 55
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 320
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

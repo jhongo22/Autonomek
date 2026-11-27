@@ -1,0 +1,197 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: transparent;
+      font-family: "Inter", sans-serif;
+      overflow: hidden;
+    }
+    .s5-world {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      background: #0F172A;
+      overflow: hidden;
+    }
+    .s5-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(6, 182, 212, 0.12) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(6, 182, 212, 0.12) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+    .s5-glow {
+      position: absolute;
+      left: 460px;
+      top: 620px;
+      width: 960px;
+      height: 960px;
+      margin-left: -480px;
+      margin-top: -480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.25) 0%, rgba(16, 185, 129, 0.10) 45%, rgba(15, 23, 42, 0) 72%);
+      pointer-events: none;
+    }
+    .s5-safe {
+      position: absolute;
+      left: 125px;
+      top: 295px;
+      width: 700px;
+      height: 980px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 32px;
+      text-align: center;
+    }
+    /* Brand Sign + Waving AI Agent Row */
+    .s5-hero-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .s5-brand-sign {
+      background: #1E293B;
+      border: 4px solid #22D3EE;
+      border-radius: 22px;
+      padding: 18px 34px;
+      box-shadow: 0 8px 0 #0891B2, 0 18px 40px rgba(0, 0, 0, 0.35);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .s5-brand-logo {
+      width: 390px;
+      height: auto;
+      display: block;
+    }
+    .s5-headline {
+      font-size: 56px;
+      font-weight: 900;
+      color: #F8FAFC;
+      line-height: 1.14;
+      letter-spacing: -0.025em;
+      max-width: 740px;
+    }
+    .s5-hl-cyan {
+      color: #22D3EE;
+    }
+    .s5-cta-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .s5-cta-pulse {
+      position: absolute;
+      inset: -12px;
+      border-radius: 28px;
+      border: 4px solid #22D3EE;
+      pointer-events: none;
+      opacity: 0;
+    }
+    .s5-cta-btn {
+      position: relative;
+      background: linear-gradient(135deg, #10B981 0%, #06B6D4 100%);
+      color: #0F172A;
+      border: 4px solid #18181B;
+      border-radius: 22px;
+      padding: 24px 36px;
+      font-size: 33px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      box-shadow: 0 8px 0 #18181B, 0 18px 42px rgba(6, 182, 212, 0.34);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .s5-cursor {
+      position: absolute;
+      right: -24px;
+      bottom: -26px;
+      pointer-events: none;
+      opacity: 0;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene5-cta" data-width="1080" data-height="1920">
+    <div id="s5-world" class="s5-world">
+      <div class="s5-grid" data-layout-ignore="true"></div>
+      <div class="s5-glow" data-layout-ignore="true"></div>
+
+      <div class="s5-safe">
+        <div class="s5-hero-row">
+          <!-- Autonomek Official Lockup Sign -->
+          <div id="s5-brand-sign" class="s5-brand-sign">
+            <img class="s5-brand-logo" src="assets/brand/lockup-horizontal-white.svg" alt="Autonomek" />
+          </div>
+
+          <!-- Waving Cartoon AI Agent -->
+          <svg id="s5-agent" width="250" height="215" viewBox="0 0 320 260" fill="none" data-layout-ignore="true">
+            <g transform="translate(160, 142)">
+              <ellipse cx="0" cy="0" rx="130" ry="44" stroke="#06B6D4" stroke-width="5" stroke-dasharray="14 10" transform="rotate(-8)"/>
+              <!-- Waving Arm -->
+              <g id="s5-wave-arm">
+                <path d="M84 -10C120 -40 132 -78 122 -100" stroke="#18181B" stroke-width="22" stroke-linecap="round"/>
+                <path d="M84 -10C120 -40 132 -78 122 -100" stroke="#22D3EE" stroke-width="12" stroke-linecap="round"/>
+                <circle cx="122" cy="-104" r="16" fill="#FACC15" stroke="#18181B" stroke-width="4"/>
+              </g>
+              <path d="M-84 10C-120 26 -130 56 -116 74" stroke="#18181B" stroke-width="22" stroke-linecap="round"/>
+              <path d="M-84 10C-120 26 -130 56 -116 74" stroke="#22D3EE" stroke-width="12" stroke-linecap="round"/>
+              <circle cx="0" cy="0" r="88" fill="#06B6D4" stroke="#18181B" stroke-width="5"/>
+              <path d="M-62 -38C-38 -68 18 -74 52 -50" stroke="#A5F3FC" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+              <line x1="0" y1="-88" x2="0" y2="-116" stroke="#18181B" stroke-width="5"/>
+              <circle cx="0" cy="-120" r="12" fill="#10B981" stroke="#18181B" stroke-width="4"/>
+              <rect x="-60" y="-36" width="120" height="58" rx="28" fill="#0F172A" stroke="#18181B" stroke-width="4"/>
+              <path d="M-34 -10C-29 -20 -16 -20 -11 -10" stroke="#22D3EE" stroke-width="7" stroke-linecap="round"/>
+              <path d="M11 -10C16 -20 29 -20 34 -10" stroke="#22D3EE" stroke-width="7" stroke-linecap="round"/>
+              <path d="M-18 8Q0 24 18 8" stroke="#10B981" stroke-width="6" stroke-linecap="round" fill="none"/>
+            </g>
+          </svg>
+        </div>
+
+        <h1 id="s5-headline" class="s5-headline">
+          Automatiza la atención de tu <span class="s5-hl-cyan">clínica</span> hoy
+        </h1>
+
+        <div id="s5-cta-wrap" class="s5-cta-wrap">
+          <div id="s5-cta-pulse" class="s5-cta-pulse" data-layout-ignore="true"></div>
+          <div id="s5-cta-btn" class="s5-cta-btn">
+            <span data-var-text="ctaText">Solicita tu demo en autonomek.com</span>
+          </div>
+          <svg id="s5-cursor" class="s5-cursor" width="48" height="48" viewBox="0 0 52 52" fill="none" data-layout-ignore="true">
+            <path d="M12 8L40 22L27 27L22 40L12 8Z" fill="#FFFFFF" stroke="#18181B" stroke-width="3.5" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Local 0.00 = abs 33.80s: Full-bleed Navy whip-pan directly over Scene 4 (zero white cut!)
+    tl.fromTo("#s5-world", { x: 1080 }, { x: 0, duration: 0.34, ease: "power4.out" }, 0.0);
+    tl.set("#root", { backgroundColor: "#0F172A" }, 0.35);
+
+    tl.fromTo("#s5-brand-sign", { opacity: 0, y: -16, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.24, ease: "back.out(1.6)" }, 0.08);
+    tl.fromTo("#s5-agent", { opacity: 0, scale: 0.72 }, { opacity: 1, scale: 1, duration: 0.42, ease: "elastic.out(1, 0.5)" }, 0.14);
+    tl.fromTo("#s5-wave-arm", { rotation: -12, svgOrigin: "84 -10" }, { rotation: 16, duration: 0.28, yoyo: true, repeat: 9, svgOrigin: "84 -10" }, 0.50);
+
+    tl.fromTo("#s5-headline", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.24, ease: "power4.out" }, 0.22);
+    tl.fromTo("#s5-cta-wrap", { opacity: 0, y: 22, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.36, ease: "back.out(1.6)" }, 0.45);
+
+    // Cursor click + pulse synced to "pide tu demo"
+    tl.fromTo("#s5-cursor", { opacity: 0, x: 34, y: 34 }, { opacity: 1, x: 0, y: 0, duration: 0.32, ease: "power3.out" }, 4.00);
+    tl.to("#s5-cta-btn", { scale: 0.95, duration: 0.08, ease: "power2.in" }, 4.35);
+    tl.to("#s5-cta-btn", { scale: 1.0, duration: 0.25, ease: "back.out(1.8)" }, 4.43);
+    tl.fromTo("#s5-cta-pulse", { opacity: 0.9, scale: 1.0 }, { opacity: 0, scale: 1.16, duration: 0.65, ease: "power2.out" }, 4.43);
+
+    window.__timelines["scene5-cta"] = tl;
+  </script>
+</template>

@@ -1,0 +1,362 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #F8FAFC;
+      font-family: "Inter", sans-serif;
+      color: #0F172A;
+      overflow: hidden;
+    }
+    .s1-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, #E2E8F0 1px, transparent 1px),
+        linear-gradient(to bottom, #E2E8F0 1px, transparent 1px);
+      background-size: 72px 72px;
+      opacity: 0.45;
+    }
+    .s1-bg-tint {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 46% 42%, rgba(239, 68, 68, 0.08) 0%, rgba(248, 250, 252, 0) 68%);
+    }
+    .s1-safe {
+      position: absolute;
+      left: 95px;
+      top: 295px;
+      width: 730px;
+      height: 1050px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .s1-phone {
+      width: 720px;
+      background: #FFFFFF;
+      border-radius: 20px;
+      border: 2px solid #E2E8F0;
+      box-shadow: 0 22px 54px rgba(15, 23, 42, 0.09);
+      padding: 24px 24px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .s1-phone-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 2px solid #EEF2F6;
+    }
+    .s1-head-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .s1-clinic-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: #EEF2F6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .s1-head-title {
+      font-size: 30px;
+      font-weight: 800;
+      color: #0F172A;
+      letter-spacing: -0.02em;
+    }
+    .s1-unread-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #DC2626;
+      color: #FFFFFF;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 29px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      box-shadow: 0 8px 20px rgba(220, 38, 38, 0.25);
+    }
+    .s1-unread-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #FEF2F2;
+    }
+    .s1-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .s1-msg {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 18px;
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      border-left: 6px solid #EF4444;
+      border-radius: 20px;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.04);
+    }
+    .s1-msg.amber {
+      border-left-color: #F59E0B;
+    }
+    .s1-msg-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+    .s1-ch-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .s1-ch-wa { background: #DCFCE7; }
+    .s1-ch-ig { background: #FEF3C7; }
+    .s1-ch-web { background: #FEE2E2; }
+    .s1-msg-text {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0F172A;
+      line-height: 1.2;
+    }
+    .s1-msg-tag {
+      flex-shrink: 0;
+      font-size: 28px;
+      font-weight: 700;
+      color: #B91C1C;
+      background: #FEE2E2;
+      padding: 6px 12px;
+      border-radius: 12px;
+    }
+    .s1-msg.amber .s1-msg-tag {
+      color: #92400E;
+      background: #FEF3C7;
+    }
+    .s1-clock-bar {
+      width: 720px;
+      background: #FFFFFF;
+      border: 2px solid #FECACA;
+      border-radius: 20px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 16px 38px rgba(239, 68, 68, 0.12);
+    }
+    .s1-clock-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .s1-wait-badge {
+      background: #DC2626;
+      color: #FFFFFF;
+      padding: 12px 22px;
+      border-radius: 16px;
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+    .s1-wait-sub {
+      font-size: 28px;
+      font-weight: 600;
+      color: #475569;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene1-caos" data-width="1080" data-height="1920">
+    <div class="s1-bg-grid" data-layout-ignore="true"></div>
+    <div class="s1-bg-tint" data-layout-ignore="true"></div>
+
+    <div class="s1-safe">
+      <div id="s1-phone" class="s1-phone">
+        <div class="s1-phone-head">
+          <div class="s1-head-left">
+            <div class="s1-clinic-badge">
+              <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
+                <rect x="4" y="4" width="20" height="20" rx="6" stroke="#0F172A" stroke-width="2.5"/>
+                <path d="M14 9V19M9 14H19" stroke="#DC2626" stroke-width="2.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="s1-head-title">Mensajes Clínica</div>
+          </div>
+          <div id="s1-unread-pill" class="s1-unread-pill">
+            <span class="s1-unread-dot" data-layout-ignore="true"></span>
+            <span id="s1-counter-val">12 sin leer</span>
+          </div>
+        </div>
+
+        <div class="s1-feed">
+          <div id="s1-m1" class="s1-msg">
+            <div class="s1-msg-left">
+              <div class="s1-ch-icon s1-ch-wa">
+                <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
+                  <path d="M14 4C8.48 4 4 8.15 4 13.26c0 2.02.7 3.89 1.88 5.4L4.5 23.5l5.02-1.31A10.4 10.4 0 0 0 14 22.52c5.52 0 10-4.15 10-9.26S19.52 4 14 4Z" fill="#16A34A"/>
+                </svg>
+              </div>
+              <div class="s1-msg-text">¿Tienen cita hoy?</div>
+            </div>
+            <div class="s1-msg-tag">WhatsApp</div>
+          </div>
+
+          <div id="s1-m2" class="s1-msg amber">
+            <div class="s1-msg-left">
+              <div class="s1-ch-icon s1-ch-ig">
+                <svg width="24" height="24" viewBox="0 0 26 26" fill="none">
+                  <rect x="3" y="3" width="20" height="20" rx="6" stroke="#D97706" stroke-width="2.5"/>
+                  <circle cx="13" cy="13" r="4.5" stroke="#D97706" stroke-width="2.5"/>
+                  <circle cx="18.5" cy="7.5" r="1.5" fill="#D97706"/>
+                </svg>
+              </div>
+              <div class="s1-msg-text">¿Cuánto cuesta la consulta?</div>
+            </div>
+            <div class="s1-msg-tag">Instagram</div>
+          </div>
+
+          <div id="s1-m3" class="s1-msg">
+            <div class="s1-msg-left">
+              <div class="s1-ch-icon s1-ch-web">
+                <svg width="24" height="24" viewBox="0 0 26 26" fill="none">
+                  <circle cx="13" cy="13" r="9.5" stroke="#DC2626" stroke-width="2.3"/>
+                  <ellipse cx="13" cy="13" rx="4.5" ry="9.5" stroke="#DC2626" stroke-width="2"/>
+                  <path d="M4 13H22" stroke="#DC2626" stroke-width="2"/>
+                </svg>
+              </div>
+              <div class="s1-msg-text">Necesito reagendar</div>
+            </div>
+            <div class="s1-msg-tag">Web</div>
+          </div>
+
+          <div id="s1-m4" class="s1-msg">
+            <div class="s1-msg-left">
+              <div class="s1-ch-icon s1-ch-wa">
+                <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
+                  <path d="M14 4C8.48 4 4 8.15 4 13.26c0 2.02.7 3.89 1.88 5.4L4.5 23.5l5.02-1.31A10.4 10.4 0 0 0 14 22.52c5.52 0 10-4.15 10-9.26S19.52 4 14 4Z" fill="#16A34A"/>
+                </svg>
+              </div>
+              <div class="s1-msg-text">¿Atienden urgencias?</div>
+            </div>
+            <div class="s1-msg-tag">WhatsApp</div>
+          </div>
+
+          <div id="s1-m5" class="s1-msg amber">
+            <div class="s1-msg-left">
+              <div class="s1-ch-icon s1-ch-ig">
+                <svg width="24" height="24" viewBox="0 0 26 26" fill="none">
+                  <rect x="3" y="3" width="20" height="20" rx="6" stroke="#D97706" stroke-width="2.5"/>
+                  <circle cx="13" cy="13" r="4.5" stroke="#D97706" stroke-width="2.5"/>
+                </svg>
+              </div>
+              <div class="s1-msg-text">¿Tienen horario hoy?</div>
+            </div>
+            <div class="s1-msg-tag">Instagram</div>
+          </div>
+
+          <div id="s1-m6" class="s1-msg">
+            <div class="s1-msg-left">
+              <div class="s1-ch-icon s1-ch-web">
+                <svg width="24" height="24" viewBox="0 0 26 26" fill="none">
+                  <circle cx="13" cy="13" r="9.5" stroke="#DC2626" stroke-width="2.3"/>
+                  <path d="M4 13H22" stroke="#DC2626" stroke-width="2"/>
+                </svg>
+              </div>
+              <div class="s1-msg-text">Sigo esperando respuesta...</div>
+            </div>
+            <div class="s1-msg-tag">Web</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="s1-clock-bar" class="s1-clock-bar">
+        <div class="s1-clock-left">
+          <svg width="68" height="68" viewBox="0 0 72 72" fill="none">
+            <circle cx="36" cy="36" r="30" fill="#FEF2F2" stroke="#EF4444" stroke-width="4"/>
+            <line id="s1-clock-hr" x1="36" y1="36" x2="36" y2="20" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+            <line id="s1-clock-min" x1="36" y1="36" x2="50" y2="36" stroke="#DC2626" stroke-width="3.5" stroke-linecap="round"/>
+            <circle cx="36" cy="36" r="4" fill="#DC2626"/>
+          </svg>
+          <div>
+            <div class="s1-wait-sub">Tiempo de espera</div>
+          </div>
+        </div>
+        <div id="s1-wait-badge" class="s1-wait-badge">Espera: 4+ horas</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Frame 0 immediate hook: inbox + first 3 bubbles visible right at t=0
+    const arrivals = [
+      { id: "#s1-m4", t: 0.70 },
+      { id: "#s1-m5", t: 1.45 },
+      { id: "#s1-m6", t: 2.20 },
+    ];
+    for (const item of arrivals) {
+      tl.fromTo(
+        item.id,
+        { opacity: 0, y: -24, scale: 0.94 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.34, ease: "back.out(1.5)" },
+        item.t
+      );
+    }
+
+    tl.fromTo("#s1-phone", { x: 0 }, { x: 6, duration: 0.06, ease: "power2.out", yoyo: true, repeat: 3 }, 2.35);
+    tl.to("#s1-phone", { x: 0, duration: 0.08 }, 2.65);
+
+    const counterObj = { val: 12 };
+    const counterEl = document.getElementById("s1-counter-val");
+    tl.fromTo(
+      counterObj,
+      { val: 12 },
+      {
+        val: 248,
+        duration: 4.1,
+        ease: "power2.inOut",
+        onUpdate: () => {
+          counterEl.textContent = Math.round(counterObj.val) + " sin leer";
+        }
+      },
+      0.95
+    );
+
+    tl.fromTo(
+      "#s1-clock-min",
+      { rotation: 0, svgOrigin: "36 36" },
+      { rotation: 1860, duration: 8.0, ease: "none", svgOrigin: "36 36" },
+      0.0
+    );
+    tl.fromTo(
+      "#s1-clock-hr",
+      { rotation: 0, svgOrigin: "36 36" },
+      { rotation: 360, duration: 8.0, ease: "none", svgOrigin: "36 36" },
+      0.0
+    );
+
+    tl.fromTo(
+      "#s1-wait-badge",
+      { backgroundColor: "#DC2626", scale: 1 },
+      { backgroundColor: "#F59E0B", scale: 1.04, duration: 0.28, ease: "power2.out", yoyo: true, repeat: 7 },
+      3.1
+    );
+    tl.to("#s1-wait-badge", { backgroundColor: "#DC2626", scale: 1, duration: 0.2 }, 5.4);
+
+    window.__timelines["scene1-caos"] = tl;
+  </script>
+</template>

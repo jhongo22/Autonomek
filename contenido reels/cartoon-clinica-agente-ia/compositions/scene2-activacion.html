@@ -1,0 +1,281 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: transparent;
+      font-family: "Inter", sans-serif;
+      color: #0F172A;
+      overflow: hidden;
+    }
+    .s2-world {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      background: #F0F9FF;
+      overflow: hidden;
+    }
+    .s2-stage-svg {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+    }
+    .s2-headline-box {
+      position: absolute;
+      left: 125px;
+      top: 295px;
+      width: 700px;
+      background: #0F172A;
+      border: 4px solid #18181B;
+      border-radius: 22px;
+      padding: 18px 24px;
+      box-shadow: 0 8px 0 #0891B2;
+      text-align: center;
+    }
+    .s2-headline-txt {
+      font-size: 38px;
+      font-weight: 900;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .s2-hl-cyan {
+      color: #22D3EE;
+    }
+    /* Ordered luminous lanes */
+    .s2-lanes {
+      position: absolute;
+      left: 125px;
+      top: 855px;
+      width: 650px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .s2-lane {
+      background: #FFFFFF;
+      border: 4px solid #18181B;
+      border-left: 12px solid #06B6D4;
+      border-radius: 20px;
+      padding: 14px 16px;
+      box-shadow: 0 6px 0 #18181B;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .s2-lane.mint {
+      border-left-color: #10B981;
+    }
+    .s2-lane-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .s2-lane-ch {
+      background: #0891B2;
+      color: #FFFFFF;
+      border: 3px solid #18181B;
+      border-radius: 12px;
+      padding: 6px 12px;
+      font-size: 28px;
+      font-weight: 900;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .s2-lane.mint .s2-lane-ch {
+      background: #047857;
+    }
+    .s2-lane-msg {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0F172A;
+      white-space: nowrap;
+    }
+    .s2-lane-ok {
+      background: #047857;
+      color: #FFFFFF;
+      border: 3px solid #18181B;
+      border-radius: 12px;
+      padding: 6px 12px;
+      font-size: 28px;
+      font-weight: 900;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Chaos bubbles being vacuumed into the AI Agent */
+    .s2-chaos-orb {
+      position: absolute;
+      border: 4px solid #18181B;
+      border-radius: 20px;
+      padding: 10px 16px;
+      font-size: 28px;
+      font-weight: 900;
+      background: #EF4444;
+      color: #FFFFFF;
+      box-shadow: 0 5px 0 #18181B;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene2-activacion" data-width="1080" data-height="1920">
+    <div id="s2-world" class="s2-world">
+      <svg class="s2-stage-svg" viewBox="0 0 1080 1920" fill="none" data-layout-ignore="true">
+        <!-- Clinic Backdrop -->
+        <rect x="0" y="0" width="1080" height="1340" fill="#F0F9FF"/>
+        <rect x="0" y="0" width="1080" height="240" fill="#CCFBF1"/>
+        <rect x="0" y="240" width="1080" height="12" fill="#18181B"/>
+        <circle cx="480" cy="640" r="460" fill="#A5F3FC" opacity="0.35"/>
+
+        <!-- Reception Counter & Tiled Clinic Floor -->
+        <rect x="0" y="1330" width="1080" height="590" fill="#CBD5E1"/>
+        <path d="M0 1520H1080M0 1720H1080M270 1330V1920M540 1330V1920M810 1330V1920" stroke="#94A3B8" stroke-width="3" opacity="0.55"/>
+        <rect x="-10" y="1140" width="1100" height="240" rx="18" fill="#FFFFFF" stroke="#18181B" stroke-width="5"/>
+        <rect x="-10" y="1140" width="1100" height="34" fill="#06B6D4" stroke="#18181B" stroke-width="4"/>
+
+        <!-- Shockwave ring on impact -->
+        <circle id="s2-shockwave" cx="480" cy="650" r="140" stroke="#06B6D4" stroke-width="18" fill="none"/>
+
+        <!-- Holographic Suction/Organization Beams -->
+        <g id="s2-beams">
+          <path d="M480 680L210 860M480 680L480 860M480 680L750 860" stroke="#06B6D4" stroke-width="12" stroke-linecap="round" stroke-dasharray="18 14"/>
+        </g>
+
+        <!-- AUTONOMEK CARTOON AI AGENT (Center Hero - outer g holds translation so GSAP animates local y/scale cleanly!) -->
+        <g transform="translate(475, 610)">
+          <g id="s2-agent">
+          <!-- Orbital Halo Ring -->
+          <g id="s2-halo">
+            <ellipse cx="0" cy="0" rx="165" ry="62" stroke="#06B6D4" stroke-width="6" stroke-dasharray="18 12" transform="rotate(-12)"/>
+            <circle cx="152" cy="-22" r="12" fill="#FACC15" stroke="#18181B" stroke-width="3"/>
+            <circle cx="-154" cy="24" r="10" fill="#10B981" stroke="#18181B" stroke-width="3"/>
+          </g>
+
+          <!-- Holographic Arms -->
+          <g id="s2-arm-l">
+            <path d="M-92 10C-145 -20 -170 25 -158 68" stroke="#18181B" stroke-width="24" stroke-linecap="round"/>
+            <path d="M-92 10C-145 -20 -170 25 -158 68" stroke="#22D3EE" stroke-width="14" stroke-linecap="round"/>
+            <circle cx="-158" cy="72" r="18" fill="#FACC15" stroke="#18181B" stroke-width="4"/>
+          </g>
+          <g id="s2-arm-r">
+            <path d="M92 10C145 -20 170 25 158 68" stroke="#18181B" stroke-width="24" stroke-linecap="round"/>
+            <path d="M92 10C145 -20 170 25 158 68" stroke="#22D3EE" stroke-width="14" stroke-linecap="round"/>
+            <circle cx="158" cy="72" r="18" fill="#FACC15" stroke="#18181B" stroke-width="4"/>
+          </g>
+
+          <!-- Bright Turquoise Spherical Body -->
+          <circle cx="0" cy="0" r="108" fill="#06B6D4" stroke="#18181B" stroke-width="5"/>
+          <path d="M-76 -48C-48 -84 20 -92 64 -62" stroke="#A5F3FC" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
+          <!-- Antenna -->
+          <line x1="0" y1="-108" x2="0" y2="-142" stroke="#18181B" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="0" cy="-148" r="14" fill="#10B981" stroke="#18181B" stroke-width="4"/>
+
+          <!-- Expressive Dark Visor + Glowing Cyan Eyes -->
+          <rect x="-74" y="-44" width="148" height="72" rx="34" fill="#0F172A" stroke="#18181B" stroke-width="4"/>
+          <path d="M-42 -12C-36 -24 -20 -24 -14 -12" stroke="#22D3EE" stroke-width="8" stroke-linecap="round"/>
+          <path d="M14 -12C20 -24 36 -24 42 -12" stroke="#22D3EE" stroke-width="8" stroke-linecap="round"/>
+          <path d="M-20 8Q0 22 20 8" stroke="#10B981" stroke-width="6" stroke-linecap="round" fill="none"/>
+
+          <!-- Official Autonomek Unbound Cube Badge on Chest -->
+          <g transform="translate(-26, 42) scale(0.20)" fill="#FFFFFF">
+            <path d="M48.3 82 L128 128 L207.7 82 L207.7 174 L128 220 L48.3 174 Z"/>
+            <path fill-rule="evenodd" d="M128 16 L207.7 62 L128 108 L48.3 62 Z M128 39 A23 23 0 1 0 128 85 A23 23 0 1 0 128 39 Z"/>
+          </g>
+          </g>
+        </g>
+      </svg>
+
+      <!-- Top Headline (clean power4.out, zero excessive bounce) -->
+      <div id="s2-headline" class="s2-headline-box">
+        <div class="s2-headline-txt">
+          <span class="s2-hl-cyan">AGENTE IA 24/7</span> PARA TU CLÍNICA
+        </div>
+      </div>
+
+      <!-- Chaotic red bubbles sucked into AI Agent -->
+      <div id="s2-chaos1" class="s2-chaos-orb" style="left: 125px; top: 520px;" data-layout-allow-overlap="true">248 sin leer</div>
+      <div id="s2-chaos2" class="s2-chaos-orb" style="left: 595px; top: 500px;" data-layout-allow-overlap="true">¡Urgente!</div>
+      <div id="s2-chaos3" class="s2-chaos-orb" style="left: 145px; top: 740px;" data-layout-allow-overlap="true">¿Precio?</div>
+
+      <!-- 3 Luminous Ordered Channels -->
+      <div id="s2-lanes" class="s2-lanes">
+        <div id="s2-l1" class="s2-lane mint">
+          <div class="s2-lane-left">
+            <div class="s2-lane-ch">WhatsApp</div>
+            <div class="s2-lane-msg">¿Tienen cita hoy?</div>
+          </div>
+          <div class="s2-lane-ok">✓ 3 seg</div>
+        </div>
+
+        <div id="s2-l2" class="s2-lane">
+          <div class="s2-lane-left">
+            <div class="s2-lane-ch">Instagram</div>
+            <div class="s2-lane-msg">¿Cuánto cuesta?</div>
+          </div>
+          <div class="s2-lane-ok">✓ 2 seg</div>
+        </div>
+
+        <div id="s2-l3" class="s2-lane mint">
+          <div class="s2-lane-left">
+            <div class="s2-lane-ch">Web 24/7</div>
+            <div class="s2-lane-msg">Reagendar consulta</div>
+          </div>
+          <div class="s2-lane-ok">✓ Listo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Local 0.00 = abs 7.80s: Dynamic Whip-Pan slide directly over Scene 1 (NO empty circle!)
+    tl.fromTo(
+      "#s2-world",
+      { x: 1080 },
+      { x: 0, duration: 0.34, ease: "power4.out" },
+      0.0
+    );
+
+    // Shockwave burst + AI Agent slams onto counter right inside whip-pan (zero empty circle frames!)
+    tl.fromTo(
+      "#s2-shockwave",
+      { scale: 0.2, opacity: 1, svgOrigin: "480 650" },
+      { scale: 4.5, opacity: 0, duration: 0.72, ease: "power3.out", svgOrigin: "480 650" },
+      0.12
+    );
+    tl.fromTo(
+      "#s2-agent",
+      { y: -260, scale: 0.75, opacity: 1 },
+      { y: 0, scale: 1, opacity: 1, duration: 0.65, ease: "elastic.out(1, 0.5)" },
+      0.06
+    );
+    tl.to("#s2-halo", { rotation: 240, duration: 5.5, ease: "none", svgOrigin: "0 0" }, 0.15);
+
+    // Top headline lands crisply
+    tl.fromTo(
+      "#s2-headline",
+      { opacity: 0, y: -28 },
+      { opacity: 1, y: 0, duration: 0.34, ease: "power4.out" },
+      0.28
+    );
+
+    // Holographic arms reach out & suck red chaos bubbles into the center (1.1s - 2.1s)
+    tl.fromTo("#s2-arm-l", { rotation: 0, svgOrigin: "-92 10" }, { rotation: 25, duration: 0.35, yoyo: true, repeat: 3, svgOrigin: "-92 10" }, 0.90);
+    tl.fromTo("#s2-arm-r", { rotation: 0, svgOrigin: "92 10" }, { rotation: -25, duration: 0.35, yoyo: true, repeat: 3, svgOrigin: "92 10" }, 0.90);
+
+    tl.fromTo("#s2-chaos1", { opacity: 1, x: 0, y: 0, scale: 1 }, { opacity: 0, x: 260, y: 80, scale: 0.1, duration: 0.45, ease: "power3.in" }, 1.05);
+    tl.fromTo("#s2-chaos2", { opacity: 1, x: 0, y: 0, scale: 1 }, { opacity: 0, x: -200, y: 95, scale: 0.1, duration: 0.45, ease: "power3.in" }, 1.20);
+    tl.fromTo("#s2-chaos3", { opacity: 1, x: 0, y: 0, scale: 1 }, { opacity: 0, x: 230, y: -140, scale: 0.1, duration: 0.45, ease: "power3.in" }, 1.35);
+
+    // Beams light up & 3 luminous ordered lanes snap into place
+    tl.fromTo("#s2-beams", { opacity: 0 }, { opacity: 1, duration: 0.32, ease: "power2.out" }, 1.85);
+    tl.fromTo("#s2-l1", { opacity: 0, x: -60, scale: 0.92 }, { opacity: 1, x: 0, scale: 1, duration: 0.40, ease: "back.out(1.6)" }, 1.98);
+    tl.fromTo("#s2-l2", { opacity: 0, x: 60, scale: 0.92 }, { opacity: 1, x: 0, scale: 1, duration: 0.40, ease: "back.out(1.6)" }, 2.40);
+    tl.fromTo("#s2-l3", { opacity: 0, x: -60, scale: 0.92 }, { opacity: 1, x: 0, scale: 1, duration: 0.40, ease: "back.out(1.6)" }, 2.82);
+
+    window.__timelines["scene2-activacion"] = tl;
+  </script>
+</template>

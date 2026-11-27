@@ -1,0 +1,639 @@
+[
+  {
+    "id": "vo-1",
+    "scene_start": 0.25,
+    "mp3": "assets/audio/vo-1.mp3",
+    "words": [
+      {
+        "text": "En",
+        "start": 0.1,
+        "end": 0.343,
+        "abs_start": 0.35,
+        "abs_end": 0.593
+      },
+      {
+        "text": "una",
+        "start": 0.355,
+        "end": 0.513,
+        "abs_start": 0.605,
+        "abs_end": 0.763
+      },
+      {
+        "text": "clínica",
+        "start": 0.525,
+        "end": 0.974,
+        "abs_start": 0.775,
+        "abs_end": 1.224
+      },
+      {
+        "text": "los",
+        "start": 1.229,
+        "end": 1.362,
+        "abs_start": 1.479,
+        "abs_end": 1.612
+      },
+      {
+        "text": "mensajes",
+        "start": 1.374,
+        "end": 1.835,
+        "abs_start": 1.624,
+        "abs_end": 2.085
+      },
+      {
+        "text": "nunca",
+        "start": 1.848,
+        "end": 2.127,
+        "abs_start": 2.098,
+        "abs_end": 2.377
+      },
+      {
+        "text": "paran",
+        "start": 2.139,
+        "end": 2.43,
+        "abs_start": 2.389,
+        "abs_end": 2.68
+      },
+      {
+        "text": "y",
+        "start": 2.685,
+        "end": 2.709,
+        "abs_start": 2.935,
+        "abs_end": 2.959
+      },
+      {
+        "text": "tardar",
+        "start": 2.721,
+        "end": 3.013,
+        "abs_start": 2.971,
+        "abs_end": 3.263
+      },
+      {
+        "text": "horas",
+        "start": 3.025,
+        "end": 3.255,
+        "abs_start": 3.275,
+        "abs_end": 3.505
+      },
+      {
+        "text": "en",
+        "start": 3.267,
+        "end": 3.352,
+        "abs_start": 3.517,
+        "abs_end": 3.602
+      },
+      {
+        "text": "responder",
+        "start": 3.365,
+        "end": 3.874,
+        "abs_start": 3.615,
+        "abs_end": 4.124
+      },
+      {
+        "text": "te",
+        "start": 3.886,
+        "end": 3.983,
+        "abs_start": 4.136,
+        "abs_end": 4.233
+      },
+      {
+        "text": "hace",
+        "start": 3.996,
+        "end": 4.19,
+        "abs_start": 4.246,
+        "abs_end": 4.44
+      },
+      {
+        "text": "perder",
+        "start": 4.202,
+        "end": 4.493,
+        "abs_start": 4.452,
+        "abs_end": 4.743
+      },
+      {
+        "text": "pacientes",
+        "start": 4.505,
+        "end": 4.979,
+        "abs_start": 4.755,
+        "abs_end": 5.229
+      },
+      {
+        "text": "todos",
+        "start": 4.991,
+        "end": 5.258,
+        "abs_start": 5.241,
+        "abs_end": 5.508
+      },
+      {
+        "text": "los",
+        "start": 5.27,
+        "end": 5.428,
+        "abs_start": 5.52,
+        "abs_end": 5.678
+      },
+      {
+        "text": "días",
+        "start": 5.44,
+        "end": 5.937,
+        "abs_start": 5.69,
+        "abs_end": 6.187
+      }
+    ],
+    "last_word_end": 5.937,
+    "abs_end": 6.187
+  },
+  {
+    "id": "vo-2",
+    "scene_start": 8.15,
+    "mp3": "assets/audio/vo-2.mp3",
+    "words": [
+      {
+        "text": "Con",
+        "start": 0.1,
+        "end": 0.331,
+        "abs_start": 8.25,
+        "abs_end": 8.481
+      },
+      {
+        "text": "un",
+        "start": 0.343,
+        "end": 0.44,
+        "abs_start": 8.493,
+        "abs_end": 8.59
+      },
+      {
+        "text": "Agente",
+        "start": 0.452,
+        "end": 0.828,
+        "abs_start": 8.602,
+        "abs_end": 8.978
+      },
+      {
+        "text": "de",
+        "start": 0.84,
+        "end": 0.913,
+        "abs_start": 8.99,
+        "abs_end": 9.063
+      },
+      {
+        "text": "Inteligencia",
+        "start": 0.925,
+        "end": 1.52,
+        "abs_start": 9.075,
+        "abs_end": 9.67
+      },
+      {
+        "text": "Artificial",
+        "start": 1.532,
+        "end": 2.151,
+        "abs_start": 9.682,
+        "abs_end": 10.301
+      },
+      {
+        "text": "tu",
+        "start": 2.394,
+        "end": 2.503,
+        "abs_start": 10.544,
+        "abs_end": 10.653
+      },
+      {
+        "text": "clínica",
+        "start": 2.515,
+        "end": 2.903,
+        "abs_start": 10.665,
+        "abs_end": 11.053
+      },
+      {
+        "text": "atiende",
+        "start": 2.916,
+        "end": 3.243,
+        "abs_start": 11.066,
+        "abs_end": 11.393
+      },
+      {
+        "text": "al",
+        "start": 3.255,
+        "end": 3.328,
+        "abs_start": 11.405,
+        "abs_end": 11.478
+      },
+      {
+        "text": "instante",
+        "start": 3.34,
+        "end": 3.85,
+        "abs_start": 11.49,
+        "abs_end": 12.0
+      },
+      {
+        "text": "las 24 horas",
+        "start": 4.093,
+        "end": 5.318,
+        "abs_start": 12.243,
+        "abs_end": 13.468
+      }
+    ],
+    "last_word_end": 5.318,
+    "abs_end": 13.468
+  },
+  {
+    "id": "vo-3a",
+    "scene_start": 14.25,
+    "mp3": "assets/audio/vo-3a.mp3",
+    "words": [
+      {
+        "text": "Responde",
+        "start": 0.099,
+        "end": 0.658,
+        "abs_start": 14.349,
+        "abs_end": 14.908
+      },
+      {
+        "text": "dudas",
+        "start": 0.67,
+        "end": 0.973,
+        "abs_start": 14.92,
+        "abs_end": 15.223
+      },
+      {
+        "text": "en",
+        "start": 0.985,
+        "end": 1.082,
+        "abs_start": 15.235,
+        "abs_end": 15.332
+      },
+      {
+        "text": "segundos",
+        "start": 1.094,
+        "end": 1.701,
+        "abs_start": 15.344,
+        "abs_end": 15.951
+      }
+    ],
+    "last_word_end": 1.701,
+    "abs_end": 15.951
+  },
+  {
+    "id": "vo-3b",
+    "scene_start": 18.05,
+    "mp3": "assets/audio/vo-3b.mp3",
+    "words": [
+      {
+        "text": "agenda",
+        "start": 0.099,
+        "end": 0.597,
+        "abs_start": 18.149,
+        "abs_end": 18.647
+      },
+      {
+        "text": "citas",
+        "start": 0.609,
+        "end": 0.888,
+        "abs_start": 18.659,
+        "abs_end": 18.938
+      },
+      {
+        "text": "directo",
+        "start": 0.9,
+        "end": 1.216,
+        "abs_start": 18.95,
+        "abs_end": 19.266
+      },
+      {
+        "text": "en",
+        "start": 1.228,
+        "end": 1.301,
+        "abs_start": 19.278,
+        "abs_end": 19.351
+      },
+      {
+        "text": "tu",
+        "start": 1.313,
+        "end": 1.398,
+        "abs_start": 19.363,
+        "abs_end": 19.448
+      },
+      {
+        "text": "calendario",
+        "start": 1.41,
+        "end": 2.041,
+        "abs_start": 19.46,
+        "abs_end": 20.091
+      }
+    ],
+    "last_word_end": 2.041,
+    "abs_end": 20.091
+  },
+  {
+    "id": "vo-3c",
+    "scene_start": 21.85,
+    "mp3": "assets/audio/vo-3c.mp3",
+    "words": [
+      {
+        "text": "y",
+        "start": 0.099,
+        "end": 0.269,
+        "abs_start": 21.949,
+        "abs_end": 22.119
+      },
+      {
+        "text": "atiende",
+        "start": 0.281,
+        "end": 0.609,
+        "abs_start": 22.131,
+        "abs_end": 22.459
+      },
+      {
+        "text": "a",
+        "start": 0.621,
+        "end": 0.645,
+        "abs_start": 22.471,
+        "abs_end": 22.495
+      },
+      {
+        "text": "decenas",
+        "start": 0.658,
+        "end": 1.046,
+        "abs_start": 22.508,
+        "abs_end": 22.896
+      },
+      {
+        "text": "de",
+        "start": 1.058,
+        "end": 1.119,
+        "abs_start": 22.908,
+        "abs_end": 22.969
+      },
+      {
+        "text": "pacientes",
+        "start": 1.131,
+        "end": 1.628,
+        "abs_start": 22.981,
+        "abs_end": 23.478
+      },
+      {
+        "text": "al",
+        "start": 1.641,
+        "end": 1.738,
+        "abs_start": 23.491,
+        "abs_end": 23.588
+      },
+      {
+        "text": "mismo",
+        "start": 1.75,
+        "end": 2.053,
+        "abs_start": 23.6,
+        "abs_end": 23.903
+      },
+      {
+        "text": "tiempo",
+        "start": 2.065,
+        "end": 2.478,
+        "abs_start": 23.915,
+        "abs_end": 24.328
+      },
+      {
+        "text": "incluso",
+        "start": 2.684,
+        "end": 3.06,
+        "abs_start": 24.534,
+        "abs_end": 24.91
+      },
+      {
+        "text": "de",
+        "start": 3.073,
+        "end": 3.145,
+        "abs_start": 24.923,
+        "abs_end": 24.995
+      },
+      {
+        "text": "madrugada",
+        "start": 3.158,
+        "end": 3.813,
+        "abs_start": 25.008,
+        "abs_end": 25.663
+      }
+    ],
+    "last_word_end": 3.813,
+    "abs_end": 25.663
+  },
+  {
+    "id": "vo-4",
+    "scene_start": 26.3,
+    "mp3": "assets/audio/vo-4.mp3",
+    "words": [
+      {
+        "text": "Tu",
+        "start": 0.1,
+        "end": 0.282,
+        "abs_start": 26.4,
+        "abs_end": 26.582
+      },
+      {
+        "text": "equipo",
+        "start": 0.294,
+        "end": 0.598,
+        "abs_start": 26.594,
+        "abs_end": 26.898
+      },
+      {
+        "text": "deja",
+        "start": 0.61,
+        "end": 0.852,
+        "abs_start": 26.91,
+        "abs_end": 27.152
+      },
+      {
+        "text": "de",
+        "start": 0.865,
+        "end": 0.937,
+        "abs_start": 27.165,
+        "abs_end": 27.237
+      },
+      {
+        "text": "vivir",
+        "start": 0.95,
+        "end": 1.253,
+        "abs_start": 27.25,
+        "abs_end": 27.553
+      },
+      {
+        "text": "pegado",
+        "start": 1.265,
+        "end": 1.605,
+        "abs_start": 27.565,
+        "abs_end": 27.905
+      },
+      {
+        "text": "al",
+        "start": 1.617,
+        "end": 1.726,
+        "abs_start": 27.917,
+        "abs_end": 28.026
+      },
+      {
+        "text": "celular",
+        "start": 1.738,
+        "end": 2.115,
+        "abs_start": 28.038,
+        "abs_end": 28.415
+      },
+      {
+        "text": "y",
+        "start": 2.127,
+        "end": 2.175,
+        "abs_start": 28.427,
+        "abs_end": 28.475
+      },
+      {
+        "text": "tus",
+        "start": 2.187,
+        "end": 2.357,
+        "abs_start": 28.487,
+        "abs_end": 28.657
+      },
+      {
+        "text": "pacientes",
+        "start": 2.369,
+        "end": 2.867,
+        "abs_start": 28.669,
+        "abs_end": 29.167
+      },
+      {
+        "text": "reciben",
+        "start": 2.879,
+        "end": 3.304,
+        "abs_start": 29.179,
+        "abs_end": 29.604
+      },
+      {
+        "text": "la",
+        "start": 3.316,
+        "end": 3.389,
+        "abs_start": 29.616,
+        "abs_end": 29.689
+      },
+      {
+        "text": "atención",
+        "start": 3.401,
+        "end": 3.862,
+        "abs_start": 29.701,
+        "abs_end": 30.162
+      },
+      {
+        "text": "inmediata",
+        "start": 3.874,
+        "end": 4.36,
+        "abs_start": 30.174,
+        "abs_end": 30.66
+      },
+      {
+        "text": "que",
+        "start": 4.372,
+        "end": 4.481,
+        "abs_start": 30.672,
+        "abs_end": 30.781
+      },
+      {
+        "text": "esperan",
+        "start": 4.493,
+        "end": 5.076,
+        "abs_start": 30.793,
+        "abs_end": 31.376
+      }
+    ],
+    "last_word_end": 5.076,
+    "abs_end": 31.376
+  },
+  {
+    "id": "vo-5",
+    "scene_start": 34.3,
+    "mp3": "assets/audio/vo-5.mp3",
+    "words": [
+      {
+        "text": "Automatiza",
+        "start": 0.123,
+        "end": 0.79,
+        "abs_start": 34.423,
+        "abs_end": 35.09
+      },
+      {
+        "text": "la",
+        "start": 0.802,
+        "end": 0.899,
+        "abs_start": 35.102,
+        "abs_end": 35.199
+      },
+      {
+        "text": "atención",
+        "start": 0.912,
+        "end": 1.361,
+        "abs_start": 35.212,
+        "abs_end": 35.661
+      },
+      {
+        "text": "de",
+        "start": 1.373,
+        "end": 1.458,
+        "abs_start": 35.673,
+        "abs_end": 35.758
+      },
+      {
+        "text": "tu",
+        "start": 1.47,
+        "end": 1.579,
+        "abs_start": 35.77,
+        "abs_end": 35.879
+      },
+      {
+        "text": "clínica",
+        "start": 1.591,
+        "end": 1.992,
+        "abs_start": 35.891,
+        "abs_end": 36.292
+      },
+      {
+        "text": "hoy",
+        "start": 2.004,
+        "end": 2.344,
+        "abs_start": 36.304,
+        "abs_end": 36.644
+      },
+      {
+        "text": "Escríbenos",
+        "start": 3.181,
+        "end": 3.897,
+        "abs_start": 37.481,
+        "abs_end": 38.197
+      },
+      {
+        "text": "y",
+        "start": 3.909,
+        "end": 3.97,
+        "abs_start": 38.209,
+        "abs_end": 38.27
+      },
+      {
+        "text": "pide",
+        "start": 3.982,
+        "end": 4.225,
+        "abs_start": 38.282,
+        "abs_end": 38.525
+      },
+      {
+        "text": "tu",
+        "start": 4.237,
+        "end": 4.346,
+        "abs_start": 38.537,
+        "abs_end": 38.646
+      },
+      {
+        "text": "demo",
+        "start": 4.358,
+        "end": 4.71,
+        "abs_start": 38.658,
+        "abs_end": 39.01
+      }
+    ],
+    "last_word_end": 4.71,
+    "abs_end": 39.01
+  }
+]

@@ -1,0 +1,215 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: transparent;
+      font-family: "Inter", sans-serif;
+      color: #0F172A;
+      overflow: hidden;
+    }
+    .s4-world {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      background: #F0F9FF;
+      overflow: hidden;
+    }
+    .s4-stage-svg {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+    }
+    /* Cartoon Status Board mounted above counter inside Safe Zone */
+    .s4-board {
+      position: absolute;
+      left: 125px;
+      top: 295px;
+      width: 685px;
+      background: #FFFFFF;
+      border: 5px solid #18181B;
+      border-radius: 26px;
+      padding: 20px 24px;
+      box-shadow: 0 9px 0 #18181B, 0 20px 44px rgba(15, 23, 42, 0.10);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .s4-kpi {
+      background: #F0FDFA;
+      border: 4px solid #18181B;
+      border-left: 12px solid #10B981;
+      border-radius: 18px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .s4-kpi.cyan {
+      background: #ECFEFF;
+      border-left-color: #06B6D4;
+    }
+    .s4-kpi-num {
+      font-size: 50px;
+      font-weight: 900;
+      color: #059669;
+      letter-spacing: -0.03em;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.0;
+    }
+    .s4-kpi.cyan .s4-kpi-num {
+      color: #0891B2;
+    }
+    .s4-kpi-lbl {
+      font-size: 29px;
+      font-weight: 900;
+      color: #0F172A;
+      text-align: right;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene4-resultados" data-width="1080" data-height="1920">
+    <div id="s4-world" class="s4-world">
+      <svg class="s4-stage-svg" viewBox="0 0 1080 1920" fill="none" data-layout-ignore="true">
+        <!-- Bright Spotless Clinic Reception -->
+        <rect x="0" y="0" width="1080" height="1340" fill="#F0F9FF"/>
+        <rect x="0" y="0" width="1080" height="240" fill="#D1FAE5"/>
+        <rect x="0" y="240" width="1080" height="12" fill="#18181B"/>
+
+        <!-- Sunny Clinic Window on Right (clean gap from KPI board) -->
+        <rect x="835" y="340" width="215" height="340" rx="22" fill="#FFFFFF" stroke="#18181B" stroke-width="4"/>
+        <rect x="851" y="356" width="183" height="308" rx="14" fill="#7DD3FC" stroke="#18181B" stroke-width="3"/>
+        <circle cx="972" cy="420" r="34" fill="#FACC15" stroke="#18181B" stroke-width="3"/>
+
+        <!-- Healthy Potted Plant (left) -->
+        <g transform="translate(80, 970)">
+          <path d="M22 100L34 180H106L118 100H22Z" fill="#06B6D4" stroke="#18181B" stroke-width="4"/>
+          <path d="M70 100C40 50 10 42 18 76C24 94 46 100 70 100Z" fill="#10B981" stroke="#18181B" stroke-width="4"/>
+          <path d="M70 100C100 44 132 42 122 76C116 94 94 100 70 100Z" fill="#059669" stroke="#18181B" stroke-width="4"/>
+          <path d="M70 100C64 36 80 16 92 42C100 62 84 86 70 100Z" fill="#34D399" stroke="#18181B" stroke-width="4"/>
+        </g>
+
+        <!-- LAURA: Calm, Beaming Smile behind Spotless Counter -->
+        <g id="s4-laura">
+          <path d="M264 890C258 820 302 782 350 782C398 782 442 820 436 890L444 950H256L264 890Z" fill="#1E293B" stroke="#18181B" stroke-width="4"/>
+          <path d="M236 1120C236 1015 284 975 350 975C416 975 464 1015 464 1120V1160H236V1120Z" fill="#0EA5E9" stroke="#18181B" stroke-width="4"/>
+          <path d="M318 975L350 1020L382 975" fill="#E0F2FE" stroke="#18181B" stroke-width="4"/>
+          <rect x="330" y="932" width="40" height="48" rx="14" fill="#FDBA74" stroke="#18181B" stroke-width="4"/>
+          <circle cx="350" cy="884" r="60" fill="#FED7AA" stroke="#18181B" stroke-width="4"/>
+          <path d="M288 872C292 830 324 814 354 816C386 818 412 838 414 872C394 854 374 850 350 854C326 858 308 862 288 872Z" fill="#1E293B" stroke="#18181B" stroke-width="4"/>
+          <!-- Happy eyes & warm smile -->
+          <circle cx="328" cy="886" r="6.5" fill="#18181B"/>
+          <circle cx="372" cy="886" r="6.5" fill="#18181B"/>
+          <path d="M326 912C338 928 362 928 374 912" stroke="#18181B" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+          <!-- Calm arm handing green slip -->
+          <path d="M446 1040L522 1068" stroke="#0EA5E9" stroke-width="24" stroke-linecap="round"/>
+          <circle cx="526" cy="1070" r="17" fill="#FED7AA" stroke="#18181B" stroke-width="4"/>
+          <rect x="518" y="1038" width="54" height="40" rx="8" fill="#10B981" stroke="#18181B" stroke-width="3.5"/>
+          <path d="M532 1058L542 1068L560 1048" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+
+        <!-- HAPPY WALK-IN PATIENT IN FRONT OF COUNTER -->
+        <g id="s4-patient">
+          <path d="M604 1140C604 1020 656 980 726 980C796 980 848 1020 848 1140V1280H604V1140Z" fill="#10B981" stroke="#18181B" stroke-width="4"/>
+          <rect x="706" y="936" width="40" height="48" rx="14" fill="#FDBA74" stroke="#18181B" stroke-width="4"/>
+          <circle cx="726" cy="884" r="60" fill="#FED7AA" stroke="#18181B" stroke-width="4"/>
+          <path d="M668 866C674 824 706 810 738 814C768 818 786 838 786 866C762 850 704 848 668 866Z" fill="#334155" stroke="#18181B" stroke-width="4"/>
+          <circle cx="704" cy="884" r="6.5" fill="#18181B"/>
+          <circle cx="748" cy="884" r="6.5" fill="#18181B"/>
+          <path d="M702 910C714 926 738 926 750 910" stroke="#18181B" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+          <!-- Reaching hand accepting slip -->
+          <path d="M622 1055L562 1072" stroke="#10B981" stroke-width="24" stroke-linecap="round"/>
+          <circle cx="558" cy="1072" r="17" fill="#FED7AA" stroke="#18181B" stroke-width="4"/>
+        </g>
+
+        <!-- Spotless Foreground Reception Counter & Tiled Floor -->
+        <rect x="0" y="1330" width="1080" height="590" fill="#CBD5E1"/>
+        <path d="M0 1520H1080M0 1720H1080M270 1330V1920M540 1330V1920M810 1330V1920" stroke="#94A3B8" stroke-width="3" opacity="0.55"/>
+        <rect x="-10" y="1145" width="1100" height="235" rx="18" fill="#FFFFFF" stroke="#18181B" stroke-width="5"/>
+        <rect x="-10" y="1145" width="1100" height="34" fill="#10B981" stroke="#18181B" stroke-width="4"/>
+        <rect x="60" y="1215" width="960" height="125" rx="16" fill="#ECFDF5" stroke="#18181B" stroke-width="4"/>
+      </svg>
+
+      <!-- Counter Odometers Board (zero bounce on digits!) -->
+      <div id="s4-board" class="s4-board">
+        <div id="s4-k1" class="s4-kpi">
+          <div id="s4-n1" class="s4-kpi-num">248</div>
+          <div class="s4-kpi-lbl">SIN RESPONDER</div>
+        </div>
+        <div id="s4-k2" class="s4-kpi cyan">
+          <div id="s4-n2" class="s4-kpi-num">45 MIN</div>
+          <div class="s4-kpi-lbl">RESPUESTA</div>
+        </div>
+        <div id="s4-k3" class="s4-kpi">
+          <div id="s4-n3" class="s4-kpi-num">+1.0X</div>
+          <div class="s4-kpi-lbl">CITAS CONFIRMADAS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Local 0.00 = abs 25.85s: Smooth whip-pan over Scene 3
+    tl.fromTo("#s4-world", { x: 1080 }, { x: 0, duration: 0.34, ease: "power4.out" }, 0.0);
+
+    // Laura & happy patient gentle natural take
+    tl.fromTo("#s4-laura", { y: 18, opacity: 0.8 }, { y: 0, opacity: 1, duration: 0.55, ease: "back.out(1.4)" }, 0.25);
+    tl.fromTo("#s4-patient", { x: 40, opacity: 0.8 }, { x: 0, opacity: 1, duration: 0.55, ease: "back.out(1.4)" }, 0.35);
+
+    // 3 Odometer KPI rows appear quickly & count smoothly (steady numerals, zero bounce)
+    tl.fromTo("#s4-k1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power4.out" }, 0.12);
+    const n1Obj = { v: 248 };
+    const n1El = document.getElementById("s4-n1");
+    tl.fromTo(
+      n1Obj,
+      { v: 248 },
+      { v: 0, duration: 1.15, ease: "power3.out", immediateRender: false, onUpdate: () => { n1El.textContent = Math.round(n1Obj.v); } },
+      0.32
+    );
+
+    tl.fromTo("#s4-k2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.28, ease: "power4.out" }, 0.26);
+    const n2Obj = { v: 45 };
+    const n2El = document.getElementById("s4-n2");
+    tl.fromTo(
+      n2Obj,
+      { v: 45 },
+      {
+        v: 3,
+        duration: 1.10,
+        ease: "power3.out",
+        immediateRender: false,
+        onUpdate: () => {
+          const val = Math.round(n2Obj.v);
+          n2El.textContent = val <= 5 ? "< 5 SEG" : val + " MIN";
+        }
+      },
+      1.35
+    );
+
+    tl.fromTo("#s4-k3", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.28, ease: "power4.out" }, 0.40);
+    const n3Obj = { v: 1.0 };
+    const n3El = document.getElementById("s4-n3");
+    tl.fromTo(
+      n3Obj,
+      { v: 1.0 },
+      {
+        v: 3.0,
+        duration: 1.15,
+        ease: "power3.out",
+        immediateRender: false,
+        onUpdate: () => {
+          const val = n3Obj.v;
+          n3El.textContent = val >= 2.95 ? "+3X" : "+" + val.toFixed(1) + "X";
+        }
+      },
+      2.35
+    );
+
+    window.__timelines["scene4-resultados"] = tl;
+  </script>
+</template>
