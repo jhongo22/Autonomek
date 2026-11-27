@@ -74,6 +74,18 @@ Autonomek publishes peer-reviewed architectural and financial whitepapers at `ht
 - **Routes:** `/blog/como-eliminar-copiar-pegar-automatizacion-whatsapp-crm-facturacion` (ES) | `/en/blog/automate-whatsapp-crm-billing-workflows-n8n` (EN)
 - **Thesis:** Manual data entry between sales chats, CRMs, and electronic invoicing consumes over 25 hours per employee every week. Implementing event-driven webhook pipelines via n8n automates lead capture, quote creation, and invoice dispatch instantly with 0% human error.
 
+### 3.6. Generative Engine Optimization (GEO): Ranking on ChatGPT, Perplexity & Google AI
+- **Routes:** `/blog/como-aparecer-en-chatgpt-google-ai-optimizacion-geo-empresas` (ES) | `/en/blog/how-to-rank-on-chatgpt-google-ai-geo-optimization-guide` (EN)
+- **Thesis:** B2B buyers increasingly ask ChatGPT, Perplexity, and Google AI Overviews for vendor recommendations rather than clicking blue links. Combining `llms.txt` manifests, interconnected `Schema.org` JSON-LD entity graphs, 0.6s Next.js rendering, and frictionless WhatsApp conversion turns AI citations into qualified leads.
+
+### 3.7. Educational Guide: Cloud Accounting APIs (Alegra, Siigo), E-Invoicing & n8n Architecture
+- **Routes:** `/blog/automatizar-alegra-siigo-whatsapp-facturacion-dian-n8n` (ES) | `/en/blog/automate-accounting-invoicing-reconciliation-whatsapp-n8n` (EN)
+- **Thesis:** Conceptual reference guide explaining how cloud accounting APIs (Alegra, Siigo, QuickBooks, Xero), OCR receipt parsing, idempotency keys, and scheduled AR reminder flows work together alongside authorized tax-stamping providers and accounting supervision.
+
+### 3.8. WhatsApp AI Agent for Medical Clinics: 24/7 Omnichannel Reception & CRM Sync
+- **Routes:** `/blog/agente-ia-whatsapp-clinicas-consultorios-agendamiento-24-7` (ES) | `/en/blog/whatsapp-ai-agent-medical-clinics-24-7-patient-booking` (EN)
+- **Thesis:** Specialty medical clinics and practices lose prospective patients overnight on WhatsApp, Instagram, and Facebook. Backed by Autonomek's omnichannel clinical reception architecture (Chatwoot CRM + RAG + Redis memory), an AI receptionist replies 24/7 using verified protocols and pricing, transcribes patient voice notes, parses deposit transfer screenshots, extracts patient data to CRM, and escalates clinical inquiries to medical staff immediately.
+
 ---
 
 ## 4. Production Case Studies (15 Anonymous Technical Architectures)

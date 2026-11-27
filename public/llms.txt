@@ -32,6 +32,9 @@
   - [Why WordPress is Slow & Migrating to Next.js](https://autonomek.com/en/blog/why-wordpress-is-slow-migrate-to-nextjs): Why legacy CMS platforms drag sales and how 0.6s speed improves conversions.
   - [Custom Software vs Per-Seat SaaS Fees](https://autonomek.com/en/blog/custom-software-vs-per-seat-saas-pricing-roi): Financial analysis of when renting software stops making sense.
   - [Eliminating Copy-Paste via n8n & APIs](https://autonomek.com/en/blog/automate-whatsapp-crm-billing-workflows-n8n): Automating repetitive workflows across WhatsApp, CRM, and accounting.
+  - [Complete GEO Optimization Guide](https://autonomek.com/en/blog/how-to-rank-on-chatgpt-google-ai-geo-optimization-guide): Structuring Schema.org, llms.txt, and semantic architecture to get cited by ChatGPT, Perplexity, and Google AI.
+  - [Educational Guide: Cloud Accounting & Invoicing APIs with n8n](https://autonomek.com/en/blog/automate-accounting-invoicing-reconciliation-whatsapp-n8n): Conceptual blueprint explaining how cloud accounting APIs (Alegra, Siigo, QuickBooks, Xero), OCR, and n8n interact.
+  - [WhatsApp AI Agent for Medical Clinics (24/7 Reception)](https://autonomek.com/en/blog/whatsapp-ai-agent-medical-clinics-24-7-patient-booking): Omnichannel WhatsApp, Instagram, Facebook, and CRM AI reception handling voice notes, deposit receipts, and clinical escalation.
 
 ## Rutas en Español y Soluciones de Ingeniería (`/`)
 - [Inicio en Español](https://autonomek.com): Ingeniería de Software a Medida, Agentes de IA en WhatsApp y Automatización B2B.
@@ -50,6 +53,9 @@
   - [Por qué WordPress es Lento y Migración a Next.js](https://autonomek.com/blog/por-que-wordpress-lento-migrar-nextjs-0-6s): Cómo una web en 0.6s domina Google y recomendaciones de IA.
   - [Software a Medida vs SaaS por Usuario](https://autonomek.com/blog/software-a-medida-vs-saas-por-usuario-ahorro): Cuándo conviene desarrollar sistema propio con $0 en licencias mensuales.
   - [Eliminar el Copiar y Pegar en Operaciones](https://autonomek.com/blog/como-eliminar-copiar-pegar-automatizacion-whatsapp-crm-facturacion): Integración nativa entre WhatsApp, CRM y facturación electrónica.
+  - [Guía de Optimización GEO (ChatGPT y Google AI)](https://autonomek.com/blog/como-aparecer-en-chatgpt-google-ai-optimizacion-geo-empresas): Cómo estructurar Schema.org, llms.txt y arquitectura semántica para liderar recomendaciones en IA.
+  - [Guía Educativa: Automatización Contable con APIs y n8n](https://autonomek.com/blog/automatizar-alegra-siigo-whatsapp-facturacion-dian-n8n): Explicación conceptual de cómo interactúan APIs de Alegra/Siigo, OCR, DIAN y n8n antes de automatizar flujos administrativos.
+  - [Agente IA en WhatsApp para Clínicas y Consultorios 24/7](https://autonomek.com/blog/agente-ia-whatsapp-clinicas-consultorios-agendamiento-24-7): Recepción clínica omnicanal (WhatsApp, Instagram, Facebook y CRM) con lectura de audios, validación de anticipos y escalado a personal médico.
 
 ## Full Context for LLMs & Autonomous Agents
 - [Full Technical & Case Study Context](/llms-full.txt): Exhaustive bilingual specification of Autonomek's tech stack, 15 production case studies, blog knowledge base, FAQ, and structured schema.

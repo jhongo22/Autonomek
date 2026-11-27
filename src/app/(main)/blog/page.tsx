@@ -3,7 +3,7 @@ import { buildSocialMetadata } from '@/lib/seo-metadata';
 import BlogHubClient from './blog-hub-client';
 
 export const metadata: Metadata = {
-  title: 'Blog de ingeniería de software, agentes de IA y automatización | Autonomek',
+  title: 'Blog de Software, Agentes IA y Automatización | Autonomek',
   description: 'Artículos técnicos, análisis financieros y guías de arquitectura sobre desarrollo web en Next.js, agentes de IA en WhatsApp y automatización de procesos para empresas.',
   alternates: {
     canonical: 'https://autonomek.com/blog',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     },
   },
   ...buildSocialMetadata({
-    title: 'Blog de ingeniería de software, agentes de IA y automatización | Autonomek',
+    title: 'Blog de Software, Agentes IA y Automatización | Autonomek',
     description: 'Artículos técnicos, análisis financieros y guías de arquitectura sobre desarrollo web en Next.js, agentes de IA en WhatsApp y automatización de procesos para empresas.',
     url: 'https://autonomek.com/blog',
   }),

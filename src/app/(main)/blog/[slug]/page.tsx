@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) return {};
 
   return {
-    title: `${post.title} | Autonomek`,
+    title: `${post.seoTitle} | Autonomek`,
     description: post.description,
     alternates: {
       canonical: `https://autonomek.com/blog/${post.slug}`,
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       },
     },
     ...buildSocialMetadata({
-      title: post.title,
+      title: post.seoTitle,
       description: post.description,
       url: `https://autonomek.com/blog/${post.slug}`,
       type: 'article',
@@ -50,11 +50,30 @@ export default async function ArticlePage({ params }: PageProps) {
   const post = BLOG_POSTS.find((p) => p.slug === slug);
   if (!post) notFound();
 
+  const faqSchema =
+    post.faq && post.faq.length > 0
+      ? [
+          {
+            '@type': 'FAQPage',
+            '@id': `https://autonomek.com/blog/${post.slug}#faq`,
+            mainEntity: post.faq.map((item) => ({
+              '@type': 'Question',
+              name: item.q,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: item.a,
+              },
+            })),
+          },
+        ]
+      : [];
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'BreadcrumbList',
+        name: post.seoTitle,
         itemListElement: [
           {
             '@type': 'ListItem',
@@ -71,7 +90,7 @@ export default async function ArticlePage({ params }: PageProps) {
           {
             '@type': 'ListItem',
             position: 3,
-            name: post.title,
+            name: post.seoTitle,
             item: `https://autonomek.com/blog/${post.slug}`,
           },
         ],
@@ -83,6 +102,14 @@ export default async function ArticlePage({ params }: PageProps) {
         datePublished: post.date,
         dateModified: post.date,
         inLanguage: 'es',
+        articleSection: post.categoryLabel,
+        keywords: post.stackTags.join(', '),
+        image: {
+          '@type': 'ImageObject',
+          url: 'https://autonomek.com/logo.png',
+          width: 1200,
+          height: 401,
+        },
         author: {
           '@type': 'Person',
           '@id': 'https://autonomek.com/#founder',
@@ -94,12 +121,17 @@ export default async function ArticlePage({ params }: PageProps) {
           '@id': 'https://autonomek.com/#organization',
           name: 'Autonomek',
           url: 'https://autonomek.com',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://autonomek.com/logo.png',
+          },
         },
         mainEntityOfPage: {
           '@type': 'WebPage',
           '@id': `https://autonomek.com/blog/${post.slug}`,
         },
       },
+      ...faqSchema,
     ],
   };
 
